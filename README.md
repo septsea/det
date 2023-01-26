@@ -10,7 +10,7 @@
 
 只想看书?
 
-- [https://gitee.com/septsea/det/raw/main/main.pdf](https://gitee.com/septsea/det/raw/main/main.pdf)
+- ~~[https://gitee.com/septsea/det/raw/main/main.pdf](https://gitee.com/septsea/det/raw/main/main.pdf)~~
 - [https://github.com/septsea/det/raw/main/main.pdf](https://github.com/septsea/det/raw/main/main.pdf)
 - [https://www.123pan.com/s/QvKUVv-K4WHA](https://www.123pan.com/s/QvKUVv-K4WHA)
 - [https://www.bilibili.com/read/cv21269691](https://www.bilibili.com/read/cv21269691)

@@ -155,10 +155,10 @@
 
     \renewcommand*{\UrlFont}{\ttfamily}
 
-    \let\umathpi\pi
-    \renewcommand*{\pi}{\symup\umathpi}
-    \let\umathiota\iota
-    \renewcommand*{\iota}{\symup\umathiota}
+    % \let\umathpi\pi
+    % \renewcommand*{\pi}{\symup\umathpi}
+    % \let\umathiota\iota
+    % \renewcommand*{\iota}{\symup\umathiota}
 
     \renewcommand*{\leq}{\leqslant}
     \renewcommand*{\geq}{\geqslant}
@@ -200,6 +200,18 @@
 \date{}
 \author{佚名}
 
+% Insert the table of bibliography (and reference).
+\usepackage[%
+    backend=biber,%
+    style=gb7714-2015,%
+    % gbalign=gb7714-2015,%
+    defernumbers=true,%
+]{biblatex}
+% Multiple .bib files can also be added.
+\addbibresource{bibliography.bib}
+% Use a null heading for each bibliography.
+\defbibheading{bibliography}[]{}
+
 \begin{document}
 
 \frontmatter
@@ -221,6 +233,8 @@
     \includegraphics[width=9cm]{1}%
     \centering%
 \end{figure*}%
+
+\clearpage
 
 \section{缺项定位}
 
@@ -921,7 +935,6 @@ $(i - \rho(i, i_1) - \dots - \rho(i, i_s),
     (注意 \emph{``原序''}).
 \end{example}
 
-
 现在, 我们正式进入数阵的讨论.
 \emph{从现在开始, 我所说的阵都是数阵.}
 
@@ -939,6 +952,30 @@ $(i - \rho(i, i_1) - \dots - \rho(i, i_s),
     \end{align*}
     通俗地, (同尺寸的) 阵的加法就是对应的元的加法.
 \end{definition}
+
+\begin{example}
+    设
+    \begin{math}
+        A = \begin{bmatrix}
+            1 & 3 & 5 \\
+            2 & 4 & 6 \\
+        \end{bmatrix},
+    \end{math}
+    \begin{math}
+        B = \begin{bmatrix}
+            7  & 8  & 9  \\
+            10 & 11 & 12 \\
+        \end{bmatrix}.
+    \end{math}
+    则
+    \begin{align*}
+        A + B =
+        \begin{bmatrix}
+            8  & 11 & 14 \\
+            12 & 15 & 18 \\
+        \end{bmatrix}.
+    \end{align*}
+\end{example}
 
 由此, 不难验证, 阵的加法有交换律与结合律.
 具体地, 设 $A$, $B$, $C$ 是三个同尺寸的阵.
@@ -974,6 +1011,25 @@ $(i - \rho(i, i_1) - \dots - \rho(i, i_s),
     通俗地, 阵的数乘就是以数 $k$ 乘阵的每一个元.
 \end{definition}
 
+\begin{example}
+    设
+    \begin{math}
+        A = \begin{bmatrix}
+            1 & 3 & 5 \\
+            2 & 4 & 6 \\
+        \end{bmatrix},
+    \end{math}
+    设 $k = 7$.
+    则
+    \begin{align*}
+        kA = 7A =
+        \begin{bmatrix}
+            7  & 21 & 35 \\
+            14 & 28 & 42 \\
+        \end{bmatrix}.
+    \end{align*}
+\end{example}
+
 设 $k$, $\ell$ 是数.
 设 $A$, $B$ 是二个同尺寸的阵.
 不难验证,
@@ -994,7 +1050,7 @@ $(i - \rho(i, i_1) - \dots - \rho(i, i_s),
 值得注意的是, 我并不为每一个阵定义行列式;
 我只为方阵定义行列式.
 
-\begin{restatable}[行列式]{definition}{DefinitionOfDeterminants}
+\begin{restatable}[行列式]{definition}{DefinitionDeterminants}
     设 $A$ 是 $n$~级阵 ($n \geq 1$).
     定义 $A$ 的行列式
     \begin{align*}
@@ -1270,7 +1326,7 @@ $n$~级阵 ($n \geq 4$) 的行列式.
 
 我们先回顾定义.
 
-\DefinitionOfDeterminants*
+\DefinitionDeterminants*
 
 不难看出,
 $[A]_{1,1}$, $[A]_{2,1}$, $\dots$, $[A]_{n,1}$
@@ -1281,7 +1337,7 @@ $[A]_{1,1}$, $[A]_{2,1}$, $\dots$, $[A]_{n,1}$
 我们能否 ``按其他的列展开行列式''.
 幸运地, 此事的回答是肯定的.
 
-\begin{restatable}[]{theorem}{ExpansionAboutAnyColumn}
+\begin{restatable}[]{theorem}{TheoremExpansionAboutAnyColumn}
     设 $A$ 是 $n$~级阵 ($n \geq 1$).
     设 $j$ 为整数, 且 $1 \leq j \leq n$.
     则
@@ -1497,7 +1553,7 @@ $j = 2$ 时,
 
 我们曾知, 我们可按任意一列展开行列式:
 
-\ExpansionAboutAnyColumn*
+\TheoremExpansionAboutAnyColumn*
 
 自然地, 我们会想, 我们能否 ``按多列展开行列式''.
 幸运地, 此事的回答是肯定的.
@@ -2005,7 +2061,7 @@ $4$~级阵的行列式复杂了很多, 不好记 (也不必记),
 本节, 我们的任务是,
 稍具体地写出稍大级阵的行列式的公式.
 
-\begin{restatable}[]{theorem}{FullExpansion}
+\begin{restatable}[]{theorem}{TheoremFullExpansion}
     设 $A$ 是 $n$~级阵 ($n \geq 1$).
     设 $j_1$, $j_2$, $\dots$, $j_n$ 是%
     不超过 $n$ 的正整数,
@@ -2379,7 +2435,7 @@ $n$~个 $n \times 1$~阵.
 自然是一个 $n$~级阵,
 从而有行列式
 $\det {([c_1, c_2, \dots, c_n])}$.
-不难看到, 这里有二重括号.
+不难看到, 这里有 $2$~重括号.
 习惯地, 我们写
 \begin{align*}
     \det {([c_1, c_2, \dots, c_n])}
@@ -2513,14 +2569,14 @@ $\det {([c_1, c_2, \dots, c_n])}$.
 不过, 为方便说话, 我 ``插入了广告''.
 现在, ``精彩继续''.
 
-\begin{restatable}[]{theorem}{ColumnSwapAndSign}
+\begin{restatable}[]{theorem}{TheoremColumnSwapAndSign}
     设 $n$~级阵 $A$ 的列~$1$, $2$, $\dots$, $n$
     分别为 $a_1$, $a_2$, $\dots$, $a_n$.
     设 $\ell_1$, $\ell_2$, $\dots$, $\ell_n$ 是%
     不超过 $n$ 的正整数,
     且\emph{互不相同}
     (换句话说,
-    $\ell_1$, $\ell_2$, $\dots$, $\ell_n$ 是%
+    $\ell_1$, $\ell_2$, $\dots$, $\ell_n$ 是
     $1$, $2$, $\dots$, $n$ 的排列).
     则
     \begin{align*}
@@ -2679,7 +2735,7 @@ $\det {([c_1, c_2, \dots, c_n])}$.
 
 我们先按行~$1$ 展开行列式.
 
-\begin{restatable}[]{theorem}{ExpansionAboutRowOne}
+\begin{restatable}[]{theorem}{TheoremExpansionAboutRowOne}
     设 $A$ 是 $n$~级阵 ($n \geq 1$).
     则
     \begin{align*}
@@ -2947,7 +3003,7 @@ $A$~的行列式.
 不过, 再写一遍几乎一样的论证是没什么意思的.
 所以, 换个思路.
 
-\begin{restatable}[]{theorem}{Transpose}
+\begin{restatable}[]{theorem}{TheoremTranspose}
     设 $A$ 是 $n$~级阵 ($n \geq 1$).
     则 $A$~的行列式等于%
     其转置 $A^{\mathrm{T}}$ 的行列式.
@@ -3005,7 +3061,7 @@ $A$~的行列式.
 为关于行的命题.
 我举一个例助您理解.
 
-\begin{restatable}[]{theorem}{ExpansionAboutAnyRow}
+\begin{restatable}[]{theorem}{TheoremExpansionAboutAnyRow}
     设 $A$ 是 $n$~级阵 ($n \geq 1$).
     设 $i$ 为整数, 且 $1 \leq i \leq n$.
     则
@@ -3053,9 +3109,9 @@ $A$~的行列式.
 
 我先复述我们见过的二个公式.
 
-\ExpansionAboutRowOne*
+\TheoremExpansionAboutRowOne*
 
-\ExpansionAboutAnyRow*
+\TheoremExpansionAboutAnyRow*
 
 现在, 我给出新的公式.
 您至少有二种证明这些新公式的方法:
@@ -3129,7 +3185,7 @@ $1$, $2$, $\dots$, $n$,
     不超过 $n$ 的正整数,
     且\emph{互不相同}
     (换句话说,
-    $\ell_1$, $\ell_2$, $\dots$, $\ell_n$ 是%
+    $\ell_1$, $\ell_2$, $\dots$, $\ell_n$ 是
     $1$, $2$, $\dots$, $n$ 的排列).
     则
     \begin{align*}
@@ -3315,7 +3371,7 @@ $I_n$ 的列 $1$, $2$, $\dots$, $n$.
 
 我们曾学过行列式的一条性质:
 
-\Transpose*
+\TheoremTranspose*
 
 现在, 我要介绍行列式的四条新性质.
 
@@ -3370,7 +3426,7 @@ $I_n$ 的列 $1$, $2$, $\dots$, $n$.
 为方便您体会它,
 请允许我重述此公式:
 
-\ExpansionAboutAnyColumn*
+\TheoremExpansionAboutAnyColumn*
 
 \begin{theorem}[多线性]
     行列式 (关于列) 是多线性的.
@@ -3582,7 +3638,7 @@ $I_n$ 的列 $1$, $2$, $\dots$, $n$.
 本节, 我们研究如何%
 用行列式的一些性质确定行列式.
 
-假设, 您\emph{熟悉}一些人
+假定, 您\emph{熟悉}一些人
 (而不只是 ``知道他们的存在'').
 自然地, 您也知道他们的一些特征.
 我从这些人里选一个,
@@ -3862,7 +3918,7 @@ $I_n$ 的列 $1$, $2$, $\dots$, $n$.
         \sum_{k = 1}^{s} [A]_{i,k} [B]_{k,j}.
     \end{align*}
     通俗地, $AB$ 是 $m \times n$~阵,
-    其 $(i, j)$-元就是%
+    其 $(i, j)$-元就是
     $A$~的行~$i$ 跟 $B$~的列~$j$~的%
     相应位置的元的积的和.
 \end{definition}
@@ -4194,7 +4250,7 @@ $AB$ 也可以不等于 $BA$.
 $A$, $B$, $BA$ 都是 $n$~级阵,
 故, 它们都有行列式.
 
-\begin{restatable}[Binet-Cauchy 公式, 青春版]{theorem}{BinetCauchyLite}
+\begin{restatable}[Binet-Cauchy 公式, 青春版]{theorem}{TheoremBinetCauchyLite}
     设 $A$, $B$ 都是 $n$~级阵.
     则
     \begin{align*}
@@ -4316,9 +4372,9 @@ $A$, $B$, $BA$ 都是 $n$~级阵,
 按任意一列, 也可按任意一行,
 展开一个阵的行列式的:
 
-\ExpansionAboutAnyColumn*
+\TheoremExpansionAboutAnyColumn*
 
-\ExpansionAboutAnyRow*
+\TheoremExpansionAboutAnyRow*
 
 仅仅改变公式的几个文字,
 就可得到不一样的结果:
@@ -4397,7 +4453,7 @@ $A$, $B$, $BA$ 都是 $n$~级阵,
             z_\ell,        & s = k.
         \end{cases}
     \end{align*}
-    通俗地说, $B$~的列~$s$ 等于 $A$~的列 $s$
+    通俗地, $B$~的列~$s$ 等于 $A$~的列 $s$
     ($s \neq k$),
     而 $B$~的列~$k$ 的元依次是
     $z_1$, $z_2$, $\dots$, $z_n$.
@@ -4865,7 +4921,7 @@ $\operatorname{adj} {(A)}\,B$~的每一个元:
 
 我们曾学过 Binet-Cauchy 公式的青春版:
 
-\BinetCauchyLite*
+\TheoremBinetCauchyLite*
 
 注意到, 二个同级的方阵的积是方阵.
 但是, 非方阵 $A$ 与非方阵 $B$ 的积也有可能是方阵.
@@ -5028,7 +5084,7 @@ $\operatorname{adj} {(A)}\,B$~的每一个元:
 为证明这三个新事实的前二个,
 我们需要一些老的公式.
 
-\FullExpansion*
+\TheoremFullExpansion*
 
 取 $j_1$, $j_2$, $\dots$, $j_n$
 为 $1$, $2$, $\dots$, $n$,
@@ -5045,7 +5101,7 @@ $\operatorname{adj} {(A)}\,B$~的每一个元:
         [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
 \end{align*}
 
-\ColumnSwapAndSign*
+\TheoremColumnSwapAndSign*
 
 现在, 我要开始展现三个新事实了.
 
@@ -5080,7 +5136,6 @@ $\operatorname{adj} {(A)}\,B$~的每一个元:
     并且, 若 $k_t < k_v$, 必有 $f(k_t) < f(k_v)$.
     反过来, 若 $f(k_t) < f(k_v)$, 必有 $k_t < k_v$.
     (我举一个简单的例助您理解.
-    举一个简单的例.
     设 $m = 9$, $n = 3$.
     设 $k_1$, $k_2$, $k_3$ 分别为 $8$, $9$, $6$.
     那么, $k_1$, $k_2$, $k_3$ 的自然排列
@@ -5394,7 +5449,7 @@ $\operatorname{adj} {(A)}\,B$~的每一个元:
 
 不过, 先回顾一下定义:
 
-\DefinitionOfDeterminants*
+\DefinitionDeterminants*
 
 \begin{proof}
     我们用算学归纳法证明此事.
@@ -5705,7 +5760,7 @@ $C(i|)$ 表示去除 $C$~的行~$i$ 后得到的阵
 恭喜!
 
 您学完了本章;
-或者说, 我的行列式课程结束了.
+或者说, 我的行列式课程完了.
 您可能会想:
 ``我还能再学些什么呢?''
 我认为, 这个问题, 不是很好回答:
@@ -5747,6 +5802,8 @@ $2$~元 $2$~次式.\\
     \includegraphics[width=10.15cm]{2}%
     \centering%
 \end{figure*}%
+
+\clearpage
 
 \section{预备}
 
@@ -6294,9 +6351,11 @@ $2$~元 ${\leq} 2$~次式 $f(x, y)$~的判别式%
     故
     \begin{align*}
         \Delta
-        = {} & A \cdot \frac{B^2}{A} \cdot F + 2BED - AE^2 - \frac{B^2 D^2}{A} - FB^2 \\
-        = {} & -\frac{1}{A} (A^2 E^2 - 2AE BD + B^2 D^2)                              \\
-        = {} & -\frac{1}{A} (AE - BD)^2.
+        = {} & A \cdot \frac{B^2}{A} \cdot F + 2BED - AE^2
+        - \frac{B^2 D^2}{A} - FB^2                         \\
+        = {} & {-\frac{1}{A}}
+        (A^2 E^2 - 2AE BD + B^2 D^2)                       \\
+        = {} & {-\frac{1}{A}} (AE - BD)^2.
     \end{align*}
     因为 $\Delta = 0$,
     故 $AE - BD = 0$.
@@ -6928,5 +6987,2265 @@ $\Delta_3$ 是一个 (关于 $k$~的) $1$~元 $3$~次式,
     \end{align*}
     经检验, 它们都是原方程的解.
 \end{example}
+
+\chapter{求和号、求积号、算学归纳法}
+
+我在这儿简要地介绍求和号、求积号、算学归纳法.\\
+\mbox{}
+
+\vspace{2ex}
+
+\begin{figure*}[h!]%
+    \includegraphics[width=9.31cm]{3}%
+    \centering%
+\end{figure*}%
+
+\clearpage
+
+\section{求和号}
+
+为简便地表达求和,
+人们聪明地造了 ``求和号'' $\sum$.
+(或许, 您知道, ``和'' 用不列颠话说, 是 sum.
+拉丁字母 S, s 对应希腊字母 $\Sigma$, $\sigma$.)
+
+设 $a_m$, $a_{m+1}$, $\dots$, $a_n$ 是
+$n - m + 1$~个数 ($n \geq m$).
+我们可简单地写这 $n - m + 1$~个数的和
+\begin{align}
+    a_m + a_{m+1} + \dots + a_n
+    \label{eq:B0101}
+\end{align}
+为
+\begin{align}
+    \sum_{i = m}^{n} {a_i}.
+    \label{eq:B0102}
+\end{align}
+譬如
+\begin{align*}
+     & 6 + 5x + 4x^2 + 3x^3 + 2x^4 + x^5
+    = \sum_{i = 0}^{5} {(6 - i)x^i},                       \\
+     & 1 + 2 + \dots + (n - 1) + n = \sum_{i = 1}^{n} {i}.
+\end{align*}
+
+式~(\ref{eq:B0102}) 的 $i$ 是 ``求和指标'',
+它只起一个辅助的作用.
+当我们还原式~(\ref{eq:B0102})
+为式~(\ref{eq:B0101}) 时,
+求和指标 $i$ 是不应当出现的.
+譬如, 我们也可写式~(\ref{eq:B0101}) 为
+\begin{align*}
+    \sum_{j = m}^{n} {a_j}.
+\end{align*}
+所以, 我们可用任何文字作求和指标, 除非此文字%
+跟其他的文字混淆.
+譬如, $s$~行 $t$~列的矩形数表
+\begin{align}
+    \begin{matrix}
+        a_{1,1} & a_{1,2} & \cdots & a_{1,t} \\
+        a_{2,1} & a_{2,2} & \cdots & a_{2,t} \\
+        \vdots  & \vdots  & {}     & \vdots  \\
+        a_{s,1} & a_{s,2} & \cdots & a_{s,t} \\
+    \end{matrix}
+    \label{eq:B0103}
+\end{align}
+的第~$i$~行的 $t$~个数的和是
+\begin{align*}
+    a_{i,1} + a_{i,2} + \dots + a_{i,t}
+    = \sum_{j = 1}^{t} {a_{i,j}}.
+\end{align*}
+这里, 我们不能用文字 $i$ 作求和指标,
+因为
+\begin{align*}
+    \sum_{i = 1}^{t} {a_{i,i}}
+\end{align*}
+的意思是
+\begin{align*}
+    a_{1,1} + a_{2,2} + \dots + a_{t,t}.
+\end{align*}
+
+有时, 被加的数用二个或多个指标编号.
+譬如, 我们计算矩形数表~(\ref{eq:B0103}) 的 $st$~个数的和 $S$.
+因为数的加法适合交换律与结合律,
+故我们可按任意的次序求和.
+特别地, 我们可以先求行~$i$ 的 $t$~个数的和
+\begin{align*}
+    a_{i,1} + a_{i,2} + \dots + a_{i,t}
+    = \sum_{j = 1}^{t} a_{i,j},
+\end{align*}
+再累加每一行的和, 即得
+\begin{align*}
+    S
+    = {} & \sum_{j = 1}^{t} a_{1,j}
+    + \sum_{j = 1}^{t} a_{2,j}
+    + \dots
+    + \sum_{j = 1}^{t} a_{s,j}
+    \\
+    = {} &
+    \sum_{i = 1}^{s}
+    \left( \sum_{j = 1}^{t} a_{i,j} \right).
+\end{align*}
+为方便, 我们写
+\begin{align*}
+    \sum_{i = 1}^{s}
+    \left( \sum_{j = 1}^{t} a_{i,j} \right)
+    = \sum_{i = 1}^{s}
+    \sum_{j = 1}^{t} a_{i,j}.
+\end{align*}
+这就是所谓的 ``$2$~重求和''.
+
+当然, 我们还可以先求列~$j$ 的 $s$~个数的和
+\begin{align*}
+    a_{1,j} + a_{2,j} + \dots + a_{s,j}
+    = \sum_{i = 1}^{s} a_{i,j},
+\end{align*}
+再累加每一列的和, 即得
+\begin{align*}
+    S
+    = {} & \sum_{i = 1}^{s} a_{i,1}
+    + \sum_{i = 1}^{s} a_{i,2}
+    + \dots
+    + \sum_{i = 1}^{s} a_{i,t}
+    \\
+    = {} &
+    \sum_{j = 1}^{t}
+    \left( \sum_{i = 1}^{s} a_{i,j} \right)
+    \\
+    = {} &
+    \sum_{j = 1}^{t}
+    \sum_{i = 1}^{s} a_{i,j}.
+\end{align*}
+比较这二次计算的结果, 我们有
+\begin{align*}
+    \sum_{i = 1}^{s} \sum_{j = 1}^{t} a_{i,j}
+    = \sum_{j = 1}^{t} \sum_{i = 1}^{s} a_{i,j}.
+\end{align*}
+通俗地, 我们可 ``交换求和号的次序'', 而不影响和.
+
+类似地, 我们可引入 ``$3$~重求和''
+\begin{align*}
+    \sum_{i = 1}^{s} \sum_{j = 1}^{t} \sum_{k = 1}^{u}
+    a_{i,j,k}
+    =
+    \sum_{i = 1}^{s} \left( \sum_{j = 1}^{t} \sum_{k = 1}^{u}
+    a_{i,j,k} \right).
+\end{align*}
+在此基础上, 我们可引入 ``$4$~重求和''
+\begin{align*}
+    \sum_{i = 1}^{s}
+    \sum_{j = 1}^{t} \sum_{k = 1}^{u} \sum_{\ell = 1}^{v}
+    a_{i,j,k,\ell}
+    =
+    \sum_{i = 1}^{s}
+    \left( \sum_{j = 1}^{t} \sum_{k = 1}^{u} \sum_{\ell = 1}^{v}
+    a_{i,j,k,\ell} \right).
+\end{align*}
+$\dots \dots$
+在此基础上, 我们可引入 ``$p$~重求和''
+\begin{align*}
+    \sum_{i_1 = 1}^{n_1} \sum_{i_2 = 1}^{n_2}
+    \dots
+    \sum_{i_{p-1} = 1}^{n_{p-1}} \sum_{i_p = 1}^{n_p}
+    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    = \sum_{i_1 = 1}^{n_1}
+    \left( \sum_{i_2 = 1}^{n_2}
+    \dots
+    \sum_{i_{p-1} = 1}^{n_{p-1}} \sum_{i_p = 1}^{n_p}
+    a_{i_1,i_2,\dots,i_{p-1},i_p} \right).
+\end{align*}
+特别地, 若 $n_1 = n_2 = \dots = n_p = n$,
+我们可简单地写
+\begin{align*}
+    \sum_{i_1 = 1}^{n} \sum_{i_2 = 1}^{n}
+    \dots
+    \sum_{i_{p-1} = 1}^{n} \sum_{i_p = 1}^{n}
+    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    =
+    \sum_{i_1,i_2,\dots,i_p = 1}^{n}
+    a_{i_1,i_2,\dots,i_{p-1},i_p}.
+\end{align*}
+
+有时, 虽然被加的数用若干个指标编号,
+但是被加的并不是其全部,
+而是指标适合某些条件的那一部分.
+这时, 我们在求和号下写出指标适合的条件.
+譬如
+\begin{align*}
+         & \sum_{1 \leq i < j \leq n} a_{i,j}
+    \\
+    = {} & \hphantom{{} + {}} a_{1,2}
+    \\
+         & + a_{1,3} + a_{2,3}
+    \\
+         & + a_{1,4} + a_{2,4} + a_{3,4}
+    \\
+         & +
+    \dots \dots \dots \dots
+    \dots \dots \dots \dots
+    \\
+         & + a_{1,n} + a_{2,n} + \dots + a_{n-1,n}.
+\end{align*}
+又譬如, 若 $\ell$ 是某个不超过 $n$ 的正整数, 则
+\begin{align*}
+    \sum_{\substack{1 \leq i \leq n \\i \neq \ell}}
+    a_i
+    = a_1 + \dots + a_{\ell-1} + a_{\ell+1} + \dots + a_n.
+\end{align*}
+
+最后, 有一件小事值得一提.
+设 $a_{i_1, i_2, \dots, i_n}$ 是一些被编号的数.
+设 $R_1$, $R_2$
+是关于指标 $i_1$, $i_2$, $\dots$, $i_n$ 的约束.
+若, 不存在\emph{同时}适合 $R_1$, $R_2$
+的指标 $i_1$, $i_2$, $\dots$, $i_n$,
+则, 根据加法的交换律与结合律,
+\begin{align}
+    \begin{aligned}
+             & \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1\,\text{或}\,R_2}
+        a_{i_1, i_2, \dots, i_n}
+        \\
+        = {} & \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
+        a_{i_1, i_2, \dots, i_n}
+        + \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_2}
+        a_{i_1, i_2, \dots, i_n}.
+    \end{aligned}
+    \label{eq:B0104}
+\end{align}
+譬如,
+\begin{align*}
+     & \sum_{1 \leq i \leq 10} {i}
+    = \sum_{1 \leq i \leq 4} {i}
+    + \sum_{5 \leq i \leq 10} {i},
+    \\
+     & \sum_{\substack{1 \leq i, j \leq n \\i \neq j}} a_{i,j}
+    = \sum_{1 \leq i < j \leq n} a_{i,j}
+    + \sum_{1 \leq j < i \leq n} a_{i,j}.
+\end{align*}
+由此可见, 当\emph{不存在}指标适合约束 $N$ 时
+(也就是说, $N$ 是 ``空约束'' 时),
+为使式~(\ref{eq:B0104}) 仍成立,
+我们定义 (或, 约定)
+\begin{align}
+    \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
+    a_{i_1, i_2, \dots, i_n} = 0.
+    \label{eq:B0105}
+\end{align}
+譬如,
+\begin{align*}
+    \sum_{1 \leq i < j \leq 1} a_{i,j} = 0.
+\end{align*}
+
+为解释此约定, 我们任取一个约束 $R$.
+既然不存在指标适合约束 $N$,
+自然, 也不存在指标同时适合 $N$, $R$.
+再注意到,
+``$i_1$, $i_2$, $\dots$, $i_n$
+适合 $N$ 或 $R$''
+相当于
+``$i_1$, $i_2$, $\dots$, $i_n$
+适合 $R$''.
+所以,
+\begin{align*}
+         &
+    \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
+    a_{i_1, i_2, \dots, i_n}
+    \\
+    = {} &
+    \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,N\,\text{或}\,R}
+    a_{i_1, i_2, \dots, i_n}
+    \\
+    = {} &
+    \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
+    a_{i_1, i_2, \dots, i_n}
+    + \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
+    a_{i_1, i_2, \dots, i_n}.
+\end{align*}
+化简, 即得式~(\ref{eq:B0105}).
+
+\section{求积号}
+
+为简便地表达求积,
+人们聪明地造了 ``求积号'' $\prod$.
+(或许, 您知道, ``积'' 用不列颠话说, 是 product.
+拉丁字母 P, p 对应希腊字母 $\Pi$, $\pi$.)
+
+设 $a_m$, $a_{m+1}$, $\dots$, $a_n$ 是
+$n - m + 1$~个数 ($n \geq m$).
+我们可简单地写这 $n - m + 1$~个数的积
+\begin{align}
+    a_m \cdot a_{m+1} \cdot \dots \cdot a_n
+    \label{eq:B0201}
+\end{align}
+为
+\begin{align}
+    \prod_{i = m}^{n} {a_i}.
+    \label{eq:B0202}
+\end{align}
+譬如
+\begin{align*}
+     & 6 \cdot 5x \cdot 4x^2 \cdot 3x^3 \cdot 2x^4 \cdot x^5
+    = \prod_{i = 0}^{5} {(6 - i)x^i},                        \\
+     & 1 \cdot 2 \cdot \dots \cdot (n - 1) \cdot n
+    = \prod_{i = 1}^{n} {i}.
+\end{align*}
+
+式~(\ref{eq:B0202}) 的 $i$ 是 ``求积指标'',
+它只起一个辅助的作用.
+当我们还原式~(\ref{eq:B0202})
+为式~(\ref{eq:B0201}) 时,
+求积指标 $i$ 是不应当出现的.
+譬如, 我们也可写式~(\ref{eq:B0201}) 为
+\begin{align*}
+    \prod_{j = m}^{n} {a_j}.
+\end{align*}
+所以, 我们可用任何文字作求积指标, 除非此文字%
+跟其他的文字混淆.
+譬如, $s$~行 $t$~列的矩形数表
+\begin{align}
+    \begin{matrix}
+        a_{1,1} & a_{1,2} & \cdots & a_{1,t} \\
+        a_{2,1} & a_{2,2} & \cdots & a_{2,t} \\
+        \vdots  & \vdots  & {}     & \vdots  \\
+        a_{s,1} & a_{s,2} & \cdots & a_{s,t} \\
+    \end{matrix}
+    \label{eq:B0203}
+\end{align}
+的第~$i$~行的 $t$~个数的积是
+\begin{align*}
+    a_{i,1} \cdot a_{i,2} \cdot \dots \cdot a_{i,t}
+    = \prod_{j = 1}^{t} {a_{i,j}}.
+\end{align*}
+这里, 我们不能用文字 $i$ 作求积指标,
+因为
+\begin{align*}
+    \prod_{i = 1}^{t} {a_{i,i}}
+\end{align*}
+的意思是
+\begin{align*}
+    a_{1,1} \cdot a_{2,2} \cdot \dots \cdot a_{t,t}.
+\end{align*}
+
+有时, 被乘的数用二个或多个指标编号.
+譬如, 我们计算矩形数表~(\ref{eq:B0203}) 的 $st$~个数的积 $P$.
+因为数的乘法适合交换律与结合律,
+故我们可按任意的次序求积.
+特别地, 我们可以先求行~$i$ 的 $t$~个数的积
+\begin{align*}
+    a_{i,1} \cdot a_{i,2} \cdot \dots \cdot a_{i,t}
+    = \prod_{j = 1}^{t} a_{i,j},
+\end{align*}
+再累乘每一行的积, 即得
+\begin{align*}
+    P
+    = {} & \prod_{j = 1}^{t} a_{1,j}
+    \cdot \prod_{j = 1}^{t} a_{2,j}
+    \cdot \dots
+    \cdot \prod_{j = 1}^{t} a_{s,j}
+    \\
+    = {} &
+    \prod_{i = 1}^{s}
+    \left( \prod_{j = 1}^{t} a_{i,j} \right).
+\end{align*}
+为方便, 我们写
+\begin{align*}
+    \prod_{i = 1}^{s}
+    \left( \prod_{j = 1}^{t} a_{i,j} \right)
+    = \prod_{i = 1}^{s}
+    \prod_{j = 1}^{t} a_{i,j}.
+\end{align*}
+这就是所谓的 ``$2$~重求积''.
+
+当然, 我们还可以先求列~$j$ 的 $s$~个数的积
+\begin{align*}
+    a_{1,j} \cdot a_{2,j} \cdot \dots \cdot a_{s,j}
+    = \prod_{i = 1}^{s} a_{i,j},
+\end{align*}
+再累乘每一列的积, 即得
+\begin{align*}
+    P
+    = {} & \prod_{i = 1}^{s} a_{i,1}
+    \cdot \prod_{i = 1}^{s} a_{i,2}
+    \cdot \dots
+    \cdot \prod_{i = 1}^{s} a_{i,t}
+    \\
+    = {} &
+    \prod_{j = 1}^{t}
+    \left( \prod_{i = 1}^{s} a_{i,j} \right)
+    \\
+    = {} &
+    \prod_{j = 1}^{t}
+    \prod_{i = 1}^{s} a_{i,j}.
+\end{align*}
+比较这二次计算的结果, 我们有
+\begin{align*}
+    \prod_{i = 1}^{s} \prod_{j = 1}^{t} a_{i,j}
+    = \prod_{j = 1}^{t} \prod_{i = 1}^{s} a_{i,j}.
+\end{align*}
+通俗地, 我们可 ``交换求积号的次序'', 而不影响积.
+
+类似地, 我们可引入 ``$3$~重求积''
+\begin{align*}
+    \prod_{i = 1}^{s} \prod_{j = 1}^{t} \prod_{k = 1}^{u}
+    a_{i,j,k}
+    =
+    \prod_{i = 1}^{s} \left( \prod_{j = 1}^{t} \prod_{k = 1}^{u}
+    a_{i,j,k} \right).
+\end{align*}
+在此基础上, 我们可引入 ``$4$~重求积''
+\begin{align*}
+    \prod_{i = 1}^{s}
+    \prod_{j = 1}^{t} \prod_{k = 1}^{u} \prod_{\ell = 1}^{v}
+    a_{i,j,k,\ell}
+    =
+    \prod_{i = 1}^{s}
+    \left( \prod_{j = 1}^{t} \prod_{k = 1}^{u} \prod_{\ell = 1}^{v}
+    a_{i,j,k,\ell} \right).
+\end{align*}
+$\dots \dots$
+在此基础上, 我们可引入 ``$p$~重求积''
+\begin{align*}
+    \prod_{i_1 = 1}^{n_1} \prod_{i_2 = 1}^{n_2}
+    \dots
+    \prod_{i_{p-1} = 1}^{n_{p-1}} \prod_{i_p = 1}^{n_p}
+    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    = \prod_{i_1 = 1}^{n_1}
+    \left( \prod_{i_2 = 1}^{n_2}
+    \dots
+    \prod_{i_{p-1} = 1}^{n_{p-1}} \prod_{i_p = 1}^{n_p}
+    a_{i_1,i_2,\dots,i_{p-1},i_p} \right).
+\end{align*}
+特别地, 若 $n_1 = n_2 = \dots = n_p = n$,
+我们可简单地写
+\begin{align*}
+    \prod_{i_1 = 1}^{n} \prod_{i_2 = 1}^{n}
+    \dots
+    \prod_{i_{p-1} = 1}^{n} \prod_{i_p = 1}^{n}
+    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    =
+    \prod_{i_1,i_2,\dots,i_p = 1}^{n}
+    a_{i_1,i_2,\dots,i_{p-1},i_p}.
+\end{align*}
+
+有时, 虽然被乘的数用若干个指标编号,
+但是被乘的并不是其全部,
+而是指标适合某些条件的那一部分.
+这时, 我们在求积号下写出指标适合的条件.
+譬如
+\begin{align*}
+         & \prod_{1 \leq i < j \leq n} a_{i,j}
+    \\
+    = {} & \hphantom{{} \cdot {}} a_{1,2}
+    \\
+         & \cdot a_{1,3} \cdot a_{2,3}
+    \\
+         & \cdot a_{1,4} \cdot a_{2,4} \cdot a_{3,4}
+    \\
+         & \cdot
+    \dots \dots \dots \dots
+    \dots \dots \dots \dots
+    \\
+         & \cdot a_{1,n} \cdot a_{2,n} \cdot \dots \cdot a_{n-1,n}.
+\end{align*}
+又譬如, 若 $\ell$ 是某个不超过 $n$ 的正整数, 则
+\begin{align*}
+    \prod_{\substack{1 \leq i \leq n \\i \neq \ell}}
+    a_i
+    = a_1 \cdot \dots \cdot a_{\ell-1} \cdot a_{\ell+1} \cdot \dots \cdot a_n.
+\end{align*}
+
+最后, 有一件小事值得一提.
+设 $a_{i_1, i_2, \dots, i_n}$ 是一些被编号的数.
+设 $R_1$, $R_2$
+是关于指标 $i_1$, $i_2$, $\dots$, $i_n$ 的约束.
+若, 不存在\emph{同时}适合 $R_1$, $R_2$
+的指标 $i_1$, $i_2$, $\dots$, $i_n$,
+则, 根据乘法的交换律与结合律,
+\begin{align}
+    \begin{aligned}
+             & \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1\,\text{或}\,R_2}
+        a_{i_1, i_2, \dots, i_n}
+        \\
+        = {} & \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
+        a_{i_1, i_2, \dots, i_n}
+        \cdot \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_2}
+        a_{i_1, i_2, \dots, i_n}.
+    \end{aligned}
+    \label{eq:B0204}
+\end{align}
+譬如,
+\begin{align*}
+     & \prod_{1 \leq i \leq 10} {i}
+    = \prod_{1 \leq i \leq 4} {i}
+    \cdot \prod_{5 \leq i \leq 10} {i},
+    \\
+     & \prod_{\substack{1 \leq i, j \leq n \\i \neq j}} a_{i,j}
+    = \prod_{1 \leq i < j \leq n} a_{i,j}
+    \cdot \prod_{1 \leq j < i \leq n} a_{i,j}.
+\end{align*}
+由此可见, 当\emph{不存在}指标适合约束 $N$ 时
+(也就是说, $N$ 是 ``空约束'' 时),
+为使式~(\ref{eq:B0204}) 仍成立,
+我们定义 (或, 约定)
+\begin{align}
+    \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
+    a_{i_1, i_2, \dots, i_n} = 1.
+    \label{eq:B0205}
+\end{align}
+譬如,
+\begin{align*}
+    \prod_{1 \leq i < j \leq 1} a_{i,j} = 1.
+\end{align*}
+
+为解释此约定, 我们设
+\begin{align*}
+    x = \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
+    a_{i_1, i_2, \dots, i_n}.
+\end{align*}
+我们\emph{任}取一个约束 $R$.
+既然不存在指标适合约束 $N$,
+自然, 也不存在指标同时适合 $N$, $R$.
+再注意到,
+``$i_1$, $i_2$, $\dots$, $i_n$
+适合 $N$ 或 $R$''
+相当于
+``$i_1$, $i_2$, $\dots$, $i_n$
+适合 $R$''.
+所以,
+\begin{align}
+    \begin{aligned}
+             &
+        \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
+        a_{i_1, i_2, \dots, i_n}
+        \\
+        = {} &
+        \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N\,\text{或}\,R}
+        a_{i_1, i_2, \dots, i_n}
+        \\
+        = {} &
+        \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
+        a_{i_1, i_2, \dots, i_n}
+        \cdot \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
+        a_{i_1, i_2, \dots, i_n}.
+    \end{aligned}
+    \label{eq:B0206}
+\end{align}
+特别地, 代 $R$ 以 $N$, 有 $x = x^2$,
+即 $x = 0$ 或 $x = 1$.
+但是, 为了使式~(\ref{eq:B0206})
+对\emph{任意的}约束~$R$ 成立,
+我们只能取 $x = 1$.
+您看到了吗?
+不是我想约定式~(\ref{eq:B0205}),
+是我被逼着约定它呀!
+
+\vspace{2ex}
+
+或许, 您已经发现, 因为数的加法跟乘法%
+都适合交换律与结合律,
+故求和号与求积号有着相似的性质.
+
+\section{算学归纳法}
+
+\emph{算学归纳法}是一种\emph{演绎地}证明命题的方法.
+
+\begin{theorem}[算学归纳法]
+    设 $P(n)$ 是跟整数~$n$ 有关的句子.
+    设存在一个整数 $n_0$ 使:
+
+    (1)
+    (起始步)
+    $P(n_0)$ 为真;
+
+    (2)
+    (递推步)
+    对\emph{每一个}不低于 $n_0$ 的整数 $n$,
+    ``若 $P(n)$ 为真, 则 $P(n+1)$ 为真''
+    是真的.
+
+    那么, 对每一个不低于 $n_0$ 的整数 $n$,
+    $P(n)$ 是真的.
+\end{theorem}
+
+形象地, 我们可视每一个 $P(n)$ 为一块竖立的砖.
+我们视 ``$P(n)$ 为真'' 为
+``第~$n$~块砖倒下''.
+假定, 我们推倒了第~$1$~块砖 $P(1)$ (这对应 ``起始步''),
+且一块砖倒下\emph{总会}使%
+跟在它后面的那一块砖倒下 (这对应 ``递推步'').
+那么, 第~$1$~块砖, 与其后面的砖,
+都应该倒下.
+
+\vspace{2ex}
+
+我们看一个具体的例.
+
+\begin{example}
+    设 $n$ 是正整数.
+    用算学归纳法证明
+    \begin{align}
+        1 + 3 + \dots + (2n - 1) = n^2.
+        \label{eq:B0301}
+    \end{align}
+
+    既然, 我们要证, 对\emph{正整数} $n$,
+    式~(\ref{eq:B0301}) 是正确的,
+    我们可试取 $n_0 = 1$,
+    并设命题 $P(n)$: $1 + 3 + \dots + (2n - 1) = n^2$.
+    我们验证算学归纳法的条件,
+    即起始步与递推步,
+    是否\emph{都}成立.
+
+    (1)
+    $P(n_0)$ 即 $P(1)$, 即 $1 = 1^2$.
+    这显然是对的.
+    故起始步成立.
+
+    (2)
+    我们假定 $P(n)$ 是对的, 其中 $n \geq n_0 = 1$.
+    我们要\emph{由此}证明 $P(n+1)$ \emph{也}是对的:
+    \begin{align*}
+             & 1 + 3 + \dots + (2n - 1) + (2(n+1) - 1)
+        \\
+        = {} & (1 + 3 + \dots + (2n - 1)) + (2n + 1)
+        \\
+        = {} & n^2 + (2n + 1)
+        \\
+        = {} & (n + 1)^2.
+    \end{align*}
+    其中, 从行~2 到行~3,
+    我们用到了 ``$P(n)$ 为真'' 的假定
+    (我们叫这样的假定为\emph{归纳假定}).
+    所以, (若 $P(n)$ 是对的, 则) $P(n+1)$ 是对的.
+    故递推步成立.
+
+    根据算学归纳法原理, $P(n)$ 对%
+    任何正整数~$n$ 都是成立的.
+\end{example}
+
+值得注意的是, 算学归纳法只是证明命题的\emph{一种}方法.
+事实上, 我们可用更简单的方法证式~(\ref{eq:B0301}).
+我们记
+\begin{align*}
+    S_n = 1 + 3 + \dots + (2(n-1) - 1) + (2n - 1).
+\end{align*}
+因为数的加法适合交换律与结合律, 故
+\begin{align*}
+    S_n = (2n - 1) + (2(n-1) - 1) + \dots + 3 + 1.
+\end{align*}
+从而, 仍由交换律与结合律,
+\begin{align*}
+    2S_n = (1 + (2n - 1)) + (3 + (2(n-1) - 1))
+    + \dots + ((2n - 1) + 1) = 2n \cdot n.
+\end{align*}
+由此可知 $S_n = n^2$.
+
+\vspace{2ex}
+
+在算学归纳法里, 起始步与递推步是缺一不可的.
+
+\begin{example}[缺起始步]
+    设 $n$~是正整数.
+    用算学归纳法 ``证明''
+    \begin{align}
+        1 + 3 + \dots + (2n - 1) = n^2 + 1.
+        \label{eq:B0302}
+    \end{align}
+
+    既然, 我们要证, 对正整数 $n$,
+    式~(\ref{eq:B0302}) 是正确的,
+    我们可试取 $n_0 = 1$,
+    并设命题 $P'(n)$: $1 + 3 + \dots + (2n - 1) = n^2 + 1$.
+    我们验证算学归纳法的条件,
+    即起始步与递推步,
+    是否都成立.
+
+    (1)
+    $P'(n_0)$ 即 $P'(1)$, 即 $1 = 1^2 + 1$.
+    这显然是对的
+    (请允许我暂时 ``胡说'').
+    故起始步成立.
+
+    (2)
+    我们假定 $P'(n)$ 是对的, 其中 $n \geq n_0 = 1$.
+    我们要由此证明 $P'(n+1)$ 也是对的:
+    \begin{align*}
+             & 1 + 3 + \dots + (2n - 1) + (2(n+1) - 1)
+        \\
+        = {} & (1 + 3 + \dots + (2n - 1)) + (2n + 1)
+        \\
+        = {} & (n^2 + 1) + (2n + 1)
+        \\
+        = {} & (n + 1)^2 + 1.
+    \end{align*}
+    其中, 从行~2 到行~3,
+    我们用到了 ``$P'(n)$ 为真'' 的假定.
+    所以, (若 $P'(n)$ 是对的, 则) $P'(n+1)$ 是对的.
+    故递推步成立.
+
+    所以, 根据算学归纳法,
+    式~(\ref{eq:B0302}) 是正确的.
+    可是, 式~(\ref{eq:B0302}) 不可能是对的!
+    上个例告诉我们, 左侧是 $n^2$,
+    而 $n^2$ 跟 $n^2 + 1$ 不可能相等.
+
+    我在哪儿出了问题呢?
+    不难看出, 起始步出问题了:
+    我 ``错误地'' 认为 $P'(1)$ 是对的.
+
+    由此可见, 算学归纳法的起始步是不可少的.
+\end{example}
+
+\begin{example}[缺递推步]
+    用算学归纳法 ``证明'' 命题 $Q(n)$ ($n$ 为正整数):
+    对任意 $n$~个数 $a_1$, $a_2$, $\dots$, $a_n$,
+    它 (们) 都相等.
+
+    既然, 我们要证, 对正整数 $n$,
+    $Q(n)$ 是正确的,
+    我们可试取 $n_0 = 1$.
+    我们验证算学归纳法的条件,
+    即起始步与递推步,
+    是否都成立.
+
+    (1)
+    $Q(n_0)$ 即 $Q(1)$, 即:
+    对任意 $1$~个数 $a_1$, 它 (们) 都相等.
+    一般, 我们认为, 一个数总是等于自身.
+    所以, $Q(1)$ 是对的.
+    故起始步成立.
+
+    (2)
+    我们假定 $Q(n)$ 是对的, 其中 $n \geq n_0 = 1$.
+    我们要由此证明 $Q(n+1)$ 也是对的.
+    任取 $n+1$~个数 $a_1$, $a_2$, $\dots$, $a_n$, $a_{n+1}$.
+    考虑这~$n+1$~个数的前~$n$~个: $a_1$, $a_2$, $\dots$, $a_n$.
+    因为 $Q(n)$ 是对的, 故
+    \begin{align*}
+        a_1 = a_2 = \dots = a_n.
+    \end{align*}
+    再考虑这~$n+1$~个数的后~$n$~个: $a_2$, $\dots$, $a_n$, $a_{n+1}$.
+    仍因 $Q(n)$ 是对的, 故
+    \begin{align*}
+        a_2 = \dots = a_n = a_{n+1}.
+    \end{align*}
+    既然 $a_1 = a_2$, $\dots \dots$, $a_n = a_{n+1}$, 故
+    \begin{align*}
+        a_1 = a_2 = \dots = a_n = a_{n+1}.
+    \end{align*}
+    所以, (若 $Q(n)$ 是对的, 则) $Q(n+1)$ 是对的.
+    故递推步成立.
+
+    所以, 根据算学归纳法,
+    对每一个正整数 $n$, $Q(n)$ 是正确的.
+    可是, 这甚至违反了常识:
+    毕竟, $0$ 与 $1$ 就是不相同的二个数.
+
+    我在哪儿出了问题呢?
+    事实上, $Q(1)$ 是不能推出 $Q(2)$ 的.
+    但是, $Q(2)$ 的确可推出 $Q(3)$;
+    甚至, 不难看出, 对每一个不低于 $2$ 的整数 $n$,
+    ``若 $Q(n)$ 为真, 则 $Q(n+1)$ 为真''
+    是对的.
+    尽管如此,
+    因存在一个不低于 $n_0$ 的整数 $1$,
+    使 ``若 $Q(1)$ 为真, 则 $Q(2)$ 为真''
+    是错的,
+    故递推步不成立.
+
+    由此可见, 算学归纳法的递推步也是不可少的.
+\end{example}
+
+我以一个较复杂的例结束本节.
+
+\begin{example}
+    设数列 $a_1$, $a_2$, $\dots$, $a_n$, $\dots$ 适合
+    \begin{align*}
+        a_n =
+        \begin{cases}
+            1,                  & n = 1;    \\
+            1,                  & n = 2;    \\
+            a_{n-1} + 2a_{n-2}, & n \geq 3.
+        \end{cases}
+    \end{align*}
+    用算学归纳法证明:
+    对任何正整数 $n$,
+    \begin{align*}
+        a_n = \frac{2^n - (-1)^n}{3}.
+    \end{align*}
+
+    根据前面的经验,
+    我们试取 $n_0 = 1$,
+    并设命题 $P(n)$: $a_n = (2^n - (-1)^n)/3$.
+    验证起始步时, 没有什么问题:
+    \begin{align*}
+        \frac{2^1 - (-1)^1}{3} = \frac{3}{3} = 1 = a_1.
+    \end{align*}
+    可是, 在验证递推步时,
+    我们会遇到一些小问题:
+    我们无法由 $P(1)$ 推出 $P(2)$.
+    毕竟, 此数列的前 $2$~项被\emph{定义为} $1$,
+    $a_1$ 跟 $a_2$ 没什么关系.
+
+    那么, 既然选 $n_0$ 为 $1$ 不太好,
+    我们能否选 $n_0$ 为 $2$ 呢?
+    首先, $P(2)$ 也是对的:
+    \begin{align*}
+        \frac{2^2 - (-1)^2}{3} = \frac{3}{3} = 1 = a_2.
+    \end{align*}
+    可是,
+    我们仍无法由 $P(n)$ 推出 $P(n+1)$
+    (注意, 此处已假定 $n \geq 2$).
+    我们假定 $P(n)$ 是对的;
+    换句话说, 我们假定 $a_n = (2^n - (-1)^n)/3$.
+    我们要证 $a_{n+1} = (2^{n+1} - (-1)^{n+1})/3$.
+    根据此数列的定义,
+    $a_{n+1} = a_n + 2a_{n-1}$.
+    我们可替换 $a_n$ 为归纳假定;
+    可是, $a_{n-1}$ 呢?
+    这无法被替换.
+
+    我们无妨考虑用算学归纳法证明命题
+    $Q(n)$:
+    $P(n)$ 与 $P(n+1)$ 是正确的.
+
+    首先, $Q(1)$ 是对的; 我们验证过了, 对吧?
+
+    然后, 我们假定 $Q(n)$ 是对的.
+    我们要由此证明 $Q(n+1)$ 是对的.
+    既然 $Q(n)$ 是对的, 那么 $P(n)$ 跟 $P(n+1)$ 都是对的.
+    为了证明 $Q(n+1)$ 是对的, 我们要证
+    $P(n+1)$ 与 $P((n+1)+1)$,
+    即 $P(n+1)$ 与 $P(n+2)$ 都是对的.
+    根据假定, $P(n+1)$ 是对的.
+    我们只要证 $P(n+2)$ 也是对的,
+    即可知, $Q(n+1)$ 是对的:
+    \begin{align*}
+        a_{n+2}
+        = {} & a_{n+1} + 2a_n
+        \\
+        = {} & \frac{2^{n+1} - (-1)^{n+1}}{3}
+        + 2 \cdot \frac{2^n - (-1)^n}{3}
+        \\
+        = {} & \frac{2}{3} \cdot 2^n + \frac{1}{3} \cdot (-1)^n
+        + \frac{2}{3} \cdot 2^n - \frac{2}{3} \cdot (-1)^n
+        \\
+        = {} & \frac{4}{3} \cdot 2^n - \frac{1}{3} \cdot (-1)^n
+        \\
+        = {} & \frac{2^{n+2} - (-1)^{n+2}}{3}.
+    \end{align*}
+    所以, (若 $Q(n)$ 是对的, 则) $Q(n+1)$ 是对的.
+
+    根据算学归纳法原理, $Q(n)$ 对%
+    任何正整数~$n$ 都是成立的.
+    进而, $P(n)$ 对任何正整数~$n$ 是成立的.
+
+    当然, 我们还可考虑, 用算学归纳法%
+    证命题 $R(n)$
+    ($n$ 为不低于 $2$ 的整数):
+    对任何不高于 $n$ 的正整数 $k$,
+    $P(k)$ 是正确的.
+    (注意, 此处的 $n_0 = 2$;
+    并且, 我留此事为您的练习.)
+    这样, 我们也能证明,
+    $P(n)$ 对任何正整数 $n$ 是成立的.
+
+    由此可见:
+
+    (1)
+    不是每一个跟整数相关的命题%
+    都能\emph{直接地}%
+    被算学归纳法证明.
+
+    (2)
+    有时, 为运用算学归纳法,
+    我们要恰当地、灵活地作辅助命题.
+
+    (3)
+    有时, 辅助命题的作法不止一个.
+\end{example}
+
+\chapter{后日谈}
+
+我其实还有一些想说的话.
+不过, 这些话不太适合在第一章讲;
+当然, 也不太适合在附录~A 或附录~B 讲.
+所以, 我就在这儿讲.
+
+\vspace{2ex}
+
+\begin{figure*}[h!]%
+    \includegraphics[width=8.69cm]{4}%
+    \centering%
+\end{figure*}%
+
+\clearpage
+
+\section{我要怎么定义行列式?}
+
+行列式是什么?
+粗糙地, 我认为,
+就像迹那样
+(注: $n$~级阵 $A$~的\emph{迹}是
+$[A]_{1,1} + [A]_{2,2} + \dots + [A]_{n,n}$),
+行列式也只是方阵一个属性而已.
+不过, 这个看法, 多少有些片面;
+毕竟, 这给人一种
+``行列式就是个 `新定义运算' 而已''
+的感觉.
+行列式是重要的;
+至少, 不说线性代数 (或高等代数),
+它在微积分和几何里, 也是重要的.
+
+出于各种原因, 我决定,
+写一本行列式的入门教材.
+既然是\emph{入门}教材,
+它自然要对初学者友好一些.
+我的脑子里, 至少有三种 (差别较大的) 定义方式:
+
+\begin{restatable}[归纳定义]{definition}{DefinitionDetOne}
+    设 $A$ 是 $n$~级阵 ($n \geq 1$).
+    定义 $A$ 的行列式
+    \begin{align*}
+        \det {(A)}
+        =
+        \begin{dcases}
+            [A]_{1,1},
+             & n = 1;    \\
+            \sum_{i = 1}^{n}
+            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
+             & n \geq 2.
+        \end{dcases}
+    \end{align*}
+\end{restatable}
+
+\begin{restatable}[组合定义]{definition}{DefinitionDetTwo}
+    设 $A$ 是 $n$~级阵 ($n \geq 1$).
+    定义 $A$ 的行列式
+    \begin{align*}
+        \det {(A)}
+        = {} &
+        \sum_{\substack{
+        1 \leq i_1, i_2, \dots, i_n \leq n \\
+                i_1, i_2, \dots, i_n\,\text{互不相同}
+            }}
+        {s(i_1, i_2, \dots, i_n)\,
+            [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}},
+    \end{align*}
+    其中
+    \begin{align*}
+        s(i_1, i_2, \dots, i_n)
+        = \prod_{1 \leq i < j \leq n}
+        {\operatorname{sgn} {(c_j - c_i)}}
+    \end{align*}
+    是文字列
+    (或者, ``排列'',
+    因为这里的 $i_1$, $i_2$, $\dots$, $i_n$
+    是互不相同的)
+    $i_1$, $i_2$, $\dots$, $i_n$ 的符号.
+\end{restatable}
+
+\begin{restatable}[公理定义]{definition}{DefinitionDetThree}
+    设 $f$ 是定义在全体 $n$~级阵上的函数.
+    若 $f$ 适合如下三条, 则说
+    $f$ 是一个行列式函数
+    (自然地, 若 $A$ 是 $n$~级阵,
+    则 $f(A)$ 是 $A$ 的一个行列式):
+
+    (1)
+    (规范性)
+    若 $I$ 是 $n$~级单位阵,
+    则 $f(I) = 1$.
+
+    (2)
+    (多线性)
+    对任意不超过 $n$ 的正整数 $j$,
+    任意 $n-1$~个 $n \times 1$~阵
+    $a_1$, $\dots$, $a_{j-1}$, $a_{j+1}$, $\dots$, $a_n$,
+    任意二个 $n \times 1$~阵 $x$, $y$,
+    任意二个数 $s$, $t$,
+    有
+    \begin{align*}
+             & f
+            {([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])}
+        \\
+        = {} &
+        s
+        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
+        +
+        t
+        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+    \end{align*}
+
+    (3)
+    (交错性)
+    若 $n$~级阵 $A$ 有二列完全相同,
+    则 $f {(A)} = 0$.
+\end{restatable}
+
+值得注意的是, 这里的定义是关于列的.
+我们知道, 一个阵的行列式等于其转置的行列式,
+故阵的行与阵的列在行列式里的地位是一致的,
+进而我们也可用关于行的版本定义行列式
+(我就不单独列出了).
+这, 我认为, 只是个人的偏好罢了.
+毕竟, 行或列不是本质的;
+规范性、多线性、交错性才是本质.
+
+粗略地, 我想到的三种定义,
+对初学行列式的人,
+都不是很好;
+因为, 它们都碰到了高中算学的盲区.
+第一个定义不好, 因为学生不一定熟悉算学归纳法.
+当我读高中时, 算学归纳法至少是必学的;
+可是, 过了几年, 新教材里的算学归纳法是选学内容,
+且新高考也不再考它.
+第二个定义不好, 因为学生不一定熟悉
+(比算学归纳法抽象的) 排列或置换.
+并且, 尴尬地, 在国内的大多数线性代数 (或高等代数) 教材里,
+排列或置换的理论似乎只为行列式服务.
+第三个定义不好, 因为它有些抽象.
+这需要一定的铺垫, 或背景.
+我听说, 曾经, 中学算学有
+``$2$~级行列式'' ``$3$~级行列式''
+(即, $2$~级阵的行列式与 $3$~级阵的行列式);
+可是, 我读高中时, (必修的) 课本没有了行列式;
+(必修的) 新教材自然也没有行列式.
+我认为, 这么讲行列式, 会让更多的初学者迷惑
+(若学生没有什么铺垫或背景).
+
+尽管这三个定义都对初学者有一定的挑战,
+我总是要
+``在一群个子矮的人中挑选相对个子高的人''.
+所以, 我, 还是选择了第一个定义
+(归纳定义);
+毕竟, 我觉得, 算学归纳法, 应当是,
+每一个 (学算学的) 人都了解的 (基础的) 原理.
+
+于是, 我开始写本书的第一章.
+
+\section{我要讲阵吗?}
+
+原则上, 我可不借助阵讲行列式.
+具体地, 我可以这么定义行列式.
+
+\begin{definition}
+    我们叫下面用二条竖线围起来的%
+    由 $n$~行 $n$~列元%
+    组成的式子为一个 \emph{$n$~级行列式}:
+    \begin{align}
+        D =
+        \begin{vmatrix}
+            a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+            a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+            \vdots  & \vdots  & {}     & \vdots  \\
+            a_{n,1} & a_{n,2} & \cdots & a_{n,n} \\
+        \end{vmatrix}.
+        \label{eq:C0201}
+    \end{align}
+    (或许, 您知道, ``行列式'' 用不列颠话说, 是
+    determinant.)
+    它由 $n$~行 $n$~列, 共 $n^2$~个元组成.
+    我们叫行~$i$ 的 $n$~个元
+    $a_{i,1}$, $a_{i,2}$, $\dots$, $a_{i,n}$
+    为行列式~$D$ 的行~$i$,
+    叫列~$j$ 的 $n$~个元
+    $a_{1,j}$, $a_{2,j}$, $\dots$, $a_{n,j}$
+    为行列式~$D$ 的列~$j$.
+    我们叫行~$i$, 列~$j$ 交点上的元 $a_{i,j}$
+    为行列式~$D$ 的 $(i,j)$-元.
+
+    我们定义 $a_{i,j}$~的\emph{余子式} $M_{i,j}$
+    为由行列式~$D$ 中%
+    划去行~$i$ 列~$j$ 后%
+    剩下的 $n-1$~行与 $n-1$~列元%
+    组成的行列式:
+    \begin{align*}
+        M_{i,j} =
+        \begin{vmatrix}
+            a_{1,1}   & \cdots & a_{1,j-1}   & a_{1,j+1}   & \cdots & a_{1,n}   \\
+            \vdots    & {}     & \vdots      & \vdots      & {}     & \vdots    \\
+            a_{i-1,1} & \cdots & a_{i-1,j-1} & a_{i-1,j+1} & \cdots & a_{i-1,n} \\
+            a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n} \\
+            \vdots    & {}     & \vdots      & \vdots      & {}     & \vdots    \\
+            a_{n,1}   & \cdots & a_{n,j-1}   & a_{n,j+1}   & \cdots & a_{n,n}   \\
+        \end{vmatrix}.
+    \end{align*}
+
+    当 $n = 1$ 时, 定义式~(\ref{eq:C0201}) 的值为
+    \begin{align}
+        D = a_{1,1}.
+        \label{eq:C0202}
+    \end{align}
+    现假定对 $n-1$~级行列式已经定义了它们的值,
+    则对任意的 $i$, $j$,
+    元~$a_{i,j}$ 的余子式的值已被定义.
+    由此, 定义 $n$~级行列式 $D$ 的值为
+    \begin{align}
+        \begin{aligned}
+            D
+            = {} &
+            a_{1,1} M_{1,1} - a_{2,1} M_{2,1} + \dots +
+            (-1)^{n+1} a_{n,1} M_{n,1}
+            \\
+            = {} &
+            \sum_{i = 1}^{n} (-1)^{i+1} a_{i,1} M_{i,1}.
+        \end{aligned}
+        \label{eq:C0203}
+    \end{align}
+\end{definition}
+
+可以看到, 在这个定义里,
+``行列式'' 至少有二种功能:
+一是表示形如式~(\ref{eq:C0201}) 的方形数表式子,
+二是表示由式~(\ref{eq:C0202}), (\ref{eq:C0203})
+定义的一个数.
+既然式~(\ref{eq:C0201}) 只是一个\emph{式子},
+又因为二个式子相等是指它们的值相等,
+故, 有着不一样的元的二个 $n$~级行列式可能相等.
+
+我怎么定义行列式呢?
+我先定义阵 (矩形数表),
+再定义方阵 (方形数表) 的行列式%
+是施一定的规则于方阵得到的数.
+(具体地, 您看第一章的节~4, 5 即知.)
+
+由此可见, 这个定义跟第一章的定义,
+在思想上, 是有一些区别的.
+我使用的定义视行列式为方阵的一个属性,
+而这个定义, 单纯地, 是一个
+``形如式~(\ref{eq:C0201}) 的方形数表式子'',
+其值为
+``由式~(\ref{eq:C0202}), (\ref{eq:C0203}) 确定的数''.
+
+历史地, 行列式比阵早出现.
+所以, 这种不涉及阵的定义, 是较传统的.
+它, 逻辑地, 没有什么问题.
+但, 教学地, 有的学生区分行列式与阵是有些困难的.
+毕竟, 二者相貌类似,
+且阵 (的运算) 与行列式对%
+线性代数 (或高等代数) 的初学者来说%
+都是有一定挑战的.
+
+我想到的解决此问题的方法就是先讲阵
+(至少, 一定要先讲阵的记号),
+再讲行列式.
+这样, 初学者更能体会,
+行列式是方阵的一个属性.
+
+类似地, 历史地, 对数比指数早出现.
+可是, 我们在高中学算学时,
+也并没有先讲对数, 再讲指数呀!
+相反, 教材借助指数讲对数.
+
+\section{我要介绍行列式的哪些性质?}
+
+这是一个好问题.
+
+我初学行列式时, 教材讲了好几条性质呢.
+我姑且用第一章的术语翻译它们
+(因为转置性质, 我只讲关于列的性质).
+这里, 设 $a_1$, $a_2$, $\dots$, $a_n$, $x$, $y$
+是 $n+2$~个 $n \times 1$~阵,
+$s$ 是一个数.
+
+\vspace{2ex}
+
+(1)
+一个方阵与其转置共享行列式
+(也就是, 行列式是相等的).
+
+(2)
+若一个阵的某一列是二组数的和,
+那么此阵的行列式等于二个阵的行列式的和,
+而这二个阵, 除这一列以外, 全与原阵的对应的列一样.
+用公式写, 就是
+\begin{align*}
+         & \det {[\dots, a_{j-1}, x + y, a_{j+1}, \dots]}
+    \\
+    = {} & \det {[\dots, a_{j-1}, x, a_{j+1}, \dots]}
+    + \det {[\dots, a_{j-1}, y, a_{j+1}, \dots]},
+\end{align*}
+其中, 被省略不写的列是不动的, 下同.
+
+(3)
+以一个数乘阵的一列后得到的阵的行列式%
+等于以此数乘原阵的行列式.
+用公式写, 就是
+\begin{align*}
+    \det {[\dots, a_{j-1}, sx, a_{j+1}, \dots]}
+    = s \det {[\dots, a_{j-1}, x, a_{j+1}, \dots]}.
+\end{align*}
+
+(4)
+若一个阵有二列相同, 则其行列式为零.
+
+(5)
+若交换一个阵的二列, 则其行列式变号.
+
+(6)
+若一个阵有二列成比例, 则其行列式为零.
+(利用性质~(3) (4) 即知.)
+
+(7)
+若加一个阵的一列的倍于另一列, 则其行列式不变.
+(利用性质~(1) (6) 即知.)
+
+\vspace{2ex}
+
+我在第一章讲了行列式的五个性质.
+用转置性质可翻译行列式的关于阵的列的命题%
+为其关于行的命题.
+规范性指出, 单位阵的行列式是 $1$;
+这是上述 7~条性质未指出的.
+多线性就是 (2) (3) 的联合.
+交错性就是 (4).
+反称性就是 (5).
+我没介绍 (6) (7); 它没介绍规范性:
+我们二个都有光明的前途.
+(这句话里包含三个分句,
+前面二个是并列的,
+末了儿一个是总起来说的,
+就得在 ``规范性'' 之后用冒号,
+表示并列的二个分句已经完了,
+还有总起来说的一个分句在后面.
+这同样是提示的意思.
+如此使用冒号, 有些人还没有养成习惯.
+可是, 这个用法可明白地表示分句和分句的关系,
+应该学会它.)
+
+事实上, 性质~(3) (5) (7)
+(尤其是后二个)
+可用于计算行列式.
+我举一个例.
+
+\begin{example}
+    灵活地运用性质~(7), 可作出一些零, 简化计算.
+    性质~(3) (一般) 可变较大的数为较小的数.
+    譬如,
+    \begin{align*}
+        \det {
+            \begin{bmatrix}
+                4 & 9 & 2 \\
+                3 & 5 & 7 \\
+                8 & 1 & 6 \\
+            \end{bmatrix}
+        }
+        = {} &
+        \det {
+            \begin{bmatrix}
+                4 & 9 & 2 + 9 \\
+                3 & 5 & 7 + 5 \\
+                8 & 1 & 6 + 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                4 & 9 & 2 + 9 + 4 \\
+                3 & 5 & 7 + 5 + 3 \\
+                8 & 1 & 6 + 1 + 8 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        15 \det {
+            \begin{bmatrix}
+                4 & 9 & 1 \\
+                3 & 5 & 1 \\
+                8 & 1 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        15 \det {
+            \begin{bmatrix}
+                4 & 9 - 1 & 1 \\
+                3 & 5 - 1 & 1 \\
+                8 & 1 - 1 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        15 \det {
+            \begin{bmatrix}
+                4 - 1 \cdot 8 & 8 & 1 \\
+                3 - 1 \cdot 8 & 4 & 1 \\
+                8 - 1 \cdot 8 & 0 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        15 \det {
+            \begin{bmatrix}
+                -4 & 8 & 1 \\
+                -5 & 4 & 1 \\
+                0  & 0 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        15 \cdot 4 \det {
+            \begin{bmatrix}
+                -4 & 2 & 1 \\
+                -5 & 1 & 1 \\
+                0  & 0 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        60 \det {
+            \begin{bmatrix}
+                -4 + 2 \cdot 5 & 2 & 1 \\
+                -5 + 1 \cdot 5 & 1 & 1 \\
+                0 + 0 \cdot 5  & 0 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        60 \det {
+            \begin{bmatrix}
+                6 & 2 & 1 \\
+                0 & 1 & 1 \\
+                0 & 0 & 1 \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        60 \cdot (6 \cdot 1 \cdot 1)
+        \\
+        = {} &
+        360.
+    \end{align*}
+    我们直接用公式计算, 验证上一个结果:
+    \begin{align*}
+        \det {
+            \begin{bmatrix}
+                4 & 9 & 2 \\
+                3 & 5 & 7 \\
+                8 & 1 & 6 \\
+            \end{bmatrix}
+        }
+        = {} &
+        4 \cdot 5 \cdot 6
+        + 3 \cdot 1 \cdot 2
+        + 8 \cdot 9 \cdot 7
+        - 4 \cdot 1 \cdot 7
+        - 3 \cdot 9 \cdot 6
+        - 8 \cdot 5 \cdot 2
+        \\
+        = {} &
+        120 + 6 + 504 - 28 - 162 - 80
+        \\
+        = {} & 360.
+    \end{align*}
+\end{example}
+
+不过, 我不打算在本书详细地介绍%
+如何计算一个阵的行列式;
+那, (或许) 不是我的任务.
+我只想带初学者入门而已.
+若他们对此事感兴趣,
+他们自然会找一本线性代数 (或高等代数)
+教材看.
+既然这样, 那我介绍%
+行列式的几个重要的性质%
+就够了.
+
+\section{我要怎么教行列式?}
+
+粗糙地, 我打算, 先讲行列式的关于列的各种公式
+(包括选学的 ``完全展开''),
+然后讲行列式的转置性质,
+然后得到行列式的关于行的各种公式,
+然后讲行列式的其他四个性质,
+最后讲跟行列式的公理定义相关的内容
+(即 ``用行列式的性质确定行列式'').
+(当然, 在此之后, 还有一些内容,
+不过, 这大多涉及到阵的积,
+故我姑且认为这不全是行列式的理论.)
+
+我不知道这种讲法怎么样.
+毕竟, 在绝大多数教材里,
+定义行列式后,
+就讨论行列式的性质了.
+这些书用行列式性质为辅助,
+得到了行列式的新公式.
+譬如, 知道反称性后,
+一些书证明按若干列展开行列式的公式时,
+先假定选定的列是阵的前几列,
+再适当地作列的交换以得到一般的情形.
+但, 我还是愿意试一试
+``先讲公式, 再讲性质'' 的讲法.
+
+当然, 我愿意在这儿分享,
+如何直接从行列式的定义证明反称性
+(这里的 ``定义'' 指按列~$1$ 展开).
+
+\begin{theorem}
+    行列式 (关于列) 是反称性的.
+    具体地,
+    设 $A$ 是 $n$~级阵,
+    设交换 $A$~的列~$p$ 与列~$q$ 后得到的阵为 $B$
+    ($p < q$).
+    则 $\det {(B)} = -\det {(A)}$.
+
+    通俗地, 交换方阵的二列, 则其行列式变号.
+\end{theorem}
+
+\begin{proof}
+    我们用算学归纳法证明此事.
+    具体地, 设 $P(n)$ 为命题
+    \begin{quotation}
+        对任何 $n$~级阵 $A$,
+        对任何不超过 $n$ 的二个不等的正整数 $p$, $q$
+        ($p < q$),
+        则 $\det {(B)} = -\det {(A)}$,
+        其中 $B$ 是交换 $A$~的列~$p$, $q$ 后得到的阵.
+    \end{quotation}
+    则, 我们的目标是:
+    对任意正整数~$n$, $P(n)$ 是正确的.
+
+    $P(1)$ 是正确的.
+    根据
+    ``若 $p$ 是假的, 则 `若 $p$, 则 $q$' 是真的''
+    原则,
+    既然没有可换的二列,
+    $P(1)$ 自动地成立.
+
+    $P(2)$ 是正确的:
+    \begin{align*}
+        \det {
+            \begin{bmatrix}
+                c & a \\
+                d & b \\
+            \end{bmatrix}
+        }
+        = {} & cb - da      \\
+        = {} & bc - ad      \\
+        = {} & {-(ad - bc)} \\
+        = {} &
+        {-\det {
+                    \begin{bmatrix}
+                        a & c \\
+                        b & d \\
+                    \end{bmatrix}
+                }}.
+    \end{align*}
+
+    现在, 我们假定 $P(m-1)$ 是正确的
+    (注意, 此处 $m \geq 3$).
+    我们要证 $P(m)$ 也是正确的.
+    任取一个 $m$~级阵 $A$.
+    设整数 $p$, $q$ 适合
+    $1 \leq p < q \leq m$.
+    交换 $A$ 的列 $p$, $q$,
+    得到阵 $B$.
+    我们要证 $\det {(B)} = -\det {(A)}$.
+
+    分类讨论.
+
+    (1)
+    $p = 1$, $q = 2$.
+    根据行列式的定义,
+    \begin{align*}
+             & \det {(A)}
+        \\
+        = {} &
+        \sum_{d_1 = 1}^{n} (-1)^{d_1+1} [A]_{d_1,1}
+        \det {(A(d_1|1))}
+        \\
+        = {} &
+        \sum_{d_1 = 1}^{n} (-1)^{d_1+1} [A]_{d_1,1}
+        \sum_{\substack{1 \leq d_2 \leq n     \\d_2 \neq d_1}}
+        (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
+        \det {(A(d_1,d_2|1,2))}
+        \\
+        = {} &
+        \sum_{d_1 = 1}^{n}
+        \sum_{\substack{1 \leq d_2 \leq n     \\d_2 \neq d_1}}
+        (-1)^{d_1+1} [A]_{d_1,1}
+        (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
+        \det {(A(d_1,d_2|1,2))}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 \neq d_2}}
+        (-1)^{d_1+1} [A]_{d_1,1}
+        (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
+        \det {(A(d_1,d_2|1,2))}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 \neq d_2}}
+        (-1)^{\rho(d_1,d_2)}
+        [A]_{d_1,1} [A]_{d_2,2}
+        (-1)^{d_1+d_2+1+2}
+        \det {(A(d_1,d_2|1,2))}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 < d_2}}
+        (-1)^{\rho(d_1,d_2)}
+        [A]_{d_1,1} [A]_{d_2,2}
+        (-1)^{d_1+d_2+1+2}
+        \det {(A(d_1,d_2|1,2))}
+        \\
+             & \quad +
+        \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 > d_2}}
+        (-1)^{\rho(d_1,d_2)}
+        [A]_{d_1,1} [A]_{d_2,2}
+        (-1)^{d_1+d_2+1+2}
+        \det {(A(d_1,d_2|1,2))}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq i,k \leq n     \\i < k}}
+        (-1)^{\rho(i,k)}
+        [A]_{i,1} [A]_{k,2}
+        (-1)^{i+k+1+2}
+        \det {(A(i,k|1,2))}
+        \\
+             & \quad +
+        \sum_{\substack{1 \leq k,i \leq n     \\k > i}}
+        (-1)^{\rho(k,i)}
+        [A]_{k,1} [A]_{i,2}
+        (-1)^{k+i+1+2}
+        \det {A(k,i|1,2)}
+        \\
+        = {} &
+        \sum_{1 \leq i < k \leq n}
+        ([A]_{i,1} [A]_{k,2} - [A]_{k,1} [A]_{i,2})\,
+        (-1)^{i+k+1+2}
+        \det {(A(i,k|1,2))}
+        \\
+        = {} &
+        \sum_{1 \leq i < k \leq n}
+        \det {
+            \begin{bmatrix}
+                [A]_{i,1} & [A]_{i,2} \\
+                [A]_{k,1} & [A]_{k,2} \\
+            \end{bmatrix}
+        }
+        (-1)^{i+k+1+2}
+        \det {(A(i,k|1,2))}.
+    \end{align*}
+    (事实上, 这就是按前~$2$~列展开行列式的公式.)
+    同理,
+    \begin{align*}
+        \det {(B)}
+        = \sum_{1 \leq i < k \leq n}
+        \det {
+            \begin{bmatrix}
+                [B]_{i,1} & [B]_{i,2} \\
+                [B]_{k,1} & [B]_{k,2} \\
+            \end{bmatrix}
+        }
+        (-1)^{i+k+1+2}
+        \det {(B(i,k|1,2))}.
+    \end{align*}
+    注意到, $A$, $B$ 除了列 $1$, $2$ 外,
+    完全相同,
+    故 $B(i,k|1,2)$ = $A(i,k|1,2)$.
+    可是,
+    \begin{align*}
+        \det {
+            \begin{bmatrix}
+                [B]_{i,1} & [B]_{i,2} \\
+                [B]_{k,1} & [B]_{k,2} \\
+            \end{bmatrix}
+        }
+        = {} &
+        \det {
+            \begin{bmatrix}
+                [A]_{i,2} & [A]_{i,1} \\
+                [A]_{k,2} & [A]_{k,1} \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        {-\det {
+                    \begin{bmatrix}
+                        [A]_{i,1} & [A]_{i,2} \\
+                        [A]_{k,1} & [A]_{k,2} \\
+                    \end{bmatrix}
+                }}.
+    \end{align*}
+    由此可见, $\det {(B)} = -\det {(A)}$.
+
+    (2)
+    $1 < p < q \leq n$.
+    此时, 注意到, $A$~的列~$p$, $q$
+    对应 $A(i|1)$~的列~$p - 1$, $q - 1$,
+    $B$~的列~$p$, $q$
+    对应 $B(i|1)$~的列~$p - 1$, $q - 1$;
+    并且, 交换
+    $A(i|1)$~的列~$p - 1$, $q - 1$
+    即得 $B(i|1)$,
+    最后, $A$~的列~$1$ 即为 $B$~的列~$1$.
+    由假定,
+    \begin{align*}
+        \det {(B)}
+        = {} &
+        \sum_{i = 1}^{n}
+        (-1)^{i+1} [B]_{i,1} \det {(B(i|1))}
+        \\
+        = {} &
+        \sum_{i = 1}^{n}
+        (-1)^{i+1} [A]_{i,1} (-\det {(A(i|1))})
+        \\
+        = {} &
+        {-\sum_{i = 1}^{n}
+                (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+        \\
+        = {} & {-\det {(A)}}.
+    \end{align*}
+
+    (3)
+    $p = 1$, $1 < q < n$.
+    我们交换 $A$ 的列~$2$, $q$, 得阵~$B_2$.
+    由 (2), 得 $\det {(B_2)} = -\det {(A)}$.
+    我们交换 $B_2$ 的列~$1$, $2$, 得阵~$B_1$.
+    由 (1), 得 $\det {(B_1)} = -\det {(B_2)} = \det {(A)}$.
+    我们交换 $B_1$ 的列~$2$, $q$, 得阵~$B$.
+    由 (2), 得 $\det {(B)} = -\det {(B_1)} = -\det {(A)}$.
+
+    所以, $P(m)$ 是正确的.
+    由算学归纳法原理, 待证命题成立.
+\end{proof}
+
+根据行列式的定义, 很容易得出,
+行列式关于阵的列~$1$ 是线性的.
+具体地说,
+对任意 $n-1$~个 $n \times 1$~阵
+$a_2$, $\dots$, $a_n$,
+任意二个 $n \times 1$~阵 $x$, $y$,
+任意二个数 $s$, $t$,
+有
+\begin{align*}
+    \det
+    {[sx + ty, a_2, \dots, a_n]}
+    = s
+    \det {[x, a_2, \dots, a_n]}
+    +
+    t
+    \det {[y, a_2, \dots, a_n]}.
+\end{align*}
+利用反称性, 我们可很容易地%
+变 ``关于阵的列~$1$ 的线性''
+为 ``多线性'' ($j \neq 1$):
+\begin{align*}
+         & \det
+    {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}
+    \\
+    = {} & {-\det
+            {[sx + ty, \dots, a_{j-1}, a_1, a_{j+1}, \dots, a_n]}}
+    \\
+    = {} & {-
+            (s
+            \det {[x, \dots, a_{j_1}, a_1, a_{j+1}, \dots, a_n]}
+            +
+            t
+            \det {[y, \dots, a_{j_1}, a_1, a_{j+1}, \dots, a_n]}
+            )
+        }
+    \\
+    = {} &
+    s(-\det {[x, \dots, a_{j_1}, a_1, a_{j+1}, \dots, a_n]})
+    + t(-\det {[y, \dots, a_{j_1}, a_1, a_{j+1}, \dots, a_n]})
+    \\
+    = {} &
+    s
+    \det {[a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n]}
+    +
+    t
+    \det {[a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]}.
+\end{align*}
+
+我们也可由反称性推出交错性.
+设方阵 $A$~的列~$p$, $q$ 是相等的 ($p < q$).
+我们交换 $A$~的列 $p$, $q$, 得阵 $B$.
+根据反称性, $\det {(B)} = -\det {(A)}$.
+不过, 因为 $A$~的列~$p$, $q$ 是相等的,
+故 $B = A$.
+所以, $\det {(A)} = -\det {(A)}$.
+由此可知 $\det {(A)} = 0$.
+
+我们也可由反称性得到%
+按 (任意) 一列展开行列式的公式.
+设 $A$ 是一个 $n$~级阵 ($n \geq 2$).
+设 $j \neq 1$.
+交换 $A$ 的列~$j-1$, $j$, 得阵~$B_1$.
+交换 $B_1$ 的列~$j-2$, $j-1$, 得阵~$B_2$.
+$\dots \dots$
+交换 $B_{j-2}$ 的列~$1$, $2$, 得阵~$B_{j-1}$.
+此时, 可以发现,
+$B_{j-1}$~的列~$1$ 即为 $A$~的列~$j$,
+且 $B_{j-1}(i|1) = A(j|1)$.
+我们作了 $j-1$~次 (相邻的) 列的交换,
+故
+\begin{align*}
+    \det {(A)}
+    = {} & (-1)^{j-1} \det {(B_{j-1})}
+    \\
+    = {} & \sum_{i = 1}^{n}
+    (-1)^{j-1} (-1)^{i+1} [B]_{i,1} \det {(B_{j-1}(i|1))}
+    \\
+    = {} & \sum_{i = 1}^{n}
+    (-1)^{i+j} [A]_{i,j} \det {(A(i|1))}.
+\end{align*}
+
+看来, 反称性也是一个好用的性质
+(而不仅仅是 ``多线性与反称性的推论'').
+由此可见, 我们可代 ``公理定义''
+的交错性以反称性,
+并可进一步代 ``多线性'' 以
+``关于阵的列~$1$~的线性''.
+
+\vspace{2ex}
+
+还有一件事.
+我在第一章里 (不是十分明显地) 提到,
+为了得到关于行的行列式公式,
+至少有二条路:
+
+(1)
+利用按列~$1$ 展开, 得到按行~$1$ 展开,
+再用完全类似的套路得到关于行的公式.
+
+(2)
+利用按列~$1$ 展开, 得到按行~$1$ 展开,
+再由此证明转置性质,
+最后用转置翻译已有的公式.
+
+我在第一章简单地提了 (1),
+但还是选择了 (2).
+因为, 几乎任何一本讲行列式的%
+线性代数 (或高等代数)
+教材都会提到转置的性质.
+并且, 直接用转置翻译, 不好吗?
+``先转置,
+施关于列的命题于转置,
+再转置回来.''
+这是一个非常好的思路,
+且节约时间、节约空间.
+(并且, 根据 ``对称性'',
+也可由按行~$1$ 展开推出按列~$1$ 展开.
+这进一步说明, 行列式的定义%
+既可以关于列, 也可以关于行.)
+
+不过, 我还是愿意分享,
+怎么直接由按列~$1$ 展开 (定义)
+推出按 (任意) 一\emph{行}展开.
+这跟由按列~$1$ 展开%
+推出按 (任意) 一\emph{列}展开%
+的过程是类似的.
+只是, 若我在第一章 (即正文) 里这么推,
+那么我就无法自然地引出转置性质了.
+
+\begin{theorem}
+    设 $A$ 是 $n$~级阵 ($n \geq 1$).
+    设 $i$ 为整数, 且 $1 \leq i \leq n$.
+    则
+    \begin{align*}
+        \det {(A)} = \sum_{j = 1}^{n}
+        {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    我们用算学归纳法证明此事.
+    具体地, 设 $P(n)$ 为命题
+    \begin{quotation}
+        对任何 $n$~级阵 $A$,
+        对任何不超过 $n$ 的正整数 $i$,
+        \begin{align*}
+            \det {(A)} = \sum_{j = 1}^{n}
+            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+        \end{align*}
+    \end{quotation}
+    则, 我们的目标是:
+    对任意正整数 $n$, $P(n)$ 是正确的.
+
+    $P(1)$ 显然是正确的.
+
+    可以验证, $P(2)$ 也是正确的 (习题).
+
+    现在, 我们假定 $P(m-1)$ 是正确的.
+    我们要证 $P(m)$ 也是正确的.
+    任取一个 $m$~级阵 $A$.
+    任取不超过 $m$ 的正整数 $i$.
+    为方便, 我们记
+    $f = (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}$.
+    则 (第二个等号利用了假定,
+    并注意到,
+    $A$~的行~$i$ (其中 $k \neq i$) 对应
+    $A(k|1)$~的行~$i - \rho(i,k)$,
+    $A$~的列~$j$ (其中 $j \neq 1$) 对应
+    $A(k|1)$~的列~$j - 1$)
+    \begin{align*}
+             & \det {(A)}
+        \\
+        = {} &
+        f + \sum_{\substack{1 \leq k \leq m \\k \neq i}}
+        (-1)^{k+1} [A]_{k,1} \det {(A(k|1))}
+        \\
+        = {} &
+        f + \sum_{\substack{1 \leq k \leq m \\k \neq i}}
+        (-1)^{k+1} [A]_{k,1}
+        \sum_{j = 2}^{m}
+        (-1)^{i - \rho(i,k) + j - 1}
+        [A]_{i,j} \det {(A(k,i|1,j))}
+        \\
+        = {} &
+        f + \sum_{\substack{1 \leq k \leq m \\k \neq i}}
+        \sum_{j = 2}^{m}
+        (-1)^{k+1} [A]_{k,1}
+        (-1)^{i - \rho(i,k) + j - 1}
+        [A]_{i,j} \det {(A(k,i|1,j))}
+        \\
+        = {} &
+        f + \sum_{j = 2}^{m}
+        \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
+        (-1)^{k+1} [A]_{k,1}
+        (-1)^{i - \rho(i,k) + j - 1}
+        [A]_{i,j} \det {(A(k,i|1,j))}
+        \\
+        = {} &
+        f + \sum_{j = 2}^{m}
+        \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
+        (-1)^{i+j} [A]_{i,j}
+        (-1)^{k - \rho(k,i) + 1}
+        [A]_{k,1} \det {(A(k,i|1,j))}
+        \\
+        = {} &
+        f + \sum_{j = 2}^{m}
+        (-1)^{i+j} [A]_{i,j}
+        \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
+        (-1)^{k - \rho(k,i) + 1}
+        [A]_{k,1} \det {(A(k,i|1,j))}
+        \\
+        = {} &
+        f + \sum_{j = 2}^{m}
+        (-1)^{i+j} [A]_{i,j}
+        \det {(A(i|j))}.
+    \end{align*}
+    所以, $P(m)$ 是正确的.
+    由算学归纳法原理, 待证命题成立.
+\end{proof}
+
+\section{一些评论}
+
+用归纳定义定义行列式的教材%
+似乎要比用组合定义定义行列式的教材少.
+具体地, 为专业是算学的学生准备的教材
+(即 ``高等代数'')
+很少用归纳定义,
+而为专业不是算学的学生准备的教材
+(即 ``线性代数'')
+倒是有不少用归纳定义的,
+但仍不算 ``多''.
+
+\vspace{2ex}
+
+我在第一章, 反复运用%
+按 (任意) 一列展开行列式的公式,
+得到 $n$~级阵的行列式可被写为
+\begin{align*}
+         & \det {(A)}
+    \\
+    = {} &
+    \sum_{\substack{
+    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            i_1, i_2, \dots, i_n\,\text{互不相同}
+        }}
+    {s(i_1, i_2, \dots, i_n)\,
+        s(j_1, j_2, \dots, j_n)\,
+        [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
+\end{align*}
+其中 $j_1$, $j_2$, $\dots$, $j_n$
+是事先指定的 $n$~个不超过 $n$~的正整数
+(换句话说, $j_1$, $j_2$, $\dots$, $j_n$
+是一个固定的, $1$, $2$, $\dots$, $n$~的排列).
+此事的一个副产物是
+\begin{align*}
+    \det {[a_{\ell_1}, a_{\ell_2}, \dots, a_{\ell_n}]}
+    = s(\ell_1, \ell_2, \dots, \ell_n) \det {(A)},
+\end{align*}
+其中 $A = [a_1, a_2, \dots, a_n]$
+是 $n$~级阵,
+$\ell_1$, $\ell_2$, $\dots$, $\ell_n$ 是
+$1$, $2$, $\dots$, $n$ 的排列.
+(当然, 我标记这些为选学内容.
+不过, 这些在大多数书里, 是%
+应当知道的内容;
+再者, ``选学内容'' 并不是鼓励学生不学,
+而只是告诉学生,
+不学选学内容, 不影响他们理解必学内容.)
+
+在别的书上, 这二个公式的论证%
+用了排列的这条性质:
+
+\begin{theorem}
+    设 $c_1$, $c_2$, $\dots$, $c_n$ 是互不相同的
+    $n$~个整数.
+    设 $a_1$, $a_2$, $\dots$, $a_n$ 是
+    $c_1$, $c_2$, $\dots$, $c_n$ 的一个排列.
+    设 $i$, $j$
+    是二个不相等的, 且不超过 $n$~的正整数.
+    依如下规则作 $n$~个整数 $b_1$, $b_2$, $\dots$, $b_n$:
+    \begin{align*}
+        b_k
+        = \begin{cases}
+              a_j, & k = i;     \\
+              a_i, & k = j;     \\
+              a_k, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    通俗地, 交换
+    $a_1$, $a_2$, $\dots$, $a_n$
+    的第~$i$~个文字 $a_i$
+    与第~$j$~个文字 $a_j$
+    的位置,
+    且不改变其他的文字的位置,
+    得到 $b_1$, $b_2$, $\dots$, $b_n$.
+    显然, $b_1$, $b_2$, $\dots$, $b_n$ 也是
+    $c_1$, $c_2$, $\dots$, $c_n$
+    的一个排列.
+    则
+    \begin{align*}
+        s(b_1, b_2, \dots, b_n)
+        = -s(a_1, a_2, \dots, a_n).
+    \end{align*}
+
+    通俗地, 交换排列的二个文字的位置,
+    则其符号变号.
+\end{theorem}
+
+不过, 我不需要这个性质.
+我利用缺项定位的思想,
+再利用 $\rho$-记号,
+给出了这二个公式.
+
+若我不想介绍完全展开行列式的公式,
+则我可以不讲排列,
+进而, 我可以不讲排列的逆序数与符号,
+我也可以不讲 (一般的) Binet-Cauchy 公式.
+不过, 为了让学生适应别的教材上的行列式,
+我还是讲了这些东西.
+
+\vspace{2ex}
+
+既然, 我提到了完全展开,
+我就讲一个跟它有关的趣知识吧.
+
+我们知道, $n$~级阵的行列式含 $n!$~项,
+每一项前的符号是 $1$ 或 $-1$.
+问题来了: 有多少项的符号是 $1$,
+有多少项的符号是 $-1$ 呢?
+当 $n = 1$ 时, 显然%
+有 $1$~项的符号是 $1$,
+有 $0$~项的符号是 $-1$.
+当 $n = 2$ 时, 显然%
+有 $1$~项的符号是 $1$,
+有 $1$~项的符号是 $-1$.
+当 $n = 3$ 时, 显然%
+有 $3$~项的符号是 $1$,
+有 $3$~项的符号是 $-1$.
+当 $n = 4$ 时,
+有 $12$~项的符号是 $1$,
+有 $12$~项的符号是 $-1$
+(我曾算过 $4$~级阵的行列式).
+由此, 我们猜想,
+$n \geq 2$ 时,
+符号是 $1$~的项的数目%
+应当等于符号是 $-1$~的项的数目.
+
+这的确是正确的.
+设 $n \geq 2$.
+我们作 $n$~级阵 $U_n$,
+其中 $[U_n]_{i,j} = 1$;
+通俗地, $U_n$ 的每一个元都是 $1$.
+根据交错性, $\det {(U_n)} = 0$.
+根据完全展开
+(取 $j_1$, $j_2$, $\dots$, $j_n$
+为 $1$, $2$, $\dots$, $n$),
+\begin{align*}
+    0 = \det {(U_n)}
+    = \sum_{\substack{
+    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            i_1, i_2, \dots, i_n\,\text{互不相同}
+        }}
+    s(i_1, i_2, \dots, i_n).
+\end{align*}
+我问一个简单的问题:
+有 $k$~个数, 每一个都是 $1$ 或 $-1$.
+若它们的和为零, 请问, 有几个 $1$, 有几个 $-1$?
+我相信, 您能答出,
+$1$ 跟 $-1$ 的个数都是 $k/2$.
+这就证完了.
+
+我们实际上已证明了如下定理:
+
+\begin{theorem}
+    设 $n \geq 2$.
+    那么, 在
+    $1$, $2$, $\dots$, $n$ 的全部排列中,
+    符号为 $1$ 的排列%
+    跟符号为 $-1$ 的排列%
+    各占一半.
+\end{theorem}
+
+\vspace{2ex}
+
+按多列 (行) 展开行列式是教学的一个难点.
+毕竟, 我们很少用它算行列式.
+我认为, 这是一个更有理论价值 (而不是应用价值)
+的定理.
+但, 这总是要讲的.
+我不讲, 别的教材也会讲.
+既然要讲, 那就通俗地讲.
+所以, 我加了一个具体的例,
+并希望此例可帮助学生理解按多列展开行列式.
+证明的方法还是算学归纳法.
+我用到了按 (任意) 一列展开行列式的公式.
+所以, 原则上,
+这个论证是可以被%
+任何一本教材所使用的
+(毕竟, 一般, 讲按多列展开行列式前,
+都会讲按一列展开行列式).
+可惜, 我没看到这样的教材
+(包括一本用归纳定义定义行列式,
+但使用完全展开的公式证明此事%
+的高等代数教材).
+
+\vspace{2ex}
+
+我想提有关 ``用行列式的性质确定行列式'' 的一些事.
+我们知道如下定理:
+
+\begin{theorem}
+    设定义在全体 $n$~级阵上的函数 $f$ 适合:
+
+    (1)
+    (多线性)
+    对任意不超过 $n$ 的正整数 $j$,
+    任意 $n-1$~个 $n \times 1$~阵
+    $a_1$, $\dots$, $a_{j-1}$, $a_{j+1}$, $\dots$, $a_n$,
+    任意二个 $n \times 1$~阵 $x$, $y$,
+    任意二个数 $s$, $t$,
+    有
+    \begin{align*}
+             & f
+            {([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])}
+        \\
+        = {} &
+        s
+        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
+        +
+        t
+        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+    \end{align*}
+
+    (2)
+    (交错性)
+    若 $n$~级阵 $A$ 有二列完全相同,
+    则 $f {(A)} = 0$.
+
+    那么, 对任意 $n$~级阵 $A$,
+    $f(A) = f(I) \det {(A)}$.
+
+    特别地, 若 $f(I) = 1$ (规范性),
+    则 $f$ 就是行列式.
+\end{theorem}
+
+还记得我怎么证此事吗?
+我作了辅助函数
+$g(A) = f(A) - f(I) \det {(A)}$.
+于是, 我们证明 $g$ 是零函数即可.
+为什么我要引入它呢?
+事实上, 不引入, 也是可以的.
+由 $f$~的多线性与交错性, 我们可类似地写出
+\begin{align*}
+    f(A)
+    = \sum_{\substack{
+    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            i_1, i_2, \dots, i_n\,\text{互不相同}
+        }}
+    {[A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}\,
+        f([e_{i_1}, e_{i_2}, \dots, e_{i_n}])},
+\end{align*}
+其中 $e_k$ 是 $n$~级单位阵~$I$ 的列~$k$.
+
+接着, 我们要确定
+$f([e_{i_1}, e_{i_2}, \dots, e_{i_n}])$.
+由多线性与交错性, 我们可推出反称性.
+这样, 我们可以适当地交换
+$[e_{i_1}, e_{i_2}, \dots, e_{i_n}]$~的列,
+可变其为 $[e_1, e_2, \dots, e_n]$,
+即 $n$~级单位阵 $I$.
+从而, 存在一个由 $i_1$, $i_2$, $\dots$, $i_n$
+确定的数 $\sigma (i_1, i_2, \dots, i_n)$,
+它等于 $1$ 或 $-1$,
+使
+\begin{align*}
+    f([e_{i_1}, e_{i_2}, \dots, e_{i_n}])
+    = \sigma (i_1, i_2, \dots, i_n)\, f(I).
+\end{align*}
+故
+\begin{align*}
+    f(A)
+    = f(I) \sum_{\substack{
+    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            i_1, i_2, \dots, i_n\,\text{互不相同}
+        }}
+    \sigma (i_1, i_2, \dots, i_n)\,
+    [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}.
+\end{align*}
+问题来了: $\sigma (i_1, i_2, \dots, i_n)$
+到底是什么呢?
+运用前面提到的排列的性质,
+可以证明,
+$\sigma (i_1, i_2, \dots, i_n)$
+就是 $i_1$, $i_2$, $\dots$, $i_n$
+的符号 $s (i_1, i_2, \dots, i_n)$.
+从而, 根据完全展开的公式,
+确有 $f(A) = f(I) \det {(A)}$.
+
+这么证, 自然是可以的;
+不过, 不熟悉排列的那条性质的人%
+或不熟悉完全展开行列式的公式的人
+理解此论证%
+有一定的挑战.
+
+我在第一章里写出的论证%
+跟这个论证%
+的大部分是一致的.
+但是, 我用到的辅助函数 $g$ 适合
+$g(I) = 0$.
+所以,
+\begin{align*}
+    g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])
+    = \sigma (i_1, i_2, \dots, i_n)\, g(I)
+    = 0.
+\end{align*}
+由此可知 $g(A) = 0$.
+
+我用了什么特性呢?
+零跟任何数的积都是零.
+所以, 我们不需要关心
+这里的 $\sigma$ 究竟是什么.
+
+用同样的手法, 可证
+
+\begin{theorem}
+    设定义在全体 $n$~级阵上的函数 $f$ 适合:
+
+    (1)
+    (多线性)
+    对任意不超过 $n$ 的正整数 $j$,
+    任意 $n-1$~个 $n \times 1$~阵
+    $a_1$, $\dots$, $a_{j-1}$, $a_{j+1}$, $\dots$, $a_n$,
+    任意二个 $n \times 1$~阵 $x$, $y$,
+    任意二个数 $s$, $t$,
+    有
+    \begin{align*}
+             & f
+            {([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])}
+        \\
+        = {} &
+        s
+        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
+        +
+        t
+        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+    \end{align*}
+
+    (2)
+    (交错性)
+    若 $n$~级阵 $A$ 有二列完全相同,
+    则 $f {(A)} = 0$.
+
+    (3)
+    $f(I) = c$, 其中 $c$ 是常数.
+
+    设定义在全体 $n$~级阵上的函数 $h$
+    也适合这三条性质.
+    则 $f(A) = h(A)$
+    (对任意 $n$~级阵 $A$).
+\end{theorem}
+
+\begin{proof}
+    作辅助函数 $g(A) = f(A) - h(A)$.
+    此 $g$ 也有多线性与交错性,
+    且 $g(I) = 0$.
+    然后, 用我用过的手法即可.
+    (注意, 这个命题甚至没提到 ``行列式''
+    ``det'' ``determinant'' 等文字.)
+\end{proof}
+
+\vspace{2ex}
+
+最后, 我想接着我曾讲过的一件事.
+
+我在前面说过,
+$n$~级阵 $A$~的迹是
+$[A]_{1,1} + [A]_{2,2} + \dots + [A]_{n,n}$.
+我也说过, 可以脱离阵定义行列式.
+那么, 能否脱离阵定义迹呢?
+我觉得, 理论地, 肯定可以.
+
+\begin{definition}
+    我们叫下面用花括号
+    (注意, 这只是我自己选的一个记号)
+    围起来的%
+    由 $n$~行 $n$~列元%
+    组成的式子为一个 \emph{$n$~级迹}:
+    \begin{align}
+        T =
+        \begin{Bmatrix}
+            a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+            a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+            \vdots  & \vdots  & {}     & \vdots  \\
+            a_{n,1} & a_{n,2} & \cdots & a_{n,n} \\
+        \end{Bmatrix}.
+        \label{eq:C0501}
+    \end{align}
+    (或许, 您知道, ``迹'' 用不列颠话说, 是
+    trace.)
+    它由 $n$~行 $n$~列, 共 $n^2$~个元组成.
+    我们叫行~$i$ 的 $n$~个元
+    $a_{i,1}$, $a_{i,2}$, $\dots$, $a_{i,n}$
+    为迹~$T$ 的行~$i$,
+    叫列~$j$ 的 $n$~个元
+    $a_{1,j}$, $a_{2,j}$, $\dots$, $a_{n,j}$
+    为迹~$T$ 的列~$j$.
+    我们叫行~$i$, 列~$j$ 交点上的元 $a_{i,j}$
+    为迹~$T$ 的 $(i,j)$-元.
+
+    我们定义式~(\ref{eq:C0501}) 的值为
+    \begin{align}
+        T = a_{1,1} + a_{2,2} + \dots + a_{n,n}.
+        \label{eq:C0502}
+    \end{align}
+\end{definition}
+
+您觉得, 这种定义迹的方式如何?
+
+这是一个开放的问题;
+或者, 用《周易》的话,
+``仁者见之谓之仁, 智者见之谓之智''.
+
+\vspace{2ex}
+
+我觉得, 讲这么多关于行列式的事,
+差不多了.
+毕竟,
+``there is no such thing in the world
+as a never-ending banquet''.
+希望您真地入 ``行列式'' 门.
+再见.
+
+\backmatter
+
+\chapter{参考文献}
+\nocite{*}
+\printbibliography
 
 \end{document}
