@@ -179,9 +179,6 @@
 % % Insert sub-figures.
 % \usepackage{subcaption}
 
-\usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
-
 % Wider quotations
 \makeatletter
 \renewenvironment{quotation}
@@ -193,6 +190,12 @@
 \item\relax}
 {\endlist}
 \makeatother
+
+% Start a new page with each section.
+% https://tex.stackexchange.com/questions/9497/start-new-page-with-each-section
+\providecommand{\phantomsection}{}
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage\phantomsection}
 
 % Ten Heavenly stems: 甲乙丙丁戊己庚辛壬癸
 % Twelve Earthly Branches: 子丑寅卯辰巳午未申酉戌亥
@@ -9410,7 +9413,7 @@ $\tau (i_1, i_2, \dots, i_n)$~次列的交换
 
 (1)
 作跟逆序数一样多的次数的相邻对换,
-可变一个排列为其标准排列;
+可变一个排列为其自然排列;
 
 (2)
 完全展开行列式的公式.
