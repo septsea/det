@@ -2,13 +2,6 @@
     "cSpell.enableFiletypes": [
         "bibtex"
     ],
-    "cSpell.ignoreWords": [
-        "signum",
-        "signa",
-        "Sarrus",
-        "Binet",
-        "Cramer"
-    ],
     "files.exclude": {
         "**/*-blx.aux": true,
         "**/*-blx.bib": true,
@@ -174,12 +167,11 @@
     "latex-workshop.latex.tools": [
         {
             "args": [
-                "-xelatex",
-                "-shell-escape",
-                "-file-line-error",
-                "-norc",
                 "-synctex=1",
                 "-interaction=nonstopmode",
+                "-halt-on-error",
+                "-file-line-error",
+                "-xelatex",
                 "%DOCFILE%"
             ],
             "command": "latexmk",

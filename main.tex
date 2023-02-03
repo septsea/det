@@ -142,10 +142,15 @@
 % \makeatother
 
 % Some xeCJK settings.
+% However, this only applies to XeLaTeX.
+% https://tex.stackexchange.com/questions/13172/detect-which-tex-engine-is-used
+\usepackage{ifxetex}
+\ifxetex
 \xeCJKsetup{%
     xCJKecglue = true,%
     CheckSingle = true,%
 }
+\fi
 
 % These are modifications which are
 % to be inserted after \begin{document}.
@@ -596,6 +601,8 @@
 若拉丁语或英语对您不是很陌生,
 您或许能看出
 \(\operatorname{sgn}\)
+% spell-checker: ignore signum
+% spell-checker: ignore signa
 代表 sign (或 signum, 复数为 signa),
 即汉语的 ``符号''.
 
@@ -1214,6 +1221,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         - [A]_{2,1} [A]_{1,2} [A]_{3,3}
         - [A]_{3,1} [A]_{2,2} [A]_{1,3}.
     \end{align*}
+    % spell-checker: ignore Sarrus
     法国算学家 Pierre Fr\'ed\'eric Sarrus
     给了我们一种记住 \(3\)~级阵的行列式的好方法.
     我们在阵的下方复写此阵.
@@ -4308,6 +4316,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \end{align*}
 \end{proof}
 
+% spell-checker: ignore Binet
+
 \section{Binet-Cauchy 公式 (青春版)}
 
 设 \(A\), \(B\) 都是 \(n\)~级阵.
@@ -4857,6 +4867,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 我们说, \(C\) 是此方程组的解.
 
 利用前一节的结论, 我们有
+
+% spell-checker: ignore Cramer
 
 \begin{theorem}[Cramer 公式, 1]
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
