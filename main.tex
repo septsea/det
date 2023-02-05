@@ -8016,7 +8016,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 它自然要对初学者友好一些.
 我的脑子里, 至少有三种 (差别较大的) 定义方式:
 
-\begin{restatable}[归纳定义]{definition}{DefinitionDetOne}
+\begin{definition}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
     定义 \(A\) 的行列式
     \begin{align*}
@@ -8030,9 +8030,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
              & n \geq 2.
         \end{dcases}
     \end{align*}
-\end{restatable}
+\end{definition}
 
-\begin{restatable}[组合定义]{definition}{DefinitionDetTwo}
+\begin{definition}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
     定义 \(A\) 的行列式
     \begin{align*}
@@ -8056,9 +8056,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     因为这里的 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
     是互不相同的)
     \(i_1\), \(i_2\), \(\dots\), \(i_n\) 的符号.
-\end{restatable}
+\end{definition}
 
-\begin{restatable}[公理定义]{definition}{DefinitionDetThree}
+\begin{definition}
     设 \(f\) 是定义在全体 \(n\)~级阵上的函数.
     若 \(f\) 适合如下三条, 则说
     \(f\) 是一个行列式函数
@@ -8096,7 +8096,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     (交错性)
     若 \(n\)~级阵 \(A\) 有二列完全相同,
     则 \(f {(A)} = 0\).
-\end{restatable}
+\end{definition}
 
 值得注意的是, 这里的定义是关于列的.
 我们知道, 一个阵的行列式等于其转置的行列式,
@@ -8386,23 +8386,20 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 可是, 这个用法可明白地表示分句和分句的关系,
 应该学会它.)
 
-事实上, 性质~(3) (5) (7)
-(尤其是后二个)
-可用于计算行列式.
-我举一个例.
-
 \begin{example}
     灵活地运用性质~(7), 可作出一些零, 简化计算.
-    性质~(3) (一般) 可变较大的数为较小的数.
     譬如,
+    设
     \begin{align*}
-        \det {
-            \begin{bmatrix}
+        A = \begin{bmatrix}
                 4 & 9 & 2 \\
                 3 & 5 & 7 \\
                 8 & 1 & 6 \\
-            \end{bmatrix}
-        }
+            \end{bmatrix}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(A)}
         = {} &
         \det {
             \begin{bmatrix}
@@ -8422,83 +8419,65 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         }
         \\
         = {} &
-        15 \det {
+        \det {
             \begin{bmatrix}
-                4 & 9 & 1 \\
-                3 & 5 & 1 \\
-                8 & 1 & 1 \\
+                4 & 9 & 15 \\
+                3 & 5 & 15 \\
+                8 & 1 & 15 \\
             \end{bmatrix}
         }
         \\
         = {} &
-        15 \det {
+        \det {
             \begin{bmatrix}
-                4 & 9 - 1 & 1 \\
-                3 & 5 - 1 & 1 \\
-                8 & 1 - 1 & 1 \\
+                4 & 9 - 15 \cdot \frac{1}{15} & 15 \\
+                3 & 5 - 15 \cdot \frac{1}{15} & 15 \\
+                8 & 1 - 15 \cdot \frac{1}{15} & 15 \\
             \end{bmatrix}
         }
         \\
         = {} &
-        15 \det {
+        \det {
             \begin{bmatrix}
-                4 - 1 \cdot 8 & 8 & 1 \\
-                3 - 1 \cdot 8 & 4 & 1 \\
-                8 - 1 \cdot 8 & 0 & 1 \\
+                4 - 15 \cdot \frac{8}{15} & 8 & 15 \\
+                3 - 15 \cdot \frac{8}{15} & 4 & 15 \\
+                8 - 15 \cdot \frac{8}{15} & 0 & 15 \\
             \end{bmatrix}
         }
         \\
         = {} &
-        15 \det {
+        \det {
             \begin{bmatrix}
-                -4 & 8 & 1 \\
-                -5 & 4 & 1 \\
-                0  & 0 & 1 \\
+                -4 & 8 & 15 \\
+                -5 & 4 & 15 \\
+                0  & 0 & 15 \\
             \end{bmatrix}
         }
         \\
         = {} &
-        15 \cdot 4 \det {
+        \det {
             \begin{bmatrix}
-                -4 & 2 & 1 \\
-                -5 & 1 & 1 \\
-                0  & 0 & 1 \\
+                -4 + 8 \cdot \frac{5}{4} & 8 & 15 \\
+                -5 + 4 \cdot \frac{5}{4} & 4 & 15 \\
+                0 + 0 \cdot \frac{5}{4}  & 0 & 15 \\
             \end{bmatrix}
         }
         \\
         = {} &
-        60 \det {
+        \det {
             \begin{bmatrix}
-                -4 + 2 \cdot 5 & 2 & 1 \\
-                -5 + 1 \cdot 5 & 1 & 1 \\
-                0 + 0 \cdot 5  & 0 & 1 \\
+                6 & 8 & 15 \\
+                0 & 4 & 15 \\
+                0 & 0 & 15 \\
             \end{bmatrix}
         }
-        \\
-        = {} &
-        60 \det {
-            \begin{bmatrix}
-                6 & 2 & 1 \\
-                0 & 1 & 1 \\
-                0 & 0 & 1 \\
-            \end{bmatrix}
-        }
-        \\
-        = {} &
-        60 \cdot (6 \cdot 1 \cdot 1)
         \\
         = {} &
         360.
     \end{align*}
-    我们直接用公式计算, 验证上一个结果:
+    我们用 \(3\)~级阵的行列式的公式验证结果:
     \begin{align*}
-        \det {
-            \begin{bmatrix}
-                4 & 9 & 2 \\
-                3 & 5 & 7 \\
-                8 & 1 & 6 \\
-            \end{bmatrix}
-        }
+        \det {(A)}
         = {} &
         4 \cdot 5 \cdot 6
         + 3 \cdot 1 \cdot 2
@@ -8511,6 +8490,105 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         120 + 6 + 504 - 28 - 162 - 80
         \\
         = {} & 360.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设
+    \begin{align*}
+        A = \begin{bmatrix}
+                16 & 3  & 2  & 13 \\
+                5  & 10 & 11 & 8  \\
+                9  & 6  & 7  & 12 \\
+                4  & 15 & 14 & 1  \\
+            \end{bmatrix}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(A)}
+        = {} &
+        \det {
+            \begin{bmatrix}
+                16 & 3 - 2   & 2  & 13 \\
+                5  & 10 - 11 & 11 & 8  \\
+                9  & 6 - 7   & 7  & 12 \\
+                4  & 15 - 14 & 14 & 1  \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                16 - 13 & 3 - 2   & 2  & 13 \\
+                5 - 8   & 10 - 11 & 11 & 8  \\
+                9 - 12  & 6 - 7   & 7  & 12 \\
+                4 - 1   & 15 - 14 & 14 & 1  \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                3  & 1  & 2  & 13 \\
+                -3 & -1 & 11 & 8  \\
+                -3 & -1 & 7  & 12 \\
+                3  & 1  & 14 & 1  \\
+            \end{bmatrix}
+        }.
+    \end{align*}
+    利用性质~(6) 可知, 最后一个阵的行列式为 \(0\).
+    所以, \(A\)~的行列式也是 \(0\).
+
+    我们当然也可用
+    \(4\)~级阵的行列式的公式验证结果.
+    不过, 这较繁琐.
+    首先, 根据定义,
+    \begin{align*}
+             & \det {(A)}                           \\
+        = {} & (-1)^{1+1} [A]_{1,1} \det {(A(1|1))}
+        + (-1)^{2+1} [A]_{2,1} \det {(A(2|1))}
+        \\
+             & \quad
+        + (-1)^{3+1} [A]_{3,1} \det {(A(3|1))}
+        + (-1)^{4+1} [A]_{4,1} \det {(A(4|1))}.
+    \end{align*}
+    可算出
+    \begin{align*}
+         & \det {(A(1|1))}
+        = \det {\begin{bmatrix}
+                        10 & 11 & 8  \\
+                        6  & 7  & 12 \\
+                        15 & 14 & 1  \\
+                    \end{bmatrix}}
+        = 136,             \\
+         & \det {(A(2|1))}
+        = \det {\begin{bmatrix}
+                        3  & 2  & 13 \\
+                        6  & 7  & 12 \\
+                        15 & 14 & 1  \\
+                    \end{bmatrix}}
+        = -408,            \\
+         & \det {(A(3|1))}
+        = \det {\begin{bmatrix}
+                        3  & 2  & 13 \\
+                        10 & 11 & 8  \\
+                        15 & 14 & 1  \\
+                    \end{bmatrix}}
+        = -408,            \\
+         & \det {(A(4|1))}
+        = \det {\begin{bmatrix}
+                        3  & 2  & 13 \\
+                        10 & 11 & 8  \\
+                        6  & 7  & 12 \\
+                    \end{bmatrix}}
+        = 136.
+    \end{align*}
+    所以
+    \begin{align*}
+        \det {(A)}
+        = 16 \cdot 136 - 5 \cdot (-408)
+        + 9 \cdot (-408) - 4 \cdot 136
+        = 0.
     \end{align*}
 \end{example}
 
@@ -9002,6 +9080,86 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     所以, \(P(m)\) 是正确的.
     由算学归纳法原理, 待证命题成立.
 \end{proof}
+
+写完第一章后, 我又意识到, 我也可以直接根据%
+按 (任意) 一列 (或一行) 展开行列式的公式%
+证明行列式的转置性质.
+
+还是用算学归纳法.
+首先, \(1\)~级阵的转置是自身,
+故二者的行列式当然相等.
+假定每一个 \(m - 1\)~级阵的行列式都等于%
+其转置的行列式.
+今任取一个 \(m\)~级阵 \(A\).
+一方面, 我们知道,
+对任何数 \(x\), 与任何正整数 \(s\),
+必有
+\begin{align*}
+    x = \frac{1}{s} \sum_{j = 1}^{s} x.
+\end{align*}
+另一方面, 我们已知,
+对每一个 \(s\) 级阵 \(B\),
+与每一个不超过 \(s\) 的正整数 \(j\),
+\begin{align*}
+    \det {(B)}
+    = \sum_{i = 1}^{s} (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}.
+\end{align*}
+最后, 注意到, 既然
+\([A]_{i,j} = [A^{\mathrm{T}}]_{j,i}\),
+则, 不难验证,
+\(A^{\mathrm{T}}(i|j) = (A(j|i))^{\mathrm{T}}\).
+结合这三件事,
+与用过很多次的加法的交换律与结合律,
+并利用假定 (第四个等号), 我们有
+\begin{align*}
+    \det {(A^{\mathrm{T}})}
+    = {} &
+    \frac{1}{m}
+    \sum_{j=1}^{m}
+    \det {(A^{\mathrm{T}})}
+    \\
+    = {} &
+    \frac{1}{m}
+    \sum_{j=1}^{m}
+    \sum_{i=1}^{m}
+    (-1)^{i+j} [A^{\mathrm{T}}]_{i,j}
+    \det {(A^{\mathrm{T}}(i|j))}
+    \\
+    = {} &
+    \frac{1}{m}
+    \sum_{j=1}^{m}
+    \sum_{i=1}^{m}
+    (-1)^{i+j} [A]_{j,i}
+    \det {((A(j|i))^{\mathrm{T}})}
+    \\
+    = {} &
+    \frac{1}{m}
+    \sum_{j=1}^{m}
+    \sum_{i=1}^{m}
+    (-1)^{i+j} [A]_{j,i}
+    \det {(A(j|i))}
+    \\
+    = {} &
+    \frac{1}{m}
+    \sum_{j=1}^{m}
+    \sum_{i=1}^{m}
+    (-1)^{j+i} [A]_{j,i}
+    \det {(A(j|i))}
+    \\
+    = {} &
+    \frac{1}{m}
+    \sum_{i=1}^{m}
+    \sum_{j=1}^{m}
+    (-1)^{j+i} [A]_{j,i}
+    \det {(A(j|i))}
+    \\
+    = {} &
+    \frac{1}{m}
+    \sum_{i=1}^{m}
+    \det {(A)}
+    \\
+    = {} & \det {(A)}.
+\end{align*}
 
 \section{排列}
 
