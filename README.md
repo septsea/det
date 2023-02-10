@@ -135,7 +135,7 @@ XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math.
 
 但是, 安装 Sarasa Mono SC 就不是很方便了.
 它提供了四个压缩包,
-但因为每一个压缩包里有很多我们 (大概率) 用不到的字体,
+但因为每一个压缩包里有很多我们 (很有可能) 用不到的字体,
 故,
 若您相信我,
 您可以[点这里](https://www.123pan.com/s/QvKUVv-ufWHA)下载 Sarasa Mono SC.
