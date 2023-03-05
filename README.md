@@ -17,9 +17,15 @@
 ## 只想看书?
 
 - ~~[https://gitee.com/septsea/det/raw/main/main.pdf](https://gitee.com/septsea/det/raw/main/main.pdf)~~
+~~(您需要上码云号才能从这儿下载.)~~
 - [https://github.com/septsea/det/raw/main/main.pdf](https://github.com/septsea/det/raw/main/main.pdf)
+(但因为 "网络安全", 您不一定能从这儿下.)
 - [https://www.123pan.com/s/QvKUVv-K4WHA](https://www.123pan.com/s/QvKUVv-K4WHA)
-- [https://www.bilibili.com/read/cv21269691](https://www.bilibili.com/read/cv21269691)
+(较推荐.)
+- ~~[https://www.bilibili.com/read/cv21269691](https://www.bilibili.com/read/cv21269691)~~
+~~(修改专栏的机会是有限的, 故这个版本是过时的.)~~
+- [https://www.bananaspace.org/wiki/讲义:行列式入门](https://www.bananaspace.org/wiki/%E8%AE%B2%E4%B9%89:%E8%A1%8C%E5%88%97%E5%BC%8F%E5%85%A5%E9%97%A8)
+(这个版本为香蕉空间而生; 跟原书比, 我删去了一些跟学习无关的内容.)
 
 本书甚至还有一套[教学片](https://www.bilibili.com/video/BV13D4y1p7QW/);
 不过, 我想, 您不一定会喜欢它.

@@ -1645,9 +1645,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
          &
         \det {(A)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        \det {\left(
-            A\binom{i_1, i_2, \dots, i_k}{j_1, j_2, \dots, j_k}
-            \right)}
+        {\det {\left(
+                A\binom{i_1, i_2, \dots, i_k}
+                {j_1, j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -1822,10 +1823,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
              &
             \det {(A)}
             = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-            \det {\left(
-                A\binom{i_1, i_2, \dots, i_k}%
-                {j_1, j_2, \dots, j_k}
-                \right)}
+            {\det {\left(
+                    A\binom{i_1, i_2, \dots, i_k}%
+                    {j_1, j_2, \dots, j_k}
+                    \right)}}
             \\
              &
             \qquad \qquad \qquad
@@ -1849,9 +1850,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     知
     \begin{align*}
         \det {(A)} = \sum_{d_1 = 1}^{n}
-        [A]_{d_1,j_1}
+        {[A]_{d_1,j_1}
         (-1)^{d_1 + j_1}
-        \det {(A(d_1|j_1))}.
+        \det {(A(d_1|j_1))}}.
     \end{align*}
 
     注意到,
@@ -1872,9 +1873,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq d_2 < \dots < d_k \leq n \\
                 d_1 \neq d_2,\dots,d_k
             }}
-        \det {\left(
-            A\binom{d_2, \dots, d_k}{j_2, \dots, j_k}
-            \right)}
+        {\det {\left(
+                A\binom{d_2, \dots, d_k}{j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad \qquad \qquad
@@ -1884,7 +1885,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
          &
         \qquad \qquad \qquad \qquad \qquad
-        \cdot \det {(A({d_1,d_2,\dots,d_k}|{j_1,j_2,\dots,j_k}))}.
+        \cdot \det
+        {(A({d_1,d_2,\dots,d_k}|{j_1,j_2,\dots,j_k}))}.
     \end{align*}
     利用分配律 (还有加法的结合律与交换律), 有
     \begin{align*}
@@ -1895,11 +1897,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq d_2 < \dots < d_k \leq n \\
                 d_1 \neq d_2,\dots,d_k
             }}
-        [A]_{d_1,j_1}
-        (-1)^{d_1 + j_1}
-        \det {\left(
-            A\binom{d_2, \dots, d_k}{j_2, \dots, j_k}
-            \right)}
+        {[A]_{d_1,j_1}
+            (-1)^{d_1 + j_1}
+            \det {\left(
+                A\binom{d_2, \dots, d_k}{j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad \qquad
@@ -1939,11 +1941,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq d_2 < \dots < d_k \leq n \\
                 d_1 \neq d_2,\dots,d_k
             }}
-        (-1)^{\rho(d_1, d_2) + \dots + \rho(d_1, d_k)}
-        [A]_{d_1,j_1}
-        \det {\left(
-            A\binom{d_2, \dots, d_k}{j_2, \dots, j_k}
-            \right)}
+        {(-1)^{\rho(d_1, d_2) + \dots + \rho(d_1, d_k)}
+                [A]_{d_1,j_1}
+            \det {\left(
+                A\binom{d_2, \dots, d_k}{j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -1979,15 +1981,13 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
             }} {\dots}
         =
         \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        \,
-        \sum_{1 \leq s \leq k}
-        \,
-        {({\dots})}\bigg|_{
+        { \sum_{1 \leq s \leq k}
+        { {({\dots})}\bigg|_{
         \subalign{
          & d_1 = i_s                                   \\
          & d_r = i_{r - \rho(s, r)}\,(2 \leq r \leq k)
         }
-        }\,\,.
+        }}}.
     \end{align*}
     负责地, 我来解释此式.
     欲从 \(1\) 至 \(n\) 这 \(n\)~个整数中选出 \(k\)~个数
@@ -2050,12 +2050,13 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        \sum_{1 \leq s \leq k}
-        (-1)^{s+1} [A]_{i_s,j_1}
-        \det {\left(
-            A\binom{i_1, \dots, i_{s-1}, i_{s+1}, \dots, i_k}
-            {j_2, \dots, j_k}
-            \right)}
+        {\sum_{1 \leq s \leq k}
+            {(-1)^{s+1} [A]_{i_s,j_1}
+                \det {\left(
+                    A\binom{i_1, \dots, i_{s-1},
+                        i_{s+1}, \dots, i_k}
+                    {j_2, \dots, j_k}
+                    \right)}}}
         \\
              &
         \qquad \qquad \qquad
@@ -2073,14 +2074,15 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        \left(
-        \sum_{1 \leq s \leq k}
-        (-1)^{s+1} [A]_{i_s,j_1}
-        \det {\left(
-            A\binom{i_1, \dots, i_{s-1}, i_{s+1}, \dots, i_k}
-            {j_2, \dots, j_k}
+        {\left(
+            \sum_{1 \leq s \leq k}
+            {(-1)^{s+1} [A]_{i_s,j_1}
+                \det {\left(
+                    A\binom{i_1, \dots, i_{s-1},
+                        i_{s+1}, \dots, i_k}
+                    {j_2, \dots, j_k}
+                    \right)}}
             \right)}
-        \right)
         \\
              &
         \qquad \qquad \qquad
@@ -2095,11 +2097,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \((s, 1)\)-元, 故
     \begin{align*}
              & \sum_{1 \leq s \leq k}
-        (-1)^{s+1} [A]_{i_s,j_1}
-        \det {\left(
-            A\binom{i_1, \dots, i_{s-1}, i_{s+1}, \dots, i_k}
-            {j_2, \dots, j_k}
-            \right)}
+        {(-1)^{s+1} [A]_{i_s,j_1}
+            \det {\left(
+                A\binom{i_1, \dots, i_{s-1}, i_{s+1}, \dots, i_k}
+                {j_2, \dots, j_k}
+                \right)}}
         \\
         = {} & \det {\left(
             A\binom{i_1, \dots, i_k}
@@ -2111,9 +2113,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
          &
         \det {(A)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        \det {\left(
-            A\binom{i_1, i_2, \dots, i_k}{j_1, j_2, \dots, j_k}
-            \right)}
+        {\det {\left(
+                A\binom{i_1, i_2, \dots, i_k}
+                {j_1, j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -2170,7 +2173,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         \det {(A)}
         = \sum_{1 \leq i_1 \leq n}
-        (-1)^{i_1 + j_1} [A]_{i_1,j_1} \det {(A(i_1|j_1))}.
+        {(-1)^{i_1 + j_1} [A]_{i_1,j_1} \det {(A(i_1|j_1))}}.
     \end{align*}
 
     注意到, \(A\)~的列~\(j_2\) 对应
@@ -2190,10 +2193,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         = {} &
         \sum_{\substack{
         1 \leq i_2 \leq n \\
-                i_2 \neq i_1
-            }}
-        (-1)^{i_2 + j_2 + \rho(i_1, i_2) + \rho(j_1, j_2)}
-        [A]_{i_2,j_2} \det {(A({i_1,i_2}|{j_1,j_2}))}.
+            i_2 \neq i_1
+        }}
+        {(-1)^{i_2 + j_2 + \rho(i_1, i_2) + \rho(j_1, j_2)}
+            [A]_{i_2,j_2} \det {(A({i_1,i_2}|{j_1,j_2}))}}.
     \end{align*}
 
     \(\dots \dots\)
@@ -2227,9 +2230,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq i_k \leq n \\
                 i_k \neq i_1, \dots, i_{k-1}
             }}
-        (-1)^{i_k + j_k
-            + \rho(i_1, i_k) + \dots + \rho(i_{k-1}, i_k)
-            + \rho(j_1, j_k) + \dots + \rho(j_{k-1}, j_k)}
+        {(-1)^{i_k + j_k
+                    + \rho(i_1, i_k) + \dots + \rho(i_{k-1}, i_k)
+                    + \rho(j_1, j_k) + \dots
+                    + \rho(j_{k-1}, j_k)}}
         \\
              &
         \qquad \qquad
@@ -2250,10 +2254,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq i_n \leq n \\
                 i_n \neq i_1, \dots, i_{n-1}
             }}
-        (-1)^{i_n + j_n
-            + \rho(i_1, i_n) + \dots + \rho(i_{n-1}, i_n)
-            + \rho(j_1, j_n) + \dots + \rho(j_{n-1}, j_n)}
-        [A]_{i_n,j_n}.
+        {(-1)^{i_n + j_n
+                    + \rho(i_1, i_n) + \dots + \rho(i_{n-1}, i_n)
+                    + \rho(j_1, j_n) + \dots + \rho(j_{n-1}, j_n)}
+                [A]_{i_n,j_n}}.
     \end{align*}
     (事实上, 这就是 \([A]_{i_n,j_n}\);
     不过, 为了不破坏规律,
@@ -2293,9 +2297,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq i_1, i_2, \dots, i_n \leq n \\
                 i_1, i_2, \dots, i_n\,\text{互不相同}
             }}
-        (-1)^{i_1 + j_1 + i_2 + j_2 + \dots + i_n + j_n
-            + \tau(i_1, i_2, \dots, i_n)
-            + \tau(j_1, j_2, \dots, j_n)}
+        {(-1)^{i_1 + j_1 + i_2 + j_2 + \dots + i_n + j_n
+                    + \tau(i_1, i_2, \dots, i_n)
+                    + \tau(j_1, j_2, \dots, j_n)}}
         \\
              &
         \qquad \qquad \qquad
@@ -3222,9 +3226,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
          &
         \det {(A)}
         = \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{i_1, i_2, \dots, i_k}{j_1, j_2, \dots, j_k}
-            \right)}
+        {\det {\left(
+                A\binom{i_1, i_2, \dots, i_k}
+                {j_1, j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -3362,26 +3367,26 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 \begin{align*}
     \left[ \sum_{\ell = 1}^{n} {k_\ell e_\ell} \right]_{i,1}
     = {} &
-    \sum_{\ell = 1}^{n} [k_\ell e_\ell]_{i,1}
+    \sum_{\ell = 1}^{n} {[k_\ell e_\ell]_{i,1}}
     \\
     = {} &
-    \sum_{\ell = 1}^{n} k_\ell [e_\ell]_{i,1}
+    \sum_{\ell = 1}^{n} {k_\ell [e_\ell]_{i,1}}
     \\
     = {} &
-    \sum_{\ell = 1}^{n} k_\ell [e_\ell]_{i,1}
+    \sum_{\ell = 1}^{n} {k_\ell [e_\ell]_{i,1}}
     \\
     = {} &
-    \sum_{\ell = 1}^{n} k_\ell \delta(i, \ell)
+    \sum_{\ell = 1}^{n} {k_\ell \delta(i, \ell)}
     \\
     = {} &
     k_i \delta(i, i)
     + \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
-    k_\ell \delta(i, \ell)
+    {k_\ell \delta(i, \ell)}
     \\
     = {} &
     k_i
     + \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
-    k_\ell 0
+    {k_\ell 0}
     \\
     = {} &
     k_i.
@@ -3829,7 +3834,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     于是
     \begin{align*}
         a_{k}
-        = \sum_{i_k = 1}^{n} [A]_{i_k,k} e_{i_k}
+        = \sum_{i_k = 1}^{n} {[A]_{i_k,k} e_{i_k}}.
     \end{align*}
     (注意, 这里, 我共使用了 \(n\)~个求和指标
     \(i_1\), \(i_2\), \(\dots\), \(i_n\).
@@ -3841,24 +3846,24 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         g([a_1, a_2, \dots, a_n])
         \\
         = {} &
-        g\left(\left[ \sum_{i_1 = 1}^{n} [A]_{i_1,1} e_{i_1},
-        a_2, \dots, a_n \right]\right)
+        g\left(\left[ \sum_{i_1 = 1}^{n} {[A]_{i_1,1} e_{i_1},
+        a_2, \dots, a_n} \right]\right)
         \\
         = {} &
-        \sum_{i_1 = 1}^{n} [A]_{i_1,1}\,
-        g([ e_{i_1}, a_2, \dots, a_n ])
+        \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
+        g([ e_{i_1}, a_2, \dots, a_n ])}
         \\
         = {} &
-        \sum_{i_1 = 1}^{n} [A]_{i_1,1}\,
+        \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
         g\left(\left[ e_{i_1},
             \sum_{i_2 = 1}^{n} [A]_{i_2,2} e_{i_2},
         \dots, a_n
-        \right]\right)
+        \right]\right)}
         \\
         = {} &
-        \sum_{i_1 = 1}^{n}
-        \sum_{i_2 = 1}^{n} [A]_{i_1,1} [A]_{i_2,2}\,
-        g([ e_{i_1}, e_{i_2}, \dots, a_n ])
+        \sum_{i_1 = 1}^{n} {
+        \sum_{i_2 = 1}^{n} {[A]_{i_1,1} [A]_{i_2,2}\,
+        g([ e_{i_1}, e_{i_2}, \dots, a_n ])}}
         \\
         = {} &
         \dots \dots \dots \dots
@@ -3867,12 +3872,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \dots \dots \dots \dots
         \\
         = {} &
-        \sum_{i_1 = 1}^{n}
-        \sum_{i_2 = 1}^{n}
+        \sum_{i_1 = 1}^{n} {
+        \sum_{i_2 = 1}^{n} {
         \dots
-        \sum_{i_n = 1}^{n}
+        \sum_{i_n = 1}^{n} {
         [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n} \,
-        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}]).
+        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}}}.
     \end{align*}
 
     利用交错性, 不难看出,
@@ -4020,7 +4025,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         + [A]_{i,s} [B]_{s,j}
         \\
         = {} &
-        \sum_{k = 1}^{s} [A]_{i,k} [B]_{k,j}.
+        \sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,j}}.
     \end{align*}
     通俗地, \(AB\) 是 \(m \times n\)~阵,
     其 \((i, j)\)-元就是
@@ -4162,30 +4167,32 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         [(AB)C]_{i,j}
         = {} &
-        \sum_{\ell = 1}^{n} [AB]_{i,\ell} [C]_{\ell,j}
+        \sum_{\ell = 1}^{n} {[AB]_{i,\ell} [C]_{\ell,j}}
         \\
         = {} &
-        \sum_{\ell = 1}^{n}
-        \left(\sum_{k = 1}^{s} [A]_{i,k} [B]_{k,\ell}\right)
-        [C]_{\ell,j}
+        \sum_{\ell = 1}^{n} {
+        \left(\sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,\ell}} \right)
+        [C]_{\ell,j} }
         \\
         = {} &
-        \sum_{\ell = 1}^{n}
-        \sum_{k = 1}^{s}
-        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}
+        \sum_{\ell = 1}^{n} {
+        \sum_{k = 1}^{s} {
+        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j} }}
         \\
         = {} &
-        \sum_{k = 1}^{s}
-        \sum_{\ell = 1}^{n}
-        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}
+        \sum_{k = 1}^{s} {
+        \sum_{\ell = 1}^{n} {
+        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}}}
         \\
         = {} &
-        \sum_{k = 1}^{s}
+        \sum_{k = 1}^{s} {
         [A]_{i,k}
-        \left(\sum_{\ell = 1}^{n} [B]_{k,\ell} [C]_{\ell,j}\right)
+        \left(
+        \sum_{\ell = 1}^{n} {[B]_{k,\ell} [C]_{\ell,j}}
+        \right) }
         \\
         = {} &
-        \sum_{k = 1}^{s} [A]_{i,k} [BC]_{k,j}
+        \sum_{k = 1}^{s} {[A]_{i,k} [BC]_{k,j}}
         \\
         = {} &
         [A(BC)]_{i,j}.
@@ -4198,19 +4205,19 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         [(A + D)B]_{i,j}
         = {} &
-        \sum_{k = 1}^{s} [A + D]_{i,k} [B]_{k,j}
+        \sum_{k = 1}^{s} {[A + D]_{i,k} [B]_{k,j}}
         \\
         = {} &
-        \sum_{k = 1}^{s} ([A]_{i,k} + [D]_{i,k}) [B]_{k,j}
+        \sum_{k = 1}^{s} {([A]_{i,k} + [D]_{i,k}) [B]_{k,j}}
         \\
         = {} &
-        \sum_{k = 1}^{s} ([A]_{i,k} [B]_{k,j}
-        + [D]_{i,k} [B]_{k,j})
+        \sum_{k = 1}^{s} {([A]_{i,k} [B]_{k,j}
+        + [D]_{i,k} [B]_{k,j})}
         \\
         = {} &
-        \sum_{k = 1}^{s} [A]_{i,k} [B]_{k,j}
+        \sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,j}}
         +
-        \sum_{k = 1}^{s} [D]_{i,k} [B]_{k,j}
+        \sum_{k = 1}^{s} {[D]_{i,k} [B]_{k,j}}
         \\
         = {} &
         [AB]_{i,j} + [DB]_{i,j}
@@ -4235,20 +4242,20 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         [I_m A]_{i,j}
         = {} &
-        \sum_{u = 1}^{m} [I_m]_{i,u} [A]_{u,j}
+        \sum_{u = 1}^{m} {[I_m]_{i,u} [A]_{u,j}}
         \\
         = {} &
-        \sum_{u = 1}^{m} \delta(i, u) [A]_{u,j}
+        \sum_{u = 1}^{m} {\delta(i, u) [A]_{u,j}}
         \\
         = {} &
         \delta(i, i) [A]_{i,j}
         + \sum_{\substack{1 \leq u \leq m \\ u \neq i}}
-        \delta(i, u) [A]_{u,j}
+        {\delta(i, u) [A]_{u,j}}
         \\
         = {} &
         1 [A]_{i,j}
         + \sum_{\substack{1 \leq u \leq m \\ u \neq i}}
-        0 [A]_{u,j}
+        {0 [A]_{u,j}}
         \\
         = {} & [A]_{i,j}.
     \end{align*}
@@ -4262,13 +4269,13 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         [(xA)B]_{i,j}
         = {} &
-        \sum_{k = 1}^{s} [xA]_{i,k} [B]_{k,j}
+        \sum_{k = 1}^{s} {[xA]_{i,k} [B]_{k,j}}
         \\
         = {} &
-        \sum_{k = 1}^{s} x[A]_{i,k} [B]_{k,j}
+        \sum_{k = 1}^{s} {x[A]_{i,k} [B]_{k,j}}
         \\
         = {} &
-        x \sum_{k = 1}^{s} [A]_{i,k} [B]_{k,j}
+        x \sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,j}}
         \\
         = {} &
         x [AB]_{i,j}
@@ -4307,14 +4314,14 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     根据阵的积、和、数乘的定义,
     \begin{align*}
         [AX]_{i,1}
-        = {} & \sum_{k = 1}^{n} [A]_{i,k} [X]_{k,1}
+        = {} & \sum_{k = 1}^{n} {[A]_{i,k} [X]_{k,1}}
         \\
-        = {} & \sum_{k = 1}^{n} [a_k]_{i,1} [X]_{k,1}
+        = {} & \sum_{k = 1}^{n} {[a_k]_{i,1} [X]_{k,1}}
         \\
-        = {} & \sum_{k = 1}^{n} [[X]_{k,1} a_k]_{i,1}
+        = {} & \sum_{k = 1}^{n} {[[X]_{k,1} a_k]_{i,1}}
         \\
-        = {} & \left[ \sum_{k = 1}^{n} [X]_{k,1}
-            a_k \right]_{i,1}.
+        = {} & \left[ \sum_{k = 1}^{n} {[X]_{k,1}
+        a_k } \right]_{i,1}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -4341,9 +4348,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         [C]_{i,j}
         = {} & [Ba_j]_{i,1}
         \\
-        = {} & \sum_{k = 1}^{m} [B]_{i,k} [a_j]_{k,1}
+        = {} & \sum_{k = 1}^{m} {[B]_{i,k} [a_j]_{k,1}}
         \\
-        = {} & \sum_{k = 1}^{m} [B]_{i,k} [A]_{k,j}
+        = {} & \sum_{k = 1}^{m} {[B]_{i,k} [A]_{k,j}}
         \\
         = {} & [BA]_{i,j}.
         \qedhere
@@ -4584,10 +4591,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         \det {(B)}
         = {} & \sum_{\ell = 1}^{n}
-        (-1)^{\ell + k} [B]_{\ell, k} \det {(B(\ell|k))}
+        {(-1)^{\ell + k} [B]_{\ell, k} \det {(B(\ell|k))}}
         \\
         = {} & \sum_{\ell = 1}^{n}
-        (-1)^{\ell + k} z_\ell \det {(A(\ell|k))}.
+        {(-1)^{\ell + k} z_\ell \det {(A(\ell|k))}}.
     \end{align*}
     注意看.
     现在, 特殊地, 我们取
@@ -4732,7 +4739,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         [\operatorname{adj} {(A)}\, A]_{i,j}
         = {} &
         \sum_{\ell = 1}^{n}
-        [\operatorname{adj} {(A)}]_{i,\ell} [A]_{\ell,j}
+        {[\operatorname{adj} {(A)}]_{i,\ell} [A]_{\ell,j}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
@@ -4749,11 +4756,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         [A \operatorname{adj} {(A)}]_{i,j}
         = {} &
         \sum_{s = 1}^{n}
-        [A]_{i,s} [\operatorname{adj} {(A)}]_{s,j}
+        {[A]_{i,s} [\operatorname{adj} {(A)}]_{s,j}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        [A]_{i,s} (-1)^{j+s} \det {(A(j|s))}
+        {[A]_{i,s} (-1)^{j+s} \det {(A(j|s))}}
         \\
         = {} & \det {(A)}\, \delta(i, j)
         \\
@@ -4976,16 +4983,16 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     [\operatorname{adj} {(A)}\,B]_{i,1}
     = {} &
     \sum_{\ell = 1}^{n}
-    [\operatorname{adj} {(A)}]_{i,\ell} [B]_{\ell,1}
+    {[\operatorname{adj} {(A)}]_{i,\ell} [B]_{\ell,1}}
     \\
     = {} &
     \sum_{\ell = 1}^{n}
-    (-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}.
+    {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}.
 \end{align*}
 利用前一节里论证定理时使用的手法, 可知
 \begin{align*}
     \sum_{\ell = 1}^{n}
-    (-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}
+    {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}
     =
     \det {(A \{i, B\})},
 \end{align*}
@@ -5349,8 +5356,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         k_1, k_2, \dots, k_n\,\text{是} \\
                 i_1, i_2, \dots, i_n\,\text{的排列}
             }}
-        s(k_1, k_2, \dots, k_n)\,
-        [C]_{k_1,1} [C]_{k_2,2} \dots [C]_{k_n,n}.
+        {s(k_1, k_2, \dots, k_n)\,
+            [C]_{k_1,1} [C]_{k_2,2} \dots [C]_{k_n,n}}.
     \end{align*}
 \end{theorem}
 
@@ -5400,16 +5407,16 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         k_1, k_2, \dots, k_n\,\text{是} \\
                 i_1, i_2, \dots, i_n\,\text{的排列}
             }}
-        s(f(k_1), f(k_2), \dots, f(k_n))\,
-        [G]_{f(k_1),1} [G]_{f(k_2),2} \dots [G]_{f(k_n),n}
+        {s(f(k_1), f(k_2), \dots, f(k_n))\,
+            [G]_{f(k_1),1} [G]_{f(k_2),2} \dots [G]_{f(k_n),n}}
         \\
         = {} &
         \sum_{\substack{
         k_1, k_2, \dots, k_n\,\text{是} \\
                 i_1, i_2, \dots, i_n\,\text{的排列}
             }}
-        s(k_1, k_2, \dots, k_n)\,
-        [C]_{k_1,1} [C]_{k_2,2} \dots [C]_{k_n,n}.
+        {s(k_1, k_2, \dots, k_n)\,
+            [C]_{k_1,1} [C]_{k_2,2} \dots [C]_{k_n,n}}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -5426,22 +5433,22 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
              &
         \sum_{1 \leq k_1, k_2, \dots, k_n \leq m}
-        f(k_1, k_2, \dots, k_n)
+        {f(k_1, k_2, \dots, k_n)}
         \\
         = {} &
         \sum_{\substack{
         1 \leq k_1, k_2, \dots, k_n \leq m \\
                 k_1, k_2, \dots, k_n\,\text{互不相同}
             }}
-        f(k_1, k_2, \dots, k_n)
+        {f(k_1, k_2, \dots, k_n)}
         \\
         = {} &
         \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
-        \sum_{\substack{
+        {\sum_{\substack{
         k_1, k_2, \dots, k_n\,\text{是}     \\
-                j_1, j_2, \dots, j_n\,\text{的排列}
-            }}
-        f(k_1, k_2, \dots, k_n).
+                    j_1, j_2, \dots, j_n\,\text{的排列}
+                }}
+            {f(k_1, k_2, \dots, k_n)}}.
     \end{align*}
 \end{theorem}
 
@@ -5486,24 +5493,24 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \right]}
         \\
         = {} &
-        \sum_{k_1 = 1}^{m} [A]_{k_1,1}
+        \sum_{k_1 = 1}^{m} {[A]_{k_1,1}
         \det {\left[
         b_{k_1},
         \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
         \dots,
         \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
-        \right]}
+        \right]}}
         \\
         = {} &
-        \sum_{k_1 = 1}^{m}
-        \sum_{k_2 = 1}^{m}
+        \sum_{k_1 = 1}^{m} {
+        \sum_{k_2 = 1}^{m} {
         [A]_{k_1,1} [A]_{k_2,2}
         \det {\left[
         b_{k_1},
         b_{k_2},
         \dots,
         \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
-        \right]}
+        \right]}}}
         \\
         = {} &
         \dots \dots \dots \dots
@@ -5514,8 +5521,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{1 \leq k_1, k_2, \dots, k_n \leq m}
-        [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
-        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
+        {[A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+            \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}.
     \end{align*}
 
     记
@@ -5540,12 +5547,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     那么 \(\det {(BA)}\) 等于
     \begin{align*}
         \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
-        \sum_{\substack{
+        {\sum_{\substack{
         k_1, k_2, \dots, k_n\,\text{是} \\
-                j_1, j_2, \dots, j_n\,\text{的排列}
-            }}
-        [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
-        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
+                    j_1, j_2, \dots, j_n\,\text{的排列}
+                }}
+            {[A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+                \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}}.
     \end{align*}
     因为
     \begin{align*}
@@ -5557,7 +5564,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
          &
         \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
-        \det {[b_{j_1}, b_{j_2}, \dots, b_{j_n}]}
+        {\det {[b_{j_1}, b_{j_2}, \dots, b_{j_n}]}}
         \\
          & \qquad \qquad \qquad
         \cdot
@@ -5565,8 +5572,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         k_1, k_2, \dots, k_n\,\text{是} \\
                 j_1, j_2, \dots, j_n\,\text{的排列}
             }}
-        s(k_1, k_2, \dots, k_n)\,
-        [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}.
+        {s(k_1, k_2, \dots, k_n)\,
+            [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}.
     \end{align*}
     注意到, 内层的求和即为
     \begin{align*}
@@ -5836,19 +5843,19 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
              & \det {(J)}
         \\
         = {} & \sum_{i = 1}^{1+t}
-        (-1)^{i+1} [J]_{i,1} \det {(J(i|1))}
+        {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
         \\
         = {} & \sum_{i = 1}^{1}
-        (-1)^{i+1} [J]_{i,1} \det {(J(i|1))}
+        {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
         +
         \sum_{i = 2}^{1+t}
-        (-1)^{i+1} [J]_{i,1} \det {(J(i|1))}
+        {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
         \\
         = {} &
         (-1)^{1+1} [J]_{1,1} \det {(J(1|1))}
         +
         \sum_{i = 2}^{1+t}
-        (-1)^{i+1} 0 \det {(J(i|1))}
+        {(-1)^{i+1} 0 \det {(J(i|1))}}
         \\
         = {} &
         [A]_{1,1} \det {(D)}
@@ -5872,22 +5879,22 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
              & \det {(M)}
         \\
         = {} & \sum_{i = 1}^{m+t}
-        (-1)^{i+1} [M]_{i,1} \det {(M(i|1))}
+        {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-        (-1)^{i+1} [M]_{i,1} \det {(M(i|1))}
+        {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
         +
         \sum_{i = m+1}^{m+t}
-        (-1)^{i+1} [M]_{i,1} \det {(M(i|1))}
+        {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-        (-1)^{i+1} [A]_{i,1} \det {(M(i|1))}
+        {(-1)^{i+1} [A]_{i,1} \det {(M(i|1))}}
         +
         \sum_{i = m+1}^{m+t}
-        (-1)^{i+1} 0 \det {(M(i|1))}
+        {(-1)^{i+1} 0 \det {(M(i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-        (-1)^{i+1} [A]_{i,1} \det {(M(i|1))}.
+        {(-1)^{i+1} [A]_{i,1} \det {(M(i|1))}}.
     \end{align*}
     注意到, \(1 \leq i \leq m\) 时,
     \begin{align*}
@@ -5906,10 +5913,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         \det {(M)}
         = {} & \sum_{i = 1}^{m}
-        (-1)^{i+1} [A]_{i,1} \det {(A(i|1))} \det {(D)}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))} \det {(D)}}
         \\
         = {} & \left(\sum_{i = 1}^{m}
-            (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}\right) \det {(D)}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}\right)
+        \det {(D)}
         \\
         = {} & \det {(A)} \det {(D)}.
     \end{align*}
@@ -7285,98 +7293,115 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 特别地, 我们可以先求行~\(i\) 的 \(t\)~个数的和
 \begin{align*}
     a_{i,1} + a_{i,2} + \dots + a_{i,t}
-    = \sum_{j = 1}^{t} a_{i,j},
+    = \sum_{j = 1}^{t} {a_{i,j}},
 \end{align*}
 再累加每一行的和, 即得
 \begin{align*}
     S
-    = {} & \sum_{j = 1}^{t} a_{1,j}
-    + \sum_{j = 1}^{t} a_{2,j}
+    = {} & \sum_{j = 1}^{t} {a_{1,j}}
+    + \sum_{j = 1}^{t} {a_{2,j}}
     + \dots
-    + \sum_{j = 1}^{t} a_{s,j}
+    + \sum_{j = 1}^{t} {a_{s,j}}
     \\
     = {} &
     \sum_{i = 1}^{s}
-    \left( \sum_{j = 1}^{t} a_{i,j} \right).
+    {\left( \sum_{j = 1}^{t} a_{i,j} \right)}.
 \end{align*}
 为方便, 我们写
 \begin{align*}
     \sum_{i = 1}^{s}
-    \left( \sum_{j = 1}^{t} a_{i,j} \right)
+    {\left( \sum_{j = 1}^{t} a_{i,j} \right)}
     = \sum_{i = 1}^{s}
-    \sum_{j = 1}^{t} a_{i,j}.
+    {\sum_{j = 1}^{t} {a_{i,j}}}.
 \end{align*}
 这就是所谓的 ``\(2\)~重求和''.
 
 当然, 我们还可以先求列~\(j\) 的 \(s\)~个数的和
 \begin{align*}
     a_{1,j} + a_{2,j} + \dots + a_{s,j}
-    = \sum_{i = 1}^{s} a_{i,j},
+    = \sum_{i = 1}^{s} {a_{i,j}},
 \end{align*}
 再累加每一列的和, 即得
 \begin{align*}
     S
-    = {} & \sum_{i = 1}^{s} a_{i,1}
-    + \sum_{i = 1}^{s} a_{i,2}
+    = {} & \sum_{i = 1}^{s} {a_{i,1}}
+    + \sum_{i = 1}^{s} {a_{i,2}}
     + \dots
-    + \sum_{i = 1}^{s} a_{i,t}
+    + \sum_{i = 1}^{s} {a_{i,t}}
     \\
     = {} &
     \sum_{j = 1}^{t}
-    \left( \sum_{i = 1}^{s} a_{i,j} \right)
+    {\left( \sum_{i = 1}^{s} {a_{i,j}} \right)}
     \\
     = {} &
-    \sum_{j = 1}^{t}
-    \sum_{i = 1}^{s} a_{i,j}.
+    \sum_{j = 1}^{t} {
+    \sum_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
 比较这二次计算的结果, 我们有
 \begin{align*}
-    \sum_{i = 1}^{s} \sum_{j = 1}^{t} a_{i,j}
-    = \sum_{j = 1}^{t} \sum_{i = 1}^{s} a_{i,j}.
+    \sum_{i = 1}^{s} {\sum_{j = 1}^{t} {a_{i,j}}}
+    = \sum_{j = 1}^{t} {\sum_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
 通俗地, 我们可 ``交换求和号的次序'', 而不影响和.
 
 类似地, 我们可引入 ``\(3\)~重求和''
 \begin{align*}
-    \sum_{i = 1}^{s} \sum_{j = 1}^{t} \sum_{k = 1}^{u}
-    a_{i,j,k}
+    \sum_{i = 1}^{s} {
+    \sum_{j = 1}^{t} {
+    \sum_{k = 1}^{u} {
+    a_{i,j,k}}}}
     =
-    \sum_{i = 1}^{s} \left( \sum_{j = 1}^{t} \sum_{k = 1}^{u}
-    a_{i,j,k} \right).
+    \sum_{i = 1}^{s}
+    {\left( \sum_{j = 1}^{t} {
+        \sum_{k = 1}^{u} {
+            a_{i,j,k} }} \right)}.
 \end{align*}
 在此基础上, 我们可引入 ``\(4\)~重求和''
 \begin{align*}
-    \sum_{i = 1}^{s}
-    \sum_{j = 1}^{t} \sum_{k = 1}^{u} \sum_{\ell = 1}^{v}
-    a_{i,j,k,\ell}
+    \sum_{i = 1}^{s} {
+    \sum_{j = 1}^{t} {
+    \sum_{k = 1}^{u} {
+    \sum_{\ell = 1}^{v} {
+    a_{i,j,k,\ell} }}}}
     =
     \sum_{i = 1}^{s}
-    \left( \sum_{j = 1}^{t} \sum_{k = 1}^{u} \sum_{\ell = 1}^{v}
-    a_{i,j,k,\ell} \right).
+    {\left(
+    \sum_{j = 1}^{t} {
+        \sum_{k = 1}^{u} {
+            \sum_{\ell = 1}^{v} {
+                a_{i,j,k,\ell} }}}
+    \right)}.
 \end{align*}
 \(\dots \dots\)
 在此基础上, 我们可引入 ``\(p\)~重求和''
 \begin{align*}
-    \sum_{i_1 = 1}^{n_1} \sum_{i_2 = 1}^{n_2}
+    \sum_{i_1 = 1}^{n_1} {
+    \sum_{i_2 = 1}^{n_2} {
     \dots
-    \sum_{i_{p-1} = 1}^{n_{p-1}} \sum_{i_p = 1}^{n_p}
-    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    \sum_{i_{p-1} = 1}^{n_{p-1}} {
+    \sum_{i_p = 1}^{n_p} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     = \sum_{i_1 = 1}^{n_1}
-    \left( \sum_{i_2 = 1}^{n_2}
-    \dots
-    \sum_{i_{p-1} = 1}^{n_{p-1}} \sum_{i_p = 1}^{n_p}
-    a_{i_1,i_2,\dots,i_{p-1},i_p} \right).
+    {\left(
+    \sum_{i_2 = 1}^{n_2} {
+        \dots
+        \sum_{i_{p-1} = 1}^{n_{p-1}} {
+            \sum_{i_p = 1}^{n_p} {
+                a_{i_1,i_2,\dots,i_{p-1},i_p}}}}
+    \right)}.
 \end{align*}
 特别地, 若 \(n_1 = n_2 = \dots = n_p = n\),
 我们可简单地写
 \begin{align*}
-    \sum_{i_1 = 1}^{n} \sum_{i_2 = 1}^{n}
+    \sum_{i_1 = 1}^{n} {
+    \sum_{i_2 = 1}^{n} {
     \dots
-    \sum_{i_{p-1} = 1}^{n} \sum_{i_p = 1}^{n}
-    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    \sum_{i_{p-1} = 1}^{n} {
+    \sum_{i_p = 1}^{n} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     =
     \sum_{i_1,i_2,\dots,i_p = 1}^{n}
-    a_{i_1,i_2,\dots,i_{p-1},i_p}.
+    {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
 \end{align*}
 
 有时, 虽然被加的数用若干个指标编号,
@@ -7385,7 +7410,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 这时, 我们在求和号下写出指标适合的条件.
 譬如
 \begin{align*}
-         & \sum_{1 \leq i < j \leq n} a_{i,j}
+         & \sum_{1 \leq i < j \leq n} {a_{i,j}}
     \\
     = {} & \hphantom{{} + {}} a_{1,2}
     \\
@@ -7402,7 +7427,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 又譬如, 若 \(\ell\) 是某个不超过 \(n\) 的正整数, 则
 \begin{align*}
     \sum_{\substack{1 \leq i \leq n \\i \neq \ell}}
-    a_i
+    {a_i}
     = a_1 + \dots + a_{\ell-1} + a_{\ell+1} + \dots + a_n.
 \end{align*}
 
@@ -7417,12 +7442,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{aligned}
              & \sum_{i_1,i_2,\dots,i_n
             \,\text{适合}\,R_1\,\text{或}\,R_2}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         \\
         = {} & \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         + \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_2}
-        a_{i_1, i_2, \dots, i_n}.
+        {a_{i_1, i_2, \dots, i_n}}.
     \end{aligned}
     \label{eq:B0104}
 \end{align}
@@ -7432,9 +7457,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     = \sum_{1 \leq i \leq 4} {i}
     + \sum_{5 \leq i \leq 10} {i},
     \\
-     & \sum_{\substack{1 \leq i, j \leq n \\i \neq j}} a_{i,j}
-    = \sum_{1 \leq i < j \leq n} a_{i,j}
-    + \sum_{1 \leq j < i \leq n} a_{i,j}.
+     & \sum_{\substack{1 \leq i, j \leq n \\i \neq j}} {a_{i,j}}
+    = \sum_{1 \leq i < j \leq n} {a_{i,j}}
+    + \sum_{1 \leq j < i \leq n} {a_{i,j}}.
 \end{align*}
 由此可见, 当\emph{不存在}指标适合约束 \(N\) 时
 (也就是说, \(N\) 是 ``空约束'' 时),
@@ -7442,12 +7467,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 我们定义 (或, 约定)
 \begin{align}
     \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
-    a_{i_1, i_2, \dots, i_n} = 0.
+    {a_{i_1, i_2, \dots, i_n}} = 0.
     \label{eq:B0105}
 \end{align}
 譬如,
 \begin{align*}
-    \sum_{1 \leq i < j \leq 1} a_{i,j} = 0.
+    \sum_{1 \leq i < j \leq 1} {a_{i,j}} = 0.
 \end{align*}
 
 为解释此约定, 我们任取一个约束 \(R\).
@@ -7463,17 +7488,17 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 \begin{align*}
          &
     \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
-    a_{i_1, i_2, \dots, i_n}
+    {a_{i_1, i_2, \dots, i_n}}
     \\
     = {} &
     \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,N\,\text{或}\,R}
-    a_{i_1, i_2, \dots, i_n}
+    {a_{i_1, i_2, \dots, i_n}}
     \\
     = {} &
     \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
-    a_{i_1, i_2, \dots, i_n}
+    {a_{i_1, i_2, \dots, i_n}}
     + \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
-    a_{i_1, i_2, \dots, i_n}.
+    {a_{i_1, i_2, \dots, i_n}}.
 \end{align*}
 化简, 即得式~(\ref{eq:B0105}).
 
@@ -7547,99 +7572,117 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 特别地, 我们可以先求行~\(i\) 的 \(t\)~个数的积
 \begin{align*}
     a_{i,1} \cdot a_{i,2} \cdot \dots \cdot a_{i,t}
-    = \prod_{j = 1}^{t} a_{i,j},
+    = \prod_{j = 1}^{t} {a_{i,j}},
 \end{align*}
 再累乘每一行的积, 即得
 \begin{align*}
     P
-    = {} & \prod_{j = 1}^{t} a_{1,j}
-    \cdot \prod_{j = 1}^{t} a_{2,j}
+    = {} & \prod_{j = 1}^{t} {a_{1,j}}
+    \cdot \prod_{j = 1}^{t} {a_{2,j}}
     \cdot \dots
-    \cdot \prod_{j = 1}^{t} a_{s,j}
+    \cdot \prod_{j = 1}^{t} {a_{s,j}}
     \\
     = {} &
     \prod_{i = 1}^{s}
-    \left( \prod_{j = 1}^{t} a_{i,j} \right).
+    {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}.
 \end{align*}
 为方便, 我们写
 \begin{align*}
     \prod_{i = 1}^{s}
-    \left( \prod_{j = 1}^{t} a_{i,j} \right)
+    {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}
     = \prod_{i = 1}^{s}
-    \prod_{j = 1}^{t} a_{i,j}.
+    {\prod_{j = 1}^{t} {a_{i,j}}}.
 \end{align*}
 这就是所谓的 ``\(2\)~重求积''.
 
 当然, 我们还可以先求列~\(j\) 的 \(s\)~个数的积
 \begin{align*}
     a_{1,j} \cdot a_{2,j} \cdot \dots \cdot a_{s,j}
-    = \prod_{i = 1}^{s} a_{i,j},
+    = \prod_{i = 1}^{s} {a_{i,j}},
 \end{align*}
 再累乘每一列的积, 即得
 \begin{align*}
     P
-    = {} & \prod_{i = 1}^{s} a_{i,1}
-    \cdot \prod_{i = 1}^{s} a_{i,2}
+    = {} & \prod_{i = 1}^{s} {a_{i,1}}
+    \cdot \prod_{i = 1}^{s} {a_{i,2}}
     \cdot \dots
-    \cdot \prod_{i = 1}^{s} a_{i,t}
+    \cdot \prod_{i = 1}^{s} {a_{i,t}}
     \\
     = {} &
     \prod_{j = 1}^{t}
-    \left( \prod_{i = 1}^{s} a_{i,j} \right)
+    {\left( \prod_{i = 1}^{s} {a_{i,j}} \right)}
     \\
     = {} &
     \prod_{j = 1}^{t}
-    \prod_{i = 1}^{s} a_{i,j}.
+    {\prod_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
 比较这二次计算的结果, 我们有
 \begin{align*}
-    \prod_{i = 1}^{s} \prod_{j = 1}^{t} a_{i,j}
-    = \prod_{j = 1}^{t} \prod_{i = 1}^{s} a_{i,j}.
+    \prod_{i = 1}^{s} {\prod_{j = 1}^{t} {a_{i,j}}}
+    = \prod_{j = 1}^{t} {\prod_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
 通俗地, 我们可 ``交换求积号的次序'', 而不影响积.
 
 类似地, 我们可引入 ``\(3\)~重求积''
 \begin{align*}
-    \prod_{i = 1}^{s} \prod_{j = 1}^{t} \prod_{k = 1}^{u}
-    a_{i,j,k}
+    \prod_{i = 1}^{s} {
+    \prod_{j = 1}^{t} {
+    \prod_{k = 1}^{u} {
+    a_{i,j,k} }}}
     =
-    \prod_{i = 1}^{s} \left( \prod_{j = 1}^{t} \prod_{k = 1}^{u}
-    a_{i,j,k} \right).
+    \prod_{i = 1}^{s}
+    {\left(
+    \prod_{j = 1}^{t} {
+        \prod_{k = 1}^{u} {
+            a_{i,j,k} }}
+    \right)}.
 \end{align*}
 在此基础上, 我们可引入 ``\(4\)~重求积''
 \begin{align*}
-    \prod_{i = 1}^{s}
-    \prod_{j = 1}^{t} \prod_{k = 1}^{u} \prod_{\ell = 1}^{v}
-    a_{i,j,k,\ell}
+    \prod_{i = 1}^{s} {
+    \prod_{j = 1}^{t} {
+    \prod_{k = 1}^{u} {
+    \prod_{\ell = 1}^{v} {
+    a_{i,j,k,\ell} }}}}
     =
     \prod_{i = 1}^{s}
-    \left( \prod_{j = 1}^{t} \prod_{k = 1}^{u}
-    \prod_{\ell = 1}^{v}
-    a_{i,j,k,\ell} \right).
+    {\left(
+    \prod_{j = 1}^{t} {
+        \prod_{k = 1}^{u} {
+            \prod_{\ell = 1}^{v} {
+                a_{i,j,k,\ell} }}}
+    \right)}.
 \end{align*}
 \(\dots \dots\)
 在此基础上, 我们可引入 ``\(p\)~重求积''
 \begin{align*}
-    \prod_{i_1 = 1}^{n_1} \prod_{i_2 = 1}^{n_2}
+    \prod_{i_1 = 1}^{n_1} {
+    \prod_{i_2 = 1}^{n_2} {
     \dots
-    \prod_{i_{p-1} = 1}^{n_{p-1}} \prod_{i_p = 1}^{n_p}
-    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    \prod_{i_{p-1} = 1}^{n_{p-1}} {
+    \prod_{i_p = 1}^{n_p} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     = \prod_{i_1 = 1}^{n_1}
-    \left( \prod_{i_2 = 1}^{n_2}
-    \dots
-    \prod_{i_{p-1} = 1}^{n_{p-1}} \prod_{i_p = 1}^{n_p}
-    a_{i_1,i_2,\dots,i_{p-1},i_p} \right).
+    {\left(
+    \prod_{i_2 = 1}^{n_2} {
+        \dots
+        \prod_{i_{p-1} = 1}^{n_{p-1}} {
+            \prod_{i_p = 1}^{n_p} {
+                a_{i_1,i_2,\dots,i_{p-1},i_p} }}}
+    \right)}.
 \end{align*}
 特别地, 若 \(n_1 = n_2 = \dots = n_p = n\),
 我们可简单地写
 \begin{align*}
-    \prod_{i_1 = 1}^{n} \prod_{i_2 = 1}^{n}
+    \prod_{i_1 = 1}^{n} {
+    \prod_{i_2 = 1}^{n} {
     \dots
-    \prod_{i_{p-1} = 1}^{n} \prod_{i_p = 1}^{n}
-    a_{i_1,i_2,\dots,i_{p-1},i_p}
+    \prod_{i_{p-1} = 1}^{n} {
+    \prod_{i_p = 1}^{n} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     =
     \prod_{i_1,i_2,\dots,i_p = 1}^{n}
-    a_{i_1,i_2,\dots,i_{p-1},i_p}.
+    {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
 \end{align*}
 
 有时, 虽然被乘的数用若干个指标编号,
@@ -7648,7 +7691,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 这时, 我们在求积号下写出指标适合的条件.
 譬如
 \begin{align*}
-         & \prod_{1 \leq i < j \leq n} a_{i,j}
+         & \prod_{1 \leq i < j \leq n} {a_{i,j}}
     \\
     = {} & \hphantom{{} \cdot {}} a_{1,2}
     \\
@@ -7666,7 +7709,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 又譬如, 若 \(\ell\) 是某个不超过 \(n\) 的正整数, 则
 \begin{align*}
     \prod_{\substack{1 \leq i \leq n \\i \neq \ell}}
-    a_i
+    {a_i}
     = a_1 \cdot \dots \cdot a_{\ell-1}
     \cdot a_{\ell+1} \cdot \dots \cdot a_n.
 \end{align*}
@@ -7682,12 +7725,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{aligned}
              & \prod_{i_1,i_2,\dots,i_n
             \,\text{适合}\,R_1\,\text{或}\,R_2}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         \\
         = {} & \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         \cdot \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_2}
-        a_{i_1, i_2, \dots, i_n}.
+        {a_{i_1, i_2, \dots, i_n}}.
     \end{aligned}
     \label{eq:B0204}
 \end{align}
@@ -7697,9 +7740,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     = \prod_{1 \leq i \leq 4} {i}
     \cdot \prod_{5 \leq i \leq 10} {i},
     \\
-     & \prod_{\substack{1 \leq i, j \leq n \\i \neq j}} a_{i,j}
-    = \prod_{1 \leq i < j \leq n} a_{i,j}
-    \cdot \prod_{1 \leq j < i \leq n} a_{i,j}.
+     & \prod_{\substack{1 \leq i, j \leq n \\i \neq j}} {a_{i,j}}
+    = \prod_{1 \leq i < j \leq n} {a_{i,j}}
+    \cdot \prod_{1 \leq j < i \leq n} {a_{i,j}}.
 \end{align*}
 由此可见, 当\emph{不存在}指标适合约束 \(N\) 时
 (也就是说, \(N\) 是 ``空约束'' 时),
@@ -7707,18 +7750,18 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 我们定义 (或, 约定)
 \begin{align}
     \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
-    a_{i_1, i_2, \dots, i_n} = 1.
+    {a_{i_1, i_2, \dots, i_n}} = 1.
     \label{eq:B0205}
 \end{align}
 譬如,
 \begin{align*}
-    \prod_{1 \leq i < j \leq 1} a_{i,j} = 1.
+    \prod_{1 \leq i < j \leq 1} {a_{i,j}} = 1.
 \end{align*}
 
 为解释此约定, 我们设
 \begin{align*}
     x = \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
-    a_{i_1, i_2, \dots, i_n}.
+    {a_{i_1, i_2, \dots, i_n}}.
 \end{align*}
 我们\emph{任}取一个约束 \(R\).
 既然不存在指标适合约束 \(N\),
@@ -7734,17 +7777,17 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{aligned}
              &
         \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         \\
         = {} &
         \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N\,\text{或}\,R}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         \\
         = {} &
         \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,N}
-        a_{i_1, i_2, \dots, i_n}
+        {a_{i_1, i_2, \dots, i_n}}
         \cdot \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
-        a_{i_1, i_2, \dots, i_n}.
+        {a_{i_1, i_2, \dots, i_n}}.
     \end{aligned}
     \label{eq:B0206}
 \end{align}
@@ -8107,7 +8150,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     (根据定义, \(1\) 也不是素数.)
 
     我们证明:
-    \emph{一定可写一个正整数为若干个素数的积}.
+    \emph{一定可写一个高于 \(1\)~的正整数为若干个素数的积}.
     具体地, 设命题 \(P(n)\):
     存在若干个素数
     \(p_1\), \(p_2\), \(\dots\), \(p_k\) 使
@@ -8151,8 +8194,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
     现在, 设 \(R(m-1)\) 是正确的.
     我要由此证 \(R(m)\) 也是正确的.
-    (这跟 "设 \(R(n)\) 是正确的,
-    由此证 \(R(n+1)\) 是正确的"
+    (这跟 ``设 \(R(n)\) 是正确的,
+    由此证 \(R(n+1)\) 是正确的''
     的本质是一样的;
     我只是换 \(n\) 为 \(m-1\) 罢了.
     您当然也可换 \(\ell\) 为 \(\ell+1\).
@@ -9186,7 +9229,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
             (-1)^{n+1} a_{n,1} M_{n,1}
             \\
             = {} &
-            \sum_{i = 1}^{n} (-1)^{i+1} a_{i,1} M_{i,1}.
+            \sum_{i = 1}^{n} {(-1)^{i+1} a_{i,1} M_{i,1}}.
         \end{aligned}
         \label{eq:C0203}
     \end{align}
@@ -9679,93 +9722,93 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
              & \det {(A)}
         \\
         = {} &
-        \sum_{d_1 = 1}^{n} (-1)^{d_1+1} [A]_{d_1,1}
-        \det {(A(d_1|1))}
+        \sum_{d_1 = 1}^{n} {(-1)^{d_1+1} [A]_{d_1,1}
+        \det {(A(d_1|1))}}
         \\
         = {} &
-        \sum_{d_1 = 1}^{n} (-1)^{d_1+1} [A]_{d_1,1}
+        \sum_{d_1 = 1}^{n} {(-1)^{d_1+1} [A]_{d_1,1}
         \sum_{\substack{1 \leq d_2 \leq n     \\d_2 \neq d_1}}
-        (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
-        \det {(A(d_1,d_2|1,2))}
+        {(-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
+            \det {(A(d_1,d_2|1,2))}}}
         \\
         = {} &
         \sum_{d_1 = 1}^{n}
-        \sum_{\substack{1 \leq d_2 \leq n     \\d_2 \neq d_1}}
-        (-1)^{d_1+1} [A]_{d_1,1}
-        (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
-        \det {(A(d_1,d_2|1,2))}
+        {\sum_{\substack{1 \leq d_2 \leq n    \\d_2 \neq d_1}}
+        {(-1)^{d_1+1} [A]_{d_1,1}
+            (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
+            \det {(A(d_1,d_2|1,2))}}}
         \\
         = {} &
         \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 \neq d_2}}
-        (-1)^{d_1+1} [A]_{d_1,1}
-        (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
-        \det {(A(d_1,d_2|1,2))}
+        {(-1)^{d_1+1} [A]_{d_1,1}
+            (-1)^{d_2 - \rho(d_2,d_1) + 1} [A]_{d_2,2}
+            \det {(A(d_1,d_2|1,2))}}
         \\
         = {} &
         \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 \neq d_2}}
-        (-1)^{\rho(d_1,d_2)}
-        [A]_{d_1,1} [A]_{d_2,2}
-        (-1)^{d_1+d_2+1+2}
-        \det {(A(d_1,d_2|1,2))}
+        {(-1)^{\rho(d_1,d_2)}
+                [A]_{d_1,1} [A]_{d_2,2}
+            (-1)^{d_1+d_2+1+2}
+            \det {(A(d_1,d_2|1,2))}}
         \\
         = {} &
         \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 < d_2}}
-        (-1)^{\rho(d_1,d_2)}
-        [A]_{d_1,1} [A]_{d_2,2}
-        (-1)^{d_1+d_2+1+2}
-        \det {(A(d_1,d_2|1,2))}
+        {(-1)^{\rho(d_1,d_2)}
+                [A]_{d_1,1} [A]_{d_2,2}
+            (-1)^{d_1+d_2+1+2}
+            \det {(A(d_1,d_2|1,2))}}
         \\
              & \quad +
         \sum_{\substack{1 \leq d_1,d_2 \leq n \\d_1 > d_2}}
-        (-1)^{\rho(d_1,d_2)}
-        [A]_{d_1,1} [A]_{d_2,2}
-        (-1)^{d_1+d_2+1+2}
-        \det {(A(d_1,d_2|1,2))}
+        {(-1)^{\rho(d_1,d_2)}
+                [A]_{d_1,1} [A]_{d_2,2}
+            (-1)^{d_1+d_2+1+2}
+            \det {(A(d_1,d_2|1,2))}}
         \\
         = {} &
         \sum_{\substack{1 \leq i,k \leq n     \\i < k}}
-        (-1)^{\rho(i,k)}
-        [A]_{i,1} [A]_{k,2}
-        (-1)^{i+k+1+2}
-        \det {(A(i,k|1,2))}
+        {(-1)^{\rho(i,k)}
+                [A]_{i,1} [A]_{k,2}
+            (-1)^{i+k+1+2}
+            \det {(A(i,k|1,2))}}
         \\
              & \quad +
         \sum_{\substack{1 \leq k,i \leq n     \\k > i}}
-        (-1)^{\rho(k,i)}
-        [A]_{k,1} [A]_{i,2}
-        (-1)^{k+i+1+2}
-        \det {A(k,i|1,2)}
+        {(-1)^{\rho(k,i)}
+                [A]_{k,1} [A]_{i,2}
+            (-1)^{k+i+1+2}
+            \det {A(k,i|1,2)}}
         \\
         = {} &
         \sum_{1 \leq i < k \leq n}
-        ([A]_{i,1} [A]_{k,2} - [A]_{k,1} [A]_{i,2})\,
+        {([A]_{i,1} [A]_{k,2} - [A]_{k,1} [A]_{i,2})\,
         (-1)^{i+k+1+2}
-        \det {(A(i,k|1,2))}
+        \det {(A(i,k|1,2))}}
         \\
         = {} &
         \sum_{1 \leq i < k \leq n}
-        \det {
-            \begin{bmatrix}
-                [A]_{i,1} & [A]_{i,2} \\
-                [A]_{k,1} & [A]_{k,2} \\
-            \end{bmatrix}
-        }
-        (-1)^{i+k+1+2}
-        \det {(A(i,k|1,2))}.
+        {\det {
+                \begin{bmatrix}
+                    [A]_{i,1} & [A]_{i,2} \\
+                    [A]_{k,1} & [A]_{k,2} \\
+                \end{bmatrix}
+            }
+            (-1)^{i+k+1+2}
+            \det {(A(i,k|1,2))}}.
     \end{align*}
     (事实上, 这就是按前~\(2\)~列展开行列式的公式.)
     同理,
     \begin{align*}
         \det {(B)}
         = \sum_{1 \leq i < k \leq n}
-        \det {
-            \begin{bmatrix}
-                [B]_{i,1} & [B]_{i,2} \\
-                [B]_{k,1} & [B]_{k,2} \\
-            \end{bmatrix}
-        }
-        (-1)^{i+k+1+2}
-        \det {(B(i,k|1,2))}.
+        {\det {
+                \begin{bmatrix}
+                    [B]_{i,1} & [B]_{i,2} \\
+                    [B]_{k,1} & [B]_{k,2} \\
+                \end{bmatrix}
+            }
+            (-1)^{i+k+1+2}
+            \det {(B(i,k|1,2))}}.
     \end{align*}
     注意到, \(A\), \(B\) 除了列 \(1\), \(2\) 外,
     完全相同,
@@ -9812,15 +9855,15 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{i = 1}^{n}
-        (-1)^{i+1} [B]_{i,1} \det {(B(i|1))}
+        {(-1)^{i+1} [B]_{i,1} \det {(B(i|1))}}
         \\
         = {} &
         \sum_{i = 1}^{n}
-        (-1)^{i+1} [A]_{i,1} (-\det {(A(i|1))})
+        {(-1)^{i+1} [A]_{i,1} (-\det {(A(i|1))})}
         \\
         = {} &
         {-\sum_{i = 1}^{n}
-                (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}}
         \\
         = {} & {-\det {(A)}}.
     \end{align*}
@@ -9914,10 +9957,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     = {} & (-1)^{j-1} \det {(B_{j-1})}
     \\
     = {} & \sum_{i = 1}^{n}
-    (-1)^{j-1} (-1)^{i+1} [B]_{i,1} \det {(B_{j-1}(i|1))}
+    {(-1)^{j-1} (-1)^{i+1} [B]_{i,1} \det {(B_{j-1}(i|1))}}
     \\
     = {} & \sum_{i = 1}^{n}
-    (-1)^{i+j} [A]_{i,j} \det {(A(i|1))}.
+    {(-1)^{i+j} [A]_{i,j} \det {(A(i|1))}}.
 \end{align*}
 
 看来, 反称性也是一个好用的性质
@@ -10032,14 +10075,14 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \\
     = {} &
     \sum_{i = 1}^{n}
-    (-1)^{i+2} [B]_{i,2} \det {(B(i|2))}
+    {(-1)^{i+2} [B]_{i,2} \det {(B(i|2))}}
     \\
     = {} &
     \sum_{i = 1}^{n}
-    (-1)^{i+2} [A]_{i,1} \det {(A(i|1))}
+    {(-1)^{i+2} [A]_{i,1} \det {(A(i|1))}}
     \\
-    = {} & {-\sum_{i = 1}^{n}}
-    (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+    = {} & {-\sum_{i = 1}^{n}
+    {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}}
     \\
     = {} & {-\det {(A)}}.
 \end{align*}
@@ -10130,47 +10173,46 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         f + \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k+1} [A]_{k,1} \det {(A(k|1))}
+        {(-1)^{k+1} [A]_{k,1} \det {(A(k|1))}}
         \\
         = {} &
         f + \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k+1} [A]_{k,1}
+        {(-1)^{k+1} [A]_{k,1}
         \sum_{j = 2}^{m}
-        (-1)^{i - \rho(i,k) + j - 1}
-        [A]_{i,j} \det {(A(k,i|1,j))}
+        {(-1)^{i - \rho(i,k) + j - 1}
+            [A]_{i,j} \det {(A(k,i|1,j))}}}
         \\
         = {} &
         f + \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        \sum_{j = 2}^{m}
-        (-1)^{k+1} [A]_{k,1}
+        {\sum_{j = 2}^{m}
+        {(-1)^{k+1} [A]_{k,1}
         (-1)^{i - \rho(i,k) + j - 1}
-        [A]_{i,j} \det {(A(k,i|1,j))}
+            [A]_{i,j} \det {(A(k,i|1,j))}}}
         \\
         = {} &
         f + \sum_{j = 2}^{m}
+        {\sum_{\substack{1 \leq k \leq m    \\k \neq i}}
+        {(-1)^{k+1} [A]_{k,1}
+            (-1)^{i - \rho(i,k) + j - 1}
+                [A]_{i,j} \det {(A(k,i|1,j))}}}
+        \\
+        = {} &
+        f + \sum_{j = 2}^{m}
+        {\sum_{\substack{1 \leq k \leq m    \\k \neq i}}
+        {(-1)^{i+j} [A]_{i,j}
+            (-1)^{k - \rho(k,i) + 1}
+                [A]_{k,1} \det {(A(k,i|1,j))}}}
+        \\
+        = {} &
+        f + \sum_{j = 2}^{m}
+        {(-1)^{i+j} [A]_{i,j}
         \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
-        (-1)^{k+1} [A]_{k,1}
-        (-1)^{i - \rho(i,k) + j - 1}
-        [A]_{i,j} \det {(A(k,i|1,j))}
+        {(-1)^{k - \rho(k,i) + 1}
+                [A]_{k,1} \det {(A(k,i|1,j))}}}
         \\
         = {} &
         f + \sum_{j = 2}^{m}
-        \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
-        (-1)^{i+j} [A]_{i,j}
-        (-1)^{k - \rho(k,i) + 1}
-        [A]_{k,1} \det {(A(k,i|1,j))}
-        \\
-        = {} &
-        f + \sum_{j = 2}^{m}
-        (-1)^{i+j} [A]_{i,j}
-        \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
-        (-1)^{k - \rho(k,i) + 1}
-        [A]_{k,1} \det {(A(k,i|1,j))}
-        \\
-        = {} &
-        f + \sum_{j = 2}^{m}
-        (-1)^{i+j} [A]_{i,j}
-        \det {(A(i|j))}.
+        {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
     \end{align*}
     所以, \(P(m)\) 是正确的.
     由数学归纳法原理, 待证命题成立.
@@ -10190,14 +10232,14 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 对任何数 \(x\), 与任何正整数 \(s\),
 必有
 \begin{align*}
-    x = \frac{1}{s} \sum_{j = 1}^{s} x.
+    x = \frac{1}{s} \sum_{j = 1}^{s} {x}.
 \end{align*}
 另一方面, 我们已知,
 对每一个 \(s\) 级阵 \(B\),
 与每一个不超过 \(s\) 的正整数 \(j\),
 \begin{align*}
     \det {(B)}
-    = \sum_{i = 1}^{s} (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}.
+    = \sum_{i = 1}^{s} {(-1)^{i+j} [B]_{i,j} \det {(B(i|j))}}.
 \end{align*}
 最后, 注意到, 既然
 \([A]_{i,j} = [A^{\mathrm{T}}]_{j,i}\),
@@ -10212,47 +10254,47 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     = {} &
     \frac{1}{m}
     \sum_{j=1}^{m}
-    \det {(A^{\mathrm{T}})}
+    {\det {(A^{\mathrm{T}})}}
     \\
     = {} &
     \frac{1}{m}
-    \sum_{j=1}^{m}
-    \sum_{i=1}^{m}
+    \sum_{j=1}^{m} {
+    \sum_{i=1}^{m} {
     (-1)^{i+j} [A^{\mathrm{T}}]_{i,j}
-    \det {(A^{\mathrm{T}}(i|j))}
+    \det {(A^{\mathrm{T}}(i|j))}}}
     \\
     = {} &
     \frac{1}{m}
-    \sum_{j=1}^{m}
-    \sum_{i=1}^{m}
+    \sum_{j=1}^{m} {
+    \sum_{i=1}^{m} {
     (-1)^{i+j} [A]_{j,i}
-    \det {((A(j|i))^{\mathrm{T}})}
+    \det {((A(j|i))^{\mathrm{T}})}}}
     \\
     = {} &
     \frac{1}{m}
-    \sum_{j=1}^{m}
-    \sum_{i=1}^{m}
+    \sum_{j=1}^{m} {
+    \sum_{i=1}^{m} {
     (-1)^{i+j} [A]_{j,i}
-    \det {(A(j|i))}
+    \det {(A(j|i))}}}
     \\
     = {} &
     \frac{1}{m}
-    \sum_{j=1}^{m}
-    \sum_{i=1}^{m}
+    \sum_{j=1}^{m} {
+    \sum_{i=1}^{m} {
     (-1)^{j+i} [A]_{j,i}
-    \det {(A(j|i))}
+    \det {(A(j|i))}}}
     \\
     = {} &
     \frac{1}{m}
-    \sum_{i=1}^{m}
-    \sum_{j=1}^{m}
+    \sum_{i=1}^{m} {
+    \sum_{j=1}^{m} {
     (-1)^{j+i} [A]_{j,i}
-    \det {(A(j|i))}
+    \det {(A(j|i))}}}
     \\
     = {} &
     \frac{1}{m}
     \sum_{i=1}^{m}
-    \det {(A)}
+    {\det {(A)}}
     \\
     = {} & \det {(A)}.
 \end{align*}
@@ -10494,18 +10536,18 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
              & \tau (a_1, a_2, \dots, a_m)
         \\
         = {} &
-        \sum_{1 \leq i < j \leq m} \rho(a_i, a_j)
+        \sum_{1 \leq i < j \leq m} {\rho(a_i, a_j)}
         \\
         = {} &
         \sum_{\substack{1 \leq i < j \leq m \\i,j \neq k}}
-        \rho(a_i, a_j)
-        + \sum_{k < j \leq m} \rho(a_k, a_j)
-        + \sum_{1 \leq i < k} \rho(a_i, a_k)
+        {\rho(a_i, a_j)}
+        + \sum_{k < j \leq m} {\rho(a_k, a_j)}
+        + \sum_{1 \leq i < k} {\rho(a_i, a_k)}
         \\
         = {} &
         \tau (a_1, \dots, a_{k-1}, a_{k+1}, \dots, a_m)
-        + \sum_{k < j \leq m} 1
-        + \sum_{1 \leq i < k} 0
+        + \sum_{k < j \leq m} {1}
+        + \sum_{1 \leq i < k} {0}
         \\
         = {} &
         T_{m-1} + (m - k).
@@ -10644,14 +10686,14 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         1 \leq i_1, i_2, \dots, i_n \leq n \\
                 i_1, i_2, \dots, i_n\,\text{互不相同}
             }}
-        s(i_1, i_2, \dots, i_n)\,
-        [U]_{i_1,1} [U]_{i_2,2} \dots [U]_{i_n,n}
+        {s(i_1, i_2, \dots, i_n)\,
+            [U]_{i_1,1} [U]_{i_2,2} \dots [U]_{i_n,n}}
         \\
         = {} & \sum_{\substack{
         1 \leq i_1, i_2, \dots, i_n \leq n \\
                 i_1, i_2, \dots, i_n\,\text{互不相同}
             }}
-        s(i_1, i_2, \dots, i_n).
+        {s(i_1, i_2, \dots, i_n)}.
     \end{align*}
     我问一个简单的问题:
     设有 \(k\)~个数, 每一个都是 \(1\) 或 \(-1\).
@@ -10758,8 +10800,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     1 \leq i_1, i_2, \dots, i_n \leq n \\
             i_1, i_2, \dots, i_n\,\text{互不相同}
         }}
-    \sigma (i_1, i_2, \dots, i_n)\,
-    [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}.
+    {\sigma (i_1, i_2, \dots, i_n)\,
+        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
 \end{align*}
 问题来了: \(\sigma (i_1, i_2, \dots, i_n)\)
 究竟是什么呢?
@@ -10922,9 +10964,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
          &
         \det {(A)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        \det {\left(
-            A\binom{i_1, i_2, \dots, i_k}{j_1, j_2, \dots, j_k}
-            \right)}
+        {\det {\left(
+                A\binom{i_1, i_2, \dots, i_k}
+                {j_1, j_2, \dots, j_k}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -11090,9 +11133,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
          &
         \det {(J)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m+n}
-        \det {\left(
-            J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
-            \right)}
+        {\det {\left(
+                J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -11120,9 +11163,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
          &
         \det {(J)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m}
-        \det {\left(
-            J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
-            \right)}
+        {\det {\left(
+                J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
+                \right)}}
         \\
          &
         \qquad \qquad \qquad
@@ -11162,10 +11205,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{1 \leq k_1 < k_2 < \dots < k_n \leq n}
-        \det {\left(
-            T_{i_1,i_2,\dots,i_n}
-            \binom{k_1, k_2, \dots, k_n}{i_1, i_2, \dots, i_n}
-            \right)}
+        {\det {\left(
+                T_{i_1,i_2,\dots,i_n}
+                \binom{k_1, k_2, \dots, k_n}{i_1, i_2, \dots, i_n}
+                \right)}}
         \\
              &
         \qquad
@@ -11229,9 +11272,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         \det {(J)}
         = {} & \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m}
-        \det {\left(
-            A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
-            \right)}
+        {\det {\left(
+                A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
+                \right)}}
         \\
              & \qquad
         \cdot
@@ -11274,13 +11317,13 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         \det {(J)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m}
-        \det {\left(
-            B
-            \binom{1,2,\dots,n}{i_1,i_2,\dots,i_n}
-            \right)}
-        \det {\left(
-            A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
-            \right)}.
+        {\det {\left(
+                B
+                \binom{1,2,\dots,n}{i_1,i_2,\dots,i_n}
+                \right)}
+            \det {\left(
+                A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
+                \right)}}.
     \end{align*}
 
     另一方面, 我们也可用行列式的性质,
@@ -11296,14 +11339,22 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         J_1 =
         \begin{bmatrix}
-            1          & 0          & \cdots & 0          & 0       & [A]_{1,2} & \cdots & [A]_{1,n} \\
-            0          & 1          & \cdots & 0          & 0       & [A]_{2,2} & \cdots & [A]_{2,n} \\
-            \vdots     & \vdots     & {}     & \vdots     & \vdots  & \vdots    & {}     & \vdots    \\
-            0          & 0          & \cdots & 1          & 0       & [A]_{m,2} & \cdots & [A]_{m,n} \\
-            -[B]_{1,1} & -[B]_{1,2} & \cdots & -[B]_{1,m} & p_{1,1} & 0         & \cdots & 0         \\
-            -[B]_{2,1} & -[B]_{2,2} & \cdots & -[B]_{2,m} & p_{2,1} & 0         & \cdots & 0         \\
-            \vdots     & \vdots     & {}     & \vdots     & \vdots  & \vdots    & {}     & \vdots    \\
-            -[B]_{n,1} & -[B]_{n,2} & \cdots & -[B]_{n,m} & p_{n,1} & 0         & \cdots & 0         \\
+            1          & 0          & \cdots & 0          &
+            0          & [A]_{1,2}  & \cdots & [A]_{1,n}    \\
+            0          & 1          & \cdots & 0          &
+            0          & [A]_{2,2}  & \cdots & [A]_{2,n}    \\
+            \vdots     & \vdots     & {}     & \vdots     &
+            \vdots     & \vdots     & {}     & \vdots       \\
+            0          & 0          & \cdots & 1          &
+            0          & [A]_{m,2}  & \cdots & [A]_{m,n}    \\
+            -[B]_{1,1} & -[B]_{1,2} & \cdots & -[B]_{1,m} &
+            p_{1,1}    & 0          & \cdots & 0            \\
+            -[B]_{2,1} & -[B]_{2,2} & \cdots & -[B]_{2,m} &
+            p_{2,1}    & 0          & \cdots & 0            \\
+            \vdots     & \vdots     & {}     & \vdots     &
+            \vdots     & \vdots     & {}     & \vdots       \\
+            -[B]_{n,1} & -[B]_{n,2} & \cdots & -[B]_{n,m} &
+            p_{n,1}    & 0          & \cdots & 0            \\
         \end{bmatrix},
     \end{align*}
     其中
@@ -11336,14 +11387,22 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \begin{align*}
         J_2 =
         \begin{bmatrix}
-            1          & 0          & \cdots & 0          & 0       & 0       & \cdots & [A]_{1,n} \\
-            0          & 1          & \cdots & 0          & 0       & 0       & \cdots & [A]_{2,n} \\
-            \vdots     & \vdots     & {}     & \vdots     & \vdots  & \vdots  & {}     & \vdots    \\
-            0          & 0          & \cdots & 1          & 0       & 0       & \cdots & [A]_{m,n} \\
-            -[B]_{1,1} & -[B]_{1,2} & \cdots & -[B]_{1,m} & p_{1,1} & p_{1,2} & \cdots & 0         \\
-            -[B]_{2,1} & -[B]_{2,2} & \cdots & -[B]_{2,m} & p_{2,1} & p_{2,2} & \cdots & 0         \\
-            \vdots     & \vdots     & {}     & \vdots     & \vdots  & \vdots  & {}     & \vdots    \\
-            -[B]_{n,1} & -[B]_{n,2} & \cdots & -[B]_{n,m} & p_{n,1} & p_{n,2} & \cdots & 0         \\
+            1          & 0          & \cdots & 0          &
+            0          & 0          & \cdots & [A]_{1,n}    \\
+            0          & 1          & \cdots & 0          &
+            0          & 0          & \cdots & [A]_{2,n}    \\
+            \vdots     & \vdots     & {}     & \vdots     &
+            \vdots     & \vdots     & {}     & \vdots       \\
+            0          & 0          & \cdots & 1          &
+            0          & 0          & \cdots & [A]_{m,n}    \\
+            -[B]_{1,1} & -[B]_{1,2} & \cdots & -[B]_{1,m} &
+            p_{1,1}    & p_{1,2}    & \cdots & 0            \\
+            -[B]_{2,1} & -[B]_{2,2} & \cdots & -[B]_{2,m} &
+            p_{2,1}    & p_{2,2}    & \cdots & 0            \\
+            \vdots     & \vdots     & {}     & \vdots     &
+            \vdots     & \vdots     & {}     & \vdots       \\
+            -[B]_{n,1} & -[B]_{n,2} & \cdots & -[B]_{n,m} &
+            p_{n,1}    & p_{n,2}    & \cdots & 0            \\
         \end{bmatrix},
     \end{align*}
     其中
@@ -11381,14 +11440,22 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         J_n
         = {} &
         \begin{bmatrix}
-            1          & 0          & \cdots & 0          & 0       & 0       & \cdots & 0       \\
-            0          & 1          & \cdots & 0          & 0       & 0       & \cdots & 0       \\
-            \vdots     & \vdots     & {}     & \vdots     & \vdots  & \vdots  & {}     & \vdots  \\
-            0          & 0          & \cdots & 1          & 0       & 0       & \cdots & 0       \\
-            -[B]_{1,1} & -[B]_{1,2} & \cdots & -[B]_{1,m} & p_{1,1} & p_{1,2} & \cdots & p_{1,n} \\
-            -[B]_{2,1} & -[B]_{2,2} & \cdots & -[B]_{2,m} & p_{2,1} & p_{2,2} & \cdots & p_{2,n} \\
-            \vdots     & \vdots     & {}     & \vdots     & \vdots  & \vdots  & {}     & \vdots  \\
-            -[B]_{n,1} & -[B]_{n,2} & \cdots & -[B]_{n,m} & p_{n,1} & p_{n,2} & \cdots & p_{n,n} \\
+            1          & 0          & \cdots & 0          &
+            0          & 0          & \cdots & 0            \\
+            0          & 1          & \cdots & 0          &
+            0          & 0          & \cdots & 0            \\
+            \vdots     & \vdots     & {}     & \vdots     &
+            \vdots     & \vdots     & {}     & \vdots       \\
+            0          & 0          & \cdots & 1          &
+            0          & 0          & \cdots & 0            \\
+            -[B]_{1,1} & -[B]_{1,2} & \cdots & -[B]_{1,m} &
+            p_{1,1}    & p_{1,2}    & \cdots & p_{1,n}      \\
+            -[B]_{2,1} & -[B]_{2,2} & \cdots & -[B]_{2,m} &
+            p_{2,1}    & p_{2,2}    & \cdots & p_{2,n}      \\
+            \vdots     & \vdots     & {}     & \vdots     &
+            \vdots     & \vdots     & {}     & \vdots       \\
+            -[B]_{n,1} & -[B]_{n,2} & \cdots & -[B]_{n,m} &
+            p_{n,1}    & p_{n,2}    & \cdots & p_{n,n}      \\
         \end{bmatrix}
         \\
         = {} &
@@ -11673,13 +11740,13 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{k = 1}^{m}
-        (-1)^{k + 1} [C]_{k,1} \det {(C(k|1))}
+        {(-1)^{k + 1} [C]_{k,1} \det {(C(k|1))}}
         \\
         = {} &
         (-1)^{i + 1} [C]_{i,1} \det {(C(i|1))}
         +
         \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
-        (-1)^{k + 1} [C]_{k,1} \det {(C(k|1))}
+        {(-1)^{k + 1} [C]_{k,1} \det {(C(k|1))}}
         \\
         = {} &
         (-1)^{i + 1} (s[A]_{i,1} + t[B]_{i,1}) \det {(C(i|1))}
@@ -11688,8 +11755,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \quad
         +
         \sum_{\substack{1 \leq k \leq m     \\k \neq i}}
-        (-1)^{k + 1} [C]_{k,1}
-        (s \det {(A(k|1))} + t \det {(B(k|1))})
+        {(-1)^{k + 1} [C]_{k,1}
+            (s \det {(A(k|1))} + t \det {(B(k|1))})}
         \\
         = {} &
         s (-1)^{i + 1} [A]_{i,1} \det {(C(i|1))}
@@ -11697,11 +11764,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
              & \quad
         + s \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k + 1} [C]_{k,1} \det {(A(k|1))}
+        {(-1)^{k + 1} [C]_{k,1} \det {(A(k|1))}}
         \\
              & \quad
         + t \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k + 1} [C]_{k,1} \det {(B(k|1))}
+        {(-1)^{k + 1} [C]_{k,1} \det {(B(k|1))}}
         \\
         = {} &
         s (-1)^{i + 1} [A]_{i,1} \det {(A(i|1))}
@@ -11709,27 +11776,27 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
              & \quad
         + s \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k + 1} [A]_{k,1} \det {(A(k|1))}
+        {(-1)^{k + 1} [A]_{k,1} \det {(A(k|1))}}
         \\
              & \quad
         + t \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k + 1} [B]_{k,1} \det {(B(k|1))}
+        {(-1)^{k + 1} [B]_{k,1} \det {(B(k|1))}}
         \\
         = {} &
         s (-1)^{i + 1} [A]_{i,1} \det {(A(i|1))}
         + s \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k + 1} [A]_{k,1} \det {(A(k|1))}
+        {(-1)^{k + 1} [A]_{k,1} \det {(A(k|1))}}
         \\
              & \quad
         + t (-1)^{i + 1} [B]_{i,1} \det {(B(i|1))}
         + t \sum_{\substack{1 \leq k \leq m \\k \neq i}}
-        (-1)^{k + 1} [B]_{k,1} \det {(B(k|1))}
+        {(-1)^{k + 1} [B]_{k,1} \det {(B(k|1))}}
         \\
         = {} &
         s \sum_{k = 1}^{m}
-        (-1)^{k + 1} [A]_{k,1} \det {(A(k|1))}
+        {(-1)^{k + 1} [A]_{k,1} \det {(A(k|1))}}
         + t \sum_{k = 1}^{m}
-        (-1)^{k + 1} [B]_{k,1} \det {(B(k|1))}
+        {(-1)^{k + 1} [B]_{k,1} \det {(B(k|1))}}
         \\
         = {} & s \det {(A)} + t \det {(B)}.
     \end{align*}
@@ -11776,7 +11843,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 \begin{align*}
     \det {(A)}
     = \sum_{i = 1}^{m}
-    (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}.
+    {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}.
 \end{align*}
 注意到, 当 \(i\) 既不等于 \(p\), 也不等于 \(q\) 时,
 \(A(i|1)\) 总有二行是完全相同的.
@@ -11958,7 +12025,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
         = {} &
         \sum_{k = 1}^{m}
-        (-1)^{k+1} [B]_{k,1} \det {(B(k|1))}
+        {(-1)^{k+1} [B]_{k,1} \det {(B(k|1))}}
         \\
         = {} &
         (-1)^{i+1} [B]_{i,1} \det {(B(i|1))}
@@ -11966,7 +12033,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
              & \quad
         + \sum_{\substack{1 \leq k \leq m \\k \neq i\\k \neq i+1}}
-        (-1)^{k+1} [B]_{k,1} \det {(B(k|1))}
+        {(-1)^{k+1} [B]_{k,1} \det {(B(k|1))}}
         \\
         = {} &
         (-1)^{i+1} [A]_{i+1,1} \det {(A({i+1}|1))}
@@ -11974,7 +12041,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
              & \quad
         + \sum_{\substack{1 \leq k \leq m \\k \neq i\\k \neq i+1}}
-        (-1)^{k+1} [A]_{k,1} (-\det {(A(k|1))})
+        {(-1)^{k+1} [A]_{k,1} (-\det {(A(k|1))})}
         \\
         = {} &
         {-(-1)^{i+1+1}} [A]_{i+1,1} \det {(A({i+1}|1))}
@@ -11982,11 +12049,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \\
              & \quad
         - \sum_{\substack{1 \leq k \leq m \\k \neq i\\k \neq i+1}}
-        (-1)^{k+1} [A]_{k,1} \det {(A(k|1))}
+        {(-1)^{k+1} [A]_{k,1} \det {(A(k|1))}}
         \\
         = {} &
-        {-\sum_{k = 1}^{m}}
-        (-1)^{k+1} [A]_{k,1} \det {(A(k|1))}
+        {-\sum_{k = 1}^{m}
+        {(-1)^{k+1} [A]_{k,1} \det {(A(k|1))}}}
         \\
         = {} &
         {-\det {(A)}}.
@@ -12109,25 +12176,25 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \\
     = {} &
     \sum_{i = 1}^{m}
-    (-1)^{i+1} [C]_{i,1} \det {(C(i|1))}
+    {(-1)^{i+1} [C]_{i,1} \det {(C(i|1))}}
     \\
     = {} &
     \sum_{i = 1}^{m}
-    (-1)^{i+1} [C]_{i,1} (s\det {(A(i|1))} + t\det {(B(i|1))})
+    {(-1)^{i+1} [C]_{i,1} (s\det {(A(i|1))} + t\det {(B(i|1))})}
     \\
     = {} &
     s \sum_{i = 1}^{m}
-    (-1)^{i+1} [C]_{i,1} \det {(A(i|1))}
+    {(-1)^{i+1} [C]_{i,1} \det {(A(i|1))}}
     +
     t \sum_{i = 1}^{m}
-    (-1)^{i+1} [C]_{i,1} \det {(B(i|1))}
+    {(-1)^{i+1} [C]_{i,1} \det {(B(i|1))}}
     \\
     = {} &
     s \sum_{i = 1}^{m}
-    (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+    {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
     +
     t \sum_{i = 1}^{m}
-    (-1)^{i+1} [B]_{i,1} \det {(B(i|1))}
+    {(-1)^{i+1} [B]_{i,1} \det {(B(i|1))}}
     \\
     = {} &
     s \det {(A)} + t \det {(B)}.
