@@ -3576,18 +3576,18 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}.
     \end{align*}
     不难发现, 若 \(k \neq j\), 则
-    \begin{align*}
+    \begin{math}
         [A]_{i,k} = [B]_{i,k} = [C]_{i,k},
-    \end{align*}
+    \end{math}
     故
-    \begin{align*}
+    \begin{math}
         A(i|j) = B(i|j) = C(i|j).
-    \end{align*}
+    \end{math}
     再注意到
-    \begin{align*}
-        [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j}.
-    \end{align*}
-    从而
+    \begin{math}
+        [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j},
+    \end{math}
+    得
     \begin{align*}
              & \det {(C)}
         \\
@@ -3624,6 +3624,41 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         \qedhere
     \end{align*}
 \end{proof}
+
+多线性有一个较直白的推广.
+具体地,
+对任意不超过 \(n\) 的正整数 \(j\),
+任意 \(n-1\)~个 \(n \times 1\)~阵
+\(a_1\), \(\dots\), \(a_{j-1}\),
+\(a_{j+1}\), \(\dots\), \(a_n\),
+任意 \(\ell\)~个 \(n \times 1\)~阵
+\(b_1\), \(b_2\), \(\dots\), \(b_\ell\),
+任意 \(\ell\)~个数
+\(s_1\), \(s_2\), \(\dots\), \(s_\ell\),
+有
+\begin{align*}
+         & \det
+    {\left[
+            a_1, \dots, a_{j-1},
+            \sum_{k = 1}^{\ell} {s_k b_k},
+            a_{j+1}, \dots, a_n
+            \right]}
+    \\
+    = {} &
+    \sum_{k = 1}^{\ell}
+    {s_k
+    \det {[a_1, \dots, a_{j-1},
+                b_k,
+                a_{j+1}, \dots, a_n]}}.
+\end{align*}
+您可施数学归纳法于 \(\ell\) 以证此事
+(注意到
+\begin{math}
+    s_1 b_1 + \dots + s_\ell b_\ell
+    = (s_1 b_1 + \dots + s_{\ell-1} b_{\ell-1}) + s_\ell b_\ell
+\end{math}%
+);
+事实上, 这就是多次使用多线性的结果.
 
 \begin{theorem}[交错性]
     行列式 (关于列) 是交错性的.
@@ -3736,6 +3771,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 最后, 我要指出,
 行列式关于行也是%
 多线性的、交错性的、反称性的.
+作为练习, 您应当自己说它们.
 
 \section{用行列式的性质确定行列式}
 
@@ -3975,6 +4011,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 最后, 我要指出,
 本节的所有结论也有关于行的版本.
+作为练习, 您应当自己说它们.
 
 \section{阵的积}
 
@@ -11546,7 +11583,8 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 您或许能回忆起, 我在第一章, 节~14 里,
 只是 ``轻描淡写地'' 说:
 ``最后, 我要指出, 行列式关于行也是%
-多线性的、交错性的、反称性的.''
+多线性的、交错性的、反称性的.
+作为练习, 您应当自己说它们.''
 我当时想留此事的论证为您的作业;
 毕竟, 我好像也说过,
 因为一个方阵跟其转置共享行列式,
