@@ -733,52 +733,52 @@
     故当我们用 \(\times\) 时,
     往往有某种深意.
     譬如,
-    \begin{math}
-        \begin{bmatrix}
-            a & c & e \\
-            b & d & f \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        a & c & e \\
+        b & d & f \\
+    \end{bmatrix}
+    \)
     跟
-    \begin{math}
-        \begin{bmatrix}
-            a & d \\
-            b & e \\
-            c & f \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        a & d \\
+        b & e \\
+        c & f \\
+    \end{bmatrix}
+    \)
     的尺寸是不一样的,
     尽管它们都含 \(6\)~个元.
 
     我们说, \(1 \times n\)~阵
-    \begin{math}
-        \begin{bmatrix}
-            [A]_{i,1} & \cdots & [A]_{i,n}
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        [A]_{i,1} & \cdots & [A]_{i,n}
+    \end{bmatrix}
+    \)
     是 \(A\) 的行~\(i\),
     \(m \times 1\)~阵
-    \begin{math}
-        \begin{bmatrix}
-            [A]_{1,j} \\
-            \vdots    \\
-            [A]_{m,j} \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        [A]_{1,j} \\
+        \vdots    \\
+        [A]_{m,j} \\
+    \end{bmatrix}
+    \)
     是 \(A\) 的列~\(j\).
     我们说,
     行~\(i\), 列~\(j\) 交叉处的元 \([A]_{i,j}\)
     是 \(A\) 的 \((i, j)\)-元.
     习惯地, 我们可写 \(1 \times n\)~阵
-    \begin{math}
-        \begin{bmatrix}
-            [A]_{i,1} & \cdots & [A]_{i,n}
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        [A]_{i,1} & \cdots & [A]_{i,n}
+    \end{bmatrix}
+    \)
     为
-    \begin{math}
-        [[A]_{i,1}, \dots, [A]_{i,n}].
-    \end{math}
+    \(
+    [[A]_{i,1}, \dots, [A]_{i,n}].
+    \)
 
     若一个阵的尺寸 \((m, n)\) 适合 \(m = n\),
     就说它是一个方阵.
@@ -840,13 +840,13 @@
 
 \begin{example}
     设
-    \begin{math}
-        A =
-        \begin{bmatrix}
-            a & c & e \\
-            b & d & f \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    A =
+    \begin{bmatrix}
+        a & c & e \\
+        b & d & f \\
+    \end{bmatrix}.
+    \)
     根据定义, \(A^{\mathrm{T}}\) 是一个 \(3 \times 2\)~阵, 且
     \begin{align*}
          & [A^{\mathrm{T}}]_{1,1} = [A]_{1,1} = a,
@@ -857,14 +857,14 @@
         \quad [A^{\mathrm{T}}]_{3,2} = [A]_{2,3} = f.
     \end{align*}
     故
-    \begin{math}
-        A^{\mathrm{T}}
-        = \begin{bmatrix}
-            a & b \\
-            c & d \\
-            e & f \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    A^{\mathrm{T}}
+    = \begin{bmatrix}
+        a & b \\
+        c & d \\
+        e & f \\
+    \end{bmatrix}.
+    \)
 \end{example}
 
 显然, \(A\) 的转置 \(A^{\mathrm{T}}\) 的转置
@@ -872,17 +872,17 @@
 就是 \(A\).
 
 习惯地, 借助转置, 我们可写 \(m \times 1\) 阵
-\begin{math}
-    \begin{bmatrix}
-        [A]_{1,j} \\
-        \vdots    \\
-        [A]_{m,j} \\
-    \end{bmatrix}
-\end{math}
+\(
+\begin{bmatrix}
+    [A]_{1,j} \\
+    \vdots    \\
+    [A]_{m,j} \\
+\end{bmatrix}
+\)
 为
-\begin{math}
-    [ [A]_{1,j}, \dots, [A]_{m,j} ]^{\mathrm{T}}.
-\end{math}
+\(
+[ [A]_{1,j}, \dots, [A]_{m,j} ]^{\mathrm{T}}.
+\)
 
 \vspace{2ex}
 
@@ -907,28 +907,28 @@
 
 \begin{example}
     设
-    \begin{math}
-        A =
-        \begin{bmatrix}
-            1 & 4 & 7 & 10 \\
-            2 & 5 & 8 & 11 \\
-            3 & 6 & 9 & 12 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    A =
+    \begin{bmatrix}
+        1 & 4 & 7 & 10 \\
+        2 & 5 & 8 & 11 \\
+        3 & 6 & 9 & 12 \\
+    \end{bmatrix}.
+    \)
     则
-    \begin{math}
-        A(1|2) =
-        \begin{bmatrix}
-            2 & 8 & 11 \\
-            3 & 9 & 12 \\
-        \end{bmatrix},
-    \end{math}
-    \begin{math}
-        A(3,1|4,2) = A(1,3|2,4) =
-        \begin{bmatrix}
-            2 & 8 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    A(1|2) =
+    \begin{bmatrix}
+        2 & 8 & 11 \\
+        3 & 9 & 12 \\
+    \end{bmatrix},
+    \)
+    \(
+    A(3,1|4,2) = A(1,3|2,4) =
+    \begin{bmatrix}
+        2 & 8 \\
+    \end{bmatrix}.
+    \)
 \end{example}
 
 利用 ``缺项定位公式'', 我们不难写出,
@@ -963,42 +963,42 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 \begin{example}
     设
-    \begin{math}
-        A =
-        \begin{bmatrix}
-            1 & 4 & 7 & 10 \\
-            2 & 5 & 8 & 11 \\
-            3 & 6 & 9 & 12 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    A =
+    \begin{bmatrix}
+        1 & 4 & 7 & 10 \\
+        2 & 5 & 8 & 11 \\
+        3 & 6 & 9 & 12 \\
+    \end{bmatrix}.
+    \)
     则
-    \begin{math}
-        {\displaystyle A\binom{1}{1,3}} =
-        \begin{bmatrix}
-            1 & 7
-        \end{bmatrix}.
-    \end{math}
+    \(
+    {\displaystyle A\binom{1}{1,3}} =
+    \begin{bmatrix}
+        1 & 7
+    \end{bmatrix}.
+    \)
     并且,
-    \begin{math}
-        {\displaystyle A\binom{3,1}{4,2} =
+    \(
+    {\displaystyle A\binom{3,1}{4,2} =
             A\binom{1,3}{2,4}} =
-        \begin{bmatrix}
-            4 & 10 \\
-            6 & 12 \\
-        \end{bmatrix}.
-    \end{math}
+    \begin{bmatrix}
+        4 & 10 \\
+        6 & 12 \\
+    \end{bmatrix}.
+    \)
     注意定义里的 \emph{``原位''} 二字,
     故
-    \begin{math}
-        {\displaystyle A\binom{3,1}{4,2}}
-    \end{math}
+    \(
+    {\displaystyle A\binom{3,1}{4,2}}
+    \)
     \emph{不等于}
-    \begin{math}
-        \begin{bmatrix}
-            12 & 6 \\
-            10 & 4 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    \begin{bmatrix}
+        12 & 6 \\
+        10 & 4 \\
+    \end{bmatrix}.
+    \)
 \end{example}
 
 现在, 我们正式进入数阵的讨论.
@@ -1021,18 +1021,18 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 \begin{example}
     设
-    \begin{math}
-        A = \begin{bmatrix}
-            1 & 3 & 5 \\
-            2 & 4 & 6 \\
-        \end{bmatrix},
-    \end{math}
-    \begin{math}
-        B = \begin{bmatrix}
-            7  & 8  & 9  \\
-            10 & 11 & 12 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    A = \begin{bmatrix}
+        1 & 3 & 5 \\
+        2 & 4 & 6 \\
+    \end{bmatrix},
+    \)
+    \(
+    B = \begin{bmatrix}
+        7  & 8  & 9  \\
+        10 & 11 & 12 \\
+    \end{bmatrix}.
+    \)
     则
     \begin{align*}
         A + B =
@@ -1084,12 +1084,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 \begin{example}
     设
-    \begin{math}
-        A = \begin{bmatrix}
-            1 & 3 & 5 \\
-            2 & 4 & 6 \\
-        \end{bmatrix},
-    \end{math}
+    \(
+    A = \begin{bmatrix}
+        1 & 3 & 5 \\
+        2 & 4 & 6 \\
+    \end{bmatrix},
+    \)
     设 \(k = 7\).
     则
     \begin{align*}
@@ -1146,12 +1146,12 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 \begin{example}
     设
-    \begin{math}
-        A = \begin{bmatrix}
-            a & c \\
-            b & d \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    A = \begin{bmatrix}
+        a & c \\
+        b & d \\
+    \end{bmatrix}
+    \)
     是一个 \(2\)~级阵.
     根据定义,
     \begin{align*}
@@ -2407,11 +2407,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     设 \(c_1\), \(c_2\), \(\dots\), \(c_n\)
     是 \(n\)~个 \(m \times 1\)~阵.
     定义
-    \begin{math}
-        \begin{bmatrix}
-            c_1 & c_2 & \cdots & c_n \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        c_1 & c_2 & \cdots & c_n \\
+    \end{bmatrix}
+    \)
     是一个 \(m \times n\) 阵,
     其中, 对任意不超过 \(m\) 的正整数 \(i\)
     与任意不超过 \(n\) 的正整数 \(j\),
@@ -2424,22 +2424,22 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         = [c_j]_{i,1}.
     \end{align*}
     通俗地,
-    \begin{math}
-        \begin{bmatrix}
-            c_1 & c_2 & \cdots & c_n \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        c_1 & c_2 & \cdots & c_n \\
+    \end{bmatrix}
+    \)
     就是焊接 \(n\)~个 \(m \times 1\) ``小阵''
     \(c_1\), \(c_2\), \(\dots\), \(c_n\)
     为一个 \(m \times n\) ``大阵''
     的结果.
 
     习惯地, 我们可写
-    \begin{math}
-        \begin{bmatrix}
-            c_1 & c_2 & \cdots & c_n \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        c_1 & c_2 & \cdots & c_n \\
+    \end{bmatrix}
+    \)
     为 \([c_1, c_2, \dots, c_n]\).
 \end{definition}
 
@@ -2572,14 +2572,14 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     设 \(r_1\), \(r_2\), \(\dots\), \(r_m\)
     是 \(m\)~个 \(1 \times n\)~阵.
     定义
-    \begin{math}
-        \begin{bmatrix}
-            r_1    \\
-            r_2    \\
-            \vdots \\
-            r_m    \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        r_1    \\
+        r_2    \\
+        \vdots \\
+        r_m    \\
+    \end{bmatrix}
+    \)
     是一个 \(m \times n\) 阵,
     其中, 对任意不超过 \(m\) 的正整数 \(i\)
     与任意不超过 \(n\) 的正整数 \(j\),
@@ -2593,14 +2593,14 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         = [r_i]_{1,j}.
     \end{align*}
     通俗地,
-    \begin{math}
-        \begin{bmatrix}
-            r_1    \\
-            r_2    \\
-            \vdots \\
-            r_m    \\
-        \end{bmatrix}
-    \end{math}
+    \(
+    \begin{bmatrix}
+        r_1    \\
+        r_2    \\
+        \vdots \\
+        r_m    \\
+    \end{bmatrix}
+    \)
     就是焊接 \(m\)~个 \(1 \times n\) ``小阵''
     \(r_1\), \(r_2\), \(\dots\), \(r_m\)
     为一个 \(m \times n\) ``大阵''
@@ -2753,9 +2753,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 \begin{proof}
     作 \(n\)~级阵
-    \begin{math}
-        B = [a_{\ell_1}, a_{\ell_2}, \dots, a_{\ell_n}].
-    \end{math}
+    \(
+    B = [a_{\ell_1}, a_{\ell_2}, \dots, a_{\ell_n}].
+    \)
     注意到, \([B]_{u,v} = [A]_{u,\ell_v}\).
 
     我们完全展开 \(\det {(B)}\).
@@ -3330,20 +3330,20 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 \begin{example}
     \(1\)~级单位阵是 \(1\), 或 \([1]\).
     \(2\)~级单位阵是
-    \begin{math}
-        \begin{bmatrix}
-            1 & 0 \\
-            0 & 1 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{bmatrix}.
+    \)
     \(3\)~级单位阵是
-    \begin{math}
-        \begin{bmatrix}
-            1 & 0 & 0 \\
-            0 & 1 & 0 \\
-            0 & 0 & 1 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+    \end{bmatrix}.
+    \)
 
     一般地, \(n\)~级单位阵含 \(n\)~个 \(1\)
     与 \(n^2 - n\)~个 \(0\),
@@ -3441,11 +3441,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 
 \begin{example}
     设
-    \begin{math}
-        x = \begin{bmatrix}
-            3 \\ 5 \\ 7 \\
-        \end{bmatrix}.
-    \end{math}
+    \(
+    x = \begin{bmatrix}
+        3 \\ 5 \\ 7 \\
+    \end{bmatrix}.
+    \)
     于是
     \begin{align*}
         x =
@@ -3576,17 +3576,17 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
         {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}.
     \end{align*}
     不难发现, 若 \(k \neq j\), 则
-    \begin{math}
-        [A]_{i,k} = [B]_{i,k} = [C]_{i,k},
-    \end{math}
+    \(
+    [A]_{i,k} = [B]_{i,k} = [C]_{i,k},
+    \)
     故
-    \begin{math}
-        A(i|j) = B(i|j) = C(i|j).
-    \end{math}
+    \(
+    A(i|j) = B(i|j) = C(i|j).
+    \)
     再注意到
-    \begin{math}
-        [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j},
-    \end{math}
+    \(
+    [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j},
+    \)
     得
     \begin{align*}
              & \det {(C)}
@@ -3653,10 +3653,10 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 \end{align*}
 您可施数学归纳法于 \(\ell\) 以证此事
 (注意到
-\begin{math}
-    s_1 b_1 + \dots + s_\ell b_\ell
-    = (s_1 b_1 + \dots + s_{\ell-1} b_{\ell-1}) + s_\ell b_\ell
-\end{math}%
+\(
+s_1 b_1 + \dots + s_\ell b_\ell
+= (s_1 b_1 + \dots + s_{\ell-1} b_{\ell-1}) + s_\ell b_\ell
+\)%
 );
 事实上, 这就是多次使用多线性的结果.
 
@@ -5563,11 +5563,11 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \end{align*}
 
     记
-    \begin{math}
-        f(k_1, k_2, \dots, k_n)
-        = [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
-        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
-    \end{math}
+    \(
+    f(k_1, k_2, \dots, k_n)
+    = [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+    \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
+    \)
     根据行列式的交错性,
     当 \(k_1\), \(k_2\), \(\dots\), \(k_n\) 中有二个数相同时,
     \(f(k_1, k_2, \dots, k_n) = 0\).
@@ -8526,9 +8526,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 毕竟, 二元运算是相当自由的.
 
 \begin{example}
-    \begin{math}
-        (11 - 5) - 2 \neq 11 - (5 - 2).
-    \end{math}
+    \(
+    (11 - 5) - 2 \neq 11 - (5 - 2).
+    \)
 \end{example}
 
 不过, 当然, 也有 \((a \circ b) \circ c\)
@@ -8763,9 +8763,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
 故二者不一定相等.
 
 \begin{example}
-    \begin{math}
-        7 - 3 \neq 3 - 7.
-    \end{math}
+    \(
+    7 - 3 \neq 3 - 7.
+    \)
 \end{example}
 
 不过, 当然, 也有 \(a \circ b\)
@@ -10547,9 +10547,9 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \(a_{k+1}\), \(\dots\), \(a_m\)
     是 \(1\), \(2\), \(\dots\), \(m-1\) 的排列.
     由假定, 我们可作
-    \begin{math}
-        T_{m-1} = \tau (a_1, \dots, a_{k-1}, a_{k+1}, \dots, a_m)
-    \end{math}
+    \(
+    T_{m-1} = \tau (a_1, \dots, a_{k-1}, a_{k+1}, \dots, a_m)
+    \)
     次相邻对换,
     变 \(a_1\), \(\dots\), \(a_{k-1}\),
     \(a_{k+1}\), \(\dots\), \(a_m\)
