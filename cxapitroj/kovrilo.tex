@@ -1,0 +1,48 @@
+\pagenumbering{Alph}
+% \thispagestyle{empty}
+
+% The title page is inspired by "The Not So Short
+% Introduction to LaTeX2e"
+\begingroup
+\sffamily
+\newlength{\centeroffset}
+\setlength{\centeroffset}{-0.5\oddsidemargin}
+\addtolength{\centeroffset}{0.5\evensidemargin}
+%\addtolength{\textwidth}{-\centeroffset}
+\thispagestyle{empty}
+\vspace*{\stretch{1}}
+\noindent\hspace*{\centeroffset}\makebox[0pt][l]%
+{%
+    \begin{minipage}{\textwidth}
+        \flushright
+        {\Huge\bfseries\thetitle{}}
+        \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+        \hfill\itshape{\Large%Type the subtitle here
+            或 \pageref{libro:LaLastaPagxo}~分了解行列式}
+    \end{minipage}%
+}\par
+\vspace{\stretch{1}}
+\noindent\hspace*{\centeroffset}\makebox[0pt][l]%
+{%
+    \begin{minipage}{\textwidth}
+        \flushright
+        % \textbf{\theauthor{}}
+        \textbf{%
+            \pdfmarkupcomment[opacity=0]%
+            % One has to protect the marco.
+            % See: https://tex.stackexchange.com/a/117392
+            {\protect\theauthor{}}%
+            {a person who is associated with determinants}%
+        }
+        \\[1ex]
+        % Type the version here
+        版本~2π,
+        \thedate{}
+    \end{minipage}%
+}\par
+%\addtolength{\textwidth}{\centeroffset}
+\vspace{\stretch{2}}%
+\clearpage
+\endgroup
+
+\thispagestyle{empty}\mbox{}\clearpage

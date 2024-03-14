@@ -1,0 +1,1336 @@
+\section{消去律}
+
+本节, 我们讨论一些运算的消去律.
+
+\begin{theorem}
+    设 \(x\), \(y\), \(z\) 是数.
+    若 \(x + y = x + z\), 或 \(y + x = z + x\),
+    则 \(y = z\).
+\end{theorem}
+
+我们知道:
+
+(1)
+存在数 \(0\), 使对任何数 \(a\), 必 \(0 + a = a = a + 0\);
+
+(2)
+对任何数 \(a\), 必存在数 \(-a\), 使 \((-a) + a = 0 = a + (-a)\).
+
+那么, 若 \(x + y = x + z\),
+则
+\begin{align*}
+    (-x) + (x + y) = (-x) + (x + z).
+\end{align*}
+由结合律, 有
+\begin{align*}
+    ((-x) + x) + y = ((-x) + x) + z,
+\end{align*}
+即
+\begin{align*}
+    0 + y = 0 + z.
+\end{align*}
+故 \(y = z\).
+
+类似地, 我们可证,
+若 \(y + x = z + x\), 则 \(y = z\).
+
+类似地:
+
+(3)
+存在 \(m \times n\)~阵 \(0\),
+使对任何 \(m \times n\)~阵 \(X\),
+必 \(0 + X = X = X + 0\);
+
+(4)
+对任何 \(m \times n\)~阵 \(X\),
+必存在 \(m \times n\)~阵 \(-X\),
+使 \((-X) + X = 0 = X + (-X)\).
+
+于是, 我们也有,
+
+\begin{theorem}
+    设 \(A\), \(B\), \(C\) 都是 \(m \times n\)~阵.
+    若 \(A + B = A + C\), 或 \(B + A = C + A\),
+    则 \(B = C\).
+\end{theorem}
+
+又设 \(x\), \(y\), \(z\) 是数.
+那么, 若 \(xy = xz\), 或 \(yx = zx\),
+还有 \(y = z\) 吗?
+不一定.
+毕竟, 对任何数 \(a\), 必 \(0a = 0 = a0\).
+于是, 虽然 \(0 \cdot 1 = 0 \cdot 2\),
+但 \(1 \neq 2\).
+
+可是, 若我们还要求 \(x \neq 0\), 则 \(y = z\) 是对的.
+毕竟:
+
+(5)
+存在数 \(1\), 使对任何数 \(a\), 必 \(1a = a = a1\);
+
+(6)
+对任何非零的数 \(a\), 必存在数 \(a^{-1}\), 使 \(a^{-1} a = 1 = a a^{-1}\).
+
+设 \(x \neq 0\), 且 \(xy = xz\).
+则 \(x^{-1} (xy) = x^{-1} (xz)\).
+由结合律, 有 \((x^{-1} x) y = (x^{-1} x) z\).
+则 \(1y = 1z\).
+则 \(y = z\).
+
+类似地, 可证,
+若 \(x \neq 0\), 且 \(yx = zx\), 则 \(y = z\).
+总之,
+
+\begin{theorem}
+    设 \(x\), \(y\), \(z\) 是数, 且 \(x \neq 0\).
+    若 \(xy = xz\), 或 \(yx = zx\), 则 \(y = z\).
+\end{theorem}
+
+阵的积也有类似的性质.
+不过, 由于阵的积是较复杂的, 相关的事实的论证也是较不简单的.
+
+先看一个较简单的事实.
+
+\begin{theorem}
+    设 \(A\), \(B\) 是 \(m \times n\)~阵.
+    设 \(x \neq 0\) 是一个数.
+    若 \(xA = xB\), 则 \(A = B\).
+\end{theorem}
+
+\begin{proof}
+    任取正整数 \(i \leq m\) 与 \(j \leq n\).
+    则
+    \begin{align*}
+        x [A]_{i,j} = [xA]_{i,j} = [xB]_{i,j} = x [B]_{i,j}.
+    \end{align*}
+    由数的积的性质, 既然 \(x \neq 0\),
+    则必 \([A]_{i,j} = [B]_{i,j}\).
+\end{proof}
+
+以下是本节的主要结论.
+
+\begin{theorem}
+    设 \(A\) 是一个 \(n\)~级阵, 且 \(\det {(A)} \neq 0\).
+
+    设 \(n \times m\)~阵 \(B\), \(C\) 适合 \(AB = AC\).
+    则 \(B = C\).
+
+    设 \(m \times n\)~阵 \(F\), \(G\) 适合 \(FA = GA\).
+    则 \(F = G\).
+\end{theorem}
+
+\begin{proof}
+    我证第~1~个; 我留第~2~个为您的习题.
+
+    设 \(A\) 是一个 \(n\)~级阵, 且 \(\det {(A)} \neq 0\).
+    又设 \(n \times m\)~阵 \(B\), \(C\) 适合 \(AB = AC\).
+    则
+    \begin{align*}
+        \operatorname{adj} {(A)}\, (AB)
+        = \operatorname{adj} {(A)}\, (AC).
+    \end{align*}
+    由结合律,
+    \begin{align*}
+        (\operatorname{adj} {(A)}\, A) B
+        = (\operatorname{adj} {(A)}\, A) C.
+    \end{align*}
+    由古伴的性质,
+    \begin{align*}
+        (\det {(A)}\, I) B = (\det {(A)}\, I) C,
+    \end{align*}
+    即
+    \begin{align*}
+        \det {(A)}\, (I B) = \det {(A)}\, (I C),
+    \end{align*}
+    即
+    \begin{align*}
+        \det {(A)}\, B = \det {(A)}\, C.
+    \end{align*}
+    因为 \(\det {(A)} \neq 0\),
+    我们有 \(B = C\).
+\end{proof}
+
+以上结论也可被推广.
+不过, 还是以上结论更常用, 更常见.
+
+\begin{theorem}
+    设 \(A\) 是一个 \(s \times n\)~阵.
+    设 \(A\) 有一个行列式非零的 \(n\)~级子阵
+    \begin{align*}
+        A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n},
+    \end{align*}
+    其中 \(1 \leq i_1 < \dots < i_n \leq s\).
+    设 \(n \times m\)~阵 \(B\), \(C\) 适合 \(AB = AC\).
+    则 \(B = C\).
+
+    设 \(H\) 是一个 \(n \times t\)~阵.
+    设 \(H\) 有一个行列式非零的 \(n\)~级子阵
+    \begin{align*}
+        H\binom{1,2,\dots,n}{j_1,j_2,\dots,j_n},
+    \end{align*}
+    其中 \(1 \leq j_1 < \dots < j_n \leq t\).
+    设 \(m \times n\)~阵 \(F\), \(G\) 适合 \(FH = GH\).
+    则 \(F = G\).
+\end{theorem}
+
+\begin{proof}
+    我证第~1~个; 我留第~2~个为您的习题.
+
+    记
+    \begin{align*}
+        L = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}.
+    \end{align*}
+    注意到, \([L]_{p,v} = [A]_{i_p,v}\).
+
+    从 \(1\), \(2\), \(\dots\), \(s\)
+    去除 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    后, 还剩 \(s - n\)~个数.
+    我们从小到大地叫这 \(s - n\)~个数为
+    \(i_{n+1}\), \(\dots\), \(i_s\).
+
+    作 \(n \times s\)~阵 \(X\) 如下:
+    \begin{align*}
+        [X]_{u,i_p}
+        = \begin{cases}
+              [\operatorname{adj} {(L)}]_{u,p},
+                 & p \leq n; \\
+              0, & p > n.
+          \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        [XA]_{u,v}
+        = {} &
+        \sum_{p = 1}^{s} {[X]_{u,p} [A]_{p,v}}
+        \\
+        = {} &
+        \sum_{p = 1}^{s} {[X]_{u,i_p} [A]_{i_p,v}}
+        \\
+        = {} &
+        \sum_{p = 1}^{n} {[X]_{u,i_p} [A]_{i_p,v}}
+        + \sum_{p = n+1}^{s} {[X]_{u,i_p} [A]_{i_p,v}}
+        \\
+        = {} &
+        \sum_{p = 1}^{n}
+        {[\operatorname{adj} {(L)}]_{u,p} [L]_{p,v}}
+        + \sum_{p = n+1}^{s} {0\, [A]_{i_p,v}}
+        \\
+        = {} &
+        [\operatorname{adj} {(L)}\, L]_{u,v} + 0
+        \\
+        = {} &
+        [\det {(L)}\,I_n]_{u,v}.
+    \end{align*}
+    故 \(X A = \det {(L)}\, I_n\).
+
+    由 \(AB = AC\), 知
+    \begin{align*}
+        X (AB) = X (AC),
+    \end{align*}
+    即
+    \begin{align*}
+        (X A) B = (X A) C,
+    \end{align*}
+    即
+    \begin{align*}
+        (\det {(L)}\,I_n) B = (\det {(L)}\,I_n) C,
+    \end{align*}
+    即
+    \begin{align*}
+        \det {(L)}\,(I_n B) = \det {(L)}\,(I_n C),
+    \end{align*}
+    即
+    \begin{align*}
+        \det {(L)}\,B = \det {(L)}\,C.
+    \end{align*}
+    因为 \(\det {(L)} \neq 0\),
+    故 \(B = C\).
+\end{proof}
+
+\section{古伴的性质 (1)}
+
+本节, 我们认识古伴的二个性质.
+
+一个 \(n\)~级阵 \(A\) 的古伴 \(\operatorname{adj} {(A)}\)
+是一个 \(n\)~级阵,
+其 \((i, j)\)-元
+\begin{align*}
+    [\operatorname{adj} {(A)}]_{i,j} = (-1)^{j+i} \det {(A(j|i))}.
+\end{align*}
+对任何方阵 \(A\), 有
+\begin{align*}
+    \operatorname{adj} {(A)}\, A
+    = \det {(A)}\, I
+    = A \operatorname{adj} {(A)}.
+\end{align*}
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    则 \(\operatorname{adj} {(A^{\mathrm{T}})}
+    = (\operatorname{adj} {(A)})^{\mathrm{T}}\).
+\end{theorem}
+
+\begin{proof}
+    注意到
+    \(A^{\mathrm{T}} (j|i) = (A (i|j))^{\mathrm{T}}\),
+    故
+    \begin{align*}
+        [\operatorname{adj} {(A^{\mathrm{T}})}]_{i,j}
+        = {} &
+        (-1)^{j+i} \det {(A^{\mathrm{T}} (j|i))}
+        \\
+        = {} &
+        (-1)^{j+i} \det {((A (i|j))^{\mathrm{T}})}
+        \\
+        = {} &
+        (-1)^{i+j} \det {(A (i|j))}
+        \\
+        = {} &
+        [\operatorname{adj} {(A)}]_{j,i}
+        \\
+        = {} &
+        [(\operatorname{adj} {(A)})^{\mathrm{T}}]_{i,j}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
+    则
+    \(\det {(\operatorname{adj} {(A)})} = (\det {(A)})^{n-1}\).
+\end{theorem}
+
+\begin{proof}
+    不难看出, 若 \(B\) 是 \(n\)~级阵, \(k\) 是数, 则
+    \(\det {(kB)} = k^n \det {(B)}\).
+    于是
+    \begin{align*}
+        \det {(A)}\, (\det {(A)})^{n-1}
+        = {} &
+        (\det {(A)})^n
+        \\
+        = {} &
+        (\det {(A)})^n \det {(I)}
+        \\
+        = {} &
+        \det {(\det {(A)} I)}
+        \\
+        = {} &
+        \det {(A \operatorname{adj} {(A)})}
+        \\
+        = {} &
+        \det {(A)} \det {(\operatorname{adj} {(A)})}.
+    \end{align*}
+    若 \(\det {(A)} \neq 0\),
+    我们可在等式的二侧消去它,
+    即得结论.
+
+    % 若 \(\det {(A)} = 0\),
+    % 我们用别的方法说明 \(\det {(\operatorname{adj} {(A)})} = 0\).
+
+    若 \(A = 0\), 则 \(\operatorname{adj} {(A)} = 0\),
+    故 \(\det {(\operatorname{adj} {(A)})} = 0\).
+
+    若 \(A \neq 0\), 且 \(\det {(A)} = 0\),
+    我们用反证法说明
+    \(\det {(\operatorname{adj} {(A)})} = 0\).
+    反设
+    \(\det {(\operatorname{adj} {(A)})} \neq 0\).
+    则
+    \begin{align*}
+        \operatorname{adj} {(A)}\, A
+        = \det {(A)}\, I
+        = 0
+        = \operatorname{adj} {(A)}\, 0.
+    \end{align*}
+    因为
+    \(\det {(\operatorname{adj} {(A)})} \neq 0\),
+    由消去律, 有 \(A = 0\).
+    这是矛盾.
+\end{proof}
+
+\section{古伴的性质 (2)}
+
+本节, 我们讨论古伴的子阵的行列式.
+
+% \(A\) 的古伴来自 \(A\) 的子阵.
+% 自然地, 我们会思考
+% \(A\) 的古伴的子阵与 \(A\) 的子阵的关系.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(k\) 是不超过 \(n\) 的正整数.
+    设正整数 \(i_1\), \(i_2\), \(\dots\), \(i_k\)
+    不超过 \(n\), 且是从小到大的.
+    设正整数 \(j_1\), \(j_2\), \(\dots\), \(j_k\)
+    不超过 \(n\), 且是从小到大的.
+    则
+    \begin{equation}
+        \begin{aligned}
+                 & \det {\left(
+                (\operatorname{adj} {(A)})
+                \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+                \right)}
+            \\
+            = {} &
+            (\det {(A)})^{k-1}\,
+            (-1)^{j_1 + \dots + j_k + i_1 + \dots + i_k}
+            \det {(A({j_1,\dots,j_k}|{i_1,\dots,i_k}))}.
+        \end{aligned}
+        \label{eq:C2401}
+    \end{equation}
+\end{theorem}
+
+此事对 \(k = 1\) 是正确的.
+此时, 等式的左侧即为 \(\operatorname{adj} {(A)}\)
+的 \((i_1, j_1)\)-元,
+而等式的右侧是
+\(1 \, (-1)^{j_1 + i_1} \det {(A(j_1|i_1))}\).
+这正是古伴的定义.
+
+以下设 \(k > 1\).
+
+从 \(1\), \(2\), \(\dots\), \(n\)
+去除 \(i_1\), \(\dots\), \(i_k\) 后,
+还剩 \(n - k\) 个数.
+我们从小到大地叫这 \(n - k\) 个数为
+\(i_{k+1}\), \(\dots\), \(i_n\).
+类似地, 从 \(1\), \(2\), \(\dots\), \(n\)
+去除 \(j_1\), \(\dots\), \(j_k\) 后,
+还剩 \(n - k\) 个数.
+我们从小到大地叫这 \(n - k\) 个数为
+\(j_{k+1}\), \(\dots\), \(j_n\).
+作 \(n\)~级阵 \(B\) 如下:
+\begin{align*}
+    [B]_{i,j_q}
+    = \begin{cases}
+          [\operatorname{adj} {(A)}]_{i,j_q},
+           & q \leq k; \\
+          [I_n]_{i,i_q},
+           & q > k.
+      \end{cases}
+\end{align*}
+形象地, \(B\) 的列 \(j_1\), \(\dots\), \(j_k\)
+分别与 \(\operatorname{adj} {(A)}\) 的列 \(j_1\), \(\dots\), \(j_k\)
+相等,
+但 \(B\) 的列 \(j_{k+1}\), \(\dots\), \(j_n\)
+分别是 \(n\)~级单位阵 \(I_n\) 的列 \(i_{k+1}\), \(\dots\), \(i_n\).
+由此可见,
+\begin{align*}
+    B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+    = B({i_{k+1},\dots,i_n}|{j_{k+1},\dots,j_n})
+    = (\operatorname{adj} {(A)})
+    \binom{i_1,\dots,i_k}{j_1,\dots,j_k},
+\end{align*}
+且
+\begin{align*}
+    B({i_1,\dots,i_k}|{j_1,\dots,j_k})
+    = B\binom{i_{k+1},\dots,i_n}{j_{k+1},\dots,j_n}
+    = I_{n-k}.
+\end{align*}
+% 其中 \(I_{n-k}\) 指 \(n-k\)~级单位阵.
+
+按列 \(j_{k+1}\) 展开 \(\det {(B)}\), 有
+\begin{align*}
+    \det {(B)} = (-1)^{i_{k+1}+j_{k+1}} \, 1
+    \det {(B(i_{k+1}|j_{j+1}))}.
+\end{align*}
+注意到 \(B\) 的列 \(j_{k+2}\) 即为
+\(B(i_{k+1}|j_{k+1})\) 的列 \(j_{k+2}-1\).
+按列 \(j_{k+2}-1\) 展开 \(\det {(B(i_{k+1}|j_{k+1}))}\),
+有
+\begin{align*}
+    \det {(B(i_{k+1}|j_{k+1}))} = (-1)^{i_{k+2}-1+j_{k+2}-1} \, 1
+    \det {(B({i_{k+1},i_{k+2}}|{j_{k+1},j_{k+2}}))}.
+\end{align*}
+故
+\begin{align*}
+    \det {(B)} = (-1)^{i_{k+1}+i_{k+2}+j_{k+1}+j_{k+2}}
+    \det {(B({i_{k+1},i_{k+2}}|{j_{k+1},j_{k+2}}))}.
+\end{align*}
+\(\dots \dots\)
+最后, 我们有
+\begin{align*}
+    \det {(B)}
+    = (-1)^{i_{k+1}+\dots+i_n+j_{k+1}+\dots+j_n}
+    \det {(B({i_{k+1},\dots,i_n}|{j_{k+1},\dots,j_n}))}.
+\end{align*}
+
+我们考虑 \(AB\) 的行列式.
+一方面,
+\begin{align*}
+    \det {(AB)}
+    = {} & \det {(A)} \det {(B)}
+    \\
+    = {} & (-1)^{i_{k+1}+\dots+i_n+j_{k+1}+\dots+j_n}
+    \det {(A)}
+    \det {\left(
+        (\operatorname{adj} {(A)})
+        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)}.
+\end{align*}
+另一方面, 当 \(q \leq k\) 时,
+\begin{align*}
+    [AB]_{i,j_q}
+    = {} &
+    \sum_{u=1}^{n} {[A]_{i,u} [B]_{u,j_q}}
+    \\
+    = {} &
+    \sum_{u=1}^{n} {[A]_{i,u} [\operatorname{adj} {(A)}]_{u,j_q}}
+    \\
+    = {} &
+    [A \operatorname{adj} {(A)}]_{i,j_q}
+    \\
+    = {} &
+    [\det {(A)}\,I_n]_{i,j_q};
+\end{align*}
+当 \(q > k\) 时,
+\begin{align*}
+    [AB]_{i,j_q}
+    = {} &
+    \sum_{u=1}^{n} {[A]_{i,u} [B]_{u,j_q}}
+    \\
+    = {} &
+    \sum_{u=1}^{n} {[A]_{i,u} [I_n]_{u,i_q}}
+    \\
+    = {} &
+    [A I_n]_{i,i_q}
+    \\
+    = {} &
+    [A]_{i,i_q}.
+\end{align*}
+形象地, \(AB\) 的列 \(j_1\), \(\dots\), \(j_k\)
+分别与 \(\det {(A)}\,I_n\) 的列 \(j_1\), \(\dots\), \(j_k\)
+相等,
+但 \(AB\) 的列 \(j_{k+1}\), \(\dots\), \(j_n\)
+分别是 \(A\) 的列 \(i_{k+1}\), \(\dots\), \(i_n\).
+由此可见,
+\begin{align*}
+    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+    = (AB)({j_{k+1},\dots,j_n}|{j_{k+1},\dots,j_n})
+    = \det {(A)}\, I_k,
+\end{align*}
+且
+\begin{align*}
+    (AB)({j_1,\dots,j_k}|{j_1,\dots,j_k})
+    = (AB)\binom{j_{k+1},\dots,j_n}{j_{k+1},\dots,j_n}
+    = A({j_1,\dots,j_k}|{i_1,\dots,i_k}).
+\end{align*}
+
+按列 \(j_1\) 展开 \(\det {(AB)}\), 有
+\begin{align*}
+    \det {(AB)} = (-1)^{j_1+j_1} \det {(A)}
+    \det {((AB)(j_1|j_1))}.
+\end{align*}
+注意到 \(AB\) 的列 \(j_2\) 即为
+\((AB)(j_1|j_1)\) 的列 \(j_2-1\).
+按列 \(j_2-1\) 展开 \(\det {((AB)(j_1|j_1))}\),
+有
+\begin{align*}
+    \det {((AB)(j_1|j_1))}
+    = (-1)^{j_2-1+j_2-1} \det {(A)}
+    \det {((AB)({j_1,j_2}|{j_1,j_2}))}.
+\end{align*}
+故
+\begin{align*}
+    \det {(AB)} = (\det {(A)})^2
+    \det {((AB)({i_1,i_2}|{j_1,j_2}))}.
+\end{align*}
+\(\dots \dots\)
+最后, 我们有
+\begin{align*}
+    \det {(AB)}
+    = (\det {(A)})^k
+    \det {((AB)({j_1,\dots,j_k}|{j_1,\dots,j_k}))}.
+\end{align*}
+
+比较二次计算的结果, 我们应有
+\begin{align*}
+         &
+    (-1)^{i_{k+1}+\dots+i_n+j_{k+1}+\dots+j_n}
+    \det {(A)}
+    \det {\left(
+        (\operatorname{adj} {(A)})
+        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)}
+    \\
+    = {} &
+    (\det {(A)})^k
+    \det {(A({j_1,\dots,j_k}|{i_1,\dots,i_k}))}.
+\end{align*}
+注意到
+\begin{align*}
+         &
+    i_{k+1} + \dots + i_n + j_{k+1} + \dots + j_n
+    \\
+    = {} &
+    ((1 + 2 + \dots + n) - (i_1 + \dots + i_k))
+    + ((1 + 2 + \dots + n) - (j_1 + \dots + j_k))
+    \\
+    = {} &
+    2(1 + 2 + \dots + n) - (j_1 + \dots + j_k + i_1 + \dots + i_k),
+\end{align*}
+故
+\begin{align*}
+         &
+    \det {(A)}\,
+    \det {\left(
+        (\operatorname{adj} {(A)})
+        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)}
+    \\
+    = {} &
+    \det {(A)}\, (\det {(A)})^{k-1}\,
+    (-1)^{j_1+\dots+j_k+i_1+\dots+i_k}
+    \det {(A({j_1,\dots,j_k}|{i_1,\dots,i_k}))}.
+\end{align*}
+
+若 \(\det {(A)} \neq 0\),
+我们可在等式的二侧消去它, 得式~\eqref{eq:C2401}.
+不过, 若 \(\det {(A)} = 0\),
+会发生什么?
+
+\begin{theorem}
+    设 \(A\) 是一个 \(n\)~级阵.
+    设 \(\det {(A)} = 0\).
+    则存在不超过 \(n\) 的正整数 \(s\),
+    使对任何不超过 \(n\) 的正整数 \(j\),
+    存在数 \(m_j\),
+    使对任何不超过 \(n\) 的正整数 \(i\),
+    有
+    \([\operatorname{adj} {(A)}]_{i,j}
+    = m_j [\operatorname{adj} {(A)}]_{i,s}\);
+    通俗地,
+    存在不超过 \(n\) 的正整数 \(s\),
+    使 \(\operatorname{adj} {(A)}\) 的任何一列
+    都是 \(\operatorname{adj} {(A)}\) 的列~\(s\) 的数乘.
+\end{theorem}
+
+有了此事, 不难看出, 若 \(\det {(A)} = 0\),
+且 \(k > 1\), 则
+\begin{align*}
+    \det {\left(
+        (\operatorname{adj} {(A)})
+        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)} = 0,
+\end{align*}
+故式~\eqref{eq:C2401} 仍是正确的.
+
+那么, 若我们证明了此事, 则我们也就证明了式~\eqref{eq:C2401}.
+
+\begin{proof}
+    若 \(\operatorname{adj} {(A)} = 0\),
+    则 \(\operatorname{adj} {(A)}\) 的每一列都是零.
+    从而 \(\operatorname{adj} {(A)}\)
+    的每一列都是
+    \(\operatorname{adj} {(A)}\) 的列~\(1\) 的数乘.
+
+    下设 \(\operatorname{adj} {(A)} \neq 0\).
+    则有不超过 \(n\) 的正整数 \(s\), \(t\),
+    使 \([\operatorname{adj} {(A)}]_{t,s} \neq 0\).
+    则 \((-1)^{s+t} \det {(A(s|t))} \neq 0\).
+    作 \(n-1\)~级阵 \(C = A(s|t)\).
+    则 \(\det {(C)} \neq 0\).
+
+    从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(t\) 后, 还剩 \(n - 1\) 个数.
+    我们从小到大地叫这 \(n - 1\) 个数为
+    \(i_1\), \(\dots\), \(i_{n-1}\).
+    类似地, 从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(s\) 后, 还剩 \(n - 1\) 个数.
+    我们从小到大地叫这 \(n - 1\) 个数为
+    \(\ell_1\), \(\dots\), \(\ell_{n-1}\).
+    则 \([C]_{p,q} = [A]_{\ell_p,i_q}\).
+    再记 \(i_n = t\), 且 \(\ell_n = s\).
+
+    设 \(j\) 是不超过 \(n\) 的正整数.
+    作 \((n-1) \times 1\)~阵 \(y_j\) 如下:
+    \begin{align*}
+        [y_j]_{u,1} = [\operatorname{adj} {(A)}]_{i_u,j};
+    \end{align*}
+    通俗地, 若 \(D_j\) 是
+    \(\operatorname{adj} {(A)}\) 的列~\(j\),
+    则 \(y_j\) 是去除 \(D_j\) 的行~\(t\) 后的那个
+    \((n-1) \times 1\)~阵.
+    则对 \(p < n\),
+    \begin{align*}
+        [C y_j]_{p,1}
+        = {} &
+        \sum_{u=1}^{n-1} {[C]_{p,u} [y_j]_{u,1}}
+        \\
+        = {} &
+        \sum_{u=1}^{n-1}
+        {[A]_{\ell_p,i_u} [\operatorname{adj} {(A)}]_{i_u,j}}
+        \\
+        = {} &
+        \sum_{u=1}^{n}
+        {[A]_{\ell_p,i_u} [\operatorname{adj} {(A)}]_{i_u,j}}
+        - [A]_{\ell_p,i_n} [\operatorname{adj} {(A)}]_{i_n,j}
+        \\
+        = {} &
+        \sum_{u=1}^{n}
+        {[A]_{\ell_p,u} [\operatorname{adj} {(A)}]_{u,j}}
+        - [A]_{\ell_p,t} [\operatorname{adj} {(A)}]_{t,j}
+        \\
+        = {} &
+        [A \operatorname{adj} {(A)}]_{\ell_p,j}
+        - [A]_{\ell_p,t} [\operatorname{adj} {(A)}]_{t,j}
+        \\
+        = {} &
+        [\det {(A)}\, I_n]_{\ell_p,j}
+        - [A]_{\ell_p,t} [\operatorname{adj} {(A)}]_{t,j}
+        \\
+        = {} &
+        {- [\operatorname{adj} {(A)}]_{t,j} [A]_{\ell_p,t}}.
+    \end{align*}
+
+    作 \((n-1) \times 1\)~阵 \(z\) 如下:
+    \begin{align*}
+        [z]_{u,1} = [A]_{\ell_u,t};
+    \end{align*}
+    通俗地, 若 \(w\) 是 \(A\) 的列~\(t\),
+    则 \(z\) 是去除 \(w\) 的行~\(s\) 后的那个
+    \((n-1) \times 1\)~阵.
+
+    由前面的计算,
+    \(C y_j = -[\operatorname{adj} {(A)}]_{t,j} z\),
+    且
+    \(C y_s = -[\operatorname{adj} {(A)}]_{t,s} z\).
+    记
+    \begin{align*}
+        m_j =
+        \frac{-[\operatorname{adj} {(A)}]_{t,j}}
+        {-[\operatorname{adj} {(A)}]_{t,s}}.
+    \end{align*}
+    则
+    \begin{align*}
+        C (m_j y_s)
+        = {} & m_j (C y_s)
+        = m_j (-[\operatorname{adj} {(A)}]_{t,s} z)
+        = (m_j (-[\operatorname{adj} {(A)}]_{t,s})) z
+        \\
+        = {} &
+        {-[\operatorname{adj} {(A)}]_{t,j} z}
+        \\
+        = {} &
+        C y_j.
+    \end{align*}
+    % % 于是, \(X = y_j\) 与 \(X = m_j y_s\) 都是线性方程组
+    % % \(CX = -[\operatorname{adj} {(A)}]_{t,j} z\)
+    % % 的解.
+    % % 因为 \(\det {(C)} \neq 0\),
+    % % 故 \(y_j = m_j y_s\).
+    % 则
+    % \begin{align*}
+    %     \operatorname{adj} {(C)}\, (C (m_j y_s))
+    %     = \operatorname{adj} {(C)}\, (C y_j),
+    % \end{align*}
+    % 即
+    % \begin{align*}
+    %     (\operatorname{adj} {(C)}\, C) (m_j y_s)
+    %     = (\operatorname{adj} {(C)}\, C) (y_j),
+    % \end{align*}
+    % 即
+    % \begin{align*}
+    %     (\det {(C)}\, I_{n-1}) (m_j y_s)
+    %     = (\det {(C)}\, I_{n-1}) (y_j),
+    % \end{align*}
+    % 即
+    % \begin{align*}
+    %     \det {(C)}\, (I_{n-1} (m_j y_s))
+    %     = \det {(C)}\, (I_{n-1} y_j),
+    % \end{align*}
+    % 即
+    % \begin{align*}
+    %     \det {(C)}\, (m_j y_s)
+    %     = \det {(C)}\, y_j.
+    % \end{align*}
+    % 因为数 \(\det {(C)} \neq 0\),
+    因为 \(\det {(C)} \neq 0\),
+    故 \(m_j y_s = y_j\).
+    故 \(m_j [\operatorname{adj} {(A)}]_{i_u,s}
+        = [\operatorname{adj} {(A)}]_{i_u,j}\),
+    对 \(u < n\).
+    则 \(m_j [\operatorname{adj} {(A)}]_{i,s}
+        = [\operatorname{adj} {(A)}]_{i,j}\),
+    对 \(i \leq n\).
+\end{proof}
+
+% 最后, 为方便, 我写下式~\eqref{eq:C2401} 的一个特别的情形.
+
+% 设 \(A\) 是 \(n\)~级阵 (\(n \geq 3\)).
+
+% 设 \(1 \leq u < v \leq n\).
+% 取 \(k = 2\),
+% \(i_1 = j_1 = u\),
+% \(i_2 = j_2 = v\),
+% 有
+% \begin{align*}
+%     \det {\left(
+%         (\operatorname{adj} {(A)})
+%         \binom{u,v}{u,v}
+%         \right)}
+%     = (\det {(A)})^{2-1}\,
+%     (-1)^{u+v+u+v}
+%     \det {(A({u,v}|{u,v}))}.
+% \end{align*}
+% 不难算出
+% \begin{align*}
+%     \det {(A(u|u))} \det {(A(v|v))}
+%     - \det {(A(u|v))} \det {(A(v|u))}
+%     = \det {(A)} \det {(A({u,v}|{u,v}))}.
+% \end{align*}
+
+% 若 \(1 \leq v < u \leq n\),
+% 则, 类似地,
+% \begin{align*}
+%     \det {(A(v|v))} \det {(A(u|u))}
+%     - \det {(A(v|u))} \det {(A(u|v))}
+%     = \det {(A)} \det {(A({v,u}|{v,u}))},
+% \end{align*}
+% 也就是
+% \begin{align*}
+%     \det {(A(u|u))} \det {(A(v|v))}
+%     - \det {(A(u|v))} \det {(A(v|u))}
+%     = \det {(A)} \det {(A({u,v}|{u,v}))}.
+% \end{align*}
+
+% 总结这些结果, 有
+
+% \begin{theorem}
+%     设 \(A\) 是 \(n\)~级阵 (\(n \geq 3\)).
+%     设 \(u\), \(v\) 是不超过 \(n\) 的正整数, 且互不相同.
+%     则
+%     \begin{align*}
+%         \det {(A(u|u))} \det {(A(v|v))}
+%         = \det {(A(u|v))} \det {(A(v|u))}
+%         + \det {(A)} \det {(A({u,v}|{u,v}))}.
+%     \end{align*}
+%     特别地, 若 \(\det {(A)} = 0\), 则
+%     \begin{align*}
+%         \det {(A(u|u))} \det {(A(v|v))}
+%         = \det {(A(u|v))} \det {(A(v|u))}.
+%     \end{align*}
+% \end{theorem}
+
+\section{古伴的性质 (3)}
+
+本节, 我们再认识古伴的二个性质.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
+    则
+    \(\operatorname{adj} {(\operatorname{adj} {(A)})}
+    = (\det {(A)})^{n-2}\,A\).
+\end{theorem}
+
+\begin{proof}
+    设 \(n = 2\).
+    不难算出, \(2\)~级阵
+    \(A =
+    \begin{bmatrix}
+        a & b \\
+        c & d \\
+    \end{bmatrix}
+    \)
+    的古伴是
+    \(
+    \begin{bmatrix}
+        d  & -b \\
+        -c & a  \\
+    \end{bmatrix}
+    \).
+    则
+    \(
+    \begin{bmatrix}
+        d  & -b \\
+        -c & a  \\
+    \end{bmatrix}
+    \)
+    的古伴是
+    \(
+    \begin{bmatrix}
+        a     & -(-b) \\
+        -(-c) & d     \\
+    \end{bmatrix}
+    \),
+    即 \(A\).
+    注意到,
+    \((\det {(A)})^{2-2} A = 1 A = A\).
+
+    下设 \(n > 2\).
+    一方面,
+    \begin{align*}
+        \operatorname{adj} {(A)}
+        \operatorname{adj} {(\operatorname{adj} {(A)})}
+        = \det {(\operatorname{adj} {(A)})}\, I_n
+        = (\det {(A)})^{n-1}\, I_n;
+    \end{align*}
+    另一方面,
+    \begin{align*}
+        \operatorname{adj} {(A)}\,
+        ((\det {(A)})^{n-2}\, A)
+        = {} &
+        (\det {(A)})^{n-2}\,
+        (\operatorname{adj} {(A)} A)
+        \\
+        = {} &
+        (\det {(A)})^{n-2}\, (\det {(A)}\,I_n)
+        \\
+        = {} &
+        (\det {(A)})^{n-1}\, I_n.
+    \end{align*}
+    故
+    \begin{align*}
+        \operatorname{adj} {(A)}
+        \operatorname{adj} {(\operatorname{adj} {(A)})}
+        =
+        \operatorname{adj} {(A)}\,
+        ((\det {(A)})^{n-2} A).
+    \end{align*}
+    若 \(\det {(A)} \neq 0\),
+    则 \(\det {(\operatorname{adj} {(A)})}
+    = (\det {(A)})^{n-1} \neq 0\).
+    由消去律,
+    我们可在等式的二侧消去 \(\operatorname{adj} {(A)}\),
+    即得结论.
+
+    若 \(\det {(A)} = 0\),
+    由上节的结论, \(\operatorname{adj} {(A)}\)~的%
+    每一个 \(n-1\)~级子阵的行列式都是 \(0\).
+    故 \(\operatorname{adj} {(\operatorname{adj} {(A)})}
+    = 0 = 0A = (\det {(A)})^{n-2}\,A\).
+\end{proof}
+
+\begin{theorem}
+    设 \(A\), \(B\) 是 \(n\)~级阵.
+    则
+    \begin{align*}
+        \operatorname{adj} {(BA)}
+        = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意到
+    \begin{align*}
+        (BA) \operatorname{adj} {(BA)}
+        = {} &
+        \det {(BA)}\, I
+        \\
+        = {} &
+        (\det {(B)} \det {(A)})\, I
+        \\
+        = {} &
+        (\det {(A)} \det {(B)})\, I
+        \\
+        = {} &
+        \det {(A)}\, (\det {(B)}\, I)
+        \\
+        = {} &
+        \det {(A)}\, (B \operatorname{adj} {(B)})
+        \\
+        = {} &
+        B (\det {(A)} \operatorname{adj} {(B)})
+        \\
+        = {} &
+        B (\det {(A)}\, (I \operatorname{adj} {(B)}))
+        \\
+        = {} &
+        B ((\det {(A)}\, I) \operatorname{adj} {(B)})
+        \\
+        = {} &
+        B ((A \operatorname{adj} {(A)})\, \operatorname{adj} {(B)})
+        \\
+        = {} &
+        B (A\, (\operatorname{adj} {(A)} \operatorname{adj} {(B)}))
+        \\
+        = {} &
+        (B A)\, (\operatorname{adj} {(A)} \operatorname{adj} {(B)}),
+    \end{align*}
+    若 \(\det {(BA)} \neq 0\),
+    由消去律, 即得结论.
+
+    若 \(\det {(BA)} = 0\), 我们这么作.
+    由阵的积的定义,
+    \begin{align*}
+        [\operatorname{adj} {(A)} \operatorname{adj} {(B)}]_{i,j}
+        = {} &
+        \sum_{u = 1}^{n}
+        {[\operatorname{adj} {(A)}]_{i,u}
+            [\operatorname{adj} {(B)}]_{u,j}}
+        \\
+        = {} &
+        \sum_{u = 1}^{n}
+        {(-1)^{u+i} \det {(A(u|i))}\,
+        (-1)^{j+u} \det {(B(j|u))}}
+        \\
+        = {} &
+        \sum_{u = 1}^{n}
+        {(-1)^{u+i} (-1)^{j+u}
+        \det {(A(u|i))} \det {(B(j|u))}}
+        \\
+        = {} &
+        \sum_{u = 1}^{n}
+        {(-1)^{j+i} \det {(B(j|u))} \det {(A(u|i))}}
+        \\
+        = {} &
+        (-1)^{j+i}
+        \sum_{u = 1}^{n}
+        {\det {(B(j|u))} \det {(A(u|i))}}
+        \\
+        = {} &
+        (-1)^{j+i}
+        \det {((BA)(j|i))}
+        \\
+        = {} &
+        [\operatorname{adj} {(BA)}]_{i,j}.
+    \end{align*}
+    这里, 我们用了 Binet--Cauchy 公式的推广.
+\end{proof}
+
+% 为方便, 我记下一个简单的推广.
+% 设 \(A\), \(B\), \(C\) 是 \(n\)~级阵.
+% 设 \(\det {(CBA)} \neq 0\).
+% 因为 \(\det {(CBA)} = \det {(C)} \det {(BA)}\),
+% 故 \(\det {(BA)} \neq 0\).
+% 故
+% \begin{align*}
+%     \operatorname{adj} {(BA)}
+%     = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
+% \end{align*}
+% 则
+% \begin{align*}
+%     \operatorname{adj} {(CBA)}
+%     = {} &
+%     \operatorname{adj} {(C(BA))}
+%     \\
+%     = {} &
+%     \operatorname{adj} {(BA)}
+%     \operatorname{adj} {(C)}
+%     \\
+%     = {} &
+%     (\operatorname{adj} {(A)} \operatorname{adj} {(B)})
+%     \operatorname{adj} {(C)}
+%     \\
+%     = {} &
+%     \operatorname{adj} {(A)}
+%     \operatorname{adj} {(B)}
+%     \operatorname{adj} {(C)}.
+% \end{align*}
+
+\section{阵的积, 分块地写}
+
+我们知道, 若 \(B\) 是 \(s \times m\)~阵,
+且 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
+是 \(m \times 1\) 阵,
+则
+\begin{align*}
+    B\,[a_1, a_2, \dots, a_n] = [Ba_1, Ba_2, \dots, Ba_n].
+\end{align*}
+形象地, 这是分块地写阵的积.
+证明 \(\det {(BA)} = \det {(B)} \det {(A)}\)
+(\(A\), \(B\) 是同级的方阵) 时,
+我们用了此事, 使推理更简单.
+
+我要介绍另一种分块地写阵的积的方式.
+
+\begin{theorem}
+    设
+    \(A_{1,1}\), \(A_{1,2}\), \(A_{2,1}\), \(A_{2,2}\),
+    \(B_{1,1}\), \(B_{1,2}\), \(B_{2,1}\), \(B_{2,2}\)
+    是阵.
+    设 \(A_{1,1}\), \(A_{1,2}\) 都有 \(r_1\) 行;
+    设 \(A_{2,1}\), \(A_{2,2}\) 都有 \(r_2\) 行;
+    设 \(A_{1,1}\), \(A_{2,1}\) 都有 \(u_1\) 列;
+    设 \(A_{1,2}\), \(A_{2,2}\) 都有 \(u_2\) 列.
+    设 \(B_{1,1}\), \(B_{1,2}\) 都有 \(u_1\) 行;
+    设 \(B_{2,1}\), \(B_{2,2}\) 都有 \(u_2\) 行;
+    设 \(B_{1,1}\), \(B_{2,1}\) 都有 \(c_1\) 列;
+    设 \(B_{1,2}\), \(B_{2,2}\) 都有 \(c_2\) 列.
+    作 \((r_1 + r_2) \times (u_1 + u_2)\)~阵
+    \begin{align*}
+        A = \begin{bmatrix}
+                A_{1,1} & A_{1,2} \\
+                A_{2,1} & A_{2,2} \\
+            \end{bmatrix};
+    \end{align*}
+    具体地,
+    \begin{align*}
+        [A]_{i,j}
+        = \begin{cases}
+              [A_{1,1}]_{i,j},
+               & \text{\(i \leq r_1\), \(j \leq u_1\)}; \\
+              [A_{1,2}]_{i,j-u_1},
+               & \text{\(i \leq r_1\), \(j > u_1\)};    \\
+              [A_{2,1}]_{i-r_1,j},
+               & \text{\(i > r_1\), \(j \leq u_1\)};    \\
+              [A_{2,2}]_{i-r_1,j-u_1},
+               & \text{\(i > r_1\), \(j > u_1\)}.
+          \end{cases}
+    \end{align*}
+    作 \((u_1 + u_2) \times (c_1 + c_2)\)~阵
+    \begin{align*}
+        B = \begin{bmatrix}
+                B_{1,1} & B_{1,2} \\
+                B_{2,1} & B_{2,2} \\
+            \end{bmatrix};
+    \end{align*}
+    具体地,
+    \begin{align*}
+        [B]_{i,j}
+        = \begin{cases}
+              [B_{1,1}]_{i,j},
+               & \text{\(i \leq u_1\), \(j \leq c_1\)}; \\
+              [B_{1,2}]_{i,j-c_1},
+               & \text{\(i \leq u_1\), \(j > c_1\)};    \\
+              [B_{2,1}]_{i-u_1,j},
+               & \text{\(i > u_1\), \(j \leq c_1\)};    \\
+              [B_{2,2}]_{i-u_1,j-c_1},
+               & \text{\(i > u_1\), \(j > c_1\)}.
+          \end{cases}
+    \end{align*}
+    因为 \(A\) 的列数等于 \(B\) 的行数,
+    故 \(AB\) 有意义.
+
+    记 \(C_{i,j} = A_{i,1} B_{1,j} + A_{i,2} B_{2,j}\),
+    \(i\), \(j = 1\), \(2\).
+    不难看出, \(C_{i,j}\) 是 \(r_i \times c_j\)~阵.
+    作 \((r_1+r_2) \times (c_1+c_2)\)~阵
+    \begin{align*}
+        C = \begin{bmatrix}
+                C_{1,1} & C_{1,2} \\
+                C_{2,1} & C_{2,2} \\
+            \end{bmatrix};
+    \end{align*}
+    具体地,
+    \begin{align*}
+        [C]_{i,j}
+        = \begin{cases}
+              [C_{1,1}]_{i,j},
+               & \text{\(i \leq r_1\), \(j \leq c_1\)}; \\
+              [C_{1,2}]_{i,j-c_1},
+               & \text{\(i \leq r_1\), \(j > c_1\)};    \\
+              [C_{2,1}]_{i-r_1,j},
+               & \text{\(i > r_1\), \(j \leq c_1\)};    \\
+              [C_{2,2}]_{i-r_1,j-c_1},
+               & \text{\(i > r_1\), \(j > c_1\)}.
+          \end{cases}
+    \end{align*}
+    则 \(AB = C\).
+
+    形象地,
+    \begin{align*}
+        \begin{bmatrix}
+            A_{1,1} & A_{1,2} \\
+            A_{2,1} & A_{2,2} \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            B_{1,1} & B_{1,2} \\
+            B_{2,1} & B_{2,2} \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            A_{1,1} B_{1,1} + A_{1,2} B_{2,1}
+             & A_{1,1} B_{1,2} + A_{1,2} B_{2,2} \\
+            A_{2,1} B_{1,1} + A_{2,2} B_{2,1}
+             & A_{2,1} B_{1,2} + A_{2,2} B_{2,2} \\
+        \end{bmatrix}.
+    \end{align*}
+    于是, 形式地,
+    分块地写阵的积与直接用定义写阵的积没有区别.
+
+    % 特别地,
+    % 若取 \(A_{1,2}\), \(A_{2,1}\), \(B_{1,2}\), \(B_{2,1}\)
+    % 为零阵,
+    % 有
+    % \begin{align*}
+    %     \begin{bmatrix}
+    %         A_{1,1} & 0       \\
+    %         0       & A_{2,2} \\
+    %     \end{bmatrix}
+    %     \begin{bmatrix}
+    %         B_{1,1} & 0       \\
+    %         0       & B_{2,2} \\
+    %     \end{bmatrix}
+    %     =
+    %     \begin{bmatrix}
+    %         A_{1,1} B_{1,1} & 0               \\
+    %         0               & A_{2,2} B_{2,2} \\
+    %     \end{bmatrix}.
+    % \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意到
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1+u_2}
+        {[A]_{i,k} [B]_{k,j}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B]_{k,j}}.
+    \end{align*}
+
+    若 \(j \leq c_1\), 则
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B]_{k,j}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B_{1,1}]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}.
+    \end{align*}
+    当 \(i \leq r_1\) 时,
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B_{1,1}]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A_{1,1}]_{i,k} [B_{1,1}]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A_{1,2}]_{i,k-u_1} [B_{2,1}]_{k-u_1,j}}
+        \\
+        = {} &
+        [A_{1,1} B_{1,1}]_{i,j}
+        + [A_{1,2} B_{2,1}]_{i,j}
+        \\
+        = {} &
+        [A_{1,1} B_{1,1} + A_{1,2} B_{2,1}]_{i,j}
+        \\
+        = {} &
+        [C_{1,1}]_{i,j}
+        \\
+        = {} &
+        [C]_{i,j}.
+    \end{align*}
+    当 \(i > r_1\) 时,
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B_{1,1}]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A_{2,1}]_{i-r_1,k} [B_{1,1}]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A_{2,2}]_{i-r_1,k-u_1} [B_{2,1}]_{k-u_1,j}}
+        \\
+        = {} &
+        [A_{2,1} B_{1,1}]_{i-r_1,j}
+        + [A_{2,2} B_{2,1}]_{i-r_1,j}
+        \\
+        = {} &
+        [A_{2,1} B_{1,1} + A_{2,2} B_{2,1}]_{i-r_1,j}
+        \\
+        = {} &
+        [C_{2,1}]_{i-r_1,j}
+        \\
+        = {} &
+        [C]_{i,j}.
+    \end{align*}
+
+    若 \(j > c_1\), 则
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B]_{k,j}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B]_{k,j}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}.
+    \end{align*}
+    当 \(i \leq r_1\) 时,
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A_{1,1}]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A_{1,2}]_{i,k-u_1} [B_{2,2}]_{k-u_1,j-c_1}}
+        \\
+        = {} &
+        [A_{1,1} B_{1,2}]_{i,j-c_1}
+        + [A_{1,2} B_{2,2}]_{i,j-c_1}
+        \\
+        = {} &
+        [A_{1,1} B_{1,2} + A_{1,2} B_{2,2}]_{i,j-c_1}
+        \\
+        = {} &
+        [C_{1,2}]_{i,j-c_1}
+        \\
+        = {} &
+        [C]_{i,j}.
+    \end{align*}
+    当 \(i > r_1\) 时,
+    \begin{align*}
+        [AB]_{i,j}
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}
+        \\
+        = {} &
+        \sum_{k=1}^{u_1}
+        {[A_{2,1}]_{i-r_1,k} [B_{1,2}]_{k,j-c_1}}
+        +
+        \sum_{k=u_1+1}^{u_1+u_2}
+        {[A_{2,2}]_{i-r_1,k-u_1} [B_{2,2}]_{k-u_1,j-c_1}}
+        \\
+        = {} &
+        [A_{2,1} B_{1,2}]_{i-r_1,j-c_1}
+        + [A_{2,2} B_{2,2}]_{i-r_1,j-c_1}
+        \\
+        = {} &
+        [A_{2,1} B_{1,2} + A_{2,2} B_{2,2}]_{i-r_1,j-c_1}
+        \\
+        = {} &
+        [C_{2,2}]_{i-r_1,j-c_1}
+        \\
+        = {} &
+        [C]_{i,j}.
+        \qedhere
+    \end{align*}
+\end{proof}

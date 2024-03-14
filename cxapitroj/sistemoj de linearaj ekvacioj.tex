@@ -1,0 +1,3879 @@
+% The following text
+% was intended to be directly inserted in "determinantoj.tex".
+% However, because it is too long,
+% and it is not really on determinants,
+% I decide to create a new file to contain it.
+
+\section{线性方程组}
+
+在接下来的若干节里, 我想用行列式讨论%
+线性方程组的解.
+这是行列式的一个应用.
+或许, 您可以在这些讨论里体会到,
+``行列式是一个\emph{工具}''
+``行列式是方阵的一个\emph{属性}''
+的意思.
+
+本节, 我们学习一些基本的概念.
+
+设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是 \(n\)~个常数,
+\(c\) 是常数,
+\(x_1\), \(x_2\), \(\dots\), \(x_n\) 是 \(n\)~个未知数.
+我们说, 形如
+\begin{align*}
+    a_1 x_1 + a_2 x_2 + \dots + a_n x_n + c
+\end{align*}
+的式是一个 \emph{\(n\)~元 \({\leq} 1\)~次式}.
+如果 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
+中有一个数不为零,
+我们说, 这个式是一个 \emph{\(n\)~元 \(1\)~次式}.
+如果 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
+全为零,
+那么, 这个式就是一个常数.
+
+形如
+\begin{align*}
+    a_1 x_1 + a_2 x_2 + \dots + a_n x_n + c = 0
+\end{align*}
+的方程是一个 \emph{\(n\)~元 \({\leq} 1\)~次方程}.
+不过, 习惯地, 我们移常数项 \(c\) 到等式的右侧.
+也就是说, 形如
+\begin{align*}
+    a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b
+\end{align*}
+的方程也是一个 \(n\)~元 \({\leq} 1\)~次方程,
+其中 \(b\) 就是常数 \(-c\).
+若我们不想强调未知数之数~\(n\),
+我们说, 这是一个 \emph{\({\leq} 1\)~次方程};
+我们也可说, 这是一个\emph{线性方程}.
+
+\emph{由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组},
+是形如
+\begin{align*}
+    \begin{cases}
+        a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n = b_1, \\
+        a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n = b_2, \\
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        ,                                                      \\
+        a_{m,1} x_1 + a_{m,2} x_2 + \dots + a_{m,n} x_n = b_m  \\
+    \end{cases}
+\end{align*}
+的方程组,
+其中
+\(a_{1,1}\), \(a_{1,2}\), \(\dots\), \(a_{1,n}\),
+\(a_{2,1}\), \(a_{2,2}\), \(\dots\), \(a_{2,n}\),
+\(\dots\),
+\(a_{m,1}\), \(a_{m,2}\), \(\dots\), \(a_{m,n}\),
+\(b_1\), \(b_2\), \(\dots\), \(b_m\)
+是事先指定的 \(mn + m\) 个数,
+而 \(x_1\), \(x_2\), \(\dots\), \(x_n\)
+都是未知数.
+若我们不想强调方程数~\(m\),
+我们可说, 这是一个 \emph{\(n\)~元 \({\leq} 1\)~次方程组};
+若我们不想强调未知数之数~\(n\),
+我们可说, 这是一个%
+\emph{由 \(m\)~个 \({\leq} 1\)~次方程作成的方程组}.
+既然 \({\leq} 1\)~次方程的另一个名字是线性方程,
+我们也可说, 这是一个\emph{线性方程组}.
+
+若数 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 适合
+\begin{align*}
+    a_{1,1} c_1 + a_{1,2} c_2 + \dots + a_{1,n} c_n = b_1, \\
+    a_{2,1} c_1 + a_{2,2} c_2 + \dots + a_{2,n} c_n = b_2, \\
+    \dots \dots \dots \dots
+    \dots \dots \dots \dots
+    \dots \dots \dots \dots
+    ,                                                      \\
+    a_{m,1} c_1 + a_{m,2} c_2 + \dots + a_{m,n} c_n = b_m,
+\end{align*}
+我们说, \((c_1, c_2, \dots, c_n)\)
+是此方程组的一个\emph{解}.
+有时, 我们也说, 形如
+\(x_1 = c_1\),
+\(x_2 = c_2\),
+\(\dots\),
+\(x_n = c_n\)
+的 \(n\)~个等式 (的联合)
+是此方程组的一个解.
+
+若 \(c_1 = c_2 = \dots = c_n = 0\),
+且 \((c_1, c_2, \dots, c_n)\) 是此方程组的一个解,
+我们说, 这是此方程组的\emph{零解}.
+若 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 不全为零,
+且 \((c_1, c_2, \dots, c_n)\) 是此方程组的一个解,
+我们说, 这是此方程组的一个\emph{非零解}.
+
+\begin{example}
+    假定有若干只鸡与若干只兔被关在某处.
+    假定每一只鸡有 \(1\)~个头与 \(2\)~只腿;
+    假定每一只兔有 \(1\)~个头与 \(4\)~只腿.
+    假定, 我们知道,
+    这些鸡与兔一共有 \(35\)~个头与 \(94\)~只腿.
+    我们能由此算出鸡与兔的数目吗?
+
+    我们代数地思考此事.
+    设有 \(x_1\)~只鸡, 有 \(x_2\)~只兔.
+    那么,
+    这些鸡与兔%
+    一共有 \(x_1 + x_2\)~个头,
+    与 \(2x_1 + 4x_2\)~只腿.
+    注意到, 这二个式都是 \(2\)~元 \({\leq} 1\)~次式.
+    我们可列出%
+    由 \(2\)~个 \(2\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \begin{cases}
+            x_1 + x_2 = 35, \\
+            2x_1 + 4x_2 = 94.
+        \end{cases}
+    \end{align*}
+    接下来的问题, 就是解这个方程组.
+    不过,
+    % 不要急;
+    此例的目的是使您熟悉概念.
+    我想之后讲如何解这个方程组.
+
+    可以验证, \((23, 12)\) 是此方程组的一个解:
+    因为 \(23 + 12 = 35\),
+    且 \(2 \cdot 23 + 4 \cdot 12 = 94\).
+    因为 \(23\), \(12\) 里有一个数不是零,
+    故 \((23, 12)\) 是此方程组的一个非零解.
+    我们也可说,
+    \(x_1 = 23\),
+    \(x_2 = 12\)
+    是此方程组的一个 (非零) 解.
+
+    不过, \((12, 23)\) 不是此方程组的一个解:
+    虽然 \(12 + 23 = 35\),
+    但是 \(2 \cdot 12 + 4 \cdot 23 = 116 \neq 94\).
+\end{example}
+
+\begin{example}
+    考虑%
+    由 \(2\)~个 \(3\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \begin{cases}
+            x_1 + 2x_2 + 3x_3 = 0, \\
+            4x_1 + 5x_2 + 6x_3 = 0.
+        \end{cases}
+    \end{align*}
+    可以验证, 对每一个数~\(k\),
+    \((k, -2k, k)\) 是此方程组的一个解:
+    \begin{align*}
+        k + 2(-2k) + 3k = k - 4k + 3k = 0, \\
+        4k + 5(-2k) + 6k = 4k - 10k + 6k = 0.
+    \end{align*}
+    当 \(k = 0\) 时, 这是零解;
+    当 \(k \neq 0\) 时, 因为
+    \(k\), \(-2k\), \(k\) 里有一个数 \(k\) 不是零,
+    故这是一个非零解.
+
+    我们也可说,
+    \(x_1 = k\),
+    \(x_2 = -2k\),
+    \(x_3 = k\)
+    是此方程组的一个解.
+\end{example}
+
+利用阵的积, 我们可简单地写一个线性方程组.
+设
+\begin{align*}
+    A =
+    \begin{bmatrix}
+        a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+        a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+        \vdots  & \vdots  & {}     & \vdots  \\
+        a_{m,1} & a_{m,2} & \cdots & a_{m,n} \\
+    \end{bmatrix},
+    \quad
+    X =
+    \begin{bmatrix}
+        x_1 \\ x_2 \\ \vdots \\ x_n
+    \end{bmatrix},
+    \quad
+    B =
+    \begin{bmatrix}
+        b_1 \\ b_2 \\ \vdots \\ b_m
+    \end{bmatrix}.
+\end{align*}
+则, 对不超过 \(m\) 的正整数~\(i\),
+\begin{align*}
+    [B]_{i,1}
+    = {} &
+    b_i
+    \\
+    = {} &
+    a_{i,1} x_1 + a_{i,2} x_2 + \dots + a_{i,n} x_n
+    \\
+    = {} &
+    [A]_{i,1} [X]_{1,1} + [A]_{i,2} [X]_{2,1}
+    + \dots + [A]_{i,n} [X]_{n,1}
+    \\
+    = {} &
+    [AX]_{i,1}.
+\end{align*}
+注意到 \(AX\) 的尺寸也是 \(m \times 1\), 故
+\begin{align*}
+    AX = B.
+\end{align*}
+所以, 我们也说形如 \(AX = B\) 的阵等式
+(\(X\) 的元是未知数, \(X\) 是恰有 \(1\)~列的阵)
+是一个线性方程组.
+相应地, 若 \(n \times 1\)~阵 \(C\)
+(其元跟 \(X\)~的元相比, 自然都是已知数)
+适合 \(AC = B\),
+我们说, \(C\) 是此方程组的一个解;
+若 \(C = 0\)
+(也就是说, \(C\) 的每一个元都是零)
+是此方程组的一个解,
+我们说, \(C\) 是此方程组的零解;
+若不等于零的 \(C\)
+(也就是说, \(C\) 有一个不为零的元)
+是此方程组的一个解,
+我们说, \(C\) 是此方程组的一个非零解.
+
+\begin{example}
+    我们可改写
+    \begin{align*}
+        \begin{cases}
+            x_1 + x_2 = 35, \\
+            2x_1 + 4x_2 = 94.
+        \end{cases}
+    \end{align*}
+    为
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 1 \\
+            2 & 4 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            35 \\
+            94 \\
+        \end{bmatrix}.
+    \end{align*}
+    可以验证,
+    \(
+    C = \begin{bmatrix}
+        23 \\
+        12 \\
+    \end{bmatrix}
+    \)
+    是此方程组的一个非零解:
+    \(C \neq 0\), 且
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 1 \\
+            2 & 4 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            23 \\
+            12 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \cdot 23 + 1 \cdot 12 \\
+            2 \cdot 23 + 4 \cdot 12 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            35 \\
+            94 \\
+        \end{bmatrix}.
+    \end{align*}
+
+    不过,
+    \(
+    D = \begin{bmatrix}
+        12 \\
+        23 \\
+    \end{bmatrix}
+    \)
+    不是此方程组的一个解:
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 1 \\
+            2 & 4 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            12 \\
+            23 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \cdot 12 + 1 \cdot 23 \\
+            2 \cdot 12 + 4 \cdot 23 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            35  \\
+            116 \\
+        \end{bmatrix}
+        \neq
+        \begin{bmatrix}
+            35 \\
+            94 \\
+        \end{bmatrix}.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    我们可改写
+    \begin{align*}
+        \begin{cases}
+            x_1 + 2x_2 + 3x_3 = 0, \\
+            4x_1 + 5x_2 + 6x_3 = 0.
+        \end{cases}
+    \end{align*}
+    为
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+            x_3 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\
+            0 \\
+        \end{bmatrix}.
+    \end{align*}
+    可以验证, 对每一个数~\(k\),
+    \(
+    C = k\begin{bmatrix}
+        1  \\
+        -2 \\
+        1  \\
+    \end{bmatrix}
+    \)
+    是此方程组的一个解:
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6 \\
+        \end{bmatrix}
+        \left(
+        k\begin{bmatrix}
+                 1  \\
+                 -2 \\
+                 1  \\
+             \end{bmatrix}
+        \right)
+        = {} &
+        k
+        \left(
+        \begin{bmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+            \end{bmatrix}
+        \begin{bmatrix}
+                1  \\
+                -2 \\
+                1  \\
+            \end{bmatrix}
+        \right)
+        \\
+        = {} &
+        k
+        \begin{bmatrix}
+            1 \cdot 1 + 2 \cdot (-2) + 3 \cdot 1 \\
+            4 \cdot 1 + 5 \cdot (-2) + 6 \cdot 1 \\
+        \end{bmatrix}
+        \\
+        = {} &
+        k
+        \begin{bmatrix}
+            0 \\
+            0 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\
+            0 \\
+        \end{bmatrix}.
+    \end{align*}
+    当 \(k = 0\) 时, 它是零解;
+    当 \(k \neq 0\) 时, 它是一个非零解.
+\end{example}
+
+最后, 有一件小事值得一提.
+前面, 我们写一个%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+为阵等式.
+反过来,
+设 \(A\) 是 \(m \times n\)~阵,
+\(B\) 是 \(m \times 1\)~阵,
+\(X\) 是未知的 \(n \times 1\)~阵.
+那么, 我们也可还原形如 \(AX = B\) 的阵等式为%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组.
+比如, 我们可写
+\begin{align*}
+    \begin{bmatrix}
+        2 & 3  & -5 & 7  & 0   \\
+        0 & 1  & 11 & 13 & -17 \\
+        4 & -6 & 8  & -9 & 12  \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        x_3 \\
+        x_4 \\
+        x_5 \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        7 \\
+        8 \\
+        9 \\
+    \end{bmatrix}
+\end{align*}
+为
+\begin{align*}
+    \begin{cases}
+        2x_1 + 3x_2 - 5x_3 + 7x_4 = 7,   \\
+        x_2 + 11x_3 + 13x_4 - 17x_5 = 8, \\
+        4x_1 - 6x_2 + 8x_3 - 9x_4 + 12x_5 = 9.
+    \end{cases}
+\end{align*}
+(注意到, 我们未写系数为 \(0\) 的项.)
+
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (1)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (1)}}
+
+在上节, 我们学习了线性方程组的一些基本的概念.
+并且, 我们知道, 可用阵等式简单地写一个线性方程组
+(或者说, 形如 \(AX = B\) 的阵等式就是一个线性方程组).
+
+从本节起, 我们讨论%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组.
+用阵等式表示这种方程组,
+就是 \(AX = B\),
+其中 \(A\) 是 \(n\)~级阵,
+\(B\) 是 \(n \times 1\)~阵,
+\(X\) 是未知的 \(n \times 1\)~阵.
+\(A\) 是方阵, 故它有行列式.
+\(AX = B\) 的解跟 \(A\)~的行列式是否有关系?
+此事的回答是 ``是''.
+本节, 我们讨论一种特别的情形.
+
+\begin{theorem}[Cramer 公式, 1]
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+    设 \(B\) 是 \(n \times 1\)~阵.
+    设 \(X\) 是未知的 \(n \times 1\)~阵.
+    若 \(\det {(A)} \neq 0\),
+    则线性方程组 \(AX = B\) 有唯一的解
+    \begin{align*}
+        X = \frac{1}{\det {(A)}} \operatorname{adj} {(A)}\,B.
+    \end{align*}
+\end{theorem}
+
+在论证此事前, 我想用一个简单的例助您理解它.
+
+\begin{example}
+    设 \(a\), \(b\) 是常数.
+    一个 \(1\)~元 \({\leq} 1\)~次方程
+    \(ax = b\)
+    当然也是一个线性方程组:
+    这是方程数为 \(1\) 时的特别情形.
+    我们在中学就知道, 当 \(a \neq 0\) 时,
+    \(ax = b\) 有唯一的解 \(x = \frac{1}{a}\, b\).
+    一方面, \(x = \frac{1}{a}\, b\) 是一个解:
+    \begin{align*}
+        a \Big(\frac{1}{a}\, b \Big)
+        = \Big(a\, \frac{1}{a} \Big) b
+        = 1b
+        = b.
+    \end{align*}
+    另一方面, 若数~\(y\) 也适合 \(ay = b\), 则
+    \begin{align*}
+        y
+        = 1y
+        = \Big(\frac{1}{a}\, a\Big)y
+        = \frac{1}{a} (ay)
+        = \frac{1}{a}\, b.
+    \end{align*}
+
+    我们说, 此事是 Cramer 公式的一个特例.
+    首先, 我们可写 \(ax = b\)
+    为阵等式 \([a]\, [x] = [b]\).
+    (注意到, \([a]\), \([x]\), \([b]\) 都是 \(1\)~级阵.)
+    Cramer 公式说, 若 \(\det {[a]} \neq 0\),
+    则 \([a]\, [x] = [b]\)
+    有唯一的解
+    (注意, \(1\)~级阵的古伴是 \([1]\))
+    \begin{align*}
+        [x] = \frac{1}{\det {[a]}}
+        \operatorname{adj} {([a])}\,[b]
+        = \frac{1}{a}\, [1]\,[b]
+        = \frac{1}{a}\, [b]
+        = \Big[ \frac{1}{a}\, b \Big].
+    \end{align*}
+    这跟我们已知的结论是一样的.
+\end{example}
+
+\begin{proof}
+    我们先验证
+    \(C = \frac{1}{\det {(A)}} \operatorname{adj} {(A)}\,B\)
+    适合 \(AC = B\):
+    \begin{align*}
+        AC
+        = {} & A\Big( \frac{1}{\det {(A)}}
+        \operatorname{adj} {(A)}\,B \Big)
+        \\
+        = {} & \frac{1}{\det {(A)}} (A\operatorname{adj} {(A)}\,B)
+        \\
+        = {} & \frac{1}{\det {(A)}} (\det {(A)}\,I_n B)
+        \\
+        = {} & B.
+    \end{align*}
+
+    我们再证 \(AX = B\) 至多有一个解.
+    设 \(n \times 1\)~阵 \(D\) 也适合 \(AD = B\).
+    则
+    \begin{align*}
+        D
+        = {} & I_n D
+        \\
+        = {} & \Big( \frac{1}{\det {(A)}}
+        \operatorname{adj} {(A)}\,A \Big) D
+        \\
+        = {} & \frac{1}{\det {(A)}}
+        \operatorname{adj} {(A)}\, (AD)
+        \\
+        = {} & \frac{1}{\det {(A)}}
+        \operatorname{adj} {(A)}\,B
+        \\
+        = {} & C.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{example}
+    考虑线性方程组 \(AX = B\),
+    其中
+    \begin{align*}
+        A = \begin{bmatrix}
+                1 & 1 \\
+                2 & 4 \\
+            \end{bmatrix},
+        \quad
+        X =
+        \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+        \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            35 \\
+            94 \\
+        \end{bmatrix}.
+    \end{align*}
+    不难算出
+    \begin{align*}
+        \det {(A)} = 1 \cdot 4 - 2 \cdot 1 = 2 \neq 0,
+    \end{align*}
+    所以, 此方程组有唯一的解
+    \begin{align*}
+        X
+        = {} &
+        \frac{1}{\det {(A)}} \operatorname{adj} {(A)}\,B
+        \\
+        = {} &
+        \frac{1}{2}
+        \begin{bmatrix}
+            4  & -1 \\
+            -2 & 1  \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            35 \\
+            94 \\
+        \end{bmatrix}
+        =
+        \frac{1}{2}
+        \begin{bmatrix}
+            4 \cdot 35 - 1 \cdot 94  \\
+            -2 \cdot 35 + 1 \cdot 94 \\
+        \end{bmatrix}
+        \\
+        = {} &
+        \frac{1}{2}
+        \begin{bmatrix}
+            46 \\
+            24 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            23 \\
+            12 \\
+        \end{bmatrix}.
+    \end{align*}
+\end{example}
+
+我们可进一步地改写 Cramer 公式.
+我们先具体地算出
+\(\operatorname{adj} {(A)}\,B\)~的每一个元:
+\begin{align*}
+    [\operatorname{adj} {(A)}\,B]_{i,1}
+    = {} &
+    \sum_{\ell = 1}^{n}
+    {[\operatorname{adj} {(A)}]_{i,\ell} [B]_{\ell,1}}
+    \\
+    = {} &
+    \sum_{\ell = 1}^{n}
+    {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}.
+\end{align*}
+设 \(A \{i, B\}\) 是%
+以 \(B\) 代阵~\(A\) 的列~\(i\) 后所得的阵,
+即
+\begin{align*}
+    [A \{i, B\}]_{\ell,k}
+    = \begin{cases}
+          [A]_{\ell,k}, & k \neq i; \\
+          [B]_{\ell,1}, & k = i.
+      \end{cases}
+\end{align*}
+由此可见,
+\(A(\ell|i) = (A \{i, B\})(\ell|i)\)
+(\(\ell = 1\), \(2\), \(\dots\), \(n\)).
+所以
+\begin{align*}
+         &
+    \sum_{\ell = 1}^{n}
+    {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}
+    \\
+    = {} &
+    \sum_{\ell = 1}^{n}
+    {(-1)^{\ell+i} \det {((A \{i, B\})(\ell|i))}\,
+    [A \{i, B\}]_{\ell,1}}
+    \\
+    = {} &
+    \det {(A \{i, B\})}.
+\end{align*}
+从而
+\begin{align*}
+    [X]_{i,1}
+    = {} &
+    \Big[ \frac{1}{\det {(A)}}
+        \operatorname{adj} {(A)}\,B \Big]_{i,1}
+    \\
+    = {} &
+    \frac{1}{\det {(A)}}
+    [ \operatorname{adj} {(A)}\,B ]_{i,1}
+    \\
+    = {} &
+    \frac{1}{\det {(A)}}
+    \det {(A \{i, B\})}
+    \\
+    = {} &
+    \frac{\det {(A \{i, B\})}}{\det {(A)}}.
+\end{align*}
+由此, 我们得到 Cramer 公式的另一个形式:
+
+\begin{theorem}[Cramer 公式, 2]
+    设线性方程组
+    \begin{align*}
+        \begin{cases}
+            a_{1,1} x_1 + a_{1,2} x_2 + \dots
+            + a_{1,n} x_n = b_1, \\
+            a_{2,1} x_1 + a_{2,2} x_2 + \dots
+            + a_{2,n} x_n = b_2, \\
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots,
+            \\
+            a_{n,1} x_1 + a_{n,2} x_2 + \dots
+            + a_{n,n} x_n = b_n. \\
+        \end{cases}
+    \end{align*}
+    (注意, 方程数等于未知数之数.)
+    记
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+            a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+            \vdots  & \vdots  & {}     & \vdots  \\
+            a_{n,1} & a_{n,2} & \cdots & a_{n,n} \\
+        \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            b_1 \\ b_2 \\ \vdots \\ b_n
+        \end{bmatrix}.
+    \end{align*}
+    若 \(\det {(A)} \neq 0\),
+    则此线性方程组有唯一的解
+    \begin{align*}
+        x_i = \frac{\det {(A \{i, B\})}}{\det {(A)}},
+        \quad
+        \text{\(i = 1\), \(2\), \(\dots\), \(n\)},
+    \end{align*}
+    其中 \(A \{i, B\}\) 是%
+    以 \(B\) 代阵~\(A\) 的列~\(i\) 后所得的阵.
+\end{theorem}
+
+\begin{example}
+    考虑由 \(2\)~个 \(2\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \begin{cases}
+            a_{1,1} x_1 + a_{1,2} x_2 = b_1, \\
+            a_{2,1} x_1 + a_{2,2} x_2 = b_2. \\
+        \end{cases}
+    \end{align*}
+    根据 Cramer 公式, 若
+    \(d = \det {
+        \begin{bmatrix}
+            a_{1,1} & a_{1,2} \\
+            a_{2,1} & a_{2,2} \\
+        \end{bmatrix}
+    }
+    = a_{1,1} a_{2,2} - a_{2,1} a_{1,2} \neq 0\),
+    则此方程组有唯一的解
+    \begin{align*}
+        x_1
+        = \frac{\det {
+                \begin{bmatrix}
+                    b_{1} & a_{1,2} \\
+                    b_{2} & a_{2,2} \\
+                \end{bmatrix}
+            }}{d}
+        = \frac{b_1 a_{2,2} - b_2 a_{1,2}}{d},
+        \\
+        x_2
+        = \frac{\det {
+                \begin{bmatrix}
+                    a_{1,1} & b_{1} \\
+                    a_{2,1} & b_{2} \\
+                \end{bmatrix}
+            }}{d}
+        = \frac{a_{1,1} b_2 - a_{2,1} b_1}{d}.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    考虑线性方程组
+    \begin{align*}
+        \begin{cases}
+            x_1 + x_2 = 35, \\
+            2x_1 + 4x_2 = 94.
+        \end{cases}
+    \end{align*}
+    因为 \(d = 1 \cdot 4 - 2 \cdot 1 = 2 \neq 0\),
+    故, 由上个例,
+    此方程组有唯一的解
+    \begin{align*}
+        x_1 = \frac{35 \cdot 4 - 94 \cdot 1}{2} = 23,
+        \\
+        x_2 = \frac{1 \cdot 94 - 2 \cdot 35}{2} = 12.
+    \end{align*}
+\end{example}
+
+一般地, Cramer 公式, 只是一个理论的公式.
+这是因为, 一般地, 计算行列式是较复杂的事
+(或许, 您还记得,
+\(3\)~级阵的行列式的较具体的公式含 \(6\)~项,
+而 \(4\)~级阵的行列式的较具体的公式含 \(24\)~项).
+所以, 我们一般用别的方法
+(如代入消元法、加减消元法等)
+解线性方程组.
+
+还是以
+\begin{align*}
+    \begin{cases}
+        x_1 + x_2 = 35, \\
+        2x_1 + 4x_2 = 94
+    \end{cases}
+\end{align*}
+为例.
+由方程~\(1\), 有 \(x_1 = 35 - x_2\).
+代入其到方程~\(2\), 有
+\(2(35 - x_2) + 4x_2 = 94\),
+即 \(2x_2 = 24\).
+由此可知 \(x_2 = 12\).
+代入其到 \(x_1 = 35 - x_2\),
+有 \(x_1 = 23\).
+最后, 经验证, \((23, 12)\) 的确是此方程组的一个解.
+
+\KunAsteriskoEnEnhavtabelo
+
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (2)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (2)}}
+
+\maldevigalegajxo
+
+在上节, 我们\emph{定量地}研究了%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解.
+具体地, 当 \(n\)~级阵 \(A\) 的行列式不为零时,
+我们用行列式写出了 \(AX = B\) 的唯一的解,
+其中
+\(B\) 是 \(n \times 1\)~阵,
+\(X\) 是未知的 \(n \times 1\)~阵.
+但是, 若 \(\det {(A)} = 0\),
+则 Cramer 公式不可用
+(因为分母不可为零).
+其实, 当 \(\det {(A)} = 0\) 时,
+\(AX = B\) 是否有解是一个较复杂的问题.
+
+\begin{example}
+    设
+    \begin{align*}
+        A = \begin{bmatrix}
+                1  & 1  \\
+                -1 & -1 \\
+            \end{bmatrix},
+        \quad
+        X =
+        \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+        \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            1 \\
+            b \\
+        \end{bmatrix},
+    \end{align*}
+    其中 \(b\) 是常数.
+    不难算出, \(\det {(A)} = 0\).
+    当 \(b\) 取某些数时,
+    我们讨论 \(AX = B\) 的解.
+
+    当 \(b = -1\) 时, 此方程组有解:
+    \begin{align*}
+        A
+        \begin{bmatrix}
+            1 \\
+            0 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \cdot 1 + 1 \cdot 0     \\
+            -1 \cdot 1 + (-1) \cdot 0 \\
+        \end{bmatrix}
+        =
+        B.
+    \end{align*}
+    甚至, \(AX = B\) 有无限多个解.
+    设 \(t\) 是常数.
+    则
+    \begin{align*}
+        A
+        \begin{bmatrix}
+            1 - t \\
+            t     \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \cdot (1 - t) + 1 \cdot t     \\
+            -1 \cdot (1 - t) + (-1) \cdot t \\
+        \end{bmatrix}
+        =
+        B.
+    \end{align*}
+    取不同的 \(t\),
+    就有不一样的
+    \(
+    \begin{bmatrix}
+        1 - t \\
+        t     \\
+    \end{bmatrix}
+    \).
+    我们知道, 有无限多个数.
+    所以, \(AX = B\) 有无限多个解.
+
+    当 \(b = 0\) 时, 此方程组无解.
+    用反证法.
+    反设
+    \(
+    A \begin{bmatrix}
+        y_1 \\
+        y_2 \\
+    \end{bmatrix}
+    = B
+    \),
+    即
+    \begin{align*}
+        y_1 + y_2 = 1, \\
+        -y_1 - y_2 = 0.
+    \end{align*}
+    从而
+    \begin{align*}
+        1 + 0
+        = {} & (y_1 + y_2) + (-y_1 - y_2)     \\
+        = {} & (y_1 - y_1) + (y_2 - y_2) = 0.
+    \end{align*}
+    这是矛盾.
+\end{example}
+
+从本节开始, 我们\emph{定性地}研究%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解.
+具体地, 我们主要讨论解的性质,
+而不是解的公式.
+
+根据 Cramer 公式, 我们不难得到如下事实:
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(\det {(A)} \neq 0\).
+    那么, 对任何的 \(n \times 1\)~阵 \(B\),
+    存在一个 \(n \times 1\)~阵 \(C\),
+    使 \(AC = B\).
+    (换句话说,
+    若存在某 \(n \times 1\)~阵 \(B\),
+    使对任何的 \(n \times 1\)~阵 \(C\),
+    必 \(AC \neq B\),
+    则 \(\det {(A)} = 0\).)
+\end{theorem}
+
+重要地, 此事反过来也对.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设对任何的 \(n \times 1\)~阵 \(B\),
+    存在一个 \(n \times 1\)~阵 \(C\),
+    使 \(AC = B\).
+    则 \(\det {(A)} \neq 0\).
+    (换句话说,
+    若 \(\det {(A)} = 0\),
+    则存在某 \(n \times 1\)~阵 \(B\),
+    使对任何的 \(n \times 1\)~阵 \(C\),
+    必 \(AC \neq B\).)
+\end{theorem}
+
+\begin{proof}
+    设 \(n\)~级单位阵~\(I\) 的%
+    列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是
+    \(e_1\), \(e_2\), \(\dots\), \(e_n\).
+    那么, 每一个 \(e_i\) 都是 \(n \times 1\)~阵.
+    根据假定, 存在一个 \(n \times 1\)~阵 \(f_i\)
+    使 \(Af_i = e_i\).
+    作 \(n\)~级阵
+    \(F = [f_1, f_2, \dots, f_n]\).
+    则
+    \begin{align*}
+        AF
+        = {} & A\, [f_1, f_2, \dots, f_n] \\
+        = {} & [Af_1, Af_2, \dots, Af_n]  \\
+        = {} & [e_1, e_2, \dots, e_n]     \\
+        = {} & I.
+    \end{align*}
+    因为二个同级的方阵的积的行列式%
+    等于这二个阵的行列式的积,
+    \begin{align*}
+        1 = \det {(I)} = \det {(A)} \det {(F)}.
+    \end{align*}
+    从而 \(\det {(A)} \neq 0\).
+\end{proof}
+
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (3)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (3)}}
+
+\maldevigalegajxo
+
+我们进一步地\emph{定性地}研究%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解.
+
+前面, 我们知道,
+若 \(n\)~级阵 \(A\) 的行列式为零,
+则存在某 \(n \times 1\)~阵 \(B\),
+使线性方程组 \(AX = B\) 无解.
+当然, 对某些 \(B\),
+\(AX = B\) 还是有解的:
+取 \(B = 0\),
+则 \(AX = B\) 至少有一个解 \(X = 0\)
+(\(0\) 是元全为零的 \(n \times 1\)~阵).
+
+本节, 我们研究, 若 \(AX = B\) 有解,
+则它是否有唯一的解.
+
+我们先看一个较简单的事实.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(B\) 是 \(n \times 1\)~阵.
+    设 \(n \times 1\)~阵 \(C\) 适合 \(AC = B\).
+
+    (1)
+    若 \(AX = 0\) 只有零解, 则 \(AX = B\) 的解是唯一的;
+
+    (2)
+    若存在非零的 \(n \times 1\)~阵 \(D\)
+    使 \(AD = 0\),
+    则 \(AX = B\) 有无限多个解.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    设 \(n \times 1\)~阵 \(Y\) 适合 \(AY = B\).
+    则
+    \begin{align*}
+        A(Y - C) = AY - AC = B - B = 0.
+    \end{align*}
+    故 \(Y - C\) 是 \(AX = 0\) 的一个解.
+    因为 \(AX = 0\) 只有零解,
+    故 \(Y - C = 0\).
+    从而 \(Y = C\).
+
+    (2)
+    要证 \(AX = B\) 有无限多个解,
+    只要证:
+    任取一个正整数 \(m\),
+    我们一定能找到 \(AX = B\) 的
+    \(m\) 个\emph{互不相同的}解.
+
+    作 \(m\)~个 \(n \times 1\)~阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_m\),
+    其中 \(C_j = C + jD\).
+    首先, 每一个 \(C_j\) 都是 \(AX = B\) 的解:
+    \begin{align*}
+        AC_j = A(C + jD) = AC + A(jD) = B + j(AD) = B + j0 = B.
+    \end{align*}
+    然后, 我们证,
+    若 \(p\), \(q\) 是二个不相等的%
+    且不超过 \(m\) 的正整数,
+    则 \(C_p \neq C_q\).
+    用反证法.
+    反设 \(C_p = C_q\),
+    则
+    \begin{align*}
+        0 = C_p - C_q = (C + pD) - (C + qD) = (p - q)D.
+    \end{align*}
+    因为 \(p \neq q\), 故 \(p - q \neq 0\).
+    从而
+    \begin{align*}
+        0 = \frac{1}{p-q}\, 0
+        = \frac{1}{p-q}\, ((p-q)D)
+        = \Big( \frac{1}{p-q}\, (p-q) \Big) D
+        = 1D
+        = D.
+    \end{align*}
+    这是矛盾.
+    所以, \(C_p \neq C_q\).
+\end{proof}
+
+由此可见, 若 \(AX = 0\) 有非零解,
+则 \(AX = B\) 有解时,
+其解不但不唯一, 还有无限多个.
+若 \(AX = 0\) 只有零解,
+则 \(AX = B\) 有解时,
+其解是唯一的.
+
+根据 Cramer 公式, 我们不难得到如下事实:
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(AX = 0\) 有非零解.
+    则 \(\det {(A)} = 0\).
+    (换句话说,
+    若 \(\det {(A)} \neq 0\),
+    则 \(AX = 0\) 只有零解.)
+\end{theorem}
+
+重要地, 此事反过来也对.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(\det {(A)} = 0\).
+    则 \(AX = 0\) 有非零解.
+    (换句话说,
+    若 \(AX = 0\) 只有零解,
+    则 \(\det {(A)} \neq 0\).)
+\end{theorem}
+
+为说话方便, 我要引入一个小概念.
+说阵~\(Z\) 是 \(A\) 的一个 \emph{\(p\)~级子阵},
+就是说, \(Z\) 是 \(A\) 的一个子阵
+(见本章, 节~\sekcio{5}),
+且 \(Z\) 是一个 \(p\)~级阵.
+
+在论证此事前, 我想用三个例%
+助您理解此事为什么是正确的.
+
+\begin{example}
+    设 \(A\) 是一个 \(5\)~级阵,
+    且 \(A = 0\).
+    那么, 我们任取一个非零的 \(5 \times 1\)~阵 \(S\),
+    必有 \(AS = 0\).
+\end{example}
+
+\begin{example}
+    设 \(A\) 是一个 \(5\)~级阵,
+    且 \(\det {(A)} = 0\),
+    但 \(A \neq 0\).
+
+    我们知道,
+    \(A \operatorname{adj} {(A)} = \det {(A)}\, I\),
+    其中 \(\operatorname{adj} {(A)}\)
+    是 \(A\) 的古伴,
+    \(I\) 是 \(5\)~级单位阵.
+    因为 \(\det {(A)} = 0\),
+    故 \(A \operatorname{adj} {(A)} = 0\).
+
+    若 \(\operatorname{adj} {(A)} \neq 0\),
+    则存在 \(k\), \(v\), 使
+    \([\operatorname{adj} {(A)}]_{k,v} \neq 0\).
+    我们设 \(\operatorname{adj} {(A)}\) 的%
+    列~\(v\) 是 \(Y\).
+    那么, \([Y]_{k,1}
+        = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
+    从而 \(Y \neq 0\).
+    我们证明 \(AY = 0\):
+    \begin{align*}
+        [AY]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{5}
+        {[A]_{i,\ell} [Y]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{5}
+        {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
+        \\
+        = {} &
+        [A \operatorname{adj} {(A)}]_{i,v}
+        \\
+        = {} &
+        [0]_{i,v}
+        \\
+        = {} &
+        0.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    仍设 \(A\) 是一个 \(5\)~级阵,
+    且 \(\det {(A)} = 0\),
+    但 \(A \neq 0\).
+
+    在上个例里, 我们假定
+    \(\operatorname{adj} {(A)} \neq 0\).
+    可是, 它也有可能为 \(0\), 即使 \(A \neq 0\)
+    (比如, 可以验证
+    \begin{align*}
+        M = \begin{bmatrix}
+                1  & 1 & -1 & -1 & 1 \\
+                1  & 2 & 0  & 0  & 2 \\
+                2  & 1 & -3 & -3 & 1 \\
+                -1 & 0 & 2  & 2  & 0 \\
+                -1 & 1 & 3  & 3  & 1 \\
+            \end{bmatrix}
+    \end{align*}
+    的古伴就是 \(0\)).
+
+    现在, 我们假定
+    \(\operatorname{adj} {(A)} = 0\).
+    此时, 我们不能利用
+    \(\operatorname{adj} {(A)}\)
+    写出 \(AX = 0\) 的非零解.
+    我们应如何作?
+
+    若 \(\operatorname{adj} {(A)} = 0\),
+    则 \(A\) 的每一个 \(4\)~级子阵的行列式都是零.
+    从而, 一定存在一个%
+    低于 \(4\) 的正整数 \(r\)
+    适合性质:
+    \emph{\(A\) 有一个 \(r\)~级子阵, 其行列式非零,
+        且 \(A\) 的每一个 \(r+1\)~级子阵的行列式都是零.}
+    (我们已知 \(A\) 的每一个 \(4\)~级子阵的行列式都是零.
+    我们考虑 \(A\) 的 \(3\)~级子阵.
+    若有一个 \(3\)~级子阵的行列式不是零,
+    我们就取 \(r = 3\).
+    若不然, \(A\) 的每一个 \(3\)~级子阵的行列式都是零.
+    我们考虑 \(A\) 的 \(2\)~级子阵.
+    若有一个 \(2\)~级子阵的行列式不是零,
+    我们就取 \(r = 2\).
+    若不然, \(A\) 的每一个 \(2\)~级子阵的行列式都是零.
+    我们考虑 \(A\) 的 \(1\)~级子阵.
+    因为 \(A \neq 0\),
+    故 \(A\) 一定有 \(1\)~级子阵的行列式不是零.
+    此时, 取 \(r = 1\) 即可.)
+
+    我以 \(r = 2\) 为例%
+    演示找 \(AX = 0\) 的非零解的方法
+    (可以验证,
+    前面的 \(M\) 的行~\(1\), \(2\)
+    与列~\(1\), \(2\) 作成的
+    \(2\)~级子阵的行列式不是零,
+    但 \(M\) 的每一个 \(3\)~级子阵的行列式都是零);
+    \(r = 3\) 或 \(r = 1\) 时的情形是类似的.
+
+    我们设
+    \(\displaystyle
+    A_2 =
+    A\binom{1,2}{1,2}
+    \)
+    的行列式不为零,
+    且 \(A\) 的每一个 \(3\)~级子阵的行列式都是零.
+    再设
+    \(\displaystyle
+    E =
+    A\binom{1,2,3}{1,2,3}
+    \).
+    因为 \(E\) 是 \(A\) 的一个 \(3\)~级子阵,
+    故 \(\det {(E)} = 0\).
+    从而
+    \(E \operatorname{adj} {(E)} = 0\).
+    注意到
+    \([\operatorname{adj} {(E)}]_{3,3}
+    = (-1)^{3+3} \det {(A_2)} \neq 0\).
+    设 \(\operatorname{adj} {(E)}\)
+    的列~\(3\) 为 \(T\).
+    那么 \(T \neq 0\).
+    并且, 我们可用完全类似的方法, 证明
+    \(ET = 0\).
+
+    接下来, 我们设法由此得到一个 \(AX = 0\)
+    的非零解.
+    我们作一个 \(5 \times 1\)~阵 \(W\), 其中
+    \begin{align*}
+        [W]_{\ell,1}
+        = \begin{cases}
+              [\operatorname{adj} {(E)}]_{\ell,3},
+                 & \ell \leq 3; \\
+              0, & \ell > 3.
+          \end{cases}
+    \end{align*}
+    (通俗地, 我们在 \(T\) 的最后一个元后加 \(2\)~个 \(0\),
+    变 \(3 \times 1\)~阵 \(T\)
+    为一个 \(5 \times 1\)~阵 \(W\).)
+    因为 \([W]_{3,1} \neq 0\),
+    故 \(W \neq 0\).
+    我们证明 \(AW = 0\).
+
+    取不超过 \(5\) 的正整数 \(q\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell = 1}^{5}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        +
+        \sum_{\ell = 4}^{5}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3}
+        {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}
+        +
+        \sum_{\ell = 4}^{5}
+        {[A]_{q,\ell}\, 0}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3}
+        {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}.
+    \end{align*}
+    若 \(q \leq 3\), 则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+            [\operatorname{adj} {(E)}]_{\ell,3}}
+        \\
+        = {} &
+        \sum_{p=1}^{3}
+        {[E]_{q,\ell}
+            [\operatorname{adj} {(E)}]_{\ell,3}}
+        \\
+        = {} &
+        [E \operatorname{adj} {(E)}]_{q,3}
+        \\
+        = {} &
+        [0]_{q,3}
+        \\
+        = {} & 0.
+    \end{align*}
+    设 \(q > 3\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+            [\operatorname{adj} {(E)}]_{\ell,3}}
+        \\
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+        (-1)^{3+\ell} \det {(E(3|\ell))}}.
+    \end{align*}
+    作一个 \(3\)~级阵 \(C_q\), 其中
+    \begin{align*}
+        [C_q]_{h,\ell}
+        = \begin{cases}
+              [E]_{h,\ell},
+               & h \neq 3; \\
+              [A]_{q,\ell},
+               & h = 3.
+          \end{cases}
+    \end{align*}
+    于是, \(C_q(3|\ell) = E(3|\ell)\).
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+        (-1)^{3+\ell} \det {(E(3|\ell))}}
+        \\
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[C_q]_{3,\ell}
+        (-1)^{3+\ell} \det {(C_q (3|\ell))}}
+        \\
+        = {} &
+        \det {(C_q)}.
+    \end{align*}
+    注意到
+    \(
+    \displaystyle
+    C_q = A\binom{1,2,q}{1,2,3}
+    \)
+    是 \(A\)~的一个 \(3\)~级子阵,
+    故
+    \begin{align*}
+        [AW]_{q,1} = \det {(C_q)} = 0.
+    \end{align*}
+
+    综上, \(AW = 0\), 且 \(W \neq 0\).
+\end{example}
+
+下面, 我给出此事的论证.
+证明分三种情形:
+(a)
+\(A = 0\);
+(b)
+\(A \neq 0\), 且
+\(\operatorname{adj} {(A)} \neq 0\);
+(c)
+\(A \neq 0\), 且
+\(\operatorname{adj} {(A)} = 0\).
+情形 (a) 最简单,
+我们随便找一个非零的 \(n \times 1\)~阵即可.
+情形 (b) 也不难,
+我们取 \(A\) 的古伴的一个非零的列即可.
+情形 (c) 是最复杂的.
+在上个例里, 我们假定%
+行列式非零的子阵%
+是由 \(A\) 的前 \(r\)~行与前 \(r\)~列作成的,
+且每一个 \(r+1\)~级子阵的行列式都是零
+(此处 \(r = 2\)).
+(通俗地, 我们假定行列式非零的子阵在左上角.)
+不过, 对一般的阵来说,
+行列式非零的子阵不一定在左上角,
+这是论证的最大的挑战.
+
+\begin{proof}
+    设 \(A\) 是 \(n\)~级阵,
+    且 \(\det {(A)} = 0\).
+
+    若 \(A = 0\),
+    我们任取一个非零的 \(n \times 1\)~阵 \(S\).
+    则 \(AS = 0\).
+
+    以下, 我们假定 \(A \neq 0\);
+    也就是说, \(A\) 有一个元不是零
+    (同时, 这也相当于 \(n > 1\):
+    回想 \(1\)~级阵的行列式是什么).
+
+    我们知道,
+    \(A \operatorname{adj} {(A)} = \det {(A)}\, I\),
+    其中 \(\operatorname{adj} {(A)}\)
+    是 \(A\) 的古伴,
+    \(I\) 是 \(n\)~级单位阵.
+    因为 \(\det {(A)} = 0\),
+    故 \(A \operatorname{adj} {(A)} = 0\).
+
+    若 \(\operatorname{adj} {(A)} \neq 0\),
+    则存在 \(k\), \(v\), 使
+    \([\operatorname{adj} {(A)}]_{k,v} \neq 0\).
+    我们设 \(\operatorname{adj} {(A)}\) 的%
+    列~\(v\) 是 \(Y\).
+    那么, \([Y]_{k,1}
+        = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
+    从而 \(Y \neq 0\).
+    我们证明 \(AY = 0\):
+    \begin{align*}
+        [AY]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [Y]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
+        \\
+        = {} &
+        [A \operatorname{adj} {(A)}]_{i,v}
+        \\
+        = {} &
+        [0]_{i,v}
+        \\
+        = {} &
+        0.
+    \end{align*}
+
+    若 \(\operatorname{adj} {(A)} = 0\),
+    则 \(A\) 的每一个 \(n-1\)~级子阵的行列式都是零
+    (同时, 这也相当于 \(n > 2\):
+    回想 \(2\)~级阵的古伴是什么;
+    再回想前面作过的假定 \(A \neq 0\)).
+    从而, 一定存在一个%
+    低于 \(n-1\) 的正整数 \(r\)
+    适合性质:
+    \emph{\(A\) 有一个 \(r\)~级子阵, 其行列式非零,
+        且 \(A\) 的每一个 \(r+1\)~级子阵的行列式都是零.}
+    (我们已知 \(A\) 的每一个 \(n-1\)~级子阵的行列式都是零.
+    我们考虑 \(A\) 的 \(n-2\)~级子阵.
+    若有一个 \(n-2\)~级子阵的行列式不是零,
+    我们就取 \(r = n-2\).
+    若不然, \(A\) 的每一个 \(n-2\)~级子阵的行列式都是零.
+    我们考虑 \(A\) 的 \(n-3\)~级子阵.
+    若有一个 \(n-3\)~级子阵的行列式不是零,
+    我们就取 \(r = n-3\).
+    \(\dots \dots\)
+    若不然, \(A\) 的每一个 \(2\)~级子阵的行列式都是零.
+    我们考虑 \(A\) 的 \(1\)~级子阵.
+    因为 \(A \neq 0\),
+    故 \(A\) 一定有 \(1\)~级子阵的行列式不是零.
+    此时, 取 \(r = 1\) 即可.)
+
+    我们设 \(A\)~的 \(r\)~级子阵
+    \(
+    \displaystyle
+    A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    \)
+    的行列式非零,
+    其中 \(i_1 < i_2 < \dots < i_r\),
+    且 \(j_1 < j_2 < \dots < j_r\).
+    我们从 \(1\), \(2\), \(\dots\), \(n\) 中
+    去除 \(r\)~个整数
+    \(i_1\), \(i_2\), \(\dots\), \(i_r\);
+    此时, 还剩下 \(n-r\)~个整数,
+    我们从中选一个为 \(i_{r+1}\).
+    类似地,
+    我们再从 \(1\), \(2\), \(\dots\), \(n\) 中
+    去除 \(r\)~个整数
+    \(j_1\), \(j_2\), \(\dots\), \(j_r\);
+    此时, 还剩下 \(n-r\)~个整数,
+    我们从中选一个为 \(j_{r+1}\).
+    作 \(r+1\)~级阵
+    \(
+    \displaystyle
+    E =
+    A\binom{i_1,\dots,i_r,i_{r+1}}
+    {j_1,\dots,j_r,j_{r+1}}
+    \).
+    我们设 \(i_p\) 在
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\) 中%
+    是第~\(f(i_p)\) 小的数.
+    再设 \(j_p\) 在
+    \(j_1\), \(\dots\), \(j_r\), \(j_{r+1}\) 中%
+    是第~\(g(j_p)\) 小的数.
+    因为 \(E\) 是 \(A\) 的一个 \(r+1\)~级子阵,
+    故 \(\det {(E)} = 0\).
+    从而
+    \(E \operatorname{adj} {(E)} = 0\).
+    注意到
+    \([\operatorname{adj} {(E)}]_{g(j_{r+1}), f(i_{r+1})}
+    = (-1)^{f(i_{r+1})+g(j_{r+1})} \det {(A_r)} \neq 0\).
+    设 \(\operatorname{adj} {(E)}\)
+    的列~\(f(i_{r+1})\) 为 \(T\).
+    那么 \(T \neq 0\).
+    并且, 我们可用完全类似的方法, 证明
+    \(ET = 0\).
+
+    接下来, 我们设法由此得到一个 \(AX = 0\)
+    的非零解.
+    我们作一个 \(n \times 1\)~阵 \(W\), 其中
+    \begin{align*}
+        [W]_{\ell,1}
+        = \begin{cases}
+              [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
+                 & \text{\(\ell = j_p\),
+              \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
+              0, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    (通俗地, 我们在适当的位置写零,
+    变 \((r+1) \times 1\)~阵 \(T\)
+    为一个 \(n \times 1\)~阵 \(W\).)
+    因为 \([W]_{j_{r+1},1} \neq 0\),
+    故 \(W \neq 0\).
+    我们证明 \(AW = 0\).
+
+    取不超过 \(n\) 的正整数 \(q\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+        \ell = j_p         \\
+                1 \leq p \leq r+1
+            }}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        +
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+                \text{其他}
+            }}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+        \ell = j_p         \\
+                1 \leq p \leq r+1
+            }}
+        {[A]_{q,j_p}
+                [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        +
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+                \text{其他}
+            }}
+        {[A]_{q,\ell}\, 0}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
+    \end{align*}
+    若 \(q\) 等于某个 \(i_t\), 则
+    \begin{align*}
+        [AW]_{i_t,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{i_t,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[E]_{f(i_t),g(j_p)}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        [E \operatorname{adj} {(E)}]_{f(i_t),f(i_{r+1})}
+        \\
+        = {} &
+        [0]_{f(i_t),f(i_{r+1})}
+        \\
+        = {} & 0.
+    \end{align*}
+    若 \(q\) 不等于
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
+    中的任何一个,
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}.
+    \end{align*}
+    作一个 \(r+1\)~级阵 \(C_q\), 其中
+    \begin{align*}
+        [C_q]_{h,g(j_p)}
+        = \begin{cases}
+              [E]_{h,g(j_p)},
+               & h \neq f(i_{r+1}); \\
+              [A]_{q,j_p},
+               & h = f(i_{r+1}).
+          \end{cases}
+    \end{align*}
+    于是, \(C_q(f(i_{r+1})|g(j_p))
+    = E(f(i_{r+1})|g(j_p))\).
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[C_q]_{f(i_{r+1}),g(j_p)}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(C_q (f(i_{r+1})|g(j_p)))}}
+        \\
+        = {} &
+        \det {(C_q)}.
+    \end{align*}
+
+    再作一个 \(r+1\)~级阵
+    \(
+    \displaystyle
+    D_q =
+    A\binom{i_1,\dots,i_r,q}
+    {j_1,\dots,j_r,j_{r+1}}
+    \).
+    不难看出, 适当地交换 \(C_q\) 的行的次序,
+    即可变 \(C_q\) 为 \(D_q\).
+    根据反称性,
+    \(\det {(C_q)} = \pm \det {(D_q)}\).
+    (具体地, 设 \(q\) 在
+    \(i_1\), \(\dots\), \(i_r\), \(q\) 中%
+    是第~\(u\) 小的数.
+    那么, 当 \(f(i_{r+1}) = u\) 时, \(C_q = D_q\).
+    当 \(f(i_{r+1}) < u\) 时,
+    我们交换行~\(f(i_{r+1})\) 与 \(f(i_{r+1})+1\),
+    再交换行~\(f(i_{r+1})+1\) 与 \(f(i_{r+1})+2\),
+    \(\dots \dots\),
+    再交换行~\(u-1\) 与 \(u\),
+    作 \(u - f(i_{r+1})\)~次相邻行的交换,
+    即可变 \(C_q\) 为 \(D_q\).
+    当 \(f(i_{r+1}) > u\) 时,
+    我们交换行~\(f(i_{r+1})\) 与 \(f(i_{r+1})-1\),
+    再交换行~\(f(i_{r+1})-1\) 与 \(f(i_{r+1})-2\),
+    \(\dots \dots\),
+    再交换行~\(u+1\) 与 \(u\),
+    作 \(f(i_{r+1}) - u\)~次相邻行的交换,
+    即可变 \(C_q\) 为 \(D_q\).)
+    因为 \(D_q\) 是 \(A\) 的一个 \(r+1\)~级子阵,
+    故其行列式为零.
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = \det {(C_q)}
+        = \pm \det {(D_q)}
+        = 0.
+    \end{align*}
+
+    综上, 我们找到了一个 \(n \times 1\)~阵 \(W\)
+    使 \(AW = 0\), 且 \(W \neq 0\).
+\end{proof}
+
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (4)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (4)}}
+
+\maldevigalegajxo
+
+本节没有新的知识.
+
+综合前几节的讨论, 我们有如下定理.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵,
+    \(B\) 是 \(n \times 1\)~阵,
+    \(X\) 是未知的 \(n \times 1\)~阵.
+
+    (1)
+    当 \(\det {(A)} \neq 0\) 时,
+    \(AX = B\) 有唯一的解;
+
+    (2)
+    当 \(\det {(A)} = 0\) 时,
+    \(AX = B\) 要么无解,
+    要么有无限多个解.
+\end{theorem}
+
+这就是%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解的定性的理论 (青春版).
+不过,
+% 不过:
+% (a)
+当 \(\det {(A)} = 0\) 时,
+如何进一步地\emph{判断} \(AX = B\) 是否有解?
+这是此理论无法解答的问题.
+% (b)
+% 此理论能否被推广到一般的%
+% 由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组?
+% (c)
+% 若 \(AX = B\) 有解,
+% 但 \(\det {(A)} = 0\),
+% 能否给出解的公式?
+% 这是定量的理论.
+
+若 \(\det {(A)} \neq 0\),
+则, 定量地,
+我们可用 Cramer 公式写出
+\(AX = B\) 的 (唯一的) 解.
+不过, 若 \(AX = B\),
+但 \(\det {(A)} = 0\),
+我们如何写出它的 (所有的) 解?
+
+我会在接下来的几节里,
+讨论一般的%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组,
+并解决这些问题.
+
+\section{\texorpdfstring{由 \(m\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (1)}%
+  {由 m 个 n 元 ≤1 次方程作成的方程组 (1)}}
+
+\maldevigalegajxo
+
+在接下来的若干节里, 我想用行列式讨论%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解.
+我希望您注意到, 方程数 \(m\) 不一定等于未知数之数 \(n\).
+
+讨论%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解时,
+我们先对一种特别情形作了定量的讨论
+(Cramer 公式),
+再对较一般的情形作了定性的讨论;
+换句话说, 我们当时是先定量, 再定性.
+不过, 这次,
+讨论%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+时, 我们先定性, 再定量.
+这么作, 会较方便一些.
+
+或许, 您记得,
+若一个 \(n\)~级阵 \(A\) 的行列式为零,
+则 \(AX = 0\) 有非零解.
+或许, 您还记得,
+\(AX = 0\) 是否有非零解%
+跟 \(AX = B\) (有解时) 是否有唯一的解%
+有关.
+对一般的%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+来说, 我们也有类似的结论.
+
+本节, 我们讨论, 线性方程组有解时, 解是否唯一.
+
+我们先看一个较简单的事实.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    设 \(n \times 1\)~阵 \(C\) 适合 \(AC = B\).
+
+    (1)
+    若 \(AX = 0\) 只有零解, 则 \(AX = B\) 的解是唯一的;
+
+    (2)
+    若存在非零的 \(n \times 1\)~阵 \(D\)
+    使 \(AD = 0\),
+    则 \(AX = B\) 有无限多个解.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    设 \(n \times 1\)~阵 \(Y\) 适合 \(AY = B\).
+    则
+    \begin{align*}
+        A(Y - C) = AY - AC = B - B = 0.
+    \end{align*}
+    故 \(Y - C\) 是 \(AX = 0\) 的一个解.
+    因为 \(AX = 0\) 只有零解,
+    故 \(Y - C = 0\).
+    从而 \(Y = C\).
+
+    (2)
+    要证 \(AX = B\) 有无限多个解,
+    只要证:
+    任取一个正整数 \(\ell\),
+    我们一定能找到 \(AX = B\) 的
+    \(\ell\) 个\emph{互不相同的}解.
+
+    作 \(\ell\)~个 \(n \times 1\)~阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_\ell\),
+    其中 \(C_j = C + jD\).
+    首先, 每一个 \(C_j\) 都是 \(AX = B\) 的解:
+    \begin{align*}
+        AC_j = A(C + jD) = AC + A(jD) = B + j(AD) = B + j0 = B.
+    \end{align*}
+    然后, 我们证,
+    若 \(p\), \(q\) 是二个不相等的%
+    且不超过 \(\ell\) 的正整数,
+    则 \(C_p \neq C_q\).
+    用反证法.
+    反设 \(C_p = C_q\),
+    则
+    \begin{align*}
+        0 = C_p - C_q = (C + pD) - (C + qD) = (p - q)D.
+    \end{align*}
+    因为 \(p \neq q\), 故 \(p - q \neq 0\).
+    从而
+    \begin{align*}
+        0 = \frac{1}{p-q}\, 0
+        = \frac{1}{p-q}\, ((p-q)D)
+        = \Big( \frac{1}{p-q}\, (p-q) \Big) D
+        = 1D
+        = D.
+    \end{align*}
+    这是矛盾.
+    所以, \(C_p \neq C_q\).
+\end{proof}
+
+由此可见, 若 \(AX = 0\) 有非零解,
+则 \(AX = B\) 有解时,
+其解不但不唯一, 还有无限多个.
+若 \(AX = 0\) 只有零解,
+则 \(AX = B\) 有解时,
+其解是唯一的.
+
+接着, 我们讨论, \(AX = 0\) 是否有非零解.
+不过, 为了使讨论简单一些, 我们要作一些准备.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    若 \(A\) 没有行列式非零的 \(r+1\)~级子阵,
+    则对任何高于 \(r\)~的整数 \(s\),
+    \(A\) 没有行列式非零的 \(s\)~级子阵.
+\end{theorem}
+
+\begin{proof}
+    我们用数学归纳法证明此事.
+    具体地, 设命题 \(P(s)\) 为:
+    \begin{quotation}
+        \(A\) 没有行列式非零的 \(s\)~级子阵.
+    \end{quotation}
+    则我们的目标是:
+    对任何高于 \(r\)~的整数 \(s\),
+    \(P(s)\) 是正确的.
+
+    \(P(r+1)\) 是正确的.
+
+    假定 \(P(t)\) 是正确的.
+    我们由此证, \(P(t+1)\) 也是正确的.
+    若 \(A\) 不存在 \(t+1\)~级子阵,
+    此事自然是正确的.
+    若 \(A\) 存在 \(t+1\)~级子阵,
+    % 利用按一列 (或一行) 展开行列式,
+    利用定义, 按列~\(1\) 展开其行列式,
+    可知,
+    此子阵的行列式%
+    是 \(A\)~的 \(t+1\)~个 \(t\)~级子阵的行列式的倍的和.
+    由此可知,
+    \(A\) 没有行列式非零的 \(t+1\)~级子阵.
+
+    所以, \(P(t+1)\) 是正确的.
+    由数学归纳法原理, 待证命题成立.
+\end{proof}
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    存在一个唯一的非负整数 \(r\),
+    使:
+
+    (1)
+    \(A\) 有一个行列式非零的 \(r\)~级子阵;
+
+    (2)
+    \(A\) 没有行列式非零的 \(r+1\)~级子阵.
+\end{theorem}
+
+\begin{proof}
+    唯一性是较简单的.
+    设还有非负整数 \(s\) 适合条件:
+
+    (1\ensuremath{'})
+    \(A\) 有一个行列式非零的 \(s\)~级子阵;
+
+    (2\ensuremath{'})
+    \(A\) 没有行列式非零的 \(s+1\)~级子阵.
+
+    反设 \(s > r\).
+    既然 \(A\) 没有行列式非零的 \(r+1\)~级子阵,
+    故 \(A\) 没有行列式非零的 \(s\)~级子阵.
+    这跟 (1\ensuremath{'}) 矛盾.
+    所以, \(s \leq r\).
+    类似地, 我们可证 \(r \leq s\).
+    从而 \(s = r\).
+
+    下面, 我们说明存在性.
+    我们设 \(t\) 是 \(m\) 与 \(n\) 中的较小者.
+    % 毕竟, 若此 \(r\) 存在, 则它既不超过 \(m\), 也不超过 \(n\).
+    若 \(A\) 有行列式非零的 \(t\)~级子阵,
+    我们可取 \(r = t\);
+    否则, 我们代 \(t\) 以 \(t - 1\).
+    若 \(A\) 有行列式非零的 \(t - 1\)~级子阵,
+    我们可取 \(r = t - 1\);
+    否则, 我们代 \(t - 1\) 以 \(t - 2\).
+    \(\dots \dots\)
+    反复地作下去,
+    我们一定能找到此 \(r\).
+    (注意到, 我们约定 ``\(0\)~级阵'' 的行列式为 \(1\),
+    所以这个过程一定能结束.)
+\end{proof}
+
+\begin{theorem}[零的作用]
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    设 \(k\) 是一个不超过 \(m\)~的正整数.
+    作一个 \((m + 1) \times n\)~阵 \(\underbar{A}\),
+    其中
+    \begin{align*}
+        [\underbar{A}]_{i,j}
+        = \begin{cases}
+              [A]_{i,j},   & i \leq k;  \\
+              0,           & i = k + 1; \\
+              [A]_{i-1,j}, & i > k + 1.
+          \end{cases}
+    \end{align*}
+    (通俗地, \(\underbar{A}\)
+    是在 \(A\)~的行~\(k\) 下写零行作成的阵.)
+    再作一个 \((m + 1) \times 1\)~阵 \(\underbar{B}\),
+    其中
+    \begin{align*}
+        [\underbar{B}]_{i,1}
+        = \begin{cases}
+              [B]_{i,1},   & i \leq k;  \\
+              0,           & i = k + 1; \\
+              [B]_{i-1,1}, & i > k + 1.
+          \end{cases}
+    \end{align*}
+    (通俗地, \(\underbar{B}\)
+    是在 \(B\)~的行~\(k\) 下写零作成的阵.)
+
+    (1)
+    若 \(n \times 1\)~阵 \(C\) 适合
+    \(AC = B\),
+    则 \(\underbar{A}C = \underbar{B}\).
+
+    (2)
+    若 \(n \times 1\)~阵 \(C\) 适合
+    \(\underbar{A}C = \underbar{B}\),
+    则 \(AC = B\).
+
+    (3)
+    若 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵,
+    则 \(\underbar{A}\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+
+    (4)
+    若 \(\underbar{A}\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵,
+    则 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    设 \(AC = B\).
+    我们要证 \(\underbar{A}C = \underbar{B}\).
+
+    首先, \(\underbar{A}C\) 与 \(\underbar{B}\)
+    的尺寸都是 \((m+1) \times 1\).
+
+    若 \(i \leq k\), 则
+    \begin{align*}
+        [\underbar{A}C]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} & [AC]_{i,1}
+        \\
+        = {} & [B]_{i,1}
+        % \\
+        % = {} &
+            =
+            [\underbar{B}]_{i,1}.
+    \end{align*}
+    若 \(i = k + 1\), 则
+    \begin{align*}
+        [\underbar{A}C]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {0\,[C]_{\ell,1}}
+        \\
+        = {} & 0
+        % \\
+        % = {} &
+        =
+        [\underbar{B}]_{i,1}.
+    \end{align*}
+    若 \(i > k + 1\), 则
+    \begin{align*}
+        [\underbar{A}C]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i-1,\ell} [C]_{\ell,1}}
+        \\
+        = {} & [AC]_{i-1,1}
+        \\
+        = {} & [B]_{i-1,1}
+        % \\
+        % = {} &
+            =
+            [\underbar{B}]_{i,1}.
+    \end{align*}
+    由此可见, \(\underbar{A}C = \underbar{B}\).
+
+    (2)
+    设 \(\underbar{A}C = \underbar{B}\).
+    我们要证 \(AC = B\).
+
+    首先, \(AC\) 与 \(B\)
+    的尺寸都是 \(m \times 1\).
+
+    其次, 注意到
+    \begin{align*}
+        [A]_{i,j}
+        = \begin{cases}
+              [\underbar{A}]_{i,j},   & i \leq k; \\
+              [\underbar{A}]_{i+1,j}, & i > k.
+          \end{cases}
+    \end{align*}
+    类似地,
+    \begin{align*}
+        [B]_{i,1}
+        = \begin{cases}
+              [\underbar{B}]_{i,1},   & i \leq k; \\
+              [\underbar{B}]_{i+1,1}, & i > k.
+          \end{cases}
+    \end{align*}
+
+    若 \(i \leq k\), 则
+    \begin{align*}
+        [AC]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} & [\underbar{A}C]_{i,1}
+        \\
+        = {} & [\underbar{B}]_{i,1}
+        % \\
+        % = {} &
+            =
+            [B]_{i,1}.
+    \end{align*}
+    若 \(i > k\), 则
+    \begin{align*}
+        [AC]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[\underbar{A}]_{i+1,\ell} [C]_{\ell,1}}
+        \\
+        = {} & [\underbar{A}C]_{i+1,1}
+        \\
+        = {} & [\underbar{B}]_{i+1,1}
+        % \\
+        % = {} &
+            =
+            [B]_{i,1}.
+    \end{align*}
+    由此可见, \(AC = B\).
+
+    (3)
+    注意到, \(A\)~的子阵都是 \(\underbar{A}\)~的子阵.
+    所以, 若 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    则 \(\underbar{A}\) 也有一个行列式非零的 \(r\)~级子阵.
+    对 \(\underbar{A}\)~的每一个子阵来说,
+    要么 \(\underbar{A}\) 的行~\(k+1\) 被选中,
+    要么 \(\underbar{A}\) 的行~\(k+1\) 不被选中.
+    所以, 那些 \(\underbar{A}\) 的行~\(k+1\) 不被选中的
+    \(r+1\)~级子阵 (若存在)
+    一定是 \(A\)~的 \(r+1\)~级子阵 (若存在),
+    故其行列式为零.
+    而那些 \(\underbar{A}\) 的行~\(k+1\) 被选中的
+    \(r+1\)~级子阵 (若存在)
+    有一行的元全是零,
+    故其行列式为零.
+    从而, \(\underbar{A}\) 也没有行列式非零的 \(r+1\)~级子阵.
+
+    (4)
+    对 \(\underbar{A}\)~的每一个子阵来说,
+    要么 \(\underbar{A}\) 的行~\(k+1\) 被选中,
+    要么 \(\underbar{A}\) 的行~\(k+1\) 不被选中.
+    设 \(\underbar{A}\) 有一个行列式非零的 \(r\)~级子阵.
+    那么, 这个子阵一定不含元全为零的行.
+    特别地, 对此子阵而言,
+    \(\underbar{A}\) 的行~\(k+1\) 一定不被选中.
+    所以, 这也是 \(A\)~的一个 \(r\)~级子阵.
+    所以, \(A\) 也有一个行列式非零的 \(r\)~级子阵.
+    注意到, \(A\)~的子阵都是 \(\underbar{A}\)~的子阵.
+    既然 \(\underbar{A}\) 没有行列式非零的 \(r+1\)~级子阵,
+    那么 \(A\) 也没有行列式非零的 \(r+1\)~级子阵.
+\end{proof}
+
+这是本节的首个重要的结论.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+    设 \(r < n\).
+    则 \(AX = 0\) 有非零解.
+\end{theorem}
+
+\begin{proof}
+    设 \(A\) 是 \(m \times n\)~阵.
+
+    我们无妨设 \(m \geq n\).
+    若 \(m < n\), 我们作一个 \(n\)~级阵 \(\underbar{A}\),
+    其中
+    \begin{align*}
+        [\underbar{A}]_{i,j}
+        = \begin{cases}
+              [A]_{i,j}, & i \leq m; \\
+              0,         & i > m.
+          \end{cases}
+    \end{align*}
+    (通俗地, \(\underbar{A}\)
+    是在 \(A\)~的行~\(m\) 下写 \(n-m\)~个零行作成的阵.)
+    由此, 不难得到:
+    (a)
+    若 \(n \times 1\)~阵 \(C\) 适合 \(\underbar{A}C = 0\),
+    则 \(AC = 0\);
+    (b)
+    \(\underbar{A}\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+    所以, 若我们找到了 \(\underbar{A}X = 0\)
+    的非零解,
+    则我们也找到了 \(AX = 0\) 的非零解.
+    以下, 我们设 \(m \geq n\).
+
+    若 \(A = 0\),
+    我们任取一个非零的 \(n \times 1\)~阵 \(S\).
+    则 \(AS = 0\).
+
+    以下, 我们假定 \(A \neq 0\);
+    也就是说, \(A\) 有一个元不是零
+    (同时, 这也相当于 \(n > 1\):
+    回想 \(1\)~级阵的行列式是什么).
+    从而 \(r \geq 1\).
+
+    我们设 \(A\)~的 \(r\)~级子阵
+    \(
+    \displaystyle
+    A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    \)
+    的行列式非零,
+    其中 \(i_1 < i_2 < \dots < i_r\),
+    且 \(j_1 < j_2 < \dots < j_r\).
+    我们从 \(1\), \(2\), \(\dots\), \(m\) 中
+    去除 \(r\)~个整数
+    \(i_1\), \(i_2\), \(\dots\), \(i_r\);
+    此时, 还剩下 \(m-r\)~个整数,
+    我们从中选一个为 \(i_{r+1}\).
+    类似地,
+    我们再从 \(1\), \(2\), \(\dots\), \(n\) 中
+    去除 \(r\)~个整数
+    \(j_1\), \(j_2\), \(\dots\), \(j_r\);
+    此时, 还剩下 \(n-r\)~个整数,
+    我们从中选一个为 \(j_{r+1}\).
+    作 \(r+1\)~级阵
+    \(
+    \displaystyle
+    E =
+    A\binom{i_1,\dots,i_r,i_{r+1}}
+    {j_1,\dots,j_r,j_{r+1}}
+    \).
+    我们设 \(i_p\) 在
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\) 中%
+    是第~\(f(i_p)\) 小的数.
+    再设 \(j_p\) 在
+    \(j_1\), \(\dots\), \(j_r\), \(j_{r+1}\) 中%
+    是第~\(g(j_p)\) 小的数.
+    因为 \(E\) 是 \(A\) 的一个 \(r+1\)~级子阵,
+    故 \(\det {(E)} = 0\).
+    从而
+    \(E \operatorname{adj} {(E)} = 0\).
+    注意到
+    \([\operatorname{adj} {(E)}]_{g(j_{r+1}), f(i_{r+1})}
+    = (-1)^{f(i_{r+1})+g(j_{r+1})} \det {(A_r)} \neq 0\).
+
+    接下来, 我们设法由此得到一个 \(AX = 0\)
+    的非零解.
+    我们作一个 \(n \times 1\)~阵 \(W\), 其中
+    \begin{align*}
+        [W]_{\ell,1}
+        = \begin{cases}
+              [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
+                 & \text{\(\ell = j_p\),
+              \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
+              0, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    (通俗地, 我们在适当的位置写零,
+    变 \(\operatorname{adj} {(E)}\)
+    的列~\(f(i_{r+1})\)
+    为一个 \(n \times 1\)~阵 \(W\).)
+    因为 \([W]_{j_{r+1},1} \neq 0\),
+    故 \(W \neq 0\).
+    我们证明 \(AW = 0\).
+
+    取不超过 \(m\) 的正整数 \(q\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+        \ell = j_p         \\
+                1 \leq p \leq r+1
+            }}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        +
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+                \text{其他}
+            }}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+        \ell = j_p         \\
+                1 \leq p \leq r+1
+            }}
+        {[A]_{q,j_p}
+                [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        +
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+                \text{其他}
+            }}
+        {[A]_{q,\ell}\, 0}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
+    \end{align*}
+    若 \(q\) 等于某个 \(i_t\), 则
+    \begin{align*}
+        [AW]_{i_t,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{i_t,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[E]_{f(i_t),g(j_p)}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        [E \operatorname{adj} {(E)}]_{f(i_t),f(i_{r+1})}
+        \\
+        = {} &
+        [0]_{f(i_t),f(i_{r+1})}
+        \\
+        = {} & 0.
+    \end{align*}
+    若 \(q\) 不等于
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
+    中的任何一个,
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}.
+    \end{align*}
+    作一个 \(r+1\)~级阵 \(C_q\), 其中
+    \begin{align*}
+        [C_q]_{h,g(j_p)}
+        = \begin{cases}
+              [E]_{h,g(j_p)},
+               & h \neq f(i_{r+1}); \\
+              [A]_{q,j_p},
+               & h = f(i_{r+1}).
+          \end{cases}
+    \end{align*}
+    于是, \(C_q(f(i_{r+1})|g(j_p))
+    = E(f(i_{r+1})|g(j_p))\).
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[C_q]_{f(i_{r+1}),g(j_p)}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(C_q (f(i_{r+1})|g(j_p)))}}
+        \\
+        = {} &
+        \det {(C_q)}.
+    \end{align*}
+
+    再作一个 \(r+1\)~级阵
+    \(
+    \displaystyle
+    D_q =
+    A\binom{i_1,\dots,i_r,q}
+    {j_1,\dots,j_r,j_{r+1}}
+    \).
+    不难看出, 适当地交换 \(C_q\) 的行的次序,
+    即可变 \(C_q\) 为 \(D_q\).
+    根据反称性,
+    \(\det {(C_q)} = \pm \det {(D_q)}\).
+    (具体地, 设 \(q\) 在
+    \(i_1\), \(\dots\), \(i_r\), \(q\) 中%
+    是第~\(u\) 小的数.
+    那么, 当 \(f(i_{r+1}) = u\) 时, \(C_q = D_q\).
+    当 \(f(i_{r+1}) < u\) 时,
+    我们交换行~\(f(i_{r+1})\) 与 \(f(i_{r+1})+1\),
+    再交换行~\(f(i_{r+1})+1\) 与 \(f(i_{r+1})+2\),
+    \(\dots \dots\),
+    再交换行~\(u-1\) 与 \(u\),
+    作 \(u - f(i_{r+1})\)~次相邻行的交换,
+    即可变 \(C_q\) 为 \(D_q\).
+    当 \(f(i_{r+1}) > u\) 时,
+    我们交换行~\(f(i_{r+1})\) 与 \(f(i_{r+1})-1\),
+    再交换行~\(f(i_{r+1})-1\) 与 \(f(i_{r+1})-2\),
+    \(\dots \dots\),
+    再交换行~\(u+1\) 与 \(u\),
+    作 \(f(i_{r+1}) - u\)~次相邻行的交换,
+    即可变 \(C_q\) 为 \(D_q\).)
+    因为 \(D_q\) 是 \(A\) 的一个 \(r+1\)~级子阵,
+    故其行列式为零.
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = \det {(C_q)}
+        = \pm \det {(D_q)}
+        = 0.
+    \end{align*}
+
+    综上, 我们找到了一个 \(n \times 1\)~阵 \(W\)
+    使 \(AW = 0\), 且 \(W \neq 0\).
+\end{proof}
+
+这是本节的另一个重要的结论.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(A\) 有一个行列式非零的 \(n\)~级子阵
+    (此时, \(A\) 当然没有行列式非零的 \(n+1\)~级子阵).
+    则 \(AX = 0\) 只有零解.
+\end{theorem}
+
+\begin{proof}
+    设 \(n \times 1\)~阵 \(C\) 适合 \(AC = 0\).
+    设 \(A\)~的 \(n\)~级子阵
+    \begin{align*}
+        E = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
+    \end{align*}
+    的行列式非零,
+    其中
+    \(1 \leq i_1 < i_2 < \dots < i_n \leq m\).
+    因为 \(C\) 适合
+    \begin{align*}
+        [A]_{1,1} [C]_{1,1} + [A]_{1,2} [C]_{2,1}
+        + \dots + [A]_{1,n} [C]_{n,1} = 0, \\
+        [A]_{2,1} [C]_{1,1} + [A]_{2,2} [C]_{2,1}
+        + \dots + [A]_{2,n} [C]_{n,1} = 0, \\
+        \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots,
+        \\
+        [A]_{m,1} [C]_{1,1} + [A]_{m,2} [C]_{2,1}
+        + \dots + [A]_{m,n} [C]_{n,1} = 0,
+    \end{align*}
+    故 \(C\) 当然也适合
+    \begin{align*}
+        [A]_{i_1,1} [C]_{1,1} + [A]_{i_1,2} [C]_{2,1}
+        + \dots + [A]_{i_1,n} [C]_{n,1} = 0, \\
+        [A]_{i_2,1} [C]_{1,1} + [A]_{i_2,2} [C]_{2,1}
+        + \dots + [A]_{i_2,n} [C]_{n,1} = 0, \\
+        \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots,
+        \\
+        [A]_{i_n,1} [C]_{1,1} + [A]_{i_n,2} [C]_{2,1}
+        + \dots + [A]_{i_n,n} [C]_{n,1} = 0,
+    \end{align*}
+    即 \(EC = 0\).
+    因为 \(\det {(E)} \neq 0\),
+    故, 由 Cramer 公式,
+    有 \(C = 0\).
+\end{proof}
+
+现在, 我们作一个小结.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+
+    (1)
+    若 \(r < n\),
+    则 \(AX = 0\) 有非零解;
+
+    (2)
+    若 \(r = n\),
+    则 \(AX = 0\) 只有零解.
+\end{theorem}
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    设 \(n \times 1\)~阵 \(C\) 适合 \(AC = B\);
+    也就是说, \(AX = B\) 有解.
+    设 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+
+    (1)
+    若 \(r < n\),
+    则 \(AX = B\) 有无限多个解;
+
+    (2)
+    若 \(r = n\),
+    则 \(AX = B\) 有唯一的解.
+\end{theorem}
+
+\section{\texorpdfstring{由 \(m\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (2)}%
+  {由 m 个 n 元 ≤1 次方程作成的方程组 (2)}}
+
+\maldevigalegajxo
+
+前面, 我们讨论了
+``\(AX = B\) 有解时, 解是否唯一''
+问题.
+此事的回答跟 \(A\)~的子阵的行列式有关.
+设 \(A\) 有 \(n\)~列.
+当 \(A\) 有一个行列式非零的 \(n\)~级子阵时,
+此方程组有唯一的解;
+当 \(A\) 没有行列式非零的 \(n\)~级子阵时,
+其解不但不唯一, 还有无限多个.
+
+接着, 自然地, 我们想讨论线性方程组何时有解.
+或许, 一个好的想法是:
+我们先讨论 \(AX = B\) 有解时,
+\(A\), \(B\) 应适合什么条件;
+然后, 反过来,
+我们再讨论适合这些条件的 \(A\), \(B\)
+是否能使 \(AX = B\) 有解.
+
+我们会用此思想研究此事.
+不过, 在此之前, 请允许我介绍一件有用的小事.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(p\), \(q\) 是二个不超过 \(n\)~的正整数,
+    且 \(p \neq q\).
+    设 \(x\) 是一个数.
+    作 \(n\)~级阵 \(E\), 其中
+    \begin{align*}
+        [E]_{i,j}
+        = \begin{cases}
+              [A]_{i,j},              & j \neq q; \\
+              [A]_{i,q} + x[A]_{i,p}, & j = q.
+          \end{cases}
+    \end{align*}
+    (通俗地,
+    我们加 \(A\)~的列~\(p\) 的 \(x\)~倍于列~\(q\),
+    不改变其他的列,
+    得阵~\(E\).)
+    则 \(\det {(E)} = \det {(A)}\).
+
+    类似地,
+    若我们加 \(A\)~的行~\(p\) 的 \(x\)~倍于行~\(q\),
+    不改变其他的行,
+    得阵~\(F\),
+    则我们也有 \(\det {(F)} = \det {(A)}\).
+\end{theorem}
+
+\begin{proof}
+    我证明关于列的事;
+    我们可用类似的方法证明关于行的事
+    (或者, 利用行列式与转置的关系).
+
+    设 \(A = [a_1, a_2, \dots, a_n]\).
+
+    先设 \(p < q\).
+    为方便说话, 我们写
+    \begin{align*}
+        f(u, v)
+        = \det {[a_1, \dots, a_{p-1}, u, a_{p+1}, \dots,
+                    a_{q-1}, v, a_{q+1}, \dots, a_n]}.
+    \end{align*}
+    于是, \(f(a_p, a_q)\) 就是 \(\det {(A)}\),
+    而 \(f(a_p, a_q + xa_p)\) 就是 \(\det {(E)}\).
+    利用多线性与交错性,
+    \begin{align*}
+        \det {(E)}
+        = {} & f(a_p, a_q + xa_p)         \\
+        = {} & f(a_p, a_q) + xf(a_p, a_p) \\
+        = {} & f(a_p, a_q) + x0           \\
+        = {} & f(a_p, a_q)                \\
+        = {} & \det {(A)}.
+    \end{align*}
+
+    再设 \(p > q\).
+    为方便说话, 我们写
+    \begin{align*}
+        g(u, v)
+        = \det {[a_1, \dots, a_{q-1}, u, a_{q+1}, \dots,
+                    a_{p-1}, v, a_{p+1}, \dots, a_n]}.
+    \end{align*}
+    于是, \(g(a_q, a_p)\) 就是 \(\det {(A)}\),
+    而 \(g(a_q + xa_p, a_p)\) 就是 \(\det {(E)}\).
+    利用多线性与交错性,
+    \begin{align*}
+        \det {(E)}
+        = {} & g(a_q + xa_p, a_p)         \\
+        = {} & g(a_q, a_p) + xg(a_p, a_p) \\
+        = {} & g(a_q, a_p) + x0           \\
+        = {} & g(a_q, a_p)                \\
+        = {} & \det {(A)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+现在, 我们可以研究,
+若 \(AX = B\) 有解,
+则 \(A\), \(B\) 应适合什么条件.
+
+\begin{restatable}[]{theorem}{TheoremNecessityForConsistency}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    设存在 \(n \times 1\)~阵 \(C\)
+    适合 \(AC = B\).
+    作一个 \(m \times (n+1)\)~阵 \(G\),
+    其中
+    \begin{align*}
+        [G]_{i,j}
+        = \begin{cases}
+              [A]_{i,j}, & j \leq n;  \\
+              [B]_{i,1}, & j = n + 1.
+          \end{cases}
+    \end{align*}
+    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    得到尺寸较大的阵 \(G\).)
+    则一定存在一个非负整数 \(r\), 使
+    \(A\) 有一个行列式非零的 \(r\)~级子阵
+    (从而 \(G\) 也有一个行列式非零的 \(r\)~级子阵),
+    但 \(G\) 没有行列式非零的 \(r+1\)~级子阵
+    (从而 \(A\) 也没有行列式非零的 \(r+1\)~级子阵).
+\end{restatable}
+
+\begin{proof}
+    我们知道, 存在一个非负整数 \(r\),
+    使 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
+    我们证明,
+    \(G\) 也没有行列式非零的 \(r+1\)~级子阵.
+
+    若 \(G\) 根本没有 \(r+1\)~级子阵,
+    则 \(G\) 当然也没有行列式非零的 \(r+1\)~级子阵.
+
+    若 \(G\) 有 \(r+1\)~级子阵,
+    那么,
+    对 \(G\)~的每一个 \(r+1\)~级子阵来说,
+    要么 \(G\) 的列~\(n+1\) 被选中,
+    要么 \(G\) 的列~\(n+1\) 不被选中.
+
+    若 \(G\) 的列~\(n+1\) 不被选中,
+    那么, 这个子阵就是 \(A\)~的 \(r+1\)~级子阵,
+    故其行列式为零.
+
+    若 \(G\) 的列~\(n+1\) 被选中,
+    我们说明,
+    这个子阵的行列式是
+    \(A\)~的一些 \(r+1\)~级子阵的行列式的倍的和,
+    故其行列式仍为零.
+    因为 \(AC = B\), 故,
+    对任何不超过 \(m\) 的正整数 \(i\),
+    \begin{align*}
+        [B]_{i,1}
+            = [A]_{i,1} [C]_{1,1} + [A]_{i,2} [C]_{2,1}
+        + \dots + [A]_{i,n} [C]_{n,1},
+    \end{align*}
+    即
+    \begin{align*}
+        [G]_{i,n+1}
+        = [G]_{i,1} [C]_{1,1} + [G]_{i,2} [C]_{2,1}
+        + \dots + [G]_{i,n} [C]_{n,1}.
+    \end{align*}
+    设这个子阵为
+    \begin{align*}
+        D = G\binom{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,n+1},
+    \end{align*}
+    其中
+    \(1 \leq i_1 < \dots < i_r < i_{r+1} \leq m\),
+    \(1 \leq j_1 < \dots < j_r \leq n\).
+    我们加 \(D\) 的列~\(1\) 的 \(-[C]_{j_1,1}\)~倍%
+    于列~\(r+1\),
+    得阵~\(D_1\),
+    则 \(\det {(D_1)} = \det {(D)}\).
+    我们加 \(D_1\) 的列~\(2\) 的 \(-[C]_{j_2,1}\)~倍%
+    于列~\(r+1\),
+    得阵~\(D_2\),
+    则 \(\det {(D_2)} = \det {(D_1)} = \det {(D)}\).
+    \(\dots \dots\)
+    我们加 \(D_{r-1}\) 的列~\(r\) 的 \(-[C]_{j_r,1}\)~倍%
+    于列~\(r+1\),
+    得阵~\(D_r\),
+    则 \(\det {(D_r)} = \det {(D_{r-1})} = \det {(D)}\).
+    注意到, \(D_r\)~的列
+    \(1\), \(2\), \(\dots\), \(r\)
+    分别跟 \(D\)~的列
+    \(1\), \(2\), \(\dots\), \(r\)
+    相等;
+    不过,
+    \begin{align*}
+        [D_r]_{s,r+1}
+        = {} &
+        [G]_{i_s,n+1}
+        - \sum_{\ell = 1}^{r}
+        {[G]_{i_s,j_\ell} [C]_{j_\ell,1}}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq n}
+        {[G]_{i_s,t} [C]_{t,1}}
+        -
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 等于某个 \(j_\ell\)}}}
+        {[G]_{i_s,t} [C]_{t,1}}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 不等于任何 \(j_\ell\)}}}
+        {[G]_{i_s,t} [C]_{t,1}}.
+    \end{align*}
+    为方便说话, 我们记 \((r+1) \times n\)~阵
+    \begin{align*}
+        A\binom{i_1,\dots,i_r,i_{r+1}}{1,2,\dots,n}
+    \end{align*}
+    的列~\(1\), \(2\), \(\dots\), \(n\) 为
+    \(h_1\), \(h_2\), \(\dots\), \(h_n\).
+    于是, \(D_r\)~的列~\(1\), \(2\), \(\dots\), \(r\) 就是
+    \(h_{j_1}\), \(h_{j_2}\), \(\dots\), \(h_{j_r}\),
+    而 \(D_r\)~的列~\(r+1\) 是
+    \begin{align*}
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 不等于任何 \(j_\ell\)}}}
+        {[C]_{t,1} h_t}.
+    \end{align*}
+    从而, 利用多线性,
+    \begin{align*}
+        \det {(D)}
+        = {} &
+        \det {(D_r)}
+        \\
+        = {} &
+        \det {
+            \left[
+                h_{j_1}, \dots, h_{j_r},
+        \sum_{\substack{1 \leq t \leq n \\
+                        \text{\(t\) 不等于任何 \(j_\ell\)}}}
+                {[C]_{t,1} h_t}
+                \right]
+        }
+        \\
+        = {} &
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 不等于任何 \(j_\ell\)}}}
+        {
+            [C]_{t,1} \det {[h_{j_1}, \dots, h_{j_r}, h_t]}
+        }.
+    \end{align*}
+    适当地交换
+    \([h_{j_1}, \dots, h_{j_r}, h_t]\)
+    的列的次序,
+    利用反称性, 有
+    \begin{align*}
+        \det {(D)}
+        = {} &
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 不等于任何 \(j_\ell\)}}}
+        {
+            [C]_{t,1} \det {[h_{j_1}, \dots, h_{j_r}, h_t]}
+        }
+        \\
+        = {} &
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 不等于任何 \(j_\ell\)}}}
+        {
+            (\pm)\, [C]_{t,1}
+            \det {\left(
+                A\binom{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,t}
+                \right)}
+        }
+        \\
+        = {} &
+        \sum_{\substack{1 \leq t \leq n \\
+                \text{\(t\) 不等于任何 \(j_\ell\)}}}
+        {
+            (\pm)\, [C]_{t,1} \,0
+        }
+        \\
+        = {} &
+        0.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\section{\texorpdfstring{由 \(m\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (3)}%
+  {由 m 个 n 元 ≤1 次方程作成的方程组 (3)}}
+
+\maldevigalegajxo
+
+前面, 我们讨论了
+\(AX = B\) 有解时,
+\(A\), \(B\) 应适合的条件:
+
+\TheoremNecessityForConsistency*
+
+那么, 反过来,
+若 \(A\) 有一个行列式非零的 \(r\)~级子阵,
+但 \(G\) 没有行列式非零的 \(r+1\)~级子阵,
+则 \(AX = B\) 是否有解?
+% 幸运地,
+此事的回答是 ``是''.
+不过, 为了论证此事,
+我们要作一些准备.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵,
+    且 \(A \neq 0\).
+    设 \(A\) 有一个行列式非零的 \(r\)~级子阵
+    \begin{align*}
+        A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    \end{align*}
+    (其中
+    \(1 \leq i_1 < \dots < i_r \leq m\),
+    \(1 \leq j_1 < \dots < j_r \leq n\)),
+    但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
+    那么, 对任何不超过 \(m\) 的正整数 \(p\),
+    一定存在 \(r\)~个数
+    \(d_{p,1}\), \(d_{p,2}\), \(\dots\), \(d_{p,r}\),
+    使对任何不超过 \(n\) 的正整数 \(q\),
+    \begin{align*}
+        [A]_{p,q}
+        = {} &
+        [A]_{i_1,q} d_{p,1}
+        + [A]_{i_2,q} d_{p,2}
+        + \dots
+        + [A]_{i_r,q} d_{p,r}
+        \\
+        = {} &
+        \sum_{s = 1}^{r} {[A]_{i_s,q} d_{p,s}}.
+    \end{align*}
+\end{theorem}
+
+我们也可如此说前面的结论:
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵,
+    且 \(A \neq 0\).
+    设 \(A\) 有一个行列式非零的 \(r\)~级子阵
+    \begin{align*}
+        A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    \end{align*}
+    (其中
+    \(1 \leq i_1 < \dots < i_r \leq m\),
+    \(1 \leq j_1 < \dots < j_r \leq n\)),
+    但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
+    设 \(A\)~的%
+    行~\(1\), \(2\), \(\dots\), \(m\)
+    为 \(a_1\), \(a_2\), \(\dots\), \(a_m\).
+    那么, 对任何不超过 \(m\) 的正整数 \(p\),
+    一定存在 \(r\)~个数
+    \(d_{p,1}\), \(d_{p,2}\), \(\dots\), \(d_{p,r}\),
+    使
+    \begin{align*}
+        a_p
+        = {} &
+        d_{p,1} a_{i_1}
+        + d_{p,2} a_{i_2}
+        + \dots
+        + d_{p,r} a_{i_r}
+        \\
+        = {} &
+        \sum_{s = 1}^{r} {d_{p,s} a_{i_s}}.
+    \end{align*}
+\end{theorem}
+
+通俗地, 这个定理说,
+任给一个非零阵 \(A\),
+我们总能找出它的某 \(r\)~行
+\(a_{i_1}\), \(a_{i_2}\), \(\dots\), \(a_{i_r}\),
+使 \(A\)~的每一行都可被写为%
+这 \(r\)~行的数乘的和,
+且由这 \(r\)~行作成的子阵一定有一个%
+行列式非零的 \(r\)~级子阵.
+
+\begin{example}
+    设
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 & 0 & -1 \\
+            0 & 1 & 0 & 0 & 0 & 1  \\
+            0 & 0 & 1 & 0 & 0 & 0  \\
+            0 & 1 & 1 & 0 & 0 & 1  \\
+        \end{bmatrix}.
+    \end{align*}
+    不难看出, \(A\) 有一个 \(3\)~级子阵, 其行列式非零:
+    \begin{align*}
+        \det {\left(
+            A\binom{1,2,3}{1,2,3}
+            \right)} = 1.
+    \end{align*}
+    不过, \(A\) 没有行列式非零的 \(4\)~级子阵.
+    我们考虑 \(A\) 的列~\(4\), \(5\).
+    任取 \(A\)~的一个 \(4\)~级子阵.
+    若 \(A\) 的列~\(4\) 或列~\(5\) 被选中,
+    那么其行列式显然为零.
+    若 \(A\) 的列~\(4\) 与列~\(5\) 都不被选中,
+    则这个子阵一定是
+    \begin{align*}
+        A\binom{1,2,3,4}{1,2,3,6}
+        = \begin{bmatrix}
+              1 & 0 & 0 & -1 \\
+              0 & 1 & 0 & 1  \\
+              0 & 0 & 1 & 0  \\
+              0 & 1 & 1 & 1  \\
+          \end{bmatrix}.
+    \end{align*}
+    不难算出, 它的行列式为零.
+
+    我们说, \(A\) 的每一行一定可被写为
+    \(A\) 的前 \(3\)~行的数乘的和.
+    设 \(A\)~的%
+    行~\(1\), \(2\), \(3\), \(4\)
+    为 \(a_1\), \(a_2\), \(a_3\), \(a_4\).
+    则
+    \begin{align*}
+        a_1 = 1a_1 + 0a_2 + 0a_3, \\
+        a_2 = 0a_1 + 1a_2 + 0a_3, \\
+        a_3 = 0a_1 + 0a_2 + 1a_3, \\
+        a_4 = 0a_1 + 1a_2 + 1a_3.
+    \end{align*}
+    并且, 由这 \(3\)~行作成的子阵一定有一个%
+    行列式非零的 \(3\)~级子阵:
+    \(3\)~级单位阵就是一个.
+
+    顺便一提,
+    \(A\) 的每一行当然可被写为
+    \(A\) 的前 \(4\)~行的数乘的和:
+    \begin{align*}
+        a_1 = 1a_1 + 0a_2 + 0a_3 + 0a_4, \\
+        a_2 = 0a_1 + 1a_2 + 0a_3 + 0a_4, \\
+        a_3 = 0a_1 + 0a_2 + 1a_3 + 0a_4, \\
+        a_4 = 0a_1 + 0a_2 + 0a_3 + 1a_4.
+    \end{align*}
+    可是, 由这 \(4\)~行作成的子阵没有%
+    行列式非零的 \(4\)~级子阵.
+\end{example}
+
+\begin{proof}
+    任取不超过 \(m\) 的正整数 \(p\).
+
+    若 \(p\) 等于某个 \(i_s\)
+    (\(s = 1\), \(2\), \(\dots\), \(r\)),
+    我们取
+    \begin{align*}
+        d_{p,v}
+        = \begin{cases}
+              1, & v = s;    \\
+              0, & v \neq s.
+          \end{cases}
+    \end{align*}
+    于是, 对任何不超过 \(n\) 的正整数 \(q\),
+    \begin{align*}
+        [A]_{i_1,q} d_{p,1}
+        + [A]_{i_2,q} d_{p,2}
+        + \dots
+        + [A]_{i_r,q} d_{p,r}
+            = [A]_{i_s,q} 1
+            = [A]_{p,q}.
+    \end{align*}
+
+    下设 \(p\) 不等于任何 \(i_s\).
+
+    考虑%
+    由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \begin{cases}
+            [A]_{i_1,j_1} x_1 + [A]_{i_2,j_1} x_2
+            + \dots + [A]_{i_r,j_1} x_r = [A]_{p,j_1},
+            \\
+            [A]_{i_1,j_2} x_1 + [A]_{i_2,j_2} x_2
+            + \dots + [A]_{i_r,j_2} x_r = [A]_{p,j_2},
+            \\
+            \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots,
+            \\
+            [A]_{i_1,j_r} x_1 + [A]_{i_2,j_r} x_2
+            + \dots + [A]_{i_r,j_r} x_r = [A]_{p,j_r},
+        \end{cases}
+    \end{align*}
+    即
+    \begin{align*}
+        A_r^{\mathrm{T}}
+        \begin{bmatrix}
+            x_1    \\
+            x_2    \\
+            \vdots \\
+            x_r    \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            [A]_{p,j_1} \\
+            [A]_{p,j_2} \\
+            \vdots      \\
+            [A]_{p,j_r} \\
+        \end{bmatrix}.
+    \end{align*}
+    因为
+    \(\det {(A_r^{\mathrm{T}})}
+    = \det {(A_r)} \neq 0\),
+    故, 由 Cramer 公式,
+    存在 \(r\)~个数
+    \(d_{p,1}\), \(d_{p,2}\), \(\dots\), \(d_{p,r}\),
+    使
+    \begin{align*}
+        [A]_{i_1,j_1} d_{p,1} + [A]_{i_2,j_1} d_{p,2}
+        + \dots + [A]_{i_r,j_1} d_{p,r} = [A]_{p,j_1},
+        \\
+        [A]_{i_1,j_2} d_{p,1} + [A]_{i_2,j_2} d_{p,2}
+        + \dots + [A]_{i_r,j_2} d_{p,r} = [A]_{p,j_2},
+        \\
+        \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots,
+        \\
+        [A]_{i_1,j_r} d_{p,1} + [A]_{i_2,j_r} d_{p,2}
+        + \dots + [A]_{i_r,j_r} d_{p,r} = [A]_{p,j_r}.
+    \end{align*}
+    我们由此证明, 对任何不超过 \(n\) 的正整数 \(q\),
+    \begin{align*}
+        [A]_{p,q}
+            =
+            [A]_{i_1,q} d_{p,1}
+        + [A]_{i_2,q} d_{p,2}
+        + \dots
+        + [A]_{i_r,q} d_{p,r}.
+    \end{align*}
+
+    若 \(q\) 等于某个 \(j_\ell\), 显然.
+    下设 \(q\) 不等于任何 \(j_\ell\).
+
+    考虑 \(A\) 的 \(r+1\)~级子阵
+    \begin{align*}
+        E =
+        A\binom{i_1,\dots,i_r,p}{j_1,\dots,j_r,q}.
+    \end{align*}
+    我们用 ``算二次 (dufoje)'' 思想,
+    证我们想要的等式.
+
+    一方面, 我们知道, 既然
+    \(A\) 没有行列式非零的 \(r+1\)~级子阵,
+    故 \(\det {(E)} = 0\).
+
+    另一方面, 我们也可适当地作一些辅助阵,
+    它们的行列式等于 \(E\) 的行列式;
+    从而, 计算这些辅助阵的行列式,
+    也就相当于计算 \(E\) 的行列式.
+    为方便, 我们记
+    \(i_{r+1} = p\),
+    \(j_{r+1} = q\).
+    设 \(i_s\) 是在
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
+    中第~\(f(i_s)\)~小的数;
+    设 \(j_\ell\) 是在
+    \(j_1\), \(\dots\), \(j_r\), \(j_{r+1}\)
+    中第~\(g(j_\ell)\)~小的数.
+    我们加 \(E\) 的行~\(f(i_1)\) 的 \(-d_{p,1}\)~倍%
+    于行~\(f(p)\),
+    得阵~\(E_1\),
+    则 \(\det {(E_1)} = \det {(E)}\).
+    我们加 \(E_1\) 的行~\(f(i_2)\) 的 \(-d_{p,2}\)~倍%
+    于行~\(f(p)\),
+    得阵~\(E_2\),
+    则 \(\det {(E_2)} = \det {(E_1)} = \det {(E)}\).
+    \(\dots \dots\)
+    我们加 \(E_{r-1}\) 的行~\(f(i_r)\) 的 \(-d_{p,r}\)~倍%
+    于行~\(f(p)\),
+    得阵~\(E_r\),
+    则 \(\det {(E_r)} = \det {(E_{r-1})} = \det {(E)}\).
+    注意到, \(E_r\)~的行
+    \(f(i_1)\), \(f(i_2)\), \(\dots\), \(f(i_r)\)
+    分别跟 \(E\)~的行
+    \(f(i_1)\), \(f(i_2)\), \(\dots\), \(f(i_r)\)
+    相等;
+    不过,
+    \begin{align*}
+        [E_r]_{f(p),g(v)}
+        = [A]_{p,v} -
+        \sum_{s = 1}^{r}
+        {[A]_{i_s,v} d_{p,s}},
+    \end{align*}
+    其中 \(v = j_1\), \(\dots\), \(j_r\), \(q\).
+    所以, 当
+    % \(t \neq r+1\)
+    \(g(v) \neq g(q)\)
+    时,
+    % \([E_r]_{f(p),g(j_t)} = 0\).
+    \([E_r]_{f(p),g(v)} = 0\).
+    我们按行~\(f(p)\) 展开 \(E_r\) 的行列式,
+    有
+    \begin{align*}
+        \det {(E_r)}
+        = {} &
+        (-1)^{f(p)+g(q)} [E_r]_{f(p),g(q)}
+        \det {(E_r (f(p)|g(q)))}
+        \\
+        = {} &
+        (-1)^{f(p)+g(q)} \det {(A_r)}
+        \left(
+        [A]_{p,q} -
+        \sum_{s = 1}^{r}
+        {[A]_{i_s,q} d_{p,s}}
+        \right).
+    \end{align*}
+
+    回想, \(0 = \det {(E)}\),
+    且 \(\det {(E)} = \det {(E_r)}\).
+    比较二次计算的结果, 我们应有
+    \begin{align*}
+        0 =
+        (-1)^{f(p)+g(q)} \det {(A_r)}
+        \left(
+        [A]_{p,q} -
+        \sum_{s = 1}^{r}
+        {[A]_{i_s,q} d_{p,s}}
+        \right).
+    \end{align*}
+    注意到,
+    \((-1)^{f(p)+g(q)} \det {(A_r)} \neq 0\),
+    故
+    \begin{equation*}
+        [A]_{p,q} -
+        \sum_{s = 1}^{r}
+        {[A]_{i_s,q} d_{p,s}} = 0.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+现在, 我们可以证明本节的重要结论了.
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    作一个 \(m \times (n+1)\)~阵 \(G\),
+    其中
+    \begin{align*}
+        [G]_{i,j}
+        = \begin{cases}
+              [A]_{i,j}, & j \leq n;  \\
+              [B]_{i,1}, & j = n + 1.
+          \end{cases}
+    \end{align*}
+    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    得到尺寸较大的阵 \(G\).)
+    设
+    \(A\) 有一个行列式非零的 \(r\)~级子阵
+    (从而 \(G\) 也有一个行列式非零的 \(r\)~级子阵),
+    但 \(G\) 没有行列式非零的 \(r+1\)~级子阵
+    (从而 \(A\) 也没有行列式非零的 \(r+1\)~级子阵).
+    则存在一个 \(n \times 1\)~阵 \(C\),
+    使 \(AC = B\).
+\end{theorem}
+
+\begin{proof}
+    先设 \(A = 0\).
+    那么, \(A\) 有一个行列式非零的 \(0\)~级子阵,
+    但 \(G\) 没有行列式非零的 \(1\)~级子阵.
+    所以 \(G = 0\).
+    所以 \(B = 0\).
+    那么, 任何一个 \(n \times 1\)~阵 \(C\)
+    都适合 \(AC = B\).
+
+    下设 \(A \neq 0\).
+    设 \(A\) 的 \(r\)~级子阵
+    \begin{align*}
+        A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    \end{align*}
+    (其中
+    \(1 \leq i_1 < \dots < i_r \leq m\),
+    \(1 \leq j_1 < \dots < j_r \leq n\))
+    的行列式非零.
+    \(A_r\) 当然也是 \(G\)~的子阵, 且
+    \begin{align*}
+        A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+        =
+        G\binom{i_1,\dots,i_r}{j_1,\dots,j_r}.
+    \end{align*}
+    所以, 对任何不超过 \(m\) 的正整数 \(p\),
+    一定存在 \(r\)~个数
+    \(d_{p,1}\), \(d_{p,2}\), \(\dots\), \(d_{p,r}\),
+    使对任何不超过 \(n+1\) 的正整数 \(q\),
+    \begin{align*}
+        [G]_{p,q}
+        = {} &
+        [G]_{i_1,q} d_{p,1}
+        + [G]_{i_2,q} d_{p,2}
+        + \dots
+        + [G]_{i_r,q} d_{p,r}
+        \\
+        = {} &
+        \sum_{s = 1}^{r} {[G]_{i_s,q} d_{p,s}}.
+    \end{align*}
+
+    考虑%
+    由 \(r\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \begin{cases}
+            [A]_{i_1,1} x_1 + [A]_{i_1,2} x_2 + \dots
+            + [A]_{i_1,n} x_n = [B]_{i_1,1},
+            \\
+            [A]_{i_2,1} x_1 + [A]_{i_2,2} x_2 + \dots
+            + [A]_{i_2,n} x_n = [B]_{i_2,1},
+            \\
+            \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots
+            \dots \dots \dots \dots,
+            \\
+            [A]_{i_r,1} x_1 + [A]_{i_r,2} x_2 + \dots
+            + [A]_{i_r,n} x_n = [B]_{i_r,1}.
+        \end{cases}
+    \end{align*}
+    我们说, 这个方程组一定有解.
+
+    若 \(r = n\), 则这是一个%
+    由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组.
+    因为 \(\det {(A_r)} \neq 0\),
+    故, 由 Cramer 公式,
+    此方程组有一个 (唯一的) 解.
+
+    若 \(r < n\),
+    从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(j_1\), \(j_2\), \(\dots\), \(j_r\)
+    后, 还剩 \(n - r\)~个数.
+    我们从小到大地叫这 \(n - r\)~个数为
+    \(j_{r+1}\), \(\dots\), \(j_n\).
+    我们可改写此方程组为
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[A]_{p,j_\ell} x_{j_\ell}}
+            = [B]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[A]_{p,j_\ell} x_{j_\ell}},
+    \end{align*}
+    其中 \(p = i_1\), \(i_2\), \(\dots\), \(i_r\),
+    下同.
+
+    设
+    \(f_{j_{r+1}}\), \(\dots\), \(f_{j_r}\)
+    为任何的 \(n - r\) 个数.
+    我们考虑%
+    由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[A]_{p,j_\ell} y_\ell}
+        = [B]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[A]_{p,j_\ell} f_{j_\ell}}.
+    \end{align*}
+    利用阵等式, 我们可写
+    \begin{align*}
+        A_r
+        \begin{bmatrix}
+            y_1    \\
+            y_2    \\
+            \vdots \\
+            y_r    \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            z_{i_1} \\
+            z_{i_2} \\
+            \vdots  \\
+            z_{i_r} \\
+        \end{bmatrix},
+    \end{align*}
+    其中
+    \begin{align*}
+        z_p = [B]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[A]_{p,j_\ell} f_{j_\ell}}.
+    \end{align*}
+    因为 \(\det {(A_r)} \neq 0\),
+    故, 由 Cramer 公式,
+    存在 \(r\) 个数
+    \(f_{j_1}\), \(f_{j_2}\), \(\dots\), \(f_{j_r}\),
+    使
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[A]_{p,j_\ell} f_{j_\ell}}
+            = [B]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[A]_{p,j_\ell} f_{j_\ell}}.
+    \end{align*}
+    从而
+    \begin{align*}
+        \sum_{\ell = 1}^{n}
+        {[A]_{p,j_\ell} f_{j_\ell}}
+            = [B]_{p,1}.
+    \end{align*}
+
+    设 \(n\) 个数
+    \(c_1\), \(c_2\), \(\dots\), \(c_n\)
+    适合
+    \begin{align*}
+        [A]_{i_1,1} c_1 + [A]_{i_1,2} c_2 + \dots
+        + [A]_{i_1,n} c_n = [B]_{i_1,1},
+        \\
+        [A]_{i_2,1} c_1 + [A]_{i_2,2} c_2 + \dots
+        + [A]_{i_2,n} c_n = [B]_{i_2,1},
+        \\
+        \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots,
+        \\
+        [A]_{i_r,1} c_1 + [A]_{i_r,2} c_2 + \dots
+        + [A]_{i_r,n} c_n = [B]_{i_r,1}.
+    \end{align*}
+    作 \(n \times 1\)~阵 \(C\),
+    其中 \([C]_{i,1} = c_i\).
+    我们证明, \(AC = B\).
+
+    若 \(i\) 等于某 \(i_s\), 则
+    \begin{align*}
+        [AC]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} c_\ell}
+        \\
+        = {} & [B]_{i,1}.
+    \end{align*}
+    若 \(i\) 不等于任何一个 \(i_s\), 则
+    \begin{align*}
+        [AC]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[G]_{i,\ell} [C]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {
+        \left( \sum_{s = 1}^{r}
+        {
+            [G]_{i_s,\ell} d_{i,s}
+        } \right) [C]_{\ell,1}
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {
+        \sum_{s = 1}^{r}
+        {
+        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
+        }
+        }
+        \\
+        = {} &
+        \sum_{s = 1}^{r}
+        {
+        \sum_{\ell = 1}^{n}
+        {
+        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
+        }
+        }
+        \\
+        = {} &
+        \sum_{s = 1}^{r}
+        {
+        \sum_{\ell = 1}^{n}
+        {
+        [A]_{i_s,\ell} d_{i,s} c_\ell
+        }
+        }
+        \\
+        = {} &
+        \sum_{s = 1}^{r}
+        {
+        \sum_{\ell = 1}^{n}
+        {
+        [A]_{i_s,\ell} c_\ell d_{i,s}
+        }
+        }
+        \\
+        = {} &
+        \sum_{s = 1}^{r}
+        {
+        \left(\sum_{\ell = 1}^{n}
+        {
+            [A]_{i_s,\ell} c_\ell
+        }\right)
+        d_{i,s}
+        }
+        \\
+        = {} &
+        \sum_{s = 1}^{r}
+        {[B]_{i_s,1} d_{i,s}}
+        \\
+        = {} &
+        \sum_{s = 1}^{r}
+        {[G]_{i_s,n+1} d_{i,s}}
+        \\
+        = {} &
+        [G]_{i,n+1}
+        \\
+        = {} &
+        [B]_{i,1}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+结合前几节的讨论, 我们可以得到判断
+\(AX = B\) 是否有解,
+与有解时其解是否唯一的方法
+(定性的理论, 完整版):
+
+\begin{restatable}[]{theorem}%
+    {TheoremQualitativeTheoryOfLinearSystemOfEquations}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    作一个 \(m \times (n+1)\)~阵 \(G\),
+    其中
+    \begin{align*}
+        [G]_{i,j}
+        = \begin{cases}
+              [A]_{i,j}, & j \leq n;  \\
+              [B]_{i,1}, & j = n + 1.
+          \end{cases}
+    \end{align*}
+    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    得到尺寸较大的阵 \(G\).)
+    设
+    \(A\) 有一个行列式非零的 \(r\)~级子阵,
+    但没有行列式非零的 \(r+1\)~级子阵.
+
+    (1)
+    若 \(G\)~也没有行列式非零的 \(r+1\)~级子阵,
+    则 \(AX = B\) 有解.
+    进一步地, 若 \(r < n\),
+    则 \(AX = B\) 有无限多个解;
+    若 \(r = n\),
+    则 \(AX = B\) 有唯一的解.
+
+    (2)
+    若 \(G\)~有一个行列式非零的 \(r+1\)~级子阵,
+    则 \(AX = B\) 无解.
+\end{restatable}
+
+\section{\texorpdfstring{由 \(m\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (4)}%
+  {由 m 个 n 元 ≤1 次方程作成的方程组 (4)}}
+
+% 本节是 ``选学内容中的选学内容'';
+% 换句话说, 您不学它, 不影响您理解别的选学内容.
+% 毕竟, 本节的公式, 几乎无用,
+% 因为, 若您想用它计算线性方程组的解,
+% 您要计算好几个阵的行列式.
+% 计算一个阵的行列式已经是一件较复杂的事了,
+% 计算好几个阵的行列式自然就是一件更复杂的事.
+% 不过, 本节自然是可以作为阅读材料的.
+
+\maldevigalegajxo
+
+前面, 我们得到了线性方程组的解的定性的理论:
+
+\TheoremQualitativeTheoryOfLinearSystemOfEquations*
+
+现在, 我们作定量的讨论:
+当 \(AX = B\) 有解时,
+我们试作出公式, 以表示它的解.
+
+设 \(A\) 是一个 \(m \times n\)~阵.
+设 \(B\) 是一个 \(m \times 1\)~阵.
+设 \(AX = B\) 有解.
+
+若 \(A = 0\),
+则因 \(AX = B\) 有解,
+必有 \(B = 0\).
+此时, 显然, 每一个 \(n \times 1\)~阵都是解.
+下设 \(A \neq 0\).
+设 \(A\) 有一个行列式非零的 \(r\)~级子阵
+\begin{align*}
+    T = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+\end{align*}
+(其中
+\(1 \leq i_1 < \dots < i_r \leq m\),
+\(1 \leq j_1 < \dots < j_r \leq n\)),
+但没有行列式非零的 \(r+1\)~级子阵.
+为说话方便, 我们作一个 \(r \times n\)~阵
+\begin{align*}
+    U = A\binom{i_1,\dots,i_r}{1,\dots,n},
+\end{align*}
+与一个 \(r \times 1\)~阵
+\begin{align*}
+    V = B\binom{i_1,\dots,i_r}{1}
+    =
+    \begin{bmatrix}
+        [B]_{i_1,1} \\
+        [B]_{i_2,1} \\
+        \vdots      \\
+        [B]_{i_r,1} \\
+    \end{bmatrix}.
+\end{align*}
+注意到, \(U\) 有一个行列式非零的 \(r\)~级子阵 \(T\).
+
+我们回想上节的讨论.
+为了解方程组 \(AX = B\), 即
+\begin{align*}
+    \begin{cases}
+        [A]_{1,1} x_1 + [A]_{1,2} x_2 + \dots
+        + [A]_{1,n} x_n = [B]_{1,1},
+        \\
+        [A]_{2,1} x_1 + [A]_{2,2} x_2 + \dots
+        + [A]_{2,n} x_n = [B]_{2,1},
+        \\
+        \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots,
+        \\
+        [A]_{m,1} x_1 + [A]_{m,2} x_2 + \dots
+        + [A]_{m,n} x_n = [B]_{m,1},
+    \end{cases}
+\end{align*}
+我们考虑了由这 \(m\)~个方程的%
+第~\(i_1\), \(i_2\), \(\dots\), \(i_r\)~个方程%
+作成的方程组
+\begin{align*}
+    \begin{cases}
+        [A]_{i_1,1} x_1 + [A]_{i_1,2} x_2 + \dots
+        + [A]_{i_1,n} x_n = [B]_{i_1,1},
+        \\
+        [A]_{i_2,1} x_1 + [A]_{i_2,2} x_2 + \dots
+        + [A]_{i_2,n} x_n = [B]_{i_2,1},
+        \\
+        \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots
+        \dots \dots \dots \dots,
+        \\
+        [A]_{i_r,1} x_1 + [A]_{i_r,2} x_2 + \dots
+        + [A]_{i_r,n} x_n = [B]_{i_r,1},
+    \end{cases}
+\end{align*}
+即 \(UX = V\).
+当时, 我们已经证明了,
+\(UX = V\) 的解都是 \(AX = B\) 的解.
+反过来, \(AX = B\) 的解显然都是 \(UX = V\) 的解,
+因为后者的方程全部都是来自前者的.
+这么看来, \(AX = B\) 跟 \(UX = V\) 有着相同的解.
+所以, 研究 \(AX = B\) 的解的公式,
+相当于研究 \(UX = V\) 的解的公式.
+
+若 \(r = n\),
+则我们直接用 Cramer 公式,
+即可写出 \(UX = V\) 的唯一的解
+(注意, 此时 \(U\) 是一个 \(r \times r\)~阵)
+\begin{align*}
+    X = \frac{1}{\det {(U)}} \operatorname{adj} {(U)}\,V.
+\end{align*}
+我们也可较直接地表达此解.
+设 \(U\{k,V\}\) 是以 \(r \times 1\)~阵 \(V\)
+代 \(U\) 的列~\(k\) 后得到的阵.
+则
+\begin{align*}
+    x_k = \frac{\det {(U\{k,V\})}}{\det {(U)}}.
+\end{align*}
+
+下设 \(r < n\).
+我们试写出方程组 \(UX = V\) 的所有的解.
+
+\begin{theorem}
+    设 \(V\) 是一个 \(r \times 1\)~阵.
+    设 \(U\) 是一个 \(r \times n\)~阵,
+    其中 \(r < n\),
+    且 \(U\) 有一个行列式非零的 \(r\)~级子阵
+    \begin{align*}
+        T = U\binom{1,2,\dots,r}{j_1,j_2,\dots,j_r},
+    \end{align*}
+    其中 \(1 \leq j_1 < \dots < j_r \leq n\).
+    从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(j_1\), \(j_2\), \(\dots\), \(j_r\)
+    后, 还剩 \(n - r\)~个数.
+    我们从小到大地叫这 \(n - r\)~个数为
+    \(j_{r+1}\), \(\dots\), \(j_n\).
+    再设 \(U\)~的%
+    列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是 \(u_1\), \(u_2\), \(\dots\), \(u_n\).
+
+    (1)
+    设 \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
+    是 \(n-r\)~个常数.
+    作 \(n \times 1\)~阵 \(C\), 其中
+    \begin{align*}
+        [C]_{j_k,1}
+        = \begin{dcases}
+              \frac{\det {(T\{k,V\})}}{\det {(T)}}
+              - \sum_{r < \ell \leq n}
+              {c_{j_\ell}
+              \frac{\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+               & k \leq r; \\
+              c_{j_k},
+               & k > r.
+          \end{dcases}
+    \end{align*}
+    其中 \(T\{k,Y\}\) 是以 \(r \times 1\)~阵 \(Y\)
+    代 \(T\) 的列~\(k\) 后得到的阵.
+    则 \(UC = V\).
+
+    (2)
+    若 \(n \times 1\)~阵 \(D\) 适合 \(UD = V\),
+    则存在 \(n-r\)~个数
+    \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\),
+    使
+    \begin{align*}
+        [D]_{j_k,1}
+        = \begin{dcases}
+              \frac{\det {(T\{k,V\})}}{\det {(T)}}
+              - \sum_{r < \ell \leq n}
+              {c_{j_\ell}
+              \frac{\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+               & k \leq r; \\
+              c_{j_k},
+               & k > r.
+          \end{dcases}
+    \end{align*}
+    换句话说, \(UX = V\) 的每一个解%
+    都可被 (1) 中的公式表达.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    我们可改写方程组 \(UX = V\) 为
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[U]_{p,j_\ell} x_{j_\ell}}
+            = [V]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[U]_{p,j_\ell} x_{j_\ell}},
+    \end{align*}
+    其中 \(p = 1\), \(2\), \(\dots\), \(r\),
+    下同.
+    考虑%
+    由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[U]_{p,j_\ell} y_\ell}
+        = [V]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[U]_{p,j_\ell} c_{j_\ell}}.
+    \end{align*}
+    利用阵等式, 我们可写
+    \begin{align*}
+        T
+        \begin{bmatrix}
+            y_1    \\
+            y_2    \\
+            \vdots \\
+            y_r    \\
+        \end{bmatrix}
+        =
+        V -
+        \sum_{r < \ell \leq n}
+        {c_{j_\ell} u_{j_\ell}}.
+    \end{align*}
+    因为 \(\det {(T)} \neq 0\),
+    故, 由 Cramer 公式,
+    存在 \(r\) 个数
+    \(c_{j_1}\), \(c_{j_2}\), \(\dots\), \(c_{j_r}\),
+    使
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[U]_{p,j_\ell} c_{j_\ell}}
+            = [V]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[U]_{p,j_\ell} c_{j_\ell}},
+    \end{align*}
+    其中
+    \begin{align*}
+        c_{j_k}
+        = {} &
+        \frac{1}{\det {(T)}}
+        \det {
+            \left(
+            T\left\{
+            k,
+            V -
+            \sum_{r < \ell \leq n}
+            {c_{j_\ell} u_{j_\ell}}
+            \right\}
+            \right)
+        }
+        \\
+        = {} &
+        \frac{1}{\det {(T)}} \det {(T\{k,V\})}
+        -
+        \frac{1}{\det {(T)}}
+        \sum_{r < \ell \leq n}
+        {c_{j_\ell}
+        \det {(T\{k,u_{j_\ell}\})}
+        }
+        \\
+        = {} &
+        \frac{\det {(T\{k,V\})}}{\det {(T)}}
+        - \sum_{r < \ell \leq n}
+        {c_{j_\ell}
+        \frac{\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
+    \end{align*}
+    从而
+    \begin{align*}
+        \sum_{\ell = 1}^{n}
+        {[U]_{p,j_\ell} c_{j_\ell}}
+            = [V]_{p,1}.
+    \end{align*}
+    注意到 \([C]_{j_k,1} = c_{j_k}\).
+    所以, \(UC = V\).
+
+    (2)
+    设 \(D\) 适合 \(UD = V\).
+    则
+    \begin{align*}
+        \sum_{\ell = 1}^{n}
+        {[U]_{p,j_\ell} [D]_{j_\ell,1}}
+            = [V]_{p,1}.
+    \end{align*}
+    从而
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[U]_{p,j_\ell} [D]_{j_\ell,1}}
+            = [V]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[U]_{p,j_\ell} [D]_{j_\ell,1}}.
+    \end{align*}
+
+    取 \(c_{j_\ell} = [D]_{j_\ell,1}\),
+    \(\ell > r\).
+    考虑方程组
+    \begin{align*}
+        \sum_{\ell = 1}^{r}
+        {[U]_{p,j_\ell} y_\ell}
+        = [V]_{p,1}
+        - \sum_{r < \ell \leq n}
+        {[U]_{p,j_\ell} c_{j_\ell}}.
+    \end{align*}
+    由 (1), 我们知道
+    \begin{align*}
+        y_k =
+        \frac{\det {(T\{k,V\})}}{\det {(T)}}
+        - \sum_{r < \ell \leq n}
+        {c_{j_\ell}
+        \frac{\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}
+    \end{align*}
+    (其中 \(k = 1\), \(2\), \(\dots\), \(r\), 下同)
+    是一个解;
+    另一方面,
+    \(y_k = [D]_{j_k,1}\) 也是一个解.
+    因为 \(\det {(T)} \neq 0\),
+    故, 由 Cramer 公式,
+    这二组解应是相同的,
+    即
+    \begin{equation*}
+        [D]_{j_k,1} =
+        \frac{\det {(T\{k,V\})}}{\det {(T)}}
+        - \sum_{r < \ell \leq n}
+        {c_{j_\ell}
+        \frac{\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+现在, 我们作一个小结.
+
+注意到, 当 \(r = n\) 时,
+不可能有数 \(\ell\) 适合 \(r < \ell \leq n\).
+既然没有数被加, 那么, 形如
+\begin{align*}
+    \sum_{r < \ell \leq n} {f(\ell)}
+\end{align*}
+的式是零.
+用这种约定,
+我们可统一地写%
+在 \(r = n\) 与 \(r < n\) 这二种情形下%
+解的公式.
+
+\begin{theorem}
+    设 \(V\) 是一个 \(r \times 1\)~阵.
+    设 \(U\) 是一个 \(r \times n\)~阵,
+    其中 \(r \leq n\),
+    且 \(U\) 有一个行列式非零的 \(r\)~级子阵
+    \begin{align*}
+        T = U\binom{1,2,\dots,r}{j_1,j_2,\dots,j_r},
+    \end{align*}
+    其中 \(1 \leq j_1 < \dots < j_r \leq n\).
+    从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(j_1\), \(j_2\), \(\dots\), \(j_r\)
+    后, 还剩 \(n - r\)~个数.
+    我们从小到大地叫这 \(n - r\)~个数为
+    \(j_{r+1}\), \(\dots\), \(j_n\).
+    再设 \(U\)~的%
+    列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是 \(u_1\), \(u_2\), \(\dots\), \(u_n\).
+    那么, \(UX = V\) 的解\emph{恰}为
+    \begin{align*}
+        x_{j_k}
+        = \begin{dcases}
+              \frac{\det {(T\{k,V\})}}{\det {(T)}}
+              - \sum_{r < \ell \leq n}
+              {c_{j_\ell}
+              \frac{\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+               & k \leq r; \\
+              c_{j_k},
+               & k > r,
+          \end{dcases}
+    \end{align*}
+    其中 \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
+    是任何的 \(n-r\) 个数.
+\end{theorem}
+
+\section{\texorpdfstring{由 \(m\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (5)}%
+  {由 m 个 n 元 ≤1 次方程作成的方程组 (5)}}
+
+\maldevigalegajxo
+
+线性方程组的故事要结束了.
+毕竟, 我们已解决线性方程组的三个较重要的问题:
+
+(1)
+一个线性方程组何时有解?
+
+(2)
+一个线性方程组有解时, 其解是否唯一?
+
+(3)
+一个线性方程组有解时, 我们如何找到它的全部的解?
+
+我们用行列式回答了这三个问题,
+作了一个较完整的线性方程组的理论.
+所以, 理论地, 给了一个线性方程组,
+我们可以计算一些行列式以确定它是否有解,
+且有解时其解为何.
+
+不过,
+计算一个方阵的行列式并不是什么简单的事情:
+\(3\)~级阵的行列式的较具体的公式含 \(6\)~项,
+而 \(4\)~级阵的行列式的较具体的公式含 \(24\)~项.
+所以, 像 Cramer 公式那样,
+我们又作了一个 ``较理论的'' 理论.
+
+但是, 此理论仍然是重要的.
+或许, 您还记得,
+任给一个阵~\(A\),
+必存在唯一的非负整数 \(r\),
+使 \(A\)~有一个行列式非零的 \(r\)~级子阵,
+但 \(A\)~没有行列式非零的 \(r+1\)~级子阵.
+聪明的数学家意识到,
+此 \(r\) 十分地重要,
+故专门为它起了一个名字, ``\emph{秩}''.
+然后, 他们研究了秩,
+发现:
+(a)
+可以施适当的变换于阵~\(A\),
+得到一个新阵~\(E\),
+且 \(A\) 与 \(E\) 有相同的秩;
+(b)
+``适当的变换'' 跟计算方阵的行列式比,
+有着较少的计算量
+(具体地, 加、减、乘、除的次数);
+(c)
+\(E\)~的秩不难计算,
+甚至可被直接看出.
+于是, 联合这个发现与我们的理论,
+就是一个更好的线性方程组的理论.
+若您对此事感兴趣,
+您可以见线性代数 (或高等代数) 教材.
+% 此事虽好,
+% 但可能不适合在一门主讲行列式的课程里被具体地讨论.
+
+我就说这么多吧.
+
+\SenAsteriskoEnEnhavtabelo

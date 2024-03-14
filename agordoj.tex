@@ -1,0 +1,431 @@
+% Specify the fonts used by the document.
+
+\IfFontExistsTF{XITS}{%
+    \IfFontExistsTF{XITS Italic}{%
+        \IfFontExistsTF{Fira Sans SemiBold}{%
+            \IfFontExistsTF{Fira Sans SemiBold Italic}{%
+                \setmainfont{XITS}[
+                    UprightFont = *,
+                    BoldFont = Fira Sans SemiBold,
+                    ItalicFont = * Italic,
+                    BoldItalicFont = Fira Sans SemiBold Italic
+                ]
+            }{%
+                \setmainfont{XITS}
+            }
+        }{%
+            \setmainfont{XITS}
+        }
+    }{}
+}{}
+
+\IfFontExistsTF{Fira Sans Light}{%
+    \IfFontExistsTF{Fira Sans Light Italic}{%
+        \IfFontExistsTF{Fira Sans SemiBold}{%
+            \IfFontExistsTF{Fira Sans SemiBold Italic}{%
+                \setsansfont{Fira Sans}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\IfFontExistsTF{Sarasa Mono SC Light}{%
+    \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+        \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                \setmonofont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\IfFontExistsTF{Source Han Serif CN Light}{%
+    \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+        \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                \PassOptionsToPackage{fontset = none}{ctexbook}
+                \setCJKmainfont{Source Han Serif CN}[
+                    UprightFont = * Light,
+                    BoldFont = Sarasa Mono SC SemiBold,
+                    ItalicFont = Sarasa Mono SC Light Italic,
+                    BoldItalicFont = Sarasa Mono SC SemiBold Italic
+                ]
+                \setCJKsansfont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+                \setCJKmonofont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+% Redefine the emphasis style.
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+% These are packages which deal with mathematical formulae.
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[
+    math-style=ISO,
+    bold-style=ISO,
+    mathrm=sym,
+    mathbf=sym,
+    partial=upright,
+    warnings-off={mathtools-colon,mathtools-overbracket}
+]{unicode-math}
+\allowdisplaybreaks[3]
+
+% Specify the mathematical fonts used by the document.
+\IfFontExistsTF{XITS Math}{%
+    % Standing-up-straight integral symbol (For XITS Math).
+    \setmathfont{XITS Math}[StylisticSet=8]%
+}{}
+\IfFontExistsTF{TeX Gyre Termes Math}{%
+\setmathfont{TeX Gyre Termes Math}[range=bb/{latin,Latin}]%
+}{}
+\IfFontExistsTF{STIX Two Math}{%
+    \setmathfont{STIX Two Math}[range={"2218-"2218}]
+}{}
+
+
+% These are packages which deal with theorem environments.
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+\declaretheoremstyle[%
+    spaceabove=2ex,%
+    spacebelow=2ex,%
+    headfont=\normalfont\bfseries,%
+    notefont=\normalfont,%
+    notebraces={(}{)},%
+    bodyfont=\normalfont,%
+    headindent=\parindent,%
+    headpunct={},%
+    postheadspace=1em%
+]{TheoremStyle}
+\declaretheoremstyle[%
+    spaceabove=2ex,%
+    spacebelow=2ex,%
+    headfont=\normalfont\bfseries,%
+    notefont=\normalfont,%
+    notebraces={(}{)},%
+    bodyfont=\normalfont,%
+    headindent=\parindent,%
+    headpunct={},%
+    postheadspace=1em,%
+    qed=\qedsymbol%
+]{ProofStyle}
+
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=定理,%
+    numberwithin=chapter%
+]{theorem}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=定义,%
+    sibling=theorem%
+]{definition}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=例,%
+    sibling=theorem%
+]{example}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=注,%
+    numbered=no%
+]{remark*}
+
+% Undefine the proof environment provided by `amsthm`.
+\let\proof\relax
+\let\endproof\relax
+\declaretheorem[%
+    style=ProofStyle,%
+    name=证,
+    numbered=no%
+]{proof}
+\renewcommand*{\qedsymbol}{证毕.}
+
+% Comment some words.
+% Note that this package automatically loads hyperref.
+\usepackage{pdfcomment}
+
+% If "pdfcomment" is not available:
+\providecommand{\pdfmarkupcomment}[3][]{#2}
+
+% These are packages which deal with hyperlinks.
+% % If "pdfcomment" is not used:
+% \usepackage[hidelinks,hyperindex,breaklinks]{hyperref}
+% If "pdfcomment" is used:
+\hypersetup{hidelinks,breaklinks}
+
+% Add hyperlinks to the table of contents.
+\usepackage{bookmark}
+
+\makeatletter
+\providecommand*{\midsloppy}{%
+    \tolerance 5000%
+    \hbadness 4000%
+    \emergencystretch 1.5em%
+    \hfuzz .1\p@%
+    \vfuzz\hfuzz}
+\makeatother
+
+% \makeatletter
+% \providecommand*{\leqnomode}{\tagsleft@true\let\veqno\@@leqno}
+% \providecommand*{\reqnomode}{\tagsleft@false\let\veqno\@@eqno}
+% \makeatother
+
+% Some xeCJK settings.
+% However, they only work in XeLaTeX.
+% https://tex.stackexchange.com/questions/13172/detect-which-tex-engine-is-used
+\usepackage{ifxetex}
+\usepackage{ifluatex}
+\ifxetex
+    \usepackage{xpatch}
+    \ExplSyntaxOn
+    % https://github.com/CTeX-org/ctex-kit/issues/636
+    % Apply the patch only if the package date is after 2022-08-05
+    % _and_ before 2022-08-31.
+    % The bug was introduced in v3.9.1 (on 2022-08-05)
+    % and fixed in dev (on 2022-08-31).
+    % See
+    % https://github.com/CTeX-org/ctex-kit/commit/a841dabaac7c2dccacd1858ba96f6eb38adfb335
+    % https://github.com/CTeX-org/ctex-kit/commit/aa5f00db05f12034845f8e5c4119971b5aae33ff
+    \IfPackageAtLeastTF{xeCJK}{2022-08-05}{
+        \IfPackageAtLeastTF{xeCJK}{2022-08-31}{}{
+            \xpatchcmd \__xeCJK_check_for_xglue:
+            {\__xeCJK_if_last_glue:TF}
+            {\__xeCJK_if_last_glue:T}
+            % {}{\PatchFailed}
+            {}{}
+        }
+    }{}
+    \ExplSyntaxOff
+
+    \xeCJKsetup{%
+        % % https://github.com/CTeX-org/ctex-kit/issues/636
+        xCJKecglue = true,%
+        CJKspace = true,%
+        CheckSingle = true,%
+    }
+\fi
+
+% These are modifications which are
+% to be inserted after \begin{document}.
+\AtBeginDocument{%
+    % Switch off extra space after punctuation.
+    \frenchspacing
+
+    % A magic that kills as many overfull lines as possible.
+    \midsloppy
+
+    \renewcommand*{\UrlFont}{\ttfamily}
+
+    % \let\umathpi\pi
+    % \renewcommand*{\pi}{\symup\umathpi}
+    % \let\umathiota\iota
+    % \renewcommand*{\iota}{\symup\umathiota}
+
+    \renewcommand*{\leq}{\leqslant}
+    \renewcommand*{\geq}{\geqslant}
+    \renewcommand*{\mathellipsis}{\cdots}
+
+    % \renewcommand*{\Re}{\operatorname{Re}}
+    % \renewcommand*{\Im}{\operatorname{Im}}
+}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix}
+
+% The packages enables one to create new environments.
+\usepackage{newfloat}
+% Create an environment exclusively for tikzpictures.
+\DeclareFloatingEnvironment[
+    fileext=los,
+    listname={Listo de Tikzbildoj},
+    name={Tikzbildo},
+    placement=tbhp,
+    within=section,
+]{tikzbildo}
+% % Create an environment exclusively for illustrations.
+% \DeclareFloatingEnvironment[
+%     fileext=los,
+%     listname={Listo de Ilustraĵoj},
+%     name={Ilustraĵo},
+%     placement=tbhp,
+%     within=section,
+% ]{ilustrajxo}
+
+% Insert figures.
+\usepackage{graphicx}
+% % Insert and configure captions.
+% \usepackage{caption}
+% % Insert sub-figures.
+% \usepackage{subcaption}
+
+% Make quotations wider.
+\makeatletter
+\renewenvironment{quotation}
+{\list{}{\listparindent 2\ccwd%
+        \itemindent\listparindent
+        % \rightmargin\leftmargin
+        \leftmargin\rightmargin
+        \parsep\z@ \@plus\p@}%
+    \item\relax}
+{\endlist}
+\makeatother
+
+% Start a new page with each section.
+% https://tex.stackexchange.com/questions/9497/start-new-page-with-each-section
+\providecommand*{\phantomsection}{}
+\usepackage{titlesec}
+\newcommand*{\sectionbreak}{\clearpage\phantomsection}
+
+\makeatletter
+\if@twoside % if the document is two-sided
+    % https://latex.org/forum/viewtopic.php?t=6965
+    \raggedbottom
+
+    % Use "\usepackage[pass]{geometry}"
+    % to see the information of page margins
+    % in the log file
+    % (Do it in a separate file,
+    % since the current file is so big
+    % that it will take unnecessarily longer time.)
+    \setlength\oddsidemargin{31pt}
+    \setlength\evensidemargin{31pt}
+    \setlength\marginparwidth{38pt}
+\else % if the document is one-sided
+    % Redefine \cleardoublepage.
+    \def\cleardoublepage{\clearpage\ifodd\c@page\else
+            \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+\fi
+\makeatother
+
+% Ten heavenly stems: 甲乙丙丁戊己庚辛壬癸
+% Twelve earthly branches: 子丑寅卯辰巳午未申酉戌亥
+% Listing comma: 、
+
+% Insert the table of bibliography.
+\usepackage[%
+    backend=biber,%
+    style=gb7714-2015,%
+    % gbalign=gb7714-2015,%
+    defernumbers=true,%
+]{biblatex}
+% Use a null heading for each bibliography.
+\defbibheading{bibliography}[]{}
+
+\newcommand*{\maldevigalegajxo}{%
+    \begin{remark*}
+        本节是选学内容;
+        换句话说, 您不学本节,
+        并不会影响您对任何必学内容
+        (也就是, 未声明为 ``选学内容'' 的节)
+        的理解.
+    \end{remark*}%
+}
+
+% Make long tables.
+\usepackage{longtable}
+% A cell that allows line breaks.
+\providecommand*{\cxelo}[2][c]{%
+    \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+% Commands for displaying section numbers:
+% \sekcio{} and \malneprasekcio{}
+\providecommand*{\sekcio}[1]{#1}
+\providecommand*{\malneprasekcio}[1]{\textit{#1}}
+
+% % The following code hides all instances of "ilustrajxo*".
+% % ========================================
+% % This provides the `\comment` block.
+% \usepackage{verbatim}
+% % Redefine the \figure* environment to
+% % apply the `\comment` block to its contents,
+% % essentially remove them all from the document.
+% \renewenvironment{ilustrajxo*}[1][]{%
+%     \expandafter\comment%
+% }{%
+%     \expandafter\endcomment%
+% }
+
+% This package deals with headers and footers.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LE]{\thepage}
+\renewcommand*{\headrulewidth}{0pt}
+\renewcommand*{\footrulewidth}{0pt}
+% \fancypagestyle{plain}{%
+%     \fancyhf{}
+%     \fancyfoot[C]{\sffamily\thepage}
+%     \renewcommand*{\headrulewidth}{0pt}
+%     \renewcommand*{\footrulewidth}{0pt}
+% }
+
+% If a chapter has no section,
+% mark the header on the odd pages as well.
+% Put the redefinition after fancyhdr, if it is imported.
+\renewcommand*{\chaptermark}[1]{%
+    \markboth{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
+        }#1}{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
+        }#1}%
+}
+
+\usepackage{ifdraft}
+
+\ifdraft{% draft case
+    \pagestyle{plain}
+
+    % https://tex.stackexchange.com/questions/448296/
+    \ifxetex
+        \special{dvipdfmx:config z 0}
+        \special{dvipdfmx:config C 0x40}
+    \fi
+    \ifluatex
+        \pdfvariable compresslevel 0
+        \pdfvariable objcompresslevel 0
+    \fi
+}%
+{% final case
+}
+
+% Inspired by https://tex.stackexchange.com/a/688793
+\newcommand\EbleEstasAsterisko{}% check definable
+\let\EbleEstasAsterisko\relax
+\renewcommand\thesection{\EbleEstasAsterisko\thechapter.\arabic{section}}
+\newcommand\KunAsteriskoEnEnhavtabelo{%
+    \addtocontents{toc}%
+    {\def\EbleEstasAsterisko{\let\EbleEstasAsterisko\relax\string\llap{*}}}%
+}
+\newcommand\SenAsteriskoEnEnhavtabelo{%
+    \addtocontents{toc}%
+    {\def\EbleEstasAsterisko{\let\EbleEstasAsterisko\relax}}%
+}

@@ -1,0 +1,64 @@
+\documentclass[%
+    UTF8,%
+    % fontset=none,%
+    punct=kaiming,%
+    zihao=-4,%
+    a4paper,%
+    % oneside,%
+    % draft,%
+]{ctexbook}
+
+\input{agordoj}
+
+\input{informoj de la libro}
+
+% Multiple .bib files can also be added.
+\addbibresource{bibliografio.bib}
+
+% Set the location of the images.
+\graphicspath{{bildoj/}}
+
+\begin{document}
+
+\frontmatter
+
+\ifdraft{}{\input{cxapitroj/kovrilo}}
+
+\ifdraft{}{\input{cxapitroj/antauxa fina papero}}
+
+\ifdraft{}{\input{cxapitroj/dedicxo}}
+
+\ifdraft{}{\input{cxapitroj/enhavtabelo}}
+
+\input{cxapitroj/antauxparolo}
+
+\input{cxapitroj/agnosko}
+
+\input{cxapitroj/dependeco}
+
+\mainmatter
+
+\input{cxapitroj/determinantoj}
+
+\appendix
+
+\input{cxapitroj/duvariablaj polinomoj de grado du}
+
+\input{cxapitroj/matematika indukto}
+
+\input{cxapitroj/postrakontoj}
+
+% How many pages are there?
+\label{libro:LaLastaPagxo}
+
+\backmatter
+
+\ifdraft{}{\input{cxapitroj/bibliografio}}
+
+\ifdraft{}{\input{cxapitroj/listo de simboloj}}
+
+\ifdraft{}{\input{cxapitroj/listo de vortoj}}
+
+\ifdraft{}{\input{cxapitroj/la lasta pagxo}}
+
+\end{document}
