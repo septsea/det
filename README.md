@@ -340,7 +340,7 @@ Sarasa Mono SC SemiBold Italic,
 
 **美客只是可选项.**
 
-## 关于版权
+## 关于著作权
 
 我用
 [0BSD](https://opensource.org/license/0bsd)
@@ -354,7 +354,7 @@ Sarasa Mono SC SemiBold Italic,
 
 我给一个汉语翻译作为参考 (我从[这儿](https://commons.wikimedia.org/wiki/Template:0BSD/i18n/zh)复制过来的):
 
-> 版权 © 2024 Determinantulo
+> 著作权 © 2024 Determinantulo
 >
 > 特此授予出于任何目的使用、复制、修改和/或分发本软件的许可, 无论是否收费.
 > 
@@ -366,7 +366,7 @@ Sarasa Mono SC SemiBold Italic,
 
 通俗地, 您可以自由地用、改、发我的书,
 且您**不必**标出本书的来源
-(您当然也**不必**保留版权声明);
+(您当然也**不必**保留著作权声明);
 不过, 若出了问题,
 则我这儿没有 "售后",
 且您必须自己负责 (法律地).
