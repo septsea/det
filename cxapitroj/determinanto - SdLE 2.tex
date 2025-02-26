@@ -1,0 +1,993 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+
+\KunAsteriskoEnEnhavtabelo
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (2)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (2)}}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+前面, 我们定量地研究了%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解.
+具体地, 当 \(n\)~级阵 \(A\) 的行列式不是 \(0\) 时,
+我们用行列式写出了 \(AX = B\) 的唯一的解,
+其中
+\(B\) 是 \(n \times 1\)~阵,
+且 \(X\) 是未知的 \(n \times 1\)~阵.
+不过, 若 \(\det {(A)} = 0\),
+则 Cramer 公式不可用
+(因为分母不可为 \(0\)).
+其实, 当 \(\det {(A)} = 0\) 时,
+\(AX = B\) 是否有解是一个复杂的问题.
+
+\begin{example}
+    设
+    \begin{align*}
+        A = \begin{bmatrix}
+                1  & 1  \\
+                -1 & -1 \\
+            \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            1 \\
+            b \\
+        \end{bmatrix},
+        \quad
+        X =
+        \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+        \end{bmatrix},
+    \end{align*}
+    其中 \(b\) 是常数.
+    不难算出, \(\det {(A)} = 0\).
+    当 \(b\) 取某些数时,
+    我们讨论 \(AX = B\) 的解.
+
+    当 \(b = -1\) 时, 此方程组有解:
+    \begin{align*}
+        A
+        \begin{bmatrix}
+            1 \\
+            0 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \cdot 1 + 1 \cdot 0     \\
+            -1 \cdot 1 + (-1) \cdot 0 \\
+        \end{bmatrix}
+        =
+        B.
+    \end{align*}
+    进一步地, \(AX = B\) 的解不唯一.
+    % The following (commented) text
+    % assumes that the underlying field
+    % has infinitely many elements.
+    % 设 \(t\) 是常数.
+    % 则
+    % \begin{align*}
+    %     A
+    %     \begin{bmatrix}
+    %         1 - t \\
+    %         t     \\
+    %     \end{bmatrix}
+    %     =
+    %     \begin{bmatrix}
+    %         1 \cdot (1 - t) + 1 \cdot t     \\
+    %         -1 \cdot (1 - t) + (-1) \cdot t \\
+    %     \end{bmatrix}
+    %     =
+    %     B.
+    % \end{align*}
+    % 取不同的 \(t\),
+    % 就有不一样的
+    % \(
+    % \begin{bmatrix}
+    %     1 - t \\
+    %     t     \\
+    % \end{bmatrix}
+    % \).
+    % 我们知道, 有无限多个数.
+    % 所以, \(AX = B\) 有无限多个解.
+    不难算出,
+    \begin{align*}
+        A
+        \begin{bmatrix}
+            0 \\
+            1 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 \cdot 0 + 1 \cdot 1     \\
+            -1 \cdot 0 + (-1) \cdot 1 \\
+        \end{bmatrix}
+        =
+        B,
+    \end{align*}
+    且
+    \(
+    \begin{bmatrix}
+        0 \\
+        1 \\
+    \end{bmatrix}
+    \neq
+    \begin{bmatrix}
+        1 \\
+        0 \\
+    \end{bmatrix}
+    \).
+
+    当 \(b = 0\) 时, 此方程组无解.
+    用反证法.
+    反设
+    \(
+    A \begin{bmatrix}
+        y_1 \\
+        y_2 \\
+    \end{bmatrix}
+    = B
+    \),
+    即
+    \begin{align*}
+        y_1 + y_2 = 1, \\
+        -y_1 - y_2 = 0.
+    \end{align*}
+    从而
+    \begin{align*}
+        1 + 0
+        = {} & (y_1 + y_2) + (-y_1 - y_2)     \\
+        = {} & (y_1 - y_1) + (y_2 - y_2) = 0.
+    \end{align*}
+    这是矛盾.
+\end{example}
+
+从本节开始, 我们定性地研究%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解.
+具体地, 我们主要讨论解的性质,
+而不是解的公式.
+
+根据 Cramer 公式, 我们不难得到如下事实:
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(\det {(A)} \neq 0\).
+    那么, 对任何的 \(n \times 1\)~阵 \(B\),
+    存在一个 \(n \times 1\)~阵 \(C\),
+    使 \(AC = B\).
+    (或者,
+    若存在某 \(n \times 1\)~阵 \(B\),
+    使对任何的 \(n \times 1\)~阵 \(C\),
+    必 \(AC \neq B\),
+    则 \(\det {(A)} = 0\).)
+\end{theorem}
+
+重要地, 此事反过来也对.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设对任何的 \(n \times 1\)~阵 \(B\),
+    存在一个 \(n \times 1\)~阵 \(C\),
+    使 \(AC = B\).
+    则 \(\det {(A)} \neq 0\).
+    (或者,
+    若 \(\det {(A)} = 0\),
+    则存在某 \(n \times 1\)~阵 \(B\),
+    使对任何的 \(n \times 1\)~阵 \(C\),
+    必 \(AC \neq B\).)
+\end{theorem}
+
+\begin{proof}
+    设 \(n\)~级单位阵~\(I\) 的%
+    列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是
+    \(e_1\), \(e_2\), \(\dots\), \(e_n\).
+    每一个 \(e_i\) 都是 \(n \times 1\)~阵.
+    根据假定, 存在一个 \(n \times 1\)~阵 \(f_i\)
+    使 \(Af_i = e_i\).
+    作 \(n\)~级阵
+    \(F = [f_1, f_2, \dots, f_n]\).
+    则
+    \begin{align*}
+        AF
+        = {} & A\, [f_1, f_2, \dots, f_n] \\
+        = {} & [Af_1, Af_2, \dots, Af_n]  \\
+        = {} & [e_1, e_2, \dots, e_n]     \\
+        = {} & I.
+    \end{align*}
+    因为二个同级的方阵的积的行列式%
+    等于这二个阵的行列式的积,
+    \begin{align*}
+        1 = \det {(I)} = \det {(A)} \det {(F)}.
+    \end{align*}
+    从而 \(\det {(A)} \neq 0\).
+\end{proof}
+
+\KunAsteriskoEnEnhavtabelo
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (3)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (3)}}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+前面, 我们知道,
+若 \(n\)~级阵 \(A\) 的行列式为 \(0\),
+则存在某 \(n \times 1\)~阵 \(B\),
+使线性方程组 \(AX = B\) 无解.
+当然, 对某些 \(B\),
+\(AX = B\) 还是有解的:
+取 \(B = 0\),
+则 \(AX = B\) 至少有一个解 \(X = 0\)
+(\(0\) 是元全为 \(0\) 的 \(n \times 1\)~阵).
+本节, 我们研究, 若 \(AX = B\) 有解,
+则它是否有唯一的解.
+
+我们先看一个简单的事实.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(B\) 是 \(n \times 1\)~阵.
+    设 \(n \times 1\)~阵 \(C\) 适合 \(AC = B\).
+
+    (1)
+    若 \(AX = 0\) 只有零解, 则 \(AX = B\) 的解唯一;
+
+    (2)
+    若存在非零的 \(n \times 1\)~阵 \(D\)
+    使 \(AD = 0\),
+    则 \(AX = B\) 的解不唯一.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    设 \(n \times 1\)~阵 \(Y\) 适合 \(AY = B\).
+    则
+    \begin{align*}
+        A(Y - C) = AY - AC = B - B = 0.
+    \end{align*}
+    故 \(Y - C\) 是 \(AX = 0\) 的一个解.
+    因为 \(AX = 0\) 只有零解,
+    故 \(Y - C = 0\).
+    从而 \(Y = C\).
+
+    % The following proof assumes that the underlying field
+    % has infinitely many elements.
+
+    % (2)
+    % 要证 \(AX = B\) 有无限多个解,
+    % 只要证:
+    % 对任何正整数 \(m\),
+    % 我们能找到 \(AX = B\) 的
+    % \(m\) 个互不相同的解.
+
+    % 作 \(m\)~个 \(n \times 1\)~阵
+    % \(C_1\), \(C_2\), \(\dots\), \(C_m\),
+    % 其中 \(C_j = C + jD\).
+    % 首先, 每一个 \(C_j\) 都是 \(AX = B\) 的解:
+    % \begin{align*}
+    %     AC_j = A(C + jD) = AC + A(jD) = B + j(AD) = B + j0 = B.
+    % \end{align*}
+    % 然后, 我们证,
+    % 若 \(p\), \(q\) 是二个不相等的%
+    % 且不超过 \(m\) 的正整数,
+    % 则 \(C_p \neq C_q\).
+    % 用反证法.
+    % 反设 \(C_p = C_q\),
+    % 则
+    % \begin{align*}
+    %     0 = C_p - C_q = (C + pD) - (C + qD) = (p - q)D.
+    % \end{align*}
+    % 因为 \(p \neq q\), 故 \(p - q \neq 0\).
+    % 从而
+    % \begin{align*}
+    %     0 = \frac{1}{p-q}\, 0
+    %     = \frac{1}{p-q}\, ((p-q)D)
+    %     = \Big( \frac{1}{p-q}\, (p-q) \Big) D
+    %     = 1D
+    %     = D.
+    % \end{align*}
+    % 这是矛盾.
+    % 所以, \(C_p \neq C_q\).
+
+    (2)
+    因为 \(D \neq 0\), 故 \(C + D \neq C\).
+    因为 \(A(C + D) = AC + AD = B + 0 = B\),
+    且 \(C + D \neq C\),
+    故 \(AX = B\) 的解不唯一.
+\end{proof}
+
+由此可见, 若 \(AX = 0\) 有非零解,
+则 \(AX = B\) 有解时,
+其解不唯一.
+若 \(AX = 0\) 只有零解,
+则 \(AX = B\) 有解时,
+其解唯一.
+
+根据 Cramer 公式, 我们不难得到如下事实:
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(AX = 0\) 有非零解.
+    则 \(\det {(A)} = 0\).
+    (或者,
+    若 \(\det {(A)} \neq 0\),
+    则 \(AX = 0\) 只有零解.)
+\end{theorem}
+
+重要地, 此事反过来也对.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(\det {(A)} = 0\).
+    则 \(AX = 0\) 有非零解.
+    (或者,
+    若 \(AX = 0\) 只有零解,
+    则 \(\det {(A)} \neq 0\).)
+\end{theorem}
+
+为方便, 我要引入一个小概念.
+说阵~\(Z\) 是 \(A\) 的一个 \emph{\(p\)~级子阵},
+就是说, \(Z\) 是 \(A\) 的一个子阵
+(见本章, 节~\sekcio{5}),
+且 \(Z\) 是一个 \(p\)~级阵.
+
+在论证此事前, 我想用三个例%
+助您理解此事为什么是对的.
+
+\begin{example}
+    设 \(A\) 是一个 \(5\)~级阵,
+    且 \(A = 0\).
+    那么, 对任何非零的 \(5 \times 1\)~阵 \(S\),
+    必有 \(AS = 0\).
+\end{example}
+
+\begin{example}
+    设 \(A\) 是一个 \(5\)~级阵,
+    且 \(\det {(A)} = 0\),
+    但 \(A \neq 0\).
+
+    我们知道,
+    \(A \operatorname{adj} {(A)} = \det {(A)}\, I\),
+    其中 \(\operatorname{adj} {(A)}\)
+    是 \(A\) 的古伴,
+    且 \(I\) 是 \(5\)~级单位阵.
+    因为 \(\det {(A)} = 0\),
+    故 \(A \operatorname{adj} {(A)} = 0\).
+
+    若 \(\operatorname{adj} {(A)} \neq 0\),
+    则存在 \(k\), \(v\), 使
+    \([\operatorname{adj} {(A)}]_{k,v} \neq 0\).
+    我们设 \(\operatorname{adj} {(A)}\) 的%
+    列~\(v\) 是 \(Y\).
+    那么, \([Y]_{k,1}
+        = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
+    从而 \(Y \neq 0\).
+    我们证明 \(AY = 0\):
+    \begin{align*}
+        [AY]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{5}
+        {[A]_{i,\ell} [Y]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{5}
+        {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
+        \\
+        = {} &
+        [A \operatorname{adj} {(A)}]_{i,v}
+        \\
+        = {} &
+        [0]_{i,v}
+        \\
+        = {} &
+        0.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    仍设 \(A\) 是一个 \(5\)~级阵,
+    且 \(\det {(A)} = 0\),
+    但 \(A \neq 0\).
+
+    在上个例里, 我们假定
+    \(\operatorname{adj} {(A)} \neq 0\).
+    可是, 它也有可能为 \(0\), 即使 \(A \neq 0\)
+    (比如, 可以验证
+    \begin{align*}
+        M = \begin{bmatrix}
+                1  & 1 & -1 & -1 & 1 \\
+                1  & 2 & 0  & 0  & 2 \\
+                2  & 1 & -3 & -3 & 1 \\
+                -1 & 0 & 2  & 2  & 0 \\
+                -1 & 1 & 3  & 3  & 1 \\
+            \end{bmatrix}
+    \end{align*}
+    的古伴就是 \(0\)).
+
+    现在, 我们假定
+    \(\operatorname{adj} {(A)} = 0\).
+    此时, 我们不能利用
+    \(\operatorname{adj} {(A)}\)
+    写出 \(AX = 0\) 的非零解.
+    我们应如何作?
+
+    若 \(\operatorname{adj} {(A)} = 0\),
+    则 \(A\) 的每一个 \(4\)~级子阵的行列式都是 \(0\).
+    从而, 存在一个%
+    低于 \(4\) 的正整数 \(r\)
+    适合性质:
+    \(A\) 有一个 \(r\)~级子阵, 其行列式非零,
+    且 \(A\) 的每一个 \(r+1\)~级子阵的行列式都是 \(0\).
+    (我们已知 \(A\) 的每一个 \(4\)~级子阵的行列式都是 \(0\).
+    我们考虑 \(A\) 的 \(3\)~级子阵.
+    若有一个 \(3\)~级子阵的行列式不是 \(0\),
+    我们就取 \(r = 3\).
+    若不然, \(A\) 的每一个 \(3\)~级子阵的行列式都是 \(0\).
+    我们考虑 \(A\) 的 \(2\)~级子阵.
+    若有一个 \(2\)~级子阵的行列式不是 \(0\),
+    我们就取 \(r = 2\).
+    若不然, \(A\) 的每一个 \(2\)~级子阵的行列式都是 \(0\).
+    我们考虑 \(A\) 的 \(1\)~级子阵.
+    因为 \(A \neq 0\),
+    故 \(A\) 有 \(1\)~级子阵的行列式不是 \(0\).
+    此时, 取 \(r = 1\) 即可.)
+
+    我以 \(r = 2\) 为例%
+    演示找 \(AX = 0\) 的非零解的方法
+    (可以验证,
+    前面的 \(M\) 的行~\(1\), \(2\)
+    与列~\(1\), \(2\) 作成的
+    \(2\)~级子阵的行列式不是 \(0\),
+    但 \(M\) 的每一个 \(3\)~级子阵的行列式都是 \(0\));
+    \(r = 3\) 或 \(r = 1\) 时的情形是类似的.
+
+    我们设
+    \(\displaystyle
+    A_2 =
+    A\binom{1,2}{1,2}
+    \)
+    的行列式不是 \(0\),
+    且 \(A\) 的每一个 \(3\)~级子阵的行列式都是 \(0\).
+    再设
+    \(\displaystyle
+    E =
+    A\binom{1,2,3}{1,2,3}
+    \).
+    因为 \(E\) 是 \(A\) 的一个 \(3\)~级子阵,
+    故 \(\det {(E)} = 0\).
+    从而
+    \(E \operatorname{adj} {(E)} = 0\).
+    注意,
+    \([\operatorname{adj} {(E)}]_{3,3}
+    = (-1)^{3+3} \det {(A_2)} \neq 0\).
+    设 \(\operatorname{adj} {(E)}\)
+    的列~\(3\) 为 \(T\).
+    那么 \(T \neq 0\).
+    并且, 我们可用完全类似的方法, 证明
+    \(ET = 0\).
+
+    接下来, 我们设法由此得到一个 \(AX = 0\)
+    的非零解.
+    我们作一个 \(5 \times 1\)~阵 \(W\), 其中
+    \begin{align*}
+        [W]_{\ell,1}
+        = \begin{cases}
+              [\operatorname{adj} {(E)}]_{\ell,3},
+                 & \ell \leq 3; \\
+              0, & \ell > 3.
+          \end{cases}
+    \end{align*}
+    (通俗地, 我们在 \(T\) 的最后一个元后加 \(2\)~个 \(0\),
+    变 \(3 \times 1\)~阵 \(T\)
+    为一个 \(5 \times 1\)~阵 \(W\).)
+    因为 \([W]_{3,1} \neq 0\),
+    故 \(W \neq 0\).
+    我们证明 \(AW = 0\).
+
+    取不超过 \(5\) 的正整数 \(q\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell = 1}^{5}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        +
+        \sum_{\ell = 4}^{5}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3}
+        {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}
+        +
+        \sum_{\ell = 4}^{5}
+        {[A]_{q,\ell}\, 0}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3}
+        {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}.
+    \end{align*}
+    若 \(q \leq 3\), 则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+            [\operatorname{adj} {(E)}]_{\ell,3}}
+        \\
+        = {} &
+        \sum_{p=1}^{3}
+        {[E]_{q,\ell}
+            [\operatorname{adj} {(E)}]_{\ell,3}}
+        \\
+        = {} &
+        [E \operatorname{adj} {(E)}]_{q,3}
+        \\
+        = {} &
+        [0]_{q,3}
+        \\
+        = {} & 0.
+    \end{align*}
+    设 \(q > 3\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+            [\operatorname{adj} {(E)}]_{\ell,3}}
+        \\
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+        (-1)^{3+\ell} \det {(E(3|\ell))}}.
+    \end{align*}
+    作一个 \(3\)~级阵 \(C_q\), 其中
+    \begin{align*}
+        [C_q]_{h,\ell}
+        = \begin{cases}
+              [E]_{h,\ell},
+               & h \neq 3; \\
+              [A]_{q,\ell},
+               & h = 3.
+          \end{cases}
+    \end{align*}
+    于是, \(C_q(3|\ell) = E(3|\ell)\).
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[A]_{q,\ell}
+        (-1)^{3+\ell} \det {(E(3|\ell))}}
+        \\
+        = {} &
+        \sum_{\ell=1}^{3}
+        {[C_q]_{3,\ell}
+        (-1)^{3+\ell} \det {(C_q (3|\ell))}}
+        \\
+        = {} &
+        \det {(C_q)}.
+    \end{align*}
+    注意,
+    \(
+    \displaystyle
+    C_q = A\binom{1,2,q}{1,2,3}
+    \)
+    是 \(A\)~的一个 \(3\)~级子阵,
+    故
+    \begin{align*}
+        [AW]_{q,1} = \det {(C_q)} = 0.
+    \end{align*}
+
+    综上, \(AW = 0\), 且 \(W \neq 0\).
+\end{example}
+
+下面, 我给出此事的论证.
+证明分三个情形:
+(a)
+\(A = 0\);
+(b)
+\(A \neq 0\), 且
+\(\operatorname{adj} {(A)} \neq 0\);
+(c)
+\(A \neq 0\), 且
+\(\operatorname{adj} {(A)} = 0\).
+情形 (a) 最简单:
+我们随便找一个非零的 \(n \times 1\)~阵即可.
+情形 (b) 不难:
+我们取 \(A\) 的古伴的一个非零的列即可.
+情形 (c) 是最复杂的:
+在上个例里, 我们假定%
+由 \(A\) 的前 \(r\)~行与前 \(r\)~列作成的
+\(r\)~级子阵的行列式不是 \(0\)
+(通俗地, \(A\) 在左上角有行列式非零的 \(r\)~级子阵),
+且每一个 \(r+1\)~级子阵的行列式都是 \(0\)
+(此处 \(r = 2\));
+不过, 一般的阵不一定在左上角有行列式非零的 \(r\)~级子阵,
+且每一个 \(r+1\)~级子阵的行列式都是 \(0\);
+这是论证的最大的挑战.
+
+\begin{proof}
+    设 \(A\) 是 \(n\)~级阵,
+    且 \(\det {(A)} = 0\).
+
+    若 \(A = 0\),
+    我们任取一个非零的 \(n \times 1\)~阵 \(S\).
+    则 \(AS = 0\).
+
+    以下, 我们假定 \(A \neq 0\);
+    也就是, \(A\) 有一个元不是 \(0\)
+    (同时, 这也要求 \(n > 1\):
+    回想 \(1\)~级阵的行列式是什么).
+
+    我们知道,
+    \(A \operatorname{adj} {(A)} = \det {(A)}\, I\),
+    其中 \(\operatorname{adj} {(A)}\)
+    是 \(A\) 的古伴,
+    且 \(I\) 是 \(n\)~级单位阵.
+    因为 \(\det {(A)} = 0\),
+    故 \(A \operatorname{adj} {(A)} = 0\).
+
+    若 \(\operatorname{adj} {(A)} \neq 0\),
+    则存在 \(k\), \(v\), 使
+    \([\operatorname{adj} {(A)}]_{k,v} \neq 0\).
+    我们设 \(\operatorname{adj} {(A)}\) 的%
+    列~\(v\) 是 \(Y\).
+    那么, \([Y]_{k,1}
+        = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
+    从而 \(Y \neq 0\).
+    我们证明 \(AY = 0\):
+    \begin{align*}
+        [AY]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [Y]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
+        \\
+        = {} &
+        [A \operatorname{adj} {(A)}]_{i,v}
+        \\
+        = {} &
+        [0]_{i,v}
+        \\
+        = {} &
+        0.
+    \end{align*}
+
+    若 \(\operatorname{adj} {(A)} = 0\),
+    则 \(A\) 的每一个 \(n-1\)~级子阵的行列式都是 \(0\)
+    (同时, 这也要求 \(n > 2\):
+    回想 \(2\)~级阵的古伴是什么;
+    再回想前面作过的假定 \(A \neq 0\)).
+    从而, 存在一个%
+    低于 \(n-1\) 的正整数 \(r\)
+    适合性质:
+    \(A\) 有一个 \(r\)~级子阵, 其行列式非零,
+    且 \(A\) 的每一个 \(r+1\)~级子阵的行列式都是 \(0\).
+    (我们已知 \(A\) 的每一个 \(n-1\)~级子阵的行列式都是 \(0\).
+    我们考虑 \(A\) 的 \(n-2\)~级子阵.
+    若有一个 \(n-2\)~级子阵的行列式不是 \(0\),
+    我们就取 \(r = n-2\).
+    若不然, \(A\) 的每一个 \(n-2\)~级子阵的行列式都是 \(0\).
+    我们考虑 \(A\) 的 \(n-3\)~级子阵.
+    若有一个 \(n-3\)~级子阵的行列式不是 \(0\),
+    我们就取 \(r = n-3\).
+    ……
+    若不然, \(A\) 的每一个 \(2\)~级子阵的行列式都是 \(0\).
+    我们考虑 \(A\) 的 \(1\)~级子阵.
+    因为 \(A \neq 0\),
+    故 \(A\) 有 \(1\)~级子阵的行列式不是 \(0\).
+    此时, 取 \(r = 1\) 即可.)
+
+    我们设 \(A\)~的 \(r\)~级子阵
+    \(
+    \displaystyle
+    A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    \)
+    的行列式非零,
+    其中 \(i_1 < i_2 < \dots < i_r\),
+    且 \(j_1 < j_2 < \dots < j_r\).
+    我们从 \(1\), \(2\), \(\dots\), \(n\) 中%
+    去除 \(r\)~个整数
+    \(i_1\), \(i_2\), \(\dots\), \(i_r\);
+    此时, 还剩下 \(n-r\)~个整数;
+    我们从中选一个为 \(i_{r+1}\).
+    类似地,
+    我们再从 \(1\), \(2\), \(\dots\), \(n\) 中%
+    去除 \(r\)~个整数
+    \(j_1\), \(j_2\), \(\dots\), \(j_r\);
+    此时, 还剩下 \(n-r\)~个整数;
+    我们从中选一个为 \(j_{r+1}\).
+    作 \(r+1\)~级阵
+    \(
+    \displaystyle
+    E =
+    A\binom{i_1,\dots,i_r,i_{r+1}}
+    {j_1,\dots,j_r,j_{r+1}}
+    \).
+    我们设 \(i_p\) 在
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
+    中是第~\(f(i_p)\) 小的数.
+    再设 \(j_p\) 在
+    \(j_1\), \(\dots\), \(j_r\), \(j_{r+1}\)
+    中是第~\(g(j_p)\) 小的数.
+    因为 \(E\) 是 \(A\) 的一个 \(r+1\)~级子阵,
+    故 \(\det {(E)} = 0\).
+    从而
+    \(E \operatorname{adj} {(E)} = 0\).
+    注意,
+    \([\operatorname{adj} {(E)}]_{g(j_{r+1}), f(i_{r+1})}
+    = (-1)^{f(i_{r+1})+g(j_{r+1})} \det {(A_r)} \neq 0\).
+    设 \(\operatorname{adj} {(E)}\)
+    的列~\(f(i_{r+1})\) 为 \(T\).
+    那么 \(T \neq 0\).
+    并且, 我们可用完全类似的方法, 证明
+    \(ET = 0\).
+
+    接下来, 我们设法由此得到一个 \(AX = 0\)
+    的非零解.
+    我们作一个 \(n \times 1\)~阵 \(W\), 其中
+    \begin{align*}
+        [W]_{\ell,1}
+        = \begin{cases}
+              [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
+                 & \text{\(\ell = j_p\),
+              \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
+              0, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    (通俗地, 我们在适当的位置写 \(0\),
+    变 \((r+1) \times 1\)~阵 \(T\)
+    为一个 \(n \times 1\)~阵 \(W\).)
+    因为 \([W]_{j_{r+1},1} \neq 0\),
+    故 \(W \neq 0\).
+    我们证明 \(AW = 0\).
+
+    取不超过 \(n\) 的正整数 \(q\).
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{\ell = 1}^{n}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+        \ell = j_p         \\
+                1 \leq p \leq r+1
+            }}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        +
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+                \text{其他}
+            }}
+        {[A]_{q,\ell} [W]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+        \ell = j_p         \\
+                1 \leq p \leq r+1
+            }}
+        {[A]_{q,j_p}
+                [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        +
+        \sum_{\substack{
+        1 \leq \ell \leq n \\
+                \text{其他}
+            }}
+        {[A]_{q,\ell}\, 0}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
+    \end{align*}
+    若 \(q\) 等于某个 \(i_t\), 则
+    \begin{align*}
+        [AW]_{i_t,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{i_t,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[E]_{f(i_t),g(j_p)}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        [E \operatorname{adj} {(E)}]_{f(i_t),f(i_{r+1})}
+        \\
+        = {} &
+        [0]_{f(i_t),f(i_{r+1})}
+        \\
+        = {} & 0.
+    \end{align*}
+    若 \(q\) 不等于
+    \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
+    中的任何一个,
+    则
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}.
+    \end{align*}
+    作一个 \(r+1\)~级阵 \(C_q\), 其中
+    \begin{align*}
+        [C_q]_{h,g(j_p)}
+        = \begin{cases}
+              [E]_{h,g(j_p)},
+               & h \neq f(i_{r+1}); \\
+              [A]_{q,j_p},
+               & h = f(i_{r+1}).
+          \end{cases}
+    \end{align*}
+    于是, \(C_q(f(i_{r+1})|g(j_p))
+    = E(f(i_{r+1})|g(j_p))\).
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[A]_{q,j_p}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}
+        \\
+        = {} &
+        \sum_{p=1}^{r+1}
+        {[C_q]_{f(i_{r+1}),g(j_p)}
+        (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(C_q (f(i_{r+1})|g(j_p)))}}
+        \\
+        = {} &
+        \det {(C_q)}.
+    \end{align*}
+
+    再作一个 \(r+1\)~级阵
+    \(
+    \displaystyle
+    D_q =
+    A\binom{i_1,\dots,i_r,q}
+    {j_1,\dots,j_r,j_{r+1}}
+    \).
+    不难看出, 适当地交换 \(C_q\) 的行的次序,
+    即可变 \(C_q\) 为 \(D_q\).
+    根据反称性,
+    \(\det {(C_q)} = \pm \det {(D_q)}\).
+    (具体地, 设 \(q\) 在
+    \(i_1\), \(\dots\), \(i_r\), \(q\)
+    中是第~\(u\) 小的数.
+    那么, 当 \(f(i_{r+1}) = u\) 时, \(C_q = D_q\).
+    当 \(f(i_{r+1}) < u\) 时,
+    交换行~\(f(i_{r+1})\) 与 \(f(i_{r+1})+1\),
+    再交换行~\(f(i_{r+1})+1\) 与 \(f(i_{r+1})+2\),
+    ……,
+    且再交换行~\(u-1\) 与 \(u\);
+    作 \(u - f(i_{r+1})\)~次相邻行的交换,
+    即可变 \(C_q\) 为 \(D_q\).
+    当 \(f(i_{r+1}) > u\) 时,
+    交换行~\(f(i_{r+1})\) 与 \(f(i_{r+1})-1\),
+    再交换行~\(f(i_{r+1})-1\) 与 \(f(i_{r+1})-2\),
+    ……,
+    且再交换行~\(u+1\) 与 \(u\);
+    作 \(f(i_{r+1}) - u\)~次相邻行的交换,
+    即可变 \(C_q\) 为 \(D_q\).)
+    因为 \(D_q\) 是 \(A\) 的一个 \(r+1\)~级子阵,
+    故其行列式为 \(0\).
+    从而
+    \begin{align*}
+        [AW]_{q,1}
+        = \det {(C_q)}
+        = \pm \det {(D_q)}
+        = 0.
+    \end{align*}
+
+    综上, 我们找到了一个 \(n \times 1\)~阵 \(W\)
+    使 \(AW = 0\), 且 \(W \neq 0\).
+\end{proof}
+
+\KunAsteriskoEnEnhavtabelo
+\section{\texorpdfstring{由 \(n\)~个 \(n\)~元
+      \({\leq} 1\)~次方程作成的方程组 (4)}%
+  {由 n 个 n 元 ≤1 次方程作成的方程组 (4)}}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+综合前几节的讨论, 我们有如下定理.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵,
+    \(B\) 是 \(n \times 1\)~阵,
+    且 \(X\) 是未知的 \(n \times 1\)~阵.
+
+    (1)
+    当 \(\det {(A)} \neq 0\) 时,
+    \(AX = B\) 有唯一的解;
+
+    (2)
+    当 \(\det {(A)} = 0\) 时,
+    \(AX = B\) 要么无解,
+    要么有多于一个解.
+\end{theorem}
+
+这就是%
+由 \(n\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组%
+的解的定性的理论 (青春版).
+不过,
+% 不过:
+% (a)
+当 \(\det {(A)} = 0\) 时,
+如何进一步地判断 \(AX = B\) 是否有解?
+这是此理论无法解答的问题.
+% (b)
+% 此理论能否被推广到一般的%
+% 由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组?
+% (c)
+% 若 \(AX = B\) 有解,
+% 但 \(\det {(A)} = 0\),
+% 能否给出解的公式?
+% 这是定量的理论.
+
+若 \(\det {(A)} \neq 0\),
+则, 定量地,
+我们可用 Cramer 公式写出
+\(AX = B\) 的 (唯一的) 解.
+不过, 若 \(AX = B\),
+但 \(\det {(A)} = 0\),
+我们如何写出它的 (所有的) 解?
+
+我会在接下来的几节里,
+讨论一般的%
+由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组.
+这些问题会被好地解决.
+
+\end{document}
+
+This material discusses
+systems of n linear equations with n unknowns.
+This material should have been deprecated,
+but for some reason, I still keep it here.
+All sections in this material are optional,
+so it does not really matter.
+
+The most interesting section is perhaps
+the first one in this file:
+it discusses uniqueness of solutions.
+The other sections are boring,
+because I will give generalisations of the results
+in those sections
+elsewhere
+(or rather, in the material which discusses
+systems of m linear equations with n unknowns).
+Here is my lesson:
+to study systems of n linear equations with n unknowns,
+do not just study systems of n linear equations with n unknowns;
+study systems of m linear equations with n unknowns,
+and it will be clearer.

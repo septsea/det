@@ -1,0 +1,322 @@
+% This file is used to test whether
+% the following fonts exist:
+% - [Source Han Serif CN](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/)
+% - [Sarasa Mono SC](https://mirrors.tuna.tsinghua.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)
+% - [XITS](https://ctan.org/pkg/xits)
+% - [Fira Sans](https://ctan.org/pkg/fira)
+% - [XITS Math](https://ctan.org/pkg/xits)
+% - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
+% - [STIX Two Math](https://ctan.org/pkg/stix2-otf)
+
+% One can build the document with:
+% latexmk -xelatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj
+%
+% If one prefers LuaLaTeX, one can instead run:
+% latexmk -lualatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj
+%
+
+\documentclass[%
+    fontset=none,
+    oneside,
+]{ctexbook}
+
+% This packages allows one to check if XeLaTeX is used
+% and to do something if it is the case.
+\usepackage{ifxetex}
+\ifxetex
+    % This line allows space (U+0020) between CJK characters.
+    \xeCJKsetup{CJKspace=true}
+\fi
+
+% The following lines set the fonts used by the document.
+% "fontspec" has been imported (by "ctexbook").
+
+\IfFontExistsTF{XITS-Regular.otf}{%
+    \IfFontExistsTF{XITS-Italic.otf}{%
+        \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+            \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+                \setmainfont{XITS}[
+                    Path,
+                    UprightFont = *-Regular.otf,
+                    BoldFont = FiraSans-SemiBold.otf,
+                    ItalicFont = *-Italic.otf,
+                    BoldItalicFont = FiraSans-SemiBoldItalic.otf
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\IfFontExistsTF{FiraSans-Light.otf}{%
+    \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+        \IfFontExistsTF{FiraSans-LightItalic.otf}{%
+            \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+                \setsansfont{FiraSans}[
+                    Path,
+                    UprightFont = *-Light.otf,
+                    BoldFont = *-SemiBold.otf,
+                    ItalicFont = *-LightItalic.otf,
+                    BoldItalicFont = *-SemiBoldItalic.otf
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\IfFontExistsTF{Sarasa Mono SC Light}{%
+    \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+        \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                \setmonofont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+                \PassOptionsToClass{fontset=none}{ctexbook}
+                \setCJKsansfont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+                \setCJKmonofont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+            }{}
+        }{}
+    }{}
+}{
+    \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+        \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+            \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+                \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+                    \setmonofont{SarasaMonoSC}[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]
+                    \PassOptionsToClass{fontset=none}{ctexbook}
+                    \setCJKsansfont{SarasaMonoSC}[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]
+                    \setCJKmonofont{SarasaMonoSC}[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]
+                }{}
+            }{}
+        }{}
+    }{}
+}
+
+\IfFontExistsTF{Source Han Serif CN}{%
+    \IfFontExistsTF{Sarasa Mono SC Light}{%
+        \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+                \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                    \setCJKmainfont{Source Han Serif CN}[
+                        UprightFont = * Light,
+                        BoldFont = Sarasa Mono SC SemiBold,
+                        ItalicFont = Sarasa Mono SC Light Italic,
+                        BoldItalicFont = Sarasa Mono SC SemiBold Italic
+                    ]
+                }{}
+            }{}
+        }{}
+    }{}
+}{
+    \IfFontExistsTF{SourceHanSerifCN-Light.otf}{%
+        \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+            \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+                \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+                    \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+                        \setCJKmainfont{SourceHanSerifCN}[
+                            Path,
+                            UprightFont = *-Light.ttf,
+                            BoldFont = *-SemiBold.ttf,
+                            ItalicFont = *-LightItalic.ttf,
+                            BoldItalicFont = *-SemiBoldItalic.ttf
+                        ]
+                    }{}
+                }{}
+            }{}
+        }{}
+    }{}
+}
+
+% These are packages that deal with mathematical formulae.
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[
+    math-style=ISO,
+    bold-style=ISO,
+    mathrm=sym,
+    mathbf=sym,
+    partial=upright,
+    warnings-off={mathtools-colon,mathtools-overbracket}
+]{unicode-math}
+\allowdisplaybreaks[3]
+
+% I specify the mathematical fonts used by the document.
+\IfFontExistsTF{XITSMath-Regular.otf}{%
+    \setmathfont{XITSMath-Regular.otf}
+}{}
+\IfFontExistsTF{texgyretermes-math.otf}{%
+\setmathfont{texgyretermes-math.otf}[range=bb/{latin,Latin}]
+}{}
+\IfFontExistsTF{STIXTwoMath-Regular.otf}{%
+    \setmathfont{STIXTwoMath-Regular.otf}[range={"2218-"2218}]
+}{}
+
+% https://clagnut.com/blog/2380
+\newcommand*{\TextA}{今国意我永然警转酬随风鹰.}
+\newcommand*{\TextC}{三今力國愛書東永袋酬鬱鷹.}
+\newcommand*{\TextJ}{いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす(ん).}
+\newcommand*{\TextK}{키스의 고유조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다.}
+\newcommand*{\TextD}{Pa's wijze lynx bezag vroom het fikse aquaduct.}
+\newcommand*{\TextE}{Eble ĉiu kvazaŭ-deca fuŝĥoraĵo ĝojigos homtipon.}
+\newcommand*{\TextU}{The quick brown fox jumped over the lazy dogs.}
+\newcommand*{\TextG}{Ο καλύμνιος σφουγγαράς ψιθύρισε πως θα βουτήξει χωρίς να διστάζει.}
+\newcommand*{\TextN}{9,876; 543,210.}
+\newcommand*{\TextR}{Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства.}
+\newcommand*{\Text}{%
+\TextA{}
+
+\TextC{}
+
+\TextJ{}
+
+\TextK{}
+
+\TextE{}
+
+% \TextD{}
+
+\TextU{}
+
+\TextG{}
+
+\TextR{}
+
+\TextN{}%
+}
+
+% I copied the magic from "memoir", a document class
+% for typesetting poetry, fiction, non-fiction,
+% and mathematical works.
+% According to the basic user manual of "memoir",
+% TeX tries very hard to keep text lines justified
+% while keeping the interword spacing as constant as possible,
+% but sometimes fails and complains about an overfull hbox.
+% The default mode for LaTeX typesetting is \fussy
+% where the (variation of) interword
+% spacing in justified text is kept to a minimum.
+% Following the \sloppy declaration
+% there may be a much looser setting of justified text.
+% Additionally the class ("memoir")
+% provides the \midsloppy declaration
+% which allows a setting somewhere between \fussy and \sloppy.
+% Using \midsloppy one will get
+% fewer overfull lines compared with \fussy
+% and fewer obvious large interword spaces than with \sloppy.
+\makeatletter
+\providecommand*{\midsloppy}{%
+    \tolerance 5000%
+    \hbadness 4000%
+    \emergencystretch 1.5em%
+    \hfuzz .1\p@%
+    \vfuzz\hfuzz}
+\makeatother
+
+\begin{document}
+
+% This line kills as many overfull lines as possible.
+\midsloppy
+
+\begingroup
+\normalfont\rmfamily\mdseries\upshape\Text
+
+\vspace{2ex}
+
+\normalfont\rmfamily\bfseries\upshape\Text
+
+\vspace{2ex}
+
+\normalfont\rmfamily\mdseries\itshape\Text
+
+\vspace{2ex}
+
+\normalfont\rmfamily\bfseries\itshape\Text
+
+\vspace{2ex}
+
+\normalfont\sffamily\mdseries\upshape\Text
+
+\vspace{2ex}
+
+\normalfont\sffamily\bfseries\upshape\Text
+
+\vspace{2ex}
+
+\normalfont\sffamily\mdseries\itshape\Text
+
+\vspace{2ex}
+
+\normalfont\sffamily\bfseries\itshape\Text
+
+\vspace{2ex}
+
+\normalfont\ttfamily\mdseries\upshape\Text
+
+\vspace{2ex}
+
+\normalfont\ttfamily\bfseries\upshape\Text
+
+\vspace{2ex}
+
+\normalfont\ttfamily\mdseries\itshape\Text
+
+\vspace{2ex}
+
+\normalfont\ttfamily\bfseries\itshape\Text
+
+\normalfont
+
+\endgroup
+
+% XITS Math
+\begin{equation*}
+    a^3 + b^3 + c^3 - 3abc
+    = (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca)
+\end{equation*}
+
+% TeX Gyre Termes Math (ℕ, ℤ, ℚ, ℝ, ℂ)
+% and XITS Math (⊂)
+\begin{equation*}
+    \mathbb{N}
+    \subset \mathbb{Z}
+    \subset \mathbb{Q}
+    \subset \mathbb{R}
+    \subset \mathbb{C}
+\end{equation*}
+
+% STIX Two Math (∘)
+% and XITS Math (other mathematical symbols)
+\begin{equation*}
+    (h \circ g) \circ f = h \circ (g \circ f)
+\end{equation*}
+
+\end{document}

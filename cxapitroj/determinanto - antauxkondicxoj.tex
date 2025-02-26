@@ -1,0 +1,574 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+
+\section{缺项定位}
+
+在正式进入本节的内容前,
+我要提到一类常用的简写.
+设 \(a\), \(b\), \(c\), \(d\), \(\dots\) 是若干个文字.
+那么, \(a = b = c\) 是
+``\(a = b\) 且 \(b = c\)'' 的略.
+同理, \(a = b = c = d\) 是
+``\(a = b\) 且 \(b = c\) 且 \(c = d\)'' 的略.
+类似地, 若 \(x\), \(y\), \(z\) 是实数,
+则 \(x < y < z\) 是
+``\(x < y\) 且 \(y < z\)'' 的略.
+自然地, \(x < y \leq z\) 是
+``\(x < y\) 且 \(y \leq z\)'' 的略.
+此类简写在本章随处可见.
+
+\vspace{2ex}
+
+我们先看一个简单的问题.
+
+\begin{example}
+    考虑文字列~I:
+    \(1\), \(2\), \(3\), \(4\), \(5\),
+    \(6\), \(7\), \(8\), \(9\), \(10\).
+    我们去除第~\(2\), \(6\), \(8\) 个文字
+    (也就是, 去除 \(2\), \(6\), \(8\)),
+    且不改变文字的前后次序,
+    得文字列~II:
+    \(1\), \(3\), \(4\), \(5\), \(7\), \(9\), \(10\).
+    试用公式表示%
+    文字列~II 的文字~\(x\) 在文字列~II 的\emph{位置}
+    \(f(x)\)
+    (比如, 文字 \(7\) 的位置是 \(5\)).
+
+    此事自然不难.
+    分段地, 我们可写
+    \begin{align*}
+        f(x) =
+        \begin{cases}
+            1, & x = 1;  \\
+            2, & x = 3;  \\
+            3, & x = 4;  \\
+            4, & x = 5;  \\
+            5, & x = 7;  \\
+            6, & x = 9;  \\
+            7, & x = 10. \\
+        \end{cases}
+    \end{align*}
+    不过, 分段或许是多的.
+    能否减少分段的数目?
+    这是可以的.
+    比如,
+    我们可写
+    \begin{align*}
+        f(x) =
+        \begin{cases}
+            x,     & x < 2;     \\
+            x - 1, & 2 < x < 6; \\
+            x - 2, & 6 < x < 8; \\
+            x - 3, & 8 < x.     \\
+        \end{cases}
+    \end{align*}
+    我认为这个写法是更好的,
+    因为它更体现本质:
+    \(x\) 前缺几项, 其位置就减几.
+
+    若我们想进一步地使公式简单,
+    那我们可作一个新记号.
+    设 \(i\), \(j\) 为二个整数.
+    定义
+    \begin{align*}
+        \rho(i, j)
+        = \begin{cases}
+              0, & i < j;    \\
+              1, & i \geq j.
+          \end{cases}
+    \end{align*}
+    注意, 对不相等的二个整数 \(i\), \(j\),
+    \(\rho(i, j) = 0\) 相当于 \(i < j\),
+    而 \(\rho(i, j) = 1\) 相当于 \(i > j\).
+    利用这个 \(\rho\)-记号, 我们可方便地写出,
+    文字列~II 的文字~\(x\) 在文字列~II 的位置
+    \begin{align*}
+        f(x) = x - (\rho(x, 2) + \rho(x, 6) + \rho(x, 8)).
+    \end{align*}
+    我们记
+    \(m(x) = \rho(x, 2) + \rho(x, 6) + \rho(x, 8)\).
+    不难看出,
+    \(x < 2\) 时, \(m(x) = 0\);
+    此时, \(x\) 前不缺项.
+    \(2 < x < 6\) 时, \(m(x) = 1\);
+    此时, \(x\) 前缺 \(1\)~项.
+    \(6 < x < 8\) 时, \(m(x) = 2\);
+    此时, \(x\) 前缺 \(2\)~项.
+    \(8 < x\) 时, \(m(x) = 3\);
+    此时, \(x\) 前缺 \(3\)~项.
+    所以, 用 \(\rho\)-记号表示的 \(f(x)\)
+    跟用分段表示的 \(f(x)\) 是一样的.
+
+    还有一件事值得提.
+    因为数的加法适合结合律与交换律,
+    故我们可写
+    \begin{align*}
+        f(x)
+        = {} & x - (\rho(x, 2) + \rho(x, 6) + \rho(x, 8))  \\
+        = {} & x - (\rho(x, 6) + \rho(x, 8) + \rho(x, 2))  \\
+        = {} & x - (\rho(x, 8) + \rho(x, 2) + \rho(x, 6))  \\
+        = {} & x - (\rho(x, 6) + \rho(x, 2) + \rho(x, 8))  \\
+        = {} & x - (\rho(x, 2) + \rho(x, 8) + \rho(x, 6))  \\
+        = {} & x - (\rho(x, 8) + \rho(x, 6) + \rho(x, 2)).
+    \end{align*}
+\end{example}
+
+为方便, 我再介绍一次 \(\rho\)-记号.
+
+\begin{definition}[\(\rho\)-记号]
+    设 \(i\), \(j\) 为二个整数.
+    定义
+    \begin{align*}
+        \rho(i, j)
+        = \begin{cases}
+              0, & i < j;    \\
+              1, & i \geq j.
+          \end{cases}
+    \end{align*}
+\end{definition}
+
+不难看出, \(i \neq j\) 时,
+\(\rho(i, j) + \rho(j, i) = 1\);
+我们在后面会用到它.
+(当然, \(i = j\) 时, \(\rho(i, j) + \rho(j, i) = 2\).)
+
+\vspace{2ex}
+
+一般地, 我们有
+
+\begin{theorem}[缺项定位]
+    设 \(n\) 为高于 \(1\) 的正整数.
+    设文字列~I: \(1\), \(2\), \(\dots\), \(n\).
+    设 \(k\) 是低于 \(n\) 的正整数.
+    设 \(i_1\), \(i_2\), \(\dots\), \(i_k\) 是%
+    不超过 \(n\) 的, 且互不相同的正整数.
+    去除文字列~I 的%
+    第~\(i_1\), \(i_2\), \(\dots\), \(i_k\)~个文字
+    (也就是, 去除 \(i_1\), \(i_2\), \(\dots\), \(i_k\)),
+    且不改变文字的前后次序,
+    得文字列~II.
+    那么,
+    文字列~II 的文字 \(x\)
+    在文字列~II 的位置
+    \begin{align*}
+        f(x) = x - (\rho(x, i_1) + \dots + \rho(x, i_k)).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    我们先从小到大地排
+    \(i_1\), \(i_2\), \(\dots\), \(i_k\)
+    为
+    \(i_1'\), \(i_2'\), \(\dots\), \(i_k'\).
+
+    为方便, 我们写
+    \(i_0' = 0\),
+    \(i_{k+1}' = n + 1\).
+    注意, \(i_0' < 1 \leq i_1'\),
+    且 \(i_{k+1}' > n \geq i_k'\).
+
+    文字列~II 的文字恰为%
+    所有不等于
+    \(i_1'\), \(i_2'\), \(\dots\), \(i_k'\)
+    的, 且不超过 \(n\) 的正整数.
+    任取文字列~II 的一个文字 \(x\).
+    那么, 存在不超过 \(k\) 的非负整数 \(v\),
+    使 \(i_v' < x < i_{v+1}'\).
+    于是,
+    \(x\) 前缺了 \(v\)~项.
+    不难验证
+    \begin{align*}
+        \rho(x, i_1') + \dots + \rho(x, i_k') = v.
+    \end{align*}
+    故 \(x\) 在文字列~II 的位置
+    \begin{align*}
+        f(x)
+        = {} &
+        x - v
+        \\
+        = {} &
+        x - (\rho(x, i_1') + \dots + \rho(x, i_k'))
+        \\
+        = {} &
+        x - (\rho(x, i_1) + \dots + \rho(x, i_k)).
+    \end{align*}
+    我们用了加法的结合律与交换律.
+\end{proof}
+
+\KunAsteriskoEnEnhavtabelo
+\section{排列}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+为方便, 我作一个新的定义.
+
+\begin{definition}[排列]
+    设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是%
+    互不相同的 \(n\)~个文字.
+    我们说, 由这 \(n\)~个文字作成的任何有序的文字列
+    \(a_{i_1}\), \(a_{i_2}\), \(\dots\), \(a_{i_n}\)
+    (其中 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    是互不相同的不超过 \(n\) 的 \(n\)~个正整数)
+    是 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
+    的一个\emph{排列}.
+\end{definition}
+
+不难算出 \(n\)~个互不相同的文字的排列的数目.
+从 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 里选一个为%
+第~\(1\)~个文字,
+有 \(n\)~个选法;
+从剩下的 \(n-1\)~个文字里选一个为第~\(2\)~个文字,
+有 \(n-1\)~个选法;
+……;
+从剩下的 \(2\)~个文字里选一个为第~\(n-1\)~个文字,
+有 \(2\)~个选法;
+从剩下的 \(1\)~个文字里选一个为第~\(n\)~个文字,
+有 \(1\)~个选法.
+由分步乘法计数原理, 知数目为
+\begin{align*}
+    n \cdot (n - 1) \cdot \dots \cdot 2 \cdot 1.
+\end{align*}
+不过, 在本书, 这不重要.
+
+设文字列~I: \(1\), \(2\), \(\dots\), \(n\).
+设 \(i_1\), \(i_2\), \(\dots\), \(i_n\) 是
+\(1\), \(2\), \(\dots\), \(n\) 的一个排列.
+我们去除文字列~I 的%
+第~\(i_1\), \(i_2\), \(\dots\), \(i_{n-1}\) 个文字
+(也就是, 去除 \(i_1\), \(i_2\), \(\dots\), \(i_{n-1}\)),
+且不改变文字的前后次序,
+得文字列~II: \(i_n\)
+(恰剩一个文字).
+显然, \(i_n\) 的位置 \(f(i_n) = 1\).
+另一方面, 利用缺项定位公式, 有
+\begin{align*}
+    f(i_n) = i_n - (\rho(i_n, i_1) + \dots + \rho(i_n, i_{n-1})).
+\end{align*}
+于是, 我们有
+
+\begin{theorem}
+    设
+    \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    是
+    \(1\), \(2\), \(\dots\), \(n\)
+    的一个排列;
+    也就是, 设
+    \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    是不超过 \(n\) 的正整数, 且互不相同.
+    则
+    \begin{align*}
+        i_n - (\rho(i_n, i_1) + \rho(i_n, i_2)
+        + \dots + \rho(i_n, i_{n-1})) = 1,
+    \end{align*}
+    或
+    \begin{align*}
+        \rho(i_n, i_1) + \rho(i_n, i_2)
+        + \dots + \rho(i_n, i_{n-1}) = i_n - 1.
+    \end{align*}
+\end{theorem}
+
+\section{\texorpdfstring{\(-1\)~的整数次方}%
+  {-1 的整数次方}}
+
+我想讲 \(-1\) 的整数次方.
+在证明行列式的公式时,
+我们会常用其性质.
+
+设 \(i\), \(j\) 为整数.
+首先, 我们知道,
+\begin{align*}
+    (-1)^{i+j} = (-1)^{i} (-1)^{j}.
+\end{align*}
+因为 \((\pm 1) \cdot (\pm 1) = 1\), 故
+\begin{align*}
+    (-1)^{i} = (-1)^{-i}.
+\end{align*}
+所以
+\begin{align*}
+    (-1)^{i+j} = (-1)^{i} (-1)^{j}
+    = (-1)^{i} (-1)^{-j}
+    = (-1)^{i-j}.
+\end{align*}
+并且
+\begin{align*}
+    (-1)^{i-j} = (-1)^{-(i-j)} = (-1)^{-i+j}
+    = (-1)^{-i-j}.
+\end{align*}
+值得提,
+\begin{align*}
+    (-1)^{2j} = 1.
+\end{align*}
+所以
+\begin{align*}
+    (-1)^{i \pm 2j} = (-1)^{i}.
+\end{align*}
+
+我们知道, 任给一个偶数 \(n\),
+有一个整数 \(k\) 使 \(n = 2k\)
+(这是定义);
+任给一个奇数 (也就是, 不是偶数的整数) \(n'\),
+有一个整数 \(k'\) 使 \(n' = 2k' + 1\).
+所以,
+若整数 \(m\) 是偶数, 则 \((-1)^m = 1\);
+若整数 \(m\) 是奇数, 则 \((-1)^m = -1\).
+由此可知,
+若整数 \(m\) 适合 \((-1)^m = 1\),
+则 \(m\) 是偶数;
+若整数 \(m\) 适合 \((-1)^m = -1\),
+则 \(m\) 是奇数.
+
+最后, 我想说,
+对任何的整数 \(n\),
+\(n(n-1)\) 是一个偶数.
+由此可见, \((-1)^n = (-1)^{n^2}\).
+
+\KunAsteriskoEnEnhavtabelo
+\section{逆序数与符号}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+我们知道, 排列是特别的文字列:
+排列的每一个文字是互不相同的.
+本节, 我想介绍一些跟排列有关的量.
+
+在研究排列时, 我们通常选文字为整数.
+熟知, 整数有大小关系.
+设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是%
+互不相同的 \(n\)~个整数.
+我们从小到大地排
+\(a_1\), \(a_2\), \(\dots\), \(a_n\)
+为
+\(b_1\), \(b_2\), \(\dots\), \(b_n\)
+(\(b_1 < b_2 < \dots < b_n\)).
+我们说, 这是整数 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
+的\emph{自然排列}.
+\(a_1\), \(a_2\), \(\dots\), \(a_n\)
+的自然排列有且只有一个.
+
+设
+\(c_1\), \(c_2\), \(\dots\), \(c_n\)
+是 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 的一个排列.
+若存在整数 \(i\), \(j\),
+使 \(1 \leq i < j \leq n\),
+且 \(c_i > c_j\),
+我们说, 有序对 \((c_i, c_j)\) 为%
+排列 \(c_1\), \(c_2\), \(\dots\), \(c_n\)
+的一个\emph{逆序}.
+比如, 排列 \(1\), \(2\), \(3\), \(4\), \(5\) 无逆序,
+而 \(3\), \(2\), \(5\), \(1\), \(4\) 有 \(5\) 个逆序:
+\((3, 2)\), \((3, 1)\), \((2, 1)\), \((5, 1)\), \((5, 4)\).
+
+不难看出,
+说 \((c_i, c_j)\) (其中 \(i < j\))
+是排列
+\(c_1\), \(c_2\), \(\dots\), \(c_n\)
+的一个逆序,
+相当于说 \(\rho(c_i, c_j) = 1\).
+(注意, 因为
+\(c_1\), \(c_2\), \(\dots\), \(c_n\)
+是互不相同的整数,
+故不可能出现
+\(i < j\),
+但 \(c_i = c_j\) 的情形.)
+
+我们说, 一个排列的所有的逆序的数目为其\emph{逆序数}.
+比如, 排列 \(1\), \(2\), \(3\), \(4\), \(5\) 的逆序数为 \(0\),
+而 \(3\), \(2\), \(5\), \(1\), \(4\) 的逆序数为 \(5\).
+
+不难利用 \(\rho\)-记号写出排列
+\(c_1\), \(c_2\), \(\dots\), \(c_n\)
+的逆序数
+\begin{align*}
+    \tau(c_1, c_2, \dots, c_n)
+    = {} & \hphantom{{} + {}} \rho(c_1, c_2)
+    \\
+         & + \rho(c_1, c_3) + \rho(c_2, c_3)
+    \\
+         & + \rho(c_1, c_4) + \rho(c_2, c_4)
+    + \rho(c_3, c_4)
+    \\
+         & +
+    \dots
+    \\
+         & + \rho(c_1, c_n) + \rho(c_2, c_n) + \dots
+    + \rho(c_{n-1}, c_n)
+    \\
+    = {} & \sum_{j = 2}^{n} {
+    \sum_{i = 1}^{j - 1} {\rho(c_i, c_j)} }
+    \\
+    = {} & \sum_{1 \leq i < j \leq n} {\rho(c_i, c_j)}.
+\end{align*}
+比如,
+当 \(c_1\), \(c_2\), \(c_3\), \(c_4\), \(c_5\) 为
+\(1\), \(2\), \(3\), \(4\), \(5\) 时,
+每一个 \(\rho(c_i, c_j)\)
+(\(1 \leq i < j \leq 5\))
+都是 \(0\),
+故 \(\tau (1, 2, 3, 4, 5) = 0\);
+当 \(c_1\), \(c_2\), \(c_3\), \(c_4\), \(c_5\) 为
+\(3\), \(2\), \(5\), \(1\), \(4\) 时,
+\(\rho(c_1, c_2)\), \(\rho(c_1, c_4)\),
+\(\rho(c_2, c_4)\),
+\(\rho(c_3, c_4)\), \(\rho(c_3, c_5)\)
+都是 \(1\),
+而
+\(\rho(c_1, c_3)\), \(\rho(c_1, c_5)\),
+\(\rho(c_2, c_3)\), \(\rho(c_2, c_5)\),
+\(\rho(c_4, c_5)\)
+都是 \(0\),
+故 \(\tau (3, 2, 5, 1, 4) = 5\).
+
+有一件小事值得提.
+若一个排列恰含一个文字, 我们说, 它没有逆序,
+从而它的逆序数为 \(0\).
+这跟前面的公式是一样的:
+既然没有整数对 \((i, j)\) 适合 \(1 \leq i < j \leq 1\),
+那这个和就是 \(0\).
+
+\vspace{2ex}
+
+利用 \(-1\)~的整数次方,
+我们可再引入一些跟排列有关的量.
+
+\begin{definition}[符号记号]
+    设 \(x\) 为整数.
+    定义
+    \begin{align*}
+        \operatorname{sgn} {(x)}
+        =
+        \begin{cases}
+            1,  & x > 0; \\
+            0,  & x = 0; \\
+            -1, & x < 0.
+        \end{cases}
+    \end{align*}
+\end{definition}
+
+\(\operatorname{sgn}\) 来自%
+英语 \angla{sign} (或 \angla{signum}).
+
+不难看出, 若 \(u\), \(v\) 是不相等的整数,
+则 \(\operatorname{sgn} {(v - u)} = (-1)^{\rho(u, v)}\).
+并且, 说 \((c_i, c_j)\) (其中 \(i < j\))
+是排列
+\(c_1\), \(c_2\), \(\dots\), \(c_n\)
+的一个逆序,
+相当于说
+\(\operatorname{sgn} {(c_j - c_i)} = -1\).
+
+\begin{definition}[整数文字列的符号]
+    设 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 是一个文字列,
+    且其文字全为整数
+    (也就是, \(c_1\), \(c_2\), \(\dots\), \(c_n\) 是%
+    整数文字列).
+    定义其\emph{符号}为
+    \begin{align*}
+        s(c_1, c_2, \dots, c_n)
+        = {} & \hphantom{\cdot\,\,}
+        \operatorname{sgn} {(c_2 - c_1)}
+        \\
+             & \cdot \operatorname{sgn} {(c_3 - c_1)}
+        \cdot \operatorname{sgn} {(c_3 - c_2)}
+        \\
+             & \cdot \operatorname{sgn} {(c_4 - c_1)}
+        \cdot \operatorname{sgn} {(c_4 - c_2)}
+        \cdot \operatorname{sgn} {(c_4 - c_3)}
+        \\
+             & \cdot
+        \dots
+        \\
+             & \cdot \operatorname{sgn} {(c_n - c_1)}
+        \cdot \operatorname{sgn} {(c_n - c_2)} \cdot \dots
+        \cdot \operatorname{sgn} {(c_n - c_{n-1})}
+        \\
+        = {} & \prod_{j = 2}^{n} {
+        \prod_{i = 1}^{j - 1} {\operatorname{sgn} {(c_j - c_i)}} }
+        \\
+        = {} & \prod_{1 \leq i < j \leq n}
+        {\operatorname{sgn} {(c_j - c_i)}}.
+    \end{align*}
+\end{definition}
+
+\(s\) 也来自%
+英语 \angla{sign} (或 \angla{signum}).
+
+显然, 若 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 里%
+有二个相同的文字
+(也就是, 存在整数 \(i\), \(j\),
+使 \(1 \leq i < j \leq n\),
+且 \(c_i = c_j\)),
+则此文字列的符号为 \(0\).
+反过来, 因为非零的整数的积不是 \(0\),
+故符号为 \(0\) 的文字列%
+有二个相同的文字.
+
+有一件小事值得提.
+若一个文字列恰含一个文字,
+我们说, 它 (作为文字列) 的符号是 \(1\).
+这跟前面的公式是一样的:
+既然没有整数对 \((i, j)\) 适合 \(1 \leq i < j \leq 1\),
+那这个积就是 \(1\).
+
+不要混淆 \(\operatorname{sgn}\) 跟 \(s\):
+比如, \(s(0) = 1\), 但 \(\operatorname{sgn} {(0)} = 0\);
+又比如, \(s(-3) = 1\), 但 \(\operatorname{sgn} {(-3)} = -1\).
+
+排列是特别的文字列
+(排列的文字互不相同),
+故排列也有符号,
+其要么是 \(1\), 要么是 \(-1\).
+根据 \(\operatorname{sgn}\) 与 \(\rho\) 的关系,
+再利用 \(-1\) 的整数次方的性质,
+不难得到排列的逆序数与符号的关系:
+
+\begin{theorem}
+    设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是%
+    互不相同的 \(n\)~个整数.
+    设
+    \(c_1\), \(c_2\), \(\dots\), \(c_n\)
+    是 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 的一个排列.
+    则
+    \begin{align*}
+        s(c_1, c_2, \dots, c_n)
+        = (-1)^{\tau(c_1, c_2, \dots, c_n)}.
+    \end{align*}
+\end{theorem}
+
+一个恰含一个文字的文字列的文字也是互不相同的,
+故此文字列当然是一个排列.
+我们说过, 恰含一个文字的排列的逆序数为 \(0\).
+因为 \((-1)^0 = 1\),
+故, 约定恰含一个文字的文字列 (排列) 的符号为 \(1\),
+不是没有道理的.
+
+\end{document}
+
+This material consists of prerequisites.
+
+Section 1 is about...
+well, what should I call it in English?
+"Determining the position of the old elements in the new list"?
+All right, well, whatever.
+The rho notation is really useful.
+
+Section 2 is about permutations.
+This section is optional.
+I do not even say "permutations" (or rather, "排列")
+a lot in this book.
+
+Section 3 is about powers of -1.
+This is needed in proofs of some results about determinants.
+
+Section 4 is about
+the number of inversions of a permutation,
+and the sign of a permutation.
+This section is optional.
+
+A piece of good news is that the following sections do not
+depend on these four sections a lot.

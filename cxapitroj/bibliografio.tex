@@ -1,0 +1,53 @@
+\documentclass[../libro]{subfiles}
+
+% This package inserts the table of bibliography.
+\usepackage[%
+    backend=biber,%
+    style=gb7714-2015,%
+    % gbalign=gb7714-2015,%
+    defernumbers=true,%
+]{biblatex}
+% I use a null heading for each bibliography.
+\defbibheading{bibliography}[]{}
+
+% Here are bibliographic entries.
+% Multiple .bib files can also be added.
+% ".bib" cannot be omitted.
+\addbibresource{\subfix{bibliografiaj eroj.bib}}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\backmatter}{}
+
+\chapter{参考文献}
+
+\nocite{*}
+\printbibliography
+
+\end{document}
+
+Well, this file just prints the table of bibliography.
+
+Let me quote here
+what AXLER, Sheldon says in the acknowledgements
+of his book LADR:
+
+AXLER S. Linear algebra done right[M/OL]. 4th ed.
+Cham: Springer, 2024.
+DOI: https://doi.org/10.1007/978-3-031-41026-0.
+https://linear.axler.net/.
+
+\begin{quotation}
+    I owe a huge intellectual debt to all the mathematicians
+    who created linear algebra over the past two centuries.
+    The results in this book belong to
+    the common heritage of mathematics.
+    A special case of a theorem may
+    first have been proved long ago,
+    then sharpened and improved by many mathematicians
+    in different time periods.
+    Bestowing proper credit on all contributors
+    would be a difficult task that I have not undertaken.
+    In no case should the reader assume that
+    any result presented here represents my original contribution.
+\end{quotation}

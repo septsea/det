@@ -1,0 +1,653 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+
+\KunAsteriskoEnEnhavtabelo
+\section{Binet--Cauchy 公式}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+或许, (方) 阵的行列式与阵的积的定义是较复杂的,
+跟阵的转置、加、减、数乘比.
+不过, 它们有不平凡的关系.
+
+设 \(A\) 是一个 \(m \times n\)~阵,
+且 \(B\) 是一个 \(n \times m\)~阵.
+根据阵的积的定义,
+\(BA\) 是一个 \(n\)~级阵,
+故它有行列式.
+
+\begin{theorem}[Binet--Cauchy 公式]
+    设 \(A\), \(B\) 分别是 \(m \times n\), \(n \times m\)~阵.
+
+    (1)
+    若 \(n > m\), 则 \(\det {(BA)} = 0\).
+
+    (2)
+    若 \(n \leq m\),
+    则
+    \begin{align*}
+             & \det {(BA)}
+        \\
+        = {} & \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
+        {
+            \det {\left(
+                B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
+                \right)}
+            \det {\left(
+                A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+                \right)}
+        }.
+    \end{align*}
+    特别地, 若 \(n = m\), 则因适合条件
+    \(1 \leq j_1 < j_2 < \dots < j_n \leq m\)
+    的 \(j_1\), \(j_2\), \(\dots\), \(j_n\),
+    是, 且只能是,
+    \(1\), \(2\), \(\dots\), \(n\),
+    故
+    \begin{align*}
+        \det {(BA)}
+        = {} &
+        \det {\left(
+            B\binom{1, 2, \dots, n}{1, 2, \dots, n}
+            \right)}
+        \det {\left(
+            A\binom{1, 2, \dots, n}{1, 2, \dots, n}
+            \right)}
+        \\
+        = {} & \det {(B)} \det {(A)}.
+    \end{align*}
+\end{theorem}
+
+我用二个例助您理解, 此定理在说什么.
+
+\begin{example}
+    设
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            1 & 3 & 5 \\
+            2 & 4 & 6 \\
+        \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            7 & 10 \\
+            8 & 11 \\
+            9 & 12 \\
+        \end{bmatrix}.
+    \end{align*}
+    不难算出,
+    \begin{align*}
+        AB =
+        \begin{bmatrix}
+            76  & 103 \\
+            100 & 136 \\
+        \end{bmatrix},
+        \quad
+        BA =
+        \begin{bmatrix}
+            27 & 61 & 95  \\
+            30 & 68 & 106 \\
+            33 & 75 & 117 \\
+        \end{bmatrix}.
+    \end{align*}
+    直接计算, 可知
+    \begin{align*}
+        \det {(AB)} = 76 \cdot 136 - 100 \cdot 103 = 36,
+    \end{align*}
+    而
+    \begin{align*}
+        \det {(BA)}
+        = {} & \hphantom{{} + {}}
+        27 \cdot 68 \cdot 117
+        + 30 \cdot 75 \cdot 95
+        + 33 \cdot 61 \cdot 106
+        \\
+             &
+        - 27 \cdot 75 \cdot 106
+        - 30 \cdot 61 \cdot 117
+        - 33 \cdot 68 \cdot 95
+        \\
+        = {} & 0.
+    \end{align*}
+
+    或许, 前面的计算是较复杂的.
+    我们试用 Binet--Cauchy 公式, 再计算它们.
+
+    因为 \(A\), \(B\) 的尺寸分别是 \(2 \times 3\), \(3 \times 2\),
+    而 \(3 > 2\),
+    根据 (1), \(\det {(BA)} = 0\)
+    (注意, \(BA\) 是 \(3\)~级阵).
+
+    因为 \(2 \leq 3\), 故, 根据 (2),
+    \begin{align*}
+             & \det {(AB)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \det {\left(A\binom{1,2}{1,2}\right)}
+        \det {\left(B\binom{1,2}{1,2}\right)}
+        + \det {\left(A\binom{1,2}{1,3}\right)}
+        \det {\left(B\binom{1,3}{1,2}\right)}
+        \\
+             &
+        + \det {\left(A\binom{1,2}{2,3}\right)}
+        \det {\left(B\binom{2,3}{1,2}\right)}.
+    \end{align*}
+    这里, 注意, 适合条件
+    ``\(1 \leq j_1 < j_2 \leq 3\)''
+    的 \((j_1, j_2)\)
+    恰有三个:
+    \((1, 2)\), \((1, 3)\), \((2, 3)\).
+    不难写出
+    \begin{align*}
+         & A\binom{1,2}{1,2}
+        = \begin{bmatrix} 1&3\\2&4\\ \end{bmatrix},
+        \quad
+        B\binom{1,2}{1,2}
+        = \begin{bmatrix} 7&10\\8&11\\ \end{bmatrix}; \\
+         & A\binom{1,2}{1,3}
+        = \begin{bmatrix} 1&5\\2&6\\ \end{bmatrix},
+        \quad
+        B\binom{1,3}{1,2}
+        = \begin{bmatrix} 7&10\\9&12\\ \end{bmatrix}; \\
+         & A\binom{1,2}{2,3}
+        = \begin{bmatrix} 3&5\\4&6\\ \end{bmatrix},
+        \quad
+        B\binom{2,3}{1,2}
+        = \begin{bmatrix} 8&11\\9&12\\ \end{bmatrix}.
+    \end{align*}
+    从而
+    \begin{align*}
+        \det {(AB)}
+        = (-2) \cdot (-3) + (-4) \cdot (-6) + (-2) \cdot (-3)
+        = 36.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设
+    \begin{align*}
+        A = \begin{bmatrix}
+                3  & 2 \\
+                10 & 7 \\
+            \end{bmatrix},
+        \quad
+        B = \begin{bmatrix}
+                5  & 4 \\
+                11 & 9 \\
+            \end{bmatrix}.
+    \end{align*}
+    不难算出
+    \begin{align*}
+        AB
+        = \begin{bmatrix}
+              37  & 30  \\
+              127 & 103 \\
+          \end{bmatrix},
+        \quad
+        BA
+        = \begin{bmatrix}
+              55  & 38 \\
+              123 & 85 \\
+          \end{bmatrix}.
+    \end{align*}
+    可以看到, \(AB \neq BA\).
+
+    不过, \(\det {(AB)} = \det {(BA)}\).
+    一方面, 我们可直接验证:
+    \begin{align*}
+         & \det {(AB)} = 37 \cdot 103 - 127 \cdot 30 = 1, \\
+         & \det {(BA)} = 55 \cdot 85 - 123 \cdot 38 = 1.
+    \end{align*}
+    另一方面, Binet--Cauchy 公式指出,
+    \begin{align*}
+        \det {(AB)}
+        = {} & \det {(A)} \det {(B)} \\
+        = {} & \det {(B)} \det {(A)} \\
+        = {} & \det {(BA)}.
+    \end{align*}
+    毕竟, 数的乘法是可换的.
+\end{example}
+
+为简单地论证公式,
+我们要三个新事实;
+为证明这三个新事实的前二个,
+我们要一些老的公式.
+
+% subfile fix: repeat restatable
+% see:
+% determinanto - determinantoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{TheoremFullExpansion}
+        设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+        设 \(j_1\), \(j_2\), \(\dots\), \(j_n\) 是%
+        不超过 \(n\) 的正整数,
+        且互不相同.
+        则
+        \begin{align*}
+                 & \det {(A)}
+            \\
+            = {} &
+            \sum_{\substack{
+            1 \leq i_1, i_2, \dots, i_n \leq n \\
+                    i_1, i_2, \dots, i_n\,\text{互不相同}
+                }}
+            {s(i_1, i_2, \dots, i_n)\,
+                s(j_1, j_2, \dots, j_n)\,
+                [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
+        \end{align*}
+        特别地, 取 \(j_1\), \(j_2\), \(\dots\), \(j_n\)
+        为 \(1\), \(2\), \(\dots\), \(n\),
+        并注意, \(s(1, 2, \dots, n) = 1\),
+        得
+        \begin{align*}
+            \det {(A)}
+            = {} &
+            \sum_{\substack{
+            1 \leq i_1, i_2, \dots, i_n \leq n \\
+                    i_1, i_2, \dots, i_n\,\text{互不相同}
+                }}
+            {s(i_1, i_2, \dots, i_n)\,
+                [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
+        \end{align*}
+    \end{restatable}
+}{\TheoremFullExpansion*}
+
+% subfile fix: repeat restatable
+% see:
+% determinanto - determinantoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{TheoremColumnSwapAndSign}
+        设 \(n\)~级阵 \(A\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+        分别为 \(a_1\), \(a_2\), \(\dots\), \(a_n\).
+        设 \(\ell_1\), \(\ell_2\), \(\dots\), \(\ell_n\) 是%
+        不超过 \(n\) 的正整数,
+        且互不相同.
+        则
+        \begin{align*}
+            \det {[a_{\ell_1}, a_{\ell_2}, \dots, a_{\ell_n}]}
+            = s(\ell_1, \ell_2, \dots, \ell_n) \det {(A)}.
+        \end{align*}
+    \end{restatable}
+}{\TheoremColumnSwapAndSign*}
+
+现在, 我要开始展现三个新事实了.
+
+\begin{theorem}
+    设 \(C\) 为 \(n \times m\)~阵,
+    且 \(m \geq n\).
+    设 \(C\)~的列~\(1\), \(2\), \(\dots\), \(m\)
+    分别为 \(c_1\), \(c_2\), \(\dots\), \(c_m\).
+    设 \(k_1\), \(k_2\), \(\dots\), \(k_n\) 是%
+    不超过 \(m\)~的正整数,
+    且互不相同.
+    设 \(j_1\), \(j_2\), \(\dots\), \(j_n\) 是
+    \(k_1\), \(k_2\), \(\dots\), \(k_n\) 的自然排列.
+    则
+    \begin{align*}
+        \det {[c_{k_1}, c_{k_2}, \dots, c_{k_n}]}
+        = s(k_1, k_2, \dots, k_n)
+        \det {[c_{j_1}, c_{j_2}, \dots, c_{j_n}]}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    设 \(k_t\) 在 \(k_1\), \(k_2\), \(\dots\), \(k_n\)
+    的自然排列
+    \(j_1\), \(j_2\), \(\dots\), \(j_n\)
+    里的位置为 \(f(k_t)\)
+    (\(t = 1\), \(2\), \(\dots\), \(n\)).
+    注意, \(f(j_t) = t\).
+    并且, 若 \(k_t < k_v\), 必有 \(f(k_t) < f(k_v)\).
+    反过来, 若 \(f(k_t) < f(k_v)\), 必有 \(k_t < k_v\).
+    (我用一个简单的例助您理解.
+    设 \(m = 9\), \(n = 3\).
+    设 \(k_1\), \(k_2\), \(k_3\) 分别为 \(8\), \(9\), \(6\).
+    那么, \(k_1\), \(k_2\), \(k_3\) 的自然排列
+    \(j_1\), \(j_2\), \(j_3\)
+    是
+    \(6\), \(8\), \(9\).
+    故 \(f(k_1) = f(j_2) = f(8) = 2\),
+    \(f(k_2) = f(j_3) = f(9) = 3\),
+    且 \(f(k_3) = f(j_1) = f(6) = 1\).)
+    从而
+    \(\operatorname{sgn} {(k_v - k_t)}
+    = \operatorname{sgn} {(f(k_v) - f(k_t))}\).
+
+    作阵~\(G = [c_{j_1}, c_{j_2}, \dots, c_{j_n}]\).
+    设 \(G\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是
+    \(g_1\), \(g_2\), \(\dots\), \(g_n\).
+    则
+    \begin{align*}
+        [c_{k_1}, c_{k_2}, \dots, c_{k_n}]
+        = [g_{f(k_1)}, g_{f(k_2)}, \dots, g_{f(k_n)}].
+    \end{align*}
+    故
+    \begin{align*}
+        \det {[c_{k_1}, c_{k_2}, \dots, c_{k_n}]}
+        = {} &
+        \det {[g_{f(k_1)}, g_{f(k_2)}, \dots, g_{f(k_n)}]}
+        \\
+        = {} &
+        s(f(k_1), f(k_2), \dots, f(k_n))
+        \det {[g_1, g_2, \dots, g_n]}
+        \\
+        = {} &
+        s(k_1, k_2, \dots, k_n)
+        \det {[c_{j_1}, c_{j_2}, \dots, c_{j_n}]}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(D\) 为 \(m \times n\)~阵,
+    且 \(m \geq n\).
+    设 \(i_1\), \(i_2\), \(\dots\), \(i_n\) 是%
+    不超过 \(m\) 的正整数,
+    且 \(i_1 < i_2 < \dots < i_n\).
+    则
+    \begin{align*}
+             &
+        \det {\left(
+            D\binom{i_1, i_2, \dots, i_n}{1, 2, \dots, n}
+            \right)}
+        \\
+        = {} &
+        \sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是} \\
+                i_1, i_2, \dots, i_n\,\text{的排列}
+            }}
+        {s(k_1, k_2, \dots, k_n)\,
+            [D]_{k_1,1} [D]_{k_2,2} \dots [D]_{k_n,n}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    设
+    \begin{align*}
+        H =
+        D\binom{i_1, i_2, \dots, i_n}{1, 2, \dots, n}.
+    \end{align*}
+    不难看出,
+    \([H]_{u,v} = [D]_{i_u,v}\).
+
+    记 \(f(i_t) = t\)
+    (\(t = 1\), \(2\), \(\dots\), \(n\)).
+    设 \(k_1\), \(k_2\), \(\dots\), \(k_n\)
+    是 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    的一个排列.
+    那么, \(f(k_1)\), \(f(k_2)\), \(\dots\), \(f(k_n)\)
+    是 \(1\), \(2\), \(\dots\), \(n\) 的一个排列.
+    反过来, 若 \(v_1\), \(v_2\), \(\dots\), \(v_n\) 是
+    \(1\), \(2\), \(\dots\), \(n\) 的一个排列,
+    则 \(i_{v_1}\), \(i_{v_2}\), \(\dots\), \(i_{v_n}\)
+    是 \(i_1\), \(i_2\), \(\dots\), \(i_n\) 的一个排列.
+    并且, 若 \(k_t < k_v\), 必有 \(f(k_t) < f(k_v)\).
+    反过来, 若 \(f(k_t) < f(k_v)\), 必有 \(k_t < k_v\).
+    从而
+    \(\operatorname{sgn} {(k_v - k_t)}
+    = \operatorname{sgn} {(f(k_v) - f(k_t))}\).
+    故
+    \begin{align*}
+             &
+        \det {\left(
+            D\binom{i_1, i_2, \dots, i_n}{1, 2, \dots, n}
+            \right)}
+        \\
+        = {} &
+        \det {(H)}
+        \\
+        = {} &
+        \sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是} \\
+                i_1, i_2, \dots, i_n\,\text{的排列}
+            }}
+        {s(f(k_1), f(k_2), \dots, f(k_n))\,
+            [H]_{f(k_1),1} [H]_{f(k_2),2} \dots [H]_{f(k_n),n}}
+        \\
+        = {} &
+        \sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是} \\
+                i_1, i_2, \dots, i_n\,\text{的排列}
+            }}
+        {s(k_1, k_2, \dots, k_n)\,
+            [D]_{k_1,1} [D]_{k_2,2} \dots [D]_{k_n,n}}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n \leq m\).
+    设数 \(f(k_1, k_2, \dots, k_n)\)
+    (其中
+    \(k_1\), \(k_2\), \(\dots\), \(k_n\) 过
+    \(1\), \(2\), \(\dots\), \(m\))
+    适合:
+    若 \(k_p = k_q\) (\(1 \leq p < q \leq n\)),
+    则 \(f(k_1, k_2, \dots, k_n) = 0\).
+    那么
+    \begin{align*}
+             &
+        \sum_{1 \leq k_1, k_2, \dots, k_n \leq m}
+        {f(k_1, k_2, \dots, k_n)}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq k_1, k_2, \dots, k_n \leq m \\
+                k_1, k_2, \dots, k_n\,\text{互不相同}
+            }}
+        {f(k_1, k_2, \dots, k_n)}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
+        {\sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是}     \\
+                    j_1, j_2, \dots, j_n\,\text{的排列}
+                }}
+            {f(k_1, k_2, \dots, k_n)}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    由 \(f\) 的性质可知, 前一个等式成立.
+    后一个等式也不难.
+    注意,
+    要从 \(m\)~个不同的数里有前后次序地选
+    \(n\)~个不同的数
+    \(k_1\), \(k_2\), \(\dots\), \(k_n\),
+    我们可以%
+    先从小到大地从这 \(m\)~个数里选 \(n\)~个%
+    不同的数
+    \(j_1\), \(j_2\), \(\dots\), \(j_n\),
+    且再有前后次序地作这 \(n\)~个数的排列
+    \(k_1\), \(k_2\), \(\dots\), \(k_n\).
+    所以, 后一个等式也成立.
+\end{proof}
+
+现在, 我们证明 Binet--Cauchy 公式.
+
+\begin{proof}
+    设 \(B\) 的列~\(1\), \(2\), \(\dots\), \(m\)
+    分别是
+    \(b_1\), \(b_2\), \(\dots\), \(b_m\).
+    设 \(A\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是
+    \(a_1\), \(a_2\), \(\dots\), \(a_n\).
+    那么
+    \begin{align*}
+        BA
+        = {} & [Ba_1, Ba_2, \dots, Ba_n] \\
+        = {} &
+        \left[
+        \sum_{k_1 = 1}^{m} {[A]_{k_1,1} b_{k_1}},
+        \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
+        \dots,
+        \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
+        \right].
+    \end{align*}
+    利用行列式的多线性, 有
+    \begin{align*}
+             & \det {(BA)}
+        \\
+        = {} &
+        \det {\left[
+        \sum_{k_1 = 1}^{m} {[A]_{k_1,1} b_{k_1}},
+        \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
+        \dots,
+        \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
+        \right]}
+        \\
+        = {} &
+        \sum_{k_1 = 1}^{m} {[A]_{k_1,1}
+        \det {\left[
+        b_{k_1},
+        \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
+        \dots,
+        \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
+        \right]}}
+        \\
+        = {} &
+        \sum_{k_1 = 1}^{m} {
+        \sum_{k_2 = 1}^{m} {
+        [A]_{k_1,1} [A]_{k_2,2}
+        \det {\left[
+        b_{k_1},
+        b_{k_2},
+        \dots,
+        \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
+        \right]}}}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \sum_{1 \leq k_1, k_2, \dots, k_n \leq m}
+        {[A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+            \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}.
+    \end{align*}
+
+    记
+    \(
+    f(k_1, k_2, \dots, k_n)
+    = [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+    \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
+    \)
+    根据行列式的交错性,
+    当 \(k_1\), \(k_2\), \(\dots\), \(k_n\) 中有二个数相同时,
+    \(f(k_1, k_2, \dots, k_n) = 0\).
+
+    (1)
+    若 \(n > m\), 则 \(k_1\), \(k_2\), \(\dots\), \(k_n\)
+    中总有二个相同
+    (抽屉原理).
+    所以, 每一项都是 \(0\).
+    故 \(\det {(BA)} = 0\).
+
+    (2)
+    若 \(n \leq m\),
+    那么 \(\det {(BA)}\) 等于
+    \begin{align*}
+        \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
+        {\sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是} \\
+                    j_1, j_2, \dots, j_n\,\text{的排列}
+                }}
+            {[A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+                \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}}.
+    \end{align*}
+    因为
+    \(1 \leq j_1 < j_2 < \dots < j_n \leq m\),
+    且
+    \(k_1\), \(k_2\), \(\dots\), \(k_n\)
+    是
+    \(j_1\), \(j_2\), \(\dots\), \(j_n\)
+    的排列,
+    故
+    \begin{align*}
+        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}
+        = s(k_1, k_2, \dots, k_n)
+        \det {[b_{j_1}, b_{j_2}, \dots, b_{j_n}]},
+    \end{align*}
+    从而 \(\det {(BA)}\) 等于
+    \begin{align*}
+         &
+        \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
+        {\det {[b_{j_1}, b_{j_2}, \dots, b_{j_n}]}}
+        \\
+         & \qquad \qquad \qquad
+        \cdot
+        \sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是} \\
+                j_1, j_2, \dots, j_n\,\text{的排列}
+            }}
+        {s(k_1, k_2, \dots, k_n)\,
+            [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}.
+    \end{align*}
+    注意,
+    \begin{align*}
+             &
+        \sum_{\substack{
+        k_1, k_2, \dots, k_n\,\text{是} \\
+                j_1, j_2, \dots, j_n\,\text{的排列}
+            }}
+        {s(k_1, k_2, \dots, k_n)\,
+            [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}
+        \\
+        = {} &
+        \det {\left(
+            A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+            \right)}.
+    \end{align*}
+    再注意,
+    因为
+    \(1 \leq j_1 < j_2 < \dots < j_n \leq m\),
+    故,
+    由子阵的记号的定义,
+    \begin{align*}
+        [b_{j_1}, b_{j_2}, \dots, b_{j_n}]
+        = B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}.
+    \end{align*}
+    从而
+    \begin{align*}
+             & \det {(BA)}
+        \\
+        = {} & \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
+        {
+            \det {\left(
+                B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
+                \right)}
+            \det {\left(
+                A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+                \right)}
+        }.
+    \end{align*}
+\end{proof}
+
+\end{document}
+
+This material is about the (general) Binet--Cauchy formula
+for the determinant of the product of two matrices.
+It is of course optional.
+The result is nontrivial,
+and its several proofs (that I know) are not so easy.
+The proof that I give here
+uses the Leibniz formula (and some formulae related to it).
+Another proof is recorded in the section
+entitled "the Binet--Cauchy formula"
+in appendix C,
+which uses the generalised Laplace expansion
+and two important properties of determinants:
+\begin{itemize}
+    \item replacing one column by
+          the sum of that column
+          and a multiple of another column
+          keeps the determinant unchanged;
+    \item the determinant of a square matrix with a zero row
+          is zero.
+\end{itemize}

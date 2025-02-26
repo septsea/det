@@ -1,0 +1,197 @@
+% This package facilitates maintenance of
+% this multi-file project.
+\RequirePackage{subfiles}
+
+% The draft mode will be used
+% when the subfile (instead of the main file) is typeset.
+\ifSubfilesClassLoaded{%
+    \LoadClass[%
+        a4paper,
+        draft,
+        % fontset=none,
+        leqno,
+        % oneside,
+        punct=kaiming,
+        zihao=-4,
+    ]{ctexbook}
+}{%
+    \documentclass[%
+        a4paper,
+        % draft,
+        % fontset=none,
+        leqno,
+        % oneside,
+        punct=kaiming,
+        zihao=-4,
+    ]{ctexbook}
+}
+
+% settings
+\input{cxapitroj/agordoj}
+
+\begin{document}
+
+\frontmatter
+
+% cover
+\subfile{cxapitroj/kovrilo}
+
+% previous endpaper (the filename in Esperanto was not good)
+\subfile{cxapitroj/antauxa fina papero}
+
+% dedication
+\subfile{cxapitroj/dedicxo}
+
+% table of contents
+\subfile{cxapitroj/enhavtabelo}
+
+% preface
+\subfile{cxapitroj/antauxparolo}
+
+% acknowledgements
+\subfile{cxapitroj/agnosko}
+
+% notice of dependence
+\subfile{cxapitroj/dependeco}
+
+\mainmatter
+
+% determinants
+\chapter{行列式}
+
+行列式是一个有用的工具.
+本章主要介绍方阵的行列式的定义与基本的性质.
+
+\clearpage
+
+% prerequisites
+\subfile{cxapitroj/determinanto - antauxkondicxoj}
+
+% determinants
+\subfile{cxapitroj/determinanto - determinantoj}
+
+% properties of determinants
+\subfile{cxapitroj/determinanto - ecoj de determinantoj}
+
+% matrix multiplication
+\subfile{cxapitroj/determinanto - matrica multipliko}
+
+% systems of linear equations (part 1)
+\subfile{cxapitroj/determinanto - SdLE 1}
+
+% systems of linear equations (part 2)
+\subfile{cxapitroj/determinanto - SdLE 2}
+
+% systems of linear equations (part 3)
+\subfile{cxapitroj/determinanto - SdLE 3}
+
+% Binet-Cauchy
+\subfile{cxapitroj/determinanto - BC}
+
+% miscellaneous
+\subfile{cxapitroj/determinanto - diversajxoj}
+
+% the last lesson
+\subfile{cxapitroj/determinanto - la lasta leciono}
+
+\appendix
+
+% 2-variable polynomials of degree 2
+\subfile{cxapitroj/duvariablaj polinomoj de grado du}
+
+% mathematical induction
+\subfile{cxapitroj/matematika indukto}
+
+% afterstories
+\chapter{后日谈}
+
+% 我其实还有一些想说的话.
+% 不过, 这些话不适合在第一章讲;
+% 当然, 也不适合在附录~A 或附录~B 讲.
+% 所以, 我就在这儿讲.
+
+本章是关于行列式的杂谈.
+
+\clearpage
+
+% This part was made obsolete on 2024-10-30.
+% % my opinions
+% \subfile{cxapitroj/postrakonto - miaj opinioj}
+
+% stories about (properties of determinants) and (permutations)
+% and (the Binet-Cauchy formula)
+\subfile{cxapitroj/postrakonto - ecoj kaj permutajxoj kaj BC}
+
+% stories about properties of determinants
+\subfile{cxapitroj/postrakonto - ecoj de determinantoj}
+
+% stories about nonzero and positive determinants
+\subfile{cxapitroj/postrakonto - nenulaj determinantoj}
+
+% stories about classical adjoints (adjugates)
+\subfile{cxapitroj/postrakonto - klasikaj adjunktaj matricoj}
+
+% stories about pfaffians
+\subfile{cxapitroj/postrakonto - pfaffoj}
+
+% miscellaneous materials
+\subfile{cxapitroj/postrakonto - diversajxoj}
+
+% This part was made obsolete on 2024-10-30.
+% % closing remark
+% \subfile{cxapitroj/postrakonto - ferma rimarko}
+
+% This is a label that enables one to know
+% how many pages there are.
+\label{libro:LaLastaPagxo}
+
+\backmatter
+
+% bibliography
+\subfile{cxapitroj/bibliografio}
+
+% list of symbols
+\subfile{cxapitroj/listo de simboloj}
+
+% list of words
+\subfile{cxapitroj/listo de vortoj}
+
+% colophon
+\subfile{cxapitroj/kolofono}
+
+% the last page
+\subfile{cxapitroj/la lasta pagxo}
+
+\end{document}
+
+La dokumento finiĝas ĉi tie.
+The document ends here.
+文档在此结束.
+
+Vi povas skribi memorandojn ĉi tie. Ili ne apartenas al ĉi tiu dokumento. Linioj ne devas komenciĝi per procenta signo.
+You can write memoranda here. They do not belong to this document. Lines do not have to begin with a percent sign.
+您可以在此写被记下的内容. 它们不属于此文档. 行不必以百分号开始.
+
+Ten heavenly stems: 甲乙丙丁戊己庚辛壬癸
+Twelve earthly branches: 子丑寅卯辰巳午未申酉戌亥
+Listing comma: 、
+
+The regular expression for a Chinese character:
+([\u3007\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF])
+
+Execute `git log -1` to print the last commit.
+
+The regular expression that matches two or more consecutive spaces that are not at the beginning of a line and are not at the end of a line:
+(?<!^|\s)\s{2,}(?!$)
+One can also replace "\s" by " ".
+$ % Well, let me insert an enclosing $ here
+% to match the $ in the regular expression
+% so that text editors can be pleased.
+
+Good news!
+I use subfiles to maintain the project better.
+Taking advantage of the feature
+that contents after \verb|\end{document}|
+are ignored
+(whether the file is the main file or a subfile),
+I can write more remarks more freely (in a more libre manner).

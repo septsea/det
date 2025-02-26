@@ -1,0 +1,1560 @@
+\documentclass[../libro]{subfiles}
+
+% I use this package to make figures.
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix}
+
+% This package enables one to create new environments for floats.
+\usepackage{newfloat}
+% I create an environment exclusively for tikzpictures.
+\DeclareFloatingEnvironment[
+    fileext=los,
+    listname={Listo de Tikzbildoj},
+    name={Tikzbildo},
+    placement=tbhp,
+    within=section,
+]{tikzbildo}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\appendix}{}
+
+\chapter{\texorpdfstring{\(2\)~元 \(2\)~次式}%
+  {2 元 2 次式}}
+
+本章, 我们研究
+\(2\)~元 \(2\)~次式.
+
+\clearpage
+
+\section{准备}
+
+设 \(a_{i,j}\)
+(\(i = 1\), \(2\), \(3\);
+\(j = 1\), \(2\), \(3\)) 是数.
+定义
+\begin{align*}
+    \tridet \det \begin{bmatrix}
+                     a_{1,1} & a_{1,2} & a_{1,3} \\
+                     a_{2,1} & a_{2,2} & a_{2,3} \\
+                     a_{3,1} & a_{3,2} & a_{3,3} \\
+                 \end{bmatrix} \tridet
+    % = {} &
+    % \hphantom{{} + {}}
+    % a_{1,1} a_{2,2} a_{3,3}
+    % + a_{2,1} a_{3,2} a_{1,3}
+    % + a_{3,1} a_{1,2} a_{2,3}
+    % \\
+    %      &
+    % - a_{1,1} a_{3,2} a_{2,3}
+    % - a_{2,1} a_{1,2} a_{3,3}
+    % - a_{3,1} a_{2,2} a_{1,3}
+    % \\
+    = {} &
+    \hphantom{{} + {}}
+    a_{1,1} a_{2,2} a_{3,3}
+    + a_{1,2} a_{2,3} a_{3,1}
+    + a_{1,3} a_{2,1} a_{3,2}
+    \\
+         &
+    - a_{1,1} a_{2,3} a_{3,2}
+    - a_{1,2} a_{2,1} a_{3,3}
+    - a_{1,3} a_{2,2} a_{3,1}.
+\end{align*}
+可用此法助记此式.
+此式含 \(6\)~项,
+其每一项都是不同行不同列的 \(3\)~个数的积.
+% 由左上 \(a_{1,1}\) 画一条实对角线至右下 \(a_{3,3}\);
+% 再由右上 \(a_{1,3}\) 画一条虚对角线至左下 \(a_{3,1}\).
+% 实对角线及跟实对角线平行的线上的 \(3\)~个数的积
+% \(a_{1,1} a_{2,2} a_{3,3}\),
+% \(a_{1,2} a_{2,3} a_{3,1}\),
+% \(a_{1,3} a_{2,1} a_{3,2}\)
+% 前带符号 \(1\);
+% 虚对角线及跟虚对角线平行的线上的 \(3\)~个数的积
+% \(a_{1,1} a_{2,3} a_{3,2}\),
+% \(a_{1,2} a_{2,1} a_{3,3}\),
+% \(a_{1,3} a_{2,2} a_{3,1}\)
+% 前带符号 \(-1\).
+我们在原 \(3\)~行 \(3\)~列的数表的右侧复写它,
+作成一个 \(3\)~行 \(6\)~列的数表.
+由左上至右下的对角线 (实线) 上的数的积的和%
+减由右上至左下的对角线 (虚线) 上的数的积的和%
+即为得数.
+% https://tex.stackexchange.com/questions/32978/typesetting-a-matrix-with-crossing-arrows-on-it/#32981
+\begin{tikzbildo*}[h!]
+    \centering
+    \begin{tikzpicture}[>=stealth]
+        \matrix [%
+            matrix of math nodes,
+            column sep=1em,
+            row sep=1em
+        ] (s3h) {%
+            a_{1,1} & a_{1,2} & a_{1,3} &
+            a_{1,1} & a_{1,2} & a_{1,3}   \\
+            a_{2,1} & a_{2,2} & a_{2,3} &
+            a_{2,1} & a_{2,2} & a_{2,3}   \\
+            a_{3,1} & a_{3,2} & a_{3,3} &
+            a_{3,1} & a_{3,2} & a_{3,3}   \\
+        };
+
+        \path
+        % ($(s3h-1-1.north west)-(0.5em,0)$) edge ($(s3h-3-1.south west)-(0.5em,0)$)
+        % ($(s3h-1-3.north east)+(0.5em,0)$) edge ($(s3h-3-3.south east)+(0.5em,0)$)
+        (s3h-1-1)                          edge            (s3h-2-2)
+        (s3h-2-2)                          edge[->]        (s3h-3-3)
+        (s3h-1-2)                          edge            (s3h-2-3)
+        (s3h-2-3)                          edge[->]        (s3h-3-4)
+        (s3h-1-3)                          edge            (s3h-2-4)
+        (s3h-2-4)                          edge[->]        (s3h-3-5)
+        % (s3h-3-1)                          edge[dashed]    (s3h-2-2)
+        % (s3h-2-2)                          edge[->,dashed] (s3h-1-3)
+        % (s3h-3-2)                          edge[dashed]    (s3h-2-3)
+        % (s3h-2-3)                          edge[->,dashed] (s3h-1-4)
+        % (s3h-3-3)                          edge[dashed]    (s3h-2-4)
+        % (s3h-2-4)                          edge[->,dashed] (s3h-1-5);
+        (s3h-1-4)                          edge[dashed]    (s3h-2-3)
+        (s3h-2-3)                          edge[->,dashed] (s3h-3-2)
+        (s3h-1-5)                          edge[dashed]    (s3h-2-4)
+        (s3h-2-4)                          edge[->,dashed] (s3h-3-3)
+        (s3h-1-6)                          edge[dashed]    (s3h-2-5)
+        (s3h-2-5)                          edge[->,dashed] (s3h-3-4);
+
+        \foreach \c in {1,2,3}
+            {\node[anchor=south] at (s3h-1-\c.north) {\(+\)};}
+        \foreach \c in {4,5,6}
+            {\node[anchor=south] at (s3h-1-\c.north) {\(-\)};}
+        % \foreach \c in {1,2,3}
+        %     {\node[anchor=north] at (s3h-3-\c.south) {\(-\)};}
+    \end{tikzpicture}
+\end{tikzbildo*}
+
+% % https://www.zhihu.com/question/525613625
+% \begin{tikzbildo*}[h!]
+%     \centering
+%     \begin{tikzpicture}
+%         \matrix [%
+%             matrix of math nodes,
+%             left delimiter=|,
+%             right delimiter=|,
+%             column sep=1.5em,
+%             row sep=1.5em,
+%             inner sep=0.3ex
+%         ] (b3) {%
+%             a_{1,1} & a_{1,2} & a_{1,3} \\
+%             a_{2,1} & a_{2,2} & a_{2,3} \\
+%             a_{3,1} & a_{3,2} & a_{3,3} \\
+%         };
+%         %\begin{scope}[draw=gray!70, rounded corners,
+%         \begin{scope}[rounded corners,
+%                 x = {($ (b3-2-2) - (b3-1-1) $)},%
+%                 y = {($ (b3-2-1) - (b3-1-2) $)}%
+%             ]
+%             \draw
+%             (b3-1-1) -- (b3-2-2) -- (b3-3-3)
+%             (b3-1-2) -- (b3-2-3) -- ++(1,0)
+%             -- ++(0,1.5) -- (b3-3-1)
+%             (b3-1-3) -- ++(2,0) -- ++(0,1.5)
+%             -- (b3-3-2) -- (b3-2-1);
+%             \draw[densely dashed]
+%             (b3-1-3) -- (b3-2-2) -- (b3-3-1)
+%             (b3-2-3) -- (b3-3-2) -- ++(0,1.5)
+%             -- ++(-1.5,0) -- (b3-1-1)
+%             (b3-3-3) -- ++(0,1.5) -- ++(-1.5,0)
+%             -- (b3-2-1) -- (b3-1-2);
+%         \end{scope}
+%     \end{tikzpicture}
+% \end{tikzbildo*}
+
+本章的数都是复数.
+这是因为, 在我们的讨论里, 我们要开根,
+而不是所有的实数都能 (在实数里) 开根
+(比如, 不存在实数 \(x\) 使 \(x^2 = -1\)).
+不过, 我们总可以在复数里开根.
+具体地,
+
+\begin{theorem}
+    设 \(z\) 是复数.
+    存在复数 \(w\) 使 \(w^2 = z\).
+\end{theorem}
+
+有时,
+我们还要开立方根.
+我们在中学里知道, 每一个实数都能 (在实数里) 开立方根.
+不过, 进一步地, 我们也有
+
+\begin{theorem}
+    设 \(z\) 是复数.
+    存在复数 \(v\) 使 \(v^3 = z\).
+\end{theorem}
+
+在此, 我就不证明这二个定理了.
+就像在中学时, 您接受
+``对任何的非负实数 \(y\),
+必有非负实数 \(x\) 使 \(x^2 = y\)''
+与
+``对任何的实数 \(y\),
+必有实数 \(u\) 使 \(u^3 = y\)''
+那样,
+您也接受它们.
+我们要讨论的内容并不依赖%
+它们如何被论证.
+
+\vspace{2ex}
+
+下面, 我展现一些我们要用到的恒等式.
+
+\begin{theorem}
+    设 \(a\), \(b\), \(x\) 是复数,
+    且 \(a \neq 0\).
+    则
+    \begin{align*}
+        ax^2 + 2bx
+        = \frac{(ax + b)^2 - b^2}{a}.
+    \end{align*}
+    特别, 取 \(a = 1\),
+    知
+    \begin{align*}
+        x^2 + 2bx = (x + b)^2 - b^2.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+        \frac{(ax + b)^2 - b^2}{a}
+        = {} & \frac{(ax + b + b)(ax + b - b)}{a} \\
+        = {} & \frac{(ax + 2b)ax}{a}              \\
+        = {} & (ax + 2b)x                         \\
+        = {} & ax^2 + 2bx.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(a\), \(b\) 是复数.
+    则
+    \begin{align*}
+        a^3 \pm b^3 = (a \pm b)(a^2 \mp ab + b^2).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+        a^3 - b^3
+        = {} & a^3 - ab^2 + ab^2 - b^3 \\
+        = {} & a(a^2 - b^2) + (a-b)b^2 \\
+        = {} & (a-b)a(a+b) + (a-b)b^2  \\
+        = {} & (a-b)(a^2 + ab + b^2).
+    \end{align*}
+    最后, 换 \(b\) 为 \(-b\),
+    得另一个公式.
+\end{proof}
+
+\begin{theorem}
+    设 \(\omega = (-1 + \mathrm{i} \sqrt{3})/2\).
+    则 \(\omega^2 + \omega = -1\),
+    且 \(\omega^3 = 1\).
+\end{theorem}
+
+\begin{proof}
+    注意, \(2\omega + 1 = \mathrm{i} \sqrt{3}\).
+    平方, 可知
+    \begin{align*}
+        4\omega^2 + 4\omega + 1 = -3.
+    \end{align*}
+    整理, 即知.
+
+    最后, 注意, \(1 = 1^2 = 1^3\),
+    且 \(\omega = \omega \cdot 1\),
+    故
+    \begin{equation*}
+        \omega^3
+        = 1 + (\omega^3 - 1^3)
+        = 1 + (\omega - 1)(\omega^2 + \omega \cdot 1 + 1^2)
+        = 1.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(a\), \(b\) 是复数.
+    则
+    \begin{align*}
+        a^3 \pm 3a^2 b + 3ab^2 \pm b^3 = (a \pm b)^3.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+             & a^3 + 3a^2 b + 3ab^2 + b^3             \\
+        = {} & a^3 + b^3 + 3a^2 b + 3ab^2             \\
+        = {} & (a + b)(a^2 - ab + b^2) + (a + b)(3ab) \\
+        = {} & (a + b)(a^2 + 2ab + b^2)               \\
+        = {} & (a + b)^3.
+    \end{align*}
+    最后, 换 \(b\) 为 \(-b\),
+    得另一个公式.
+\end{proof}
+
+\begin{theorem}
+    设 \(a\), \(b\), \(c\) 是复数.
+    设 \(\omega = (-1 + \mathrm{i} \sqrt{3})/2\).
+    则
+    \begin{align*}
+        a^3 + b^3 + c^3 - 3abc
+        = {} & (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca) \\
+        = {} & (a + b + c)(a + \omega b + \omega^2 c)
+        (a + \omega^2 b + \omega c).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    \begin{align*}
+             & a^3 + b^3 + c^3 - 3abc                       \\
+        = {} & a^3 + ((b + c)^3 - 3b^2 c - 3bc^2) - 3abc    \\
+        = {} & a^3 + (b + c)^3 - (a + b + c)(3bc)           \\
+        = {} & (a + (b + c))(a^2 - a(b + c) + (b + c)^2)
+        - (a + b + c)(3bc)                                  \\
+        = {} & (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca).
+    \end{align*}
+    注意,
+    \begin{align*}
+             & 4(a^2 + b^2 + c^2 - ab - bc - ca)          \\
+        = {} & 4(a^2  - a(b + c) + (b^2 - bc + c^2))      \\
+        = {} & (2a)^2 - 2 \cdot 2a \cdot (b + c)
+        + 4(b^2 - bc + c^2)                               \\
+        = {} & (2a - b - c)^2 - (b + c)^2
+        + (4b^2 - 4bc + 4c^2)                             \\
+        = {} & (2a - b - c)^2 + 3(b^2 - 2bc + c^2)        \\
+        = {} & (2a - b - c)^2 - (2\omega + 1)^2 (b - c)^2 \\
+        = {} & (2a - b - c + (2\omega + 1)(b - c))
+        (2a - b - c - (2\omega + 1)(b - c))               \\
+        = {} & (2a + 2\omega b - 2(\omega + 1) c)
+        (2a - 2(\omega + 1) b + 2\omega c)                \\
+        = {} & 4(a + \omega b + \omega^2 c)
+        (a + \omega^2 b + \omega c),
+    \end{align*}
+    故
+    \begin{align*}
+             & a^3 + b^3 + c^3 - 3abc                      \\
+        = {} & (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca) \\
+        = {} & (a + b + c)(a + \omega b + \omega^2 c)
+        (a + \omega^2 b + \omega c).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(x\), \(b\), \(c\) 是复数.
+    设 \(\omega = (-1 + \mathrm{i} \sqrt{3})/2\).
+    则
+    \begin{align*}
+        x^3 - 3bcx - (b^3 + c^3)
+        = {} & (x - (b + c))(x - (\omega b + \omega^2 c))
+        (x - (\omega^2 b + \omega c)).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    代上个定理的 \(a\), \(b\), \(c\)
+    以 \(x\), \(-b\), \(-c\).
+\end{proof}
+
+上个定理允许我们解缺 \(2\)~次项的 \(1\)~元 \(3\)~次方程.
+
+具体地, 设 \(a_0 x^3 + a_2 x + a_3 = 0\) 是%
+缺 \(2\)~次项的 \(1\)~元 \(3\)~次方程
+(\(a_0 \neq 0\)).
+以 \(a_0\) 除方程的二侧, 有
+\begin{align*}
+    x^3 + k_2 x + k_3 = 0,
+\end{align*}
+其中 \(k_2 = a_2/a_0\), 且 \(k_3 = a_3/a_0\).
+考虑方程组
+\begin{equation}
+    \begin{cases}
+        -3uv = k_2, \\
+        -(u^3 + v^3) = k_3.
+    \end{cases}
+    \label{eq:A0101}
+\end{equation}
+若我们能找到一个解 \(u = b\), \(v = c\),
+则
+\begin{align*}
+    x^3 + k_2 x + k_3
+    = {} &
+    x^3 - 3 b c x - (b^3 + c^3)
+    \\
+    = {} &
+    (x - (b + c))
+    (x - (\omega b + \omega^2 c))
+    (x - (\omega^2 b + \omega c)).
+\end{align*}
+这样, 我们就找到了 \(x^3 + k_2 x + k_3 = 0\) 的解:
+\(x = b + c\),
+或 \(x = \omega b + \omega^2 c\),
+或 \(x = \omega^2 b + \omega c\).
+
+设 \(k_2 = 0\).
+开立方根, 可知, 存在一个复数 \(p\) 使 \(p^3 = -k_3\).
+分别取 \(b\), \(c\) 为 \(0\), \(p\).
+不难验证,
+\(u = b\), \(v = c\) 是方程组~\eqref{eq:A0101} 的一个解.
+
+设 \(k_2 \neq 0\).
+为解方程组~\eqref{eq:A0101},
+我们先考虑, 若 \(u = b\), \(v = c\)
+是方程组~\eqref{eq:A0101} 的一个解,
+则它应适合什么性质.
+因为 \(-3 b c = k_2 \neq 0\),
+故 \(b \neq 0\).
+则 \(c = -k_2 / (3b)\).
+从而
+\begin{align*}
+    -b^3 + \frac{k_2^3}{27 b^3} = k_3.
+\end{align*}
+故 \(b^3\) 是 \(1\)~元 \(2\)~次方程
+\begin{equation}
+    z^2 + k_3 z - \frac{k_2^3}{27} = 0
+    \label{eq:A0102}
+\end{equation}
+的解.
+我们熟知, \(1\)~元 \(2\)~次方程总有一个解.
+我们设复数 \(z = z_0\)
+是方程~\eqref{eq:A0102} 的一个解.
+开立方根, 可知, 存在一个复数 \(q\) 使 \(q^3 = z_0\).
+(注意, \(q \neq 0\).)
+分别取 \(b\), \(c\) 为 \(q\), \(-k_2/(3q)\).
+不难验证,
+\(u = b\), \(v = c\) 是方程组~\eqref{eq:A0101} 的一个解.
+
+\begin{theorem}
+    作适当的换元,
+    每一个 \(1\)~元 \(3\)~次方程都可被变为%
+    缺 \(2\)~次项的方程.
+\end{theorem}
+
+\begin{proof}
+    取 \(1\)~元 \(3\)~次方程
+    \(d_0 x^3 + d_1 x^2 + d_2 x + d_3 = 0\),
+    其中 \(d_0 \neq 0\).
+    代 \(x\) 以 \(y - d_1/(3d_0)\), 有
+    \begin{equation*}
+        d_0 y^3 + \left(d_2 - \frac{d_1^2}{3d_0} \right)y
+        + d_3 + \frac{2 d_1^3}{27 d_0^2} - \frac{d_1 d_2}{3d_0}
+        = 0.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+所以, 理论地, 我们可解任何 \(1\)~元 \(3\)~次方程.
+不过, 这个解方程的方法是复杂的,
+故我们一般不用它.
+
+\section{\texorpdfstring{\(2\)~元 \(2\)~次式}%
+  {2 元 2 次式}}
+
+设 \(A\), \(B\), \(C\), \(D\), \(E\), \(F\) 为复数.
+形如
+\begin{align*}
+    f(x, y) = Ax^2 + 2Bxy + Cy^2 + 2Dx + 2Ey + F
+\end{align*}
+的式是一个 \(2\)~元 \({\leq} 2\)~次式.
+若 \(A\), \(B\), \(C\) 至少有一个不是 \(0\),
+我们说, \(f(x, y)\) 是一个 \(2\)~元 \(2\)~次式.
+若 \(A\), \(B\), \(C\) 全为 \(0\),
+我们说, \(f(x, y)\) 是一个 \(2\)~元 \({\leq} 1\)~次式.
+若 \(A\), \(B\), \(C\) 全为 \(0\),
+但 \(D\), \(E\) 至少有一个不是 \(0\),
+我们说, \(f(x, y)\) 是一个 \(2\)~元 \(1\)~次式.
+若 \(A\), \(B\), \(C\), \(D\), \(E\) 都是 \(0\),
+我们说, \(f(x, y)\) 是一个常数.
+
+\begin{theorem}
+    设 \(A\), \(B\), \(C\), \(D\), \(E\), \(F\) 为复数.
+    设 \(f(x, y) = Ax^2 + 2Bxy + Cy^2 + 2Dx + 2Ey + F\).
+    那么, 当 \(A\), \(B\), \(C\), \(D\), \(E\), \(F\)
+    全为 \(0\) 时,
+    对任何的复数对 \((z, w)\),
+    \(f(z, w) = 0\).
+    反过来, 若对任何的复数对 \((z, w)\),
+    \(f(z, w) = 0\),
+    则 \(A\), \(B\), \(C\), \(D\), \(E\), \(F\)
+    全为 \(0\).
+\end{theorem}
+
+\begin{proof}
+    前一部分是显然的, 因为 \(0\) 跟任何数的积都是 \(0\).
+    我们看后一部分.
+
+    假定, 对任何的复数对 \((z, w)\), \(f(z, w) = 0\).
+    因为 \(f(0, 0) = 0\), 故 \(F = 0\).
+    因为 \(f(1, 0) = A + 2D + F = A + 2D = 0\),
+    且 \(f(-1, 0) = A - 2D + F = A - 2D = 0\),
+    故 \(A = D = 0\).
+    因为 \(f(0, 1) = C + 2E + F = C + 2E = 0\),
+    且 \(f(0, -1) = C - 2E + F = C - 2E = 0\),
+    故 \(C = E = 0\).
+    最后, 因为
+    \(f(1, 1) = A + 2B + C + 2D + 2E + F = 2B = 0\),
+    故 \(B = 0\).
+\end{proof}
+
+\begin{theorem}
+    设 \(A_1\), \(A_2\),
+    \(B_1\), \(B_2\),
+    \(C_1\), \(C_2\),
+    \(D_1\), \(D_2\),
+    \(E_1\), \(E_2\),
+    \(F_1\), \(F_2\)
+    都是复数.
+    设
+    \(f_i (x, y) = A_i x^2 + 2B_i xy + C_i y^2
+    + 2D_i x + 2E_i y + F_i\)
+    (\(i = 1\), \(2\)).
+    那么,
+    ``对任何复数对 \((z, w)\), 必 \(f_1 (z, w) = f_2 (z, w)\)''
+    相当于
+    ``\(A_1 = A_2\), \(B_1 = B_2\), \(C_1 = C_2\),
+    \(D_1 = D_2\), \(E_1 = E_2\), \(F_1 = F_2\)''.
+\end{theorem}
+
+\begin{proof}
+    设
+    \begin{align*}
+        g(x, y)
+        = {} & f_1 (x, y) - f_2 (x, y)
+        \\
+        = {} & \hphantom{{} + {}}
+        (A_1 - A_2) x^2 + 2(B_1 - B_2) xy + (C_1 - C_2) y^2
+        \\
+             &
+        + 2(D_1 - D_2) x + 2(E_1 - E_2) y + (F_1 - F_2).
+    \end{align*}
+    施上个定理于 \(g(x, y)\) 即可.
+\end{proof}
+
+\begin{definition}
+    设 \(f(x, y) = Ax^2 + 2Bxy + Cy^2 + 2Dx + 2Ey + F\).
+    定义 \(f(x, y)\) 的\emph{判别式}
+    \begin{align*}
+        \Delta
+        = {} &
+        \tridet \det \begin{bmatrix}
+                         A & B & D \\
+                         B & C & E \\
+                         D & E & F \\
+                     \end{bmatrix} \tridet        \\
+        = {} & ACF + BED + DBE - AEE - BBF - DCD  \\
+        = {} & ACF + 2BED - (AE^2 + CD^2 + FB^2).
+    \end{align*}
+\end{definition}
+
+\(\Delta\) 来自英语 \angla{discriminant}.
+
+\(2\)~元 \({\leq} 2\)~次式 \(f(x, y)\)~的判别式是否为 \(0\)
+与%
+是否可写 \(f(x, y)\) 为%
+二个 \(2\)~元 \({\leq} 1\)~次式的积%
+有关.
+
+\begin{theorem}
+    设 \(f(x, y) = (a_1 x + a_2 y + a_3) (a_4 x + a_5 y + a_6)\).
+    则 \(f(x, y)\) 的判别式为 \(0\).
+\end{theorem}
+
+\begin{proof}
+    展开 \(f(x, y)\), 有
+    \begin{align*}
+        f(x,y) = A x^2 + 2B xy + C y^2 + 2D x + 2E y + F,
+    \end{align*}
+    其中
+    \begin{align*}
+         & A = a_1 a_4, \quad C = a_2 a_5, \quad F = a_3 a_6, \\
+         & 2B = a_1 a_5 + a_2 a_4,                            \\
+         & 2D = a_1 a_6 + a_3 a_4,                            \\
+         & 2E = a_2 a_6 + a_3 a_5.
+    \end{align*}
+    从而
+    \begin{align*}
+        \Delta
+        = {} & ACF + 2BED - (AE^2 + CD^2 + FB^2)                                                                                        \\
+        = {} & \frac{1}{4} (4ACF + 2B \cdot 2E \cdot 2D) - \frac{1}{4} (A (2E)^2 + C (2D)^2 + F(2B)^2)                                  \\
+        = {} & \frac{1}{4} (4 a_1 a_2 a_3 a_4 a_5 a_6 + a_2 a_3^2 a_5 a_4^2+a_2^2 a_3 a_6 a_4^2+a_1 a_3^2 a_5^2 a_4+a_1 a_2^2 a_6^2 a_4 \\
+             & \quad \quad +2 a_1 a_2 a_3 a_5 a_6 a_4+a_1^2 a_2 a_5 a_6^2+a_1^2 a_3 a_5^2 a_6)                                          \\
+             & \quad - \frac{1}{4} (a_1 a_3^2 a_4 a_5^2+2 a_1 a_2 a_3 a_4 a_6 a_5+a_1 a_2^2 a_4 a_6^2                                   \\
+             & \quad \quad +a_2 a_3^2 a_5 a_4^2+2 a_1 a_2 a_3 a_5 a_6 a_4+a_1^2 a_2 a_5 a_6^2                                           \\
+             & \quad \quad +a_2^2 a_3 a_6 a_4^2+2 a_1 a_2 a_3 a_5 a_6 a_4+a_1^2 a_3 a_5^2 a_6)                                          \\
+        = {} & 0.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(f(x, y) = Ax^2 + 2Bxy + Cy^2 + 2Dx + 2Ey + F\)
+    的判别式为 \(0\).
+    则存在复数
+    \(a_1\), \(a_2\), \(a_3\), \(a_4\), \(a_5\), \(a_6\)
+    使
+    \begin{align*}
+        f(x, y) = (a_1 x + a_2 y + a_3) (a_4 x + a_5 y + a_6).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    设
+    \begin{align*}
+        \Delta = ACF + 2BED - (AE^2 + CD^2 + FB^2) = 0.
+    \end{align*}
+    我们分类讨论.
+
+    (1)
+    \(A = B = C = 0\).
+    则
+    \begin{align*}
+        f(x, y)
+        = 2Dx + 2Ey + F
+        = (0x + 0y + 1)(2Dx + 2Ey + F).
+    \end{align*}
+
+    (2)
+    \(A = C = 0\), 但 \(B \neq 0\).
+    则
+    \begin{align*}
+        f(x, y)
+        = {} & 2Bxy + 2Dx + 2Ey + F                                                               \\
+        = {} & \frac{2}{B}(Bx \cdot By + D \cdot Bx + E \cdot By) + F                             \\
+        = {} & \frac{2}{B}(Bx \cdot By + D \cdot Bx + E \cdot By + DE - DE) + F                   \\
+        = {} & \frac{2}{B}(Bx \cdot By + D \cdot Bx + E \cdot By + DE) - \frac{2}{B} \cdot DE + F \\
+        = {} & \frac{2}{B}(Bx + E)(By + D) - \frac{2ED - FB}{B}                                   \\
+        = {} & \left(1x + 0y + \frac{E}{B}\right)(0x + 2By + 2D) - \frac{2BED - FB^2}{B^2}.
+    \end{align*}
+    因为 \(\Delta = 0\), 且 \(A = C = 0\), 故
+    \begin{align*}
+        \Delta = 0 + 2BED - (0 + 0 + FB^2) = 2BED - FB^2 = 0.
+    \end{align*}
+    从而
+    \begin{align*}
+        f(x, y) = \left(1x + 0y + \frac{E}{B}\right)(0x + 2By + 2D).
+    \end{align*}
+
+    (3)
+    \(A \neq 0\).
+    则
+    \begin{align*}
+             & f(x, y)                                                                                      \\
+        = {} & Ax^2 + 2(By + D)x + (Cy^2 + 2Ey + F)                                                         \\
+        = {} & \frac{(Ax + By + D)^2 - (By + D)^2}{A}
+        + (Cy^2 + 2Ey + F)                                                                                  \\
+        = {} & \frac{1}{A} (Ax + By + D)^2 + \frac{1}{A}((AC - B^2)y^2 + 2(AE - BD)y) + \frac{AF - D^2}{A}.
+    \end{align*}
+    我们要进一步地分类讨论.
+
+    (3.1)
+    \(AC - B^2 = 0\).
+    此时, \(C = B^2 / A\).
+    故
+    \begin{align*}
+        \Delta
+        = {} &
+        A \cdot \frac{B^2}{A} \cdot F + 2BED - AE^2
+        - \frac{B^2 D^2}{A} - FB^2
+        \\
+        = {} &
+        {-} \frac{1}{A} (A^2 E^2 - 2AE BD + B^2 D^2)
+        \\
+        = {} &
+        {-} \frac{1}{A} (AE - BD)^2.
+    \end{align*}
+    因为 \(\Delta = 0\),
+    故 \(AE - BD = 0\).
+    从而
+    \begin{align*}
+        f(x, y) = \frac{(Ax + By + D)^2 - (D^2 - AF)}{A}.
+    \end{align*}
+    设复数 \(d\) 适合 \(d^2 = D^2 - AF\).
+    则
+    \begin{align*}
+        f(x, y) = \frac{1}{A} (Ax + By + D + d)(Ax + By + D - d);
+    \end{align*}
+    也就是,
+    \begin{align*}
+        f(x, y) = \left( 1x + \frac{B}{A} y + \frac{D+d}{A} \right) (Ax + By + (D - d)).
+    \end{align*}
+
+    (3.2)
+    \(AC - B^2 \neq 0\).
+    此时
+    \begin{align*}
+             & (AC - B^2) y^2 + 2(AE - BD)y
+        \\
+        = {} & \frac{1}{AC - B^2} ((AC - B^2)y + (AE - BD))^2 - \frac{(AE - BD)^2}{AC - B^2}.
+    \end{align*}
+    所以
+    \begin{align*}
+        f(x, y)
+        = {} &
+        \hphantom{{} + {}}
+        \frac{(Ax + By + D)^2}{A} - \frac{((B^2 - AC)y + (BD - AE))^2}{A(B^2 - AC)}
+        \\
+             &
+        + \frac{AF - D^2}{A} - \frac{(AE - BD)^2}{A(AC - B^2)};
+    \end{align*}
+    也就是,
+    \begin{align*}
+        f(x, y) = \frac{(Ax + By + D)^2}{A} - \frac{((B^2 - AC)y + (BD - AE))^2}{A(B^2 - AC)} + \frac{\Delta}{AC - B^2}.
+    \end{align*}
+    因为 \(\Delta = 0\), 故
+    \begin{align*}
+        f(x, y) = \frac{(Ax + By + D)^2}{A} - \frac{((B^2 - AC)y + (BD - AE))^2}{A(B^2 - AC)}.
+    \end{align*}
+    设复数 \(e\) 适合 \(e^2 = B^2 - AC\).
+    设 \(f = (BD-AE)/e\).
+    则
+    \begin{align*}
+        f(x, y)
+        = {} & \frac{(Ax + By + D)^2}{A} - \frac{(e^2 y + ef)^2}{Ae^2}                   \\
+        = {} & \frac{(Ax + By + D)^2}{A} - \frac{(ey + f)^2}{A}                          \\
+        = {} & \frac{1}{A}(Ax + By + D + ey + f)(Ax + By + D - ey - f)                   \\
+        = {} & \left( 1x + \frac{B+e}{A}y + \frac{D+f}{A} \right) (Ax + (B-e)y + (D-f)).
+    \end{align*}
+
+    (4)
+    \(C \neq 0\).
+    则
+    \begin{align*}
+        f(x, y) = Cy^2 + 2Byx + Ax^2 + 2Ey + 2Dx + F.
+    \end{align*}
+    考虑 \(2\)~元 \({\leq} 2\)~次式
+    \begin{align*}
+        g(x, y) = Cx^2 + 2Bxy + Ay^2 + 2Ex + 2Dy + F.
+    \end{align*}
+    注意, 对任何复数对 \((z, w)\),
+    \begin{align*}
+        g(z, w) = f(w, z).
+    \end{align*}
+    我们计算 \(g(x, y)\) 的判别式:
+    \begin{align*}
+        \Delta'
+        = {} &
+        \tridet \det \begin{bmatrix}
+                         C & B & E \\
+                         B & A & D \\
+                         E & D & F \\
+                     \end{bmatrix} \tridet       \\
+        = {} & CAF + 2BDE - (CD^2 + AE^2 + FB^2) \\
+        = {} & ACF + 2BED - (AE^2 + CD^2 + FB^2) \\
+        = {} & \Delta.
+    \end{align*}
+    从而, 由 (3),
+    存在复数
+    \(a_1\), \(a_2\), \(a_3\), \(a_4\), \(a_5\), \(a_6\)
+    使
+    \begin{align*}
+        g(x, y) = (a_1 x + a_2 y + a_3) (a_4 x + a_5 y + a_6).
+    \end{align*}
+    所以
+    \begin{equation*}
+        f(x, y) = g(y, x) = (a_2 x + a_1 y + a_3) (a_5 x + a_4 y + a_6).
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+综上, 我们得到本章的重要的定理:
+
+\begin{theorem}
+    设 \(f(x, y) = Ax^2 + 2Bxy + Cy^2 + 2Dx + 2Ey + F\).
+    若 \(f(x, y)\) 的判别式为 \(0\),
+    则我们必可写其为二个 (复系数的)
+    \(2\)~元 \({\leq} 1\)~次式的积;
+    反过来,
+    若 \(f(x, y)\) 是二个 (复系数的)
+    \(2\)~元 \({\leq} 1\)~次式的积,
+    则其判别式必为 \(0\).
+\end{theorem}
+
+我们看二个例.
+
+\begin{example}
+    设
+    \begin{align*}
+        b(x, y) = 2x^2 + 2xy + y^2 + 2x + 2y + 2.
+        % b(x, y) = 24x^2 + 20xy - 16y^2 - 14x - 26y - 2.
+    \end{align*}
+    \(A\), \(B\), \(C\), \(D\), \(E\), \(F\)
+    分别是
+    \(2\), \(1\), \(1\), \(1\), \(1\), \(2\).
+    % \(24\), \(10\), \(-16\), \(-7\), \(-13\), \(-2\).
+    由此可知, \(b(x, y)\) 的判别式
+    \begin{align*}
+        \Delta
+        = \tridet \det \begin{bmatrix}
+                           2 & 1 & 1 \\
+                           1 & 1 & 1 \\
+                           1 & 1 & 2 \\
+                           %   24 & 10  & -7  \\
+                           %   10 & -16 & -13 \\
+                           %   -7 & -13 & -2  \\
+                       \end{bmatrix} \tridet
+        = 1.
+        % = -484.
+    \end{align*}
+    所以, 我们无法写其为二个
+    (关于 \(x\), \(y\) 的)
+    \(2\)~元 \({\leq} 1\)~次式的积.
+\end{example}
+
+\begin{example}
+    设 \(f(x, y) = x^2 + y^2\).
+    不难算出, \(f(x, y)\)~的判别式是 \(0\).
+    所以, \(f(x, y)\) 可被写为%
+    二个 (关于 \(x\), \(y\) 的)
+    \(2\)~元 \({\leq} 1\)~次式的积.
+
+    不过, 这二个 \({\leq} 1\)~次式的系数不能全为实数.
+
+    反设存在实数
+    \(a_1\), \(a_2\), \(a_3\), \(a_4\), \(a_5\), \(a_6\) 使
+    \begin{align*}
+        x^2 + y^2 = (a_1 x + a_2 y + a_3) (a_4 x + a_5 y + a_6).
+    \end{align*}
+    代 \(x\), \(y\) 以 \(0\), \(0\), 知 \(0 = a_3 a_6\).
+    因为乘法是可交换的, 故无妨设 \(a_3 = 0\).
+    代 \(x\), \(y\) 以 \(1\), \(0\), 知
+    \(1 = a_1 (a_4 + a_6)\);
+    代 \(x\), \(y\) 以 \(-1\), \(0\), 知
+    \(1 = -a_1 (-a_4 + a_6) = a_1 (a_4 - a_6)\).
+    由此可知 \(a_4 + a_6 = a_4 - a_6\),
+    故 \(a_6 = 0\).
+    从而 \(a_1 a_4 = 1\).
+    故 \(a_4 = 1/a_1\).
+    代 \(x\), \(y\) 以 \(0\), \(1\), 知 \(a_2 a_5 = 1\).
+    故 \(a_5 = 1/a_2\).
+    从而
+    \begin{align*}
+        x^2 + y^2 = (a_1 x + a_2 y)
+        \left( \frac{x}{a_1} + \frac{y}{a_2} \right).
+    \end{align*}
+    代 \(x\), \(y\) 以 \(1\), \(1\), 有
+    \begin{align*}
+        2 = (a_1 + a_2) \cdot \frac{a_1 + a_2}{a_1 a_2},
+    \end{align*}
+    即
+    \begin{align*}
+        a_1^2 + a_2^2 = 0.
+    \end{align*}
+    所以
+    \begin{align*}
+        0
+        = (a_1^2 + a_2^2) \cdot a_5^2
+        = (a_1 a_5)^2 + 1.
+    \end{align*}
+    因为 \(a_1\), \(a_5\) 是实数, 故 \(a_1 a_5\) 也是实数.
+    不过, 我们知道,
+    任何实数的平方加 \(1\) 不可能是 \(0\).
+    这是矛盾.
+
+    不过,
+    \(x^2 + y^2
+    = x^2 - (\mathrm{i} y)^2
+    = (x + \mathrm{i} y) (x - \mathrm{i} y)\).
+\end{example}
+
+\section{\texorpdfstring{\(2\)~元 \(2\)~次方程组}%
+  {2 元 2 次方程组}}
+
+本节, 我们讨论如何求解方程组
+\begin{equation}
+    \begin{cases}
+        f_1 (x, y) = 0, \\
+        f_2 (x, y) = 0,
+    \end{cases}
+    \label{eq:A0301}
+\end{equation}
+其中 \(f_i (x, y) = A_i x^2 + 2B_i xy + C_i y^2
++ 2D_i x + 2E_i y + F_i\)
+(\(i = 1\), \(2\)).
+
+我们看一个简单的例.
+
+\begin{example}
+    解方程组
+    \begin{align*}
+        \begin{cases}
+            f_1 (x, y) = x^2 - y^2 - 4x + 4 = 0, \\
+            f_2 (x, y) = x^2 + y^2 - 2x = 0.
+        \end{cases}
+    \end{align*}
+
+    注意,
+    \begin{align*}
+        f_1 (x, y)
+        = {} & x^2 - y^2 - 4x + 4      \\
+        = {} & (x^2 - 4x + 4) - y^2    \\
+        = {} & (x - 2)^2 - y^2         \\
+        = {} & (x - 2 + y)(x - 2 - y).
+    \end{align*}
+    故
+    \begin{align*}
+        x = 2 - y
+        \quad \text{或} \quad
+        x = 2 + y.
+    \end{align*}
+    联立 \(x = 2 - y\) 与 \(f_2 (x, y) = 0\),
+    得 \(2y^2 - 2y = 0\).
+    则
+    \begin{align*}
+        (x, y) = (1, 1)
+        \quad \text{或} \quad
+        (x, y) = (2, 0).
+    \end{align*}
+    联立 \(x = 2 + y\) 与 \(f_2 (x, y) = 0\),
+    得 \(2y^2 + 2y = 0\).
+    则
+    \begin{align*}
+        (x, y) = (1, -1)
+        \quad \text{或} \quad
+        (x, y) = (2, 0).
+    \end{align*}
+    经验证, \((1, 1)\), \((1, -1)\), \((2, 0)\) 都是解.
+
+    不难算出, \(f_1 (x, y)\) 的判别式
+    \begin{align*}
+        \Delta_1
+        =
+        \tridet \det \begin{bmatrix}
+                         1  & 0  & -2 \\
+                         0  & -1 & 0  \\
+                         -2 & 0  & 4  \\
+                     \end{bmatrix} \tridet
+        = 0.
+    \end{align*}
+    所以, 理论地, \(f_1 (x, y)\) 确实可被%
+    写为二个 \(2\)~元 \({\leq} 1\)~次式的积.
+    不过, \(f_2 (x, y)\) 的判别式
+    \begin{align*}
+        \Delta_2
+        =
+        \tridet \det \begin{bmatrix}
+                         1  & 0 & -1 \\
+                         0  & 1 & 0  \\
+                         -1 & 0 & 0  \\
+                     \end{bmatrix} \tridet
+        = -1.
+    \end{align*}
+    所以, \(f_2 (x, y)\) 不可被%
+    写为二个 \(2\)~元 \({\leq} 1\)~次式的积.
+\end{example}
+
+由此可见, 若我们能写方程组~\eqref{eq:A0301}
+的一个方程的左侧为二个 \(2\)~元 \({\leq} 1\)~次式的积,
+则我们可解二个 \(1\)~元 \({\leq} 2\)~次方程,
+以解此方程组.
+
+不过, 不是所有的方程组都这么简单.
+
+\begin{example}\label{emp:A0301}
+    解方程组
+    \begin{align*}
+        \begin{cases}
+            f_1 (x, y) = x^2 + 3y^2 + 2x - 11 = 0, \\
+            f_2 (x, y) = 3x^2 - y^2 - 4x - 3 = 0.
+        \end{cases}
+    \end{align*}
+
+    我们试用老方法解此方程组.
+    不过, 试了试, 发现
+    \(f_1 (x, y)\) 与 \(f_2 (x, y)\)
+    好像 ``不可被分解''.
+    此时, 我们来计算判别式.
+    \(f_1 (x, y)\), \(f_2 (x, y)\)~的判别式分别是
+    \begin{align*}
+         & \Delta_1
+        =
+        \tridet \det \begin{bmatrix}
+                         1 & 0 & 1   \\
+                         0 & 3 & 0   \\
+                         1 & 0 & -11 \\
+                     \end{bmatrix} \tridet
+        = -36,
+        \\
+         & \Delta_2
+        =
+        \tridet \det \begin{bmatrix}
+                         3  & 0  & -2 \\
+                         0  & -1 & 0  \\
+                         -2 & 0  & -3 \\
+                     \end{bmatrix} \tridet
+        = 13.
+    \end{align*}
+    看来, 我们不能像上个例那样直接地解此方程组.
+\end{example}
+
+不过, 我们并非无计可施.
+
+\begin{theorem}
+    设 \(k\) 是复数.
+    则方程组~\eqref{eq:A0301}
+    与方程组
+    \begin{equation}
+        \begin{cases}
+            f_1 (x, y) + kf_2 (x, y) = 0, \\
+            f_2 (x, y) = 0
+        \end{cases}
+        \label{eq:A0302}
+    \end{equation}
+    同解.
+\end{theorem}
+
+\begin{proof}
+    任取方程组~\eqref{eq:A0301} 的一个解 \((s, t)\).
+    于是, \(f_1 (s, t) = f_2 (s, t) = 0\).
+    从而 \(f_1 (s, t) + kf_2 (s, t) = 0 + k0 = 0\).
+    故方程组~\eqref{eq:A0301} 的每一个解%
+    都是方程组~\eqref{eq:A0302} 的解.
+
+    反过来, 任取方程组~\eqref{eq:A0302} 的一个解 \((u, v)\).
+    于是,
+    \(f_1 (u, v) + k f_2 (u, v) = f_2 (u, v) = 0\).
+    从而 \(f_1 (u, v)
+    = (f_1 (u, v) + k f_2 (u, v)) - kf_2 (u, v)
+    = 0 - k0 = 0\).
+    故方程组~\eqref{eq:A0302} 的每一个解%
+    都是方程组~\eqref{eq:A0301} 的解.
+\end{proof}
+
+根据上个定理,
+方程组~\eqref{eq:A0301} 与方程组~\eqref{eq:A0302}
+同解.
+那么, 能否取适当的 \(k\),
+使方程组~\eqref{eq:A0302} 的%
+首个方程的左侧可被写为%
+二个 \(2\)~元 \({\leq} 1\)~次式的积?
+我们计算 \(f_3 (x, y) = f_1 (x, y) + kf_2 (x, y)\)
+的判别式:
+\begin{align*}
+    \Delta_3
+    = {} & \tridet \det \begin{bmatrix}
+                            A_1 + kA_2 & B_1 + kB_2 & D_1 + kD_2 \\
+                            B_1 + kB_2 & C_1 + kC_2 & E_1 + kE_2 \\
+                            D_1 + kD_2 & E_1 + kE_2 & F_1 + kF_2 \\
+                        \end{bmatrix} \tridet \\
+    = {} & \Delta_1 + c_1 k + c_2 k^2 + \Delta_2 k^3,
+\end{align*}
+其中, \(\Delta_i\) 是 \(f_i (x, y)\)~的判别式
+(\(i = 1\), \(2\)), 且
+\begin{align*}
+    % c_1
+    % = {} & A_2 C_1 F_1+A_1 C_2 F_1+A_1 C_1 F_2-A_2 E_1^2-2 A_1 E_1 E_2 \\
+    %      & {} +2 B_1 D_2 E_1+2 B_1 D_1 E_2+2 B_2 D_1 E_1-B_1^2 F_2     \\
+    %      & {} -2 B_2 B_1 F_1-C_2 D_1^2-2 C_1 D_1 D_2,                  \\
+    % c_2
+    % = {} & A_2 C_2 F_1+A_2 C_1 F_2+A_1 C_2 F_2-A_1 E_2^2-2 A_2 E_1 E_2 \\
+    %      & {} +2 B_2 D_2 E_1+2 B_2 D_1 E_2+2 B_1 D_2 E_2-B_2^2 F_1     \\
+    %      & {} -2 B_1 B_2 F_2-C_1 D_2^2-2 C_2 D_1 D_2.
+    c_1
+    = {} &
+    \tridet \det \begin{bmatrix}
+                     A_2 & B_1 & D_1 \\
+                     B_2 & C_1 & E_1 \\
+                     D_2 & E_1 & F_1 \\
+                 \end{bmatrix} \tridet
+    +
+    \tridet \det \begin{bmatrix}
+                     A_1 & B_2 & D_1 \\
+                     B_1 & C_2 & E_1 \\
+                     D_1 & E_2 & F_1 \\
+                 \end{bmatrix} \tridet
+    +
+    \tridet \det \begin{bmatrix}
+                     A_1 & B_1 & D_2 \\
+                     B_1 & C_1 & E_2 \\
+                     D_1 & E_1 & F_2 \\
+                 \end{bmatrix} \tridet, \\
+    c_2
+    = {} &
+    \tridet \det \begin{bmatrix}
+                     A_1 & B_2 & D_2 \\
+                     B_1 & C_2 & E_2 \\
+                     D_1 & E_2 & F_2 \\
+                 \end{bmatrix} \tridet
+    +
+    \tridet \det \begin{bmatrix}
+                     A_2 & B_1 & D_2 \\
+                     B_2 & C_1 & E_2 \\
+                     D_2 & E_1 & F_2 \\
+                 \end{bmatrix} \tridet
+    +
+    \tridet \det \begin{bmatrix}
+                     A_2 & B_2 & D_1 \\
+                     B_2 & C_2 & E_1 \\
+                     D_2 & E_2 & F_1 \\
+                 \end{bmatrix} \tridet.
+\end{align*}
+\(\Delta_3\) 是一个关于 \(k\)~的 \(1\)~元 \({\leq} 3\)~次式,
+故 \(\Delta_3 = 0\) 是一个 \(1\)~元 \({\leq} 3\)~次方程.
+理论地, 这是可解的.
+解出一个 \(k\).
+从而, 我们可用老方法%
+解跟方程组~\eqref{eq:A0301} 同解的%
+方程组~\eqref{eq:A0302},
+进而得到方程组~\eqref{eq:A0301} 的解.
+
+\begingroup
+\renewcommand\thmcontinues[1]{%
+    %\ifcsname hyperref\endcsname
+    %\hyperref[#1]{continuing}
+    %\else
+    %continuing
+    %\fi
+    %from p.\,\pageref{#1}%
+    续%
+}
+\begin{example}[continues=emp:A0301]
+    我们解当时未能求解的方程组
+    \begin{align*}
+        \begin{cases}
+            f_1 (x, y) = x^2 + 3y^2 + 2x - 11 = 0, \\
+            f_2 (x, y) = 3x^2 - y^2 - 4x - 3 = 0.
+        \end{cases}
+    \end{align*}
+
+    待定复数 \(k\).
+    作出同解方程组
+    \begin{align*}
+        \begin{cases}
+            f_3 (x, y) = 0, \\
+            f_2 (x, y) = 0,
+        \end{cases}
+    \end{align*}
+    其中
+    \begin{align*}
+        f_3 (x, y)
+        = {} & f_1 (x, y) + kf_2 (x, y)                    \\
+        = {} & (1+3k)x^2 + (3-k)y^2 + 2(1-2k)x + (-3k-11).
+    \end{align*}
+    计算 \(f_3 (x, y)\) 的判别式
+    \begin{align*}
+        \Delta_3
+        = \tridet \det \begin{bmatrix}
+                           1+3k & 0   & 1-2k   \\
+                           0    & 3-k & 0      \\
+                           1-2k & 0   & -3k-11 \\
+                       \end{bmatrix} \tridet
+        = (k-3) (13k^2 + 32k + 12).
+    \end{align*}
+    所以, 我们可取 \(k = 3\).
+    则
+    \begin{align*}
+        f_3 (x, y) = 10x^2 - 10x - 20 = 10(x - 2)(x + 1).
+    \end{align*}
+    从而
+    \begin{align*}
+        x = 2
+        \quad \text{或} \quad
+        x = -1.
+    \end{align*}
+    联立 \(x = 2\) 与 \(f_2 (x, y) = 0\),
+    得 \(-y^2 + 1 = 0\).
+    则
+    \begin{align*}
+        (x, y) = (2, 1)
+        \quad \text{或} \quad
+        (x, y) = (2, -1).
+    \end{align*}
+    联立 \(x = -1\) 与 \(f_2 (x, y) = 0\),
+    得 \(-y^2 + 4 = 0\).
+    则
+    \begin{align*}
+        (x, y) = (-1, 2)
+        \quad \text{或} \quad
+        (x, y) = (-1, -2).
+    \end{align*}
+    经验证,
+    \((2, 1)\), \((2, -1)\), \((-1, 2)\), \((-1, -2)\)
+    都是解.
+\end{example}
+\endgroup
+
+\section{\texorpdfstring{\(1\)~元 \(4\)~次方程}%
+  {1 元 4 次方程}}
+
+我们知道, 理论地,
+每一个 \(1\)~元 \(m\)~次方程都是可被 (根式) 求解的,
+其中 \(m = 1\), \(2\), \(3\).
+本节, 我展现一个解 \(1\)~元 \(4\)~次方程的方法.
+
+任取一个 \(1\)~元 \(4\)~次方程
+\begin{equation}
+    a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4 = 0,
+    \label{eq:A0401}
+\end{equation}
+其中 \(a_0 \neq 0\).
+
+设 \(s\) 是方程~\eqref{eq:A0401} 的一个解.
+则
+\begin{align*}
+    a_0 (s^2)^2 + a_1 s\, s^2 + a_2 s^2 + a_3 s + a_4 = 0.
+\end{align*}
+则 \((s, s^2)\) 是 \(2\)~元 \(2\)~次方程组
+\begin{equation}
+    \begin{cases}
+        f_1 (x, y)
+        = a_1 xy + a_0 y^2 + a_3 x + a_2 y + a_4 = 0, \\
+        f_2 (x, y)
+        = x^2 - y = 0
+    \end{cases}
+    \label{eq:A0402}
+\end{equation}
+的一个解.
+
+反过来, 设 \((u, v)\) 是方程组~\eqref{eq:A0402} 的一个解.
+那么, \(v = u^2\).
+从而
+\begin{align*}
+    a_1 u\, u^2 + a_0 (u^2)^2 + a_3 u + a_2 u^2 + a_4 = 0,
+\end{align*}
+即
+\begin{align*}
+    a_0 u^4 + a_1 u^3 + a_2 u^2 + a_3 u + a_4 = 0.
+\end{align*}
+故 \(u\) 是方程~\eqref{eq:A0401} 的一个解.
+
+这么看来, 我们可变%
+解 \(1\)~元 \(4\)~次方程的问题%
+为%
+解 \(2\)~元 \(2\)~次方程组的问题.
+
+待定复数 \(k\).
+作一个跟方程组~\eqref{eq:A0402} 同解的方程组
+\begin{equation}
+    \begin{cases}
+        f_3 (x, y) = 0, \\
+        f_2 (x, y) = 0,
+    \end{cases}
+    \label{eq:A0403}
+\end{equation}
+其中
+\begin{align*}
+    f_3 (x, y)
+    = {} &
+    f_1 (x, y) + k f_2 (x, y)
+    \\
+    = {} &
+    k x^2
+    + \frac{a_1}{2} \cdot 2xy
+    + a_0 y^2
+    + \frac{a_3}{2} \cdot 2x
+    + \frac{a_2 - k}{2} \cdot 2y
+    + a_4.
+\end{align*}
+计算 \(f_3 (x, y)\) 的判别式
+\begin{align*}
+    \Delta_3
+    = {} &
+    \tridet \det \begin{bmatrix}
+                     k     & a_1/2     & a_3/2     \\
+                     a_1/2 & a_0       & (a_2-k)/2 \\
+                     a_3/2 & (a_2-k)/2 & a_4       \\
+                 \end{bmatrix} \tridet
+    \\
+    = {} &
+    \frac{k^3 - 2 a_2 k^2 - (4 a_0 a_4 - a_1 a_3 - a_2^2) k
+        + (a_0 a_3^2 + a_1^2 a_4 - a_1 a_2 a_3)}{-4}.
+\end{align*}
+\(\Delta_3\) 是一个关于 \(k\)~的 \(1\)~元 \(3\)~次式,
+故 \(\Delta_3 = 0\) 是一个 \(1\)~元 \(3\)~次方程.
+理论地, 这是可解的.
+解出一个 \(k\).
+从而, 我们可用老方法解方程组~\eqref{eq:A0403},
+进而得到方程~\eqref{eq:A0401} 的解.
+
+\begin{example}
+    解方程
+    \begin{align*}
+        x^4 - 2x^3 - 10x^2 + 44x - 48 = 0.
+    \end{align*}
+
+    考虑方程组
+    \begin{align*}
+        \begin{cases}
+            f_1 (x, y) = -2xy + y^2 + 44x - 10y - 48 = 0, \\
+            f_2 (x, y) = x^2 - y = 0.
+        \end{cases}
+    \end{align*}
+    此方程组的解的首个分量即为原方程的解.
+
+    待定复数 \(k\).
+    作出同解方程组
+    \begin{align*}
+        \begin{cases}
+            f_3 (x, y) = 0, \\
+            f_2 (x, y) = 0,
+        \end{cases}
+    \end{align*}
+    其中
+    \begin{align*}
+        f_3 (x, y)
+        = {} & f_1 (x, y) + kf_2 (x, y)               \\
+        = {} & kx^2 - 2xy + y^2 + 44x - (k+10)y - 48.
+    \end{align*}
+    计算 \(f_3 (x, y)\) 的判别式
+    \begin{align*}
+        \Delta_3
+        = \tridet \det \begin{bmatrix}
+                           k  & -1     & 22     \\
+                           -1 & 1      & -k/2-5 \\
+                           22 & -k/2-5 & -48    \\
+                       \end{bmatrix} \tridet
+        = -\frac{1}{4} (k + 8) (k^2 + 12k + 108).
+    \end{align*}
+    所以, 我们可取 \(k = -8\).
+    则
+    \begin{align*}
+        f_3 (x, y)
+        = {} & {-} 8x^2 - 2xy + y^2 + 44x - 2y - 48      \\
+        = {} & y^2 - 2(x+1)y - 8x^2 + 44x - 48           \\
+        = {} & (y - x - 1)^2 - (x+1)^2 - 8x^2 + 44x - 48 \\
+        = {} & (y - x - 1)^2 - (3x - 7)^2                \\
+        = {} & (y + 2x - 8) (y - 4x + 6).
+    \end{align*}
+    所以
+    \begin{align*}
+        y + 2x - 8 = 0
+        \quad \text{或} \quad
+        y - 4x + 6 = 0.
+    \end{align*}
+    因为 \(x^2 - y = 0\),
+    故
+    \begin{align*}
+        x^2 + 2x - 8 = 0
+        \quad \text{或} \quad
+        x^2 - 4x + 6 = 0.
+    \end{align*}
+    注意,
+    我们的目的是求解 (原方程的) \(x\),
+    而 \(y\) 只是辅助量,
+    故我们用 \(y = x^2\) 消去了 \(y\),
+    进而直接求解 \(x\).
+    我们不必同时解出 \(x\) 与 \(y\).
+
+    \(1\)~元 \(2\)~次方程是不难求解的.
+    不难算出
+    \begin{align*}
+        x = -4
+        \quad \text{或} \quad
+        x = 2
+        \quad \text{或} \quad
+        x = 2 + \mathrm{i} \sqrt{2}
+        \quad \text{或} \quad
+        x = 2 - \mathrm{i} \sqrt{2}.
+    \end{align*}
+    经验证, 它们都是原方程的解.
+\end{example}
+
+% 任取一个 \(1\)~元 \(4\)~次方程
+% \begin{equation}
+%     a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4 = 0,
+%     \label{eq:A0401}
+% \end{equation}
+% 其中 \(a_0 \neq 0\).
+% 若 \(a_4 = 0\), 则我们可写
+% \begin{align*}
+%     a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4
+%     = x(a_0 x^3 + a_1 x^2 + a_2 x + a_3).
+% \end{align*}
+% 括号里有一个 \(1\)~元 \(3\)~次式.
+% 这, 理论地, 是可解的.
+% 所以, 接下来, 我们假定 \(a_4 \neq 0\).
+
+% 假定 \(s\) 是方程~\eqref{eq:A0401} 的一个解.
+% 因为 \(a_4 \neq 0\), 故 \(s \neq 0\).
+% 从而
+% \begin{align*}
+%     a_0 s^2 + a_1 s + a_2
+%     + a_3 \frac{1}{s} + a_4 \frac{1}{s^2} = 0.
+% \end{align*}
+% 由此可见, \((s, 1/s)\) 是 \(2\)~元 \(2\)~次方程组
+% \begin{equation}
+%     \begin{cases}
+%         f_1 (x, y)
+%         = a_0 x^2 + a_4 y^2 + a_1 x + a_3 y + a_2 = 0, \\
+%         f_2 (x, y)
+%         = xy - 1 = 0
+%     \end{cases}
+%     \label{eq:A0402}
+% \end{equation}
+% 的一个解.
+
+% 反过来, 设 \((u, v)\) 是方程组~\eqref{eq:A0402} 的一个解.
+% 那么, \(v = 1/u\).
+% 从而
+% \begin{align*}
+%     a_0 u^2 + a_4 \frac{1}{u^2} + a_1 u
+%     + a_3 \frac{1}{u} + a_2 = 0.
+% \end{align*}
+% 即
+% \begin{align*}
+%     a_0 u^4 + a_4 + a_1 u^3 + a_3 u + a_2 u^2 = 0.
+% \end{align*}
+% 故 \(u\) 是方程~\eqref{eq:A0401} 的一个解.
+
+% 这么看来, 我们可变%
+% 解 \(1\)~元 \(4\)~次方程的问题%
+% 为%
+% 解 \(2\)~元 \(2\)~次方程组的问题.
+
+% 待定复数 \(k\).
+% 作一个跟方程组~\eqref{eq:A0402} 同解的方程组
+% \begin{equation}
+%     \begin{cases}
+%         f_3 (x, y) = 0, \\
+%         f_2 (x, y) = 0,
+%     \end{cases}
+%     \label{eq:A0403}
+% \end{equation}
+% 其中
+% \begin{align*}
+%     f_3 (x, y)
+%     = {} &
+%     f_1 (x, y) + k f_2 (x, y)
+%     \\
+%     = {} &
+%     a_0 x^2
+%     + \frac{k}{2} \cdot 2xy
+%     + a_4 y^2
+%     + \frac{a_1}{2} \cdot 2x
+%     + \frac{a_3}{2} \cdot 2y
+%     + (a_2 - k).
+% \end{align*}
+% 计算 \(f_3 (x, y)\) 的判别式
+% \begin{align*}
+%     \Delta_3
+%     = {} &
+%     \tridet \det \begin{bmatrix}
+%                      a_0   & k/2   & a_1/2   \\
+%                      k/2   & a_4   & a_3/2   \\
+%                      a_1/2 & a_3/2 & a_2 - k \\
+%                  \end{bmatrix} \tridet
+%     \\
+%     = {} &
+%     \frac{2 k^3 - 2a_2 k^2
+%         + (2a_1 a_3 - 8a_0 a_4) k
+%         + (8a_0 a_2 a_4 - 2a_0 a_3^2 - 2a_1^2 a_4)}
+%     {8}.
+% \end{align*}
+% \(\Delta_3\) 是一个关于 \(k\)~的 \(1\)~元 \(3\)~次式,
+% 故 \(\Delta_3 = 0\) 是一个 \(1\)~元 \(3\)~次方程.
+% 理论地, 这是可解的.
+% 解出一个 \(k\).
+% 从而, 我们可用老方法解方程组~\eqref{eq:A0403},
+% 进而得到方程~\eqref{eq:A0401} 的解.
+
+% \begin{example}
+%     解方程
+%     \begin{align*}
+%         x^4 - 2x^3 - 10x^2 + 44x - 48 = 0.
+%     \end{align*}
+
+%     注意, \(0\)~次项 \(-48\) 非零,
+%     故此方程无零解.
+%     考虑方程组
+%     \begin{align*}
+%         \begin{cases}
+%             f_1 (x, y) = x^2 - 2x - 10 + 44y - 48y^2 = 0, \\
+%             f_2 (x, y) = xy - 1 = 0.
+%         \end{cases}
+%     \end{align*}
+%     此方程组的解的首个分量即为原方程的解.
+
+%     待定复数 \(k\).
+%     作出同解方程组
+%     \begin{align*}
+%         \begin{cases}
+%             f_3 (x, y) = 0, \\
+%             f_2 (x, y) = 0,
+%         \end{cases}
+%     \end{align*}
+%     其中
+%     \begin{align*}
+%         f_3 (x, y)
+%         = {} & f_1 (x, y) + kf_2 (x, y)                  \\
+%         = {} & x^2 + kxy - 48y^2 - 2x + 44y + (-10 - k).
+%     \end{align*}
+%     计算 \(f_3 (x, y)\) 的判别式
+%     \begin{align*}
+%         \Delta_3
+%         = \tridet \det \begin{bmatrix}
+%                            1   & k/2 & -1    \\
+%                            k/2 & -48 & 22    \\
+%                            -1  & 22  & -10-k \\
+%                        \end{bmatrix} \tridet
+%         = \frac{1}{4} (k + 2) (k^2 + 8k + 88).
+%     \end{align*}
+%     所以, 我们可取 \(k = -2\).
+%     则
+%     \begin{align*}
+%         f_3 (x, y)
+%         = {} & x^2 - 2xy - 48y^2 - 2x + 44y - 8           \\
+%         = {} & x^2 + 2x(-y-1) - 48y^2 + 44y - 8           \\
+%         = {} & (x - y - 1)^2 - (-y-1)^2 - 48y^2 + 44y - 8 \\
+%         = {} & (x - y - 1)^2 - (7y - 3)^2                 \\
+%         = {} & (x + 6y - 4) (x - 8y + 2).
+%     \end{align*}
+%     所以
+%     \begin{align*}
+%         x + 6y - 4 = 0
+%         \quad \text{或} \quad
+%         x - 8y + 2 = 0.
+%     \end{align*}
+%     从而
+%     \begin{align*}
+%         x^2 + 6xy - 4x = 0
+%         \quad \text{或} \quad
+%         x^2 - 8xy + 2x = 0.
+%     \end{align*}
+%     因为 \(xy - 1 = 0\),
+%     故
+%     \begin{align*}
+%         x^2 - 4x + 6 = 0
+%         \quad \text{或} \quad
+%         x^2 + 2x - 8 = 0.
+%     \end{align*}
+%     注意,
+%     我们的目的是求解 (原方程的) \(x\),
+%     而 \(y\) 只是辅助量,
+%     故我们用 \(y = 1/x\) 消去了 \(y\),
+%     进而直接求解 \(x\).
+%     我们不必同时解出 \(x\) 与 \(y\).
+
+%     \(1\)~元 \(2\)~次方程是不难求解的.
+%     不难算出
+%     \begin{align*}
+%         x = 2 + \mathrm{i} \sqrt{2}
+%         \quad \text{或} \quad
+%         x = 2 - \mathrm{i} \sqrt{2}
+%         \quad \text{或} \quad
+%         x = -4
+%         \quad \text{或} \quad
+%         x = 2.
+%     \end{align*}
+%     经验证, 它们都是原方程的解.
+% \end{example}
+
+\end{document}
+
+This material shows how one can use determinants
+to study quadratic expressions in two variables
+and to solve a system of quadratic equation
+with two unknowns.
+However, since I only need determinants of 3-by-3 matrices,
+that the formula is not so hard,
+one can actually read this material
+whenever one wishes to,
+as long as one knows how to do arithmetic of complex numbers
+(addition, subtraction, multiplication, and division
+of complex numbers)
+and accepts results about
+existence of the (or rather, a) square root
+and that of the (or rather, a) cubic root.
+Yes, complex numbers are really needed.

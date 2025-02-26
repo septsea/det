@@ -1,0 +1,32 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\backmatter}{}
+
+\clearpage
+
+\ifodd\value{page}\else%
+\mbox{}\thispagestyle{empty}\clearpage%
+\fi
+
+\mbox{}\thispagestyle{empty}\clearpage
+
+\thispagestyle{empty}
+\ifdeflength{\centeroffset}{}{\newlength{\centeroffset}}
+\setlength{\centeroffset}{-0.5\evensidemargin}
+\addtolength{\centeroffset}{0.5\oddsidemargin}
+\vspace*{\fill}
+\noindent\hspace*{\centeroffset}\makebox[0pt][l]%
+{%
+    \begin{minipage}{\textwidth}
+        \centering\itshape\Large%
+        \esperanto{Enkonduko al determinantoj}%
+    \end{minipage}%
+}\par%
+\vspace{.5\baselineskip}\mbox{}\vfill
+
+\end{document}
+
+I do not know (or rather, I forgot)
+what inspired this back cover....

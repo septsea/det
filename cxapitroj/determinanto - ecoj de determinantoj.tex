@@ -1,0 +1,1534 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+
+\section{单位阵}
+
+本节, 我要介绍一类特别的方阵, 单位阵.
+
+\begin{definition}[\(\delta\)-记号]
+    设 \(i\), \(j\) 是二个文字.
+    定义
+    \begin{align*}
+        \delta(i, j)
+        = \begin{cases}
+              0, & i \neq j; \\
+              1, & i = j.
+          \end{cases}
+    \end{align*}
+\end{definition}
+
+显然, \(\delta\)-记号是表示二个文字是否相等的一个量.
+\(\delta(i, j) = 1\), 说明 \(i\), \(j\) 是同一个文字;
+\(\delta(i, j) = 0\), 说明 \(i\), \(j\) 是不同的二个文字.
+
+\begin{definition}[单位阵]
+    设 \(n\) 为正整数.
+    作 \(n\)~级阵 \(I_n\),
+    使 \([I_n]_{i,j} = \delta(i, j)\),
+    (\(1 \leq i, j \leq n\)).
+    我们说, \(I_n\) 是 \(n\)~级\emph{单位阵}.
+
+    当我们不强调单位阵的尺寸时,
+    我们可简单地写单位阵为 \(I\).
+\end{definition}
+
+\(I\) 来自英语 \angla{identity}.
+
+\begin{example}
+    \(1\)~级单位阵是 \([1]\).
+    \(2\)~级单位阵是
+    \(
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{bmatrix}.
+    \)
+    \(3\)~级单位阵是
+    \(
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+    \end{bmatrix}.
+    \)
+
+    一般地, \(n\)~级单位阵含 \(n\)~个 \(1\)
+    与 \(n^2 - n\)~个 \(0\),
+    且 \(1\) 恰在行号与列号相等的地方
+    (也就是, \(0\) 恰在行号与列号不等的地方).
+\end{example}
+
+可写一个 \(n \times 1\)~阵%
+为 \(n\)~级单位阵 \(I_n\)~的列的数乘的和.
+具体地, 我们设 \(x\) 是一个 \(n \times 1\)~阵,
+且设 \(I_n = [e_1, e_2, \dots, e_n]\)
+(也就是,
+设 \(e_1\), \(e_2\), \(\dots\), \(e_n\) 是
+\(I_n\) 的列 \(1\), \(2\), \(\dots\), \(n\)).
+记 \(k_i = [x]_{i,1}\).
+则
+\begin{align*}
+    x
+    % = {} &
+    =
+    k_1 e_1 + k_2 e_2 + \dots + k_n e_n
+    % \\
+    % = {} &
+    =
+    \sum_{\ell = 1}^{n} {k_\ell e_\ell}.
+\end{align*}
+为证明此式, 我们要用%
+单位阵的定义、加法的定义、数乘的定义
+(不难看出, 等式二侧的尺寸都是 \(n \times 1\)):
+\begin{align*}
+    \left[ \sum_{\ell = 1}^{n} {k_\ell e_\ell} \right]_{i,1}
+    = {} &
+    \sum_{\ell = 1}^{n} {[k_\ell e_\ell]_{i,1}}
+    \\
+    = {} &
+    \sum_{\ell = 1}^{n} {k_\ell [e_\ell]_{i,1}}
+    \\
+    = {} &
+    \sum_{\ell = 1}^{n} {k_\ell [I_n]_{i,\ell}}
+    \\
+    = {} &
+    \sum_{\ell = 1}^{n} {k_\ell \delta(i, \ell)}
+    \\
+    = {} &
+    k_i \delta(i, i)
+    + \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
+    {k_\ell \delta(i, \ell)}
+    \\
+    = {} &
+    k_i
+    + \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
+    {k_\ell 0}
+    \\
+    = {} &
+    k_i.
+\end{align*}
+
+至多以一个方式写一个 \(n \times 1\)~阵%
+为 \(n\)~级单位阵 \(I_n\)~的列的数乘的和.
+具体地, 设 \(e_1\), \(e_2\), \(\dots\), \(e_n\) 是
+\(I_n\) 的列 \(1\), \(2\), \(\dots\), \(n\).
+再设
+\begin{align*}
+    \sum_{\ell = 1}^{n} {k_\ell e_\ell}
+    = \sum_{\ell = 1}^{n} {p_\ell e_\ell}.
+\end{align*}
+不难算出
+\begin{align*}
+     & \sum_{\ell = 1}^{n} {k_\ell e_\ell}
+    = \begin{bmatrix}
+          k_1    \\
+          \vdots \\
+          k_n
+      \end{bmatrix},                       \\
+     & \sum_{\ell = 1}^{n} {p_\ell e_\ell}
+    = \begin{bmatrix}
+          p_1    \\
+          \vdots \\
+          p_n
+      \end{bmatrix}.
+\end{align*}
+从而
+\begin{align*}
+    \begin{bmatrix}
+        k_1    \\
+        \vdots \\
+        k_n
+    \end{bmatrix}
+    = \begin{bmatrix}
+          p_1    \\
+          \vdots \\
+          p_n
+      \end{bmatrix}.
+\end{align*}
+由此可知, \(k_i = p_i\).
+
+综上, 我们有
+
+\begin{theorem}
+    可以, 且只能以一个方式写一个
+    \(n \times 1\)~阵为 \(n\)~级单位阵 \(I_n\)~的%
+    列的数乘的和.
+\end{theorem}
+
+\begin{example}
+    设
+    \(
+    x = \begin{bmatrix}
+        6 \\ 2 \\ 8 \\
+    \end{bmatrix}.
+    \)
+    于是, 一方面,
+    \begin{align*}
+        x =
+        6\begin{bmatrix}
+             1 \\ 0 \\ 0 \\
+         \end{bmatrix}
+        + 2\begin{bmatrix}
+               0 \\ 1 \\ 0 \\
+           \end{bmatrix}
+        + 8\begin{bmatrix}
+               0 \\ 0 \\ 1 \\
+           \end{bmatrix}.
+    \end{align*}
+
+    另一方面, 我们设
+    \begin{align*}
+        x =
+        k_1 \begin{bmatrix}
+                1 \\ 0 \\ 0 \\
+            \end{bmatrix}
+        + k_2 \begin{bmatrix}
+                  0 \\ 1 \\ 0 \\
+              \end{bmatrix}
+        + k_3 \begin{bmatrix}
+                  0 \\ 0 \\ 1 \\
+              \end{bmatrix}.
+    \end{align*}
+    则
+    \begin{align*}
+        \begin{bmatrix}
+            6 \\ 2 \\ 8 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            k_1 \\ 0 \\ 0 \\
+        \end{bmatrix}
+        + \begin{bmatrix}
+              0 \\ k_2 \\ 0 \\
+          \end{bmatrix}
+        + \begin{bmatrix}
+              0 \\ 0 \\ k_3 \\
+          \end{bmatrix}
+        = \begin{bmatrix}
+              k_1 \\ k_2 \\ k_3 \\
+          \end{bmatrix}.
+    \end{align*}
+    由此可知,
+    \(k_1\), \(k_2\), \(k_3\)
+    分别是
+    \(6\), \(2\), \(8\).
+\end{example}
+
+我们可用完全类似的方法证明如下结果.
+我留它为您的习题.
+
+\begin{theorem}
+    可以, 且只能以一个方式写一个
+    \(1 \times n\)~阵为 \(n\)~级单位阵 \(I_n\)~的%
+    行的数乘的和.
+\end{theorem}
+
+\section{行列式的性质}
+
+本节, 我们学习行列式的几条重要的性质.
+
+\begin{theorem}[规范性]
+    单位阵的行列式为 \(1\).
+\end{theorem}
+
+\begin{proof}
+    我们用数学归纳法证明此事.
+    具体地, 设 \(P(n)\) 为命题
+    \begin{align*}
+        \det {(I_n)} = 1.
+    \end{align*}
+    则, 我们的目标是:
+    对任何正整数 \(n\), \(P(n)\) 是对的.
+
+    \(P(1)\) 显然是对的.
+    我就不解释它了; 您解释它.
+
+    现在, 我们假定 \(P(m-1)\) 是对的.
+    我们要证 \(P(m)\) 也是对的;
+    也就是, \(\det {(I_m)} = 1\).
+    按列~\(1\) 展开, 有
+    \begin{align*}
+             & \det {(I_m)}
+        \\
+        = {} & \sum_{i = 1}^{m}
+        {(-1)^{i+1} [I_m]_{i,1} \det {(I_m (i|1))}}
+        \\
+        % = {} & \sum_{i = 1}^{m}
+        % {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
+        % \\
+        = {} & (-1)^{1+1} \delta(1, 1) \det {(I_m (1|1))}
+        + \sum_{i = 2}^{m}
+        {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
+        \\
+        = {} & \det {(I_{m-1})}
+        + \sum_{i = 2}^{m}
+        {(-1)^{i+1} 0 \det {(I_m (i|1))}}
+        \\
+        = {} & \det {(I_{m-1})}
+        \\
+        = {} & 1.
+    \end{align*}
+    所以, \(P(m)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{proof}
+
+我接下来要讲的二个性质的论证利用%
+按 (任何) 一列展开行列式%
+的公式.
+请允许我引用此公式:
+
+% subfile fix: repeat restatable
+% see:
+% determinanto - determinantoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{TheoremExpansionAboutAnyColumn}
+        设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+        设 \(j\) 为整数, 且 \(1 \leq j \leq n\).
+        则
+        \begin{align*}
+            \det {(A)} = \sum_{i = 1}^{n}
+            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+        \end{align*}
+    \end{restatable}
+}{\TheoremExpansionAboutAnyColumn*}
+
+\begin{theorem}[多线性]
+    行列式 (关于列) 是多线性的.
+    具体地, 对任何不超过 \(n\) 的正整数 \(j\),
+    任何 \(n-1\)~个 \(n \times 1\)~阵
+    \(a_1\), \(\dots\), \(a_{j-1}\),
+    \(a_{j+1}\), \(\dots\), \(a_n\),
+    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何二个数 \(s\), \(t\),
+    有
+    \begin{align*}
+             & \det
+        {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}
+        \\
+        = {} &
+        s
+        \det {[a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n]}
+        +
+        t
+        \det {[a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]}.
+    \end{align*}
+    (若 \(j = 1\), 则 \(a_1\) 不出现;
+    若 \(j = n\), 则 \(a_n\) 不出现.
+    下同.)
+\end{theorem}
+
+\begin{proof}
+    作三个 \(n\)~级阵 \(A\), \(B\), \(C\):
+    \(A\), \(B\), \(C\)~的列~\(k\) 为 \(a_k\) (\(k \neq j\));
+    \(A\)~的列~\(j\) 为 \(x\);
+    \(B\)~的列~\(j\) 为 \(y\);
+    \(C\)~的列~\(j\) 为 \(sx + ty\).
+    则
+    \begin{align*}
+         & \det {(A)}
+        = \det
+        {[a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n]};
+        \\
+         & \det {(B)}
+        = \det
+        {[a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]};
+        \\
+         & \det {(C)}
+        = \det
+        {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}.
+    \end{align*}
+    不难发现, 若 \(k \neq j\), 则
+    \(
+    [A]_{i,k} = [B]_{i,k} = [C]_{i,k},
+    \)
+    故
+    \(
+    A(i|j) = B(i|j) = C(i|j).
+    \)
+    再注意,
+    \(
+    [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j},
+    \)
+    得
+    \begin{align*}
+             & \det {(C)}
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {
+        (-1)^{i+j} [C]_{i,j} \det {(C(i|j))}
+        }
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {
+        (-1)^{i+j} (s[A]_{i,j} + t[B]_{i,j}) \det {(C(i|j))}
+        }
+        \\
+        = {} &
+        s\sum_{i = 1}^{n} {
+        (-1)^{i+j} [A]_{i,j} \det {(C(i|j))}
+        }
+        +
+        t\sum_{i = 1}^{n} {
+        (-1)^{i+j} [B]_{i,j} \det {(C(i|j))}
+        }
+        \\
+        = {} &
+        s\sum_{i = 1}^{n} {
+        (-1)^{i+j} [A]_{i,j} \det {(A(i|j))}
+        }
+        +
+        t\sum_{i = 1}^{n} {
+        (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}
+        }
+        \\
+        = {} &
+        s \det{(A)} + t \det{(B)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+多线性有一个直白的推广.
+具体地,
+对任何不超过 \(n\) 的正整数 \(j\),
+任何 \(n-1\)~个 \(n \times 1\)~阵
+\(a_1\), \(\dots\), \(a_{j-1}\),
+\(a_{j+1}\), \(\dots\), \(a_n\),
+任何 \(\ell\)~个 \(n \times 1\)~阵
+\(b_1\), \(b_2\), \(\dots\), \(b_\ell\),
+任何 \(\ell\)~个数
+\(s_1\), \(s_2\), \(\dots\), \(s_\ell\),
+有
+\begin{align*}
+         & \det
+    {\left[
+            a_1, \dots, a_{j-1},
+            \sum_{k = 1}^{\ell} {s_k b_k},
+            a_{j+1}, \dots, a_n
+            \right]}
+    \\
+    = {} &
+    \sum_{k = 1}^{\ell}
+    {s_k
+    \det {[a_1, \dots, a_{j-1},
+                b_k,
+                a_{j+1}, \dots, a_n]}}.
+\end{align*}
+您可施数学归纳法于 \(\ell\) 以证此事
+(注意,
+\(
+s_1 b_1 + \dots + s_\ell b_\ell
+= 1 (s_1 b_1 + \dots + s_{\ell-1} b_{\ell-1}) + s_\ell b_\ell
+\)%
+);
+其实, 这就是多次用多线性的结果.
+
+\begin{theorem}[交错性]
+    行列式 (关于列) 是交错性的.
+    具体地,
+    若 \(n\)~级阵 \(A\) 有二列相同,
+    则 \(\det {(A)} = 0\).
+\end{theorem}
+
+有一件事值得提.
+明显地, \(1\)~级阵不可能有二列相同.
+不过,
+根据
+``若 \(p\) 是错的, 则 `若 \(p\), 则 \(q\)' 是对的''
+原则,
+我们仍认为 \(1\)~级阵的行列式有交错性.
+(``若 \(p\), 则 \(q\)''
+相当于
+``对适合条件 \(p\) 的任何对象~\(o\),
+\(o\) 也适合条件 \(q\)''.
+形如 ``对任何 A, 必 B'' 的话%
+的反面就是 ``存在某个 A, 使其非 B''.
+所以, 若我们找不到 ``非 B'' 的 A,
+我们应认为, ``对任何 A, 必 B'' 是对的.
+特别地, 当 A 不存在时, 自然没有非 B 的 A.
+故, 我们认为, 即使 A 不存在,
+``对任何 A, 必 B'' 是对的.)
+
+\begin{proof}
+    我们用数学归纳法证明此事.
+    具体地, 设 \(P(n)\) 为命题
+    \begin{quotation}
+        对每一个有相同的二列的 \(n\)~级阵 \(A\),
+        其行列式必为 \(0\).
+    \end{quotation}
+    则, 我们的目标是:
+    对任何正整数~\(n\), \(P(n)\) 是对的.
+
+    前面解释过, 我们认为, \(P(1)\) 是对的.
+
+    现在考虑 \(P(2)\).
+    为此, 任取有相同的二列的 \(2\)~级阵
+    \begin{align*}
+        A = \begin{bmatrix}
+                a & a \\
+                b & b \\
+            \end{bmatrix}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(A)}
+        = ab - ba
+        = 0.
+    \end{align*}
+    故 \(P(2)\) 是对的.
+
+    现在, 我们假定 \(P(m-1)\) 是对的
+    (注意, 此处 \(m \geq 3\)).
+    我们要证 \(P(m)\) 也是对的.
+    任取一个有相同的二列的 \(m\)~级阵 \(A\).
+    我们设 \(A\)~的列~\(p\) 等于列~\(q\),
+    其中 \(1 \leq p < q \leq m\).
+    在 \(1\), \(2\), \(\dots\), \(m\) 这 \(m\)~个数里,
+    我们必定能找到一个数 \(j\),
+    它既不等于 \(p\), 也不等于 \(q\).
+    按列~\(j\) 展开行列式, 有
+    \begin{align*}
+        \det {(A)}
+        = \sum_{i = 1}^{m} {(-1)^{i + j} [A]_{i,j}
+        \det {(A(i|j))}}.
+    \end{align*}
+    注意, \(m-1\)~级阵 \(A(i|j)\) 仍有相同的二列.
+    所以, 根据假定, \(\det {(A(i|j))} = 0\).
+    故 \(\det {(A)} = 0\).
+
+    所以, \(P(m)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{proof}
+
+行列式的一些性质是其多线性与交错性的推论,
+如
+
+\begin{theorem}[反称性]
+    行列式 (关于列) 是反称性的.
+    具体地,
+    设 \(A\) 是 \(n\)~级阵.
+    设交换 \(A\)~的列~\(p\) 与列~\(q\) 后得到的阵为 \(B\)
+    (\(p < q\)).
+    则 \(\det {(B)} = -\det {(A)}\).
+    (通俗地, 交换方阵的二列, 则其行列式变号.)
+\end{theorem}
+
+\begin{proof}
+    设 \(A = [a_1, a_2, \dots, a_n]\).
+    为方便, 我们写
+    \begin{align*}
+        f(x, y)
+        = \det {[a_1, \dots, a_{p-1}, x, a_{p+1}, \dots,
+                    a_{q-1}, y, a_{q+1}, \dots, a_n]}.
+    \end{align*}
+    则
+    \begin{align*}
+        0
+        = {} & f(a_p + a_q, a_p + a_q)               \\
+        = {} & f(a_p, a_p + a_q) + f(a_q, a_p + a_q) \\
+        = {} & (f(a_p, a_p) + f(a_p, a_q))
+        + (f(a_q, a_p) + f(a_q, a_q))                \\
+        = {} & f(a_p, a_q) + f(a_q, a_p)             \\
+        = {} & \det {(A)} + \det {(B)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\section{用行列式的性质确定行列式}
+
+本节, 我们研究如何%
+用行列式的一些性质确定行列式.
+
+假定, 您熟悉一些人
+(而不只是知道他们的存在).
+自然地, 您也知道他们的一些特征.
+我从这些人里选一个.
+我想, 您可以说出此人的几个特征.
+不过, 反过来,
+若我说出某人的几个特征,
+您能确定此人吗?
+那一般是不一定的.
+不过, 若我给出某些特别的特征,
+那是有可能的.
+
+抽象地, \(n\)~级阵的行列式就是一个%
+定义在全体 \(n\)~级阵上的函数.
+就像一个人有多的特征那样,
+行列式也有多的特征 (或者, 性质),
+无论是有名的 (有名字的),
+还是无名的.
+注意,
+一些特征并不是行列式特有的:
+比如, 零函数 \(z(A) = 0\)
+(其中 \(A\) 是任何的 \(n\)~级阵)
+适合多线性、交错性、反称性,
+且恒取 \(1\) 的函数 \(u(A) = 1\)
+适合规范性,
+但它们都不是行列式.
+不过, 若我们联合行列式的几个特征,
+则它们可确定行列式.
+
+\begin{theorem}
+    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+
+    (1)
+    (多线性)
+    对任何不超过 \(n\) 的正整数 \(j\),
+    任何 \(n-1\)~个 \(n \times 1\)~阵
+    \(a_1\), \(\dots\), \(a_{j-1}\),
+    \(a_{j+1}\), \(\dots\), \(a_n\),
+    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何二个数 \(s\), \(t\),
+    有
+    \begin{align*}
+             & f
+            {([a_1, \dots, a_{j-1}, sx + ty,
+                        a_{j+1}, \dots, a_n])}
+        \\
+        = {} &
+        s
+        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
+        +
+        t
+        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+    \end{align*}
+
+    (2)
+    (交错性)
+    若 \(n\)~级阵 \(A\) 有二列相同,
+    则 \(f {(A)} = 0\).
+
+    那么, 对任何 \(n\)~级阵 \(A\),
+    \(f(A) = f(I) \det {(A)}\).
+
+    特别地, 若 \(f(I) = 1\) (规范性),
+    则 \(f\) 就是行列式.
+\end{theorem}
+
+\begin{proof}
+    我们设 \(g(A) = f(A) - f(I) \det {(A)}\).
+    不难验证, \(g\) 也有多线性、交错性、反称性.
+    (具体地, 设交换 \(n\)~级阵 \(A\)~的%
+    列~\(p\) 与列~\(q\) 后得到的阵为 \(B\),
+    且 \(p < q\),
+    则 \(g(B) = -g(A)\);
+    这是前二个性质的推论.)
+    不难看出, \(g(I) = 0\).
+    我们的目标是: 证 \(g\) 是零函数 (即, 恒为 \(0\)).
+
+    任取一个 \(n\)~级阵 \(A\).
+    设 \(n\)~级单位阵的列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是 \(e_1\), \(e_2\), \(\dots\), \(e_n\).
+    设 \(A\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是 \(a_1\), \(a_2\), \(\dots\), \(a_n\).
+    于是
+    \begin{align*}
+        a_{k}
+        % = {} &
+            =
+            [A]_{1,k} e_{1} + [A]_{2,k} e_{2}
+        + \dots + [A]_{n,k} e_{n}
+        % \\
+        % = {} &
+        =
+        \sum_{i_k = 1}^{n} {[A]_{i_k,k} e_{i_k}}.
+    \end{align*}
+    % (注意, 这里, 我用了 \(n\)~个求和指标
+    % \(i_1\), \(i_2\), \(\dots\), \(i_n\).)
+    从而, 利用多线性,
+    \begin{align*}
+        g(A)
+        = {} &
+        g([a_1, a_2, \dots, a_n])
+        \\
+        = {} &
+        g\left(\left[ \sum_{i_1 = 1}^{n} {[A]_{i_1,1} e_{i_1},
+        a_2, \dots, a_n} \right]\right)
+        \\
+        = {} &
+        \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
+        g([ e_{i_1}, a_2, \dots, a_n ])}
+        \\
+        = {} &
+        \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
+        g\left(\left[ e_{i_1},
+            \sum_{i_2 = 1}^{n} [A]_{i_2,2} e_{i_2},
+        \dots, a_n
+        \right]\right)}
+        \\
+        = {} &
+        \sum_{i_1 = 1}^{n} {
+        \sum_{i_2 = 1}^{n} {[A]_{i_1,1} [A]_{i_2,2}\,
+        g([ e_{i_1}, e_{i_2}, \dots, a_n ])}}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \sum_{i_1 = 1}^{n} {
+        \sum_{i_2 = 1}^{n} {
+        \dots
+        \sum_{i_n = 1}^{n} {
+        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n} \,
+        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}}}.
+    \end{align*}
+
+    利用交错性, 不难看出,
+    若存在整数 \(p\), \(q\)
+    使 \(1 \leq p < q \leq n\),
+    且 \(i_p = i_q\),
+    则 \([e_{i_1}, e_{i_2}, \dots, e_{i_n}]\)
+    有二列相同,
+    故 \(g([e_{i_1}, e_{i_2}, \dots, e_{i_n}]) = 0\).
+    所以,
+    \begin{align*}
+        g(A)
+        = \sum_{\substack{
+        1 \leq i_1, i_2, \dots, i_n \leq n \\
+                i_1, i_2, \dots, i_n\,\text{互不相同}
+            }}
+        {[A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}\,
+            g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}.
+    \end{align*}
+
+    我们用反称性证明每一个
+    \(g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])\)
+    (其中 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    是不超过 \(n\) 的正整数, 且互不相同)
+    都是 \(0\).
+    适当地交换
+    \([e_{i_1}, e_{i_2}, \dots, e_{i_n}]\)~的列,
+    可变其为 \([e_1, e_2, \dots, e_n]\),
+    即 \(n\)~级单位阵.
+    从而
+    \begin{align*}
+        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])
+        = \pm g(I) = 0.
+    \end{align*}
+
+    所以 \(g(A) = 0\).
+    故 \(f(A) = f(I) \det {(A)}\).
+    (反过来, 不难验证, 若我们定义
+    \(f(A) = f(I) \det {(A)}\),
+    则 \(f\) 适合多线性与交错性.)
+\end{proof}
+
+\begin{theorem}
+    若定义在全体 \(n\)~级阵上的函数 \(f\)
+    适合规范性、多线性、交错性,
+    则 \(f\) 就是 (\(n\)~级阵的) 行列式 (函数).
+\end{theorem}
+
+由此, 理论地, 我们可用%
+行列式的这三条性质%
+定义行列式:
+
+\begin{definition}
+    设 \(f\) 是定义在全体 \(n\)~级阵上的函数.
+    若 \(f\) 适合如下三条, 则说
+    \(f\) 是 (\(n\)~级阵的) 一个行列式函数
+    (自然地, 若 \(A\) 是 \(n\)~级阵,
+    则 \(f(A)\) 是 \(A\) 的一个行列式):
+
+    (1)
+    (规范性)
+    若 \(I\) 是 \(n\)~级单位阵,
+    则 \(f(I) = 1\).
+
+    (2)
+    (多线性)
+    对任何不超过 \(n\) 的正整数 \(j\),
+    任何 \(n-1\)~个 \(n \times 1\)~阵
+    \(a_1\), \(\dots\), \(a_{j-1}\),
+    \(a_{j+1}\), \(\dots\), \(a_n\),
+    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何二个数 \(s\), \(t\),
+    有
+    \begin{align*}
+             & f
+            {([a_1, \dots, a_{j-1}, sx + ty,
+                        a_{j+1}, \dots, a_n])}
+        \\
+        = {} &
+        s
+        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
+        +
+        t
+        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+    \end{align*}
+
+    (3)
+    (交错性)
+    若 \(n\)~级阵 \(A\) 有二列相同,
+    则 \(f {(A)} = 0\).
+\end{definition}
+
+不过, 我没有这么作,
+因为, 若我们如此定义行列式,
+则我们要证明 (\(n\)~级阵的) 行列式函数存在且唯一,
+而这可能是难的.
+
+\section{\texorpdfstring{``行'' 列式}%
+  {"行" 列式}}
+
+前面, 我们学习了行列式的一些公式与性质.
+它们至少有一个共同点:
+它们都是关于列的命题.
+毕竟, 行列式的定义就是按列~\(1\) 展开.
+利用定义,
+我们得到了按任何一列展开行列式的公式.
+然后, 我们得到了行列式的一些关于列的性质.
+自然地, 我们问:
+行列式是否也有关于行的公式与性质?
+此事的回答是 ``是''.
+为此, 我们先按行~\(1\) 展开行列式.
+
+% restatable
+\begin{restatable}{theorem}{TheoremExpansionAboutRowOne}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+    则
+    \begin{align*}
+        \det {(A)} = \sum_{j = 1}^{n}
+        {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+    \end{align*}
+\end{restatable}
+
+我们无妨先用小级阵验证此命题.
+
+设 \(A\) 是 \(1\)~级阵.
+显然
+(我作过一个关于 ``\(0\)~级阵'' 及其行列式的约定).
+
+设 \(A\) 是 \(2\)~级阵 (也就是, 取 \(n = 2\)).
+则
+\begin{align*}
+    \det {(A)}
+    = {} &
+    [A]_{1,1} [A]_{2,2} - [A]_{2,1} [A]_{1,2}
+    \\
+    = {} &
+    [A]_{1,1} [A]_{2,2} - [A]_{1,2} [A]_{2,1}
+    \\
+    = {} &
+    (-1)^{1+1} [A]_{1,1} \det {(A(1|1))}
+    + (-1)^{1+2} [A]_{1,2} \det {(A(1|2))}.
+\end{align*}
+所以, \(n = 2\) 时, 命题是对的.
+
+\begin{proof}
+    我们用数学归纳法证明此事.
+    具体地, 设 \(P(n)\) 为命题
+    \begin{quotation}
+        对任何 \(n\)~级阵 \(A\),
+        \begin{align*}
+            \det {(A)} = \sum_{j = 1}^{n}
+            {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+        \end{align*}
+    \end{quotation}
+    则, 我们的目标是:
+    对任何正整数 \(n\), \(P(n)\) 是对的.
+
+    我们已知 \(P(1)\), \(P(2)\) 都是对的.
+
+    现在, 我们假定 \(P(m-1)\) 是对的.
+    我们要证 \(P(m)\) 也是对的.
+    任取一个 \(m\)~级阵 \(A\).
+    为方便, 我们写
+    \((-1)^{1+1} [A]_{1,1} \det {(A(1|1))}\)
+    为 \(f\).
+    于是%
+    \begingroup
+    \reqnomode
+    \begin{align*}
+             & \det {(A)} \\
+        = {} &
+        \sum_{i = 1}^{m} {
+        (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+        }
+        \tag*{(1)}
+        \\
+        = {} &
+        f
+        +
+        \sum_{i = 2}^{m} {
+        (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+        }
+        \\
+        = {} &
+        f
+        +
+        \sum_{i = 2}^{m} {
+        (-1)^{i+1} [A]_{i,1}
+        \sum_{j = 2}^{m} {
+        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
+        }
+        }
+        \tag*{(2)}
+        \\
+        = {} &
+        f
+        +
+        \sum_{i = 2}^{m} {
+        \sum_{j = 2}^{m} {
+        (-1)^{i+1} [A]_{i,1}
+        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
+        }
+        }
+        \tag*{(3)}
+        \\
+        = {} &
+        f
+        +
+        \sum_{j = 2}^{m} {
+        \sum_{i = 2}^{m} {
+        (-1)^{i+1} [A]_{i,1}
+        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
+        }
+        }
+        \tag*{(4)}
+        \\
+        = {} &
+        f
+        +
+        \sum_{j = 2}^{m} {
+        \sum_{i = 2}^{m} {
+        (-1)^{1+j} [A]_{1,j}
+        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
+        }
+        }
+        \tag*{(5)}
+        \\
+        = {} &
+        f
+        +
+        \sum_{j = 2}^{m} {
+        (-1)^{1+j} [A]_{1,j}
+        \sum_{i = 2}^{m} {
+        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
+        }
+        }
+        \tag*{(6)}
+        \\
+        = {} &
+        f
+        +
+        \sum_{j = 2}^{m} {
+        (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+        }
+        \tag*{(7)}
+        \\
+        = {} &
+        \sum_{j = 1}^{m} {
+        (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+        }.
+    \end{align*}%
+    \endgroup
+    所以, \(P(m)\) 是对的.
+    由数学归纳法, 待证命题成立.
+
+    我想, 您看到了公式右侧的序号.
+    这是方便我说话用的.
+    我想, 适当地解释这几步,
+    是有好处的.
+
+    (1) 是行列式的定义.
+
+    (2) 利用了假定.
+    设 \(i > 1\).
+    我们假定可按行~\(1\) 展开任何 \(m - 1\)~级阵的行列式.
+    \(A(i|1)\) 不就是 \(m - 1\)~级阵吗?
+    那么, 我们就按 \(A(i|1)\) 的行~\(1\) 展开.
+    \(A(i|1)\) 的行~\(1\) 正好对应
+    \(A\) 的行~\(1\).
+    最后, 注意,
+    \(A\)~的 \((1, j)\)-元恰是
+    \(A(i|1)\)~的 \((1, j - 1)\)-元.
+
+    (3) 利用了分配律 (还有加法的结合律与交换律).
+
+    (4) 利用了加法的结合律与交换律.
+    (通俗地, 求和号的次序可换.)
+
+    (5) 利用了 \(-1\)~的整数次方的性质 (我在前面说过).
+    当然, 我还利用了乘法的结合律与交换律.
+
+    (6) 又用了一次分配律 (还有加法的结合律与交换律).
+    不过, 跟 (3) 对比, 这次是反过来用.
+
+    (7) 用到了行列式的定义.
+    注意, \(i > 1\) 时,
+    \(A\)~的 \((i, 1)\)-元恰是
+    \(A(1|j)\)~的 \((i - 1, 1)\)-元.
+\end{proof}
+
+由此, 我们不难证明行列式与转置的关系.
+
+% 不难看到, 按行~\(1\) 展开行列式的公式%
+% 跟按列~\(1\) 展开行列式的公式是类似的.
+% 为方便,
+% 我作如下定义.
+% % 我作一个暂时的定义.
+
+% \begin{definition}[``行'' 列式]
+%     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+%     定义 \(A\) 的 ``行'' 列式
+%     \begin{align*}
+%         \operatorname{det}' {(A)}
+%         =
+%         \begin{dcases}
+%             [A]_{1,1},
+%              & n = 1;    \\
+%             \sum_{j = 1}^{n}
+%             {(-1)^{1+j} [A]_{1,j}
+%             \operatorname{det}' {(A(1|j))}},
+%              & n \geq 2.
+%         \end{dcases}
+%     \end{align*}
+% \end{definition}
+
+% 由上个定理,
+% 不难用数学归纳法证明,
+% ``行'' 列式就是行列式.
+% 作命题 \(P(n)\):
+% 对任何 \(n\)~级阵 \(A\),
+% \(A\)~的 ``行'' 列式等于 \(A\)~的行列式.
+% \(P(1)\) 显然是对的.
+% 假定 \(P(m-1)\) 是对的.
+% 任取一个 \(m\)~级阵 \(A\).
+% 则
+% \begin{align*}
+%     \operatorname{det}' {(A)}
+%     = {} & \sum_{j = 1}^{m}
+%     {(-1)^{1+j} [A]_{1,j} \operatorname{det}' {(A(1|j))}}
+%     \\
+%     = {} & \sum_{j = 1}^{m}
+%     {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}
+%     \\
+%     = {} & \det {(A)}.
+% \end{align*}
+
+% 若我用
+% ``行'' 列式~\(\operatorname{det}'\)
+% 作行列式的定义,
+% 那么, 我可用完全类似的方法,
+% 根据新的定义,
+% 证明按一行展开行列式的公式
+% (见本章, 节~\sekcio{7}):%
+% \begingroup
+% \reqnomode
+% \begin{align*}
+%          & \det {(A)}                  \\
+%     = {} &
+%     \sum_{j = 1}^{m} {
+%     (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+%     }
+%     % \tag*{(1)}
+%     \\
+%     = {} &
+%     \sum_{j = 1}^{m} {
+%     (-1)^{1+j} [A]_{1,j}
+%     \sum_{\substack{1 \leq \ell \leq m \\ \ell \neq j}} {
+%     (-1)^{(i - 1) + (\ell - \rho(\ell, j))}
+%         [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
+%     }
+%     }
+%     % \tag*{(2)}
+%     \\
+%     = {} &
+%     \sum_{j = 1}^{m} {
+%     \sum_{\substack{1 \leq \ell \leq m \\ \ell \neq j}} {
+%     (-1)^{(i - 1) + (\ell - \rho(\ell, j))}
+%     (-1)^{1+j}
+%         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
+%     }
+%     }
+%     % \tag*{(3)}
+%     \\
+%     = {} &
+%     \sum_{\ell = 1}^{m} {
+%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     (-1)^{(i - 1) + (\ell - \rho(\ell, j))}
+%     (-1)^{1+j}
+%         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
+%     }
+%     }
+%     % \tag*{(4)}
+%     \\
+%     = {} &
+%     \sum_{\ell = 1}^{m} {
+%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     (-1)^{i} (-1)^{\ell} (-1)^{\rho(\ell, j)} (-1)^{j}
+%         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
+%     }
+%     }
+%     % \tag*{(5)}
+%     \\
+%     = {} &
+%     \sum_{\ell = 1}^{m} {
+%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     (-1)^{i + \ell} (-1)^{1 + j - \rho(j, \ell)}
+%         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
+%     }
+%     }
+%     % \tag*{(6)}
+%     \\
+%     = {} &
+%     \sum_{\ell = 1}^{m} {(-1)^{i + \ell} [A]_{i,\ell}
+%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     (-1)^{1 + j - \rho(j, \ell)}
+%         [A]_{1,j} \det {(A({1,i}|{j,\ell}))}
+%     }
+%     }
+%     % \tag*{(7)}
+%     \\
+%     = {} &
+%     \sum_{\ell = 1}^{m} {(-1)^{i + \ell} [A]_{i,\ell}
+%     \det {(A(i|\ell))}
+%     },
+%     % \tag*{(8)}
+% \end{align*}%
+% \endgroup
+% % 不过, 写几乎一样的论证是无趣的.
+% % 所以, 换个思路.
+% 其中, 对整数 \(i\), \(j\),
+% \begin{align*}
+%     \rho(i, j)
+%     = \begin{cases}
+%           0, & i < j;    \\
+%           1, & i \geq j.
+%       \end{cases}
+% \end{align*}
+% 不过, 我们换个思路.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+    则 \(A\)~的转置, \(A^{\mathrm{T}}\),
+    的行列式等于 \(A\)~的行列式.
+\end{theorem}
+
+\begin{proof}
+    我们用数学归纳法证明此事.
+    具体地, 设 \(P(n)\) 为命题
+    \begin{quotation}
+        对任何 \(n\)~级阵 \(A\),
+        \begin{align*}
+            \det {(A^{\mathrm{T}})} = \det {(A)}.
+        \end{align*}
+    \end{quotation}
+    则, 我们的目标是:
+    对任何正整数 \(n\), \(P(n)\) 是对的.
+
+    \(P(1)\) 是对的.
+    毕竟, \(1\)~级阵的转置就是自己.
+
+    现在, 我们假定 \(P(m-1)\) 是对的.
+    我们要证 \(P(m)\) 也是对的.
+    任取一个 \(m\)~级阵 \(A\).
+    注意, \([A]_{i,j} = [A^{\mathrm{T}}]_{j,i}\).
+    于是, 可以验证,
+    \(A(i|k) = (A^{\mathrm{T}}(k|i))^{\mathrm{T}}\).
+    则
+    \begin{align*}
+        \det {(A^{\mathrm{T}})}
+        = {} & \sum_{i = 1}^{m} {
+        (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
+        \det {(A^{\mathrm{T}}(1|i))}
+        }
+        \\
+        = {} & \sum_{i = 1}^{m} {
+        (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
+        \det {((A^{\mathrm{T}}(1|i))^{\mathrm{T}})}
+        }
+        \\
+        = {} & \sum_{i = 1}^{m} {
+        (-1)^{i+1} [A]_{i,1}
+        \det {(A(i|1))}
+        }
+        \\
+        = {} & \det {(A)}.
+    \end{align*}
+    所以, \(P(m)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{proof}
+
+此性质是重要的:
+利用它,
+我们可译行列式的关于列的命题%
+为关于行的命题.
+我用一个例助您理解;
+它是按行~\(i\) 展开行列式的公式.
+
+% restatable that one has manually to repeat
+% in at least one other file:
+% determinanto - matrica multipliko.tex
+\begin{restatable}{theorem}{TheoremExpansionAboutAnyRow}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+    设 \(i\) 为整数, 且 \(1 \leq i \leq n\).
+    则
+    \begin{align*}
+        \det {(A)} = \sum_{j = 1}^{n}
+        {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+    \end{align*}
+\end{restatable}
+
+\begin{proof}
+    基本的思想:
+    先转置,
+    施关于列的命题于转置,
+    再转置回来.
+    回想,
+    \(A^{\mathrm{T}}\)~的列~\(i\)
+    跟 \(A\)~的行~\(i\) 对应,
+    故我们按列~\(i\) 展开 \(A^{\mathrm{T}}\)~的行列式.
+    则
+    \begin{align*}
+        \det {(A)}
+        = {} & \det {(A^{\mathrm{T}})}
+        \\
+        = {} & \sum_{j = 1}^{n}
+        {(-1)^{j+i} [A^{\mathrm{T}}]_{j,i}
+        \det {(A^{\mathrm{T}}(j|i))}
+        }
+        \\
+        = {} & \sum_{j = 1}^{n}
+        {(-1)^{j+i} [A]_{i,j}
+        \det {((A(i|j))^{\mathrm{T}})}
+        }
+        \\
+        = {} & \sum_{j = 1}^{n}
+        {(-1)^{i+j} [A]_{i,j}
+        \det {(A(i|j))}
+        }.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+为方便,
+我译前面的行列式的关于列的性质%
+为关于行的性质.
+不过, 我不证它们.
+我留它们为您的习题.
+
+\begin{theorem}[多线性]
+    行列式 (关于行) 是多线性的.
+    具体地, 对任何不超过 \(n\) 的正整数 \(i\),
+    任何 \(n-1\)~个 \(1 \times n\)~阵
+    \(a_1\), \(\dots\), \(a_{i-1}\),
+    \(a_{i+1}\), \(\dots\), \(a_n\),
+    任何二个 \(1 \times n\)~阵 \(x\), \(y\),
+    任何二个数 \(s\), \(t\),
+    有
+    \begin{align*}
+        \det
+        {\begin{bmatrix}
+                 a_1     \\
+                 \vdots  \\
+                 a_{i-1} \\
+                 sx + ty \\
+                 a_{i+1} \\
+                 \vdots  \\
+                 a_{n}   \\
+             \end{bmatrix}}
+        =
+        s
+        \det
+        {\begin{bmatrix}
+                 a_1     \\
+                 \vdots  \\
+                 a_{i-1} \\
+                 x       \\
+                 a_{i+1} \\
+                 \vdots  \\
+                 a_{n}   \\
+             \end{bmatrix}}
+        +
+        t
+        \det
+        {\begin{bmatrix}
+                 a_1     \\
+                 \vdots  \\
+                 a_{i-1} \\
+                 y       \\
+                 a_{i+1} \\
+                 \vdots  \\
+                 a_{n}   \\
+             \end{bmatrix}}.
+    \end{align*}
+    (若 \(i = 1\), 则 \(a_1\) 不出现;
+    若 \(i = n\), 则 \(a_n\) 不出现.
+    下同.)
+\end{theorem}
+
+\begin{theorem}[交错性]
+    行列式 (关于行) 是交错性的.
+    具体地,
+    若 \(n\)~级阵 \(A\) 有二行相同,
+    则 \(\det {(A)} = 0\).
+\end{theorem}
+
+\begin{theorem}[反称性]
+    行列式 (关于行) 是反称性的.
+    具体地,
+    设 \(A\) 是 \(n\)~级阵.
+    设交换 \(A\)~的行~\(p\) 与行~\(q\) 后得到的阵为 \(B\)
+    (\(p < q\)).
+    则 \(\det {(B)} = -\det {(A)}\).
+    (通俗地, 交换方阵的二行, 则其行列式变号.)
+\end{theorem}
+
+\begin{theorem}
+    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+
+    (1)
+    (多线性)
+    对任何不超过 \(n\) 的正整数 \(i\),
+    任何 \(n-1\)~个 \(1 \times n\)~阵
+    \(a_1\), \(\dots\), \(a_{i-1}\),
+    \(a_{i+1}\), \(\dots\), \(a_n\),
+    任何二个 \(1 \times n\)~阵 \(x\), \(y\),
+    任何二个数 \(s\), \(t\),
+    有
+    \begin{align*}
+        f
+        {\left(\begin{bmatrix}
+                       a_1     \\
+                       \vdots  \\
+                       a_{i-1} \\
+                       sx + ty \\
+                       a_{i+1} \\
+                       \vdots  \\
+                       a_{n}   \\
+                   \end{bmatrix}\right)}
+        =
+        s
+        f
+            {\left(\begin{bmatrix}
+                               a_1     \\
+                               \vdots  \\
+                               a_{i-1} \\
+                               x       \\
+                               a_{i+1} \\
+                               \vdots  \\
+                               a_{n}   \\
+                           \end{bmatrix}\right)}
+        +
+        t
+        f
+            {\left(\begin{bmatrix}
+                               a_1     \\
+                               \vdots  \\
+                               a_{i-1} \\
+                               y       \\
+                               a_{i+1} \\
+                               \vdots  \\
+                               a_{n}   \\
+                           \end{bmatrix}\right)}.
+    \end{align*}
+
+    (2)
+    (交错性)
+    若 \(n\)~级阵 \(A\) 有二行相同,
+    则 \(f {(A)} = 0\).
+
+    那么, 对任何 \(n\)~级阵 \(A\),
+    \(f(A) = f(I) \det {(A)}\).
+
+    特别地, 若 \(f(I) = 1\) (规范性),
+    则 \(f\) 就是行列式.
+\end{theorem}
+
+\begin{theorem}
+    若定义在全体 \(n\)~级阵上的函数 \(f\)
+    适合规范性、(关于行的) 多线性、(关于行的) 交错性,
+    则 \(f\) 就是 (\(n\)~级阵的) 行列式 (函数).
+\end{theorem}
+
+由此, 理论地, 我们也可如此%
+定义行列式:
+
+\begin{definition}
+    设 \(f\) 是定义在全体 \(n\)~级阵上的函数.
+    若 \(f\) 适合如下三条, 则说
+    \(f\) 是 (\(n\)~级阵的) 一个行列式函数
+    (自然地, 若 \(A\) 是 \(n\)~级阵,
+    则 \(f(A)\) 是 \(A\) 的一个行列式):
+
+    (1)
+    (规范性)
+    若 \(I\) 是 \(n\)~级单位阵,
+    则 \(f(I) = 1\).
+
+    (2)
+    (多线性)
+    对任何不超过 \(n\) 的正整数 \(i\),
+    任何 \(n-1\)~个 \(1 \times n\)~阵
+    \(a_1\), \(\dots\), \(a_{i-1}\),
+    \(a_{i+1}\), \(\dots\), \(a_n\),
+    任何二个 \(1 \times n\)~阵 \(x\), \(y\),
+    任何二个数 \(s\), \(t\),
+    有
+    \begin{align*}
+        f
+        {\left(\begin{bmatrix}
+                       a_1     \\
+                       \vdots  \\
+                       a_{i-1} \\
+                       sx + ty \\
+                       a_{i+1} \\
+                       \vdots  \\
+                       a_{n}   \\
+                   \end{bmatrix}\right)}
+        =
+        s
+        f
+            {\left(\begin{bmatrix}
+                               a_1     \\
+                               \vdots  \\
+                               a_{i-1} \\
+                               x       \\
+                               a_{i+1} \\
+                               \vdots  \\
+                               a_{n}   \\
+                           \end{bmatrix}\right)}
+        +
+        t
+        f
+            {\left(\begin{bmatrix}
+                               a_1     \\
+                               \vdots  \\
+                               a_{i-1} \\
+                               y       \\
+                               a_{i+1} \\
+                               \vdots  \\
+                               a_{n}   \\
+                           \end{bmatrix}\right)}.
+    \end{align*}
+
+    (3)
+    (交错性)
+    若 \(n\)~级阵 \(A\) 有二行相同,
+    则 \(f {(A)} = 0\).
+\end{definition}
+
+\KunAsteriskoEnEnhavtabelo
+\section{\texorpdfstring{``行'' 列式 (续)}%
+  {"行" 列式 (续)}}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+本节, 为方便,
+我译前面的行列式的关于列的公式%
+为关于行的公式.
+我先引用我们见过的二个公式.
+
+\TheoremExpansionAboutRowOne*
+
+\TheoremExpansionAboutAnyRow*
+
+现在, 我给出新的公式.
+您用转置译已有的公式即可.
+我就不证它们了.
+% 当然, 您可以用老方法, 几乎完全一样地论证它们.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+    设 \(k\) 是不超过 \(n\) 的正整数.
+    设 \(i_1\), \(i_2\), \(\dots\), \(i_k\) 是%
+    不超过 \(n\) 的正整数,
+    且 \(i_1 < i_2 < \dots < i_k\).
+    则
+    \begin{align*}
+         &
+        \det {(A)}
+        = \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
+        {\det {\left(
+                A\binom{i_1, i_2, \dots, i_k}
+                {j_1, j_2, \dots, j_k}
+                \right)}}
+        \\
+         &
+        \qquad \qquad \qquad
+        \cdot (-1)^{i_1 + i_2 + \dots + i_k
+            + j_1 + j_2 + \dots + j_k}
+        \det {(A({i_1,i_2,\dots,i_k}|{j_1,j_2,\dots,j_k}))}.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+    设 \(i_1\), \(i_2\), \(\dots\), \(i_n\) 是%
+    不超过 \(n\) 的正整数,
+    且互不相同.
+    则
+    \begin{align*}
+             & \det {(A)}                  \\
+        = {} &
+        \sum_{\substack{
+        1 \leq j_1, j_2, \dots, j_n \leq n \\
+                j_1, j_2, \dots, j_n\,\text{互不相同}
+            }}
+        {s(i_1, i_2, \dots, i_n)\,
+            s(j_1, j_2, \dots, j_n)\,
+            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
+    \end{align*}
+    特别地, 取 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
+    为 \(1\), \(2\), \(\dots\), \(n\),
+    并注意, \(s(1, 2, \dots, n) = 1\),
+    得
+    \begin{align*}
+        \det {(A)}
+        = {} &
+        \sum_{\substack{
+        1 \leq j_1, j_2, \dots, j_n \leq n \\
+                j_1, j_2, \dots, j_n\,\text{互不相同}
+            }}
+        { s(j_1, j_2, \dots, j_n)\,
+            [A]_{1,j_1} [A]_{2,j_2} \dots [A]_{n,j_n}}.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    设 \(n\)~级阵 \(A\) 的行~\(1\), \(2\), \(\dots\), \(n\)
+    分别为 \(a_1\), \(a_2\), \(\dots\), \(a_n\).
+    设 \(\ell_1\), \(\ell_2\), \(\dots\), \(\ell_n\) 是%
+    不超过 \(n\) 的正整数,
+    且互不相同.
+    则
+    \begin{align*}
+        \det {\begin{bmatrix}
+                      a_{\ell_1} \\
+                      a_{\ell_2} \\
+                      \vdots     \\
+                      a_{\ell_n} \\
+                  \end{bmatrix}
+        }
+        = s(\ell_1, \ell_2, \dots, \ell_n) \det {(A)}.
+    \end{align*}
+\end{theorem}
+
+\end{document}
+
+This material is about properties of determinants.
+
+Four important properties (or rather, three)
+uniquely determine the determinant function,
+and three important properties (or rather, two)
+uniquely determine constant multiples of
+the determinant function.
+
+I define determinants recursively,
+using expansion about column 1.
+I have proved many results of determinants about columns.
+Now I want to translate these results into those about rows.
+First, I prove that expansion about row 1 is correct.
+Then, I prove that
+the determinant of the transpose of a square matrix A
+is equal to det (A).
+This fact allows one to translate
+results about columns
+into results about rows.
+
+More information is available in appendix C.

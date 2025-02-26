@@ -1,0 +1,775 @@
+% The following lines set the fonts used by the document.
+% "fontspec" has been imported (by "ctexbook").
+
+\IfFontExistsTF{XITS-Regular.otf}{%
+    \IfFontExistsTF{XITS-Italic.otf}{%
+        \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+            \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+                \setmainfont{XITS}[
+                    Path,
+                    UprightFont = *-Regular.otf,
+                    BoldFont = FiraSans-SemiBold.otf,
+                    ItalicFont = *-Italic.otf,
+                    BoldItalicFont = FiraSans-SemiBoldItalic.otf
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\IfFontExistsTF{FiraSans-Light.otf}{%
+    \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+        \IfFontExistsTF{FiraSans-LightItalic.otf}{%
+            \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+                \setsansfont{FiraSans}[
+                    Path,
+                    UprightFont = *-Light.otf,
+                    BoldFont = *-SemiBold.otf,
+                    ItalicFont = *-LightItalic.otf,
+                    BoldItalicFont = *-SemiBoldItalic.otf
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\IfFontExistsTF{Sarasa Mono SC Light}{%
+    \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+        \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                \setmonofont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+                \PassOptionsToClass{fontset=none}{ctexbook}
+                \setCJKsansfont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+                \setCJKmonofont{Sarasa Mono SC}[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]
+            }{}
+        }{}
+    }{}
+}{
+    \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+        \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+            \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+                \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+                    \setmonofont{SarasaMonoSC}[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]
+                    \PassOptionsToClass{fontset=none}{ctexbook}
+                    \setCJKsansfont{SarasaMonoSC}[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]
+                    \setCJKmonofont{SarasaMonoSC}[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]
+                }{}
+            }{}
+        }{}
+    }{}
+}
+
+\IfFontExistsTF{Source Han Serif CN}{%
+    \IfFontExistsTF{Sarasa Mono SC Light}{%
+        \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+                \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                    \setCJKmainfont{Source Han Serif CN}[
+                        UprightFont = * Light,
+                        BoldFont = Sarasa Mono SC SemiBold,
+                        ItalicFont = Sarasa Mono SC Light Italic,
+                        BoldItalicFont = Sarasa Mono SC SemiBold Italic
+                    ]
+                }{}
+            }{}
+        }{}
+    }{}
+}{
+    \IfFontExistsTF{SourceHanSerifCN-Light.otf}{%
+        \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+            \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+                \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+                    \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+                        \setCJKmainfont{SourceHanSerifCN}[
+                            Path,
+                            UprightFont = *-Light.ttf,
+                            BoldFont = *-SemiBold.ttf,
+                            ItalicFont = *-LightItalic.ttf,
+                            BoldItalicFont = *-SemiBoldItalic.ttf
+                        ]
+                    }{}
+                }{}
+            }{}
+        }{}
+    }{}
+}
+
+% \IfFontExistsTF{XITS-Regular.otf}{%
+%     \IfFontExistsTF{XITS-Italic.otf}{%
+%         \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+%             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+%                 \setmainfont{XITS}[
+%                     Path,
+%                     UprightFont = *-Regular.otf,
+%                     BoldFont = FiraSans-SemiBold.otf,
+%                     ItalicFont = *-Italic.otf,
+%                     BoldItalicFont = FiraSans-SemiBoldItalic.otf
+%                 ]
+%             }{}
+%         }{}
+%     }{}
+% }{}
+
+% % \IfFontExistsTF{XITS}{%
+% %     \IfFontExistsTF{XITS Italic}{%
+% %         \IfFontExistsTF{Fira Sans SemiBold}{%
+% %             \IfFontExistsTF{Fira Sans SemiBold Italic}{%
+% %                 \setmainfont{XITS}[
+% %                     UprightFont = *,
+% %                     BoldFont = Fira Sans SemiBold,
+% %                     ItalicFont = * Italic,
+% %                     BoldItalicFont = Fira Sans SemiBold Italic
+% %                 ]
+% %             }{%
+% %                 \setmainfont{XITS}
+% %             }
+% %         }{%
+% %             \setmainfont{XITS}
+% %         }
+% %     }{}
+% % }{}
+
+% \IfFontExistsTF{FiraSans-Light.otf}{%
+%     \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+%         \IfFontExistsTF{FiraSans-LightItalic.otf}{%
+%             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+%                 \setsansfont{FiraSans}[
+%                     Path,
+%                     UprightFont = *-Light.otf,
+%                     BoldFont = *-SemiBold.otf,
+%                     ItalicFont = *-LightItalic.otf,
+%                     BoldItalicFont = *-SemiBoldItalic.otf
+%                 ]
+%             }{}
+%         }{}
+%     }{}
+% }{}
+
+% % \IfFontExistsTF{Fira Sans Light}{%
+% %     \IfFontExistsTF{Fira Sans Light Italic}{%
+% %         \IfFontExistsTF{Fira Sans SemiBold}{%
+% %             \IfFontExistsTF{Fira Sans SemiBold Italic}{%
+% %                 \setsansfont{Fira Sans}[
+% %                     UprightFont = * Light,
+% %                     BoldFont = * SemiBold,
+% %                     ItalicFont = * Light Italic,
+% %                     BoldItalicFont = * SemiBold Italic
+% %                 ]
+% %             }{}
+% %         }{}
+% %     }{}
+% % }{}
+
+% \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+%     \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+%         \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+%             \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+%                 \setmonofont{SarasaMonoSC}[
+%                     Path,
+%                     UprightFont = *-Light.ttf,
+%                     BoldFont = *-SemiBold.ttf,
+%                     ItalicFont = *-LightItalic.ttf,
+%                     BoldItalicFont = *-SemiBoldItalic.ttf
+%                 ]
+%             }{}
+%         }{}
+%     }{}
+% }{}
+
+% % \IfFontExistsTF{Sarasa Mono SC Light}{%
+% %     \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+% %         \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+% %             \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+% %                 \setmonofont{Sarasa Mono SC}[
+% %                     UprightFont = * Light,
+% %                     BoldFont = * SemiBold,
+% %                     ItalicFont = * Light Italic,
+% %                     BoldItalicFont = * SemiBold Italic
+% %                 ]
+% %             }{}
+% %         }{}
+% %     }{}
+% % }{}
+
+% \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+%     \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+%         \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+%             \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+%                 \PassOptionsToClass{fontset=none}{ctexbook}
+%                 \setCJKsansfont{SarasaMonoSC}[
+%                     Path,
+%                     UprightFont = *-Light.ttf,
+%                     BoldFont = *-SemiBold.ttf,
+%                     ItalicFont = *-LightItalic.ttf,
+%                     BoldItalicFont = *-SemiBoldItalic.ttf
+%                 ]
+%                 \setCJKmonofont{SarasaMonoSC}[
+%                     Path,
+%                     UprightFont = *-Light.ttf,
+%                     BoldFont = *-SemiBold.ttf,
+%                     ItalicFont = *-LightItalic.ttf,
+%                     BoldItalicFont = *-SemiBoldItalic.ttf
+%                 ]
+%             }{}
+%         }{}
+%     }{}
+% }{}
+
+% \IfFontExistsTF{SourceHanSerifCN-Light.otf}{%
+%     \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+%         \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+%             \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+%                 \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+%                     \setCJKmainfont{SourceHanSerifCN}[
+%                         Path,
+%                         UprightFont = *-Light.otf,
+%                         BoldFont = SarasaMonoSC-SemiBold.ttf,
+%                         ItalicFont = SarasaMonoSC-LightItalic.ttf,
+%                         BoldItalicFont = SarasaMonoSC-SemiBoldItalic.ttf
+%                     ]
+%                 }{}
+%             }{}
+%         }{}
+%     }{}
+% }{}
+
+% % \IfFontExistsTF{Source Han Serif CN Light}{%
+% %     \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+% %         \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+% %             \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+% %                 \PassOptionsToClass{fontset=none}{ctexbook}
+% %                 \setCJKmainfont{Source Han Serif CN}[
+% %                     UprightFont = * Light,
+% %                     BoldFont = Sarasa Mono SC SemiBold,
+% %                     ItalicFont = Sarasa Mono SC Light Italic,
+% %                     BoldItalicFont = Sarasa Mono SC SemiBold Italic
+% %                 ]
+% %                 \setCJKsansfont{Sarasa Mono SC}[
+% %                     UprightFont = * Light,
+% %                     BoldFont = * SemiBold,
+% %                     ItalicFont = * Light Italic,
+% %                     BoldItalicFont = * SemiBold Italic
+% %                 ]
+% %                 \setCJKmonofont{Sarasa Mono SC}[
+% %                     UprightFont = * Light,
+% %                     BoldFont = * SemiBold,
+% %                     ItalicFont = * Light Italic,
+% %                     BoldItalicFont = * SemiBold Italic
+% %                 ]
+% %             }{}
+% %         }{}
+% %     }{}
+% % }{}
+
+% I redefine the emphasis style.
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+% These are packages that deal with mathematical formulae.
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[
+    math-style=ISO,
+    bold-style=ISO,
+    mathrm=sym,
+    mathbf=sym,
+    partial=upright,
+    warnings-off={mathtools-colon,mathtools-overbracket}
+]{unicode-math}
+\allowdisplaybreaks[3]
+
+% I specify the mathematical fonts used by the document.
+\IfFontExistsTF{XITSMath-Regular.otf}{%
+    \setmathfont{XITSMath-Regular.otf}
+}{}
+\IfFontExistsTF{texgyretermes-math.otf}{%
+\setmathfont{texgyretermes-math.otf}[range=bb/{latin,Latin}]
+}{}
+\IfFontExistsTF{STIXTwoMath-Regular.otf}{%
+    \setmathfont{STIXTwoMath-Regular.otf}[range={"2218-"2218}]
+}{}
+
+% \IfFontExistsTF{XITS Math}{%
+%     % Standing-up-straight integral symbol (For XITS Math).
+%     \setmathfont{XITS Math}[StylisticSet=8]%
+% }{}
+% \IfFontExistsTF{TeX Gyre Termes Math}{%
+%     \setmathfont{TeX Gyre Termes Math}[range=bb/{latin,Latin}]%
+% }{}
+% \IfFontExistsTF{STIX Two Math}{%
+%     \setmathfont{STIX Two Math}[range={"2218-"2218}]
+% }{}
+
+% These are packages that deal with theorem environments.
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+\declaretheoremstyle[%
+    spaceabove=2ex,%
+    spacebelow=2ex,%
+    headfont=\normalfont\bfseries,%
+    notefont=\normalfont,%
+    notebraces={(}{)},%
+    bodyfont=\normalfont,%
+    headindent=\parindent,%
+    headpunct={},%
+    postheadspace=1em%
+]{TheoremStyle}
+\declaretheoremstyle[%
+    spaceabove=2ex,%
+    spacebelow=2ex,%
+    headfont=\normalfont\bfseries,%
+    notefont=\normalfont,%
+    notebraces={(}{)},%
+    bodyfont=\normalfont,%
+    headindent=\parindent,%
+    headpunct={},%
+    postheadspace=1em,%
+    qed=\qedsymbol%
+]{ProofStyle}
+
+\numberwithin{equation}{chapter}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=定理,%
+    sibling=equation%
+]{theorem}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=原理,%
+    sibling=theorem%
+]{principle}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=定义,%
+    sibling=theorem%
+]{definition}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=例,%
+    sibling=theorem%
+]{example}
+\declaretheorem[%
+    style=TheoremStyle,%
+    name=注,%
+    numbered=no%
+]{remark*}
+
+% To define one's own proof environment,
+% one has first to undefine the proof environment
+% provided by "amsthm".
+\let\proof\relax
+\let\endproof\relax
+\declaretheorem[%
+    style=ProofStyle,%
+    name=证,
+    numbered=no%
+]{proof}
+\renewcommand*{\qedsymbol}{证毕.}
+
+% I copied the magic from "memoir", a document class
+% for typesetting poetry, fiction, non-fiction,
+% and mathematical works.
+% According to the basic user manual of "memoir",
+% TeX tries very hard to keep text lines justified
+% while keeping the interword spacing as constant as possible,
+% but sometimes fails and complains about an overfull hbox.
+% The default mode for LaTeX typesetting is \fussy
+% where the (variation of) interword
+% spacing in justified text is kept to a minimum.
+% Following the \sloppy declaration
+% there may be a much looser setting of justified text.
+% Additionally the class ("memoir")
+% provides the \midsloppy declaration
+% which allows a setting somewhere between \fussy and \sloppy.
+% Using \midsloppy one will get
+% fewer overfull lines compared with \fussy
+% and fewer obvious large interword spaces than with \sloppy.
+\makeatletter
+\providecommand*{\midsloppy}{%
+    \tolerance 5000%
+    \hbadness 4000%
+    \emergencystretch 1.5em%
+    \hfuzz .1\p@%
+    \vfuzz\hfuzz}
+\makeatother
+
+\makeatletter
+\providecommand*{\leqnomode}{\tagsleft@true\let\veqno\@@leqno}
+\providecommand*{\reqnomode}{\tagsleft@false\let\veqno\@@eqno}
+\makeatother
+
+% Some xeCJK settings.
+% However, they only work in XeLaTeX.
+% https://tex.stackexchange.com/questions/13172/detect-which-tex-engine-is-used
+% This packages allows one to check if XeLaTeX is used
+% and to do something if it is the case.
+\usepackage{ifxetex}
+\ifxetex
+    \usepackage{xpatch}
+    \ExplSyntaxOn
+    % https://github.com/CTeX-org/ctex-kit/issues/636
+    % The following lines apply the patch
+    % (described in the link above)
+    % only if the package date is after 2022-08-05
+    % _and_ before 2022-08-31.
+    % The bug was introduced in v3.9.1 (on 2022-08-05)
+    % and fixed in dev (on 2022-08-31).
+    % More information is available at:
+    % https://github.com/CTeX-org/ctex-kit/commit/a841dabaac7c2dccacd1858ba96f6eb38adfb335
+    % https://github.com/CTeX-org/ctex-kit/commit/aa5f00db05f12034845f8e5c4119971b5aae33ff
+    \IfPackageAtLeastTF{xeCJK}{2022-08-05}{
+        \IfPackageAtLeastTF{xeCJK}{2022-08-31}{}{
+            \xpatchcmd \__xeCJK_check_for_xglue:
+            {\__xeCJK_if_last_glue:TF}
+            {\__xeCJK_if_last_glue:T}
+            {}{\PatchFailed}
+        }
+    }{}
+    \ExplSyntaxOff
+    \xeCJKsetup{%
+        % https://github.com/CTeX-org/ctex-kit/issues/636
+        xCJKecglue = true,%
+        CJKspace = true,%
+        CheckSingle = true,%
+    }
+\fi
+
+% This packages allows one to check if LuaLaTeX is used.
+\usepackage{ifluatex}
+
+% These are modifications that are
+% to be inserted after \begin{document}.
+\AtBeginDocument{%
+    % This line switches off extra space after punctuation.
+    \frenchspacing
+
+    % This line kills as many overfull lines as possible.
+    % The definition is elsewhere in this file.
+    \midsloppy
+
+    % This line changes the font of URLs.
+    \renewcommand*{\UrlFont}{\ttfamily}
+
+    % % The following lines make \pi and \iota "roman"
+    % % (instead of being "italic").
+    % \let\umathpi\pi
+    % \renewcommand*{\pi}{\symup\umathpi}
+    % \let\umathiota\iota
+    % \renewcommand*{\iota}{\symup\umathiota}
+
+    % I change some mathematical symbols
+    % because of my personal taste.
+    \renewcommand*{\leq}{\leqslant}
+    \renewcommand*{\geq}{\geqslant}
+    \renewcommand*{\mathellipsis}{\cdots}
+
+    % \renewcommand*{\Re}{\operatorname{Re}}
+    % \renewcommand*{\Im}{\operatorname{Im}}
+}
+
+% % This package inserts figures.
+% \usepackage{graphicx}
+% % This package inserts and configures captions.
+% \usepackage{caption}
+% % This package inserts sub-figures.
+% \usepackage{subcaption}
+% % This line sets the location of the images.
+% \graphicspath{{bildoj/}}
+
+% The following lines make the width of a quotation wider.
+\makeatletter
+\renewenvironment{quotation}
+{\list{}{\listparindent 2\ccwd%
+        \itemindent\listparindent
+        % \rightmargin\leftmargin
+        \leftmargin\rightmargin
+        \parsep\z@ \@plus\p@}%
+    \item\relax}
+{\endlist}
+\makeatother
+
+% The following lines start a new page with each section.
+% https://tex.stackexchange.com/questions/9497/start-new-page-with-each-section
+\providecommand*{\phantomsection}{}
+\usepackage{titlesec}
+\newcommand*{\sectionbreak}{\clearpage\phantomsection}
+
+\makeatletter
+\if@twoside % if the document is two-sided
+    % https://latex.org/forum/viewtopic.php?t=6965
+    \raggedbottom
+
+    % One uses "\usepackage[pass]{geometry}"
+    % to see the information of page margins
+    % in the log file
+    % (One had better do it in a separate file,
+    % because the current file is so big
+    % that it will take unnecessarily longer time.)
+    \setlength\oddsidemargin{31pt}
+    \setlength\evensidemargin{31pt}
+    \setlength\marginparwidth{38pt}
+\else % if the document is one-sided
+    % I redefine \cleardoublepage.
+    \def\cleardoublepage{\clearpage\ifodd\c@page\else
+            \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+\fi
+\makeatother
+
+% I define a shortcut for the following text
+% that is so often used.
+\newcommand*{\maldevigalegajxo}{%
+    \begin{remark*}
+        本节是选学内容.
+        不学本节不影响理解任何必学内容
+        (也就是, 未被声明为选学内容的节).
+    \end{remark*}%
+}
+
+% Here are commands for displaying section numbers:
+% \sekcio{##} (section ##)
+% and \malneprasekcio{##} (optional section ##).
+\providecommand*{\sekcio}[1]{#1}
+\providecommand*{\malneprasekcio}[1]{\textit{\textsf{#1}}}
+
+% This command marks the use of Esperanto
+% (so that one just searches "\esperanto"
+% to see all Esperanto expressions used in the book).
+\providecommand{\esperanto}[1]{#1}
+
+% This command marks the use of English
+% (but I do not mark every use of English).
+\providecommand{\angla}[1]{#1}
+
+% This package deals with headers and footers.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LE]{\thepage}
+\renewcommand*{\headrulewidth}{0pt}
+\renewcommand*{\footrulewidth}{0pt}
+
+% If a chapter has no section,
+% I mark the header on the odd pages as well.
+% One has to put the redefinition after fancyhdr,
+% if it is imported.
+\renewcommand*{\chaptermark}[1]{%
+    \markboth{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
+        }#1}{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
+        }#1}%
+}
+
+% This package allows one to check whether it is a draft
+% and to do something if it is the case
+% or something else if it is not the case.
+\usepackage{ifdraft}
+
+\ifdraft{% draft case
+    % \pagestyle{plain}
+
+    % https://tex.stackexchange.com/questions/448296/
+    % The following lines do not greatly compress
+    % of the PDF document,
+    % so complication is probably faster.
+    \ifxetex
+        \special{dvipdfmx:config z 0}
+        \special{dvipdfmx:config C 0x40}
+    \fi
+    \ifluatex
+        \pdfvariable compresslevel 0
+        \pdfvariable objcompresslevel 0
+    \fi
+}%
+{% final case
+}
+
+% https://tex.stackexchange.com/a/688793
+% The following lines prepend an asterisk to optional sections.
+\newcommand\EbleEstasAsterisko{}% check definable
+\let\EbleEstasAsterisko\relax
+\renewcommand\thesection{\EbleEstasAsterisko\thechapter.\arabic{section}}
+\newcommand\KunAsteriskoEnEnhavtabelo{%
+    \addtocontents{toc}%
+    {\def\EbleEstasAsterisko{\let\EbleEstasAsterisko\relax\string\llap{*}}}%
+}
+\newcommand\SenAsteriskoEnEnhavtabelo{%
+    \addtocontents{toc}%
+    {\def\EbleEstasAsterisko{\let\EbleEstasAsterisko\relax}}%
+}
+
+% The package allows URL breaks at any alphanumerical character.
+\usepackage{xurl}
+
+% In appendix A in the old versions,
+% a pair of vertical lines were used to denote a determinant.
+% On 2024-07-31, I decided completely to banish
+% the piece of notation.
+% In order better to indicate the changes in the source code,
+% I defined an empty command,
+% which technically does nothing.
+% Almost every (yeah, there are exceptions) occurrence of
+% "\begin{vmatrix} ... \end{vmatrix}"
+% was replaced by
+% "\tridet \det \begin{bmatrix} ... \end{bmatrix} \tridet".
+\providecommand*{\tridet}{}
+\renewcommand*{\tridet}{}
+
+% This is a package that deals with hyperlinks.
+\usepackage[%
+    breaklinks,
+    hidelinks,
+    %hyperindex,
+    unicode
+]{hyperref}
+
+% % This package includes xmp metadata in the PDF document.
+% \usepackage{hyperxmp}
+
+\title{行列式入门}
+\author{\esperanto{Determinantulo}}
+\date{2025-02-16}
+
+% Make aliases for \@title, \@author, \@date.
+% Use \let.
+\makeatletter
+\let\latitolo\@title
+\let\laauxtoro\@author
+\let\ladato\@date
+\makeatother
+
+% the year
+\newcommand*{\lajaro}{2025}
+
+% Inspired by
+% https://www.zhihu.com/question/641238134/answer/3377102718
+\newcommand{\inscribe}[2]{
+    \ifdeflength{\namelen}{}{\newlength{\namelen}}
+    \ifdeflength{\datelen}{}{\newlength{\datelen}}
+    \ifdeflength{\maxlen}{}{\newlength{\maxlen}}
+    \settowidth{\namelen}{#1}
+    \settowidth{\datelen}{#2}
+    \ifdimgreater{\namelen}{\datelen}{\setlength{\maxlen}{\namelen}}{\setlength{\maxlen}{\datelen}}
+    % [l], [c], [r] stand for
+    % left, centre, right,
+    % respectively.
+    \hfill\begin{minipage}[r]{\maxlen}
+        \makebox[\maxlen][r]{#1} \\
+        \makebox[\maxlen][r]{#2}
+    \end{minipage}
+}
+
+% % This package facilitates maintenance of
+% % this multi-file project.
+% \usepackage{subfiles}
+
+% Here are packages that are conditionally imported
+% so that less time is needed to build subfiles.
+
+\ifSubfilesClassLoaded{}{%
+    % This package inserts the table of bibliography.
+    \usepackage[%
+        backend=biber,%
+        style=gb7714-2015,%
+        % gbalign=gb7714-2015,%
+        defernumbers=true,%
+    ]{biblatex}
+    % I use a null heading for each bibliography.
+    \defbibheading{bibliography}[]{}
+
+    % Multiple .bib files can also be added.
+    % bibliographic entries
+    \addbibresource{\subfix{cxapitroj/bibliografiaj eroj.bib}}
+}
+
+\ifSubfilesClassLoaded{}{%
+    % This is a package that includes many logotypes about TeX.
+    \usepackage{hologo}
+}
+
+\ifSubfilesClassLoaded{}{%
+    % This package adds hyperlinks to the table of contents.
+    % One uses "numbered" to number the bookmarks of the PDF file.
+    \usepackage[numbered]{bookmark}
+}
+% % associated setting
+% \ifSubfilesClassLoaded{%
+%     % all hypertext options are turned off
+%     \hypersetup{draft}
+% }{}
+
+\ifSubfilesClassLoaded{}{%
+    \hypersetup{%
+        pdfauthor = {Determinantulo},
+        pdfcreator = {Amo},
+        pdfkeywords = {determinant, linear algebra, mathematics, matrix},
+        pdflang = {zh-CN},
+        pdfcreationdate = {D:20250216062831Z},
+        pdfmoddate = {D:20250216062831Z},
+        pdfproducer = {Amo},
+        pdfsubject = {Enkonduko al determinantoj},
+        pdftitle = {行列式入门},
+    }
+}
+
+\ifSubfilesClassLoaded{}{%
+    % I use this package to make figures.
+    \usepackage{tikz}
+    \usetikzlibrary{calc,matrix}
+
+    % This package enables one to create new environments for floats.
+    \usepackage{newfloat}
+    % I create an environment exclusively for tikzpictures.
+    \DeclareFloatingEnvironment[
+        fileext=los,
+        listname={Listo de Tikzbildoj},
+        name={Tikzbildo},
+        placement=tbhp,
+        within=section,
+    ]{tikzbildo}
+}
+
+\ifSubfilesClassLoaded{}{%
+    % This package makes long tables.
+    \usepackage{longtable}
+    % % This is a cell that allows line breaks.
+    % \providecommand*{\cxelo}[2][c]{%
+    %     \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+}

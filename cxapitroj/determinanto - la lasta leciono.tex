@@ -1,0 +1,282 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+
+\KunAsteriskoEnEnhavtabelo
+\section{\esperanto{La lasta leciono}}
+\SenAsteriskoEnEnhavtabelo
+
+\maldevigalegajxo
+
+这是最后一课, \esperanto{la lasta leciono}.
+
+这是好的!
+您学完了本章.
+您可能会想:
+``我还能再学些什么?''
+我认为, 这个问题, 难回答:
+毕竟, 行列式只是一个工具.
+不过, 我想,
+您可以进一步地学习线性代数.
+
+若您想见别的文献,
+以下的说明或许对您是有用的.
+
+习惯地, 几乎每一个 (说汉语的) 作者都说 ``矩阵'',
+而不是 ``阵''
+(当然, ``方阵'' 是一个例外).
+
+习惯地, 人们叫一个 \(1 \times n\)~阵为一个行向量,
+且叫一个 \(m \times 1\)~阵为一个列向量.
+行向量与列向量可被统一地叫作向量.
+% 不过, 当初我写作时, 不想给您多的挑战,
+% 故我未正式地引入 ``向量'' 二字.
+
+我一般表
+\(A\)~的 \((i, j)\)-元%
+以 \([A]_{i,j}\).
+此记号自然是准确的;
+并且,
+我们甚至可自由地代括号里的单文字 \(A\)
+以复杂的文字, 如 \(3A + 4B\)
+(当 \(A\), \(B\) 是同尺寸的阵时),
+且方便地作计算:
+\begin{align*}
+    [3A + 4B]_{i,j}
+        = [3A]_{i,j} + [4B]_{i,j}
+        = 3[A]_{i,j} + 4[B]_{i,j}.
+\end{align*}
+
+其实, 习惯地,
+多的作者不用记号 \([A]_{i,j}\),
+而用较简单的记号 \(a_{ij}\)
+(注意, 这儿没有逗号):
+\begin{align*}
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & {}     & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        [A]_{1,1} & [A]_{1,2} & \cdots & [A]_{1,n} \\
+        [A]_{2,1} & [A]_{2,2} & \cdots & [A]_{2,n} \\
+        \vdots    & \vdots    & {}     & \vdots    \\
+        [A]_{m,1} & [A]_{m,2} & \cdots & [A]_{m,n} \\
+    \end{bmatrix}.
+\end{align*}
+于是, 在此写法下,
+\(A\)~的 \((2, 3)\)-元是 \(a_{23}\),
+且 \(B\)~的 \((4, 2)\)-元是 \(b_{42}\).
+不过, 若 \(i\), \(j\) 的一个不能被单文字表示,
+则逗号仍被用:
+比如, \(C\)~的 \((11, 9)\)-元是 \(c_{11,9}\).
+并且, 这个记号, 要求阵被单文字表示.
+比如, 设 \(A\), \(B\) 分别是
+\(m \times s\), \(s \times n\)~阵.
+习惯地, 不写 \(AB\)~的 \((i, j)\)-元为
+\({ab}_{ij}\)
+(因为, \({ab}_{ij}\),
+习惯地,
+会被理解为%
+一个数~\(a\) 跟
+\(B\)~的 \((i, j)\)-元 \(b_{ij}\)
+的积),
+而记 \(C = AB\)
+(也就是, 为 \(AB\) 取别名 \(C\)),
+再说 \(AB\)~的 \((i, j)\)-元
+\begin{align*}
+    c_{ij}
+    = a_{i1} b_{1j} + a_{i2} b_{2j} + \dots
+    + a_{is} b_{sj}.
+\end{align*}
+
+一些作者不用括号 \({[} \ {]}\),
+而用括号 \(( \ )\),
+以包围数表, 作成一个阵:
+\begin{align*}
+    \begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & {}     & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{pmatrix}
+    =
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & {}     & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} \\
+    \end{bmatrix}.
+\end{align*}
+
+一些作者用大写拉丁字母 \(O\) 表示一个零阵.
+
+一些作者用大写拉丁字母 \(E\) 表示一个单位阵.
+一些作者用数字 \(1\) 表示一个单位阵.
+
+一些作者用加粗的文字表示阵.
+具体地, 他们写
+\(\mathbf{A}\),
+\(\mathbf{B}\),
+\(\mathbf{C}\),
+\(\mathbf{E}\),
+\(\mathbf{I}\),
+\(\mathbf{1}\),
+\(\mathbf{O}\),
+\(\mathbf{0}\),
+\(\mathbf{x}\),
+\(\dots\),
+而不是
+\(A\), \(B\), \(C\),
+\(E\), \(I\), \(1\),
+\(O\), \(0\),
+\(x\), \(\dots\).
+
+一些作者, 习惯地, 写%
+一个方阵~\(A\) 的行列式
+\(\det {(A)}\) 为 \(|A|\).
+若 \(A\)~的元被具体地写出,
+则有记号
+\begin{align*}
+    \begin{vmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & {}     & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn} \\
+    \end{vmatrix}
+    = {} &
+    \left|\,
+    \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & {}     & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn} \\
+    \end{bmatrix}
+    \,\right|
+    \\
+    = {} &
+    \det {
+        \begin{bmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & {}     & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nn} \\
+        \end{bmatrix}
+    }.
+\end{align*}
+其实, 行列式比阵先出现;
+于是, 行列式有专门的竖线记号.
+
+一些作者讲行列式时, 会提余子式与%
+代数余子式.
+通俗地, 一个方阵 \(A\)~的 \((i, j)\)-元
+\(a_{i,j}\) 的%
+余子式 \(M_{i,j}\),
+% (这里, 为尽可能地消除歧义, 我用了逗号),
+是行列式
+\begin{align*}
+    \begin{vmatrix}
+        a_{1,1}     & \cdots & a_{1,j-1}   &
+        a_{1,j+1}   & \cdots & a_{1,n}       \\
+        \vdots      & {}     & \vdots      &
+        \vdots      & {}     & \vdots        \\
+        a_{i-1,1}   & \cdots & a_{i-1,j-1} &
+        a_{i-1,j+1} & \cdots & a_{i-1,n}     \\
+        a_{i+1,1}   & \cdots & a_{i+1,j-1} &
+        a_{i+1,j+1} & \cdots & a_{i+1,n}     \\
+        \vdots      & {}     & \vdots      &
+        \vdots      & {}     & \vdots        \\
+        a_{n,1}     & \cdots & a_{n,j-1}   &
+        a_{n,j+1}   & \cdots & a_{n,n}       \\
+    \end{vmatrix}.
+\end{align*}
+一个方阵 \(A\)~的 \((i, j)\)-元
+\(a_{i,j}\) 的%
+代数余子式 \(A_{i,j}\)
+(一些作者记其为 \(C_{i,j}\)),
+是
+\((-1)^{i+j} M_{i,j}\).
+于是,
+对任何不超过 \(n\)~的正整数 \(i\), \(j\),
+\begin{align*}
+    |A|
+    = {} &
+    (-1)^{i+1} a_{i,1} M_{i,1}
+    + (-1)^{i+2} a_{i,2} M_{i,2}
+    + \dots
+    + (-1)^{i+n} a_{i,n} M_{i,n}
+    \\
+    = {} &
+    (-1)^{1+j} a_{1,j} M_{1,j}
+    + (-1)^{2+j} a_{2,j} M_{2,j}
+    + \dots
+    + (-1)^{n+j} a_{n,j} M_{n,j},
+\end{align*}
+或
+\begin{align*}
+    |A|
+    = {} &
+    a_{i,1} A_{i,1}
+    + a_{i,2} A_{i,2}
+    + \dots
+    + a_{i,n} A_{i,n}
+    \\
+    = {} &
+    a_{1,j} A_{1,j}
+    + a_{2,j} A_{2,j}
+    + \dots
+    + a_{n,j} A_{n,j}.
+\end{align*}
+我没有讲这二个概念,
+因为我引入了子阵及其记号
+(一些作者不介绍表示子阵的记号).
+其实,
+余子式就是子阵的行列式:
+\(
+M_{i,j} = \det {(A(i|j))}
+\).
+这么看来, 我不必引入余子式或代数余子式了.
+
+一些作者写方阵 \(A\)~的古伴
+\(\operatorname{adj} {(A)}\)
+为 \(A^{\ast}\),
+且叫 ``古伴'' (即 ``古典伴随阵'')
+为 ``伴随'' ``伴随阵'' ``伴随矩阵''.
+
+我希望, 这些说明,
+可助您适应其他的文献上的词与记号.
+% 或许, 就像嬴政统一文字那样,
+% 数学的符号也应被统一;
+% 可是, 此事是难的.
+% 我能作的事, 至多是助您适应这些符号.
+
+% 最后, 我想说,
+% 行列式并不只是代数的工具.
+% 行列式在微积分与几何里也是有用的;
+% 您可以去相关的文献里找到更多的讨论.
+% (也可以直接去互联网看).
+% 不过, 我对此了解不深;
+% 再者, 若我进一步讲下去, 我就要
+% ``一台电脑, 一个键盘, 一个图画一天''
+% 了
+% (乳胶可不是什么简单的东西,
+% 但因为, 跟词儿比,
+% 乳胶对我, 用鼠标有些困难的人,
+% 更友好,
+% 我忍了).
+
+我就说这么多.
+再见.
+
+\end{document}
+
+This is the last lesson;
+this is the last section of chapter 1;
+this is optional;
+this is provided for those
+who wish to know more about determinants
+from other sources.

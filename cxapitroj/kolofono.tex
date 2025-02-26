@@ -1,0 +1,88 @@
+\documentclass[../libro]{subfiles}
+
+% This is a package that includes many logotypes about TeX.
+\usepackage{hologo}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\backmatter}{}
+
+\chapter{Colophon: notes on typesetting}
+
+\begingroup
+\setlength{\parindent}{1.5em}%for 12pt
+
+\providecommand*{\typesettingengine}{whatever}
+\providecommand*{\authoroftypesettingengine}{whomever}
+\ifxetex
+    \renewcommand*{\typesettingengine}{\hologo{XeLaTeX}}
+    \renewcommand*{\authoroftypesettingengine}{Jonathan Kew}
+\fi
+\ifluatex
+    \renewcommand*{\typesettingengine}{\hologo{LuaLaTeX}}
+    \renewcommand*{\authoroftypesettingengine}{Taco Hoekwater}
+\fi
+
+This book was typeset in \typesettingengine{},
+written by \authoroftypesettingengine{}.
+The logotype \typesettingengine{},
+along with other ``special typographical'' logotypes,
+was produced by the \hologo{LaTeX} package \textsf{hologo},
+written by Heiko Oberdiek.
+The \hologo{LaTeX} software used for this book
+was written by Leslie Lamport.
+The \hologo{TeX} software,
+which forms the base for \hologo{LaTeX},
+was written by Donald Knuth.
+
+The main text fonts in this book are
+the OpenType format versions of
+XITS (designed by Khaled Hosny)
+and Source Han Serif (designed by Adobe and Google).
+The sans serif fonts in this book are
+the OpenType format version of
+Fira Sans (designed by Carrois Apostrophe)
+and the TrueType format version of
+Sarasa Mono (designed by Belleve).
+The monospaced font in this book is
+the TrueType format version of
+Sarasa Mono (designed by Belleve).
+The mathematical fonts in this book are
+the OpenType format versions of
+XITS Math (designed by Khaled Hosny),
+TeX Gyre Termes Math (designed by \hologo{TeX} Users Group),
+and STIX Two Math (designed by STIX Pub).
+The \typesettingengine{} packages
+\textsf{fontspec} and \textsf{unicode-math},
+both written by Will Robertson,
+were used to manage fonts.
+
+The cover of this book was inspired by
+that of \textit{The not so short introduction to \hologo{LaTeX}},
+written by Tobias Oetiker and others.
+The long tables in this book were produced
+by the \hologo{LaTeX} package \textsf{longtable},
+written by David Carlisle.
+The figures in this book were produced
+by the \hologo{LaTeX} package \textsf{Ti\textit{k}Z},
+written by Till Tantau.
+The colophon (which you are reading now)
+was inspired by that of
+\textit{Linear algebra done right},
+written by Sheldon Axler.
+
+For more information about typesetting of this book,
+please check the source code of this book,
+hosted at
+\url{https://github.com/septsea/det}.
+
+\endgroup
+
+\end{document}
+
+In publishing, a colophon is a brief statement
+containing information about the publication
+of a book such as an "imprint".
+
+As is mentioned above,
+this colophon was inspired by the one in Axler's book.

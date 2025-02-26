@@ -1,0 +1,2318 @@
+\documentclass[../libro]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\appendix\chapter{后日谈}\clearpage}{}
+
+\section{杂例}
+
+\begin{example}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(n\)~级阵 \(D\) 适合
+    \begin{align*}
+        [D]_{i,j}
+        = \begin{cases}
+              d_i, & i = j;     \\
+              0,   & \text{其他}.
+          \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \det {(A + D)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \det {(D)}
+        \\
+             &
+        + \sum_{k = 1}^{n-1}
+        {
+        \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
+        }
+        \\
+             &
+        + \det {(A)}.
+    \end{align*}
+
+    设 \(A\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是 \(b_1^{(1)}\), \(b_2^{(1)}\), \(\dots\), \(b_n^{(1)}\).
+    设 \(D\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+    分别是 \(b_1^{(0)}\), \(b_2^{(0)}\), \(\dots\), \(b_n^{(0)}\).
+    则 \(A + D\) 的列~\(j\) 是
+    \begin{align*}
+        b_j^{(1)} + b_j^{(0)}
+        = b_j^{(0)} + b_j^{(1)}
+        = \sum_{c_j = 0}^{1} {b_j^{(c_j)}}.
+    \end{align*}
+    则, 由多线性,
+    \begin{align*}
+             &
+        \det {(A + D)}
+        \\
+        = {} &
+        \det {\left[
+        \sum_{c_1 = 0}^{1} b_1^{(c_1)},
+        \sum_{c_2 = 0}^{1} b_2^{(c_2)},
+        \dots,
+        \sum_{c_n = 0}^{1} b_n^{(c_n)}
+        \right]}
+        \\
+        = {} &
+        \sum_{c_1 = 0}^{1}
+        \det {\left[
+        b_1^{(c_1)},
+        \sum_{c_2 = 0}^{1} b_2^{(c_2)},
+        \dots,
+        \sum_{c_n = 0}^{1} b_n^{(c_n)}
+        \right]}
+        \\
+        = {} &
+        \sum_{c_1 = 0}^{1}
+        \sum_{c_2 = 0}^{1}
+        \det {\left[
+        b_1^{(c_1)},
+        b_2^{(c_2)},
+        \dots,
+        \sum_{c_n = 0}^{1} b_n^{(c_n)}
+        \right]}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \sum_{c_1 = 0}^{1}
+        \sum_{c_2 = 0}^{1}
+        \dots
+        \sum_{c_n = 0}^{1}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+        = {} &
+        \sum_{0 \leq c_1, c_2, \dots, c_n \leq 1}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}.
+    \end{align*}
+    由加法的结合律与交换律,
+    我们可按任何方式, 任何次序求这些
+    \begin{align*}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+    \end{align*}
+    的和.
+    特别地, 我们可按 \(c_1 + c_2 + \dots + c_n\) 分%
+    这些数为若干组,
+    求出一组的组和 (即一组的元的和),
+    再求这些组的组和的和.
+    因为 \(0 \leq c_j \leq 1\),
+    故 \(0 \leq c_1 + c_2 + \dots + c_n \leq n\).
+    于是, 我们可分这些数为 \(n+1\)~组:
+    适合 \(c_1 + c_2 + \dots + c_n = 0\) 的项在一组;
+    适合 \(c_1 + c_2 + \dots + c_n = 1\) 的项在一组;
+    ……;
+    适合 \(c_1 + c_2 + \dots + c_n = n\) 的项在一组.
+    不难看出,
+    每一项在某一组里,
+    且每一项不能在二个不同的组里.
+    则
+    \begin{align*}
+             &
+        \det {(A + D)}
+        \\
+        = {} &
+        \sum_{0 \leq c_1, c_2, \dots, c_n \leq 1}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+        = {} &
+        \sum_{k = 0}^{n}\,
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = k}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = 0}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+             &
+        +
+        \sum_{k = 1}^{n-1}\,
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = k}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+             &
+        +
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = n}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}.
+    \end{align*}
+
+    不难看出, \(c_1 + c_2 + \dots + c_n = 0\) 时,
+    \(c_1 = c_2 = \dots = c_n = 0\).
+    则
+    \begin{align*}
+        \sum_{0 \leq c_1, c_2, \dots, c_n \leq 1}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        =
+        \det {[b_1^{(0)}, b_2^{(0)}, \dots, b_n^{(0)}]}
+        =
+        \det {(D)}.
+    \end{align*}
+
+    不难看出, \(c_1 + c_2 + \dots + c_n = n\) 时,
+    \(c_1 = c_2 = \dots = c_n = 1\).
+    则
+    \begin{align*}
+        \sum_{0 \leq c_1, c_2, \dots, c_n \leq 1}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        =
+        \det {[b_1^{(1)}, b_2^{(1)}, \dots, b_n^{(1)}]}
+        =
+        \det {(A)}.
+    \end{align*}
+
+    设正整数 \(k < n\).
+    由 \(c_1 + c_2 + \dots + c_n = k\),
+    知在 \(c_1\), \(c_2\), \(\dots\), \(c_n\)
+    中, 有 \(k\)~个 \(1\) 与 \(n-k\)~个 \(0\).
+    设 \(c_{j_1} = c_{j_2} = \dots = c_{j_k} = 1\)
+    (其中 \(1 \leq j_1 < j_2 < \dots < j_k \leq n\)),
+    且 \(c_{j_{k+1}} = \dots = c_{j_n} = 0\)
+    (其中 \(1 \leq j_{k+1} < \dots < j_n \leq n\)).
+    记 \(n\)~级阵
+    \begin{align*}
+        B_{c_1,\dots,c_n}
+        = [b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}].
+    \end{align*}
+    注意, 当 \(\ell > k\),
+    且 \(i \neq j_\ell\) 时,
+    \([B_{c_1,\dots,c_n}]_{i,j_\ell} = 0\),
+    且 \([B_{c_1,\dots,c_n}]_{j_\ell,j_\ell} = d_{j_\ell}\),
+    按列~\(j_{k+1}\) 展开 \(\det {(B_{c_1,\dots,c_n})}\),
+    有
+    \begin{align*}
+        \det {(B_{c_1,\dots,c_n})}
+        = {} & (-1)^{j_{k+1}+j_{k+1}}
+        [B_{c_1,\dots,c_n}]_{j_{k+1},j_{k+1}}
+        \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}
+        \\
+        = {} &
+        d_{j_{k+1}} \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}.
+    \end{align*}
+    按列~\(j_{k+2}-1\) 展开
+    \(\det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}\),
+    有
+    \begin{align*}
+             &
+        \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}
+        \\
+        = {} & (-1)^{j_{k+2}-1+j_{k+2}-1}
+        [B_{c_1,\dots,c_n}]_{j_{k+2},j_{k+2}}
+        \det {(B_{c_1,\dots,c_n}
+        ({j_{k+1},j_{k+2}}|{j_{k+1},j_{k+2}}))}
+        \\
+        = {} &
+        d_{j_{k+2}}
+        \det {(B_{c_1,\dots,c_n}
+        ({j_{k+1},j_{k+2}}|{j_{k+1},j_{k+2}}))}.
+    \end{align*}
+    故
+    \begin{align*}
+        \det {(B_{c_1,\dots,c_n})}
+        = d_{j_{k+1}} d_{j_{k+2}}
+        \det {(B_{c_1,\dots,c_n}
+        ({j_{k+1},j_{k+2}}|{j_{k+1},j_{k+2}}))}.
+    \end{align*}
+    ……
+    最后, 我们算出
+    \begin{align*}
+             &
+        \det {(B_{c_1,\dots,c_n})}
+        \\
+        = {} &
+        d_{j_{k+1}} d_{j_{k+2}} \dots d_{j_n}
+        \det {(B_{c_1,\dots,c_n}
+        ({j_{k+1},\dots,j_n}|{j_{k+1},\dots,j_n}))}
+        \\
+        = {} &
+        \det {(B_{c_1,\dots,c_n}
+        ({j_{k+1},\dots,j_n}|{j_{k+1},\dots,j_n}))}
+        \,
+        d_{j_{k+1}} d_{j_{k+2}} \dots d_{j_n}
+        \\
+        = {} &
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}.
+    \end{align*}
+    于是
+    \begin{align*}
+             &
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = k}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}.
+    \end{align*}
+
+    综上,
+    \begin{align*}
+             &
+        \det {(A + D)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = 0}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+             &
+        +
+        \sum_{k = 1}^{n-1}\,
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = k}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+             &
+        +
+        \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
+                c_1 + c_2 + \dots + c_n = n}}
+        \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \det {(D)}
+        \\
+             &
+        + \sum_{k = 1}^{n-1}
+        {
+        \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
+        }
+        \\
+             &
+        + \det {(A)}.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(x\) 是数.
+    则
+    \begin{align*}
+        %  &
+        \det {(xI_n + A)}
+        % \\
+        =
+        % {} &
+        x^n
+        + \sum_{k = 1}^{n}
+        {x^{n-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }.
+    \end{align*}
+
+    注意,
+    \begin{align*}
+        [xI_n]_{i,j}
+        = \begin{cases}
+              x, & i = j;     \\
+              0, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    故, 由上个例,
+    \begin{align*}
+             &
+        \det {(xI_n + A)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \det {(xI_n)}
+        \\
+             &
+        + \sum_{k = 1}^{n-1}
+        {
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \det {((xI_n)({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
+        }
+        \\
+             &
+        + \det {(A)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^n
+        % \\
+        %      &
+        + \sum_{k = 1}^{n-1}
+        {
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \,
+        x^{n-k}
+        }
+        \\
+             &
+        + \det {(A)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^n
+        % \\
+        %      &
+        + \sum_{k = 1}^{n-1}
+        {
+        x^{n-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
+        \\
+             &
+        + x^{n-n}
+        \sum_{1 \leq j_1 < \dots < j_n \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_n}{j_1,\dots,j_n}
+            \right)}
+        \\
+        = {} &
+        x^n
+        + \sum_{k = 1}^{n}
+        {x^{n-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设正整数 \(m\), \(n\) 适合 \(m \geq n\).
+    设 \(A\), \(B\) 分别是 \(m \times n\) 与 \(n \times m\)~阵.
+    设正整数 \(k \leq n\).
+    由 Binet--Cauchy 公式的推广,
+    \begin{align*}
+             &
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \sum_{1 \leq i_1 < \dots < i_k \leq n}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{i_1,\dots,i_k}
+            \right)}
+        \det {\left(
+            B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+            \right)}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \sum_{1 \leq i_1 < \dots < i_k \leq n}
+        \det {\left(
+            B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+            \right)}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{i_1,\dots,i_k}
+            \right)}
+        \\
+        = {} &
+        \sum_{1 \leq i_1 < \dots < i_k \leq n}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+            \right)}
+        \det {\left(
+            A\binom{j_1,\dots,j_k}{i_1,\dots,i_k}
+            \right)}
+        \\
+        = {} &
+        \sum_{1 \leq i_1 < \dots < i_k \leq n}
+        \det {\left(
+            (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+            \right)}.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设正整数 \(m\), \(n\) 适合 \(m \geq n\).
+    设 \(A\), \(B\) 分别是 \(m \times n\) 与 \(n \times m\)~阵.
+    设 \(x\) 是数.
+    则
+    \begin{align*}
+             &
+        \det {(xI_m + AB)}
+        \\
+        = {} &
+        x^m
+        + \sum_{k = 1}^{m}
+        {x^{m-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^m
+        + \sum_{k = 1}^{n}
+        {x^{m-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
+        \\
+             &
+        + \sum_{k = n+1}^{m}
+        {x^{m-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^m
+        + \sum_{k = 1}^{n}
+        {x^{m-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
+        \\
+             &
+        + \sum_{k = n+1}^{m}
+        {x^{m-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        0
+        }
+        \\
+        = {} &
+        x^m
+        + \sum_{k = 1}^{n}
+        {x^{m-k}
+        \sum_{1 \leq j_1 < \dots < j_k \leq m}
+        \det {\left(
+            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
+        \\
+        = {} &
+        x^{m-n} x^n
+        + \sum_{k = 1}^{n}
+        {x^{m-n} x^{n-k}
+        \sum_{1 \leq i_1 < \dots < i_k \leq n}
+        \det {\left(
+            (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+            \right)}
+        }
+        \\
+        = {} &
+        x^{m-n} x^n
+        + x^{m-n} \sum_{k = 1}^{n}
+        {x^{n-k}
+        \sum_{1 \leq i_1 < \dots < i_k \leq n}
+        \det {\left(
+            (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+            \right)}
+        }
+        \\
+        = {} &
+        x^{m-n}
+        \left(
+        x^n
+        + \sum_{k = 1}^{n}
+        {x^{n-k}
+            \sum_{1 \leq i_1 < \dots < i_k \leq n}
+            \det {\left(
+                (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+                \right)}
+        }
+        \right)
+        \\
+        = {} &
+        x^{m-n} \det {(xI_n + BA)}.
+    \end{align*}
+    特别地, 代 \(x\) 以数 \(1\), 有
+    \begin{align*}
+        \det {(I_m + AB)} = \det {(I_n + BA)}.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设 \(a_1\), \(b_1\), \(a_2\), \(b_2\),
+    \(\dots\), \(a_m\), \(b_m\) 是 \(2m\)~个数.
+    作 \(m\)~级阵 \(C\) 如下:
+    \begin{align*}
+        [C]_{i,j} =
+        \begin{cases}
+            1 + a_i b_i, & i = j;     \\
+            a_i b_j,     & \text{其他}.
+        \end{cases}
+    \end{align*}
+    我们计算 \(\det {(C)}\).
+
+    设 \(A = [a_1, a_2, \dots, a_m]^{\mathrm{T}}\),
+    且 \(B = [b_1, b_2, \dots, b_m]\).
+    则
+    \begin{align*}
+        [AB]_{i,j} = [A]_{i,1} [B]_{1,j} = a_i b_j.
+    \end{align*}
+    由此, 不难看出, \(C = I_m + AB\).
+    故
+    \begin{align*}
+        \det {(C)}
+        = {} & \det {(I_m + AB)}                        \\
+        = {} & \det {(I_1 + BA)}                        \\
+        = {} & [I_1 + BA]_{1,1}                         \\
+        = {} & [I_1]_{1,1} + [BA]_{1,1}                 \\
+        = {} & 1 + b_1 a_1 + b_2 a_2 + \dots + b_m a_m.
+    \end{align*}
+
+    我们当然也可用别的方法.
+    作 \(m+1\)~级阵 \(G\) 如下:
+    \begin{align*}
+        [G]_{i,j} =
+        \begin{cases}
+            1,         & i = j = m+1; \\
+            -a_i,      & i < j = m+1; \\
+            0,         & m+1 = i > j; \\
+            [C]_{i,j}, & \text{其他}.
+        \end{cases}
+    \end{align*}
+    通俗地,
+    \begin{align*}
+        G =
+        \begin{bmatrix}
+            1 + a_1 b_1 & a_1 b_2     & \cdots & a_1 b_{m-1}         & a_1 b_m     & -a_1     \\
+            a_2 b_1     & 1 + a_2 b_2 & \cdots & a_2 b_{m-1}         & a_2 b_m     & -a_2     \\
+            \vdots      & \vdots      & {}     & \vdots              & \vdots      & \vdots   \\
+            a_{m-1} b_1 & a_{m-1} b_2 & \cdots & 1 + a_{m-1} b_{m-1} & a_{m-1} b_m & -a_{m-1} \\
+            a_m b_1     & a_m b_2     & \cdots & a_m b_{m-1}         & 1 + a_m b_m & -a_m     \\
+            0           & 0           & \cdots & 0                   & 0           & 1        \\
+        \end{bmatrix}.
+    \end{align*}
+    一方面, 按行~\(m+1\) 展开, 有
+    \begin{align*}
+        \det {(G)}
+        = (-1)^{m+1+m+1}\,1\,\det {(G(1|1))}
+        = \det {(C)}.
+    \end{align*}
+    另一方面, 我们%
+    加列~\(m+1\) 的 \(b_1\)~倍于列~\(1\),
+    加列~\(m+1\) 的 \(b_2\)~倍于列~\(2\),
+    ……,
+    加列~\(m+1\) 的 \(b_m\)~倍于列~\(m\),
+    得 \(m+1\)~级阵
+    \begin{align*}
+        H =
+        \begin{bmatrix}
+            1      & 0      & \cdots & 0       & 0      & -a_1     \\
+            0      & 1      & \cdots & 0       & 0      & -a_2     \\
+            \vdots & \vdots & {}     & \vdots  & \vdots & \vdots   \\
+            0      & 0      & \cdots & 1       & 0      & -a_{m-1} \\
+            0      & 0      & \cdots & 0       & 1      & -a_m     \\
+            b_1    & b_2    & \cdots & b_{m-1} & b_m    & 1        \\
+        \end{bmatrix}.
+    \end{align*}
+    则 \(\det {(H)} = \det {(G)}\).
+    故 \(\det {(C)} = \det {(H)}\).
+
+    我们%
+    加列~\(1\) 的 \(a_1\)~倍于列~\(m+1\),
+    加列~\(1\) 的 \(a_2\)~倍于列~\(m+1\),
+    ……,
+    加列~\(1\) 的 \(a_m\)~倍于列~\(m+1\),
+    得 \(m+1\)~级阵
+    \begin{align*}
+        J =
+        \begin{bmatrix}
+            1      & 0      & \cdots & 0       & 0      & 0                                       \\
+            0      & 1      & \cdots & 0       & 0      & 0                                       \\
+            \vdots & \vdots & {}     & \vdots  & \vdots & \vdots                                  \\
+            0      & 0      & \cdots & 1       & 0      & 0                                       \\
+            0      & 0      & \cdots & 0       & 1      & 0                                       \\
+            b_1    & b_2    & \cdots & b_{m-1} & b_m    & 1 + b_1 a_1 + b_2 a_2 + \dots + b_m a_m \\
+        \end{bmatrix}.
+    \end{align*}
+    则 \(\det {(J)} = \det {(H)}\).
+    故
+    \begin{align*}
+        \det {(C)} = \det {(J)}
+        = 1 + b_1 a_1 + b_2 a_2 + \dots + b_m a_m.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设 \(n\), \(m\) 是非负整数,
+    且 \(m + n \geq 1\).
+    设
+    \begin{align*}
+        f(x) &
+        = \sum_{k = 0}^{n} {a_k x^{n-k}}
+        = a_0 x^n + a_1 x^{n-1} + \dots + a_n,
+        \\
+        g(x) &
+        = \sum_{k = 0}^{m} {b_k x^{m-k}}
+        = b_0 x^m + b_1 x^{m-1} + \dots + b_m.
+    \end{align*}
+    为方便, 我们约定:
+    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
+    若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
+    作 \(m + n\)~级阵 \(R\) 如下:
+    \begin{align*}
+        [R]_{i,j}
+        = \begin{cases}
+              a_{i-j},     & j \leq m; \\
+              b_{i-(j-m)}, & j > m.
+          \end{cases}
+    \end{align*}
+    通俗地, 比如, 若 \(n = 2\), 且 \(m = 5\), 则
+    \begin{align*}
+        R
+        =
+        \begin{bmatrix}
+            a_{0} & a_{-1} & a_{-2} & a_{-3} & a_{-4} & b_{0} & b_{-1} \\
+            a_{1} & a_{0}  & a_{-1} & a_{-2} & a_{-3} & b_{1} & b_{0}  \\
+            a_{2} & a_{1}  & a_{0}  & a_{-1} & a_{-2} & b_{2} & b_{1}  \\
+            a_{3} & a_{2}  & a_{1}  & a_{0}  & a_{-1} & b_{3} & b_{2}  \\
+            a_{4} & a_{3}  & a_{2}  & a_{1}  & a_{0}  & b_{4} & b_{3}  \\
+            a_{5} & a_{4}  & a_{3}  & a_{2}  & a_{1}  & b_{5} & b_{4}  \\
+            a_{6} & a_{5}  & a_{4}  & a_{3}  & a_{2}  & b_{6} & b_{5}  \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a_0 & 0   & 0   & 0   & 0   & b_0 & 0   \\
+            a_1 & a_0 & 0   & 0   & 0   & b_1 & b_0 \\
+            a_2 & a_1 & a_0 & 0   & 0   & b_2 & b_1 \\
+            0   & a_2 & a_1 & a_0 & 0   & b_3 & b_2 \\
+            0   & 0   & a_2 & a_1 & a_0 & b_4 & b_3 \\
+            0   & 0   & 0   & a_2 & a_1 & b_5 & b_4 \\
+            0   & 0   & 0   & 0   & a_2 & 0   & b_5 \\
+        \end{bmatrix}.
+    \end{align*}
+
+    (1)
+    设 \(e\) 是 \(m + n\)~级单位阵的列~\(m + n\).
+    我们说, 存在
+    \((m + n) \times 1\)~阵 \(p\) 使
+    \(Rp = \det {(R)}\, e\).
+
+    取 \(p\) 为 \(R\) 的古伴
+    \(\operatorname{adj} {(R)}\) 的列~\(m + n\).
+    则
+    \begin{align*}
+        [Rp]_{i,1}
+        = {} &
+        \sum_{\ell = 1}^{m + n}
+        {[R]_{i,\ell} [p]_{\ell,1}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{m + n}
+        {[R]_{i,\ell} [\operatorname{adj} {(R)}]_{\ell,m+n}}
+        \\
+        = {} &
+        [R \operatorname{adj} {(R)}]_{i,m+n}
+        \\
+        = {} &
+        [\det {(R)}\, I_{m+n}]_{i,m+n}
+        \\
+        = {} &
+        \det {(R)}\, [I_{m+n}]_{i,m+n}
+        \\
+        = {} &
+        \det {(R)}\, [e]_{i,1}
+        \\
+        = {} &
+        [\det {(R)}\, e]_{i,1}.
+    \end{align*}
+    (若 \(\det {(R)} \neq 0\),
+    显然有 \(p \neq 0\);
+    若 \(\det {(R)} = 0\),
+    由第一章, 节~\malneprasekcio{23},
+    或节~\malneprasekcio{25} 的知识,
+    存在非零的 \((m + n) \times 1\)~阵 \(q\)
+    使 \(Rq = 0 = \det {(R)}\, e\).)
+
+    % (2)
+    % 设
+    % \begin{align*}
+    %     c_k =
+    %     \begin{cases}
+    %         [p]_{k+1,1}, & 0 \leq k \leq m - 1; \\
+    %         0,           & \text{其他}.
+    %     \end{cases}
+    % \end{align*}
+    % 再设
+    % \begin{align*}
+    %     d_k =
+    %     \begin{cases}
+    %         [p]_{k+m+1,1}, & 0 \leq k \leq n - 1; \\
+    %         0,             & \text{其他}.
+    %     \end{cases}
+    % \end{align*}
+    % 不难看出
+    % \begin{align*}
+    %     [p]_{i,1} =
+    %     \begin{cases}
+    %         c_{i-1},   & i \leq m; \\
+    %         d_{i-m-1}, & i > m.
+    %     \end{cases}
+    % \end{align*}
+    % 记
+    % \begin{align*}
+    %     u(x) &
+    %     = \sum_{k = 0}^{m-1} {c_k x^{m-1-k}}
+    %     = c_0 x^{m-1} + c_1 x^{m-2} + \dots + c_{m-1},
+    %     \\
+    %     v(x) &
+    %     = \sum_{k = 0}^{n-1} {d_k x^{n-1-k}}
+    %     = d_0 x^{n-1} + d_1 x^{n-2} + \dots + d_{n-1}.
+    % \end{align*}
+    % % 显然, \(u(x)\) 与 \(v(x)\) 不全为 \(0\).
+    % 我们说, \(f(x)\, u(x) + g(x)\, v(x) = \det {(R)}\).
+
+    % 首先, 不难算出
+    % \begin{align*}
+    %     f(x)\, u(x) &
+    %     = \sum_{k = 0}^{n+m-1}
+    %     {\left(
+    %     \sum_{\ell = 0}^{k} {a_{k-\ell} c_{\ell}}
+    %     \right)
+    %     x^{n+m-1-k}},
+    %     \\
+    %     g(x)\, v(x) &
+    %     = \sum_{k = 0}^{m+n-1}
+    %     {\left(
+    %     \sum_{\ell = 0}^{k} {b_{k-\ell} d_{\ell}}
+    %     \right)
+    %     x^{m+n-1-k}}.
+    % \end{align*}
+    % 故
+    % \begin{align*}
+    %     f(x)\, u(x) + g(x)\, v(x)
+    %     = \sum_{k = 0}^{m+n-1}
+    %     {\left(
+    %     \sum_{\ell = 0}^{k} {a_{k-\ell} c_{\ell}}
+    %     +
+    %     \sum_{\ell = 0}^{k} {b_{k-\ell} d_{\ell}}
+    %     \right)
+    %     x^{m+n-1-k}}.
+    % \end{align*}
+    % 注意, 当 \(0 \leq k < m + n\) 时,
+    % \begin{align*}
+    %     [Rp]_{k+1,1}
+    %     = {} &
+    %     \sum_{h = 1}^{m + n}
+    %     {[R]_{k+1,h} [p]_{h,1}}
+    %     \\
+    %     = {} &
+    %     \sum_{h = 1}^{m}
+    %     {[R]_{k+1,h} [p]_{h,1}}
+    %     +
+    %     \sum_{h = m + 1}^{m + n}
+    %     {[R]_{k+1,h} [p]_{h,1}}
+    %     \\
+    %     = {} &
+    %     \sum_{h = 1}^{m}
+    %     {a_{k+1-h} c_{h-1}}
+    %     +
+    %     \sum_{h = m + 1}^{m + n}
+    %     {b_{k+1-(h-m)} d_{h-m-1}}
+    %     \\
+    %     = {} &
+    %     \sum_{h = 1}^{m}
+    %     {a_{k-(h-1)} c_{h-1}}
+    %     +
+    %     \sum_{h = m + 1}^{m + n}
+    %     {b_{k-(h-m-1)} d_{h-m-1}}
+    %     \\
+    %     = {} &
+    %     \sum_{\ell = 0}^{m-1}
+    %     {a_{k-\ell} c_{\ell}}
+    %     +
+    %     \sum_{\ell = 0}^{n-1}
+    %     {b_{k-\ell} d_{\ell}}.
+    % \end{align*}
+    % 若 \(k \leq m - 1\), 则 \(\ell > k\) 时, 必 \(a_{k-\ell} = 0\);
+    % 若 \(k > m - 1\), 则 \(\ell > m - 1\) 时, 必 \(c_\ell = 0\).
+    % 所以
+    % \begin{align*}
+    %     \sum_{\ell = 0}^{m-1}
+    %     {a_{k-\ell} c_{\ell}}
+    %     =
+    %     \sum_{\ell = 0}^{k}
+    %     {a_{k-\ell} c_{\ell}}.
+    % \end{align*}
+    % 类似地,
+    % \begin{align*}
+    %     \sum_{\ell = 0}^{n-1}
+    %     {b_{k-\ell} d_{\ell}}
+    %     =
+    %     \sum_{\ell = 0}^{k}
+    %     {b_{k-\ell} d_{\ell}}.
+    % \end{align*}
+    % 故
+    % \begin{align*}
+    %     %  &
+    %     f(x)\, u(x) + g(x)\, v(x)
+    %     % \\
+    %     = {} &
+    %     \sum_{k = 0}^{m+n-1}
+    %     {[Rp]_{k+1,1}\,
+    %     x^{m+n-1-k}}
+    %     \\
+    %     = {} &
+    %     \sum_{k = 0}^{m+n-1}
+    %     {[\det {(R)}\, e]_{k+1,1}\,
+    %     x^{m+n-1-k}}
+    %     \\
+    %     = {} &
+    %     \sum_{k = 0}^{m+n-1}
+    %     {\det {(R)}\, [e]_{k+1,1}\,
+    %     x^{m+n-1-k}}
+    %     \\
+    %     = {} &
+    %     \det {(R)}\, [e]_{m+n-1+1,1}\,
+    %     x^{m+n-1-(m+n-1)}
+    %     \\
+    %     = {} &
+    %     \det {(R)}.
+    % \end{align*}
+
+    % (3)
+    % 设数 \(a\) 适合 \(f(a) = 0 = g(a)\).
+    % 由 (2) 知, 必
+    % \(0 = f(a)\, u(a) + g(a)\, v(a) = \det {(R)}\)
+    % (我们代 \(x\) 以数 \(a\)).
+    % 这有时是有用的.
+
+    (2)
+    作 \(1 \times (m + n)\)~阵
+    \(X = [x^{m+n-1}, x^{m+n-2}, \dots, 1]\);
+    具体地,
+    \([X]_{1,j} = x^{m+n-j}\).
+    则 \(XR\) 是 \(1 \times (m + n)\)~阵,
+    且
+    \begin{align*}
+        [XR]_{1,j}
+        =
+        \sum_{\ell = 1}^{m+n}
+        {[X]_{1,\ell} [R]_{\ell,j}}
+        =
+        \sum_{1 \leq \ell \leq m+n}
+        {[R]_{\ell,j} x^{m+n-\ell}}.
+    \end{align*}
+    若 \(j \leq m\), 则 \([R]_{\ell,j} = a_{\ell-j}\).
+    则
+    \begin{align*}
+        [XR]_{1,j}
+        = {} &
+        \sum_{1 \leq \ell \leq m+n}
+        {a_{\ell-j} x^{m+n-\ell}}
+        \\
+        = {} &
+        \sum_{1-j \leq \ell-j \leq m+n-j}
+        {a_{\ell-j} x^{n-(\ell-j)+(m-j)}}
+        \\
+        = {} &
+        \sum_{1-j \leq h \leq n+(m-j)}
+        {a_h x^{n-h}\, x^{m-j}}
+        \\
+        = {} &
+        \sum_{0 \leq h \leq n}
+        {a_h x^{n-h}\, x^{m-j}}
+        +
+        \sum_{\substack{
+        1-j \leq h < 0 \\
+                \text{或}\, n < h \leq n+(m-j)
+            }}
+        {a_h x^{n-h}\, x^{m-j}}
+        \\
+        = {} &
+        \Bigg( \sum_{0 \leq h \leq n}
+        {a_h x^{n-h}} \Bigg) x^{m-j}
+        +
+        \sum_{\substack{
+        1-j \leq h < 0 \\
+                \text{或}\, n < h \leq n+(m-j)
+            }}
+        {0\, x^{n-h}\, x^{m-j}}
+        \\
+        = {} &
+        f(x)\, x^{m-j}.
+    \end{align*}
+    若 \(j > m\), 则 \([R]_{\ell,j} = b_{\ell-(j-m)}\).
+    为方便, 记 \(k = j - m\).
+    则
+    \begin{align*}
+        [XR]_{1,j}
+        = {} &
+        \sum_{1 \leq \ell \leq m+n}
+        {b_{\ell-k} x^{m+n-\ell}}
+        \\
+        = {} &
+        \sum_{1-k \leq \ell-k \leq m+n-k}
+        {b_{\ell-k} x^{m-(\ell-k)+(n-k)}}
+        \\
+        = {} &
+        \sum_{1-k \leq h \leq m+(n-k)}
+        {b_h x^{m-h}\, x^{n-k}}
+        \\
+        = {} &
+        \sum_{0 \leq h \leq m}
+        {b_h x^{m-h}\, x^{n-k}}
+        +
+        \sum_{\substack{
+        1-k \leq h < 0 \\
+                \text{或}\, m < h \leq m+(n-k)
+            }}
+        {b_h x^{m-h}\, x^{n-k}}
+        \\
+        = {} &
+        \Bigg( \sum_{0 \leq h \leq m}
+        {b_h x^{m-h}} \Bigg) x^{n-(j-m)}
+        +
+        \sum_{\substack{
+        1-k \leq h < 0 \\
+                \text{或}\, m < h \leq m+(n-k)
+            }}
+        {0\, x^{m-h}\, x^{n-k}}
+        \\
+        = {} &
+        g(x)\, x^{n-(j-m)}.
+    \end{align*}
+
+    % 综上, \(1 \times (m+n)\)~阵 \(XR\) 的元适合:
+    % \begin{align*}
+    %     [XR]_{1,j} =
+    %     \begin{cases}
+    %         f(x)\, x^{m-j},     & j \leq m; \\
+    %         g(x)\, x^{n-(j-m)}, & j > m.
+    %     \end{cases}
+    % \end{align*}
+
+    (3)
+    既然 \(XR\) 是 \(1 \times (m+n)\)~阵,
+    则 \((XR)p\) 是 \(1\)~级阵.
+    则
+    \begin{align*}
+        [(XR)p]_{1,1}
+        = {} &
+        \sum_{j = 1}^{m+n}
+        {[XR]_{1,j} [p]_{j,1}}
+        \\
+        = {} &
+        \sum_{j = 1}^{m}
+        {[XR]_{1,j} [p]_{j,1}}
+        +
+        \sum_{j = m+1}^{m+n}
+        {[XR]_{1,j} [p]_{j,1}}
+        \\
+        = {} &
+        \sum_{j = 1}^{m}
+        {f(x)\, x^{m-j}\, [p]_{j,1}}
+        +
+        \sum_{j = m+1}^{m+n}
+        {g(x)\, x^{n-(j-m)}\, [p]_{j,1}}
+        \\
+        = {} &
+        f(x)
+        \sum_{j = 1}^{m}
+        {x^{m-j}\, [p]_{j,1}}
+        +
+        g(x)
+        \sum_{j = m+1}^{m+n}
+        {x^{n-(j-m)}\, [p]_{j,1}}
+        \\
+        = {} &
+        f(x)
+        \sum_{k = 0}^{m-1}
+        {[p]_{k+1,1} x^{m-1-k}}
+        +
+        g(x)
+        \sum_{k = 0}^{n-1}
+        {[p]_{m+1+k,1} x^{n-1-k}}.
+    \end{align*}
+    记
+    \begin{align*}
+        u(x)
+        = \sum_{k = 0}^{m-1} {[p]_{k+1,1} x^{m-1-k}}
+        = {} &
+        [p]_{1,1} x^{m-1} + [p]_{2,1} x^{m-2}
+        + \dots + [p]_{m,1},
+        \\
+        v(x)
+        = \sum_{k = 0}^{n-1} {[p]_{m+1+k,1} x^{n-1-k}}
+        = {} &
+        [p]_{m+1,1} x^{n-1} + [p]_{m+2,1} x^{n-2}
+        + \dots + [p]_{m+n,1}.
+    \end{align*}
+    则
+    \(f(x)\, u(x) + g(x)\, v(x) = [(XR)p]_{1,1}\).
+    另一方面,
+    \begin{align*}
+        [(XR)p]_{1,1}
+        = {} &
+        [X(Rp)]_{1,1}
+        \\
+        = {} &
+        [X(\det {(R)}\, e)]_{1,1}
+        \\
+        = {} &
+        \sum_{j = 1}^{m + n}
+        {[X]_{1,j} [\det {(R)}\, e]_{j,1}}
+        \\
+        = {} &
+        \sum_{j = 1}^{m + n - 1}
+        {[X]_{1,j} [\det {(R)}\, e]_{j,1}}
+        +
+        [X]_{1,m+n} [\det {(R)}\, e]_{m+n,1}
+        \\
+        = {} &
+        0 + 1 \det {(R)}
+        \\
+        = {} &
+        \det {(R)}.
+    \end{align*}
+    故
+    \(f(x)\, u(x) + g(x)\, v(x) = \det {(R)}\).
+
+    (4)
+    设数 \(c\) 适合 \(f(c) = 0 = g(c)\).
+    由 (3) 知, 必
+    \(0 = f(c)\, u(c) + g(c)\, v(c) = \det {(R)}\)
+    (我们代 \(x\) 以数 \(c\)).
+    这有时是有用的.
+\end{example}
+
+\begin{example}
+    解方程组
+    \begin{equation}
+        \begin{cases}
+            11x^2 - 2xy - 44y^2 - x + 26y - 32 = 0, \\
+            4x^2 - 18xy + 49y^2 - 4x + 9y - 118 = 0.
+        \end{cases}
+        \label{eq:C3801}
+    \end{equation}
+
+    我们可用上例的结果解方程组~\eqref{eq:C3801}.
+    为此, 我们记
+    \begin{align*}
+        f_y (x) & = 11 x^2 + (-2 y - 1) x + (-44 y^2 + 26 y - 32), \\
+        g_y (x) & = 4 x^2 + (-18 y - 4) x + (49 y^2 + 9 y - 118).
+    \end{align*}
+    设 \(x = a\), \(y = b\) 是%
+    方程组~\eqref{eq:C3801} 的一个解.
+    则
+    \begin{align*}
+         &
+        \begin{aligned}
+            0
+            = {} &
+            11a^2 - 2ab - 44b^2 - a + 26b - 32
+            \\
+            = {} &
+            11 a^2 + (-2 b - 1) a + (-44 b^2 + 26 b - 32),
+        \end{aligned}
+        \\
+         &
+        \begin{aligned}
+            0
+            = {} &
+            4a^2 - 18ab + 49b^2 - 4a + 9b - 118
+            \\
+            = {} &
+            4 a^2 + (-18 b - 4) a + (49 b^2 + 9 b - 118),
+        \end{aligned}
+    \end{align*}
+    即 \(f_b (a) = 0 = g_b (a)\).
+    故
+    \begin{align*}
+        \begin{bmatrix}
+            11            & 0             & 4            & 0            \\
+            -2b-1         & 11            & -18b-4       & 4            \\
+            -44b^2+26b-32 & -2b-1         & 49b^2+9b-118 & -18b-4       \\
+            0             & -44b^2+26b-32 & 0            & 49b^2+9b-118 \\
+        \end{bmatrix}
+    \end{align*}
+    的行列式是 \(0\).
+    另一方面, 可以算出, 此阵的行列式是
+    \(342\,125\, (b^2 - 1)\, (b^2 - 4)\).
+    于是, 若 \(x = a\), \(y = b\) 是%
+    方程组~\eqref{eq:C3801} 的一个解,
+    则 \(b = 1\) 或 \(b = -1\)
+    或 \(b = 2\) 或 \(b = -2\).
+    则 (代 \(b\) 以 \(1\))
+    \begin{equation}
+        \begin{cases}
+            11a^2 - 2a - 44 - a + 26 - 32 = 0, \\
+            4a^2 - 18a + 49 - 4a + 9 - 118 = 0;
+        \end{cases}
+        \label{eq:C3802}
+    \end{equation}
+    或 (代 \(b\) 以 \(-1\))
+    \begin{equation}
+        \begin{cases}
+            11a^2 + 2a - 44 - a - 26 - 32 = 0, \\
+            4a^2 + 18a + 49 - 4a - 9 - 118 = 0;
+        \end{cases}
+        \label{eq:C3803}
+    \end{equation}
+    或 (代 \(b\) 以 \(2\))
+    \begin{equation}
+        \begin{cases}
+            11a^2 - 4a - 176 - a + 52 - 32 = 0, \\
+            4a^2 - 36a + 196 - 4a + 18 - 118 = 0;
+        \end{cases}
+        \label{eq:C3804}
+    \end{equation}
+    或 (代 \(b\) 以 \(-2\))
+    \begin{equation}
+        \begin{cases}
+            11a^2 + 4a - 176 - a - 52 - 32 = 0, \\
+            4a^2 + 36a + 196 - 4a - 18 - 118 = 0.
+        \end{cases}
+        \label{eq:C3805}
+    \end{equation}
+    方程组~\eqref{eq:C3802} 的解是 \(a = -2\);
+    方程组~\eqref{eq:C3803} 的解是 \(a = 3\);
+    方程组~\eqref{eq:C3804} 的解是 \(a = 4\);
+    方程组~\eqref{eq:C3805} 的解是 \(a = -5\).
+    于是, 若 \(x = a\), \(y = b\) 是%
+    方程组~\eqref{eq:C3801} 的一个解,
+    必:
+    \begin{align*}
+         & a = -2, \quad b = 1;  \\
+        \text{或} \quad
+         & a = 3, \quad b = -1;  \\
+        \text{或} \quad
+         & a = 4, \quad b = 2;   \\
+        \text{或} \quad
+         & a = -5, \quad b = -2.
+    \end{align*}
+    最后, 我们验证这些是否是%
+    方程组~\eqref{eq:C3801} 的解.
+    可以验证, 它们都是解.
+    于是,
+    方程组~\eqref{eq:C3801} 的解是:
+    \begin{align*}
+         & x = -2, \quad y = 1;  \\
+        \text{或} \quad
+         & x = 3, \quad y = -1;  \\
+        \text{或} \quad
+         & x = 4, \quad y = 2;   \\
+        \text{或} \quad
+         & x = -5, \quad y = -2.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设 \(A\) 是 \(n\)~级阵.
+    则 \(AA\) 是有意义的, 且也是方阵.
+    我们写 \(A^2 = AA\).
+    类似地, \(A^2 A\) 也是有意义的, 且也是方阵.
+    我们写 \(A^3 = A^2 A\).
+    一般地, 对任何非负整数 \(m\),
+    我们如下定义方阵 \(A\) 的 \(m\)~次方:
+    \begin{align*}
+        A^m =
+        \begin{cases}
+            I,         & m = 0;    \\
+            A^{m-1} A, & m \geq 1.
+        \end{cases}
+    \end{align*}
+    不难看出, \(A^1 = A^0 A = I A = A\).
+
+    类似数的非负整数次方, 方阵的非负整数次方适合:
+    对任何方阵 \(A\), 任何非负整数 \(\ell\), \(m\),
+
+    (1)
+    \(A^{\ell+m} = A^{\ell} A^{m}\);
+
+    (2)
+    \((A^{\ell})^{m} = A^{\ell m}\).
+
+    我们用数学归纳法证明 (1) 与 (2).
+
+    (1)
+    作命题 \(P(m)\):
+    \(A^{\ell+m} = A^{\ell} A^{m}\).
+    我们的目标是:
+    对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为
+    \(A^{\ell+0} = A^{\ell} = A^{\ell} I = A^{\ell} A^{0}\).
+
+    假定 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        A^{\ell+(m+1)}
+        = A^{(\ell+m)+1}
+        = A^{\ell+m} A
+        = (A^{\ell} A^{m}) A
+        = A^{\ell} (A^{m} A)
+        = A^{\ell} A^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证命题成立.
+
+    (2)
+    作命题 \(Q(m)\):
+    \((A^{\ell})^{m} = A^{\ell m}\).
+    我们的目标是:
+    对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+    \(Q(0)\) 是对的, 因为
+    \((A^{\ell})^{0} = I = A^{0} = A^{\ell 0}\).
+
+    假定 \(Q(m)\) 是对的.
+    我们由此证明, \(Q(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        (A^{\ell})^{m+1}
+        = (A^{\ell})^{m} A^{\ell}
+        = A^{\ell m} A^{\ell}
+        = A^{\ell m + \ell}
+        = A^{\ell (m+1)}.
+    \end{align*}
+    所以, \(Q(m+1)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{example}
+
+\begin{example}
+    我们知道, 对任何数 \(x\), \(y\), 任何非负整数 \(m\),
+    必 \((xy)^m = x^m y^m\).
+    可是, 存在二个同级的方阵 \(A\), \(B\), 存在非负整数 \(m\),
+    使 \((AB)^m \neq A^m B^m\):
+    取 \(m = 2\),
+    \begin{align*}
+        A = \begin{bmatrix}
+                1 & 1 \\ 0 & 1 \\
+            \end{bmatrix},
+        \quad
+        B = \begin{bmatrix}
+                1 & 0 \\ 1 & 1 \\
+            \end{bmatrix}.
+    \end{align*}
+    不难算出
+    \begin{align*}
+        AB = \begin{bmatrix}
+                 2 & 1 \\ 1 & 1 \\
+             \end{bmatrix},
+        \quad
+        A^2 = \begin{bmatrix}
+                  1 & 2 \\ 0 & 1 \\
+              \end{bmatrix},
+        \quad
+        B^2 = \begin{bmatrix}
+                  1 & 0 \\ 2 & 1 \\
+              \end{bmatrix}.
+    \end{align*}
+    则
+    \begin{align*}
+        (AB)^2 = \begin{bmatrix}
+                     5 & 3 \\ 3 & 2 \\
+                 \end{bmatrix},
+        \quad
+        A^2 B^2 = \begin{bmatrix}
+                      5 & 2 \\ 2 & 1 \\
+                  \end{bmatrix}.
+    \end{align*}
+
+    不过, 若 \(AB = BA\), 则我们仍有,
+    对任何非负整数 \(m\), 必 \((AB)^m = A^m B^m\).
+    为证明此事, 我们要作准备.
+
+    作命题 \(P(m)\): \(B^{m} A = A B^{m}\).
+    (注意, \(A B^{m}\) 是 \(A (B^{m})\),
+    而不是 \((AB)^m\);
+    这就像 \(x y^{m}\) 是 \(x (y^m)\),
+    而不是 \((x y)^m\).)
+    我们用数学归纳法证明 \(P(m)\).
+
+    \(P(0)\) 是对的, 因为
+    \(B^{0} A = I A = A I = A B^{0}\).
+
+    假定 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        B^{m+1} A
+        = {} &
+        (B^{m} B) A
+        = B^{m} (B A)
+        = B^{m} (A B)
+        \\
+        = {} &
+        (B^{m} A) B
+        = (A B^{m}) B
+        = A (B^{m} B)
+        = A B^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证命题成立.
+
+    好的.
+    我们作好了准备.
+
+    作命题 \(Q(m)\):
+    \((AB)^{m} = A^{m} B^{m}\).
+    我们的目标是:
+    对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+    \(Q(0)\) 是对的, 因为
+    \((AB)^0 = I = I I = A^0 B^0\).
+
+    假定 \(Q(m)\) 是对的.
+    我们由此证明, \(Q(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        (AB)^{m+1}
+        = {} &
+        (AB)^{m} (AB)
+        = (A^{m} B^{m}) (A B)
+        = ((A^{m} B^{m}) A) B
+        = (A^{m} (B^{m} A)) B
+        \\
+        = {} &
+        (A^{m} (A B^{m})) B
+        = ((A^{m} A) B^{m}) B
+        = A^{m+1} (B^{m} B)
+        = A^{m+1} B^{m+1}.
+    \end{align*}
+    所以, \(Q(m+1)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{example}
+
+\begin{example}
+    设 \(A\) 是方阵.
+    设 \(k\) 是数.
+    设 \(m\) 是非负整数.
+    可以用数学归纳法证明:
+
+    (1)
+    \((kA)^m = k^m A^m\).
+    (用 \((k A) (\ell B) = (k \ell) (A B)\),
+    若 \(A\), \(B\) 都是 \(n\)~级阵,
+    且 \(k\), \(\ell\) 是数.)
+
+    (2)
+    \(\det {(A^m)} = (\det {(A)})^m\).
+    (用 \(\det {(AB)} = \det {(A)} \det {(B)}\),
+    若 \(A\), \(B\) 都是 \(n\)~级阵.)
+
+    (3)
+    \((A^m)^{\mathrm{T}} = (A^{\mathrm{T}})^m\).
+    (用 \((BA)^{\mathrm{T}} = A^{\mathrm{T}} B^{\mathrm{T}}\),
+    若 \(A\), \(B\) 都是 \(n\)~级阵;
+    见 ``转置的性质''.)
+
+    (4)
+    \(\operatorname{adj} {(A^m)}
+    = (\operatorname{adj} {(A)})^m\).
+    (用 \(\operatorname{adj} {(BA)}
+    = \operatorname{adj} {(A)} \operatorname{adj} {(B)}\),
+    若 \(A\), \(B\) 都是 \(n\)~级阵;
+    见 ``古伴的性质 (3)''.)
+
+    请允许我留它们为您的习题.
+\end{example}
+
+\begin{example}
+    设 \(A\), \(B\) 是 \(n\)~级阵.
+    则存在跟 \(A\), \(B\) 的元有关的数
+    \(d_0\), \(d_1\), \(\dots\), \(d_n\),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        \det {(xA + B)}
+        = \sum_{k = 0}^{n} {d_k x^{n-k}}
+        = d_0 x^n + d_1 x^{n-1} + \dots + d_n,
+    \end{align*}
+    其中 \(d_0 = \det {(A)}\),
+    且 \(d_n = \det {(B)}\).
+    % 我们代 \(x\) 以 \(0\), 得
+    % \begin{align*}
+    %     \det {(0A + B)} = d_0 0^n + d_1 0^{n-1} + \dots + d_n,
+    % \end{align*}
+    % 即 \(d_n = \det {(B)}\).
+
+    作命题 \(P(m)\):
+    对任何 \(m\)~级阵 \(A\), \(B\),
+    存在跟 \(A\), \(B\) 的元有关的数
+    \(d_0\), \(d_1\), \(\dots\), \(d_m\),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        \det {(xA + B)}
+        = \sum_{k = 0}^{m} {d_k x^{m-k}}
+        = d_0 x^m + d_1 x^{m-1} + \dots + d_m,
+    \end{align*}
+    其中 \(d_0 = \det {(A)}\),
+    且 \(d_m = \det {(B)}\).
+    我们的目标是:
+    对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(1)\) 是显然的:
+    \begin{align*}
+        \det {(xA + B)}
+        = [xA + B]_{1,1}
+        = x [A]_{1,1} + [B]_{1,1}
+        = \det {(A)}\, x + \det {(B)}.
+    \end{align*}
+
+    假定 \(P(m-1)\) 是对的.
+    我们由此证明, \(P(m)\) 也是对的.
+
+    设 \(A\), \(B\) 是 \(m\)~级阵.
+    则
+    \begin{align*}
+        \det {(xA + B)}
+        = {} &
+        \sum_{i = 1}^{m}
+        (-1)^{i+1} [xA + B]_{i,1} \det {((xA + B)(i|1))}
+        \\
+        = {} &
+        \sum_{i = 1}^{m}
+        (-1)^{i+1} (x [A]_{i,1} + [B]_{i,1})
+        \det {(x A(i|1) + B(i|1))}.
+    \end{align*}
+    \(A(i|1)\), \(B(i|1)\) 是 \(m-1\)~级阵.
+    由假定, 存在跟 \(A(i|1)\), \(B(i|1)\) 的元有关的数
+    (从而也是跟 \(A\), \(B\) 的元有关的数)
+    \(c_{i,0}\), \(c_{i,1}\), \(\dots\), \(c_{i,m-1}\),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        \det {(x A(i|1) + B(i|1))}
+        = \sum_{\ell = 0}^{m-1}
+        c_{i,\ell} x^{m-1-\ell},
+    \end{align*}
+    其中 \(c_{i,0} = \det {(A(i|1))}\),
+    且 \(c_{i,m-1} = \det {(B(i|1))}\).
+    为方便, 记 \(a_i = (-1)^{i+1} [A]_{i,1}\),
+    且 \(b_i = (-1)^{i+1} [B]_{i,1}\).
+    则 \(a_i\), \(b_i\) 跟 \(A\), \(B\) 的元有关.
+    则
+    \begin{align*}
+             &
+        \det {(xA + B)}
+        \\
+        = {} &
+        \sum_{i = 1}^{m}
+        (a_i x + b_i)
+        \sum_{\ell = 0}^{m-1}
+        c_{i,\ell} x^{m-1-\ell}
+        \\
+        = {} &
+        \sum_{i = 1}^{m}
+        \sum_{\ell = 0}^{m-1}
+        (a_i x + b_i)
+        c_{i,\ell} x^{m-1-\ell}
+        \\
+        = {} &
+        \sum_{i = 1}^{m}
+        \sum_{\ell = 0}^{m-1}
+        (a_i c_{i,\ell} x^{m-\ell}
+        + b_i c_{i,\ell} x^{m-1-\ell})
+        \\
+        = {} &
+        \sum_{\ell = 0}^{m-1}
+        \sum_{i = 1}^{m}
+        (a_i c_{i,\ell} x^{m-\ell}
+        + b_i c_{i,\ell} x^{m-1-\ell})
+        \\
+        = {} &
+        \sum_{\ell = 0}^{m-1}
+        \sum_{i = 1}^{m}
+        a_i c_{i,\ell} x^{m-\ell}
+        +
+        \sum_{\ell = 0}^{m-1}
+        \sum_{i = 1}^{m}
+        b_i c_{i,\ell} x^{m-1-\ell}
+        \\
+        = {} & \hphantom{{} + {}}
+        \sum_{i = 1}^{m}
+        a_i c_{i,0} x^{m-0}
+        +
+        \sum_{\ell = 1}^{m-1}
+        \sum_{i = 1}^{m}
+        a_i c_{i,\ell} x^{m-\ell}
+        \\
+             &
+        +
+        \sum_{\ell = 0}^{m-2}
+        \sum_{i = 1}^{m}
+        b_i c_{i,\ell} x^{m-1-\ell}
+        +
+        \sum_{i = 1}^{m}
+        b_i c_{i,m-1} x^{m-1-(m-1)}
+        \\
+        = {} & \hphantom{{} + {}}
+        \sum_{i = 1}^{m}
+        a_i c_{i,0} x^{m}
+        +
+        \sum_{\ell = 1}^{m-1}
+        \sum_{i = 1}^{m}
+        a_i c_{i,\ell} x^{m-\ell}
+        \\
+             &
+        +
+        \sum_{\ell = 0}^{m-2}
+        \sum_{i = 1}^{m}
+        b_i c_{i,(\ell+1)-1} x^{m-(\ell+1)}
+        +
+        \sum_{i = 1}^{m}
+        b_i c_{i,m-1}
+        \\
+        = {} & \hphantom{{} + {}}
+        \sum_{i = 1}^{m}
+        a_i c_{i,0} x^{m}
+        +
+        \sum_{\ell = 1}^{m-1}
+        \sum_{i = 1}^{m}
+        a_i c_{i,\ell} x^{m-\ell}
+        \\
+             &
+        +
+        \sum_{\ell = 1}^{m-1}
+        \sum_{i = 1}^{m}
+        b_i c_{i,\ell-1} x^{m-\ell}
+        +
+        \sum_{i = 1}^{m}
+        b_i c_{i,m-1}
+        \\
+        = {} &
+        \sum_{i = 1}^{m} a_i c_{i,0}
+        x^{m}
+        +
+        \sum_{\ell = 1}^{m-1}
+        \sum_{i = 1}^{m}
+        (a_i c_{i,\ell} + b_i c_{i,\ell-1})
+        x^{m-\ell}
+        +
+        \sum_{i = 1}^{m} b_i c_{i,m-1}.
+    \end{align*}
+    记
+    \begin{align*}
+        d_k =
+        \begin{dcases}
+            \sum_{i = 1}^{m} a_i c_{i,0},
+             & k = 0;     \\
+            \sum_{i = 1}^{m}
+            (a_i c_{i,k} + b_i c_{i,k-1}),
+             & 0 < k < m; \\
+            \sum_{i = 1}^{m} b_i c_{i,m-1},
+             & k = m.
+        \end{dcases}
+    \end{align*}
+    则 \(d_k\) 跟 \(A\), \(B\) 的元有关,
+    且对任何数 \(x\), 有
+    \begin{align*}
+        \det {(xA + B)}
+        = \sum_{k = 0}^{m} {d_k x^{m-k}}
+        = d_0 x^m + d_1 x^{m-1} + \dots + d_m.
+    \end{align*}
+    最后, 不难算出
+    \begin{align*}
+         &
+        d_0
+        =
+        \sum_{i = 1}^{m}
+        a_i c_{i,0}
+        =
+        \sum_{i = 1}^{m}
+        (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+        =
+        \det {(A)},
+        \\
+         &
+        d_m
+        =
+        \sum_{i = 1}^{m}
+        b_i c_{i,m-1}
+        =
+        \sum_{i = 1}^{m}
+        (-1)^{i+1} [B]_{i,1} \det {(B(i|1))}
+        =
+        \det {(B)}.
+    \end{align*}
+    所以, \(P(m)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{example}
+
+\begin{example}
+    设 \(A\) 是 \(n\)~级阵.
+    则存在跟 \(A\) 的元有关的数
+    \(c_0\), \(c_1\), \(\dots\), \(c_n\),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        \det {(xI - A)}
+        = \det {(xI + (-A))}
+        = \sum_{k = 0}^{n} {c_k x^{n-k}}
+        = c_0 x^n + c_1 x^{n-1} + \dots + c_n,
+    \end{align*}
+    其中
+    \(c_0 = \det {(I)} = 1\),
+    且
+    \(c_n = \det {(-A)} = (-1)^n \det {(A)}\).
+
+    我们考虑 \(xI - A\) 的古伴
+    \(\operatorname{adj} {(xI - A)}\).
+    它的 \((i, j)\)-元
+    \begin{align*}
+        [\operatorname{adj} {(xI - A)}]_{i,j}
+        = {} &
+        (-1)^{j+i} \det {((xI - A)(j|i))}
+        \\
+        = {} &
+        (-1)^{j+i} \det {(x I(j|i) + (-A)(j|i))}.
+    \end{align*}
+    则有跟 \(A\) 的元有关的数 \(d_{i,j,k}\)
+    (\(k = 0\), \(1\), \(\dots\), \(n-1\)),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        \det {(x I(j|i) + (-A)(j|i))}
+        = d_{i,j,0} x^{n-1}
+        + d_{i,j,1} x^{n-2}
+        + \dots + d_{i,j,n-1},
+    \end{align*}
+    其中
+    \(d_{i,j,0} = \det {(I(j|i))}\),
+    且 \(d_{i,j,n-1} = \det {((-A)(j|i))}\).
+    为方便, 记 \(b_{i,j,k} = (-1)^{j+i} d_{i,j,k}\).
+    则有跟 \(A\) 的元有关的数 \(b_{i,j,k}\)
+    (\(k = 0\), \(1\), \(\dots\), \(n-1\)),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        [\operatorname{adj} {(xI - A)}]_{i,j}
+        = b_{i,j,0} x^{n-1}
+        + b_{i,j,1} x^{n-2}
+        + \dots + b_{i,j,n-1}.
+    \end{align*}
+    作 \(n\)~级阵 \(B_k\),
+    使 \([B_k]_{i,j} = b_{i,j,k}\)
+    (\(k = 0\), \(1\), \(\dots\), \(n-1\)).
+    则 \(B_0\), \(B_1\), \(\dots\), \(B_{n-1}\)
+    的元全跟 \(A\) 的元有关,
+    且对任何数 \(x\), 有
+    \begin{align*}
+        \operatorname{adj} {(xI - A)}
+        = x^{n-1} B_0 + x^{n-2} B_1 + \dots + B_{n-1}.
+    \end{align*}
+    因为
+    \([B_{n-1}]_{i,j}
+    = b_{i,j,n-1}
+    = (-1)^{j+i} d_{i,j,n-1}
+    = (-1)^{j+i} \det {((-A)(j|i))}\),
+    我们有 \(B_{n-1} = \operatorname{adj} {(-A)}\).
+
+    因为
+    \begin{align*}
+        (\operatorname{adj} {(xI - A)})\, (xI - A)
+        = {} &
+        \det {(xI - A)}\, I
+        \\
+        = {} &
+        (c_0 x^n + c_1 x^{n-1} + \dots + c_n) I
+        \\
+        = {} &
+        x^n (c_0 I) + x^{n-1} (c_1 I) + \dots + (c_n I),
+    \end{align*}
+    我们有
+    \begin{align*}
+             &
+        (x^{n-1} B_0 + x^{n-2} B_1 + \dots + x B_{n-2} + B_{n-1})
+        (xI - A)
+        \\
+        = {} &
+        x^n (c_0 I) + x^{n-1} (c_1 I) + \dots + x (c_{n-1} I) + (c_n I).
+    \end{align*}
+    上式的左侧是
+    \begin{align*}
+             &
+        (x^{n-1} B_0 + x^{n-2} B_1 + \dots + x B_{n-2} + B_{n-1})
+        (xI)
+        \\
+             & \hphantom{(x^{n-1} B_0}
+        +
+        (x^{n-1} B_0 + x^{n-2} B_1 + \dots + x B_{n-2} + B_{n-1})
+        (-A)
+        \\
+        = {} &
+        x^n B_0 + x^{n-1} B_1 + \dots + x^2 B_{n-2} + x B_{n-1}
+        \\
+             &
+        \hphantom{x^n B_0}
+        - x^{n-1} (B_0 A) - x^{n-2} (B_1 A) - \dots
+        - x (B_{n-2} A) - B_{n-1} A
+        \\
+        = {} &
+        x^n B_0 + x^{n-1} (B_1 - B_0 A)
+        + x^{n-2} (B_2 - B_1 A)
+        \\
+             &
+        \qquad \qquad
+        + \dots
+        + x (B_{n-1} - B_{n-2} A)
+        + (- B_{n-1} A).
+    \end{align*}
+    比较左侧与右侧, 有
+    \begin{align*}
+        B_0                 & = c_0 I,     \\
+        B_1 - B_0 A         & = c_1 I,     \\
+        B_2 - B_1 A         & = c_2 I,     \\
+                            & \dots,       \\
+        B_{n-1} - B_{n-2} A & = c_{n-1} I, \\
+        - B_{n-1} A         & = c_n I.
+    \end{align*}
+    则
+    \begin{align*}
+        B_0 A^{n-1}               & = (c_0 I) A^{n-1}, \\
+        (B_1 - B_0 A) A^{n-2}     & = (c_1 I) A^{n-2}, \\
+        (B_2 - B_1 A) A^{n-3}     & = (c_2 I) A^{n-3}, \\
+                                  & \dots,             \\
+        (B_{n-1} - B_{n-2} A) A^0 & = (c_{n-1} I) A^0.
+    \end{align*}
+    则
+    \begin{align*}
+        B_0 A^{n-1}               & = c_0 A^{n-1}, \\
+        B_1 A^{n-2} - B_0 A^{n-1} & = c_1 A^{n-2}, \\
+        B_2 A^{n-3} - B_1 A^{n-2} & = c_2 A^{n-3}, \\
+                                  & \dots,         \\
+        B_{n-1} - B_{n-2} A       & = c_{n-1} I.
+    \end{align*}
+    则
+    \begin{align*}
+        B_{n-1} = c_0 A^{n-1} + c_1 A^{n-2} + \dots + c_{n-1} I.
+    \end{align*}
+    % 因为
+    % \begin{align*}
+    %     \operatorname{adj} {(0I - A)}
+    %     = 0^{n-1} B_0 + 0^{n-2} B_1 + \dots + B_{n-1},
+    % \end{align*}
+
+    由 \(B_{n-1} = \operatorname{adj} {(-A)}\),
+    知
+    \begin{align*}
+        \operatorname{adj} {(-A)}
+        = c_0 A^{n-1} + c_1 A^{n-2} + \dots + c_{n-1} I.
+    \end{align*}
+
+    由 \(-B_{n-1} A = c_n I\), 知
+    \begin{align*}
+        0
+        = {} &
+        B_{n-1} A + c_n I
+        \\
+        = {} &
+        (c_0 A^{n-1} + c_1 A^{n-2} + \dots + c_{n-1} I) A + c_n I
+        \\
+        = {} &
+        c_0 A^{n} + c_1 A^{n-1} + \dots + c_{n-1} A + c_{n} I.
+    \end{align*}
+
+    % 我们知道,
+    % \(\operatorname{adj} {(-A)}\, (-A) = \det {(-A)} I\).
+    % 则
+    % \begin{align*}
+    %          &
+    %     c_0 A^{n} + c_1 A^{n-1} + \dots + c_{n-1} A + c_{n} I
+    %     \\
+    %     = {} &
+    %     (c_0 A^{n-1} + c_1 A^{n-2} + \dots + c_{n-1} I) A + c_{n} I
+    %     \\
+    %     = {} &
+    %     \operatorname{adj} {(-A)}\, A + \det {(-A)} I
+    %     \\
+    %     = {} &
+    %     {-} \operatorname{adj} {(-A)}\, (-A) + \det {(-A)} I
+    %     \\
+    %     = {} & 0.
+    % \end{align*}
+
+    最后, 由前面的例,
+    \(1 \leq k \leq n\) 时,
+    \begin{align*}
+        c_k
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            (-A) \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        (-1)^k
+        \det {\left(
+            A \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        \\
+        = {} &
+        (-1)^k
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)};
+    \end{align*}
+    特别地, \(c_n = (-1)^n \det {(A)}\).
+\end{example}
+
+综上, 我们有:
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+
+    (1)
+    存在跟 \(A\) 的元有关的数
+    \(c_0\), \(c_1\), \(\dots\), \(c_n\),
+    使对任何数 \(x\), 有
+    \begin{align*}
+        \det {(xI - A)} = c_0 x^n + c_1 x^{n-1} + \dots + c_n,
+    \end{align*}
+    其中 \(c_0 = 1\),
+    且 \(c_n = (-1)^n \det {(A)}\).
+    更具体地,
+    \(1 \leq k \leq n\) 时,
+    \begin{align*}
+        c_k
+        = {} &
+        (-1)^k
+        \sum_{1 \leq j_1 < \dots < j_k \leq n}
+        \det {\left(
+            A \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}.
+    \end{align*}
+
+    (2)
+    用 \(A\) 的一些非负整数次方的数乘的和,
+    我们可如此表示 \(-A\) 的古伴:
+    \begin{align*}
+        \operatorname{adj} {(-A)}
+        = c_0 A^{n-1} + c_1 A^{n-2} + \dots + c_{n-1} I.
+    \end{align*}
+    则 \(A\) 的古伴
+    \begin{align*}
+        \operatorname{adj} {(A)}
+        = (-1)^{n-1} \operatorname{adj} {(-A)}
+        = (-1)^{n-1} (c_0 A^{n-1} + c_1 A^{n-2} + \dots + c_{n-1} I).
+    \end{align*}
+
+    (3)
+    (Cayley--Hamilton 定理)
+    \begin{align*}
+        c_0 A^{n} + c_1 A^{n-1} + \dots + c_{n} I = 0.
+    \end{align*}
+\end{theorem}
+
+\begin{example}
+    我们验证 \(n = 2\) 时的情形.
+    为方便, 设
+    \(A =
+    \begin{bmatrix}
+        a & b \\
+        c & d \\
+    \end{bmatrix}\).
+    则
+    \(xI - A =
+    \begin{bmatrix}
+        x - a & -b    \\
+        -c    & x - d \\
+    \end{bmatrix}\).
+    直接计算, 有
+    \begin{align*}
+        \det {(xI - A)}
+        = (x - a)(x - d) - (-c)(-b)
+        = 1x^2 + (-(a + d))x + (ad - cb).
+    \end{align*}
+    注意, \((-1)^2 \det {(A)} = ad - cb\),
+    且
+    \begin{align*}
+        (-1)^1
+        \sum_{1 \leq j_1 \leq 2}
+        \det {\left(
+            A \binom{j_1}{j_1}
+            \right)}
+        = {} &
+        (-1) \left(
+        \det {\left(
+            A \binom{1}{1}
+            \right)}
+        +
+        \det {\left(
+            A \binom{2}{2}
+            \right)}
+        \right)
+        \\
+        = {} &
+        {-} (a + d).
+    \end{align*}
+    则 (1) 被验证.
+
+    因为
+    \(-A =
+    \begin{bmatrix}
+        -a & -b \\
+        -c & -d \\
+    \end{bmatrix}\),
+    我们有
+    \begin{align*}
+        \operatorname{adj} {(-A)}
+        =
+        \begin{bmatrix}
+            -d & b  \\
+            c  & -a \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a - (a+d) & b         \\
+            c         & d - (a+d) \\
+        \end{bmatrix}
+        =
+        1A + (-(a+d))I.
+    \end{align*}
+    类似地, 可验证
+    \(\operatorname{adj} {(A)}
+    = (-1)^{2-1} \operatorname{adj} {(-A)}
+    = -(1A + (-(a+d))I)\);
+    请允许我留它为您的习题.
+    则 (2) 被验证.
+
+    最后,
+    \begin{align*}
+             &
+        1 A^2 + (-(a + d)) A + (ad - cb) I
+        \\
+        = {} &
+        1
+        \begin{bmatrix}
+            a & b \\
+            c & d \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            a & b \\
+            c & d \\
+        \end{bmatrix}
+        + (-(a + d))
+        \begin{bmatrix}
+            a & b \\
+            c & d \\
+        \end{bmatrix}
+        + (ad - cb)
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1 \\
+        \end{bmatrix}
+        \\
+        = {} &
+        \begin{bmatrix}
+            a^2 + bc & b(a + d) \\
+            c(a + d) & bc + d^2 \\
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            -a^2 - ad & -b(a + d) \\
+            -c(a + d) & -ad - d^2 \\
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            ad - bc & 0       \\
+            0       & ad - bc \\
+        \end{bmatrix}
+        \\
+        = {} &
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & 0 \\
+        \end{bmatrix}
+        \\
+        = {} &
+        0.
+    \end{align*}
+    则 (3) 被验证.
+\end{example}
+
+\begin{example}
+    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+
+    (1)
+    \(f(A B) = f(A) f(B)\),
+    对任何 \(n\)~级阵 \(A\), \(B\);
+
+    (2)
+    若 \(n\)~级阵 \(D\) 适合
+    \([D]_{i,j} = 0\) (\(i \neq j\)),
+    则 \(f(D) = \det {(D)}\).
+    % (2)
+    % 若 \(n\)~级阵 \(D\) 适合 \([D]_{i,j} = 0\),
+    % 当 \(i \neq j\) 时,
+    % 则 \(f(D) = [D]_{1,1} [D]_{2,2} \dots [D]_{n,n}\).
+
+    我们说明, \(f(A) = \det {(A)}\),
+    对任何 \(n\)~级阵 \(A\).
+
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(p\) 是不超过 \(n\) 的正整数.
+    设 \(s\) 是数.
+    作 \(n\)~级阵 \(M(n; p; s)\) 如下:
+    \begin{align*}
+        [M(n; p; s)]_{i,j} =
+        \begin{cases}
+            [I_n]_{i,j},   & j \neq p; \\
+            s [I_n]_{i,p}, & j = p.
+        \end{cases}
+    \end{align*}
+    我们考虑 \(A M(n; p; s)\).
+    当 \(j \neq p\) 时,
+    \begin{align*}
+        [A M(n; p; s)]_{i,j}
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} [M(n; p; s)]_{k,j}}
+        \\
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} [I_n]_{k,j}}
+        \\
+        = {} &
+        [A I_n]_{i,j}
+        \\
+        = {} &
+        [A]_{i,j}.
+    \end{align*}
+    当 \(j = p\) 时,
+    \begin{align*}
+        [A M(n; p; s)]_{i,j}
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} [M(n; p; s)]_{k,p}}
+        \\
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} s [I_n]_{k,p}}
+        \\
+        = {} &
+        s [A I_n]_{i,p}
+        \\
+        = {} &
+        s [A]_{i,p}.
+    \end{align*}
+    则 \(A M(n; p; s)\) 的列~\(j\) 等于 \(A\) 的列~\(j\)
+    (\(j \neq p\)),
+    且 \(A M(n; p; s)\) 的列~\(p\) 是 \(A\) 的列~\(p\)
+    的 \(s\) 倍.
+    注意, 若 \(i \neq j\), 则 \([M(n; p; s)]_{i,j} = 0\).
+    则 \(f(M(n; p; s)) = \det {(M(n; p; s))} = s\).
+    % 则 \(f(M(n; p; s)) = s\).
+    则 \(f(A M(n; p; s)) = f(A) f(M(n; p; s))
+    = s f(A)\).
+    用 ``用行列式的性质确定行列式'' 的话,
+    这说明, \(f\) 有多齐性.
+    若我们还能说明 \(f\) 有倍加不变性,
+    则, 由 \(f(I_n) = \det {(I_n)} = 1\)
+    (注意, 若 \(i \neq j\), 则 \([I_n]_{i,j} = 0\)),
+    % (这是显然的),
+    我们立得 \(f(A) = \det {(A)}\).
+
+    我们知道, 可用阵的积表示倍加.
+    由 ``阵的积与倍加'' 的知识,
+    对 \(n\)~级阵 \(A\),
+    加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\)
+    (其中 \(p \neq q\)),
+    且不改变其他的列, 得 \(A E(n; p, q; s)\),
+    其中 \(n\)~级阵 \(E(n; p, q; s)\) 的元
+    \begin{align*}
+        [E(n; p, q; s)]_{i,j}
+        = \begin{cases}
+              s,           & \text{\(i = p\), 且 \(j = q\)}; \\
+              [I_n]_{i,j}, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    % (类似地,
+    % 加 \(A\) 的行~\(q\) 的 \(s\)~倍于行~\(p\),
+    % 且不改变其他的行, 得 \(E(n; p, q; s) A\).)
+    则 \(f(A E(n; p, q; s)) = f(A) f(E(n; p, q; s))\).
+    我们的目标是 \(f(E(n; p, q; s)) = 1\).
+    % Postscript on 2024-08-19:
+    % If n ≥ 3, then
+    % E(n; p, q; s) =
+    % E(n; p, w; s) E(n; w, q; 1) E(n; p, w; -s) E(n; w, q; -1),
+    % in which w ≠ p and w ≠ q and p ≠ q.
+    % Commutators are useful, are they not.
+    %
+    % Alternatively, I have shown that
+    % for t with t ≠ 0 and t ≠ 1,
+    % M(n; p; t) =
+    % E(n; p, q; -s/(1-t)) E(n; p, q; s) M(n; p; t) E(n; p, q; s/(1-t)),
+    % or, equivalently,
+    % E(n; p, q; s) =
+    % E(n; p, q; s/(1-t)) M(n; p; t) E(n; p, q; -s/(1-t)) M(n; p; 1/t).
+
+    设数 \(t \neq 1\), 且 \(t \neq 0\).
+    记
+    \(U = E(n; p, q; s/(1-t))\),
+    \(V = E(n; p, q; -s/(1-t))\),
+    \(G = M(n; p; t)\),
+    且 \(H = M(n; p; 1/t)\).
+    注意,
+    \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q}\, (-s/(1-t)) = 0\),
+    且
+    \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\)
+    (其他的情形).
+    故 \(UV = I_n\).
+    注意,
+    \([GH]_{p,p} = [G]_{p,p}\, (1/t) = 1\),
+    且
+    \([GH]_{i,j} = [G]_{i,j} = [I_n]_{i,j}\)
+    (其他的情形).
+    故 \(GH = I_n\).
+    我们计算 \(UGVH\)
+    (注意, 这不是 \(UVGH\)).
+    首先,
+    \([UG]_{p,p} = [U]_{p,p}\, t = t\),
+    \([UG]_{p,q} = [U]_{p,q} = s/(1-t)\),
+    且
+    \([UG]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则
+    \([UGV]_{p,p} = [UG]_{p,p} = t\),
+    \([UGV]_{p,q} = [UG]_{p,q} + [UG]_{p,p}\, (-s/(1-t))
+    = s/(1-t) - st/(1-t) = s\),
+    且
+    \([UGV]_{i,j} = [UG]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则
+    \([UGVH]_{p,p} = [UGV]_{p,p}\, (1/t) = 1\),
+    \([UGVH]_{p,q} = [UGV]_{p,q} = s\),
+    且
+    \([UGVH]_{i,j} = [UGV]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则 \(UGVH = E(n; p, q; s)\).
+    故
+    \begin{align*}
+        f(E(n; p, q; s))
+        = {} &
+        f(UGVH)
+        \\
+        = {} &
+        f(UG) f(VH)
+        \\
+        = {} &
+        f(U) f(G) f(V) f(H)
+        \\
+        = {} &
+        f(U) f(V) f(G) f(H)
+        \\
+        = {} &
+        f(UV) f(GH)
+        \\
+        = {} &
+        f(I_n) f(I_n)
+        \\
+        = {} &
+        1.
+    \end{align*}
+
+    % https://www.quora.com/What-is-the-proof-that-the-matrix-determinant-is-uniquely-determined-by-the-rule-for-diagonal-matrices-and-det-AB-det-A-det-B-rules
+    % 取不超过 \(n\) 的正整数 \(p\), \(q\),
+    % 且 \(p \neq q\).
+    % 取数 \(s\).
+    % 设数 \(t \neq 1\), 且 \(t \neq 0\).
+    % 记 \(L = E(n; p, q; s) M(n; p; t)\).
+    % 则
+    % \([L]_{p,q} = [M(n; p; t)]_{p,q}
+    % + s [M(n; p; t)]_{q,q} = s\),
+    % 且 \([L]_{i,j} = [M(n; p; t)]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 我们用二个方式算 \(f(L)\).
+
+    % 一方面,
+    % \(f(L) = f(E(n; p, q; s)) f(M(n; p; t))
+    % = f(E(n; p, q; s))\, t\).
+
+    % 另一方面, 我们可倍加二次,
+    % 变 \(L\) 为某个阵 \(D\),
+    % 使 \(f(L) = f(D)\),
+    % 且 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    % 记 \(U = E(n; p, q; s/(1-t))\)
+    % 与 \(V = E(n; p, q; -s/(1-t))\).
+    % 则 \([LU]_{p,q}
+    %     = [L]_{p,q} + [L]_{p,p} s/(1-t) = s/(1-t)\),
+    % 且 \([LU]_{i,j} = [L]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 进一步, \([VLU]_{p,q} = [V(LU)]_{p,q}
+    %     = [LU]_{p,q} + [LU]_{q,q} (-s/(1-t)) = 0\),
+    % 且 \([VLU]_{i,j} = [LU]_{i,j} = [L]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 则 \(VLU = M(n; p; t)\).
+    % 故 \(f(VLU) = t\).
+    % 注意,
+    % \begin{align*}
+    %     f(VLU)
+    %     = {} &
+    %     f(V (LU)) = f(V) f(LU) = f(LU) f(V)
+    %     \\
+    %     = {} &
+    %     f((LU) V) = f(L (UV)).
+    % \end{align*}
+    % 注意,
+    % \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q} (-s/(1-t)) = 0\),
+    % 且
+    % \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 故 \(UV = I_n\).
+    % 则 \(t = f(VLU) = f(L(UV)) = f(L I_n) = f(L)\).
+
+    % 比较二次计算的结果, 我们有
+    % \(t = f(L) = f(E(n; p, q; s))\, t\).
+    % 因为 \(t \neq 0\),
+    % 由消去律, \(f(E(n; p, q; s)) = 1\).
+    % 则 \(f\) 有 ``倍加不变性''.
+
+    综上, 我们有了新的用行列式的性质确定行列式的方式.
+\end{example}
+
+\end{document}
+
+This material contains many miscellaneous examples
+about determinants
+(which seem to be hard for beginners):
+\begin{itemize}
+    \item a formula for det (D + A) in which D is diagonal
+    \item a formula for det (xI + A)
+    \item a formula that relates det (xI + AB) and det (xI + BA)
+    \item the resultant of two polynomials;
+          a necessary condition
+          that f(x) and g(x) have a common root
+    \item an example that shows how to use the resultant
+          to solve a system of polynomial equations
+          with two unknowns
+    \item powers of a square matrix
+    \item a formula for adj (-A) in terms of a polynomial in A
+    \item Cayley--Hamilton
+    \item a new way for determining the determinant function
+\end{itemize}
+This material consists of one very long section.
