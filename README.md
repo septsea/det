@@ -123,4 +123,4 @@ Multaj informoj estas en aliaj Markdown-dosieroj en ĉi tiu deponejo.
 More information is in other Markdown files in this repository.
 
 Determinantulo  
-2025-02-16
+2025-03-09

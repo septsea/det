@@ -139,8 +139,8 @@ and download all files as a compressed file.
 有了书的代码, 您可能想试编译本书. 我有一些方法 (但本质只有一个) 使您编译它.  
 Given the source code of the book, you might want to build the book. Here are some ways to build it (which are essentially the same, though).
 
-我假定您可正常地用乳胶 (LaTeX). TeX Live 2021, 2022, 2023, 或 2024 均可被用于编译本书.  
-It is assumed that LaTeX functions well on your computer. Any of TeX Live 2021, 2022, 2023, 2024 can be used to build the book.
+我假定您可正常地用乳胶 (LaTeX). [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 或 2025 均可被用于编译本书.  
+It is assumed that LaTeX functions well on your computer. Any of [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 2025 can be used to build the book.
 
 当我说 "执行" 时, 请您打开一个可执行命令的窗口, 并进入 [`libro.tex`](../libro.tex) 所在的目录.  
 When I say "execute", you please open a terminal window
@@ -237,7 +237,7 @@ You can certainly use `make` on Windows. Download it [here](https://sourceforge.
 
 ## About MikTeX
 
-Some users do not use TeX Live; they use MikTeX instead. I was asked how to build this book using MikTeX. Hence I did an experiment on 2024-10-23 (on 23 October 2024) on a Windows PC. The version of MikTeX that I used for the experiment was 24.1 (on 2024-01-28).
+Some users do not use TeX Live; they use [MikTeX](https://miktex.org/) instead. I was asked how to build this book using MikTeX. Hence I did an experiment on 2024-10-23 on a Windows PC. The version of MikTeX that I used for the experiment was 24.1 (on 2024-01-28).
 
 <!-- spell-checker: disable -->
 
@@ -263,10 +263,10 @@ The following packages are needed if LuaLaTeX is used:
 
 <!-- spell-checker: enable -->
 
-You might be curious about why I do not use `latexmk` here. Here are my considerations:
+You might be curious about why `latexmk` is not used here. Two reasons:  
 - `latexmk` is not (yet) part of a default installation of MikTeX, but can be installed manually if needed. However, because MikTeX does not contain Perl, on which `latexmk` depends, one has to install Perl manually in order to use `latexmk` (if there is no Perl executable file). (If one is willing to install Perl, one is highly recommended using `latexmk`.)
 - MikTeX does include `texify`, which is an alternative to `latexmk` and does not depend on Perl as `latexmk` does, as part of a default installation of MikTeX. However, `texify` does not get along well with `biber`. (The issue existed many years ago and has not been fixed yet.)
 
-Well, I choose to continue using TeX Live instead. The reason for which I did the experiment was simply that I was kind enough.
+Given the above considerations, I decide that I keep using TeX Live for this project.
 
-Postscript: The package `fandol` (a few Chinese fonts) can be installed, if needed.
+Postscript: The package `fandol` (a set of a few Chinese fonts) can be installed, if needed.
