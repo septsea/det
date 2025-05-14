@@ -3,11 +3,12 @@
     oneside,
     punct=kaiming,
     zihao=-4,
+    landscape
 ]{ctexbook}
 
 \providecommand*{\laauxtoro}{the \textsf{mwe}
     (Minimal Working Example) package}
-\providecommand*{\lailustrajxo}{\includepdf{example-image-a4.pdf}}
+\providecommand*{\lailustrajxo}{\includepdf{example-image-a4-landscape.pdf}}
 
 \usepackage[margin=2.5cm]{geometry}
 \pagestyle{empty}
@@ -156,14 +157,12 @@
 \vfill
 
 \begin{align*}
-         &
     \det \begin{bmatrix}
              a_{1,1} & a_{1,2} & a_{1,3} \\
              a_{2,1} & a_{2,2} & a_{2,3} \\
              a_{3,1} & a_{3,2} & a_{3,3} \\
          \end{bmatrix}
-    \\
-    = {} &
+    =
     a_{1,1} a_{2,2} a_{3,3}
     + a_{1,2} a_{2,3} a_{3,1}
     + a_{1,3} a_{2,1} a_{3,2}
@@ -174,33 +173,41 @@
 
 \begin{figure*}[h!]
     \centering
-    \includegraphics{koro}
-
-    \caption*{%
-        \centering%
-        Memorhelpilo de la determinanto de \(3 \times 3\)-matrico\\
-        A mnemonic device of the determinant of a \(3 \times 3\) matrix\\
-        \(3 \times 3\) 阵的行列式的记忆方法}
-\end{figure*}
-
-\begin{figure*}[h!]
-    \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{minipage}[h!]{0.49\textwidth}
         \centering
-        \includegraphics{rapidresponda kodo por GitHub}
-        \caption*{\url{https://github.com/septsea/det}}
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-        \centering
-        \includegraphics{rapidresponda kodo por Gitee}
-        \caption*{\url{https://gitee.com/septsea/det}}
-    \end{subfigure}
+        \includegraphics[width=\textwidth]{koro}
 
-    \caption*{%
-        \centering%
-        Legu \textit{Enkonduko al determinantoj} por pli multaj informoj.\\
-        Read \textit{An introduction to determinants} for more information.\\
-        阅读\,《行列式入门》\,以了解更多.}
+        \caption*{%
+            \centering%
+            Memorhelpilo de la determinanto de \(3 \times 3\)-matrico\\
+            A mnemonic device of the determinant of a \(3 \times 3\) matrix\\
+            \(3 \times 3\) 阵的行列式的记忆方法}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[h!]{0.49\textwidth}
+        \centering
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics{rapidresponda kodo por GitHub}
+            \caption*{\url{https://github.com/septsea/det}}
+        \end{subfigure}
+
+        \,
+
+        \begin{subfigure}{\textwidth}
+            \centering
+            \includegraphics{rapidresponda kodo por Gitee}
+            \caption*{\url{https://gitee.com/septsea/det}}
+        \end{subfigure}
+
+        % \vspace{1ex}
+
+        \caption*{%
+            \centering%
+            Legu \textit{Enkonduko al determinantoj} por pli multaj informoj.\\
+            Read \textit{An introduction to determinants} for more information.\\
+            阅读\,《行列式入门》\,以了解更多.}
+    \end{minipage}
 \end{figure*}
 
 \vfill

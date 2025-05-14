@@ -1,7 +1,7 @@
 # Illustration by Alpha
 
-Mi dankas Alpha pro desegni ĉi tiun ilustraĵon por ĉi tiu libro. Mi dankas [王一尾](https://space.bilibili.com/12952643/) pro esti bona makleristo por ĉi tiu ilustraĵo.  
-I thank Alpha for drawing this illustration for this book. I thank [王一尾](https://space.bilibili.com/12952643/) for being a good broker for this illustration.  
+Mi dankas Alpha, kiu desegnis ĉi tiun ilustraĵon por ĉi tiu libro. Mi dankas [王一尾](https://space.bilibili.com/12952643/), kiu estis bona peranto pri ĉi tiu ilustraĵo.  
+I thank Alpha, who drew this illustration for this book. I thank [王一尾](https://space.bilibili.com/12952643/), who was a good broker for this illustration.  
 我感谢 Alpha 为本书作此插画. 我感谢[王一尾](https://space.bilibili.com/12952643/)作中介.
 
 **Oni rajtas kopii kaj distribui ĉi tiun ilustraĵon en iu ajn medio aŭ formato por iu ajn celo, eĉ komerce, se oni donas taŭgan krediton kaj ne distribuas derivaĵojn de ĉi tiu ilustraĵo.**  
@@ -14,8 +14,8 @@ I thank Alpha for drawing this illustration for this book. I thank [王一尾](h
     <img src="../../ilustrajxoj/Alpha/illustration-20240828.jpg" width="62.5%" height="62.5%" alt="ilustraĵo" />
 </p>
 
----
+<!-- ---
 
 Postscript:
 
-In accordance with the request of Alpha, the contact details of Alpha are not revealed.
+In accordance with the request of Alpha, the contact details of Alpha are not revealed. -->

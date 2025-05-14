@@ -4,7 +4,7 @@ Metu bildodosierojn en la libro en ĉi tiun dosierujon.
 Put image files in the book into this folder.  
 置书里的图片文件于此文件夹.
 
----
+<!-- ---
 
 Postscript on 2024-08-31:
 
@@ -18,4 +18,4 @@ However, it was the case that there were image files. I used four countdown artw
 
 drawn by Hiroyuki (ヒロユキ), each featuring one of the four girls in his comic (manga) _Girlfriend, girlfriend_ ("カノジョも彼女", literally _She is also a girlfriend_). I wrote one chapter and three appendices (or rather, annexes) in my book, so I believed that I used the artworks really perfectly, one image being on the opening page of each chapter (or appendix/annex), if there were no such thing as copyright.
 
-It might be noted that I have mentioned _copyright_ more than one time. Yeah, the biggest problem is exactly copyright: I cannot use his artworks in my book without permission.
+It might be noted that I have mentioned _copyright_ more than one time. Yeah, the biggest problem is exactly copyright: I cannot use his artworks in my book without permission. -->

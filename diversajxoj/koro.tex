@@ -1,0 +1,106 @@
+\PassOptionsToClass{zihao=-4}{ctexart}
+\documentclass[class=ctexart]{standalone}
+
+\IfFontExistsTF{FiraSans-Regular.otf}{%
+    \IfFontExistsTF{FiraSans-SemiBold.otf}{%
+        \IfFontExistsTF{FiraSans-Italic.otf}{%
+            \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
+                \setmainfont{FiraSans}[
+                    Path,
+                    UprightFont = *-Regular.otf,
+                    BoldFont = *-SemiBold.otf,
+                    ItalicFont = *-Italic.otf,
+                    BoldItalicFont = *-SemiBoldItalic.otf
+                ]
+                \setsansfont{FiraSans}[
+                    Path,
+                    UprightFont = *-Regular.otf,
+                    BoldFont = *-SemiBold.otf,
+                    ItalicFont = *-Italic.otf,
+                    BoldItalicFont = *-SemiBoldItalic.otf
+                ]
+            }{}
+        }{}
+    }{}
+}{}
+
+\usepackage[
+    math-style=ISO,
+    bold-style=ISO,
+    mathrm=sym,
+    mathbf=sym,
+]{unicode-math}
+\IfFontExistsTF{FiraMath-Regular.otf}{%
+    \setmathfont{FiraMath-Regular.otf}
+}{}
+
+\usepackage{tikz}
+
+\begin{document}
+
+% Postscript on 2024-09-29:
+% The following figure is a derivative of
+% the work by "越来越少"
+% and the work by "Sagittarius Rover".
+% For more information, visit
+% https://ask.latexstudio.net/ask/question/17406.html
+% I thank them very much.
+\begin{tikzpicture}[scale=1.5]
+    \colorlet{verda}{green!70!black}
+    \colorlet{rugxa}{red!80}
+
+    \tikzset{
+        temp/.cd,
+        s opt/.store in=\solidlineopt, s opt={draw=verda},
+        s path/.store in=\solidlinepath, s path=,
+        s end opt/.store in=\solidlineendopt, s end opt={right},
+        s end text/.store in=\solidlineendtext, s end text=,
+        d opt/.store in=\dashedlineopt, d opt={draw=rugxa,dashed},
+        d path/.store in=\dashedlinepath, d path=,
+        d end opt/.store in=\dashedlineendopt, d end opt={left},
+        d end text/.store in=\dashedlineendtext, d end text=,
+    }
+    \def\linesdraw#1{
+        \begingroup
+        \tikzset{temp/.cd,#1}
+        \edef\tempcmd{
+            \noexpand\begin{scope}
+                \noexpand\draw[\solidlineopt]\solidlinepath node[\solidlineendopt]{\solidlineendtext};
+                \noexpand\end{scope}
+            \noexpand\begin{scope}
+                \noexpand\draw[yscale=-1,rotate=-90,\dashedlineopt]
+                \dashedlinepath
+                node[\dashedlineendopt]{\dashedlineendtext};
+                \noexpand\end{scope}
+        }
+        \tempcmd
+        \endgroup
+    }
+
+    \begin{scope}[rotate=-135]
+        \foreach \i/\j/\k in {
+        {(4,4)--(4,0)arc(0:-180:1.5)--(1,5)}/{\textcolor{verda}{$+a_{1,2}a_{2,3}a_{3,1}$}}/{\textcolor{rugxa}{$-a_{1,2}a_{2,1}a_{3,3}$}},
+        {(3,3)--(3,0)arc(0:-180:1.5)--(0,5)}/{\textcolor{verda}{$+a_{1,3}a_{2,1}a_{3,2}$}}/{\textcolor{rugxa}{$-a_{1,1}a_{2,3}a_{3,2}$}},
+        {(2,0)--(2,5)}/{\textcolor{verda}{$+a_{1,1}a_{2,2}a_{3,3}$}}/{\textcolor{rugxa}{$-a_{1,3}a_{2,2}a_{3,1}$}}
+        }{
+        \linesdraw{
+            %  s opt=,
+            s path={\i},
+            %  s end opt={},
+            s end text={\j},
+            %  d opt=,
+            d path={\i},
+            %  d end opt={},
+            d end text={\k},
+        }}
+    \end{scope}
+
+    \begin{scope}[yscale={-sqrt(2)},xscale={sqrt(2)},shift={(-2,0)}]
+        \foreach \i in {1,2,3}{
+                \foreach \j in {1,2,3}{
+                        \node [fill=white] at(\i,\j){\(a_{\j,\i}\)};
+                    }}
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}

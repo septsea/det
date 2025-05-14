@@ -32,7 +32,10 @@
 # except:
 !/libro.pdf
 !/diversajxoj/afisxo de Alpha.pdf
-!/diversajxoj/kovrilo-eo.pdf
+!/diversajxoj/afisxo de Shushengyudi.pdf
+!/diversajxoj/koro.pdf
+!/diversajxoj/rapidresponda kodo por GitHub.pdf
+!/diversajxoj/rapidresponda kodo por Gitee.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
