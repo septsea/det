@@ -16,20 +16,20 @@
     \IfFontExistsTF{FiraSans-SemiBold.otf}{%
         \IfFontExistsTF{FiraSans-Italic.otf}{%
             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
-                \setmainfont{FiraSans}[
+                \setmainfont[
                     Path,
                     UprightFont = *-Regular.otf,
                     BoldFont = *-SemiBold.otf,
                     ItalicFont = *-Italic.otf,
                     BoldItalicFont = *-SemiBoldItalic.otf
-                ]
-                \setsansfont{FiraSans}[
+                ]{FiraSans}
+                \setsansfont[
                     Path,
                     UprightFont = *-Regular.otf,
                     BoldFont = *-SemiBold.otf,
                     ItalicFont = *-Italic.otf,
                     BoldItalicFont = *-SemiBoldItalic.otf
-                ]
+                ]{FiraSans}
             }{}
         }{}
     }{}
@@ -40,30 +40,30 @@
         \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
             \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
                 \PassOptionsToClass{fontset=none}{ctexbook}
-                \setmonofont{Sarasa Mono SC}[
+                \setmonofont[
                     UprightFont = *,
                     BoldFont = * SemiBold,
                     ItalicFont = * Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
-                \setCJKmainfont{Sarasa Mono SC}[
+                ]{Sarasa Mono SC}
+                \setCJKmainfont[
                     UprightFont = *,
                     BoldFont = * SemiBold,
                     ItalicFont = * Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
-                \setCJKsansfont{Sarasa Mono SC}[
+                ]{Sarasa Mono SC}
+                \setCJKsansfont[
                     UprightFont = *,
                     BoldFont = * SemiBold,
                     ItalicFont = * Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
-                \setCJKmonofont{Sarasa Mono SC}[
+                ]{Sarasa Mono SC}
+                \setCJKmonofont[
                     UprightFont = *,
                     BoldFont = * SemiBold,
                     ItalicFont = * Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
+                ]{Sarasa Mono SC}
             }{}
         }{}
     }{}
@@ -73,34 +73,34 @@
             \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
                 \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
                     \PassOptionsToClass{fontset=none}{ctexbook}
-                    \setmonofont{SarasaMonoSC}[
+                    \setmonofont[
                         Path,
                         UprightFont = *-Regular.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-Italic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
-                    \setCJKmainfont{SarasaMonoSC}[
+                    ]{SarasaMonoSC}
+                    \setCJKmainfont[
                         Path,
                         UprightFont = *-Regular.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-Italic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
-                    \setCJKsansfont{SarasaMonoSC}[
+                    ]{SarasaMonoSC}
+                    \setCJKsansfont[
                         Path,
                         UprightFont = *-Regular.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-Italic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
-                    \setCJKmonofont{SarasaMonoSC}[
+                    ]{SarasaMonoSC}
+                    \setCJKmonofont[
                         Path,
                         UprightFont = *-Regular.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-Italic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
+                    ]{SarasaMonoSC}
                 }{}
             }{}
         }{}
@@ -114,7 +114,7 @@
     mathbf=sym,
 ]{unicode-math}
 \IfFontExistsTF{FiraMath-Regular.otf}{%
-    \setmathfont{FiraMath-Regular.otf}
+    \setmathfont[]{FiraMath-Regular.otf}
 }{}
 
 \makeatletter

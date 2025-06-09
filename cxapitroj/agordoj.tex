@@ -5,13 +5,13 @@
     \IfFontExistsTF{XITS-Italic.otf}{%
         \IfFontExistsTF{FiraSans-SemiBold.otf}{%
             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
-                \setmainfont{XITS}[
+                \setmainfont[
                     Path,
                     UprightFont = *-Regular.otf,
                     BoldFont = FiraSans-SemiBold.otf,
                     ItalicFont = *-Italic.otf,
                     BoldItalicFont = FiraSans-SemiBoldItalic.otf
-                ]
+                ]{XITS}
             }{}
         }{}
     }{}
@@ -21,13 +21,13 @@
     \IfFontExistsTF{FiraSans-SemiBold.otf}{%
         \IfFontExistsTF{FiraSans-LightItalic.otf}{%
             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
-                \setsansfont{FiraSans}[
+                \setsansfont[
                     Path,
                     UprightFont = *-Light.otf,
                     BoldFont = *-SemiBold.otf,
                     ItalicFont = *-LightItalic.otf,
                     BoldItalicFont = *-SemiBoldItalic.otf
-                ]
+                ]{FiraSans}
             }{}
         }{}
     }{}
@@ -37,25 +37,25 @@
     \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
         \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
             \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
-                \setmonofont{Sarasa Mono SC}[
+                \setmonofont[
                     UprightFont = * Light,
                     BoldFont = * SemiBold,
                     ItalicFont = * Light Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
+                ]{Sarasa Mono SC}
                 \PassOptionsToClass{fontset=none}{ctexbook}
-                \setCJKsansfont{Sarasa Mono SC}[
+                \setCJKsansfont[
                     UprightFont = * Light,
                     BoldFont = * SemiBold,
                     ItalicFont = * Light Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
-                \setCJKmonofont{Sarasa Mono SC}[
+                ]{Sarasa Mono SC}
+                \setCJKmonofont[
                     UprightFont = * Light,
                     BoldFont = * SemiBold,
                     ItalicFont = * Light Italic,
                     BoldItalicFont = * SemiBold Italic
-                ]
+                ]{Sarasa Mono SC}
             }{}
         }{}
     }{}
@@ -64,28 +64,28 @@
         \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
             \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
                 \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
-                    \setmonofont{SarasaMonoSC}[
+                    \setmonofont[
                         Path,
                         UprightFont = *-Light.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-LightItalic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
+                    ]{SarasaMonoSC}
                     \PassOptionsToClass{fontset=none}{ctexbook}
-                    \setCJKsansfont{SarasaMonoSC}[
+                    \setCJKsansfont[
                         Path,
                         UprightFont = *-Light.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-LightItalic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
-                    \setCJKmonofont{SarasaMonoSC}[
+                    ]{SarasaMonoSC}
+                    \setCJKmonofont[
                         Path,
                         UprightFont = *-Light.ttf,
                         BoldFont = *-SemiBold.ttf,
                         ItalicFont = *-LightItalic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
-                    ]
+                    ]{SarasaMonoSC}
                 }{}
             }{}
         }{}
@@ -97,12 +97,12 @@
         \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
             \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
                 \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
-                    \setCJKmainfont{Source Han Serif CN}[
+                    \setCJKmainfont[
                         UprightFont = * Light,
                         BoldFont = Sarasa Mono SC SemiBold,
                         ItalicFont = Sarasa Mono SC Light Italic,
                         BoldItalicFont = Sarasa Mono SC SemiBold Italic
-                    ]
+                    ]{Source Han Serif CN}
                 }{}
             }{}
         }{}
@@ -113,13 +113,13 @@
             \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
                 \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
                     \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
-                        \setCJKmainfont{SourceHanSerifCN}[
+                        \setCJKmainfont[
                             Path,
                             UprightFont = *-Light.ttf,
                             BoldFont = *-SemiBold.ttf,
                             ItalicFont = *-LightItalic.ttf,
                             BoldItalicFont = *-SemiBoldItalic.ttf
-                        ]
+                        ]{SourceHanSerifCN}
                     }{}
                 }{}
             }{}
@@ -131,13 +131,13 @@
 %     \IfFontExistsTF{XITS-Italic.otf}{%
 %         \IfFontExistsTF{FiraSans-SemiBold.otf}{%
 %             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
-%                 \setmainfont{XITS}[
+%                 \setmainfont[
 %                     Path,
 %                     UprightFont = *-Regular.otf,
 %                     BoldFont = FiraSans-SemiBold.otf,
 %                     ItalicFont = *-Italic.otf,
 %                     BoldItalicFont = FiraSans-SemiBoldItalic.otf
-%                 ]
+%                 ]{XITS}
 %             }{}
 %         }{}
 %     }{}
@@ -147,17 +147,17 @@
 % %     \IfFontExistsTF{XITS Italic}{%
 % %         \IfFontExistsTF{Fira Sans SemiBold}{%
 % %             \IfFontExistsTF{Fira Sans SemiBold Italic}{%
-% %                 \setmainfont{XITS}[
+% %                 \setmainfont[
 % %                     UprightFont = *,
 % %                     BoldFont = Fira Sans SemiBold,
 % %                     ItalicFont = * Italic,
 % %                     BoldItalicFont = Fira Sans SemiBold Italic
-% %                 ]
+% %                 ]{XITS}
 % %             }{%
-% %                 \setmainfont{XITS}
+% %                 \setmainfont[]{XITS}
 % %             }
 % %         }{%
-% %             \setmainfont{XITS}
+% %             \setmainfont[]{XITS}
 % %         }
 % %     }{}
 % % }{}
@@ -166,13 +166,13 @@
 %     \IfFontExistsTF{FiraSans-SemiBold.otf}{%
 %         \IfFontExistsTF{FiraSans-LightItalic.otf}{%
 %             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
-%                 \setsansfont{FiraSans}[
+%                 \setsansfont[
 %                     Path,
 %                     UprightFont = *-Light.otf,
 %                     BoldFont = *-SemiBold.otf,
 %                     ItalicFont = *-LightItalic.otf,
 %                     BoldItalicFont = *-SemiBoldItalic.otf
-%                 ]
+%                 ]{FiraSans}
 %             }{}
 %         }{}
 %     }{}
@@ -182,12 +182,12 @@
 % %     \IfFontExistsTF{Fira Sans Light Italic}{%
 % %         \IfFontExistsTF{Fira Sans SemiBold}{%
 % %             \IfFontExistsTF{Fira Sans SemiBold Italic}{%
-% %                 \setsansfont{Fira Sans}[
+% %                 \setsansfont[
 % %                     UprightFont = * Light,
 % %                     BoldFont = * SemiBold,
 % %                     ItalicFont = * Light Italic,
 % %                     BoldItalicFont = * SemiBold Italic
-% %                 ]
+% %                 ]{Fira Sans}
 % %             }{}
 % %         }{}
 % %     }{}
@@ -197,13 +197,13 @@
 %     \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
 %         \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
 %             \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
-%                 \setmonofont{SarasaMonoSC}[
+%                 \setmonofont[
 %                     Path,
 %                     UprightFont = *-Light.ttf,
 %                     BoldFont = *-SemiBold.ttf,
 %                     ItalicFont = *-LightItalic.ttf,
 %                     BoldItalicFont = *-SemiBoldItalic.ttf
-%                 ]
+%                 ]{SarasaMonoSC}
 %             }{}
 %         }{}
 %     }{}
@@ -213,12 +213,12 @@
 % %     \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
 % %         \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
 % %             \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
-% %                 \setmonofont{Sarasa Mono SC}[
+% %                 \setmonofont[
 % %                     UprightFont = * Light,
 % %                     BoldFont = * SemiBold,
 % %                     ItalicFont = * Light Italic,
 % %                     BoldItalicFont = * SemiBold Italic
-% %                 ]
+% %                 ]{Sarasa Mono SC}
 % %             }{}
 % %         }{}
 % %     }{}
@@ -229,20 +229,20 @@
 %         \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
 %             \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
 %                 \PassOptionsToClass{fontset=none}{ctexbook}
-%                 \setCJKsansfont{SarasaMonoSC}[
+%                 \setCJKsansfont[
 %                     Path,
 %                     UprightFont = *-Light.ttf,
 %                     BoldFont = *-SemiBold.ttf,
 %                     ItalicFont = *-LightItalic.ttf,
 %                     BoldItalicFont = *-SemiBoldItalic.ttf
-%                 ]
-%                 \setCJKmonofont{SarasaMonoSC}[
+%                 ]{SarasaMonoSC}
+%                 \setCJKmonofont[
 %                     Path,
 %                     UprightFont = *-Light.ttf,
 %                     BoldFont = *-SemiBold.ttf,
 %                     ItalicFont = *-LightItalic.ttf,
 %                     BoldItalicFont = *-SemiBoldItalic.ttf
-%                 ]
+%                 ]{SarasaMonoSC}
 %             }{}
 %         }{}
 %     }{}
@@ -253,13 +253,13 @@
 %         \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
 %             \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
 %                 \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
-%                     \setCJKmainfont{SourceHanSerifCN}[
+%                     \setCJKmainfont[
 %                         Path,
 %                         UprightFont = *-Light.otf,
 %                         BoldFont = SarasaMonoSC-SemiBold.ttf,
 %                         ItalicFont = SarasaMonoSC-LightItalic.ttf,
 %                         BoldItalicFont = SarasaMonoSC-SemiBoldItalic.ttf
-%                     ]
+%                     ]{SourceHanSerifCN}
 %                 }{}
 %             }{}
 %         }{}
@@ -271,24 +271,24 @@
 % %         \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
 % %             \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
 % %                 \PassOptionsToClass{fontset=none}{ctexbook}
-% %                 \setCJKmainfont{Source Han Serif CN}[
+% %                 \setCJKmainfont[
 % %                     UprightFont = * Light,
 % %                     BoldFont = Sarasa Mono SC SemiBold,
 % %                     ItalicFont = Sarasa Mono SC Light Italic,
 % %                     BoldItalicFont = Sarasa Mono SC SemiBold Italic
-% %                 ]
-% %                 \setCJKsansfont{Sarasa Mono SC}[
+% %                 ]{Source Han Serif CN}
+% %                 \setCJKsansfont[
 % %                     UprightFont = * Light,
 % %                     BoldFont = * SemiBold,
 % %                     ItalicFont = * Light Italic,
 % %                     BoldItalicFont = * SemiBold Italic
-% %                 ]
-% %                 \setCJKmonofont{Sarasa Mono SC}[
+% %                 ]{Sarasa Mono SC}
+% %                 \setCJKmonofont[
 % %                     UprightFont = * Light,
 % %                     BoldFont = * SemiBold,
 % %                     ItalicFont = * Light Italic,
 % %                     BoldItalicFont = * SemiBold Italic
-% %                 ]
+% %                 ]{Sarasa Mono SC}
 % %             }{}
 % %         }{}
 % %     }{}
@@ -313,24 +313,24 @@
 
 % I specify the mathematical fonts used by the document.
 \IfFontExistsTF{XITSMath-Regular.otf}{%
-    \setmathfont{XITSMath-Regular.otf}
+    \setmathfont[]{XITSMath-Regular.otf}
 }{}
 \IfFontExistsTF{texgyretermes-math.otf}{%
-\setmathfont{texgyretermes-math.otf}[range=bb/{latin,Latin}]
+\setmathfont[range=bb/{latin,Latin}]{texgyretermes-math.otf}
 }{}
 \IfFontExistsTF{STIXTwoMath-Regular.otf}{%
-    \setmathfont{STIXTwoMath-Regular.otf}[range={"2218-"2218}]
+    \setmathfont[range={"2218-"2218}]{STIXTwoMath-Regular.otf}
 }{}
 
 % \IfFontExistsTF{XITS Math}{%
 %     % Standing-up-straight integral symbol (For XITS Math).
-%     \setmathfont{XITS Math}[StylisticSet=8]%
+%     \setmathfont[StylisticSet=8]{XITS Math}%
 % }{}
 % \IfFontExistsTF{TeX Gyre Termes Math}{%
-%     \setmathfont{TeX Gyre Termes Math}[range=bb/{latin,Latin}]%
+%     \setmathfont[range=bb/{latin,Latin}]{TeX Gyre Termes Math}%
 % }{}
 % \IfFontExistsTF{STIX Two Math}{%
-%     \setmathfont{STIX Two Math}[range={"2218-"2218}]
+%     \setmathfont[range={"2218-"2218}]{STIX Two Math}
 % }{}
 
 % These are packages that deal with theorem environments.

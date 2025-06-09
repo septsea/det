@@ -5,20 +5,20 @@
     \IfFontExistsTF{FiraSans-SemiBold.otf}{%
         \IfFontExistsTF{FiraSans-Italic.otf}{%
             \IfFontExistsTF{FiraSans-SemiBoldItalic.otf}{%
-                \setmainfont{FiraSans}[
+                \setmainfont[
                     Path,
                     UprightFont = *-Regular.otf,
                     BoldFont = *-SemiBold.otf,
                     ItalicFont = *-Italic.otf,
                     BoldItalicFont = *-SemiBoldItalic.otf
-                ]
-                \setsansfont{FiraSans}[
+                ]{FiraSans}
+                \setsansfont[
                     Path,
                     UprightFont = *-Regular.otf,
                     BoldFont = *-SemiBold.otf,
                     ItalicFont = *-Italic.otf,
                     BoldItalicFont = *-SemiBoldItalic.otf
-                ]
+                ]{FiraSans}
             }{}
         }{}
     }{}
@@ -31,7 +31,7 @@
     mathbf=sym,
 ]{unicode-math}
 \IfFontExistsTF{FiraMath-Regular.otf}{%
-    \setmathfont{FiraMath-Regular.otf}
+    \setmathfont[]{FiraMath-Regular.otf}
 }{}
 
 \usepackage{tikz}
