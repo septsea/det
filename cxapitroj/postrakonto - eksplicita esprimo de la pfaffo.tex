@@ -691,65 +691,91 @@ Pfaffian 的完全展开有如下的变体:
 
 最后, 我们用 pfaffian 的完全展开证明 pfaffian 的性质.
 
+% a manual pagebreak
+\clearpage
+
 \begin{theorem}
-    设 \(A\) 是 \(2m\)~级反称阵.
-    设 \(P\) 是 \(2m\)~级阵.
+    设 \(A\) 是 \(\ell\)~级反称阵.
+    设 \(P\) 是 \(n \times \ell\)~阵.
+
+    (1)
+    若 \(n > \ell\),
+    则 \(\operatorname{pf} {(P A P^{\mathrm{T}})} = 0\).
+
+    (2)
+    若 \(n \leq \ell\),
     则
-    \begin{equation}
+    \begin{align*}
+             &
         \operatorname{pf} {(P A P^{\mathrm{T}})}
-        = \det {(P)} \operatorname{pf} {(A)}.
-        \label{eq:pf-and-det}
-    \end{equation}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < j_2 < \dots < j_{n} \leq \ell}
+        {\det {\left(
+                P\binom{1,2,\dots,n}{j_1,j_2,\dots,j_{n}}
+                \right)}
+            \operatorname{pf} {\left(
+                A\binom{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}
+                \right)}}.
+    \end{align*}
+    特别地, 若 \(n = \ell\),
+    则因适合条件
+    \(1 \leq j_1 < j_2 < \dots < j_{n} \leq \ell\)
+    的
+    \(j_1\), \(j_2\), \(\dots\), \(j_{n}\),
+    是, 且只能是,
+    \(1\), \(2\), \(\dots\), \(n\),
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = {} &
+        \det {\left(
+            P\binom{1,2,\dots,n}{1,2,\dots,n}
+            \right)}
+        \operatorname{pf} {\left(
+            A\binom{1,2,\dots,n}{1,2,\dots,n}
+            \right)}
+        \\
+        = {} &
+        \det {(P)} \operatorname{pf} {(A)}.
+    \end{align*}
 \end{theorem}
 
 \begin{proof}
+    若 \(n\) 是奇数, 则
+    \(P A P^{\mathrm{T}}\)
+    与
+    \(\displaystyle
+    A\binom{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}\)
+    都是奇数级反称阵,
+    故它们的 pfaffian 都是 \(0\).
+    则这是显然的.
+
+    以下, 设 \(n = 2m\) 是偶数.
+
     注意,
     \begin{align*}
         [P A P^{\mathrm{T}}]_{i,j}
         = {} &
-        \sum_{1 \leq t \leq 2m}
+        \sum_{1 \leq t \leq \ell}
         {[P A]_{i,t} [P^{\mathrm{T}}]_{t,j}}
         \\
         = {} &
-        \sum_{1 \leq t \leq 2m}
+        \sum_{1 \leq t \leq \ell}
         {
             \left(
-            \sum_{1 \leq r \leq 2m}
+            \sum_{1 \leq r \leq \ell}
             {[P]_{i,r} [A]_{r,t}}
             \right)
             [P]_{j,t}
         }
         \\
         = {} &
-        \sum_{1 \leq r, t \leq 2m}
+        \sum_{1 \leq r, t \leq \ell}
         {[P]_{i,r} [P]_{j,t} [A]_{r,t}}.
     \end{align*}
-    则
-    \begin{align*}
-             &
-        [P A P^{\mathrm{T}}]_{u_1,v_1}
-        \dots
-        [P A P^{\mathrm{T}}]_{u_m,v_m}
-        \\
-        = {} &
-        \left(
-        \sum_{1 \leq r_1, t_1 \leq 2m}
-        {[P]_{u_1,r_1} [P]_{v_1,t_1} [A]_{r_1,t_1}}
-        \right)
-        \dots
-        \left(
-        \sum_{1 \leq r_m, t_m \leq 2m}
-        {[P]_{u_m,r_m} [P]_{v_m,t_m} [A]_{r_m,t_m}}
-        \right)
-        \\
-        = {} &
-        \sum_{1 \leq r_1, t_1, \dots, r_m, t_m \leq 2m}
-        {[P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
-            \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}}.
-    \end{align*}
     为方便, 我们简单地写
-    ``\(1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m\)''
-    为 ``\(u, v \text{:}\, 1, 2m\)'',
+    ``\(1 \leq u_1, v_1, \dots, u_m, v_m \leq x\)''
+    为 ``\(u, v \text{:}\, m \text{:}\, x\)'',
     且简单地写 ``\(u_1, v_1, \dots, u_m, v_m\) 互不相同''
     为 ``\(u, v \,\text{D}\)''.
     则
@@ -760,7 +786,7 @@ Pfaffian 的完全展开有如下的变体:
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:}\, 1, 2m;       \\
+        u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
             }}
         {s(u_1, v_1, \dots, u_m, v_m)\,
@@ -771,24 +797,46 @@ Pfaffian 的完全展开有如下的变体:
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:} 1, 2m;         \\
+        u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
             }}
-        s(u_1, v_1, \dots, u_m, v_m) \\
+        s(u_1, v_1, \dots, u_m, v_m)
+        \left(
+        \sum_{1 \leq r_1, t_1 \leq \ell}
+        {[P]_{u_1,r_1} [P]_{v_1,t_1} [A]_{r_1,t_1}}
+        \right)
+        \\
+             &
+        \quad \quad \quad \quad \quad \,
+        {} \cdot
+        \dots
+        \cdot
+        \left(
+        \sum_{1 \leq r_m, t_m \leq \ell}
+        {[P]_{u_m,r_m} [P]_{v_m,t_m} [A]_{r_m,t_m}}
+        \right)
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        s(u_1, v_1, \dots, u_m, v_m)     \\
              &
         \quad \quad \quad \quad \quad
         {} \cdot
-        \sum_{r, t \text{:} 1, 2m}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
         [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
         \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:} 1, 2m;         \\
+        u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
             }}
-        \sum_{r, t \text{:} 1, 2m}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
         s(u_1, v_1, \dots, u_m, v_m)
         \,
         [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
@@ -800,9 +848,9 @@ Pfaffian 的完全展开有如下的变体:
         \\
         = {} &
         \frac{1}{2^m m!}
-        \sum_{r, t \text{:} 1, 2m}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
         \sum_{\substack{
-        u, v \text{:} 1, 2m;         \\
+        u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
             }}
         s(u_1, v_1, \dots, u_m, v_m)
@@ -816,10 +864,10 @@ Pfaffian 的完全展开有如下的变体:
         \\
         = {} &
         \frac{1}{2^m m!}
-        \sum_{r, t \text{:} 1, 2m}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
         \left(
         \sum_{\substack{
-        u, v \text{:} 1, 2m;         \\
+        u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
             }}
         s(u_1, v_1, \dots, u_m, v_m)
@@ -840,7 +888,7 @@ Pfaffian 的完全展开有如下的变体:
     \begin{align*}
              &
         \sum_{\substack{
-        u, v \text{:} 1, 2m; \\
+        u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
             }}
         s(u_1, v_1, \dots, u_m, v_m)
@@ -850,64 +898,215 @@ Pfaffian 的完全展开有如下的变体:
         = {} &
         \det {(Q(r_1, t_1, \dots, r_m, t_m))}.
     \end{align*}
-    若在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
-    有二个数相同,
-    则 \(Q(r_1, t_1, \dots, r_m, t_m)\) 有二列相同.
-    则 \(\det {(Q(r_1, t_1, \dots, r_m, t_m))} = 0\).
-    若 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\)
-    互不相同,
-    则 (见第一章, 节~\malneprasekcio{11})
-    \begin{align*}
-        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
-        = \det {(P)}\, s(r_1, t_1, \dots, r_m, t_m).
-    \end{align*}
     则
     \begin{align*}
         \operatorname{pf} {(P A P^{\mathrm{T}})}
         = {} &
         \frac{1}{2^m m!}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
+        \,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+    若在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
+    有二个数相同,
+    则 \(Q(r_1, t_1, \dots, r_m, t_m)\) 有二列相同.
+    则 \(\det {(Q(r_1, t_1, \dots, r_m, t_m))} = 0\).
+
+    (1)
+    若 \(2m > \ell\),
+    则在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
+    总有二个数相同.
+    则和的每一项都是 \(0\).
+    故 \(\operatorname{pf} {(P A P^{\mathrm{T}})} = 0\).
+
+    (2)
+    若 \(2m \leq \ell\),
+    则 (见第一章, 节~\malneprasekcio{30})
+    \begin{align*}
+             &
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
         \sum_{\substack{
-        r, t \text{:} 1, 2m; \\
-                r, t \,\text{D}
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
             }}
-        \det {(P)}\, s(r_1, t_1, \dots, r_m, t_m)\,
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
+        \,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+    因为 \(j_1 < j_2 < \dots < j_{2m}\),
+    且 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\)
+    是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\) 的排列
+    (见第一章, 节~\malneprasekcio{30})
+    \begin{align*}
+             &
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
+        \\
+        = {} &
+        \det {(Q(j_1, j_2, \dots, j_{2m}))}\,
+        s(r_1, t_1, \dots, r_m, t_m)
+        \\
+        = {} &
+        \det {\left(
+            P\binom{1,2,\dots,2m}{j_1,j_2,\dots,j_{2m}}
+            \right)}\,
+        s(r_1, t_1, \dots, r_m, t_m).
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        \det {\left(
+            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}\,
+        s(r_1, t_1, \dots, r_m, t_m)
+        \\
+             &
+        \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+        \cdot
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
         \\
         = {} &
         \frac{1}{2^m m!}
-        \det {(P)}
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \det {\left(
+            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}
+        \\
+             &
+        \quad \quad \quad \quad \quad \quad \quad \quad
+        \cdot
         \sum_{\substack{
-        r, t \text{:} 1, 2m; \\
-                r, t \,\text{D}
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
             }}
-        \, s(r_1, t_1, \dots, r_m, t_m)\,
+        s(r_1, t_1, \dots, r_m, t_m)\,
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
         \\
         = {} &
-        \det {(P)}\,
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \det {\left(
+            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}
+        \\
+             &
+        \quad \quad \quad \quad \quad
+        \cdot
         \frac{1}{2^m m!}
         \sum_{\substack{
-        r, t \text{:} 1, 2m; \\
-                r, t \,\text{D}
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
             }}
-        \, s(r_1, t_1, \dots, r_m, t_m)\,
+        s(r_1, t_1, \dots, r_m, t_m)\,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+
+    设
+    \begin{align*}
+        H(j_1, j_2, \dots, j_{2m}) =
+        A\binom{j_1,j_2,\dots,j_{2m}}{j_1,j_2,\dots,j_{2m}}.
+    \end{align*}
+    不难看出,
+    \([H(j_1, j_2, \dots, j_{2m})]_{u,v} = [A]_{j_u,j_v}\).
+    记 \(f(j_a) = a\)
+    (\(a = 1\), \(2\), \(\dots\), \(2m\)).
+    设 \(g_1\), \(g_2\), \(\dots\), \(g_{2m}\)
+    是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\)
+    的一个排列.
+    那么, \(f(g_1)\), \(f(g_2)\), \(\dots\), \(f(g_{2m})\)
+    是 \(1\), \(2\), \(\dots\), \(2m\) 的一个排列.
+    反过来, 若 \(w_1\), \(w_2\), \(\dots\), \(w_{2m}\)
+    是 \(1\), \(2\), \(\dots\), \(2m\) 的一个排列,
+    则 \(j_{w_1}\), \(j_{w_2}\), \(\dots\), \(j_{w_{2m}}\)
+    是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\) 的一个排列.
+    并且, 若 \(g_a < g_b\), 必有 \(f(g_a) < f(g_b)\).
+    反过来, 若 \(f(g_a) < f(g_b)\), 必有 \(g_a < g_b\).
+    从而
+    \(\operatorname{sgn} {(g_b - g_a)}
+    = \operatorname{sgn} {(f(g_b) - f(g_a))}\).
+    则
+    \(s(g_1, g_2, \dots, g_{2m})
+    = s(f(g_1), f(g_2), \dots, f(g_{2m}))\).
+    故
+    \begin{align*}
+             &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        s(r_1, t_1, \dots, r_m, t_m)\,
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
         \\
         = {} &
-        \det {(P)}
-        \operatorname{pf} {(A)}.
-        \qedhere
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        s(f(r_1), f(t_1), \dots, f(r_m), f(t_m))
+        \\
+             &
+        \quad \quad \quad \quad \quad \quad \quad \quad
+        \cdot
+        [H(j_1, \dots, j_{2m})]_{f(r_1),f(t_1)}
+        \dots
+        [H(j_1, \dots, j_{2m})]_{f(r_m),f(t_m)}
+        \\
+        = {} &
+        \operatorname{pf} {(H(j_1, \dots, j_{2m}))}
+        \\
+        = {} &
+        \operatorname{pf} {\left(
+            A\binom{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
+            \right)}.
+    \end{align*}
+    从而
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        {\det {\left(
+                P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+                \right)}
+            \operatorname{pf} {\left(
+                A\binom{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
+                \right)}}.
     \end{align*}
 \end{proof}
 
+% a manual pagebreak
+\clearpage
+
 \begin{theorem}
-    设 \(A\) 是 \(2m\)~级反称阵.
+    设 \(A\) 是 \(n\)~级反称阵.
     则 \(\det {(A)}
     = (\operatorname{pf} {(A)})^2\).
 \end{theorem}
 
 \begin{proof}
-    在式~\eqref{eq:pf-and-det},
+    设 \(n\) 是奇数.
+    则 \(\det {(A)} = 0\),
+    且 \(\operatorname{pf} {(A)} = 0\).
+
+    再设 \(n = 2m\) 是偶数.
+    我们知道,
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = \det {(P)} \operatorname{pf} {(A)}.
+    \end{align*}
     我们取 \(P\) 为
     \(2m\)~级倍加阵 \(E(2m; p, q; s)\),
     其中, \(p \neq q\), 且
