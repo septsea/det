@@ -687,9 +687,9 @@
     为方便, 我们约定:
     若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
     若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-    作 \(m + n\)~级阵 \(R\) 如下:
+    作 \(m + n\)~级阵 \(S\) 如下:
     \begin{align*}
-        [R]_{i,j}
+        [S]_{i,j}
         = \begin{cases}
               a_{i-j},     & j \leq m; \\
               b_{i-(j-m)}, & j > m.
@@ -697,7 +697,7 @@
     \end{align*}
     通俗地, 比如, 若 \(n = 2\), 且 \(m = 5\), 则
     \begin{align*}
-        R
+        S
         =
         \begin{bmatrix}
             a_{0} & a_{-1} & a_{-2} & a_{-3} & a_{-4} & b_{0} & b_{-1} \\
@@ -724,43 +724,43 @@
     设 \(e\) 是 \(m + n\)~级单位阵的列~\(m + n\).
     我们说, 存在
     \((m + n) \times 1\)~阵 \(p\) 使
-    \(Rp = \det {(R)}\, e\).
+    \(S p = \det {(S)}\, e\).
 
-    取 \(p\) 为 \(R\) 的古伴
-    \(\operatorname{adj} {(R)}\) 的列~\(m + n\).
+    取 \(p\) 为 \(S\) 的古伴
+    \(\operatorname{adj} {(S)}\) 的列~\(m + n\).
     则
     \begin{align*}
-        [Rp]_{i,1}
+        [S p]_{i,1}
         = {} &
         \sum_{\ell = 1}^{m + n}
-        {[R]_{i,\ell} [p]_{\ell,1}}
+        {[S]_{i,\ell} [p]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{m + n}
-        {[R]_{i,\ell} [\operatorname{adj} {(R)}]_{\ell,m+n}}
+        {[S]_{i,\ell} [\operatorname{adj} {(S)}]_{\ell,m+n}}
         \\
         = {} &
-        [R \operatorname{adj} {(R)}]_{i,m+n}
+        [S \operatorname{adj} {(S)}]_{i,m+n}
         \\
         = {} &
-        [\det {(R)}\, I_{m+n}]_{i,m+n}
+        [\det {(S)}\, I_{m+n}]_{i,m+n}
         \\
         = {} &
-        \det {(R)}\, [I_{m+n}]_{i,m+n}
+        \det {(S)}\, [I_{m+n}]_{i,m+n}
         \\
         = {} &
-        \det {(R)}\, [e]_{i,1}
+        \det {(S)}\, [e]_{i,1}
         \\
         = {} &
-        [\det {(R)}\, e]_{i,1}.
+        [\det {(S)}\, e]_{i,1}.
     \end{align*}
-    (若 \(\det {(R)} \neq 0\),
+    (若 \(\det {(S)} \neq 0\),
     显然有 \(p \neq 0\);
-    若 \(\det {(R)} = 0\),
+    若 \(\det {(S)} = 0\),
     由第一章, 节~\malneprasekcio{23},
     或节~\malneprasekcio{25} 的知识,
     存在非零的 \((m + n) \times 1\)~阵 \(q\)
-    使 \(Rq = 0 = \det {(R)}\, e\).)
+    使 \(S q = 0 = \det {(S)}\, e\).)
 
     % (2)
     % 设
@@ -798,7 +798,7 @@
     %     = d_0 x^{n-1} + d_1 x^{n-2} + \dots + d_{n-1}.
     % \end{align*}
     % % 显然, \(u(x)\) 与 \(v(x)\) 不全为 \(0\).
-    % 我们说, \(f(x)\, u(x) + g(x)\, v(x) = \det {(R)}\).
+    % 我们说, \(f(x)\, u(x) + g(x)\, v(x) = \det {(S)}\).
 
     % 首先, 不难算出
     % \begin{align*}
@@ -829,17 +829,17 @@
     % \end{align*}
     % 注意, 当 \(0 \leq k < m + n\) 时,
     % \begin{align*}
-    %     [Rp]_{k+1,1}
+    %     [S p]_{k+1,1}
     %     = {} &
     %     \sum_{h = 1}^{m + n}
-    %     {[R]_{k+1,h} [p]_{h,1}}
+    %     {[S]_{k+1,h} [p]_{h,1}}
     %     \\
     %     = {} &
     %     \sum_{h = 1}^{m}
-    %     {[R]_{k+1,h} [p]_{h,1}}
+    %     {[S]_{k+1,h} [p]_{h,1}}
     %     +
     %     \sum_{h = m + 1}^{m + n}
-    %     {[R]_{k+1,h} [p]_{h,1}}
+    %     {[S]_{k+1,h} [p]_{h,1}}
     %     \\
     %     = {} &
     %     \sum_{h = 1}^{m}
@@ -887,31 +887,31 @@
     %     % \\
     %     = {} &
     %     \sum_{k = 0}^{m+n-1}
-    %     {[Rp]_{k+1,1}\,
+    %     {[S p]_{k+1,1}\,
     %     x^{m+n-1-k}}
     %     \\
     %     = {} &
     %     \sum_{k = 0}^{m+n-1}
-    %     {[\det {(R)}\, e]_{k+1,1}\,
+    %     {[\det {(S)}\, e]_{k+1,1}\,
     %     x^{m+n-1-k}}
     %     \\
     %     = {} &
     %     \sum_{k = 0}^{m+n-1}
-    %     {\det {(R)}\, [e]_{k+1,1}\,
+    %     {\det {(S)}\, [e]_{k+1,1}\,
     %     x^{m+n-1-k}}
     %     \\
     %     = {} &
-    %     \det {(R)}\, [e]_{m+n-1+1,1}\,
+    %     \det {(S)}\, [e]_{m+n-1+1,1}\,
     %     x^{m+n-1-(m+n-1)}
     %     \\
     %     = {} &
-    %     \det {(R)}.
+    %     \det {(S)}.
     % \end{align*}
 
     % (3)
     % 设数 \(a\) 适合 \(f(a) = 0 = g(a)\).
     % 由 (2) 知, 必
-    % \(0 = f(a)\, u(a) + g(a)\, v(a) = \det {(R)}\)
+    % \(0 = f(a)\, u(a) + g(a)\, v(a) = \det {(S)}\)
     % (我们代 \(x\) 以数 \(a\)).
     % 这有时是有用的.
 
@@ -920,21 +920,21 @@
     \(X = [x^{m+n-1}, x^{m+n-2}, \dots, 1]\);
     具体地,
     \([X]_{1,j} = x^{m+n-j}\).
-    则 \(XR\) 是 \(1 \times (m + n)\)~阵,
+    则 \(X S\) 是 \(1 \times (m + n)\)~阵,
     且
     \begin{align*}
-        [XR]_{1,j}
+        [X S]_{1,j}
         =
         \sum_{\ell = 1}^{m+n}
-        {[X]_{1,\ell} [R]_{\ell,j}}
+        {[X]_{1,\ell} [S]_{\ell,j}}
         =
         \sum_{1 \leq \ell \leq m+n}
-        {[R]_{\ell,j} x^{m+n-\ell}}.
+        {[S]_{\ell,j} x^{m+n-\ell}}.
     \end{align*}
-    若 \(j \leq m\), 则 \([R]_{\ell,j} = a_{\ell-j}\).
+    若 \(j \leq m\), 则 \([S]_{\ell,j} = a_{\ell-j}\).
     则
     \begin{align*}
-        [XR]_{1,j}
+        [X S]_{1,j}
         = {} &
         \sum_{1 \leq \ell \leq m+n}
         {a_{\ell-j} x^{m+n-\ell}}
@@ -970,11 +970,11 @@
         = {} &
         f(x)\, x^{m-j}.
     \end{align*}
-    若 \(j > m\), 则 \([R]_{\ell,j} = b_{\ell-(j-m)}\).
+    若 \(j > m\), 则 \([S]_{\ell,j} = b_{\ell-(j-m)}\).
     为方便, 记 \(k = j - m\).
     则
     \begin{align*}
-        [XR]_{1,j}
+        [X S]_{1,j}
         = {} &
         \sum_{1 \leq \ell \leq m+n}
         {b_{\ell-k} x^{m+n-\ell}}
@@ -1011,9 +1011,9 @@
         g(x)\, x^{n-(j-m)}.
     \end{align*}
 
-    % 综上, \(1 \times (m+n)\)~阵 \(XR\) 的元适合:
+    % 综上, \(1 \times (m+n)\)~阵 \(X S\) 的元适合:
     % \begin{align*}
-    %     [XR]_{1,j} =
+    %     [X S]_{1,j} =
     %     \begin{cases}
     %         f(x)\, x^{m-j},     & j \leq m; \\
     %         g(x)\, x^{n-(j-m)}, & j > m.
@@ -1021,21 +1021,21 @@
     % \end{align*}
 
     (3)
-    既然 \(XR\) 是 \(1 \times (m+n)\)~阵,
-    则 \((XR)p\) 是 \(1\)~级阵.
+    既然 \(X S\) 是 \(1 \times (m+n)\)~阵,
+    则 \((X S) p\) 是 \(1\)~级阵.
     则
     \begin{align*}
-        [(XR)p]_{1,1}
+        [(X S) p]_{1,1}
         = {} &
         \sum_{j = 1}^{m+n}
-        {[XR]_{1,j} [p]_{j,1}}
+        {[X S]_{1,j} [p]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m}
-        {[XR]_{1,j} [p]_{j,1}}
+        {[X S]_{1,j} [p]_{j,1}}
         +
         \sum_{j = m+1}^{m+n}
-        {[XR]_{1,j} [p]_{j,1}}
+        {[X S]_{1,j} [p]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m}
@@ -1077,39 +1077,39 @@
         + \dots + [p]_{m+n,1}.
     \end{align*}
     则
-    \(f(x)\, u(x) + g(x)\, v(x) = [(XR)p]_{1,1}\).
+    \(f(x)\, u(x) + g(x)\, v(x) = [(X S) p]_{1,1}\).
     另一方面,
     \begin{align*}
-        [(XR)p]_{1,1}
+        [(X S) p]_{1,1}
         = {} &
-        [X(Rp)]_{1,1}
+        [X (S p)]_{1,1}
         \\
         = {} &
-        [X(\det {(R)}\, e)]_{1,1}
+        [X (\det {(S)}\, e)]_{1,1}
         \\
         = {} &
         \sum_{j = 1}^{m + n}
-        {[X]_{1,j} [\det {(R)}\, e]_{j,1}}
+        {[X]_{1,j} [\det {(S)}\, e]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m + n - 1}
-        {[X]_{1,j} [\det {(R)}\, e]_{j,1}}
+        {[X]_{1,j} [\det {(S)}\, e]_{j,1}}
         +
-        [X]_{1,m+n} [\det {(R)}\, e]_{m+n,1}
+        [X]_{1,m+n} [\det {(S)}\, e]_{m+n,1}
         \\
         = {} &
-        0 + 1 \det {(R)}
+        0 + 1 \det {(S)}
         \\
         = {} &
-        \det {(R)}.
+        \det {(S)}.
     \end{align*}
     故
-    \(f(x)\, u(x) + g(x)\, v(x) = \det {(R)}\).
+    \(f(x)\, u(x) + g(x)\, v(x) = \det {(S)}\).
 
     (4)
     设数 \(c\) 适合 \(f(c) = 0 = g(c)\).
     由 (3) 知, 必
-    \(0 = f(c)\, u(c) + g(c)\, v(c) = \det {(R)}\)
+    \(0 = f(c)\, u(c) + g(c)\, v(c) = \det {(S)}\)
     (我们代 \(x\) 以数 \(c\)).
     这有时是有用的.
 \end{example}
@@ -2292,7 +2292,7 @@
     % 由消去律, \(f(E(n; p, q; s)) = 1\).
     % 则 \(f\) 有 ``倍加不变性''.
 
-    综上, 我们有了新的用行列式的性质确定行列式的方式.
+    % 综上, 我们有了新的用行列式的性质确定行列式的方式.
 \end{example}
 
 % \begin{example}
@@ -2388,9 +2388,9 @@
     \end{align*}
     则
     \begin{align*}
-             &
+        %  &
         \det {(A)}
-        \\
+        % \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{
@@ -2947,81 +2947,79 @@
     为方便, 我们约定:
     若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
     若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-    作 \(m + n\)~级阵 \(R(f, g; n, m)\) 如下:
+    作 \(m + n\)~级阵 \(S(f, g; n, m)\) 如下:
     \begin{align*}
-        [R(f, g; n, m)]_{i,j}
+        [S(f, g; n, m)]_{i,j}
         = \begin{cases}
               a_{i-j},     & j \leq m; \\
               b_{i-(j-m)}, & j > m.
           \end{cases}
     \end{align*}
-    我们计算 \(\det {(R(f, g; n, m))}\).
+    我们计算 \(\det {(S(f, g; n, m))}\).
 
     若 \(a_0 = 0 = b_0\),
     则 \(k \leq 0\) 时, \(a_k = 0 = b_k\).
     注意, 当 \(j \leq m\) 时,
-    \([R(f, g; n, m)]_{1,j} = a_{1-j}\),
+    \([S(f, g; n, m)]_{1,j} = a_{1-j}\),
     而 \(1 - j \leq 0\),
-    则 \([R(f, g; n, m)]_{1,j} = 0\).
+    则 \([S(f, g; n, m)]_{1,j} = 0\).
     当 \(j > m\) 时,
-    \([R(f, g; n, m)]_{1,j} = b_{1 - (j - m)}\),
+    \([S(f, g; n, m)]_{1,j} = b_{1 - (j - m)}\),
     而 \(1 - (j - m) \leq 0\),
-    则 \([R(f, g; n, m)]_{1,j} = 0\).
-    则 \(R(f, g; n, m)\) 的行~\(1\) 的元全是 \(0\).
-    则 \(\det {(R(f, g; n, m))} = 0\).
+    则 \([S(f, g; n, m)]_{1,j} = 0\).
+    则 \(S(f, g; n, m)\) 的行~\(1\) 的元全是 \(0\).
+    则 \(\det {(S(f, g; n, m))} = 0\).
 
-    注意, \(R(g, f; m, n)\) 是这样的 \(m + n\)~级阵:
+    注意, \(S(g, f; m, n)\) 是这样的 \(m + n\)~级阵:
     \begin{align*}
-        [R(g, f; m, n)]_{i,j}
+        [S(g, f; m, n)]_{i,j}
         = \begin{cases}
               b_{i-j},     & j \leq n; \\
               a_{i-(j-n)}, & j > n.
           \end{cases}
     \end{align*}
     所以,
-    \(R(f, g; n, m)\) 的列~\(j\) 是
-    \(R(g, f; m, n)\) 的列~\(n + j\)
+    \(S(f, g; n, m)\) 的列~\(j\) 是
+    \(S(g, f; m, n)\) 的列~\(n + j\)
     (若 \(j \leq m\))
-    或 \(R(g, f; m, n)\) 的列~\(j - m\)
+    或 \(S(g, f; m, n)\) 的列~\(j - m\)
     (若 \(j > m\)).
     所以,
-    对 \(R(g, f; m, n)\),
+    对 \(S(g, f; m, n)\),
     交换列~\(n + 1\) 与列~\(n\),
     再交换新的阵的列~\(n\) 与列~\(n - 1\),
     ……
     再交换新的阵的列~\(2\) 与列~\(1\),
     我们作了 \(n\)~次相邻的列的交换,
-    使 \(R(g, f; m, n)\) 的列~\(n + 1\) 到列~\(1\),
+    使 \(S(g, f; m, n)\) 的列~\(n + 1\) 到列~\(1\),
     且其他的列的相对位置不变.
     类似地, 我们也可让这个阵的%
     列~\(n + 2\), \(\dots\), \(n + m\)
     分别地到%
     列~\(2\), \(\dots\), \(m\).
-    则 \(R(g, f)\) 的列 \(1\), \(\dots\), \(n\)
+    则 \(S(g, f; m, n)\) 的列 \(1\), \(\dots\), \(n\)
     分别地到%
     列~\(m + 1\), \(\dots\), \(m + n\).
     则 \(n \cdot m\)~次相邻的列的交换%
-    变 \(R(g, f; m, n)\) 为 \(R(f, g; n, m)\).
+    变 \(S(g, f; m, n)\) 为 \(S(f, g; n, m)\).
     则
-    \(\det {(R(g, f; m, n))}
-    = (-1)^{m n} \det {(R(f, g; n, m))}\).
-
-    % 以下, 我们设 \(a_0 \neq 0\).
+    \(\det {(S(g, f; m, n))}
+    = (-1)^{m n} \det {(S(f, g; n, m))}\).
 
     设 \(n = 0\).
-    则 \([R(f, g; 0, m)]_{i,j} = a_{i-j}\).
-    则 \(R(f, g; 0, m) = a_0 I_m\).
-    则 \(\det {(R(f, g; 0, m))} = a_0^m\).
+    则 \([S(f, g; 0, m)]_{i,j} = a_{i-j}\).
+    则 \(S(f, g; 0, m) = a_0 I_m\).
+    则 \(\det {(S(f, g; 0, m))} = a_0^m\).
 
-    直接地算 \(\det {(R(f, g; n, m))}\) 或许是难的.
+    直接地算 \(\det {(S(f, g; n, m))}\) 或许是难的.
     为此, 设 \(t\) 是数, 且
     \begin{align*}
         h(x)
         = f(x)\, (x - t)
         = \sum_{k = 0}^{n+1} {c_k x^{n+1-k}}.
     \end{align*}
-    我们考虑 \(\det {(R(h, g; n+1, m))}\)
-    与 \(\det {(R(f, g; n, m))}\) 的关系.
+    我们考虑 \(\det {(S(h, g; n+1, m))}\)
+    与 \(\det {(S(f, g; n, m))}\) 的关系.
 
     由整式的乘法,
     \begin{align*}
@@ -3050,7 +3048,7 @@
     有 \(g_\ell (t) = b_\ell + t g_{\ell-1} (t)\).
     注意, \(b_\ell = g_\ell (t) - t g_{\ell-1} (t)\).
 
-    注意, \(m + n + 1\) 级阵 \(R(h, g; n+1, m)\) 等于
+    注意, \(m + n + 1\) 级阵 \(S(h, g; n+1, m)\) 等于
     \begin{align*}
         \begin{bmatrix}
             c_{0}   & c_{-1}    & c_{-2}    & \cdots & c_{1-m}   & b_{0}   & b_{-1}    & \cdots & b_{-n}  \\
@@ -3082,7 +3080,7 @@
     再加行~\(m+n\) 的 \(t\) 倍到行~\(m+n+1\),
     得 \(m+n+1\)~级阵
     \begin{align*}
-        R_1 =
+        S_1 =
         \begin{bmatrix}
             a_{0}   & a_{-1}    & a_{-2}    & \cdots & a_{1-m}   & g_{0} (t)   & g_{-1} (t)    & \cdots & g_{-n} (t)  \\
             a_{1}   & a_{0}     & a_{-1}    & \cdots & a_{2-m}   & g_{1} (t)   & g_{0} (t)     & \cdots & g_{1-n} (t) \\
@@ -3094,7 +3092,7 @@
             a_{m+n} & a_{m+n-1} & a_{m+n-2} & \cdots & a_{n+1}   & g_{m+n} (t) & g_{m+n-1} (t) & \cdots & g_{m} (t)   \\
         \end{bmatrix}.
     \end{align*}
-    我们知道, \(\det {(R_1)} = \det {(R(h, g; n+1, m))}\).
+    我们知道, \(\det {(S_1)} = \det {(S(h, g; n+1, m))}\).
 
     我们加列~\(m+2\) 的 \(-t\) 倍到列~\(m+1\),
     再加列~\(m+3\) 的 \(-t\) 倍到列~\(m+2\),
@@ -3102,7 +3100,7 @@
     再加列~\(m+n+1\) 的 \(-t\) 倍到列~\(m+n\),
     得 \(m+n+1\)~级阵
     \begin{align*}
-        R_2 =
+        S_2 =
         \begin{bmatrix}
             a_{0}   & a_{-1}    & a_{-2}    & \cdots & a_{1-m}   & b_{0}   & b_{-1}    & \cdots & g_{-n} (t)  \\
             a_{1}   & a_{0}     & a_{-1}    & \cdots & a_{2-m}   & b_{1}   & b_{0}     & \cdots & g_{1-n} (t) \\
@@ -3114,11 +3112,11 @@
             a_{m+n} & a_{m+n-1} & a_{m+n-2} & \cdots & a_{n+1}   & b_{m+n} & b_{m+n-1} & \cdots & g_{m} (t)   \\
         \end{bmatrix}.
     \end{align*}
-    我们知道, \(\det {(R_2)} = \det {(R_1)}\).
-    则 \(\det {(R_2)} = \det {(R(h, g; n+1, m))}\).
+    我们知道, \(\det {(S_2)} = \det {(S_1)}\).
+    则 \(\det {(S_2)} = \det {(S(h, g; n+1, m))}\).
     注意,
     \begin{align*}
-        [R_2]_{i,j} =
+        [S_2]_{i,j} =
         \begin{cases}
             a_{i-j},       & j \leq m;         \\
             b_{i-(j-m)},   & m < j \leq m + n; \\
@@ -3126,26 +3124,26 @@
         \end{cases}
     \end{align*}
     于是, 当 \(i = m + n + 1\) 时,
-    \([R_2]_{i,j} = a_{n+1+(m-j)} = 0\)
+    \([S_2]_{i,j} = a_{n+1+(m-j)} = 0\)
     (若 \(j \leq m\); 注意, \(n+1+(m-j) > n\)),
     且
-    \([R_2]_{i,j} = b_{m+1+(m+n-j)} = 0\)
+    \([S_2]_{i,j} = b_{m+1+(m+n-j)} = 0\)
     (若 \(m < j \leq m + n\); 注意, \(m+1+(m+n-j) > m\)).
-    注意, \(R_2 ({m+n+1}|{m+n+1}) = R(f, g; n, m)\).
+    注意, \(S_2 ({m+n+1}|{m+n+1}) = S(f, g; n, m)\).
     注意, \(g_m (t) = g(t)\).
     于是, 按行~\(m+n+1\) 展开, 有
     \begin{align*}
              &
-        \det {(R(h, g; n+1, m))}
+        \det {(S(h, g; n+1, m))}
         \\
         = {} &
-        \det {(R_2)}
+        \det {(S_2)}
         \\
         = {} &
-        (-1)^{(m+n+1) + (m+n+1)} g_m (t) \det {(R_2 ({m+n+1}|{m+n+1}))}
+        (-1)^{(m+n+1) + (m+n+1)} g_m (t) \det {(S_2 ({m+n+1}|{m+n+1}))}
         \\
         = {} &
-        \det {(R(f, g; n, m))}\, g(t).
+        \det {(S(f, g; n, m))}\, g(t).
     \end{align*}
 
     设 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\).
@@ -3153,23 +3151,23 @@
     且 \(F_i (x) = F_{i-1} (x)\, (x - x_i)\).
     由上面的讨论,
     \begin{align*}
-        \det {(R(f, g; n, m))}
+        \det {(S(f, g; n, m))}
         = {} &
-        \det {(R(F_n, g; n, m))}
+        \det {(S(F_n, g; n, m))}
         \\
         = {} &
-        \det {(R(F_{n-1}, g; n-1, m))}\,
+        \det {(S(F_{n-1}, g; n-1, m))}\,
         g(x_n)
         \\
         = {} &
-        \det {(R(F_{n-2}, g; n-2, m))}\,
+        \det {(S(F_{n-2}, g; n-2, m))}\,
         g(x_{n-1}) g(x_n)
         \\
         = {} &
         \dots \dots \dots \dots
         \\
         = {} &
-        \det {(R(F_0, g; 0, m))}\,
+        \det {(S(F_0, g; 0, m))}\,
         g(x_1) g(x_2) \dots g(x_n)
         \\
         = {} &
@@ -3195,45 +3193,121 @@
     为方便, 我们约定:
     若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
     若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-    作 \(m + n\)~级阵 \(R(f, g; n, m)\) 如下:
+    作 \(m + n\)~级阵 \(S(f, g; n, m)\) 如下:
     \begin{align*}
-        [R(f, g; n, m)]_{i,j}
+        [S(f, g; n, m)]_{i,j}
         = \begin{cases}
               a_{i-j},     & j \leq m; \\
               b_{i-(j-m)}, & j > m.
           \end{cases}
     \end{align*}
-
-    我们说, \(\det {(R(f, g; n, m))}\)
-    是 \(f\), \(g\) 的结式.
-    \(R\) 来自英语 \angla{resultant}.
+    我们说,
+    \(S(f, g; n, m)\) 是 \(f\), \(g\) 的 Sylvester 阵,
+    且 \(\det {(S(f, g; n, m))}\)
+    是 \(f\), \(g\) 的 \angla{resultant},
+    ``结式''.
 
     (1)
     若 \(a_0 = 0 = b_0\),
-    则 \(\det {(R(f, g; n, m))} = 0\).
+    则 \(S(f, g; n, m)\) 的行~\(1\) 的元全是 \(0\).
+    故
+    \begin{align*}
+        \det {(S(f, g; n, m))} = 0.
+    \end{align*}
 
     (2)
-    \(\det {(R(g, f; m, n))}
-    = (-1)^{m n} \det {(R(f, g; n, m))}\).
+    \(\det {(S(g, f; m, n))}
+    = (-1)^{m n} \det {(S(f, g; n, m))}\).
 
     (3)
-    设 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\).
-    则 \(\det {(R(f, g; n, m))}
-    = a_0^m g(x_1) g(x_2) \dots g(x_n)\).
+    若 \(n = 0\), 则 \(S(f, g; 0, m) = a_0 I_m\).
+    故 \(\det {(S(f, g; 0, m))} = a_0^m\).
 
     (4)
-    设 \(g(x) = b_0 (x - y_1) (x - y_2) \dots (x - y_m)\).
-    则由 (2) (3),
-    \(\det {(R(f, g; n, m))}
-    = (-1)^{mn} b_0^n f(y_1) f(y_2) \dots f(y_m)\).
+    设 \(t\) 是数, 且
+    \begin{align*}
+        h(x)
+        = f(x)\, (x - t)
+        = \sum_{k = 0}^{n+1} {c_k x^{n+1-k}}.
+    \end{align*}
+    (我们约定, 若 \(k < 0\) 或 \(k > n+1\),
+    则 \(c_k = 0\).)
+    则
+    \begin{align*}
+        \det {(S(h, g; n+1, m))} = \det {(S(f, g; n, m))}\, g(t).
+    \end{align*}
 
     (5)
-    我们已知, 若数 \(c\) 适合 \(f(c) = 0 = g(c)\),
-    则 \(\det {(R(f, g; n, m))} = 0\)
-    (见例~\ref{emp:resultant}).
-    现在, 由 (1) (3) (4), 我们知道, 反过来,
-    若 \(\det {(R(f, g; n, m))} = 0\),
-    则 \(a_0 = 0 = b_0\),
+    若 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
+    则由 (3) (4),
+    \begin{align*}
+        \det {(S(f, g; n, m))} = a_0^m g(x_1) g(x_2) \dots g(x_n).
+    \end{align*}
+
+    (6)
+    若 \(g(x) = b_0 (x - y_1) (x - y_2) \dots (x - y_m)\),
+    则由 (2) (5),
+    \begin{align*}
+        \det {(S(f, g; n, m))} = (-1)^{mn} b_0^n f(y_1) f(y_2) \dots f(y_m).
+    \end{align*}
+
+    (7)
+    设 \(e\) 是 \(m + n\)~级单位阵的列~\(m + n\).
+    则有 (非零的) \((m + n) \times 1\)~阵 \(p\),
+    使 \(S(f, g; n, m)\, p = \det {(S(f, g; n, m))}\, e\).
+    (关于 (7) (8) (9) (10), 见例~\ref{emp:resultant}.)
+
+    (8)
+    作 \(1 \times (m + n)\)~阵 \(X_{m+n}\),
+    使 \([X_{m+n}]_{1,j} = x^{m+n-j}\).
+    则 \(X_{m+n}\, S(f, g; n, m)\) 是 \(1 \times (m + n)\)~阵,
+    且
+    \begin{align*}
+        [X_{m+n}\, S(f, g; n, m)]_{1,j}
+        = \begin{cases}
+              f(x)\, x^{m-j},     & j \leq m; \\
+              g(x)\, x^{n-(j-m)}, & j > m.
+          \end{cases}
+    \end{align*}
+
+    (9)
+    设 \(Y\) 是 \((m + n) \times 1\)~阵.
+    记
+    \begin{align*}
+        u(x)
+        = \sum_{k = 0}^{m-1} {[Y]_{k+1,1} x^{m-1-k}}
+        = {} &
+        [Y]_{1,1} x^{m-1} + [Y]_{2,1} x^{m-2}
+        + \dots + [Y]_{m,1},
+        \\
+        v(x)
+        = \sum_{k = 0}^{n-1} {[Y]_{m+1+k,1} x^{n-1-k}}
+        = {} &
+        [Y]_{m+1,1} x^{n-1} + [Y]_{m+2,1} x^{n-2}
+        + \dots + [Y]_{m+n,1}.
+    \end{align*}
+    则 \(X_{m+n}\, S(f, g; n, m)\, Y\) 是 \(1\)~级阵, 且
+    \begin{align*}
+        [X_{m+n}\, S(f, g; n, m)\, Y]_{1,1} = f(x)\, u(x) + g(x)\, v(x).
+    \end{align*}
+    特别地, 若取 \(Y\) 为 (7) 中的 \(p\),
+    则对应的 \(u\), \(v\) 适合,
+    \begin{align*}
+        f(x)\, u(x) + g(x)\, v(x) = \det {(S(f, g; n, m))}.
+    \end{align*}
+    (注意, 上式的右侧不含 \(x\).)
+
+    (10)
+    若数 \(c\) 适合, \(f(c) = 0 = g(c)\),
+    则由 (9),
+    \begin{align*}
+        0 = f(c)\, u(c) + g(c)\, v(c) = \det {(S(f, g; n, m))}.
+    \end{align*}
+
+    (11)
+    反过来, 若 \(\det {(S(f, g; n, m))} = 0\),
+    则由 (1) (5) (6),
+    \(a_0 = 0 = b_0\),
     或当 \(a_0 \neq 0\) 或 \(b_0 \neq 0\) 时,
     存在数 \(c\), 使 \(f(c) = 0 = g(c)\).
 \end{theorem}
@@ -3248,7 +3322,7 @@ about determinants
     \item a formula for det (xI + A)
     \item a formula that relates det (xI + AB) and det (xI + BA)
     \item the resultant of two polynomials;
-          a necessary condition
+          a necessary and sufficient condition
           that f(x) and g(x) have a common root
     \item an example that shows how to use the resultant
           to solve a system of polynomial equations
