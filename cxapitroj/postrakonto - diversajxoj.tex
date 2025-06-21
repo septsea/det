@@ -408,7 +408,7 @@
     \end{align*}
 \end{example}
 
-\begin{example}
+\begin{example}\label{emp:sum-of-principal-minors-of-AB-and-that-of-BA}
     设正整数 \(m\), \(n\) 适合 \(m \geq n\).
     设 \(A\), \(B\) 分别是 \(m \times n\) 与 \(n \times m\)~阵.
     设正整数 \(k \leq n\).
@@ -668,570 +668,6 @@
     \begin{align*}
         \det {(C)} = \det {(J)}
         = 1 + b_1 a_1 + b_2 a_2 + \dots + b_m a_m.
-    \end{align*}
-\end{example}
-
-\begin{example}\label{emp:resultant}
-    设 \(n\), \(m\) 是非负整数,
-    且 \(m + n \geq 1\).
-    设
-    \begin{align*}
-        f(x) &
-        = \sum_{k = 0}^{n} {a_k x^{n-k}}
-        = a_0 x^n + a_1 x^{n-1} + \dots + a_n,
-        \\
-        g(x) &
-        = \sum_{k = 0}^{m} {b_k x^{m-k}}
-        = b_0 x^m + b_1 x^{m-1} + \dots + b_m.
-    \end{align*}
-    为方便, 我们约定:
-    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
-    若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-    作 \(m + n\)~级阵 \(S\) 如下:
-    \begin{align*}
-        [S]_{i,j}
-        = \begin{cases}
-              a_{i-j},     & j \leq m; \\
-              b_{i-(j-m)}, & j > m.
-          \end{cases}
-    \end{align*}
-    通俗地, 比如, 若 \(n = 2\), 且 \(m = 5\), 则
-    \begin{align*}
-        S
-        =
-        \begin{bmatrix}
-            a_{0} & a_{-1} & a_{-2} & a_{-3} & a_{-4} & b_{0} & b_{-1} \\
-            a_{1} & a_{0}  & a_{-1} & a_{-2} & a_{-3} & b_{1} & b_{0}  \\
-            a_{2} & a_{1}  & a_{0}  & a_{-1} & a_{-2} & b_{2} & b_{1}  \\
-            a_{3} & a_{2}  & a_{1}  & a_{0}  & a_{-1} & b_{3} & b_{2}  \\
-            a_{4} & a_{3}  & a_{2}  & a_{1}  & a_{0}  & b_{4} & b_{3}  \\
-            a_{5} & a_{4}  & a_{3}  & a_{2}  & a_{1}  & b_{5} & b_{4}  \\
-            a_{6} & a_{5}  & a_{4}  & a_{3}  & a_{2}  & b_{6} & b_{5}  \\
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            a_0 & 0   & 0   & 0   & 0   & b_0 & 0   \\
-            a_1 & a_0 & 0   & 0   & 0   & b_1 & b_0 \\
-            a_2 & a_1 & a_0 & 0   & 0   & b_2 & b_1 \\
-            0   & a_2 & a_1 & a_0 & 0   & b_3 & b_2 \\
-            0   & 0   & a_2 & a_1 & a_0 & b_4 & b_3 \\
-            0   & 0   & 0   & a_2 & a_1 & b_5 & b_4 \\
-            0   & 0   & 0   & 0   & a_2 & 0   & b_5 \\
-        \end{bmatrix}.
-    \end{align*}
-
-    (1)
-    设 \(e\) 是 \(m + n\)~级单位阵的列~\(m + n\).
-    我们说, 存在
-    \((m + n) \times 1\)~阵 \(p\) 使
-    \(S p = \det {(S)}\, e\).
-
-    取 \(p\) 为 \(S\) 的古伴
-    \(\operatorname{adj} {(S)}\) 的列~\(m + n\).
-    则
-    \begin{align*}
-        [S p]_{i,1}
-        = {} &
-        \sum_{\ell = 1}^{m + n}
-        {[S]_{i,\ell} [p]_{\ell,1}}
-        \\
-        = {} &
-        \sum_{\ell = 1}^{m + n}
-        {[S]_{i,\ell} [\operatorname{adj} {(S)}]_{\ell,m+n}}
-        \\
-        = {} &
-        [S \operatorname{adj} {(S)}]_{i,m+n}
-        \\
-        = {} &
-        [\det {(S)}\, I_{m+n}]_{i,m+n}
-        \\
-        = {} &
-        \det {(S)}\, [I_{m+n}]_{i,m+n}
-        \\
-        = {} &
-        \det {(S)}\, [e]_{i,1}
-        \\
-        = {} &
-        [\det {(S)}\, e]_{i,1}.
-    \end{align*}
-    (若 \(\det {(S)} \neq 0\),
-    显然有 \(p \neq 0\);
-    若 \(\det {(S)} = 0\),
-    由第一章, 节~\malneprasekcio{23},
-    或节~\malneprasekcio{25} 的知识,
-    存在非零的 \((m + n) \times 1\)~阵 \(q\)
-    使 \(S q = 0 = \det {(S)}\, e\).)
-
-    % (2)
-    % 设
-    % \begin{align*}
-    %     c_k =
-    %     \begin{cases}
-    %         [p]_{k+1,1}, & 0 \leq k \leq m - 1; \\
-    %         0,           & \text{其他}.
-    %     \end{cases}
-    % \end{align*}
-    % 再设
-    % \begin{align*}
-    %     d_k =
-    %     \begin{cases}
-    %         [p]_{k+m+1,1}, & 0 \leq k \leq n - 1; \\
-    %         0,             & \text{其他}.
-    %     \end{cases}
-    % \end{align*}
-    % 不难看出
-    % \begin{align*}
-    %     [p]_{i,1} =
-    %     \begin{cases}
-    %         c_{i-1},   & i \leq m; \\
-    %         d_{i-m-1}, & i > m.
-    %     \end{cases}
-    % \end{align*}
-    % 记
-    % \begin{align*}
-    %     u(x) &
-    %     = \sum_{k = 0}^{m-1} {c_k x^{m-1-k}}
-    %     = c_0 x^{m-1} + c_1 x^{m-2} + \dots + c_{m-1},
-    %     \\
-    %     v(x) &
-    %     = \sum_{k = 0}^{n-1} {d_k x^{n-1-k}}
-    %     = d_0 x^{n-1} + d_1 x^{n-2} + \dots + d_{n-1}.
-    % \end{align*}
-    % % 显然, \(u(x)\) 与 \(v(x)\) 不全为 \(0\).
-    % 我们说, \(f(x)\, u(x) + g(x)\, v(x) = \det {(S)}\).
-
-    % 首先, 不难算出
-    % \begin{align*}
-    %     f(x)\, u(x) &
-    %     = \sum_{k = 0}^{n+m-1}
-    %     {\left(
-    %     \sum_{\ell = 0}^{k} {a_{k-\ell} c_{\ell}}
-    %     \right)
-    %     x^{n+m-1-k}},
-    %     \\
-    %     g(x)\, v(x) &
-    %     = \sum_{k = 0}^{m+n-1}
-    %     {\left(
-    %     \sum_{\ell = 0}^{k} {b_{k-\ell} d_{\ell}}
-    %     \right)
-    %     x^{m+n-1-k}}.
-    % \end{align*}
-    % 故
-    % \begin{align*}
-    %     f(x)\, u(x) + g(x)\, v(x)
-    %     = \sum_{k = 0}^{m+n-1}
-    %     {\left(
-    %     \sum_{\ell = 0}^{k} {a_{k-\ell} c_{\ell}}
-    %     +
-    %     \sum_{\ell = 0}^{k} {b_{k-\ell} d_{\ell}}
-    %     \right)
-    %     x^{m+n-1-k}}.
-    % \end{align*}
-    % 注意, 当 \(0 \leq k < m + n\) 时,
-    % \begin{align*}
-    %     [S p]_{k+1,1}
-    %     = {} &
-    %     \sum_{h = 1}^{m + n}
-    %     {[S]_{k+1,h} [p]_{h,1}}
-    %     \\
-    %     = {} &
-    %     \sum_{h = 1}^{m}
-    %     {[S]_{k+1,h} [p]_{h,1}}
-    %     +
-    %     \sum_{h = m + 1}^{m + n}
-    %     {[S]_{k+1,h} [p]_{h,1}}
-    %     \\
-    %     = {} &
-    %     \sum_{h = 1}^{m}
-    %     {a_{k+1-h} c_{h-1}}
-    %     +
-    %     \sum_{h = m + 1}^{m + n}
-    %     {b_{k+1-(h-m)} d_{h-m-1}}
-    %     \\
-    %     = {} &
-    %     \sum_{h = 1}^{m}
-    %     {a_{k-(h-1)} c_{h-1}}
-    %     +
-    %     \sum_{h = m + 1}^{m + n}
-    %     {b_{k-(h-m-1)} d_{h-m-1}}
-    %     \\
-    %     = {} &
-    %     \sum_{\ell = 0}^{m-1}
-    %     {a_{k-\ell} c_{\ell}}
-    %     +
-    %     \sum_{\ell = 0}^{n-1}
-    %     {b_{k-\ell} d_{\ell}}.
-    % \end{align*}
-    % 若 \(k \leq m - 1\), 则 \(\ell > k\) 时, 必 \(a_{k-\ell} = 0\);
-    % 若 \(k > m - 1\), 则 \(\ell > m - 1\) 时, 必 \(c_\ell = 0\).
-    % 所以
-    % \begin{align*}
-    %     \sum_{\ell = 0}^{m-1}
-    %     {a_{k-\ell} c_{\ell}}
-    %     =
-    %     \sum_{\ell = 0}^{k}
-    %     {a_{k-\ell} c_{\ell}}.
-    % \end{align*}
-    % 类似地,
-    % \begin{align*}
-    %     \sum_{\ell = 0}^{n-1}
-    %     {b_{k-\ell} d_{\ell}}
-    %     =
-    %     \sum_{\ell = 0}^{k}
-    %     {b_{k-\ell} d_{\ell}}.
-    % \end{align*}
-    % 故
-    % \begin{align*}
-    %     %  &
-    %     f(x)\, u(x) + g(x)\, v(x)
-    %     % \\
-    %     = {} &
-    %     \sum_{k = 0}^{m+n-1}
-    %     {[S p]_{k+1,1}\,
-    %     x^{m+n-1-k}}
-    %     \\
-    %     = {} &
-    %     \sum_{k = 0}^{m+n-1}
-    %     {[\det {(S)}\, e]_{k+1,1}\,
-    %     x^{m+n-1-k}}
-    %     \\
-    %     = {} &
-    %     \sum_{k = 0}^{m+n-1}
-    %     {\det {(S)}\, [e]_{k+1,1}\,
-    %     x^{m+n-1-k}}
-    %     \\
-    %     = {} &
-    %     \det {(S)}\, [e]_{m+n-1+1,1}\,
-    %     x^{m+n-1-(m+n-1)}
-    %     \\
-    %     = {} &
-    %     \det {(S)}.
-    % \end{align*}
-
-    % (3)
-    % 设数 \(a\) 适合 \(f(a) = 0 = g(a)\).
-    % 由 (2) 知, 必
-    % \(0 = f(a)\, u(a) + g(a)\, v(a) = \det {(S)}\)
-    % (我们代 \(x\) 以数 \(a\)).
-    % 这有时是有用的.
-
-    (2)
-    作 \(1 \times (m + n)\)~阵
-    \(X = [x^{m+n-1}, x^{m+n-2}, \dots, 1]\);
-    具体地,
-    \([X]_{1,j} = x^{m+n-j}\).
-    则 \(X S\) 是 \(1 \times (m + n)\)~阵,
-    且
-    \begin{align*}
-        [X S]_{1,j}
-        =
-        \sum_{\ell = 1}^{m+n}
-        {[X]_{1,\ell} [S]_{\ell,j}}
-        =
-        \sum_{1 \leq \ell \leq m+n}
-        {[S]_{\ell,j} x^{m+n-\ell}}.
-    \end{align*}
-    若 \(j \leq m\), 则 \([S]_{\ell,j} = a_{\ell-j}\).
-    则
-    \begin{align*}
-        [X S]_{1,j}
-        = {} &
-        \sum_{1 \leq \ell \leq m+n}
-        {a_{\ell-j} x^{m+n-\ell}}
-        \\
-        = {} &
-        \sum_{1-j \leq \ell-j \leq m+n-j}
-        {a_{\ell-j} x^{n-(\ell-j)+(m-j)}}
-        \\
-        = {} &
-        \sum_{1-j \leq h \leq n+(m-j)}
-        {a_h x^{n-h}\, x^{m-j}}
-        \\
-        = {} &
-        \sum_{0 \leq h \leq n}
-        {a_h x^{n-h}\, x^{m-j}}
-        +
-        \sum_{\substack{
-        1-j \leq h < 0 \\
-                \text{或}\, n < h \leq n+(m-j)
-            }}
-        {a_h x^{n-h}\, x^{m-j}}
-        \\
-        = {} &
-        \Bigg( \sum_{0 \leq h \leq n}
-        {a_h x^{n-h}} \Bigg) x^{m-j}
-        +
-        \sum_{\substack{
-        1-j \leq h < 0 \\
-                \text{或}\, n < h \leq n+(m-j)
-            }}
-        {0\, x^{n-h}\, x^{m-j}}
-        \\
-        = {} &
-        f(x)\, x^{m-j}.
-    \end{align*}
-    若 \(j > m\), 则 \([S]_{\ell,j} = b_{\ell-(j-m)}\).
-    为方便, 记 \(k = j - m\).
-    则
-    \begin{align*}
-        [X S]_{1,j}
-        = {} &
-        \sum_{1 \leq \ell \leq m+n}
-        {b_{\ell-k} x^{m+n-\ell}}
-        \\
-        = {} &
-        \sum_{1-k \leq \ell-k \leq m+n-k}
-        {b_{\ell-k} x^{m-(\ell-k)+(n-k)}}
-        \\
-        = {} &
-        \sum_{1-k \leq h \leq m+(n-k)}
-        {b_h x^{m-h}\, x^{n-k}}
-        \\
-        = {} &
-        \sum_{0 \leq h \leq m}
-        {b_h x^{m-h}\, x^{n-k}}
-        +
-        \sum_{\substack{
-        1-k \leq h < 0 \\
-                \text{或}\, m < h \leq m+(n-k)
-            }}
-        {b_h x^{m-h}\, x^{n-k}}
-        \\
-        = {} &
-        \Bigg( \sum_{0 \leq h \leq m}
-        {b_h x^{m-h}} \Bigg) x^{n-(j-m)}
-        +
-        \sum_{\substack{
-        1-k \leq h < 0 \\
-                \text{或}\, m < h \leq m+(n-k)
-            }}
-        {0\, x^{m-h}\, x^{n-k}}
-        \\
-        = {} &
-        g(x)\, x^{n-(j-m)}.
-    \end{align*}
-
-    % 综上, \(1 \times (m+n)\)~阵 \(X S\) 的元适合:
-    % \begin{align*}
-    %     [X S]_{1,j} =
-    %     \begin{cases}
-    %         f(x)\, x^{m-j},     & j \leq m; \\
-    %         g(x)\, x^{n-(j-m)}, & j > m.
-    %     \end{cases}
-    % \end{align*}
-
-    (3)
-    既然 \(X S\) 是 \(1 \times (m+n)\)~阵,
-    则 \((X S) p\) 是 \(1\)~级阵.
-    则
-    \begin{align*}
-        [(X S) p]_{1,1}
-        = {} &
-        \sum_{j = 1}^{m+n}
-        {[X S]_{1,j} [p]_{j,1}}
-        \\
-        = {} &
-        \sum_{j = 1}^{m}
-        {[X S]_{1,j} [p]_{j,1}}
-        +
-        \sum_{j = m+1}^{m+n}
-        {[X S]_{1,j} [p]_{j,1}}
-        \\
-        = {} &
-        \sum_{j = 1}^{m}
-        {f(x)\, x^{m-j}\, [p]_{j,1}}
-        +
-        \sum_{j = m+1}^{m+n}
-        {g(x)\, x^{n-(j-m)}\, [p]_{j,1}}
-        \\
-        = {} &
-        f(x)
-        \sum_{j = 1}^{m}
-        {x^{m-j}\, [p]_{j,1}}
-        +
-        g(x)
-        \sum_{j = m+1}^{m+n}
-        {x^{n-(j-m)}\, [p]_{j,1}}
-        \\
-        = {} &
-        f(x)
-        \sum_{k = 0}^{m-1}
-        {[p]_{k+1,1} x^{m-1-k}}
-        +
-        g(x)
-        \sum_{k = 0}^{n-1}
-        {[p]_{m+1+k,1} x^{n-1-k}}.
-    \end{align*}
-    记
-    \begin{align*}
-        u(x)
-        = \sum_{k = 0}^{m-1} {[p]_{k+1,1} x^{m-1-k}}
-        = {} &
-        [p]_{1,1} x^{m-1} + [p]_{2,1} x^{m-2}
-        + \dots + [p]_{m,1},
-        \\
-        v(x)
-        = \sum_{k = 0}^{n-1} {[p]_{m+1+k,1} x^{n-1-k}}
-        = {} &
-        [p]_{m+1,1} x^{n-1} + [p]_{m+2,1} x^{n-2}
-        + \dots + [p]_{m+n,1}.
-    \end{align*}
-    则
-    \(f(x)\, u(x) + g(x)\, v(x) = [(X S) p]_{1,1}\).
-    另一方面,
-    \begin{align*}
-        [(X S) p]_{1,1}
-        = {} &
-        [X (S p)]_{1,1}
-        \\
-        = {} &
-        [X (\det {(S)}\, e)]_{1,1}
-        \\
-        = {} &
-        \sum_{j = 1}^{m + n}
-        {[X]_{1,j} [\det {(S)}\, e]_{j,1}}
-        \\
-        = {} &
-        \sum_{j = 1}^{m + n - 1}
-        {[X]_{1,j} [\det {(S)}\, e]_{j,1}}
-        +
-        [X]_{1,m+n} [\det {(S)}\, e]_{m+n,1}
-        \\
-        = {} &
-        0 + 1 \det {(S)}
-        \\
-        = {} &
-        \det {(S)}.
-    \end{align*}
-    故
-    \(f(x)\, u(x) + g(x)\, v(x) = \det {(S)}\).
-
-    (4)
-    设数 \(c\) 适合 \(f(c) = 0 = g(c)\).
-    由 (3) 知, 必
-    \(0 = f(c)\, u(c) + g(c)\, v(c) = \det {(S)}\)
-    (我们代 \(x\) 以数 \(c\)).
-    这有时是有用的.
-\end{example}
-
-\begin{example}
-    解方程组
-    \begin{equation}
-        \begin{cases}
-            11x^2 - 2xy - 44y^2 - x + 26y - 32 = 0, \\
-            4x^2 - 18xy + 49y^2 - 4x + 9y - 118 = 0.
-        \end{cases}
-        \label{eq:C3801}
-    \end{equation}
-
-    我们可用上例的结果解方程组~\eqref{eq:C3801}.
-    为此, 我们记
-    \begin{align*}
-        f_y (x) & = 11 x^2 + (-2 y - 1) x + (-44 y^2 + 26 y - 32), \\
-        g_y (x) & = 4 x^2 + (-18 y - 4) x + (49 y^2 + 9 y - 118).
-    \end{align*}
-    设 \(x = a\), \(y = b\) 是%
-    方程组~\eqref{eq:C3801} 的一个解.
-    则
-    \begin{align*}
-         &
-        \begin{aligned}
-            0
-            = {} &
-            11a^2 - 2ab - 44b^2 - a + 26b - 32
-            \\
-            = {} &
-            11 a^2 + (-2 b - 1) a + (-44 b^2 + 26 b - 32),
-        \end{aligned}
-        \\
-         &
-        \begin{aligned}
-            0
-            = {} &
-            4a^2 - 18ab + 49b^2 - 4a + 9b - 118
-            \\
-            = {} &
-            4 a^2 + (-18 b - 4) a + (49 b^2 + 9 b - 118),
-        \end{aligned}
-    \end{align*}
-    即 \(f_b (a) = 0 = g_b (a)\).
-    故
-    \begin{align*}
-        \begin{bmatrix}
-            11            & 0             & 4            & 0            \\
-            -2b-1         & 11            & -18b-4       & 4            \\
-            -44b^2+26b-32 & -2b-1         & 49b^2+9b-118 & -18b-4       \\
-            0             & -44b^2+26b-32 & 0            & 49b^2+9b-118 \\
-        \end{bmatrix}
-    \end{align*}
-    的行列式是 \(0\).
-    另一方面, 可以算出, 此阵的行列式是
-    \(342\,125\, (b^2 - 1)\, (b^2 - 4)\).
-    于是, 若 \(x = a\), \(y = b\) 是%
-    方程组~\eqref{eq:C3801} 的一个解,
-    则 \(b = 1\) 或 \(b = -1\)
-    或 \(b = 2\) 或 \(b = -2\).
-    则 (代 \(b\) 以 \(1\))
-    \begin{equation}
-        \begin{cases}
-            11a^2 - 2a - 44 - a + 26 - 32 = 0, \\
-            4a^2 - 18a + 49 - 4a + 9 - 118 = 0;
-        \end{cases}
-        \label{eq:C3802}
-    \end{equation}
-    或 (代 \(b\) 以 \(-1\))
-    \begin{equation}
-        \begin{cases}
-            11a^2 + 2a - 44 - a - 26 - 32 = 0, \\
-            4a^2 + 18a + 49 - 4a - 9 - 118 = 0;
-        \end{cases}
-        \label{eq:C3803}
-    \end{equation}
-    或 (代 \(b\) 以 \(2\))
-    \begin{equation}
-        \begin{cases}
-            11a^2 - 4a - 176 - a + 52 - 32 = 0, \\
-            4a^2 - 36a + 196 - 4a + 18 - 118 = 0;
-        \end{cases}
-        \label{eq:C3804}
-    \end{equation}
-    或 (代 \(b\) 以 \(-2\))
-    \begin{equation}
-        \begin{cases}
-            11a^2 + 4a - 176 - a - 52 - 32 = 0, \\
-            4a^2 + 36a + 196 - 4a - 18 - 118 = 0.
-        \end{cases}
-        \label{eq:C3805}
-    \end{equation}
-    方程组~\eqref{eq:C3802} 的解是 \(a = -2\);
-    方程组~\eqref{eq:C3803} 的解是 \(a = 3\);
-    方程组~\eqref{eq:C3804} 的解是 \(a = 4\);
-    方程组~\eqref{eq:C3805} 的解是 \(a = -5\).
-    于是, 若 \(x = a\), \(y = b\) 是%
-    方程组~\eqref{eq:C3801} 的一个解,
-    必:
-    \begin{align*}
-         & a = -2, \quad b = 1;  \\
-        \text{或} \quad
-         & a = 3, \quad b = -1;  \\
-        \text{或} \quad
-         & a = 4, \quad b = 2;   \\
-        \text{或} \quad
-         & a = -5, \quad b = -2.
-    \end{align*}
-    最后, 我们验证这些是否是%
-    方程组~\eqref{eq:C3801} 的解.
-    可以验证, 它们都是解.
-    于是,
-    方程组~\eqref{eq:C3801} 的解是:
-    \begin{align*}
-         & x = -2, \quad y = 1;  \\
-        \text{或} \quad
-         & x = 3, \quad y = -1;  \\
-        \text{或} \quad
-         & x = 4, \quad y = 2;   \\
-        \text{或} \quad
-         & x = -5, \quad y = -2.
     \end{align*}
 \end{example}
 
@@ -2932,385 +2368,559 @@
 \end{example}
 
 \begin{example}
-    设 \(n\), \(m\) 是非负整数,
-    且 \(m + n \geq 1\).
-    设
+    设一元运算 \(\mathrm{D}\) 适合,
+    对任何 \(a\), \(b\), 必
     \begin{align*}
-        f(x) &
-        = \sum_{k = 0}^{n} {a_k x^{n-k}}
-        = a_0 x^n + a_1 x^{n-1} + \dots + a_n,
-        \\
-        g(x) &
-        = \sum_{k = 0}^{m} {b_k x^{m-k}}
-        = b_0 x^m + b_1 x^{m-1} + \dots + b_m.
+        \mathrm{D} (a + b)     & =
+        \mathrm{D} (a) + \mathrm{D} (b), \\
+        \mathrm{D} (a \cdot b) & =
+        \mathrm{D} (a) \cdot b + a \cdot \mathrm{D} b.
     \end{align*}
-    为方便, 我们约定:
-    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
-    若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-    作 \(m + n\)~级阵 \(S(f, g; n, m)\) 如下:
-    \begin{align*}
-        [S(f, g; n, m)]_{i,j}
-        = \begin{cases}
-              a_{i-j},     & j \leq m; \\
-              b_{i-(j-m)}, & j > m.
-          \end{cases}
-    \end{align*}
-    我们计算 \(\det {(S(f, g; n, m))}\).
 
-    若 \(a_0 = 0 = b_0\),
-    则 \(k \leq 0\) 时, \(a_k = 0 = b_k\).
-    注意, 当 \(j \leq m\) 时,
-    \([S(f, g; n, m)]_{1,j} = a_{1-j}\),
-    而 \(1 - j \leq 0\),
-    则 \([S(f, g; n, m)]_{1,j} = 0\).
-    当 \(j > m\) 时,
-    \([S(f, g; n, m)]_{1,j} = b_{1 - (j - m)}\),
-    而 \(1 - (j - m) \leq 0\),
-    则 \([S(f, g; n, m)]_{1,j} = 0\).
-    则 \(S(f, g; n, m)\) 的行~\(1\) 的元全是 \(0\).
-    则 \(\det {(S(f, g; n, m))} = 0\).
+    由此, \(\mathrm{D} (1)
+    = \mathrm{D} (1 \cdot 1)
+    = \mathrm{D} (1) \cdot 1 + 1 \cdot \mathrm{D} (1)
+    = \mathrm{D} (1) + \mathrm{D} (1)\).
+    则 \(\mathrm{D} (1) = 0\).
 
-    注意, \(S(g, f; m, n)\) 是这样的 \(m + n\)~级阵:
-    \begin{align*}
-        [S(g, f; m, n)]_{i,j}
-        = \begin{cases}
-              b_{i-j},     & j \leq n; \\
-              a_{i-(j-n)}, & j > n.
-          \end{cases}
-    \end{align*}
-    所以,
-    \(S(f, g; n, m)\) 的列~\(j\) 是
-    \(S(g, f; m, n)\) 的列~\(n + j\)
-    (若 \(j \leq m\))
-    或 \(S(g, f; m, n)\) 的列~\(j - m\)
-    (若 \(j > m\)).
-    所以,
-    对 \(S(g, f; m, n)\),
-    交换列~\(n + 1\) 与列~\(n\),
-    再交换新的阵的列~\(n\) 与列~\(n - 1\),
-    ……
-    再交换新的阵的列~\(2\) 与列~\(1\),
-    我们作了 \(n\)~次相邻的列的交换,
-    使 \(S(g, f; m, n)\) 的列~\(n + 1\) 到列~\(1\),
-    且其他的列的相对位置不变.
-    类似地, 我们也可让这个阵的%
-    列~\(n + 2\), \(\dots\), \(n + m\)
-    分别地到%
-    列~\(2\), \(\dots\), \(m\).
-    则 \(S(g, f; m, n)\) 的列 \(1\), \(\dots\), \(n\)
-    分别地到%
-    列~\(m + 1\), \(\dots\), \(m + n\).
-    则 \(n \cdot m\)~次相邻的列的交换%
-    变 \(S(g, f; m, n)\) 为 \(S(f, g; n, m)\).
+    注意, \(\mathrm{D} (0)
+    = \mathrm{D} (0 + 0)
+    = \mathrm{D} (0) + \mathrm{D} (0)\).
+    则 \(\mathrm{D} (0) = 0\).
+    则 \(\mathrm{D} (0 \cdot x)
+    = \mathrm{D} (0) = 0 = 0 \cdot \mathrm{D} (x)\).
+
+    注意, \(\mathrm{D} (0)
+    = \mathrm{D} (x + (-x))
+    = \mathrm{D} (x) + \mathrm{D} (-x)\).
+    则 \(\mathrm{D} (-x) = -\mathrm{D} (x)\).
+    则 \(\mathrm{D} (\pm x) = \pm \mathrm{D} (x)\).
+    则 \(\mathrm{D} (x \pm y)
+    = \mathrm{D} (x) + \mathrm{D} (\pm y)
+    = \mathrm{D} (x) \pm \mathrm{D} (y)\).
+    于是, 若 \(s_1\), \(s_2\), \(\dots\), \(s_n\)
+    的每一个是 \(1\), \(0\), 或 \(-1\),
     则
-    \(\det {(S(g, f; m, n))}
-    = (-1)^{m n} \det {(S(f, g; n, m))}\).
+    \begin{align*}
+        \mathrm{D} \left(
+        \sum_{\ell = 1}^{n} {s_\ell x_\ell}
+        \right)
+        = \sum_{\ell = 1}^{n} {s_\ell \mathrm{D} (x_\ell)}.
+    \end{align*}
 
-    设 \(n = 0\).
-    则 \([S(f, g; 0, m)]_{i,j} = a_{i-j}\).
-    则 \(S(f, g; 0, m) = a_0 I_m\).
-    则 \(\det {(S(f, g; 0, m))} = a_0^m\).
+    设 \(A\) 是 \(n\)~级阵,
+    我们研究, \(\mathrm{D} (\det {(A)})\) 会是什么.
 
-    直接地算 \(\det {(S(f, g; n, m))}\) 或许是难的.
-    为此, 设 \(t\) 是数, 且
-    \begin{align*}
-        h(x)
-        = f(x)\, (x - t)
-        = \sum_{k = 0}^{n+1} {c_k x^{n+1-k}}.
-    \end{align*}
-    我们考虑 \(\det {(S(h, g; n+1, m))}\)
-    与 \(\det {(S(f, g; n, m))}\) 的关系.
+    设 \(n = 1\).
+    则 \(\det {(A)} = [A]_{1,1}\).
+    则 \(\mathrm{D} (\det {(A)})
+    = \mathrm{D} ([A]_{1,1})
+    = \det {[\mathrm{D} ([A]_{1,1})]}\).
 
-    由整式的乘法,
-    \begin{align*}
-        c_k =
-        \begin{cases}
-            a_0,             & k = 0;           \\
-            a_k - t a_{k-1}, & 1 \leq k \leq n; \\
-            -t a_n,          & k = n + 1.
-        \end{cases}
-    \end{align*}
-    回想, 若 \(k < 0\) 或 \(k > n\),
-    则 \(a_k = 0\).
-    于是, 方便地, 我们写 \(c_k = a_k - t a_{k-1}\),
-    其中, \(k\) 是整数.
-    则 \(k < 0\) 或 \(k > n + 1\) 时,
-    \(c_k\) 是 \(0\).
-    注意, \(a_k = c_k + t a_{k-1}\).
-
-    为方便, 我们记
-    \(g_\ell (x) = 0\)
-    (若 \(\ell < 0\)),
-    且
-    \(g_\ell (x) = g_{\ell-1} (x)\, x + b_\ell\)
-    (若 \(\ell \geq 0\)).
-    则对任何整数 \(\ell\),
-    有 \(g_\ell (t) = b_\ell + t g_{\ell-1} (t)\).
-    注意, \(b_\ell = g_\ell (t) - t g_{\ell-1} (t)\).
-
-    注意, \(m + n + 1\) 级阵 \(S(h, g; n+1, m)\) 等于
-    \begin{align*}
-        \begin{bmatrix}
-            c_{0}   & c_{-1}    & c_{-2}    & \cdots & c_{1-m}   & b_{0}   & b_{-1}    & \cdots & b_{-n}  \\
-            c_{1}   & c_{0}     & c_{-1}    & \cdots & c_{2-m}   & b_{1}   & b_{0}     & \cdots & b_{1-n} \\
-            c_{2}   & c_{1}     & c_{0}     & \cdots & c_{3-m}   & b_{2}   & b_{1}     & \cdots & b_{2-n} \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots  & \vdots    & {}     & \vdots  \\
-            c_{n}   & c_{n-1}   & c_{n-2}   & \cdots & c_{n+1-m} & b_{n}   & b_{n-1}   & \cdots & b_{0}   \\
-            c_{n+1} & c_{n}     & c_{n-1}   & \cdots & c_{n+2-m} & b_{n+1} & b_{n}     & \cdots & b_{1}   \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots  & \vdots    & {}     & \vdots  \\
-            c_{m+n} & c_{m+n-1} & c_{m+n-2} & \cdots & c_{n+1}   & b_{m+n} & b_{m+n-1} & \cdots & b_{m}   \\
-        \end{bmatrix},
-    \end{align*}
-    即
-    \begin{align*}
-        \begin{bmatrix}
-            a_{0}   & a_{-1}    & a_{-2}    & \cdots & a_{1-m}   & g_{0} (t) & g_{-1} (t) & \cdots & g_{-n} (t) \\
-            c_{1}   & c_{0}     & c_{-1}    & \cdots & c_{2-m}   & b_{1}     & b_{0}      & \cdots & b_{1-n}    \\
-            c_{2}   & c_{1}     & c_{0}     & \cdots & c_{3-m}   & b_{2}     & b_{1}      & \cdots & b_{2-n}    \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots    & \vdots     & {}     & \vdots     \\
-            c_{n}   & c_{n-1}   & c_{n-2}   & \cdots & c_{n+1-m} & b_{n}     & b_{n-1}    & \cdots & b_{0}      \\
-            c_{n+1} & c_{n}     & c_{n-1}   & \cdots & c_{n+2-m} & b_{n+1}   & b_{n}      & \cdots & b_{1}      \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots    & \vdots     & {}     & \vdots     \\
-            c_{m+n} & c_{m+n-1} & c_{m+n-2} & \cdots & c_{n+1}   & b_{m+n}   & b_{m+n-1}  & \cdots & b_{m}      \\
-        \end{bmatrix}.
-    \end{align*}
-    我们加行~\(1\) 的 \(t\) 倍到行~\(2\),
-    再加行~\(2\) 的 \(t\) 倍到行~\(3\),
-    ……
-    再加行~\(m+n\) 的 \(t\) 倍到行~\(m+n+1\),
-    得 \(m+n+1\)~级阵
-    \begin{align*}
-        S_1 =
-        \begin{bmatrix}
-            a_{0}   & a_{-1}    & a_{-2}    & \cdots & a_{1-m}   & g_{0} (t)   & g_{-1} (t)    & \cdots & g_{-n} (t)  \\
-            a_{1}   & a_{0}     & a_{-1}    & \cdots & a_{2-m}   & g_{1} (t)   & g_{0} (t)     & \cdots & g_{1-n} (t) \\
-            a_{2}   & a_{1}     & a_{0}     & \cdots & a_{3-m}   & g_{2} (t)   & g_{1} (t)     & \cdots & g_{2-n} (t) \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots      & \vdots        & {}     & \vdots      \\
-            a_{n}   & a_{n-1}   & a_{n-2}   & \cdots & a_{n+1-m} & g_{n} (t)   & g_{n-1} (t)   & \cdots & g_{0} (t)   \\
-            a_{n+1} & a_{n}     & a_{n-1}   & \cdots & a_{n+2-m} & g_{n+1} (t) & g_{n} (t)     & \cdots & g_{1} (t)   \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots      & \vdots        & {}     & \vdots      \\
-            a_{m+n} & a_{m+n-1} & a_{m+n-2} & \cdots & a_{n+1}   & g_{m+n} (t) & g_{m+n-1} (t) & \cdots & g_{m} (t)   \\
-        \end{bmatrix}.
-    \end{align*}
-    我们知道, \(\det {(S_1)} = \det {(S(h, g; n+1, m))}\).
-
-    我们加列~\(m+2\) 的 \(-t\) 倍到列~\(m+1\),
-    再加列~\(m+3\) 的 \(-t\) 倍到列~\(m+2\),
-    ……
-    再加列~\(m+n+1\) 的 \(-t\) 倍到列~\(m+n\),
-    得 \(m+n+1\)~级阵
-    \begin{align*}
-        S_2 =
-        \begin{bmatrix}
-            a_{0}   & a_{-1}    & a_{-2}    & \cdots & a_{1-m}   & b_{0}   & b_{-1}    & \cdots & g_{-n} (t)  \\
-            a_{1}   & a_{0}     & a_{-1}    & \cdots & a_{2-m}   & b_{1}   & b_{0}     & \cdots & g_{1-n} (t) \\
-            a_{2}   & a_{1}     & a_{0}     & \cdots & a_{3-m}   & b_{2}   & b_{1}     & \cdots & g_{2-n} (t) \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots  & \vdots    & {}     & \vdots      \\
-            a_{n}   & a_{n-1}   & a_{n-2}   & \cdots & a_{n+1-m} & b_{n}   & b_{n-1}   & \cdots & g_{0} (t)   \\
-            a_{n+1} & a_{n}     & a_{n-1}   & \cdots & a_{n+2-m} & b_{n+1} & b_{n}     & \cdots & g_{1} (t)   \\
-            \vdots  & \vdots    & \vdots    & {}     & \vdots    & \vdots  & \vdots    & {}     & \vdots      \\
-            a_{m+n} & a_{m+n-1} & a_{m+n-2} & \cdots & a_{n+1}   & b_{m+n} & b_{m+n-1} & \cdots & g_{m} (t)   \\
-        \end{bmatrix}.
-    \end{align*}
-    我们知道, \(\det {(S_2)} = \det {(S_1)}\).
-    则 \(\det {(S_2)} = \det {(S(h, g; n+1, m))}\).
-    注意,
-    \begin{align*}
-        [S_2]_{i,j} =
-        \begin{cases}
-            a_{i-j},       & j \leq m;         \\
-            b_{i-(j-m)},   & m < j \leq m + n; \\
-            g_{i-1-n} (t), & j = m + n + 1.
-        \end{cases}
-    \end{align*}
-    于是, 当 \(i = m + n + 1\) 时,
-    \([S_2]_{i,j} = a_{n+1+(m-j)} = 0\)
-    (若 \(j \leq m\); 注意, \(n+1+(m-j) > n\)),
-    且
-    \([S_2]_{i,j} = b_{m+1+(m+n-j)} = 0\)
-    (若 \(m < j \leq m + n\); 注意, \(m+1+(m+n-j) > m\)).
-    注意, \(S_2 ({m+n+1}|{m+n+1}) = S(f, g; n, m)\).
-    注意, \(g_m (t) = g(t)\).
-    于是, 按行~\(m+n+1\) 展开, 有
+    设 \(n = 2\).
+    则 \(\det {(A)} = [A]_{1,1} [A]_{2,2} - [A]_{2,1} [A]_{1,2}\).
+    则
     \begin{align*}
              &
-        \det {(S(h, g; n+1, m))}
+        \mathrm{D} (\det {(A)})
         \\
         = {} &
-        \det {(S_2)}
+        \mathrm{D} ([A]_{1,1} [A]_{2,2} - [A]_{2,1} [A]_{1,2})
         \\
         = {} &
-        (-1)^{(m+n+1) + (m+n+1)} g_m (t) \det {(S_2 ({m+n+1}|{m+n+1}))}
+        \mathrm{D} ([A]_{1,1} [A]_{2,2})
+        - \mathrm{D} ([A]_{2,1} [A]_{1,2})
         \\
         = {} &
-        \det {(S(f, g; n, m))}\, g(t).
+        (\mathrm{D} ([A]_{1,1}) [A]_{2,2} + [A]_{1,1} \mathrm{D} ([A]_{2,2}))
+        -
+        (\mathrm{D} ([A]_{2,1}) [A]_{1,2} + [A]_{2,1} \mathrm{D} ([A]_{1,2}))
+        \\
+        = {} &
+        (\mathrm{D} ([A]_{1,1}) [A]_{2,2} - [A]_{2,1} \mathrm{D} ([A]_{1,2}))
+        +
+        ([A]_{1,1} \mathrm{D} ([A]_{2,2}) - \mathrm{D} ([A]_{2,1}) [A]_{1,2})
+        \\
+        = {} &
+        \det {\begin{bmatrix}
+                      \mathrm{D} ([A]_{1,1}) & [A]_{1,2} \\
+                      \mathrm{D} ([A]_{2,1}) & [A]_{2,2} \\
+                  \end{bmatrix}}
+        +
+        \det {\begin{bmatrix}
+                      [A]_{1,1} & \mathrm{D} ([A]_{1,2}) \\
+                      [A]_{2,1} & \mathrm{D} ([A]_{2,2}) \\
+                  \end{bmatrix}}.
     \end{align*}
 
-    设 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\).
-    记 \(F_0 (x) = a_0\),
-    且 \(F_i (x) = F_{i-1} (x)\, (x - x_i)\).
-    由上面的讨论,
+    设 \(n = 3\).
+    则
     \begin{align*}
-        \det {(S(f, g; n, m))}
+        \det {(A)}
         = {} &
-        \det {(S(F_n, g; n, m))}
+        \hphantom{{} + {}}
+        [A]_{1,1}
+        \det {\begin{bmatrix}
+                      [A]_{2,2} & [A]_{2,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        - [A]_{2,1}
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        \\
+             &
+        + [A]_{3,1}
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{2,2} & [A]_{2,3} \\
+                  \end{bmatrix}}.
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \mathrm{D} (\det {(A)})
         \\
         = {} &
-        \det {(S(F_{n-1}, g; n-1, m))}\,
-        g(x_n)
+        \hphantom{{} + {}}
+        \mathrm{D} ([A]_{1,1})
+        \det {\begin{bmatrix}
+                      [A]_{2,2} & [A]_{2,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        + [A]_{1,1}
+        \mathrm{D} \left(
+        \det {\begin{bmatrix}
+                      [A]_{2,2} & [A]_{2,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        \right)
+        \\
+             &
+        - \mathrm{D} ([A]_{2,1})
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        - [A]_{2,1}
+        \mathrm{D} \left(
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        \right)
+        \\
+             &
+        + \mathrm{D} ([A]_{3,1})
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{2,2} & [A]_{2,3} \\
+                  \end{bmatrix}}
+        + [A]_{3,1}
+        \mathrm{D} \left(
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{2,2} & [A]_{2,3} \\
+                  \end{bmatrix}}
+        \right)
         \\
         = {} &
-        \det {(S(F_{n-2}, g; n-2, m))}\,
-        g(x_{n-1}) g(x_n)
+        \hphantom{{} + {}}
+        \mathrm{D} ([A]_{1,1})
+        \det {\begin{bmatrix}
+                      [A]_{2,2} & [A]_{2,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        + [A]_{1,1}
+        \det {\begin{bmatrix}
+                      \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
+                      \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
+                  \end{bmatrix}}
+        \\
+             &
+        + [A]_{1,1}
+        \det {\begin{bmatrix}
+                      [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
+                      [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
+                  \end{bmatrix}}
+        \\
+             &
+        - \mathrm{D} ([A]_{2,1})
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        - [A]_{2,1}
+        \det {\begin{bmatrix}
+                      \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
+                      \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
+                  \end{bmatrix}}
+        \\
+             &
+        - [A]_{2,1}
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
+                      [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
+                  \end{bmatrix}}
+        \\
+             &
+        + \mathrm{D} ([A]_{3,1})
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & [A]_{1,3} \\
+                      [A]_{2,2} & [A]_{2,3} \\
+                  \end{bmatrix}}
+        + [A]_{3,1}
+        \det {\begin{bmatrix}
+                      \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
+                      \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
+                  \end{bmatrix}}
+        \\
+             &
+        + [A]_{3,1}
+        \det {\begin{bmatrix}
+                      [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
+                      [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
+                  \end{bmatrix}}
         \\
         = {} &
-        \dots \dots \dots \dots
+        \hphantom{{} + {}}
+        \det {\begin{bmatrix}
+                      \mathrm{D} ([A]_{1,1}) & [A]_{1,2} & [A]_{1,3} \\
+                      \mathrm{D} ([A]_{2,1}) & [A]_{2,2} & [A]_{2,3} \\
+                      \mathrm{D} ([A]_{3,1}) & [A]_{3,2} & [A]_{3,3} \\
+                  \end{bmatrix}}
+        + \det {\begin{bmatrix}
+                        [A]_{1,1} & \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
+                        [A]_{2,1} & \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
+                        [A]_{3,1} & \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
+                    \end{bmatrix}}
+        \\
+             &
+        + \det {\begin{bmatrix}
+                        [A]_{1,1} & [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
+                        [A]_{2,1} & [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
+                        [A]_{3,1} & [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
+                    \end{bmatrix}}
+        \,.
+    \end{align*}
+
+    我们想, 我们或许知道 \(\mathrm{D} (\det {(A)})\) 了.
+    为方便, 我们作这样的记号:
+    若 \(B\) 是 \(m \times n\)~阵,
+    且 \(\ell\) 是正整数,
+    则 \(\mathrm{D}_\ell (B)\) 也是 \(m \times n\)~阵,
+    其中,
+    \begin{align*}
+        [\mathrm{D}_\ell (B)]_{i,j} =
+        \begin{cases}
+            \mathrm{D} ([B]_{i,j}), & j = \ell;  \\
+            [B]_{i,j},              & \text{其他}.
+        \end{cases}
+    \end{align*}
+
+    作命题 \(P(n)\):
+    对任何 \(n\)~级阵 \(A\),
+    \begin{align*}
+        \mathrm{D} (\det {(A)})
+        = \sum_{\ell = 1}^{n} {\det {(\mathrm{D}_\ell (A))}},
+    \end{align*}
+    我们的目标是:
+    对任何正整数 \(n\), \(P(n)\) 是对的.
+
+    \(P(1)\) 与 \(P(2)\) 是对的.
+
+    假定 \(P(n-1)\) 是对的.
+    我们由此证明, \(P(n)\) 也是对的.
+
+    注意,
+    \begin{align*}
+             &
+        \mathrm{D} (\det {(A)})
         \\
         = {} &
-        \det {(S(F_0, g; 0, m))}\,
-        g(x_1) g(x_2) \dots g(x_n)
+        \mathrm{D} \left(
+        \sum_{i = 1}^{n} {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+        \right)
         \\
         = {} &
-        a_0^m g(x_1) g(x_2) \dots g(x_n).
+        \sum_{i = 1}^{n} {(-1)^{i+1} \mathrm{D} ([A]_{i,1} \det {(A(i|1))})}
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+        (\mathrm{D} ([A]_{i,1}) \det {(A(i|1))}
+        + [A]_{i,1} \mathrm{D} (\det {(A(i|1))}))}
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+        \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
+        +
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+            [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}.
+    \end{align*}
+    注意, 既然 \(A\) 与 \(\mathrm{D}_1 (A)\)
+    的列~\(j\) 相同 (若 \(j \neq 1\)),
+    则 \(A(i|1) = (\mathrm{D}_1 (A))(i|1)\).
+    则
+    \begin{align*}
+             &
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+        \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+        \mathrm{D} ([A]_{i,1}) \det {((\mathrm{D}_1 (A))(i|1))}}
+        \\
+        = {} &
+        \det {(\mathrm{D}_1 (A))}.
+    \end{align*}
+
+    由假定,
+    \begin{align*}
+        \mathrm{D} (\det {(A(i|1))}) =
+        \sum_{v = 1}^{n-1} {\det {(\mathrm{D}_v (A(i|1)))}}.
+    \end{align*}
+    注意, \(\mathrm{D}_v (A(i|1))
+    = (\mathrm{D}_{v+1} (A)) (i|1)\).
+    则
+    \begin{align*}
+        \mathrm{D} (\det {(A(i|1))})
+        =
+        \sum_{v = 1}^{n-1} {\det {((\mathrm{D}_{v+1} (A)) (i|1))}}
+        =
+        \sum_{\ell = 2}^{n} {\det {((\mathrm{D}_\ell (A)) (i|1))}}.
+    \end{align*}
+    注意, 当 \(\ell \neq 1\) 时,
+    \([\mathrm{D}_\ell (A)]_{i,1} = [A]_{i,1}\).
+    则
+    \begin{align*}
+             &
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+            [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {(-1)^{i+1}
+            [\mathrm{D}_\ell (A)]_{i,1}
+        \sum_{\ell = 2}^{n} {\det {((\mathrm{D}_\ell (A)) (i|1))}}
+        }
+        \\
+        = {} &
+        \sum_{i = 1}^{n} {
+        \sum_{\ell = 2}^{n} {
+        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
+        \det {((\mathrm{D}_\ell (A)) (i|1))}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 2}^{n} {
+        \sum_{i = 1}^{n} {
+        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
+        \det {((\mathrm{D}_\ell (A)) (i|1))}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 2}^{n} {\det {(\mathrm{D}_\ell (A))}}.
+    \end{align*}
+    综上,
+    \begin{align*}
+        \mathrm{D} (\det {(A)})
+        = \det {(\mathrm{D}_1 (A))}
+        + \sum_{\ell = 2}^{n} {\det {(\mathrm{D}_\ell (A))}}
+        = \sum_{\ell = 1}^{n} {\det {(\mathrm{D}_\ell (A))}}.
+    \end{align*}
+    所以, \(P(n)\) 是对的.
+    由数学归纳法, 待证命题成立.
+
+    注意, 既然 \(A\) 与 \(\mathrm{D}_\ell (A)\)
+    的列~\(j\) 相同 (若 \(j \neq \ell\)),
+    则 \(A(i|\ell) = (\mathrm{D}_\ell (A))(i|\ell)\).
+    并且,
+    \([\mathrm{D}_\ell (A)]_{i,\ell} = \mathrm{D} ([A]_{i,\ell})\).
+    则
+    \begin{align*}
+        \mathrm{D} (\det {(A)})
+        = {} &
+        \sum_{\ell = 1}^{n} {\det {(\mathrm{D}_\ell (A))}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n} {
+        \sum_{i = 1}^{n} {
+        (-1)^{i+\ell} [\mathrm{D}_\ell (A)]_{i,\ell}
+        \det {((\mathrm{D}_\ell (A))(i|\ell))}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n} {
+        \sum_{i = 1}^{n} {
+        (-1)^{i+\ell} \mathrm{D} ([A]_{i,\ell})
+        \det {(A(i|\ell))}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n} {
+        \sum_{i = 1}^{n} {
+        (-1)^{i+\ell}
+        \det {(A(i|\ell))}\,
+        \mathrm{D} ([A]_{i,\ell})
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n} {
+        \sum_{i = 1}^{n} {
+        [\operatorname{adj} {(A)}]_{\ell,i}\,
+        \mathrm{D} ([A]_{i,\ell})
+        }
+        }.
+    \end{align*}
+    为方便, 我们作这样的记号:
+    若 \(B\) 是 \(m \times n\)~阵,
+    且 \(\ell\) 是正整数,
+    则 \(\mathrm{D}_{\mathrm{c}} (B)\) 也是 \(m \times n\)~阵,
+    其中,
+    \([\mathrm{D}_{\mathrm{c}} (B)]_{i,j} = \mathrm{D} ([B]_{i,j})\).
+    则
+    \begin{align*}
+        \mathrm{D} (\det {(A)})
+        = \sum_{\ell = 1}^{n}
+        {[\operatorname{adj} {(A)}\,
+        \mathrm{D}_{\mathrm{c}} (A)]_{\ell,\ell}}.
+    \end{align*}
+
+    最后, 我们再引入方阵的迹:
+    若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的迹
+    \begin{align*}
+        \operatorname{tr} {(A)} = \sum_{k = 1}^{n} {[A]_{k,k}}.
+    \end{align*}
+    (\(\operatorname{tr}\) 来自英语 \angla{trace}.)
+    则
+    \begin{align*}
+        \mathrm{D} (\det {(A)})
+        = \operatorname{tr} {(\operatorname{adj} {(A)}\,
+        \mathrm{D}_{\mathrm{c}} (A))}.
     \end{align*}
 \end{example}
 
-综上, 我们有:
+\begin{example}
+    回想, 若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的迹
+    \begin{align*}
+        \operatorname{tr} {(A)} = \sum_{k = 1}^{n} {[A]_{k,k}}.
+    \end{align*}
+    我们说, 迹也是方阵的一个属性,
+    就像行列式是方阵的一个属性那样.
 
-\begin{theorem}
-    设 \(n\), \(m\) 是非负整数,
-    且 \(m + n \geq 1\).
-    设
-    \begin{align*}
-        f(x) &
-        = \sum_{k = 0}^{n} {a_k x^{n-k}}
-        = a_0 x^n + a_1 x^{n-1} + \dots + a_n,
-        \\
-        g(x) &
-        = \sum_{k = 0}^{m} {b_k x^{m-k}}
-        = b_0 x^m + b_1 x^{m-1} + \dots + b_m.
-    \end{align*}
-    为方便, 我们约定:
-    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
-    若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-    作 \(m + n\)~级阵 \(S(f, g; n, m)\) 如下:
-    \begin{align*}
-        [S(f, g; n, m)]_{i,j}
-        = \begin{cases}
-              a_{i-j},     & j \leq m; \\
-              b_{i-(j-m)}, & j > m.
-          \end{cases}
-    \end{align*}
-    我们说,
-    \(S(f, g; n, m)\) 是 \(f\), \(g\) 的 Sylvester 阵,
-    且 \(\det {(S(f, g; n, m))}\)
-    是 \(f\), \(g\) 的 \angla{resultant},
-    ``结式''.
+    设 \(A\), \(B\) 是 \(n\)~级阵.
+    设 \(s\) 是数.
+    设 \(C\) 是 \(n \times m\)~阵,
+    且 \(D\) 是 \(m \times n\)~阵.
+    则:
 
     (1)
-    若 \(a_0 = 0 = b_0\),
-    则 \(S(f, g; n, m)\) 的行~\(1\) 的元全是 \(0\).
-    故
+    \(\operatorname{tr} {(A + B)}
+    = \operatorname{tr} {(A)} + \operatorname{tr} {(B)}\).
+    注意,
     \begin{align*}
-        \det {(S(f, g; n, m))} = 0.
+        \operatorname{tr} {(A + B)}
+        = {} &
+        \sum_{k = 1}^{n} {[A + B]_{k,k}}
+        \\
+        = {} &
+        \sum_{k = 1}^{n} {([A]_{k,k} + [B]_{k,k})}
+        \\
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{k,k}}
+        + \sum_{k = 1}^{n} {[B]_{k,k}}
+        \\
+        = {} &
+        \operatorname{tr} {(A)}
+        + \operatorname{tr} {(B)}.
     \end{align*}
 
     (2)
-    \(\det {(S(g, f; m, n))}
-    = (-1)^{m n} \det {(S(f, g; n, m))}\).
+    \(\operatorname{tr} {(s A)} = s \operatorname{tr} {(A)}\).
+    注意,
+    \begin{align*}
+        \operatorname{tr} {(s A)}
+        = \sum_{k = 1}^{n} {[s A]_{k,k}}
+        = \sum_{k = 1}^{n} {(s\, [A]_{k,k})}
+        = s \sum_{k = 1}^{n} {[A]_{k,k}}
+        = s \operatorname{tr} {(A)}.
+    \end{align*}
 
     (3)
-    若 \(n = 0\), 则 \(S(f, g; 0, m) = a_0 I_m\).
-    故 \(\det {(S(f, g; 0, m))} = a_0^m\).
+    \(\operatorname{tr} {(A^{\mathrm{T}})} = \operatorname{tr} {(A)}\).
+    注意,
+    \begin{align*}
+        \operatorname{tr} {(A^{\mathrm{T}})}
+        = \sum_{k = 1}^{n} {[A^{\mathrm{T}}]_{k,k}}
+        = \sum_{k = 1}^{n} {([A]_{k,k})}
+        = \operatorname{tr} {(A)}.
+    \end{align*}
 
     (4)
-    设 \(t\) 是数, 且
+    \(\operatorname{tr} {(C D)} = \operatorname{tr} {(D C)}\).
+    注意,
     \begin{align*}
-        h(x)
-        = f(x)\, (x - t)
-        = \sum_{k = 0}^{n+1} {c_k x^{n+1-k}}.
-    \end{align*}
-    (我们约定, 若 \(k < 0\) 或 \(k > n+1\),
-    则 \(c_k = 0\).)
-    则
-    \begin{align*}
-        \det {(S(h, g; n+1, m))} = \det {(S(f, g; n, m))}\, g(t).
-    \end{align*}
-
-    (5)
-    若 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
-    则由 (3) (4),
-    \begin{align*}
-        \det {(S(f, g; n, m))} = a_0^m g(x_1) g(x_2) \dots g(x_n).
-    \end{align*}
-
-    (6)
-    若 \(g(x) = b_0 (x - y_1) (x - y_2) \dots (x - y_m)\),
-    则由 (2) (5),
-    \begin{align*}
-        \det {(S(f, g; n, m))} = (-1)^{mn} b_0^n f(y_1) f(y_2) \dots f(y_m).
-    \end{align*}
-
-    (7)
-    设 \(e\) 是 \(m + n\)~级单位阵的列~\(m + n\).
-    则有 (非零的) \((m + n) \times 1\)~阵 \(p\),
-    使 \(S(f, g; n, m)\, p = \det {(S(f, g; n, m))}\, e\).
-    (关于 (7) (8) (9) (10), 见例~\ref{emp:resultant}.)
-
-    (8)
-    作 \(1 \times (m + n)\)~阵 \(X_{m+n}\),
-    使 \([X_{m+n}]_{1,j} = x^{m+n-j}\).
-    则 \(X_{m+n}\, S(f, g; n, m)\) 是 \(1 \times (m + n)\)~阵,
-    且
-    \begin{align*}
-        [X_{m+n}\, S(f, g; n, m)]_{1,j}
-        = \begin{cases}
-              f(x)\, x^{m-j},     & j \leq m; \\
-              g(x)\, x^{n-(j-m)}, & j > m.
-          \end{cases}
-    \end{align*}
-
-    (9)
-    设 \(Y\) 是 \((m + n) \times 1\)~阵.
-    记
-    \begin{align*}
-        u(x)
-        = \sum_{k = 0}^{m-1} {[Y]_{k+1,1} x^{m-1-k}}
+        \operatorname{tr} {(C D)}
         = {} &
-        [Y]_{1,1} x^{m-1} + [Y]_{2,1} x^{m-2}
-        + \dots + [Y]_{m,1},
+        \sum_{k = 1}^{n} {[C D]_{k,k}}
         \\
-        v(x)
-        = \sum_{k = 0}^{n-1} {[Y]_{m+1+k,1} x^{n-1-k}}
         = {} &
-        [Y]_{m+1,1} x^{n-1} + [Y]_{m+2,1} x^{n-2}
-        + \dots + [Y]_{m+n,1}.
+        \sum_{k = 1}^{n} {
+        \sum_{\ell = 1}^{m} {
+        [C]_{k,\ell} [D]_{\ell,k}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{m} {
+        \sum_{k = 1}^{n} {
+        [C]_{k,\ell} [D]_{\ell,k}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{m} {
+        \sum_{k = 1}^{n} {
+        [D]_{\ell,k} [C]_{k,\ell}
+        }
+        }
+        \\
+        = {} &
+        \sum_{\ell = 1}^{m} {[D C]_{\ell,\ell}}
+        \\
+        = {} &
+        \operatorname{tr} {(D C)}.
     \end{align*}
-    则 \(X_{m+n}\, S(f, g; n, m)\, Y\) 是 \(1\)~级阵, 且
-    \begin{align*}
-        [X_{m+n}\, S(f, g; n, m)\, Y]_{1,1} = f(x)\, u(x) + g(x)\, v(x).
-    \end{align*}
-    特别地, 若取 \(Y\) 为 (7) 中的 \(p\),
-    则对应的 \(u\), \(v\) 适合,
-    \begin{align*}
-        f(x)\, u(x) + g(x)\, v(x) = \det {(S(f, g; n, m))}.
-    \end{align*}
-    (注意, 上式的右侧不含 \(x\).)
+    (其实, 此事是例~\ref{emp:sum-of-principal-minors-of-AB-and-that-of-BA}
+    的一个特别的情形.)
 
-    (10)
-    若数 \(c\) 适合, \(f(c) = 0 = g(c)\),
-    则由 (9),
+    我们说, 当 \(n \geq 2\) 时,
+    \(\operatorname{tr} {(A B)}
+    = \operatorname{tr} {(A)} \operatorname{tr} {(B)}\)
+    一般不是对的.
+    为此, 设 \(A\), \(B\) 是这样的 \(n\)~级阵:
     \begin{align*}
-        0 = f(c)\, u(c) + g(c)\, v(c) = \det {(S(f, g; n, m))}.
+        [A]_{i,j} =
+        \begin{cases}
+            1, & i = j = 1; \\
+            0, & \text{其他},
+        \end{cases}
+        \quad
+        [B]_{i,j} =
+        \begin{cases}
+            1, & i = j = 2; \\
+            0, & \text{其他}.
+        \end{cases}
     \end{align*}
-
-    (11)
-    反过来, 若 \(\det {(S(f, g; n, m))} = 0\),
-    则由 (1) (5) (6),
-    \(a_0 = 0 = b_0\),
-    或当 \(a_0 \neq 0\) 或 \(b_0 \neq 0\) 时,
-    存在数 \(c\), 使 \(f(c) = 0 = g(c)\).
-\end{theorem}
+    可以验证, \(A B = 0\).
+    则 \(\operatorname{tr} {(A B)} = 0\).
+    但是, \(\operatorname{tr} {(A)} = 1 = \operatorname{tr} {(B)}\).
+\end{example}
 
 \end{document}
 
@@ -3321,16 +2931,12 @@ about determinants
     \item a formula for det (D + A) in which D is diagonal
     \item a formula for det (xI + A)
     \item a formula that relates det (xI + AB) and det (xI + BA)
-    \item the resultant of two polynomials;
-          a necessary and sufficient condition
-          that f(x) and g(x) have a common root
-    \item an example that shows how to use the resultant
-          to solve a system of polynomial equations
-          with two unknowns
     \item powers of a square matrix
     \item a formula for adj (-A) in terms of a polynomial in A
     \item Cayley--Hamilton
     \item a new way for determining the determinant function
     \item more about skew-symmetric matrices
+    \item the derivative of the determinant of a square matrix
+    \item the trace of a square matrix
 \end{itemize}
 This material consists of one very long section.
