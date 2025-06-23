@@ -2623,7 +2623,7 @@
     对任何 \(n\)~级阵 \(A\),
     \begin{align*}
         \mathrm{D} (\det {(A)})
-        = \sum_{\ell = 1}^{n} {\det {(\mathrm{D}_\ell (A))}},
+        = \sum_{\ell = 1}^{n} {\det {(\mathrm{D}_\ell (A))}}.
     \end{align*}
     我们的目标是:
     对任何正整数 \(n\), \(P(n)\) 是对的.
@@ -2805,6 +2805,258 @@
 \end{example}
 
 \begin{example}
+    设 \(A\) 是 \(n\)~级反称阵.
+    则 \(\operatorname{pf} {(A)}\) 是有意义的.
+
+    设 \(n = 1\).
+    则 \(\operatorname{pf} {(A)} = 0\).
+    则 \(\mathrm{D} (\operatorname{pf} {(A)}) = 0\).
+
+    设 \(n = 2\).
+    则 \(\operatorname{pf} {(A)} = [A]_{1,2}\).
+    则 \(\mathrm{D} (\operatorname{pf} {(A)})
+    = \mathrm{D} ([A]_{1,2})\).
+
+    设 \(n = 3\).
+    则 \(\operatorname{pf} {(A)} = 0\).
+    则 \(\mathrm{D} (\operatorname{pf} {(A)}) = 0\).
+
+    设 \(n = 4\).
+    则 \(\operatorname{pf} {(A)}
+    = [A]_{1,2} [A]_{3,4} - [A]_{1,3} [A]_{2,4} + [A]_{1,4} [A]_{2,3}\).
+    则
+    \begin{align*}
+             &
+        \mathrm{D} (\operatorname{pf} {(A)})
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \mathrm{D} ([A]_{1,2})\, [A]_{3,4}
+        + [A]_{1,2}\, \mathrm{D} ([A]_{3,4})
+        - \mathrm{D} ([A]_{1,3})\, [A]_{2,4}
+        - [A]_{1,3}\, \mathrm{D} ([A]_{2,4})
+        \\
+             &
+        + \mathrm{D} ([A]_{1,4})\, [A]_{2,3}
+        + [A]_{1,4}\, \mathrm{D} ([A]_{2,3})
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \mathrm{D} ([A]_{1,2})\, [A]_{3,4}
+        - \mathrm{D} ([A]_{1,3})\, [A]_{2,4}
+        + \mathrm{D} ([A]_{1,4})\, [A]_{2,3}
+        \\
+             &
+        + \mathrm{D} ([A]_{2,3})\, [A]_{1,4}
+        - \mathrm{D} ([A]_{2,4})\, [A]_{1,3}
+        + \mathrm{D} ([A]_{3,4})\, [A]_{1,2}.
+    \end{align*}
+
+    作命题 \(P(n)\):
+    对任何 \(n\)~级反称阵 \(A\),
+    \begin{align*}
+        \mathrm{D} (\operatorname{pf} {(A)})
+        = \sum_{1 \leq i < j \leq n}
+        {(-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({i,j}|{i,j}))}}.
+    \end{align*}
+    再作命题 \(Q(n)\):
+    \(P(n-1)\) 与 \(P(n)\) 是对的.
+    我们用数学归纳法证明,
+    对任何大于 \(3\) 的正整数 \(n\), \(Q(n)\) 是对的.
+
+    \(P(3)\) 与 \(P(4)\) 显然地是对的.
+    则 \(Q(4)\) 是对的.
+
+    设 \(Q(n-1)\) 是对的.
+    则 \(P(n-2)\) 与 \(P(n-1)\) 是对的.
+    我们要证, \(Q(n)\) 是对的.
+    则我们要证, \(P(n-1)\) 与 \(P(n)\) 是对的.
+    于是, 若我们能用 \(P(n-2)\) 与 \(P(n-1)\) 证,
+    \(P(n)\) 是对的,
+    则 \(Q(n)\) 是对的.
+
+    设 \(n > 4\).
+    则
+    \begin{align*}
+             &
+        \mathrm{D} (\operatorname{pf} {(A)})
+        \\
+        = {} &
+        \mathrm{D} \left(
+        \sum_{2 \leq \ell \leq n}
+        {(-1)^{\ell} [A]_{1,\ell}
+        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}}
+        \right)
+        \\
+        = {} &
+        \sum_{2 \leq \ell \leq n}
+        {(-1)^{\ell}
+        \mathrm{D} (
+        [A]_{1,\ell}
+        \operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+        }
+        \\
+        = {} &
+        \sum_{2 \leq \ell \leq n}
+        {(-1)^{\ell}
+        (
+        \mathrm{D} ([A]_{1,\ell})
+        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
+        +
+        [A]_{1,\ell}
+        \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+        )
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{2 \leq \ell \leq n}
+        {(-1)^{\ell}
+        \mathrm{D} ([A]_{1,\ell})
+        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
+        }
+        \\
+             & +
+        \sum_{2 \leq \ell \leq n}
+        {(-1)^{\ell} [A]_{1,\ell}
+        \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+        }.
+    \end{align*}
+    注意, \([A]_{i,j}\) 在 \(A({1,\ell}|{1,\ell})\)
+    的位置是行~\(i - \rho(i, 1) - \rho(i, \ell)\),
+    列~\(j - \rho(j, 1) - \rho(j, \ell)\).
+    (回想,
+    若 \(i \geq j\), 则 \(\rho(i, j) = 1\),
+    且若 \(i < j\), 则 \(\rho(i, j) = 0\).)
+    由假定,
+    \begin{align*}
+             &
+        \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+        \\
+        = {} &
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        {(-1)^{i-1-\rho(i, \ell)+j-1-\rho(j, \ell)-1}
+        \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}
+        \\
+        = {} &
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        {(-1)^{i-1+(\rho(\ell, i)-1)+j-1+(\rho(\ell, j)-1)-1}
+        \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}
+        \\
+        = {} &
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        {(-1)^{(i+j-1)-1-\rho(\ell, i)+1-1-\rho(\ell, j)+1}
+        \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}
+        \\
+        = {} &
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        {(-1)^{(i+j-1)-\rho(\ell, i)-\rho(\ell, j)}
+        \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}.
+    \end{align*}
+    为方便, 我们简单地写 \(A({1,\ell,i,j}|{1,\ell,i,j})\)
+    为 \(A_{1,\ell,i,j}\).
+    则
+    \begin{align*}
+             &
+        \sum_{2 \leq \ell \leq n}
+        (-1)^{\ell} [A]_{1,\ell}
+        \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+        \\
+        = {} &
+        \sum_{2 \leq \ell \leq n}
+        (-1)^{\ell} [A]_{1,\ell}
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        (-1)^{(i+j-1)-\rho(\ell, i)-\rho(\ell, j)}
+        \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A_{1,\ell,i,j})}
+        \\
+        = {} &
+        \sum_{2 \leq \ell \leq n}
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        (-1)^{\ell} [A]_{1,\ell}
+        (-1)^{(i+j-1)-\rho(\ell, i)-\rho(\ell, j)}
+        \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A_{1,\ell,i,j})}
+        \\
+        = {} &
+        \sum_{2 \leq \ell \leq n}
+        \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        (-1)^{\ell-\rho(\ell, i)-\rho(\ell, j)} [A]_{1,\ell}
+        \operatorname{pf} {(A_{1,\ell,i,j})}
+        \\
+        = {} &
+        \sum_{2 \leq i < j \leq n}
+        \sum_{\substack{2 \leq \ell \leq n  \\ \ell \neq i, j}}
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        (-1)^{\ell-\rho(\ell, i)-\rho(\ell, j)} [A]_{1,\ell}
+        \operatorname{pf} {(A_{1,\ell,i,j})}
+        \\
+        = {} &
+        \sum_{2 \leq i < j \leq n}
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \sum_{\substack{2 \leq \ell \leq n  \\ \ell \neq i, j}}
+        (-1)^{\ell-\rho(\ell, i)-\rho(\ell, j)} [A]_{1,\ell}
+        \operatorname{pf} {(A_{1,\ell,i,j})}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq i < j \leq n \\ i \geq 2}}
+        {
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({i,j}|{i,j}))}
+        }.
+    \end{align*}
+    注意,
+    \begin{align*}
+             &
+        \sum_{2 \leq \ell \leq n}
+        {(-1)^{\ell}
+        \mathrm{D} ([A]_{1,\ell})
+        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
+        }
+        \\
+        = {} &
+        \sum_{\substack{1 \leq i < j \leq n \\ i = 1}}
+        {
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({i,j}|{i,j}))}
+        }.
+    \end{align*}
+    综上,
+    \begin{align*}
+        \mathrm{D} (\operatorname{pf} {(A)})
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{\substack{1 \leq i < j \leq n \\ i = 1}}
+        {
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({i,j}|{i,j}))}
+        }
+        \\
+             &
+        +
+        \sum_{\substack{1 \leq i < j \leq n \\ i \geq 2}}
+        {
+        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({i,j}|{i,j}))}
+        }
+        \\
+        = {} &
+        \sum_{1 \leq i < j \leq n}
+        {(-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+        \operatorname{pf} {(A({i,j}|{i,j}))}}.
+    \end{align*}
+    所以, \(P(n)\) 是对的.
+    则 \(Q(n)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{example}
+
+\begin{example}
     回想, 若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的迹
     \begin{align*}
         \operatorname{tr} {(A)} = \sum_{k = 1}^{n} {[A]_{k,k}}.
@@ -2919,6 +3171,206 @@
     可以验证, \(A B = 0\).
     则 \(\operatorname{tr} {(A B)} = 0\).
     但是, \(\operatorname{tr} {(A)} = 1 = \operatorname{tr} {(B)}\).
+\end{example}
+
+\begin{example}
+    设 \(A\) 是 \(n\)~级阵.
+    则存在 \(n\)~级阵 \(B\),
+    使 \(AB = \det {(A)}\, I_n = BA\).
+
+    我们知道, \(A \operatorname{adj} {(A)}
+    = \det {(A)}\, I_n
+    = \operatorname{adj} {(A)}\, A\).
+    若 \(\operatorname{adj} {(A)} \neq 0\),
+    我们取 \(B\) 为 \(\operatorname{adj} {(A)}\).
+
+    以下, 我们设 \(\operatorname{adj} {(A)} = 0\).
+    注意, 此时, \(n > 1\)
+    (注意, 若 \(n = 1\), 则 \(A\) 的古伴总为 \(I_1\)),
+    且 \(\det {(A)} = 0\).
+
+    若 \(A = 0\), 我们可取 \(B\) 为任何非零的 \(n\)~级阵
+    (如 \(I_n\)).
+
+    以下, 我们设 \(\operatorname{adj} {(A)} = 0\),
+    且 \(A \neq 0\).
+    注意, 此时, \(n > 2\)
+    (注意, 若 \(n = 2\), 则 \(A\) 的古伴不为 \(0\),
+    除非 \(A = 0\)).
+
+    我们说, 存在小于 \(n-1\) 的正整数 \(r\),
+    使 \(A\) 有行列式非零的 \(r\)~级子阵,
+    且 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
+    设
+    \(\displaystyle
+    C = A\binom{i_1,i_2,\dots,i_{r+1}}{j_1,j_2,\dots,j_{r+1}}\)
+    (其中, \(i_1 < i_2 < \dots < i_{r+1}\),
+    且 \(j_1 < j_2 < \dots < j_{r+1}\);
+    则 \([C]_{s,t} = [A]_{i_s,j_t}\))
+    是 \(A\) 的一个 \(r+1\)~级子阵,
+    且 \(C\) 有行列式非零的 \(r\)~级子阵
+    (此 \(r\)~级子阵当然是 \(A\) 的行列式非零的 \(r\)~级子阵).
+    则 \(\operatorname{adj} {(C)} \neq 0\),
+    且 \(C \operatorname{adj} {(C)} = 0
+    = \operatorname{adj} {(C)}\, C\).
+
+    作 \(n\)~级阵 \(B\), 使
+    \begin{align*}
+        [B]_{i,j} =
+        \begin{cases}
+            [\operatorname{adj} {(C)}]_{t,s},
+             & \text{若 \(i\) 等于某 \(j_t\), 且 \(j\) 等于某 \(i_s\)};
+            \\
+            0,
+             & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则 \(B \neq 0\)
+    (因为 \(\operatorname{adj} {(C)}\) 的元都是 \(B\) 的元,
+    且 \(\operatorname{adj} {(C)} \neq 0\)).
+    我们说明, \(A B = 0 = \det {(A)}\, I_n\),
+    且 \(B A = 0 = \det {(A)}\, I_n\).
+
+    注意,
+    \begin{align*}
+        [A B]_{i,j}
+        = {} &
+        \sum_{1 \leq \ell \leq n} {[A]_{i,\ell} [B]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq \ell \leq n   \\ \ell\,\text{等于某}\,j_t}}
+        {[A]_{i,\ell} [B]_{\ell,j}}
+        + \sum_{\substack{1 \leq \ell \leq n \\ \ell\,\text{不等于任何}\,j_t}}
+        {[A]_{i,\ell} [B]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[A]_{i,j_t} [B]_{j_t,j}}
+        + \sum_{\substack{1 \leq \ell \leq n \\ \ell\,\text{不等于任何}\,j_t}}
+        {[A]_{i,\ell} 0}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[A]_{i,j_t} [B]_{j_t,j}}.
+    \end{align*}
+    若 \(j\) 不等于任何 \(i_s\), 则 \([B]_{j_t,j} = 0\).
+    则 \([A B]_{i,j} = 0\).
+    若 \(j\) 等于某 \(i_s\), 则
+    \begin{align*}
+        [A B]_{i,i_s}
+        = {} &
+        \sum_{1 \leq t \leq r+1} {[A]_{i,j_t} [B]_{j_t,i_s}}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[A]_{i,j_t} [\operatorname{adj} {(C)}]_{t,s}}.
+    \end{align*}
+    若 \(i\) 等于某 \(i_k\), 则
+    \begin{align*}
+        [A B]_{i_k,i_s}
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[A]_{i_k,j_t} [\operatorname{adj} {(C)}]_{t,s}}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[C]_{k,t} [\operatorname{adj} {(C)}]_{t,s}}
+        \\
+        = {} &
+        [C \operatorname{adj} {(C)}]_{k,s}
+        \\
+        = {} &
+        [0]_{k,s}
+        \\
+        = {} &
+        0.
+    \end{align*}
+    若 \(i\) 不等于任何 \(i_k\), 则
+    \begin{align*}
+        [A B]_{i,i_s}
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[A]_{i,j_t} [\operatorname{adj} {(C)}]_{t,s}}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq r+1}
+        {[A]_{i,j_t}\, (-1)^{s+t} \det {(C(s|t))}}.
+    \end{align*}
+    作 \(r+1\)~级阵 \(D\), 使
+    \begin{align*}
+        [D]_{u,v} =
+        \begin{cases}
+            [A]_{i,j_v}, & u = s;     \\
+            [C]_{u,v},   & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则 \(C\) 的行 \(u\) 与 \(D\) 的行 \(u\) 相等
+    (若 \(u \neq s\)).
+    则 \(C(s|t) = D(s|t)\),
+    且 \([A]_{i,j_t} = [D]_{s,t}\).
+    则 \([A B]_{i,i_s} = \det {(D)}\).
+
+    设 \(i\) 在
+    \(i_1\), \(\dots\), \(i_{s-1}\), \(i\), \(i_{s+1}\), \(\dots\), \(i_{r+1}\)
+    中是第 \(z\) 小的数.
+    若 \(z = s\), 则 \(D\) 就是 \(A\) 的 \(r+1\)~级子阵
+    \(\displaystyle
+    F = A\binom{i_1,\dots,i_{s-1},i,i_{s+1},\dots,i_{r+1}}
+    {j_1,j_2,\dots,j_{r+1}}\).
+    注意, \(\det {(F)} = 0\).
+    则 \(\det {(D)} = 0\).
+    若 \(z > s\),
+    则我们分别地使 \(D\) 的行~\(s\)
+    与在行~\(s\) 的下面的 \(z - s\) 行,
+    行~\(i_{s+1}\), \(\dots\), 行~\(i_z\),
+    交换位置, 变 \(D\) 为 \(F\).
+    则 \(\det {(D)} = (-1)^{z - s} \det {(F)} = 0\).
+    若 \(z < s\),
+    则我们分别地使 \(D\) 的行~\(s\)
+    与在行~\(s\) 的上面的 \(s - z\) 行,
+    行~\(i_{s-1}\), \(\dots\), 行~\(i_z\),
+    交换位置, 变 \(D\) 为 \(F\).
+    则 \(\det {(D)} = (-1)^{s - z} \det {(F)} = 0\).
+    则 \([A B]_{i,i_s} = \det {(D)} = 0\).
+
+    综上, 既然 \(A B\) 的每一个元都是 \(0\), 则 \(A B = 0\).
+
+    我们可几乎类似地证, \(B A = 0\).
+    当然, 我们也可这样.
+
+    \(B A = 0\) 相当于 \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
+    注意, \(A^{\mathrm{T}}\) 也有行列式非零的 \(r\)~级子阵,
+    且 \(A^{\mathrm{T}}\) 也没有行列式非零的 \(r+1\)~级子阵.
+    注意,
+    \(\displaystyle
+    C^{\mathrm{T}}
+    = A^{\mathrm{T}}
+    \binom{j_1,j_2,\dots,j_{r+1}}{i_1,i_2,\dots,i_{r+1}}\)
+    是 \(A^{\mathrm{T}}\) 的一个 \(r+1\)~级子阵,
+    且 \(C^{\mathrm{T}}\) 有行列式非零的 \(r\)~级子阵
+    (此 \(r\)~级子阵当然是 \(A^{\mathrm{T}}\) 的行列式非零的 \(r\)~级子阵).
+    则 \(\operatorname{adj} {(C^{\mathrm{T}})} \neq 0\),
+    且 \(C^{\mathrm{T}} \operatorname{adj} {(C^{\mathrm{T}})} = 0
+    = \operatorname{adj} {(C^{\mathrm{T}})}\, C^{\mathrm{T}}\).
+
+    我们类似地作 \(n\)~级阵 \(G\), 使
+    \begin{align*}
+        [G]_{i,j} =
+        \begin{cases}
+            [\operatorname{adj} {(C^{\mathrm{T}})}]_{s,t},
+             & \text{若 \(i\) 等于某 \(i_s\), 且 \(j\) 等于某 \(j_t\)};
+            \\
+            0,
+             & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则 \(G = B^{\mathrm{T}}\).
+    (注意, \([\operatorname{adj} {(C^{\mathrm{T}})}]_{s,t}
+        = [\operatorname{adj} {(C)}]_{t,s}\),
+    故 \([G]_{i_s,j_t} = [B]_{j_t,i_s}\).
+    在其他的情形, \([G]_{i,j} = 0 = [B]_{j,i}\).)
+    并且, 当然, \(G \neq 0\).
+    那么, 由上面的讨论, \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
 \end{example}
 
 \end{document}
