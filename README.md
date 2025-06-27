@@ -38,12 +38,12 @@ Here is the cover of the book, which I copied from [this project](https://github
 
 ## 想看书? (How to read the book)
 
+- [https://www.bananaspace.org/wiki/讲义:行列式入门](https://www.bananaspace.org/wiki/讲义:行列式入门)
+(在线阅读; 不必下载文件. Read it online, and you do not have to download the book explicitly.)
 <!-- ~~(您需要上码云号才能从这儿下载.)~~ -->
 - [https://gitee.com/septsea/det/raw/cxefa/libro.pdf](https://gitee.com/septsea/det/raw/cxefa/libro.pdf)
 - [https://gitcode.net/septsea/det/raw/cxefa/libro.pdf](https://gitcode.net/septsea/det/raw/cxefa/libro.pdf)
 - [https://www.123pan.com/s/QvKUVv-K4WHA](https://www.123pan.com/s/QvKUVv-K4WHA)
-- [https://www.bananaspace.org/wiki/讲义:行列式入门](https://www.bananaspace.org/wiki/讲义:行列式入门)
-(在线阅读; 不必下载文件. Read it online, and you do not have to download the book explicitly.)
 - [https://github.com/septsea/det/raw/cxefa/libro.pdf](https://github.com/septsea/det/raw/cxefa/libro.pdf)
 - [https://gitea.com/septsea/det/raw/cxefa/libro.pdf](https://gitea.com/septsea/det/raw/cxefa/libro.pdf)
 - [https://codeberg.org/septsea/det/raw/cxefa/libro.pdf](https://codeberg.org/septsea/det/raw/cxefa/libro.pdf)
@@ -123,4 +123,4 @@ Multaj informoj estas en aliaj Markdown-dosieroj en ĉi tiu deponejo.
 More information is in other Markdown files in this repository.
 
 Determinantulo  
-2025-05-13
+2025-06-28

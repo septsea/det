@@ -9,6 +9,10 @@
 \begingroup
 \setlength{\parindent}{1.5em}%for 12pt
 
+% In this section, tau is 2pi, so it is upright here.
+\let\umathtau\tau
+\renewcommand*{\tau}{\symup\umathtau}
+
 The title of this section is a literal translation of
 ``Ĝis la revido'' in Esperanto,
 which idiomatically means ``See you'' in English.
@@ -22,10 +26,27 @@ which has a beginning, has an end.
 I do not really have anything interesting to say,
 but I still choose to say something here.
 
+It is said that there are at least five ways
+of defining the determinant:
+\begin{itemize}
+    \item as a function satisfying certain axioms;
+    \item explicitly by the ``big formula'';
+    \item recursively;
+    \item as the ``oriented volume'' of a parallelepiped;
+    \item by the exterior algebra.
+\end{itemize}
+I define the determinant recursively in this book.
+I believe that this is the easiest way for beginners.
+Some other ways are hinted in this book as well.
+
 This book is mainly about determinants,
 and it is over four hundred pages long.
-I know that I have written too much in this book,
-but I really wanted to share my knowledge,
+I know that I have written too much in this book:
+the number of pages in Appendix C
+(the current chapter),
+which consists of reading materials,
+is greater than the total number of pages in all other chapters.
+However, I really wanted to share my knowledge,
 hoping that it might be useful and helpful.
 
 This book is available under
@@ -53,10 +74,50 @@ in the sense that
 each is equal to the sum of all its positive divisors,
 excluding itself.
 It is also worth noting that
-\(6.28\) is a decimal approximation of \(2\pi\),
+\(6.28\) is a decimal approximation of \(2\pi\)
+(or \(\tau\)),
 the ratio of the circumference of a circle to its radius.
 Therefore I think of 28 June as
 a ``mirinda'' (meaning ``worth marvelling at'') day.
+Moreover, \(2\,025\) is remarkable:
+\begin{align*}
+    2\,025
+    = {} &
+    1^6 \cdot 3^4 \cdot 5^2 \cdot 7^0
+    \\
+    = {} &
+    5^2 + 20^2 + 40^2
+    \\
+    = {} &
+    27^2 + 36^2
+    \\
+    = {} &
+    (20 + 25)^2
+    \\
+    = {} &
+    (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9)^2
+    \\
+    = {} &
+    1^3 + 2^3 + 3^3 + 4^3 + 5^3 + 6^3 + 7^3 + 8^3 + 9^3
+    \\
+    = {} &
+    \det \begin{bmatrix}
+             1  & 5  & 14 & 12 \\
+             9  & 2  & 7  & 6  \\
+             13 & 8  & 3  & 11 \\
+             15 & 10 & 4  & 16 \\
+         \end{bmatrix}
+    \\
+    = {} &
+    \det \begin{bmatrix}
+             1  & 18 & 9  & 6  & 10 \\
+             5  & 24 & 13 & 7  & 12 \\
+             8  & 22 & 21 & 23 & 14 \\
+             16 & 2  & 15 & 4  & 17 \\
+             19 & 11 & 20 & 3  & 25 \\
+         \end{bmatrix}.
+\end{align*}
+I have only listed a few here.
 
 Fartu bone. Kredu, ke ni renkontiĝos iam, ie, iel, ial.
 (Do well. Believe that we will meet
@@ -67,3 +128,53 @@ sometime, somewhere, somehow, for some reason.)
 \end{document}
 
 This is just a closing remark.
+
+One can find a square matrix whose determinant = 2025
+with the help of a computer.
+
+Here is a Wolfram program.
+One can run it with https://tio.run/#mathematica
+if one does not have Wolfram locally on one's computer.
+Note that this program does a randomised search.
+
+\begin{lstlisting}
+
+FindMatrixWithDeterminant[size_, target_, trials_:10^9] :=
+    Module[
+        {n = size^2, elements, mat, det, found = False}
+        ,
+        (*Generate the first size^2 positive integers, excluding 1 and size^2*)
+        elements = Complement[Range[n], {1, n}];
+        (*Perform randomised trials*)
+        Do[(*Randomly permute the remaining elements and prepend 1 and append size^2*)
+            mat = Partition[Join[{1}, RandomSample[elements], {n}], size];
+            (*Compute the determinant*)
+            det = Det[mat];
+            (*Check if the determinant matches the target*)
+            If[det == target,
+                Print["A (an) ", size, " by ", size, " matrix whose det = ",
+                     target, " (trial ", i, "):"];
+                Print[MatrixForm[mat]];
+                found = True;
+                Return[]; (*Exit on success*)
+            ]
+            ,
+            {i, trials}
+        ];
+        If[!found,
+            Print["No such matrix has been found after ", trials, " trials."
+                ]
+        ];
+    ]
+
+FindMatrixWithDeterminant[4, 2025]
+
+FindMatrixWithDeterminant[5, 2025]
+
+\end{lstlisting}
+
+% 2025
+Det[{{1, 5, 14, 12}, {9, 2, 7, 6}, {13, 8, 3, 11}, {15, 10, 4, 16}}]
+
+% 2025
+Det[{{1, 18, 9, 6, 10}, {5, 24, 13, 7, 12}, {8, 22, 21, 23, 14}, {16, 2, 15, 4, 17}, {19, 11, 20, 3, 25}}]

@@ -1901,7 +1901,7 @@
             k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell}
-        \det {((A({i,\ell}|{i,k}))^{\mathrm{T}})}}.
+        \det {(A({i,\ell}|{i,k}))}}.
     \end{align*}
     注意, \((A({i,\ell}|{i,k}))^{\mathrm{T}}
     = (A^{\mathrm{T}}) ({i,k}|{i,\ell})
@@ -1909,9 +1909,15 @@
     = - (A({i,k}|{i,\ell}))\).
     则
     \begin{align*}
+        \det {(A({i,\ell}|{i,k}))}
+        = {} &
         \det {(A({i,\ell}|{i,k}))^{\mathrm{T}})}
-        = (-1)^{n-2} \det {(A({i,k}|{i,\ell}))}
-        = (-1)^{n} \det {(A({i,k}|{i,\ell}))}.
+        \\
+        = {} &
+        (-1)^{n-2} \det {(A({i,k}|{i,\ell}))}
+        \\
+        = {} &
+        (-1)^{n} \det {(A({i,k}|{i,\ell}))}.
     \end{align*}
     则
     \begin{align*}
@@ -1935,7 +1941,7 @@
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}.
     \end{align*}
     回想, 对反称阵 \(A\), 有
-    \(\det {(A)} = \operatorname{pf} {(A)}^2\).
+    \(\det {(A)} = (\operatorname{pf} {(A)})^2\).
     回想,
     \begin{align*}
         \operatorname{pf} {(A)}
@@ -2274,9 +2280,9 @@
     \end{align*}
     且
     \begin{align*}
-        \det {(A(i|k))}
-        = (-1)^{\rho(k, i)}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
+        \det {(A(i|\ell))}
+        = (-1)^{\rho(\ell, i)}
+        \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
         \operatorname{pf} {(A)}.
     \end{align*}
     则
@@ -2296,7 +2302,7 @@
 
 \begin{example}
     设 \(A\) 是 \(2m-1\)~级反称阵.
-    作 \(2m\)~级反称阵 \(B\), 其中
+    作 \(2m\)~级反称阵 \(B\), 其中,
     \begin{align*}
         [B]_{i,j} =
         \begin{cases}
@@ -2806,7 +2812,7 @@
 
 \begin{example}
     设 \(A\) 是 \(n\)~级反称阵.
-    则 \(\operatorname{pf} {(A)}\) 是有意义的.
+    我们求 \(\mathrm{D} (\operatorname{pf} {(A)})\).
 
     设 \(n = 1\).
     则 \(\operatorname{pf} {(A)} = 0\).
@@ -2864,6 +2870,7 @@
     \(P(n-1)\) 与 \(P(n)\) 是对的.
     我们用数学归纳法证明,
     对任何大于 \(3\) 的正整数 \(n\), \(Q(n)\) 是对的.
+    则对不低于 \(3\) 的正整数 \(n\), \(P(n)\) 是对的.
 
     \(P(3)\) 与 \(P(4)\) 显然地是对的.
     则 \(Q(4)\) 是对的.
@@ -2872,7 +2879,7 @@
     则 \(P(n-2)\) 与 \(P(n-1)\) 是对的.
     我们要证, \(Q(n)\) 是对的.
     则我们要证, \(P(n-1)\) 与 \(P(n)\) 是对的.
-    于是, 若我们能用 \(P(n-2)\) 与 \(P(n-1)\) 证,
+    于是, 若我们以 \(P(n-2)\) 与 \(P(n-1)\) 证,
     \(P(n)\) 是对的,
     则 \(Q(n)\) 是对的.
 
@@ -3336,9 +3343,10 @@
     综上, 既然 \(A B\) 的每一个元都是 \(0\), 则 \(A B = 0\).
 
     我们可几乎类似地证, \(B A = 0\).
-    当然, 我们也可这样.
+    当然, 我们也可这样作.
 
-    \(B A = 0\) 相当于 \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
+    \(B A = 0\) 相当于
+    \(A^{\mathrm{T}} B^{\mathrm{T}} = 0^{\mathrm{T}} = 0\).
     注意, \(A^{\mathrm{T}}\) 也有行列式非零的 \(r\)~级子阵,
     且 \(A^{\mathrm{T}}\) 也没有行列式非零的 \(r+1\)~级子阵.
     注意,
@@ -3370,7 +3378,7 @@
     故 \([G]_{i_s,j_t} = [B]_{j_t,i_s}\).
     在其他的情形, \([G]_{i,j} = 0 = [B]_{j,i}\).)
     并且, 当然, \(G \neq 0\).
-    那么, 由上面的讨论, \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
+    那么, 由前面的讨论, \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
 \end{example}
 
 \end{document}
