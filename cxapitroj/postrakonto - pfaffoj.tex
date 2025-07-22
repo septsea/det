@@ -3858,7 +3858,7 @@
         利用若干次列的倍加与行的倍加,
         我们可变 \(A\) 为一个 \(m \times n\)~阵 \(B\),
         使当 \(i \neq j\) 时,
-    \([B]_{i,j} = 0\).
+        \([B]_{i,j} = 0\).
     \end{quotation}
     则, 我们的目标是:
     对任何正整数 \(n\), \(P(n)\) 是对的.
@@ -4343,8 +4343,8 @@
     与若干个形如 \(M(n; q'; s')\) 的阵
     \(M_1\), \(M_2\), \(\dots\), \(M_n\),
     使
-\begin{align*}
-    A =
+    \begin{align*}
+        A =
         F_1 F_2 \dots F_u
         M_1 M_2 \dots M_n
         E_u \dots E_2 E_1.
@@ -4475,13 +4475,364 @@
     \end{align*}
 \end{example}
 
+\section{Pfaffian 的性质 (续)}
+
+前面, 我们得到了 pfaffian 的多的性质.
+以下三条是重要的:
+
+\TheoremPfaffianMulitply*
+
+\TheoremPfaffianMulitplyAndAdd*
+
+\TheoremPfaffianSquareDet*
+
+本节, 我们证明 pfaffian 的一个新的重要的性质.
+为此, 我们先改写第 1, 2 条性质.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级反称阵.
+    设 \(s\) 是数.
+    设 \(q\) 是不超过 \(n\) 的正整数.
+    则
+    \begin{align*}
+        \operatorname{pf}{( (M(n; q; s))^{\mathrm{T}}
+            A M(n; q; s) )}
+        = \operatorname{pf} {(A)} \det {(M(n; q; s))}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    记 \(M = M(n; q; s)\).
+    注意,
+    \begin{align*}
+        [M^{\mathrm{T}} A M]_{i,j}
+        = {} &
+        \sum_{k = 1}^{n}
+        {
+        [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
+        }
+        \\
+        = {} &
+        \sum_{k = 1}^{n}
+        {
+        [M]_{k,i} [A M]_{k,j}
+        }
+        \\
+        = {} &
+        [M]_{i,i} [A M]_{i,j}
+        +
+        \sum_{\substack{1 \leq k \leq n    \\k \neq i}}
+        {
+            [M]_{k,i} [A M]_{k,j}
+        }
+        \\
+        = {} &
+        [M]_{i,i} [A M]_{i,j}
+        +
+        \sum_{\substack{1 \leq k \leq n    \\k \neq i}}
+        {
+            0\, [A M]_{k,j}
+        }
+        \\
+        = {} &
+        [M]_{i,i}
+            [A M]_{i,j}
+        \\
+        = {} &
+        [M]_{i,i}
+        \sum_{\ell = 1}^{n}
+        {[A]_{i,\ell} [M]_{\ell,j}}
+        \\
+        = {} &
+        [M]_{i,i}
+        \Bigg(
+        [A]_{i,j} [M]_{j,j}
+        +
+        \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
+        {[A]_{i,\ell} [M]_{\ell,j}}
+        \Bigg)
+        \\
+        = {} &
+        [M]_{i,i}
+        \Bigg(
+        [A]_{i,j} [M]_{j,j}
+        +
+        \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
+        {[A]_{i,\ell} \, 0}
+        \Bigg)
+        \\
+        = {} &
+        [M]_{i,i}
+            [A]_{i,j}
+            [M]_{j,j}.
+    \end{align*}
+    当 \(i \neq q\), \(j \neq q\) 时,
+    \begin{align*}
+        [M]_{i,i}
+        [A]_{i,j}
+        [M]_{j,j}
+        = 1\, [A]_{i,j}\, 1
+            = [A]_{i,j};
+    \end{align*}
+    当 \(i = q\), \(j \neq q\) 时,
+    \begin{align*}
+        [M]_{i,i}
+        [A]_{i,j}
+        [M]_{j,j}
+        = s\, [A]_{i,j}\, 1
+        = s\, [A]_{i,j};
+    \end{align*}
+    当 \(i \neq q\), \(j = q\) 时,
+    \begin{align*}
+        [M]_{i,i}
+        [A]_{i,j}
+        [M]_{j,j}
+        = 1\, [A]_{i,j} s
+        = s\, [A]_{i,j};
+    \end{align*}
+    当 \(i = q\), \(j = q\) 时,
+    \begin{align*}
+        [M]_{i,i}
+        [A]_{i,j}
+        [M]_{j,j}
+        = s\, 0\, s
+        = 0
+        = s\, [A]_{i,j}.
+    \end{align*}
+    则
+    \begin{align*}
+        \operatorname{pf}{( (M(n; q; s))^{\mathrm{T}}
+            A M(n; q; s) )}
+        = s \operatorname{pf} {(A)}
+        = \operatorname{pf} {(A)}\, s.
+    \end{align*}
+    注意, \(\det {(M(n; q; s))} = s\):
+    \(M(n; q; s)\) 是以 \(s\) 乘
+    \(n\)~级单位阵 \(I_n\) 的列~\(q\) 得到的阵,
+    则 \(\det {(M(n; q; s))} = \det {(I_n)}\, s = s\).
+    从而
+    \begin{equation*}
+        \operatorname{pf}{( (M(n; q; s))^{\mathrm{T}}
+            A M(n; q; s) )}
+        = \operatorname{pf} {(A)} \det {(M(n; q; s))}.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级反称阵.
+    设 \(s\) 是数.
+    设 \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\).
+    则
+    \begin{align*}
+        \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
+            A E(n; p, q; s) )}
+        = \operatorname{pf} {(A)} \det {(E(n; p, q; s))}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\),
+    且不改变其他的列, 得 \(n\)~级阵 \(B\).
+    加 \(B\) 的行~\(p\) 的 \(s\)~倍于行~\(q\),
+    且不改变其他的行, 得 \(n\)~级阵 \(C\).
+    则 \(\operatorname{pf} {(C)} = \operatorname{pf} {(A)}\).
+
+    注意, \(C = (E(n; p, q; s))^{\mathrm{T}}
+    A E(n; p, q; s)\),
+    故
+    \begin{align*}
+        \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
+            A E(n; p, q; s) )} = \operatorname{pf} {(A)}.
+    \end{align*}
+    再注意, \(\det {(E(n; p, q; s))} = 1\),
+    故
+    \begin{equation*}
+        \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
+            A E(n; p, q; s) )}
+        =
+        \operatorname{pf} {(A)}
+        \det {(E(n; p, q; s))}.
+        % \qedhere
+    \end{equation*}
+\end{proof}
+
+好的.
+现在, 我们可以证明本节的主要结论了.
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级反称阵.
+    设 \(P\) 是 \(n\)~级阵.
+    则
+    \begin{align*}
+        \operatorname{pf} {(P^{\mathrm{T}} A P)}
+        = \operatorname{pf} {(A)} \det {(P)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}[证~1]
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(P = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级反称阵 \(X\),
+    \begin{align*}
+        \operatorname{pf} {(C_k^{\mathrm{T}} X C_k)}
+        = \operatorname{pf} {(X)} \det {(C_k)}.
+    \end{align*}
+    则
+    \begin{align*}
+        \operatorname{pf} {(P^{\mathrm{T}} A P)}
+        = {} &
+        \operatorname{pf} {(
+            (C_1 C_2 \dots C_w)^{\mathrm{T}} A
+            (C_1 C_2 \dots C_w)
+            )}
+        \\
+        = {} &
+        \operatorname{pf} {(
+        C_w^{\mathrm{T}} \dots C_2^{\mathrm{T}}
+        C_1^{\mathrm{T}} A
+        C_1 C_2 \dots C_w
+        )}
+        \\
+        = {} &
+        \operatorname{pf} {
+        (C_w^{\mathrm{T}}
+        (C_{w-1}^{\mathrm{T}}
+        (\dots
+        (C_2^{\mathrm{T}}
+        (C_1^{\mathrm{T}}
+        A
+        C_1)
+        C_2)
+        \dots)
+        C_{w-1})
+        C_w)
+        }
+        \\
+        = {} &
+        \operatorname{pf} {
+        (C_{w-1}^{\mathrm{T}}
+        (\dots
+        (C_2^{\mathrm{T}}
+        (C_1^{\mathrm{T}}
+        A
+        C_1)
+        C_2)
+        \dots)
+        C_{w-1})
+        }
+        \det {(C_w)}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{pf} {(A)}
+        \det {(C_1)} \det {(C_2)} \dots \det {(C_w)}
+        \\
+        = {} &
+        \operatorname{pf} {(A)}
+        \det {(C_1 C_2)} \dots \det {(C_w)}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{pf} {(A)}
+        \det {(C_1 C_2 \dots C_w)}
+        \\
+        = {} &
+        \operatorname{pf} {(A)}
+        \det {(P)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{proof}[证~2]
+    考虑定义在全体 \(n\)~级阵上的函数
+    \(f(C) = \operatorname{pf} {(C^{\mathrm{T}} A C)}\),
+    其中, \(C\) 是 \(n\)~级阵.
+
+    (1)
+    \(f\) 适合倍加不变性.
+    (见 ``用行列式的性质确定行列式''.)
+    设 \(E = E(n; p, q; s)\)
+    (\(p \neq q\)).
+    则加 \(C\) 的列~\(p\) 的 \(s\)~倍于列~\(q\),
+    且不改变其他的列,
+    得阵 \(C E\).
+    则
+    \begin{align*}
+        f(C E)
+        = {} &
+        \operatorname{pf} {((C E)^{\mathrm{T}} A (C E))}
+        \\
+        = {} &
+        \operatorname{pf}
+        {(E^{\mathrm{T}} (C^{\mathrm{T}} A C) E)}
+        \\
+        = {} &
+        \operatorname{pf}
+        {(C^{\mathrm{T}} A C)}
+        \\
+        = {} &
+        f(C).
+    \end{align*}
+
+    (2)
+    \(f\) 适合多齐性.
+    设 \(M = M(n; q; s)\).
+    则以数 \(s\) 乘 \(C\) 的列~\(q\),
+    且不改变其他的列,
+    得阵 \(C M\).
+    则
+    \begin{align*}
+        f(C M)
+        = {} &
+        \operatorname{pf} {((C M)^{\mathrm{T}} A (C M))}
+        \\
+        = {} &
+        \operatorname{pf}
+        {(M^{\mathrm{T}} (C^{\mathrm{T}} A C) M)}
+        \\
+        = {} &
+        s \operatorname{pf}
+        {(C^{\mathrm{T}} A C)}
+        \\
+        = {} &
+        s f(C).
+    \end{align*}
+
+    所以, 对任何 \(n\)~级阵 \(P\),
+    \begin{align*}
+        \operatorname{pf} {(P^{\mathrm{T}} A P)}
+        = {} &
+        f(P)
+        \\
+        = {} &
+        f(I) \det {(P)}
+        \\
+        = {} &
+        \operatorname{pf} {(I^{\mathrm{T}} A I)} \det {(P)}
+        \\
+        = {} &
+        \operatorname{pf} {(A)} \det {(P)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
 \section{\texorpdfstring{辛阵的行列式为 \(1\)}%
   {辛阵的行列式为 1}}
 
 \begin{theorem}
     设 \(K_m\) 是形如
     \begin{align*}
-    \begin{bmatrix}
+        \begin{bmatrix}
             0    & I_m \\
             -I_m & 0   \\
         \end{bmatrix}
@@ -4520,35 +4871,1199 @@
 
 % 当然, 还有别的证明辛阵的行列式为 \(1\) 的方法,
 % 但我就不在这儿说它们了.
+
+\section{Pfaffian 的完全展开}
+
+设 \(A\) 是 \(n\)~级阵.
+我们定义了 \(A\) 的行列式
+\begin{align*}
+    \det {(A)}
+    =
+    \begin{dcases}
+        [A]_{1,1},
+         & n = 1;    \\
+        \sum_{i = 1}^{n}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
+         & n \geq 2.
+    \end{dcases}
+\end{align*}
+然后, 我们证明了, 具体地,
+\begin{equation}
+    \det {(A)}
+    =
+    \sum_{\substack{
+            1 \leq i_1, i_2, \dots, i_n \leq n; \\
+            i_1, i_2, \dots, i_n\,\text{互不相同}
+        }}
+    {s(i_1, i_2, \dots, i_n)\,
+        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}},
+    \label{eq:explicit-expression-of-determinant}
+\end{equation}
+其中,
+\begin{align*}
+    s(i_1, i_2, \dots, i_n)
+    = {} & \prod_{1 \leq u < v \leq n}
+    {\operatorname{sgn} {(i_v - i_u)}},
+\end{align*}
+其中,
+\begin{align*}
+    \operatorname{sgn} {(x)}
+    =
+    \begin{cases}
+        1,  & x > 0; \\
+        0,  & x = 0; \\
+        -1, & x < 0.
+    \end{cases}
+\end{align*}
+式~\eqref{eq:explicit-expression-of-determinant}
+是行列式的完全展开.
+
+设 \(A\) 是 \(n\)~级反称阵.
+我们定义了 \(A\) 的 pfaffian
+\begin{align*}
+    \operatorname{pf} {(A)} =
+    \begin{dcases}
+        0,
+         & n = 1;    \\
+        [A]_{1,2},
+         & n = 2;    \\
+        \sum_{j = 2}^{n}
+        {(-1)^{j} [A]_{1,j}
+        \operatorname{pf} {(A({1,j}|{1,j}))}},
+         & n \geq 3.
+    \end{dcases}
+\end{align*}
+当 \(n\) 是奇数时,
+我们用数学归纳法证明了,
+\(\operatorname{pf} {(A)} = 0\).
+当 \(n = 2m\) 是偶数时,
+我们也能具体地写 \(\operatorname{pf} {(A)}\) 吗?
+
+本节, 我们研究偶数级反称阵的 pfaffian 的完全展开.
+
+\begin{definition}
+    设 \(A\) 是 \(2m\)~级反称阵.
+    定义 \(A\) 的 ``qfaffian''
+    \pinjino{kāfìyan}
+    \begin{align*}
+        \operatorname{qf} {(A)}
+        = \sum_{\substack{
+        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
+        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
+        i_1 < j_1, \dots, i_m < j_m;              \\
+                i_1 < \dots < i_m
+            }}
+        {s(i_1, j_1, \dots, i_m, j_m)\,
+            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
+    \end{align*}
+\end{definition}
+
+注意, 既然 \(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
+且 \(i_1 < \dots < i_m\),
+则 \(i_1\) 一定比 \(i_2\), \(\dots\), \(i_m\) 都小,
+且 \(i_1\) 也比 \(j_1\), \(\dots\), \(j_m\) 都小.
+则 \(i_1\) 是 \(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\)
+的最小的数.
+
+注意, 我们不定义奇数级反称阵的 ``qfaffian''.
+
+我们计算小级反称阵的 ``qfaffian''.
+
+\begin{example}
+    设 \(A\) 是 \(2 \cdot 1\)~级反称阵.
+    则, 适合 \(i_1 < j_1\),
+    且 \(1 \leq i_1, j_1 \leq 2\) 的 \((i_1, j_1)\) 是 \((1, 2)\).
+    则 \(\operatorname{qf} {(A)} = s(1, 2)\, [A]_{1,2} = [A]_{1,2}\).
+    注意, \(\operatorname{qf} {(A)} = \operatorname{pf} {(A)}\).
+\end{example}
+
+\begin{example}
+    设 \(A\) 是 \(2 \cdot 2\)~级反称阵.
+    则, 适合 \(i_1 < j_1\), \(i_2 < j_2\),
+    \(i_1 < i_2\),
+    且 \(1 \leq i_1, j_1, i_2, j_2 \leq 4\)
+    的 \((i_1, j_1, i_2, j_2)\) 是
+    \((1, 2, 3, 4)\), \((1, 3, 2, 4)\), \((1, 4, 2, 3)\).
+    则
+    \begin{align*}
+             &
+        \operatorname{qf} {(A)}
+        \\
+        = {} &
+        s(1, 2, 3, 4)\, [A]_{1,2} [A]_{3,4}
+        + s(1, 3, 2, 4)\, [A]_{1,3} [A]_{2,4}
+        + s(1, 4, 2, 3)\, [A]_{1,4} [A]_{2,3}
+        \\
+        = {} &
+        1\, [A]_{1,2} [A]_{3,4}
+        + (-1)\, [A]_{1,3} [A]_{2,4}
+        + 1\, [A]_{1,4} [A]_{2,3}
+        \\
+        = {} &
+        [A]_{1,2} [A]_{3,4}
+        - [A]_{1,3} [A]_{2,4}
+        + [A]_{1,4} [A]_{2,3}.
+    \end{align*}
+    注意, \(\operatorname{qf} {(A)} = \operatorname{pf} {(A)}\).
+\end{example}
+
+我们会证明, 对任何 \(2m\)~级反称阵 \(A\),
+\(\operatorname{qf} {(A)} = \operatorname{pf} {(A)}\).
+不过, 我们要作准备.
+
+\begin{theorem}
+    设 \(A\) 是 \(2m\)~级反称阵.
+    设 \(2 \leq 2k \leq 2m\).
+    设 \(1 \leq h_1 < \dots < h_{2k} \leq 2m\).
+    则
+    \begin{align*}
+        \operatorname{qf} {\left(
+            A\binom{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}
+            \right)}
+        = \sum_{\substack{
+        i_1, j_1, \dots, i_k, j_k \text{是} \\
+        h_1, \dots h_{2k} \text{的排列};      \\
+        i_1 < j_1, \dots, i_k < j_k;       \\
+                i_1 < \dots < i_k
+            }}
+        {s(i_1, j_1, \dots, i_k, j_k)\,
+            [A]_{i_1,j_1} \dots [A]_{i_k,j_k}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    记
+    \begin{align*}
+        B = A\binom{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}.
+    \end{align*}
+    则 \(B\) 是 \(2k\)~级反称阵,
+    且 \([B]_{u,v} = [A]_{h_u,h_v}\).
+
+    记 \(f(h_t) = t\), \(t = 1\), \(\dots\), \(2k\).
+    则若 \(h_u < h_v\), 必 \(f(h_u) < f(h_v)\);
+    反过来, 若 \(f(h_u) < f(h_v)\), 必 \(h_u < h_v\).
+    那么:
+
+    (1)
+    对任何 \(h_1\), \(\dots\), \(h_{2k}\) 的排列
+    \(i_1\), \(j_1\), \(\dots\), \(i_k\), \(j_k\),
+    我们有,
+    \(f(i_1)\), \(f(j_1)\), \(\dots\), \(f(i_k)\), \(f(j_k)\)
+    一定是 \(1\), \(\dots\), \(2k\) 的排列.
+    反过来, 对任何 \(1\), \(\dots\), \(2k\) 的排列
+    \(u_1\), \(v_1\), \(\dots\), \(u_k\), \(v_k\),
+    我们有,
+    \(h_{u_1}\), \(h_{v_1}\), \(\dots\), \(h_{u_k}\), \(h_{v_k}\),
+    一定是 \(h_1\), \(\dots\), \(h_{2k}\) 的排列.
+
+    (2)
+    若 \(h_1\), \(\dots\), \(h_{2k}\) 的排列
+    \(i_1\), \(j_1\), \(\dots\), \(i_k\), \(j_k\)
+    适合
+    \(i_1 < j_1\), \(\dots\), \(i_k < j_k\),
+    则对应的 \(1\), \(\dots\), \(2k\) 的排列
+    \(f(i_1)\), \(f(j_1)\), \(\dots\), \(f(i_k)\), \(f(j_k)\)
+    适合
+    \(f(i_1) < f(j_1)\), \(\dots\), \(f(i_k) < f(j_k)\).
+    反过来, 若 \(1\), \(\dots\), \(2k\) 的排列
+    \(u_1\), \(v_1\), \(\dots\), \(u_k\), \(v_k\)
+    适合
+    \(u_1 < v_1\), \(\dots\), \(u_k < v_k\),
+    则对应的 \(h_1\), \(\dots\), \(h_{2k}\) 的排列
+    \(h_{u_1}\), \(h_{v_1}\), \(\dots\), \(h_{u_k}\), \(h_{v_k}\)
+    适合
+    \(h_{u_1} < h_{v_1}\), \(\dots\), \(h_{u_k} < h_{v_k}\).
+
+    (3)
+    若 \(h_1\), \(\dots\), \(h_{2k}\) 的排列
+    \(i_1\), \(j_1\), \(\dots\), \(i_k\), \(j_k\)
+    适合
+    \(i_1 < \dots < i_k\),
+    则对应的 \(1\), \(\dots\), \(2k\) 的排列
+    \(f(i_1)\), \(f(j_1)\), \(\dots\), \(f(i_k)\), \(f(j_k)\)
+    适合
+    \(f(i_1) < \dots < f(i_k)\).
+    反过来, 若 \(1\), \(\dots\), \(2k\) 的排列
+    \(u_1\), \(v_1\), \(\dots\), \(u_k\), \(v_k\)
+    适合
+    \(u_1 < \dots < u_k\),
+    则对应的 \(h_1\), \(\dots\), \(h_{2k}\) 的排列
+    \(h_{u_1}\), \(h_{v_1}\), \(\dots\), \(h_{u_k}\), \(h_{v_k}\)
+    适合
+    \(h_{u_1} < \dots < h_{u_k}\).
+
+    (4)
+    既然 \(h_u < h_v\) 相当于 \(f(h_u) < f(h_v)\),
+    我们有,
+    \(\operatorname{sgn} {(f(h_t) - f(h_s))}
+    = \operatorname{sgn} {(h_t - h_s)}\).
+    则
+    \(s(f(i_1), f(j_1), \dots, f(i_k), f(j_k))
+    = s(i_1, j_1, \dots, i_k, j_k)\).
+
+    综上,
+    \begin{align*}
+             &
+        \operatorname{qf} {\left(
+            A\binom{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}
+            \right)}
+        \\
+        = {} &
+        \operatorname{qf} {(B)}
+        \\
+        = {} &
+        \sum_{\substack{
+        i_1, j_1, \dots, i_k, j_k \text{是} \\
+        h_1, \dots h_{2k} \text{的排列};      \\
+        i_1 < j_1, \dots, i_k < j_k;       \\
+                i_1 < \dots < i_k
+            }}
+        {s(f(i_1), f(j_1), \dots, f(i_k), f(j_k))\,
+            [B]_{f(i_1),f(j_1)} \dots [B]_{f(i_k),f(j_k)}}
+        \\
+        = {} &
+        \sum_{\substack{
+        i_1, j_1, \dots, i_k, j_k \text{是} \\
+        h_1, \dots h_{2k} \text{的排列};      \\
+        i_1 < j_1, \dots, i_k < j_k;       \\
+                i_1 < \dots < i_k
+            }}
+        {s(i_1, j_1, \dots, i_k, j_k)\,
+            [A]_{i_1,j_1} \dots [A]_{i_k,j_k}}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(p_1\), \(p_2\), \(p_3\), \(\dots\), \(p_n\)
+    是不超过 \(n\) 的正整数,
+    且互不相同.
+    设 \(p_1 = 1\).
+    则
+    \begin{align*}
+        s(p_1, p_2, p_3, \dots, p_n)
+        = (-1)^{p_2 - 2}\, s(p_3, \dots, p_n).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+             &
+        s(p_1, p_2, p_3, \dots, p_n)
+        \\
+        = {} &
+        \prod_{1 \leq u < v \leq n}
+        {\operatorname{sgn} {(p_v - p_u)}}
+        \\
+        = {} &
+        \left(
+        \prod_{\substack{1 \leq u < v \leq n \\
+                u = 1}}
+        {\operatorname{sgn} {(p_v - p_u)}}
+        \right)
+        \cdot
+        \left(
+        \prod_{\substack{1 \leq u < v \leq n \\
+                u = 2}}
+        {\operatorname{sgn} {(p_v - p_u)}}
+        \right)
+        \cdot
+        \left(
+        \prod_{\substack{1 \leq u < v \leq n \\
+                u \geq 3}}
+        {\operatorname{sgn} {(p_v - p_u)}}
+        \right)
+        \\
+        = {} &
+        \left(
+        \prod_{2 \leq v \leq n}
+        {\operatorname{sgn} {(p_v - p_1)}}
+        \right)
+        \cdot
+        \left(
+        \prod_{3 \leq v \leq n}
+        {\operatorname{sgn} {(p_v - p_2)}}
+        \right)
+        \cdot
+        s(p_3, \dots, p_n).
+    \end{align*}
+    注意, 既然 \(p_1 = 1\),
+    则 \(v \neq 1\) 时, 必 \(p_v > 1\).
+    则
+    \begin{align*}
+        \prod_{2 \leq v \leq n}
+        {\operatorname{sgn} {(p_v - p_1)}}
+        = 1.
+    \end{align*}
+    注意, 在 \(p_3\), \(\dots\), \(p_n\) 里,
+    恰有 \(p_2 - 2\) 个数比 \(p_2\) 小
+    (注意, \(p_1 = 1\)).
+    则
+    \begin{align*}
+        \prod_{3 \leq v \leq n}
+        {\operatorname{sgn} {(p_v - p_2)}}
+        = (-1)^{p_2 - 2}.
+    \end{align*}
+    综上,
+    \begin{equation*}
+        s(p_1, p_2, p_3, \dots, p_n)
+        = (-1)^{p_2 - 2}\, s(p_3, \dots, p_n).
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+现在, 我们证明, ``qfaffian'' 就是 pfaffian.
+
+\begin{theorem}
+    设 \(A\) 是 \(2m\)~级反称阵.
+    则
+    % \(\operatorname{pf} {(A)} = \operatorname{qf} {(A)}\).
+    % 所以,
+    \begin{align*}
+        \operatorname{pf} {(A)}
+        = \sum_{\substack{
+        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
+        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
+        i_1 < j_1, \dots, i_m < j_m;              \\
+                i_1 < \dots < i_m
+            }}
+        {s(i_1, j_1, \dots, i_m, j_m)\,
+            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(m)\):
+    对任何 \(2m\)~级反称阵 \(A\),
+    \(\operatorname{pf} {(A)} = \operatorname{qf} {(A)}\).
+    我们用数学归纳法证明,
+    对任何正整数 \(m\),
+    \(P(m)\) 是对的.
+
+    \(P(1)\) 是对的.
+
+    我们设 \(P(m-1)\) 是对的.
+    我们要由此证明, \(P(m)\) 是对的.
+
+    任取 \(2m\)~级反称阵 \(A\).
+    记 \(i_1 = 1\).
+    则
+    \begin{align*}
+        \operatorname{pf} {(A)}
+        = {} &
+        \sum_{2 \leq j_1 \leq 2m}
+        {(-1)^{j_1} [A]_{i_1,j_1}
+        \operatorname{pf} {(A({i_1,j_1}|{i_1,j_1}))}}
+        \\
+        = {} &
+        \sum_{\substack{
+        i_1 = 1; \\
+            i_1 < j_1 \leq 2m
+        }}
+        {(-1)^{j_1} [A]_{i_1,j_1}
+        \operatorname{pf} {(A({i_1,j_1}|{i_1,j_1}))}}.
+    \end{align*}
+    由假定,
+    \begin{align*}
+        \operatorname{pf} {(A({i_1,j_1}|{i_1,j_1}))}
+        = {} &
+        \operatorname{qf} {(A({i_1,j_1}|{i_1,j_1}))}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m; \\
+        i_2, j_2, \dots, i_m, j_m \neq i_1;       \\
+        i_2, j_2, \dots, i_m, j_m \neq j_1;       \\
+        i_2, j_2, \dots, i_m, j_m\,\text{互不相同};   \\
+        i_2 < j_2, \dots, i_m < j_m;              \\
+                i_2 < \dots < i_m
+            }}
+        {s(i_2, j_2, \dots, i_m, j_m)\,
+            [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}.
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \operatorname{pf} {(A)}
+        \\
+        = {} &
+        \sum_{\substack{
+        i_1 = 1;                                            \\
+                i_1 < j_1 \leq 2m
+            }}
+        (-1)^{j_1} [A]_{i_1,j_1}
+        \sum_{\substack{
+        1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;           \\
+        i_2, j_2, \dots, i_m, j_m \neq i_1;                 \\
+        i_2, j_2, \dots, i_m, j_m \neq j_1;                 \\
+        i_2, j_2, \dots, i_m, j_m\,\text{互不相同};             \\
+        i_2 < j_2, \dots, i_m < j_m;                        \\
+                i_2 < \dots < i_m
+            }}
+        {s(i_2, j_2, \dots, i_m, j_m)\,
+            [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        \\
+        = {} &
+        \sum_{\substack{
+        i_1 = 1;                                            \\
+                i_1 < j_1 \leq 2m
+            }}
+        \sum_{\substack{
+        1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;           \\
+        i_2, j_2, \dots, i_m, j_m \neq i_1;                 \\
+        i_2, j_2, \dots, i_m, j_m \neq j_1;                 \\
+        i_2, j_2, \dots, i_m, j_m\,\text{互不相同};             \\
+        i_2 < j_2, \dots, i_m < j_m;                        \\
+                i_2 < \dots < i_m
+            }}
+        { (-1)^{j_1} [A]_{i_1,j_1}
+            s(i_2, j_2, \dots, i_m, j_m)\,
+            [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq i_1, j_1, i_2, j_2, \dots, i_m, j_m \leq 2m; \\
+        i_1, j_1, i_2, j_2, \dots, i_m, j_m\,\text{互不相同};   \\
+        i_1 < j_1, i_2 < j_2, \dots, i_m < j_m;             \\
+                i_1 < i_2 < \dots < i_m
+            }}
+        { (-1)^{j_1-2}
+            s(i_2, j_2, \dots, i_m, j_m)\,
+            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        \\
+        = {} &
+        \sum_{\substack{
+        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;           \\
+        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};             \\
+        i_1 < j_1, \dots, i_m < j_m;                        \\
+                i_1 < \dots < i_m
+            }}
+        {s(i_1, j_1, i_2, j_2, \dots, i_m, j_m)\,
+            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        \\
+        = {} &
+        \operatorname{qf} {(A)}.
+    \end{align*}
+
+    所以, \(P(m)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{proof}
+
+既然我们有了 pfaffian 的完全展开,
+我们就不再说 ``qfaffian'',
+且不再用记号 \(\operatorname{qf}\).
+
+值得提, \(2m\)~级反称阵的 pfaffian 有
+\((2m-1) \cdot (2m-3) \cdot \dots \cdot 1\) 项.
+若互不相同的
+\(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\)
+适合
+\(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
+且 \(i_1 < \dots < i_m\),
+则 \(i_1\) 一定是 \(1\), \(2\), \(\dots\), \(2m\) 的最小的数, \(1\).
+则 \(j_1\) 有 \(2m-1\) 个选法.
+则 \(i_2\) 一定是剩下的 \(2m-2\) 个数的最小的数.
+则 \(j_2\) 有 \(2m-3\) 个选法.
+……
+则 \(i_m\) 一定是剩下的 \(2\) 个数的较小的数.
+则 \(j_m\) 有 \(1\) 个选法.
+由分步乘法计数原理, 这样的
+\(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\)
+的个数是
+\begin{align*}
+    1 \cdot (2m-1) \cdot 1 \cdot (2m-3) \cdot \dots \cdot
+    1 \cdot 1
+    = (2m-1) \cdot (2m-3) \cdot \dots \cdot 1.
+\end{align*}
+
+Pfaffian 的完全展开有如下的变体:
+
+\begin{theorem}
+    设 \(A\) 是 \(2m\)~级反称阵.
+    则
+    \begin{align*}
+             &
+        \sum_{\substack{
+        1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
+                u_1, v_1, \dots, u_m, v_m\,\text{互不相同}
+            }}
+        {s(u_1, v_1, \dots, u_m, v_m)\,
+            [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}
+        \\
+        = {} &
+        2^m m!
+        \sum_{\substack{
+        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
+        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
+        i_1 < j_1, \dots, i_m < j_m;              \\
+                i_1 < \dots < i_m
+            }}
+        {s(i_1, j_1, \dots, i_m, j_m)\,
+            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}},
+    \end{align*}
+    其中,
+    \(m! = m \cdot (m-1) \cdot \dots \cdot 1\).
+    所以,
+    \begin{align*}
+        \operatorname{pf} {(A)} =
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
+                u_1, v_1, \dots, u_m, v_m\,\text{互不相同}
+            }}
+        {s(u_1, v_1, \dots, u_m, v_m)\,
+            [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    数的乘法适合结合律与交换律.
+    那么, 对任何项
+    \begin{align*}
+        s(u_1, v_1, \dots, u_m, v_m)\, [A]_{u_1,v_1} \dots [A]_{u_m,v_m},
+    \end{align*}
+    适当地交换
+    \([A]_{u_1,v_1}\), \(\dots\), \([A]_{u_m,v_m}\)
+    的次序,
+    并注意, \([A]_{i,j} = -[A]_{j,i}\),
+    我们可变它为 \(\sigma(u_1, v_1, \dots, u_m, v_m)\,
+    [A]_{i_1,j_1} \dots [A]_{i_m,j_m}\),
+    其中,
+    \(\sigma(u_1, v_1, \dots, u_m, v_m)\)
+    是由 \(u_1\), \(v_1\), \(\dots\), \(u_m\), \(v_m\) 确定的数
+    (\(1\) 或 \(-1\)),
+    \(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
+    且 \(i_1 < \dots < i_m\).
+    我们说明,
+    \begin{align*}
+        \sigma(u_1, v_1, \dots, u_m, v_m) = s(i_1, j_1, \dots, i_m, j_m),
+    \end{align*}
+    从而
+    \begin{align*}
+        s(u_1, v_1, \dots, u_m, v_m)\, [A]_{u_1,v_1} \dots [A]_{u_m,v_m}
+        =
+        s(i_1, j_1, \dots, i_m, j_m)\, [A]_{i_1,j_1} \dots [A]_{i_m,j_m}.
+    \end{align*}
+
+    回想, 交换排列的二个数, 则它的符号变为原符号的相反数
+    (见 ``排列'').
+    那么,
+    \begin{align*}
+        s(\dots, u_p, v_p, \dots, u_q, v_q, \dots)
+        = {} &
+        (-1)\, s(\dots, u_q, v_p, \dots, u_p, v_q, \dots)
+        \\
+        = {} &
+        (-1)\, (-1)\, s(\dots, u_q, v_q, \dots, u_p, v_p, \dots)
+        \\
+        = {} &
+        s(\dots, u_q, v_q, \dots, u_p, v_p, \dots).
+    \end{align*}
+    这里, 未写的元是不变的, 下同.
+    则
+    \begin{align*}
+             &
+        s(\dots, u_p, v_p, \dots, u_q, v_q, \dots)\,
+        (\dots [A]_{u_p,v_p} \dots [A]_{u_q,v_q} \dots)
+        \\
+        = {} &
+        s(\dots, u_q, v_q, \dots, u_p, v_p, \dots)\,
+        (\dots [A]_{u_q,v_q} \dots [A]_{u_p,v_p} \dots).
+    \end{align*}
+    另外,
+    \begin{align*}
+        s(\dots, u_p, v_p, \dots)
+        = (-1)\, s(\dots, u_q, v_p, \dots),
+    \end{align*}
+    且
+    \begin{align*}
+        (\dots [A]_{u_q,v_q} \dots)
+        = (-1)\, (\dots [A]_{v_q,u_q} \dots),
+    \end{align*}
+    故
+    \begin{align*}
+        s(\dots, u_p, v_p, \dots)\, (\dots [A]_{u_q,v_q} \dots)
+        = s(\dots, v_p, u_p, \dots)\, (\dots [A]_{v_q,u_q} \dots).
+    \end{align*}
+
+    对 \(1\), \(2\), \(\dots\), \(2m\) 的任何排列
+    \(u_1\), \(v_1\), \(\dots\), \(u_m\), \(v_m\),
+    我们分它的 \(2m\) 个数为 \(m\) 个偶
+    \((u_1, v_1)\), \(\dots\), \((u_m, v_m)\).
+    考虑由此排列确定的项
+    \begin{align*}
+        s(u_1, v_1, \dots, u_m, v_m)\, [A]_{u_1,v_1} \dots [A]_{u_m,v_m}.
+    \end{align*}
+    前面的计算说明,
+    交换这 \(m\) 个偶的次序不改变项的结果,
+    且交换一个偶的二个数的次序也不改变项的结果.
+    故
+    \begin{align*}
+        s(u_1, v_1, \dots, u_m, v_m)\, [A]_{u_1,v_1} \dots [A]_{u_m,v_m}
+        =
+        s(i_1, j_1, \dots, i_m, j_m)\, [A]_{i_1,j_1} \dots [A]_{i_m,j_m},
+    \end{align*}
+    其中, \(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
+    且 \(i_1 < \dots < i_m\).
+
+    注意,
+    \(1\), \(2\), \(\dots\), \(2m\) 的任何排列
+    \(u_1\), \(v_1\), \(\dots\), \(u_m\), \(v_m\)
+    可被变为某个
+    \(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\),
+    其中, \(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
+    且 \(i_1 < \dots < i_m\).
+    反过来,
+    对于任何这样的
+    \(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\),
+    我们分它的 \(2m\) 个数为 \(m\) 个偶
+    \((i_1, j_1)\), \(\dots\), \((i_m, j_m)\),
+    并自由地交换偶的次序,
+    与一个偶的二个数的次序,
+    可得
+    \(1\), \(2\), \(\dots\), \(2m\) 的一个排列.
+    我们有
+    \(m \cdot (m-1) \cdot \dots \cdot 1 = m!\)
+    个交换偶的次序的方式.
+    偶的次序被给定后,
+    我们有
+    \(2 \cdot 2 \cdot \dots \cdot 2 \text{ (\(m\) 个 \(2\))}
+    = 2^m\) 个交换偶的二个数的次序的方式.
+    所以, 一个
+    \(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\)
+    (\(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
+    且 \(i_1 < \dots < i_m\))
+    给出 \(2^m m!\) 个
+    \(1\), \(2\), \(\dots\), \(2m\) 的排列,
+    且由这些排列确定的项是相等的.
+    故
+    \begin{align*}
+             &
+        \sum_{\substack{
+        1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
+                u_1, v_1, \dots, u_m, v_m\,\text{互不相同}
+            }}
+        {s(u_1, v_1, \dots, u_m, v_m)\,
+            [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}
+        \\
+        = {} &
+        2^m m!
+        \sum_{\substack{
+        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
+        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
+        i_1 < j_1, \dots, i_m < j_m;              \\
+                i_1 < \dots < i_m
+            }}
+        {s(i_1, j_1, \dots, i_m, j_m)\,
+            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
+    \end{align*}
+\end{proof}
+
+最后, 我们用 pfaffian 的完全展开证明 pfaffian 的性质.
+
+% a manual pagebreak
+\clearpage
+
+\begin{theorem}
+    设 \(A\) 是 \(\ell\)~级反称阵.
+    设 \(P\) 是 \(n \times \ell\)~阵.
+
+    (1)
+    若 \(n > \ell\),
+    则 \(\operatorname{pf} {(P A P^{\mathrm{T}})} = 0\).
+
+    (2)
+    若 \(n \leq \ell\),
+    则
+    \begin{align*}
+             &
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < j_2 < \dots < j_{n} \leq \ell}
+        {\det {\left(
+                P\binom{1,2,\dots,n}{j_1,j_2,\dots,j_{n}}
+                \right)}
+            \operatorname{pf} {\left(
+                A\binom{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}
+                \right)}}.
+    \end{align*}
+    特别地, 若 \(n = \ell\),
+    则因适合条件
+    \(1 \leq j_1 < j_2 < \dots < j_{n} \leq \ell\)
+    的
+    \(j_1\), \(j_2\), \(\dots\), \(j_{n}\),
+    是, 且只能是,
+    \(1\), \(2\), \(\dots\), \(n\),
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = {} &
+        \det {\left(
+            P\binom{1,2,\dots,n}{1,2,\dots,n}
+            \right)}
+        \operatorname{pf} {\left(
+            A\binom{1,2,\dots,n}{1,2,\dots,n}
+            \right)}
+        \\
+        = {} &
+        \det {(P)} \operatorname{pf} {(A)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    若 \(n\) 是奇数, 则
+    \(P A P^{\mathrm{T}}\)
+    与
+    \(\displaystyle
+    A\binom{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}\)
+    都是奇数级反称阵,
+    故它们的 pfaffian 都是 \(0\).
+    则这是显然的.
+
+    以下, 设 \(n = 2m\) 是偶数.
+
+    注意,
+    \begin{align*}
+        [P A P^{\mathrm{T}}]_{i,j}
+        = {} &
+        \sum_{1 \leq t \leq \ell}
+        {[P A]_{i,t} [P^{\mathrm{T}}]_{t,j}}
+        \\
+        = {} &
+        \sum_{1 \leq t \leq \ell}
+        {
+            \left(
+            \sum_{1 \leq r \leq \ell}
+            {[P]_{i,r} [A]_{r,t}}
+            \right)
+            [P]_{j,t}
+        }
+        \\
+        = {} &
+        \sum_{1 \leq r, t \leq \ell}
+        {[P]_{i,r} [P]_{j,t} [A]_{r,t}}.
+    \end{align*}
+    为方便, 我们简单地写
+    ``\(1 \leq u_1, v_1, \dots, u_m, v_m \leq x\)''
+    为 ``\(u, v \text{:}\, m \text{:}\, x\)'',
+    且简单地写 ``\(u_1, v_1, \dots, u_m, v_m\) 互不相同''
+    为 ``\(u, v \,\text{D}\)''.
+    则
+    \begin{align*}
+             &
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        {s(u_1, v_1, \dots, u_m, v_m)\,
+            [P A P^{\mathrm{T}}]_{u_1,v_1}
+            \dots
+            [P A P^{\mathrm{T}}]_{u_m,v_m}}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        s(u_1, v_1, \dots, u_m, v_m)
+        \left(
+        \sum_{1 \leq r_1, t_1 \leq \ell}
+        {[P]_{u_1,r_1} [P]_{v_1,t_1} [A]_{r_1,t_1}}
+        \right)
+        \\
+             &
+        \quad \quad \quad \quad \quad \,
+        {} \cdot
+        \dots
+        \cdot
+        \left(
+        \sum_{1 \leq r_m, t_m \leq \ell}
+        {[P]_{u_m,r_m} [P]_{v_m,t_m} [A]_{r_m,t_m}}
+        \right)
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        s(u_1, v_1, \dots, u_m, v_m)     \\
+             &
+        \quad \quad \quad \quad \quad
+        {} \cdot
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
+        [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
+        \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
+        s(u_1, v_1, \dots, u_m, v_m)
+        \,
+        [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
+        \\
+             &
+        \quad \quad \quad \quad
+        \quad \quad \quad \quad
+        {} \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        s(u_1, v_1, \dots, u_m, v_m)
+        \,
+        [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
+        \\
+             &
+        \quad \quad \quad \quad
+        \quad \quad \quad \quad
+        {} \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
+        \left(
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        s(u_1, v_1, \dots, u_m, v_m)
+        \,
+        [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
+        \right)
+        \\
+             &
+        \quad \quad \quad \quad \quad
+        {} \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+    作 \(2m\)~级阵 \(Q(r_1, t_1, \dots, r_m, t_m)\) 如下:
+    \begin{align*}
+        [Q(r_1, t_1, \dots, r_m, t_m)]_{i,2j-1} & = [P]_{i,r_j}, \\
+        [Q(r_1, t_1, \dots, r_m, t_m)]_{i,2j}   & = [P]_{i,t_j}.
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \sum_{\substack{
+        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \,\text{D}
+            }}
+        s(u_1, v_1, \dots, u_m, v_m)
+        \,
+        [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
+        \\
+        = {} &
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}.
+    \end{align*}
+    则
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{r, t \text{:}\, m \text{:}\, \ell}
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
+        \,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+    若在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
+    有二个数相同,
+    则 \(Q(r_1, t_1, \dots, r_m, t_m)\) 有二列相同.
+    则 \(\det {(Q(r_1, t_1, \dots, r_m, t_m))} = 0\).
+
+    (1)
+    若 \(2m > \ell\),
+    则在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
+    总有二个数相同.
+    则和的每一项都是 \(0\).
+    故 \(\operatorname{pf} {(P A P^{\mathrm{T}})} = 0\).
+
+    (2)
+    若 \(2m \leq \ell\),
+    则 (见第一章, 节~\malneprasekcio{30})
+    \begin{align*}
+             &
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
+        \,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+    因为 \(j_1 < j_2 < \dots < j_{2m}\),
+    且 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\)
+    是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\) 的排列
+    (见第一章, 节~\malneprasekcio{30})
+    \begin{align*}
+             &
+        \det {(Q(r_1, t_1, \dots, r_m, t_m))}
+        \\
+        = {} &
+        \det {(Q(j_1, j_2, \dots, j_{2m}))}\,
+        s(r_1, t_1, \dots, r_m, t_m)
+        \\
+        = {} &
+        \det {\left(
+            P\binom{1,2,\dots,2m}{j_1,j_2,\dots,j_{2m}}
+            \right)}\,
+        s(r_1, t_1, \dots, r_m, t_m).
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        \det {\left(
+            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}\,
+        s(r_1, t_1, \dots, r_m, t_m)
+        \\
+             &
+        \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+        \cdot
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \det {\left(
+            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}
+        \\
+             &
+        \quad \quad \quad \quad \quad \quad \quad \quad
+        \cdot
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        s(r_1, t_1, \dots, r_m, t_m)\,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
+        \\
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        \det {\left(
+            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}
+        \\
+             &
+        \quad \quad \quad \quad \quad
+        \cdot
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        s(r_1, t_1, \dots, r_m, t_m)\,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
+    \end{align*}
+
+    设
+    \begin{align*}
+        H(j_1, j_2, \dots, j_{2m}) =
+        A\binom{j_1,j_2,\dots,j_{2m}}{j_1,j_2,\dots,j_{2m}}.
+    \end{align*}
+    不难看出,
+    \([H(j_1, j_2, \dots, j_{2m})]_{u,v} = [A]_{j_u,j_v}\).
+    记 \(f(j_a) = a\)
+    (\(a = 1\), \(2\), \(\dots\), \(2m\)).
+    设 \(g_1\), \(g_2\), \(\dots\), \(g_{2m}\)
+    是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\)
+    的一个排列.
+    那么, \(f(g_1)\), \(f(g_2)\), \(\dots\), \(f(g_{2m})\)
+    是 \(1\), \(2\), \(\dots\), \(2m\) 的一个排列.
+    反过来, 若 \(w_1\), \(w_2\), \(\dots\), \(w_{2m}\)
+    是 \(1\), \(2\), \(\dots\), \(2m\) 的一个排列,
+    则 \(j_{w_1}\), \(j_{w_2}\), \(\dots\), \(j_{w_{2m}}\)
+    是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\) 的一个排列.
+    并且, 若 \(g_a < g_b\), 必有 \(f(g_a) < f(g_b)\).
+    反过来, 若 \(f(g_a) < f(g_b)\), 必有 \(g_a < g_b\).
+    从而
+    \(\operatorname{sgn} {(g_b - g_a)}
+    = \operatorname{sgn} {(f(g_b) - f(g_a))}\).
+    则
+    \(s(g_1, g_2, \dots, g_{2m})
+    = s(f(g_1), f(g_2), \dots, f(g_{2m}))\).
+    故
+    \begin{align*}
+             &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        s(r_1, t_1, \dots, r_m, t_m)\,
+        [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
+        \\
+        = {} &
+        \frac{1}{2^m m!}
+        \sum_{\substack{
+        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                j_1, \dots, j_{2m}\,\text{的排列}
+            }}
+        s(f(r_1), f(t_1), \dots, f(r_m), f(t_m))
+        \\
+             &
+        \quad \quad \quad \quad \quad \quad \quad \quad
+        \cdot
+        [H(j_1, \dots, j_{2m})]_{f(r_1),f(t_1)}
+        \dots
+        [H(j_1, \dots, j_{2m})]_{f(r_m),f(t_m)}
+        \\
+        = {} &
+        \operatorname{pf} {(H(j_1, \dots, j_{2m}))}
+        \\
+        = {} &
+        \operatorname{pf} {\left(
+            A\binom{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
+            \right)}.
+    \end{align*}
+    从而
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = {} &
+        \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
+        {\det {\left(
+                P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
+                \right)}
+            \operatorname{pf} {\left(
+                A\binom{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
+                \right)}}.
+    \end{align*}
+\end{proof}
+
+% a manual pagebreak
+\clearpage
+
+% \begin{theorem}
+%     设 \(A\) 是 \(n\)~级反称阵.
+%     则 \(\det {(A)}
+%     = (\operatorname{pf} {(A)})^2\).
+% \end{theorem}
+\TheoremPfaffianSquareDet*
+
+\begin{proof}
+    设 \(n\) 是奇数.
+    则 \(\det {(A)} = 0\),
+    且 \(\operatorname{pf} {(A)} = 0\).
+
+    再设 \(n = 2m\) 是偶数.
+    我们知道,
+    \begin{align*}
+        \operatorname{pf} {(P A P^{\mathrm{T}})}
+        = \det {(P)} \operatorname{pf} {(A)}.
+    \end{align*}
+    我们取 \(P\) 为 \(2m\)~级阵 \(E(2m; p, q; s)\),
+    其中, \(p \neq q\), 且
+    \begin{align*}
+        [E(2m; p, q; s)]_{i,j}
+        = \begin{cases}
+              s,              & \text{\(i = p\), 且 \(j = q\)}; \\
+              [I_{2m}]_{i,j}, & \text{其他},
+          \end{cases}
+    \end{align*}
+    则我们知道,
+    作一次列的倍加与一次对应的行的倍加不改变 pfaffian,
+    因为 \(\det {(E(2m; p, q; s))} = 1\).
+
+    利用若干次列的倍加, 与对应的行的倍加
+    (先列后行, 交替地作),
+    我们可变 \(A\) 为
+    \begin{align*}
+        B =
+        \begin{bmatrix}
+            0      & b_1    & 0      & 0      & \cdots & 0      & 0      \\
+            -b_1   & 0      & 0      & 0      & \cdots & 0      & 0      \\
+            0      & 0      & 0      & b_2    & \cdots & 0      & 0      \\
+            0      & 0      & -b_2   & 0      & \cdots & 0      & 0      \\
+            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0      & 0      & 0      & 0      & \cdots & 0      & b_m    \\
+            0      & 0      & 0      & 0      & \cdots & -b_m   & 0      \\
+        \end{bmatrix}.
+    \end{align*}
+    则 \(\det {(B)} = \det {(A)}\),
+    且 \(\operatorname{pf} {(B)} = \operatorname{pf} {(A)}\).
+    最后, 注意, \(\det {(B)}
+    = (\operatorname{pf} {(B)})^2\),
+    故 \(\det {(A)}
+    = (\operatorname{pf} {(A)})^2\).
+\end{proof}
+
+\section{阵的积与倍加 (续)}
+
+本节, 我们进一步地讨论阵的积与 (列的) 倍加的关系.
+
+回想, 我们有如下结论.
+
+\TheoremMultiplyAndAdd*
+
+在本节, 我们设 \(m \leq n\).
+于是, 通俗地, 对任何 \(m \times n\)~阵
+\begin{align*}
+    A =
+    \begin{bmatrix}
+        [A]_{1,1}   & [A]_{1,2}   & \cdots & [A]_{1,m-1}   & [A]_{1,m}   & \cdots & [A]_{1,n}   \\
+        [A]_{2,1}   & [A]_{2,2}   & \cdots & [A]_{2,m-1}   & [A]_{2,m}   & \cdots & [A]_{2,n}   \\
+        \vdots      & \vdots      & {}     & \vdots        & \vdots      & {}     & \vdots      \\
+        [A]_{m-1,1} & [A]_{m-1,2} & \cdots & [A]_{m-1,m-1} & [A]_{m-1,m} & \cdots & [A]_{m-1,n} \\
+        [A]_{m,1}   & [A]_{m,2}   & \cdots & [A]_{m,m-1}   & [A]_{m,m}   & \cdots & [A]_{m,n}   \\
     \end{bmatrix},
 \end{align*}
 我们总可作列的倍加, 变 \(A\) 为
 \begin{align*}
     B =
     \begin{bmatrix}
-        [B]_{1,1}   & 0           & \cdots & 0             & 0         \\
-        [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0         \\
-        \vdots      & \vdots      & \ddots & \vdots        & \vdots    \\
-        [B]_{n-1,1} & [B]_{n-1,2} & \cdots & [B]_{n-1,n-1} & 0         \\
-        [B]_{n,1}   & [B]_{n,2}   & \cdots & [B]_{n,n-1}   & [B]_{n,n} \\
-    \end{bmatrix}.
+        [B]_{1,1}   & 0           & \cdots & 0             & 0         & {}         \\
+        [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0         & {}         \\
+        \vdots      & \vdots      & \ddots & \vdots        & \vdots    & \mathsf{O} \\
+        [B]_{m-1,1} & [B]_{m-1,2} & \cdots & [B]_{m-1,m-1} & 0         & {}         \\
+        [B]_{m,1}   & [B]_{m,2}   & \cdots & [B]_{m,m-1}   & [B]_{m,m} & {}         \\
+    \end{bmatrix},
 \end{align*}
+其中, \(\mathsf{O}\) 表示 \(m \times (n - m)\)~零阵
+(若 \(n > m\))
+或 ``无'' (若 \(n = m\)).
 
-因为 \(A\), \(B\) 是方阵,
-故我们可说 \(A\), \(B\) 的行列式.
-现在, 我说, 若 \(\det {(A)} \neq 0\),
+若 \([B]_{1,1}\), \([B]_{2,2}\), \(\dots\), \([B]_{m,m}\)
+都不是 \(0\),
 则我们可用列的倍加, 进一步地变 \(B\) 为
 \begin{align*}
     D =
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0         \\
-        0         & [B]_{2,2} & \cdots & 0             & 0         \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots    \\
-        0         & 0         & \cdots & [B]_{n-1,n-1} & 0         \\
-        0         & 0         & \cdots & 0             & [B]_{n,n} \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0         & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0         & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots    & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-1,m-1} & 0         & {}         \\
+        0         & 0         & \cdots & 0             & [B]_{m,m} & {}         \\
     \end{bmatrix};
 \end{align*}
-具体地, \(D\) 是一个 \(n\)~级阵,
+具体地, \(D\) 是 \(m \times n\)~阵,
 且
 \begin{align*}
     [D]_{i,j} =
@@ -4558,242 +6073,2522 @@
     \end{cases}
 \end{align*}
 
-我们知道, 倍加不改变行列式.
-于是, \(\det {(B)} = \det {(A)} \neq 0\).
-另一方面, \(\det {(B)} = [B]_{1,1} [B]_{2,2} \dots [B]_{n,n}\),
-故 \([B]_{1,1}\), \([B]_{2,2}\), \(\dots\), \([B]_{n,n}\)
-都不是 \(0\).
-那么, 加 \(B\) 的%
-列~\(n\) 的 \(-[B]_{n,n-1}/[B]_{n,n}\)~倍于列~\(n-1\),
-列~\(n\) 的 \(-[B]_{n,n-2}/[B]_{n,n}\)~倍于列~\(n-2\),
-……,
-列~\(n\) 的 \(-[B]_{n,1}/[B]_{n,n}\)~倍于列~\(1\),
+注意, \([B]_{m,m} \neq 0\).
+我们加 \(B\) 的%
+列~\(m\) 的 \(-[B]_{m,m-1}/[B]_{m,m}\)~倍于列~\(m-1\),
+列~\(m\) 的 \(-[B]_{m,m-2}/[B]_{m,m}\)~倍于列~\(m-2\),
+……
+列~\(m\) 的 \(-[B]_{m,1}/[B]_{m,m}\)~倍于列~\(1\),
 得
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1}   & 0           & \cdots & 0             & 0             & 0         \\
-        [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0             & 0         \\
-        \vdots      & \vdots      & \ddots & \vdots        & \vdots        & \vdots    \\
-        [B]_{n-2,1} & [B]_{n-2,2} & \cdots & [B]_{n-2,n-2} & 0             & 0         \\
-        [B]_{n-1,1} & [B]_{n-1,2} & \cdots & [B]_{n-1,n-2} & [B]_{n-1,n-1} & 0         \\
-        0           & 0           & \cdots & 0             & 0             & [B]_{n,n} \\
+        [B]_{1,1}   & 0           & \cdots & 0             & 0             & 0         & {}         \\
+        [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0             & 0         & {}         \\
+        \vdots      & \vdots      & \ddots & \vdots        & \vdots        & \vdots    & \mathsf{O} \\
+        [B]_{m-2,1} & [B]_{m-2,2} & \cdots & [B]_{m-2,m-2} & 0             & 0         & {}         \\
+        [B]_{m-1,1} & [B]_{m-1,2} & \cdots & [B]_{m-1,m-2} & [B]_{m-1,m-1} & 0         & {}         \\
+        0           & 0           & \cdots & 0             & 0             & [B]_{m,m} & {}         \\
     \end{bmatrix}.
 \end{align*}
-然后, 加%
-列~\(n-1\) 的 \(-[B]_{n-1,n-3}/[B]_{n-1,n-1}\)~倍于列~\(n-2\),
-列~\(n-1\) 的 \(-[B]_{n-1,n-3}/[B]_{n-1,n-1}\)~倍于列~\(n-3\),
-……,
-列~\(n-1\) 的 \(-[B]_{n-1,1}/[B]_{n-1,n-1}\)~倍于列~\(1\),
+然后, 注意, \([B]_{m-1,m-1} \neq 0\).
+我们加%
+列~\(m-1\) 的 \(-[B]_{m-1,m-2}/[B]_{m-1,m-1}\)~倍于列~\(m-2\),
+列~\(m-1\) 的 \(-[B]_{m-1,m-3}/[B]_{m-1,m-1}\)~倍于列~\(m-3\),
+……
+列~\(m-1\) 的 \(-[B]_{m-1,1}/[B]_{m-1,m-1}\)~倍于列~\(1\),
 得
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1}   & 0           & \cdots & 0             & 0             & 0         \\
-        [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0             & 0         \\
-        \vdots      & \vdots      & \ddots & \vdots        & \vdots        & \vdots    \\
-        [B]_{n-2,1} & [B]_{n-2,2} & \cdots & [B]_{n-2,n-2} & 0             & 0         \\
-        0           & 0           & \cdots & 0             & [B]_{n-1,n-1} & 0         \\
-        0           & 0           & \cdots & 0             & 0             & [B]_{n,n} \\
+        [B]_{1,1}   & 0           & \cdots & 0             & 0             & 0         & {}         \\
+        [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0             & 0         & {}         \\
+        \vdots      & \vdots      & \ddots & \vdots        & \vdots        & \vdots    & \mathsf{O} \\
+        [B]_{m-2,1} & [B]_{m-2,2} & \cdots & [B]_{m-2,m-2} & 0             & 0         & {}         \\
+        0           & 0           & \cdots & 0             & [B]_{m-1,m-1} & 0         & {}         \\
+        0           & 0           & \cdots & 0             & 0             & [B]_{m,m} & {}         \\
     \end{bmatrix}.
 \end{align*}
 ……
 最后, 我们得
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0         \\
-        0         & [B]_{2,2} & \cdots & 0             & 0         \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots    \\
-        0         & 0         & \cdots & [B]_{n-1,n-1} & 0         \\
-        0         & 0         & \cdots & 0             & [B]_{n,n} \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0         & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0         & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots    & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-1,m-1} & 0         & {}         \\
+        0         & 0         & \cdots & 0             & [B]_{m,m} & {}         \\
     \end{bmatrix}.
 \end{align*}
 
-综上, 我们有
-
-\begin{theorem}
-    设 \(A\) 是 \(n\)~级阵,
-    且 \(\det {(A)} \neq 0\).
-    利用若干次列的倍加,
-    我们可变 \(A\) 为 \(n\)~级阵 \(D\),
-    使当 \(i \neq j\) 时,
-    \([D]_{i,j} = 0\).
-\end{theorem}
-
-进一步地, 我说, 我们还可变 \(D\) 为
+进一步地, 我们还可变 \(D\) 为
 \begin{align*}
     M =
     \begin{bmatrix}
-        \det {(A)} & 0      & \cdots & 0      & 0      \\
-        0          & 1      & \cdots & 0      & 0      \\
-        \vdots     & \vdots & \ddots & \vdots & \vdots \\
-        0          & 0      & \cdots & 1      & 0      \\
-        0          & 0      & \cdots & 0      & 1      \\
+        [B]_{1,1} [B]_{2,2} \dots [B]_{m,m} & 0      & \cdots & 0      & 0      & {}         \\
+        0                                   & 1      & \cdots & 0      & 0      & {}         \\
+        \vdots                              & \vdots & \ddots & \vdots & \vdots & \mathsf{O} \\
+        0                                   & 0      & \cdots & 1      & 0      & {}         \\
+        0                                   & 0      & \cdots & 0      & 1      & {}         \\
     \end{bmatrix};
 \end{align*}
-具体地, \(M\) 是一个 \(n\)~级阵,
+具体地, \(M\) 是 \(m \times n\)~阵,
 且
 \begin{align*}
     [M]_{i,j} =
     \begin{cases}
-        \det {(A)},  & i = j = 1; \\
-        [I_n]_{i,j}, & \text{其他}.
+        [B]_{1,1} [B]_{2,2} \dots [B]_{m,m}, & i = j = 1; \\
+        [I_n]_{i,j},                         & \text{其他}.
     \end{cases}
 \end{align*}
 
-设 \(D\) 形如
+我们加列~\(m\) 的 \((1 - [B]_{m,m})/[B]_{m,m}\)~倍于列~\(m-1\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0         \\
-        0         & [B]_{2,2} & \cdots & 0             & 0             & 0         \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots    \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & 0             & 0         \\
-        0         & 0         & \cdots & 0             & [B]_{n-1,n-1} & 0         \\
-        0         & 0         & \cdots & 0             & 0             & [B]_{n,n} \\
-    \end{bmatrix},
-\end{align*}
-其中 \([B]_{1,1}\), \([B]_{2,2}\), \(\dots\), \([B]_{n,n}\)
-都不是 \(0\).
-
-加列~\(n\) 的 \((1 - [B]_{n,n})/[B]_{n,n}\)~倍于列~\(n-1\), 有
-\begin{align*}
-    \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0         \\
-        0         & [B]_{2,2} & \cdots & 0             & 0             & 0         \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots    \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & 0             & 0         \\
-        0         & 0         & \cdots & 0             & [B]_{n-1,n-1} & 0         \\
-        0         & 0         & \cdots & 0             & 1-[B]_{n,n}   & [B]_{n,n} \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0         & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0             & 0         & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots    & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} & 0             & 0         & {}         \\
+        0         & 0         & \cdots & 0             & [B]_{m-1,m-1} & 0         & {}         \\
+        0         & 0         & \cdots & 0             & 1-[B]_{m,m}   & [B]_{m,m} & {}         \\
     \end{bmatrix}.
 \end{align*}
-加列~\(n-1\) 于列~\(n\), 有
+我们加列~\(m-1\) 于列~\(m\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0             \\
-        0         & [B]_{2,2} & \cdots & 0             & 0             & 0             \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots        \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & 0             & 0             \\
-        0         & 0         & \cdots & 0             & [B]_{n-1,n-1} & [B]_{n-1,n-1} \\
-        0         & 0         & \cdots & 0             & 1-[B]_{n,n}   & 1             \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0             & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0             & 0             & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots        & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} & 0             & 0             & {}         \\
+        0         & 0         & \cdots & 0             & [B]_{m-1,m-1} & [B]_{m-1,m-1} & {}         \\
+        0         & 0         & \cdots & 0             & 1-[B]_{m,m}   & 1             & {}         \\
     \end{bmatrix}.
 \end{align*}
-加列~\(n\) 的 \([B]_{n,n}-1\)~倍于列~\(n-1\), 有
+我们加列~\(m\) 的 \([B]_{m,m}-1\)~倍于列~\(m-1\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0                       & 0             \\
-        0         & [B]_{2,2} & \cdots & 0             & 0                       & 0             \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots                  & \vdots        \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & 0                       & 0             \\
-        0         & 0         & \cdots & 0             & [B]_{n-1,n-1} [B]_{n,n} & [B]_{n-1,n-1} \\
-        0         & 0         & \cdots & 0             & 0                       & 1             \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0                       & 0             & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0                       & 0             & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots                  & \vdots        & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} & 0                       & 0             & {}         \\
+        0         & 0         & \cdots & 0             & [B]_{m-1,m-1} [B]_{m,m} & [B]_{m-1,m-1} & {}         \\
+        0         & 0         & \cdots & 0             & 0                       & 1             & {}         \\
     \end{bmatrix}.
 \end{align*}
-加列~\(n-1\) 的 \(-1/[B]_{n,n}\)~倍于列~\(n\), 有
+我们加列~\(m-1\) 的 \(-1/[B]_{m,m}\)~倍于列~\(m\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0                       & 0      \\
-        0         & [B]_{2,2} & \cdots & 0             & 0                       & 0      \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots                  & \vdots \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & 0                       & 0      \\
-        0         & 0         & \cdots & 0             & [B]_{n-1,n-1} [B]_{n,n} & 0      \\
-        0         & 0         & \cdots & 0             & 0                       & 1      \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0                       & 0      & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0                       & 0      & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots                  & \vdots & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} & 0                       & 0      & {}         \\
+        0         & 0         & \cdots & 0             & [B]_{m-1,m-1} [B]_{m,m} & 0      & {}         \\
+        0         & 0         & \cdots & 0             & 0                       & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-为方便, 记 \(d_2 = [B]_{n-1,n-1} [B]_{n,n}\).
-加列~\(n-1\) 的 \((1 - d_2)/d_2\)~倍于列~\(n-2\), 有
+为方便, 记 \(d_2 = [B]_{m-1,m-1} [B]_{m,m}\).
+我们加列~\(m-1\) 的 \((1 - d_2)/d_2\)~倍于列~\(m-2\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0      & 0      \\
-        0         & [B]_{2,2} & \cdots & 0             & 0      & 0      \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots & \vdots \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & 0      & 0      \\
-        0         & 0         & \cdots & 1 - d_2       & d_2    & 0      \\
-        0         & 0         & \cdots & 0             & 0      & 1      \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0      & 0      & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0      & 0      & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots & \vdots & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} & 0      & 0      & {}         \\
+        0         & 0         & \cdots & 1 - d_2       & d_2    & 0      & {}         \\
+        0         & 0         & \cdots & 0             & 0      & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-加列~\(n-2\) 于列~\(n-1\), 有
+我们加列~\(m-2\) 于列~\(m-1\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0      \\
-        0         & [B]_{2,2} & \cdots & 0             & 0             & 0      \\
-        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} & [B]_{n-2,n-2} & 0      \\
-        0         & 0         & \cdots & 1 - d_2       & 1             & 0      \\
-        0         & 0         & \cdots & 0             & 0             & 1      \\
+        [B]_{1,1} & 0         & \cdots & 0             & 0             & 0      & {}         \\
+        0         & [B]_{2,2} & \cdots & 0             & 0             & 0      & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots        & \vdots        & \vdots & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} & [B]_{m-2,m-2} & 0      & {}         \\
+        0         & 0         & \cdots & 1 - d_2       & 1             & 0      & {}         \\
+        0         & 0         & \cdots & 0             & 0             & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-加列~\(n-1\) 的 \(d_2 - 1\)~倍于列~\(n-2\), 有
+我们加列~\(m-1\) 的 \(d_2 - 1\)~倍于列~\(m-2\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0                 & 0             & 0      \\
-        0         & [B]_{2,2} & \cdots & 0                 & 0             & 0      \\
-        \vdots    & \vdots    & \ddots & \vdots            & \vdots        & \vdots \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} d_2 & [B]_{n-2,n-2} & 0      \\
-        0         & 0         & \cdots & 0                 & 1             & 0      \\
-        0         & 0         & \cdots & 0                 & 0             & 1      \\
+        [B]_{1,1} & 0         & \cdots & 0                 & 0             & 0      & {}         \\
+        0         & [B]_{2,2} & \cdots & 0                 & 0             & 0      & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots            & \vdots        & \vdots & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} d_2 & [B]_{m-2,m-2} & 0      & {}         \\
+        0         & 0         & \cdots & 0                 & 1             & 0      & {}         \\
+        0         & 0         & \cdots & 0                 & 0             & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-加列~\(n-2\) 的 \(-1/d_2\)~倍于列~\(n-1\), 有
+我们加列~\(m-2\) 的 \(-1/d_2\)~倍于列~\(m-1\), 有
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} & 0         & \cdots & 0                                     & 0      & 0      \\
-        0         & [B]_{2,2} & \cdots & 0                                     & 0      & 0      \\
-        \vdots    & \vdots    & \ddots & \vdots                                & \vdots & \vdots \\
-        0         & 0         & \cdots & [B]_{n-2,n-2} [B]_{n-1,n-1} [B]_{n,n} & 0      & 0      \\
-        0         & 0         & \cdots & 0                                     & 1      & 0      \\
-        0         & 0         & \cdots & 0                                     & 0      & 1      \\
+        [B]_{1,1} & 0         & \cdots & 0                                     & 0      & 0      & {}         \\
+        0         & [B]_{2,2} & \cdots & 0                                     & 0      & 0      & {}         \\
+        \vdots    & \vdots    & \ddots & \vdots                                & \vdots & \vdots & \mathsf{O} \\
+        0         & 0         & \cdots & [B]_{m-2,m-2} [B]_{m-1,m-1} [B]_{m,m} & 0      & 0      & {}         \\
+        0         & 0         & \cdots & 0                                     & 1      & 0      & {}         \\
+        0         & 0         & \cdots & 0                                     & 0      & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
 ……
 最后, 我们得
 \begin{align*}
     \begin{bmatrix}
-        [B]_{1,1} [B]_{2,2} \dots [B]_{n,n} & 0      & \cdots & 0      & 0      \\
-        0                                   & 1      & \cdots & 0      & 0      \\
-        \vdots                              & \vdots & \ddots & \vdots & \vdots \\
-        0                                   & 0      & \cdots & 1      & 0      \\
-        0                                   & 0      & \cdots & 0      & 1      \\
-    \end{bmatrix};
+        [B]_{1,1} [B]_{2,2} \dots [B]_{m,m} & 0      & \cdots & 0      & 0      & {}         \\
+        0                                   & 1      & \cdots & 0      & 0      & {}         \\
+        \vdots                              & \vdots & \ddots & \vdots & \vdots & \mathsf{O} \\
+        0                                   & 0      & \cdots & 1      & 0      & {}         \\
+        0                                   & 0      & \cdots & 0      & 1      & {}         \\
+    \end{bmatrix}.
 \end{align*}
-再注意,
-\(\det {(A)} = [B]_{1,1} [B]_{2,2} \dots [B]_{n,n}\).
 
 综上, 我们有
 
 \begin{theorem}
-    设 \(A\) 是 \(n\)~级阵,
+    设 \(m \leq n\).
+    设 \(B\) 是形如
+    \begin{equation}
+        \begin{bmatrix}
+            [B]_{1,1}   & 0           & \cdots & 0             & 0         & {}         \\
+            [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0         & {}         \\
+            \vdots      & \vdots      & \ddots & \vdots        & \vdots    & \mathsf{O} \\
+            [B]_{m-1,1} & [B]_{m-1,2} & \cdots & [B]_{m-1,m-1} & 0         & {}         \\
+            [B]_{m,1}   & [B]_{m,2}   & \cdots & [B]_{m,m-1}   & [B]_{m,m} & {}         \\
+        \end{bmatrix}
+        \label{eq:lower-triangular-full-rank-V1}
+    \end{equation}
+    的 \(m \times n\)~阵,
+    其中, \(\mathsf{O}\) 表示 \(m \times (n - m)\)~零阵
+    (若 \(n > m\))
+    或 ``无'' (若 \(n = m\)),
+    且 \([B]_{1,1}\), \([B]_{2,2}\), \(\dots\), \([B]_{m,m}\)
+    都不是 \(0\);
+    具体地, 当 \(i < j\) 时, \([B]_{i,j} = 0\),
+    且 \([B]_{i,i} \neq 0\) (\(i = 1\), \(\dots\), \(m\)).
+    则我们可用列的倍加,
+    变 \(B\) 为 \(m \times n\)~阵
+    \begin{equation}
+        D =
+        \begin{bmatrix}
+            [B]_{1,1} & 0         & \cdots & 0             & 0         & {}         \\
+            0         & [B]_{2,2} & \cdots & 0             & 0         & {}         \\
+            \vdots    & \vdots    & \ddots & \vdots        & \vdots    & \mathsf{O} \\
+            0         & 0         & \cdots & [B]_{m-1,m-1} & 0         & {}         \\
+            0         & 0         & \cdots & 0             & [B]_{m,m} & {}         \\
+        \end{bmatrix};
+        \label{eq:lower-triangular-full-rank-V2}
+    \end{equation}
+    具体地,
+    \begin{align*}
+        [D]_{i,j} =
+        \begin{cases}
+            [B]_{i,i}, & i = j;     \\
+            0,         & \text{其他}.
+        \end{cases}
+    \end{align*}
+    且进一步地, 我们可用列的倍加,
+    变 \(D\) 为 \(m \times n\)~阵
+    \begin{equation}
+        M =
+        \begin{bmatrix}
+            [B]_{1,1} [B]_{2,2} \dots [B]_{m,m} & 0      & \cdots & 0      & 0      & {}         \\
+            0                                   & 1      & \cdots & 0      & 0      & {}         \\
+            \vdots                              & \vdots & \ddots & \vdots & \vdots & \mathsf{O} \\
+            0                                   & 0      & \cdots & 1      & 0      & {}         \\
+            0                                   & 0      & \cdots & 0      & 1      & {}         \\
+        \end{bmatrix};
+        \label{eq:lower-triangular-full-rank-V3}
+    \end{equation}
+    具体地,
+    \begin{align*}
+        [M]_{i,j} =
+        \begin{cases}
+            [B]_{1,1} [B]_{2,2} \dots [B]_{m,m}, & i = j = 1; \\
+            [I_n]_{i,j},                         & \text{其他}.
+        \end{cases}
+    \end{align*}
+\end{theorem}
+
+自然地, 我们问, 给定 \(m \times n\)~阵 \(A\) (其中, \(m \leq n\)),
+我们能否变 \(A\) 为形如%
+式~\eqref{eq:lower-triangular-full-rank-V1} 的阵,
+且 \([B]_{1,1}\), \([B]_{2,2}\), \(\dots\), \([B]_{m,m}\)
+都不是 \(0\).
+若这是可能的,
+则我们也能变 \(A\) 为形如%
+式~\eqref{eq:lower-triangular-full-rank-V2} 的阵,
+且我们也能变 \(A\) 为形如%
+式~\eqref{eq:lower-triangular-full-rank-V3} 的阵.
+
+\begin{theorem}
+    设 \(A\) 是 \(m\)~级阵,
     且 \(\det {(A)} \neq 0\).
-    利用若干次列的倍加,
-    我们可变 \(A\) 为 \(n\)~级阵 \(M\),
+    则我们可用列的倍加,
+    变 \(A\) 为 \(m\)~级阵 \(M\),
     使
     \begin{align*}
         [M]_{i,j} =
         \begin{cases}
             \det {(A)},  & i = j = 1; \\
+            [I_m]_{i,j}, & \text{其他}.
+        \end{cases}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    首先, 我们可变 \(A\) 为 \(m\)~级阵
+    \begin{align*}
+        B =
+        \begin{bmatrix}
+            [B]_{1,1}   & 0           & \cdots & 0             & 0         \\
+            [B]_{2,1}   & [B]_{2,2}   & \cdots & 0             & 0         \\
+            \vdots      & \vdots      & \ddots & \vdots        & \vdots    \\
+            [B]_{m-1,1} & [B]_{m-1,2} & \cdots & [B]_{m-1,m-1} & 0         \\
+            [B]_{m,1}   & [B]_{m,2}   & \cdots & [B]_{m,m-1}   & [B]_{m,m} \\
+        \end{bmatrix}.
+    \end{align*}
+    注意, 倍加不改变行列式.
+    则 \(\det {(A)} = \det {(B)}
+    = [B]_{1,1} [B]_{2,2} \dots [B]_{m,m}\).
+    因为 \(\det {(A)} \neq 0\),
+    我们知道,
+    \([B]_{1,1}\), \([B]_{2,2}\), \(\dots\), \([B]_{m,m}\)
+    都不是 \(0\).
+    则由前面的讨论 (\(n = m\)),
+    我们可用列的倍加,
+    变 \(A\) 为 \(m\)~级阵 \(M\),
+    使
+    \begin{equation*}
+        [M]_{i,j} =
+        \begin{cases}
+            \det {(A)},  & i = j = 1; \\
+            [I_m]_{i,j}, & \text{其他}.
+        \end{cases}
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(m \leq n\).
+    设 \(m \times n\)~阵 \(A\)
+    有一个行列式不为 \(0\) 的 \(m\)~级子阵
+    \begin{align*}
+        K = A\binom{1,2,\dots,m}{j_1,j_2,\dots,j_m},
+    \end{align*}
+    其中, \(1 \leq j_1 < j_2 < \dots < j_m \leq n\).
+    则我们可用列的倍加,
+    变 \(A\) 为 \(m \times n\)~阵 \(M\),
+    使
+    \begin{align*}
+        [M]_{i,j} =
+        \begin{cases}
+            \det {(K)},  & i = j = 1; \\
             [I_n]_{i,j}, & \text{其他}.
         \end{cases}
     \end{align*}
 \end{theorem}
 
-我们知道, 我们可用阵的积表示倍加.
-于是
+\begin{proof}
+    若 \(n = m\), 则 \(K = A\).
+    我们可用上个定理.
+
+    以下, 我们设 \(n > m\).
+    从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(j_1\), \(j_2\), \(\dots\), \(j_m\) 后,
+    还剩 \(n - m\)~个数.
+    我们从小到大地叫这 \(n - m\)~个数为
+    \(j_{m+1}\), \(j_n\).
+
+    首先, 我们说明, 我们能用列的倍加,
+    变 \(A\) 为 \(m \times n\)~阵 \(A_1\),
+    使
+    \begin{align*}
+        [A_1]_{i,j_v} =
+        \begin{cases}
+            [A]_{i,j_v}, & v \leq m; \\
+            0,           & v > m.
+        \end{cases}
+    \end{align*}
+    设 \(v > m\).
+    考虑方程组
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            [A]_{1,j_1} x_1 + [A]_{1,j_2} x_2 + \dots + [A]_{1,j_m} x_m & = [A]_{1,j_v}, \\
+            [A]_{2,j_1} x_1 + [A]_{2,j_2} x_2 + \dots + [A]_{2,j_m} x_m & = [A]_{2,j_v}, \\
+                                                                        & \dots,         \\
+            [A]_{m,j_1} x_1 + [A]_{m,j_2} x_2 + \dots + [A]_{m,j_m} x_m & = [A]_{m,j_v}.
+        \end{aligned}
+        \right.
+    \end{equation*}
+    因为 \(\det {(K)} \neq 0\),
+    由 Cramer 公式,
+    此方程组有解.
+    则存在数
+    \(c_{j_1,j_v}\), \(c_{j_2,j_v}\), \(\dots\), \(c_{j_m,j_v}\),
+    使
+    \begin{align*}
+        [A]_{1,j_1} c_{j_1,j_v} + [A]_{1,j_2} c_{j_2,j_v} + \dots + [A]_{1,j_m} c_{j_m,j_v} & = [A]_{1,j_v}, \\
+        [A]_{2,j_1} c_{j_1,j_v} + [A]_{2,j_2} c_{j_2,j_v} + \dots + [A]_{2,j_m} c_{j_m,j_v} & = [A]_{2,j_v}, \\
+                                                                                            & \dots,         \\
+        [A]_{m,j_1} c_{j_1,j_v} + [A]_{m,j_2} c_{j_2,j_v} + \dots + [A]_{m,j_m} c_{j_m,j_v} & = [A]_{m,j_v}.
+    \end{align*}
+    于是, 若我们%
+    加列~\(j_1\) 的 \(-c_{j_1,j_v}\)~倍于列~\(j_v\),
+    加列~\(j_2\) 的 \(-c_{j_2,j_v}\)~倍于列~\(j_v\),
+    ……
+    加列~\(j_m\) 的 \(-c_{j_m,j_v}\)~倍于列~\(j_v\),
+    则列~\(j_v\) 的元全为 \(0\).
+    则我们可用列的倍加, 变 \(A\) 为 \(A_1\).
+
+    然后, 我们用列的倍加, 变 \(A_1\) 为
+    \(m \times n\)~阵 \(A_2\),
+    使
+    \begin{align*}
+        [A_2]_{i,v} =
+        \begin{cases}
+            [A_1]_{i,j_v} = [A]_{i,j_v}, & v \leq m; \\
+            0,                           & v > m.
+        \end{cases}
+    \end{align*}
+    若 \(j_m = m\),
+    则 \(j_1\), \(j_2\), \(\dots\), \(j_m\)
+    一定是 \(1\), \(2\), \(\dots\), \(m\).
+    则 \(A_1\) 已形如 \(A_2\).
+
+    以下, 我们设 \(j_m > m\).
+    回想, 三次列的倍加 ``几乎'' 可交换阵的二列:
+    \begin{align*}
+        (x, y)
+        \to {} & (x + 1y, y) = (x + y, y)                \\
+        \to {} & (x + y, y + (-1) (x + y)) = (x + y, -x) \\
+        \to {} & (x + y + 1(-x), -x) = (y, -x),
+    \end{align*}
+    且
+    \begin{align*}
+        (x, y)
+        \to {} & (x, y + 1x) = (x, y + x)               \\
+        \to {} & (x + (-1)(y + x), y + x) = (-y, y + x) \\
+        \to {} & (-y, y + x + 1(-y)) = (-y, x).
+    \end{align*}
+    我们说明,
+    我们可用列的倍加,
+    使 \(A_1\) 的列~\(j_1\) 到列~\(1\) 的位置.
+
+    若 \(j_1 = 1\), 我们不变, 取 \(P_1\) 为 \(A_1\).
+
+    若 \(j_1 > 1\), 则 \(A_1\) 的列~\(1\) 一定是 \(0\).
+    那么, 我们用三次倍加, 变 \(A_1\) 为
+    \(m \times n\)~阵 \(P_1\),
+    其中,
+    \begin{align*}
+        [P_1]_{i,t} =
+        \begin{cases}
+            [A_1]_{i,j_1},    & t = 1;     \\
+            -[A_1]_{i,1} = 0, & t = j_1;   \\
+            [A_1]_{i,t},      & \text{其他}.
+        \end{cases}
+    \end{align*}
+    注意, 我们其实交换了列~\(j_1\) 与列~\(1\).
+
+    综上, 我们可用倍加,
+    变 \(A_1\) 为 \(P_1\),
+    使
+    \begin{align*}
+        [P_1]_{i,t} =
+        \begin{cases}
+            [A_1]_{i,j_1}, & t = 1;     \\
+            [A_1]_{i,1},   & t = j_1;   \\
+            [A_1]_{i,t},   & \text{其他}.
+        \end{cases}
+    \end{align*}
+    (注意, \(j_1\) 可以为 \(1\).)
+
+    若 \(j_2 = 2\), 我们不变, 取 \(P_2\) 为 \(P_1\).
+
+    若 \(j_2 > 2\),
+    则 \(P_1\) 的列~\(2\) 一定是 \(0\):
+    若 \(j_1 > 2\),
+    则 \(A_1\), \(P_1\) 的列~\(2\) 都是 \(0\);
+    若 \(j_1 = 2\),
+    则在列的交换后,
+    \(P_1\) 的列~\(2\) 是 \(A_1\) 的列~\(1\),
+    即 \(0\).
+    那么, 我们用三次倍加, 变 \(P_1\) 为
+    \(m \times n\)~阵 \(P_2\),
+    其中,
+    \begin{align*}
+        [P_2]_{i,t} =
+        \begin{cases}
+            [P_1]_{i,j_2},    & t = 2;     \\
+            -[P_1]_{i,2} = 0, & t = j_2;   \\
+            [P_1]_{i,t},      & \text{其他}.
+        \end{cases}
+    \end{align*}
+    注意, 我们其实交换了列~\(j_2\) 与列~\(2\).
+
+    综上, 我们也可用倍加,
+    变 \(P_1\) 为 \(P_2\),
+    使
+    \begin{align*}
+        [P_2]_{i,t} =
+        \begin{cases}
+            [P_1]_{i,j_2}, & t = 2;     \\
+            [P_1]_{i,2},   & t = j_2;   \\
+            [P_1]_{i,t},   & \text{其他}.
+        \end{cases}
+    \end{align*}
+    (注意, \(j_2\) 可以为 \(2\).)
+
+    ……
+
+    最后, 我们知道, 我们可作若干次倍加,
+    变 \(A\) 为 \(A_1\).
+
+    注意, \(A_1\) 的前 \(m\) 列作成 \(K\),
+    且 \(A_1\) 的后 \(n - m\) 列都是 \(0\).
+    因为 \(\det {(K)} \neq 0\),
+    由上个定理,
+    我们可用列的倍加,
+    变 \(K\) 为 \(m\)~级阵 \(N\),
+    使
+    \begin{align*}
+        [N]_{i,j} =
+        \begin{cases}
+            \det {(K)},  & i = j = 1; \\
+            [I_m]_{i,j}, & \text{其他}.
+        \end{cases}
+    \end{align*}
+    那么, 我们也可用列的倍加,
+    变 \(A_1\) 为 \(m \times n\)~阵
+    \begin{align*}
+        M =
+        \begin{bmatrix}
+            N & 0 \\
+        \end{bmatrix},
+    \end{align*}
+    其中, \(0\) 是 \(m \times (n - m)\)~零阵.
+    则
+    \begin{align*}
+        [M]_{i,j}
+        = {} &
+        \begin{cases}
+            [N]_{1,1} = \det {(K)},
+             & i = j = 1;
+            \\
+            [N]_{i,j} = [I_m]_{i,j} = [I_n]_{i,j},
+             & \text{\(j \leq m\), 且 \((i, j) \neq (1, 1)\)};
+            \\
+            0 = [I_n]_{i,j},
+             & j > m.
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            \det {(K)},  & i = j = 1; \\
+            [I_n]_{i,j}, & \text{其他}.
+        \end{cases}
+        \qedhere
+    \end{align*}
+\end{proof}
+
+最后, 我们看一个例.
+
+\begin{example}
+    我们知道, 若 \(n\)~级阵 \(A\) 的行列式不为 \(0\),
+    则我们可用列的倍加,
+    变 \(A\) 为 \(n\)~级阵 \(D\),
+    使当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    不过, 若 \(\det {(A)} = 0\), 会如何?
+    我们说, 存在不能以列的倍加被变为这样的 \(D\) 的 \(A\).
+
+    设 \(n \geq 3\).
+    设 \(A\) 是这样的 \(n\)~级阵:
+    \begin{align*}
+        [A]_{i,j} =
+        \begin{cases}
+            1,
+             & \text{\((i,j) = (1,2)\) 或 \((1,3)\)
+            或 \((2,1)\) 或 \((3,1)\)};              \\
+            0,
+             & \text{其他}.
+        \end{cases}
+    \end{align*}
+    \(A\) 的列~\(2\) 与列~\(3\) 相同,
+    故 \(\det {(A)} = 0\).
+    我们说明, 我们不能用列的倍加,
+    变 \(A\) 为 \(n\)~级阵 \(D\),
+    使当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+
+    用反证法.
+    设我们能用列的倍加,
+    变 \(A\) 为 \(n\)~级阵 \(D\),
+    使当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    那么, 存在若干个形如
+    \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(E_1\), \(E_2\), \(\dots\), \(E_u\),
+    使
+    \begin{align*}
+        D = (((A E_1) E_2) \dots) E_u
+        = A (E_1 E_2 \dots E_u).
+    \end{align*}
+    记 \(P = E_1 E_2 \dots E_u\).
+    则 \(D = A P\), 且 \(\det {(P)} = 1\).
+    不过, 另一方面,
+    \begin{align*}
+        [D]_{i,j}
+        = {} &
+        [A P]_{i,j}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{n} {[A]_{i,\ell} [P]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{\ell = 1}^{3} {[A]_{i,\ell} [P]_{\ell,j}}
+        + \sum_{3 < \ell \leq n} {[A]_{i,\ell} [P]_{\ell,j}}
+        \\
+        = {} &
+        [A]_{i,1} [P]_{1,j}
+        + [A]_{i,2} [P]_{2,j}
+        + [A]_{i,3} [P]_{3,j}
+        + \sum_{3 < \ell \leq n} {0\, [P]_{\ell,j}}
+        \\
+        = {} &
+        \begin{cases}
+            [P]_{2,j} + [P]_{3,j}, & i = 1;                    \\
+            [P]_{1,j},             & \text{\(i = 2\) 或 \(3\)}; \\
+            0,                     & \text{其他}.
+        \end{cases}
+    \end{align*}
+    于是, 当 \(j \neq 2\) 时,
+    \([P]_{1,j} = [D]_{2,j} = 0\),
+    且当 \(j = 2\) 时,
+    \([P]_{1,j} = [D]_{3,2} = 0\).
+    则 \(P\) 的行~\(1\) 的元全为 \(0\).
+    这是矛盾.
+
+    注意, \(A = A^{\mathrm{T}}\).
+    我们可类似地证, 我们不能用行的倍加,
+    变 \(A\) 为 \(n\)~级阵 \(D'\),
+    使当 \(i \neq j\) 时, \([D']_{i,j} = 0\).
+
+    不过, 我们能用列的倍加与行的倍加,
+    变 \(A\) 为 \(n\)~级阵 \(D''\),
+    使当 \(i \neq j\) 时, \([D'']_{i,j} = 0\).
+    比如, 我们可验证,
+    \begin{align*}
+        [E(n; 3, 2; -1) A E(n; 2, 3; -1)]_{i,j}
+        = \begin{cases}
+              1, & \text{\((i, j) = (1, 2)\) 或 \((2, 1)\)}; \\
+              0, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    记 \(A_1 = E(n; 3, 2; -1) A E(n; 2, 3; -1)\).
+    则, 我们可验证,
+    \begin{align*}
+        [E(n; 1, 2; 1/2) A_1 E(n; 2, 1; 1/2)]_{i,j}
+        = \begin{cases}
+              1, &
+              \text{\((i, j) = (1, 1)\) 或 \((1, 2)\) 或 \((2, 1)\)}; \\
+              0, &
+              \text{其他}.
+          \end{cases}
+    \end{align*}
+    再记 \(A_2 = E(n; 1, 2; 1/2) A_1 E(n; 2, 1; 1/2)\).
+    则, 我们可验证,
+    \begin{align*}
+        [E(n; 2, 1; -1) A_2 E(n; 1, 2; -1)]_{i,j}
+        = \begin{cases}
+              1,  & \text{\((i, j) = (1, 1)\)}; \\
+              -1, & \text{\((i, j) = (2, 2)\)}; \\
+              0,  & \text{其他}.
+          \end{cases}
+    \end{align*}
+\end{example}
+
+\section{阵的积、倍加、合同}
+
+本节, 我们进一步地讨论阵的积与 (列的) 倍加的关系.
+
+设 \(A\) 是 \(m \times n\)~阵.
+若 \(A = A^{\mathrm{T}}\), 则我们说, \(A\) 是对称的.
+既然 \(m \times n\)~阵等于 \(n \times m\)~阵, 则 \(m = n\),
+故 \(A\) 是方阵.
+并且, \([A]_{i,j} = [A^{\mathrm{T}}]_{i,j} = [A]_{j,i}\).
+反过来, 若 \(m = n\), 且 \([A]_{i,j} = [A]_{j,i}\),
+则 \(A = A^{\mathrm{T}}\).
+
+设 \(A\) 是 \(n\)~级对称阵,
+且 \(X\) 是 \(n \times t\)~阵.
+则 \(X^{\mathrm{T}} A X\) 是对称阵:
+\begin{align*}
+    (X^{\mathrm{T}} A X)^{\mathrm{T}}
+    = X^{\mathrm{T}} A^{\mathrm{T}} (X^{\mathrm{T}})^{\mathrm{T}}
+    = X^{\mathrm{T}} A X.
+\end{align*}
+于是,
+若我们加 \(A\) 的列~\(p\) 的 \(s\) 倍于列~\(q\), 得阵 \(A_1\)
+(\(p \neq q\)),
+且加 \(A_1\) 的行~\(p\) 的 \(s\) 倍于行~\(q\), 得阵 \(A_2\),
+则 \(A_2\) 是对称阵:
+取 \(X\) 为 \(n\)~级阵 \(E(n; p, q; s)\) 即可.
 
 \begin{theorem}
-    设 \(A\) 是 \(n\)~级阵,
-    且 \(\det {(A)} \neq 0\).
+    设 \(A\) 是 \(n\)~级对称阵.
+    利用若干次列的倍加, 与对应的行的倍加,
+    我们可变 \(A\) 为 \(n\)~级阵 \(B\),
+    使当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
+    (注意, \(B\) 是对称的.)
+
+    我们约定, 作倍加时, 我们先列后行, 交替地作.
+    具体地, 我们先作一次列的倍加
+    (比如, 加列~\(p\) 的 \(s\)~倍于列~\(q\),
+    其中 \(p \neq q\)),
+    然后立即作一次对应的行的倍加
+    (加行~\(p\) 的 \(s\)~倍于行~\(q\)).
+    然后再作一次列的, 且再作一次对应的行的 (若还有).
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(n)\):
+    对任何 \(n\)~级对称阵 \(A\),
+    存在若干次列的倍加, 与对应的行的倍加,
+    其变 \(A\) 为 \(n\)~级阵 \(B\),
+    其中, 当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
+    我们用数学归纳法证明,
+    对任何正整数 \(n\), \(P(n)\) 是对的.
+
+    \(P(1)\) 显然是对的;
+    我们不变.
+
+    设 \(P(n-1)\) 是对的.
+    我们由此证 \(P(n)\) 也是对的.
+
+    任取 \(n\)~级对称阵 \(A\).
+    我们先说明,
+    存在若干次列的倍加, 与对应的行的倍加,
+    其变 \(A\) 为 \(n\)~级对称阵 \(C\),
+    其中, 当 \(i \neq 1\) 时, \([C]_{i,1} = 0 = [C]_{1,i}\).
+
+    若 \(A\) 的行~\(1\) 的与列~\(1\) 的元全为 \(0\),
+    我们不变, 取 \(C\) 为 \(A\).
+
+    若 \([A]_{1,1} \neq 0\),
+    对 \(A\),
+    加列~\(1\) 的 \(-[A]_{1,2}/[A]_{1,1}\)~倍于列 \(2\),
+    且加行~\(1\) 的 \(-[A]_{2,1}/[A]_{1,1}
+    = -[A]_{1,2}/[A]_{1,1}\)~倍于行 \(2\),
+    得 \(n\)~级对称阵 \(A_2\).
+    则 \([A_2]_{1,2} = 0 = [A_2]_{2,1}\),
+    且 \([A_2]_{1,j} = [A]_{1,j}
+        = [A]_{j,1} = [A_2]_{j,1}\)
+    (\(j \neq 2\)).
+    然后, 对 \(A_2\),
+    加列~\(1\) 的 \(-[A_2]_{1,3}/[A_2]_{1,1}\)~倍于列 \(3\),
+    且加行~\(1\) 的 \(-[A_2]_{3,1}/[A_2]_{1,1}
+    = -[A_2]_{1,3}/[A_2]_{1,1}\)~倍于行 \(3\),
+    得 \(n\)~级对称阵 \(A_3\).
+    则 \([A_3]_{1,3} = 0 = [A_3]_{3,1}\),
+    且 \([A_3]_{1,j} = [A_2]_{1,j}
+        = [A_2]_{j,1} = [A_3]_{j,1}\)
+    (\(j \neq 3\)).
+    ……
+    然后, 对 \(A_{n-1}\),
+    加列~\(1\) 的 \(-[A_{n-1}]_{1,n}/[A_{n-1}]_{1,1}\)~倍于列 \(n\),
+    且加行~\(1\) 的 \(-[A_{n-1}]_{n,1}/[A_{n-1}]_{1,1}
+    = -[A_{n-1}]_{1,n}/[A_{n-1}]_{1,1}\)~倍于行 \(n\),
+    得 \(n\)~级对称阵 \(A_n\).
+    则 \([A_n]_{1,n} = 0 = [A_n]_{n,1}\),
+    且 \([A_n]_{1,j} = [A_{n-1}]_{1,j}
+        = [A_{n-1}]_{j,1} = [A_n]_{j,1}\)
+    (\(j \neq n\)).
+    则当 \(i \neq 1\) 时,
+    \([A_n]_{i,1} = 0 = [A_n]_{1,i}\).
+    取 \(C\) 为 \(A_n\) 即可.
+
+    若 \([A]_{1,1} = 0\), 但某 \([A]_{1,k} \neq 0\)
+    (\(k \neq 1\)),
+    对 \(A\),
+    我们加列~\(k\) 于列~\(1\),
+    且加行~\(k\) 于行~\(1\),
+    得 \(n\)~级对称阵 \(D\).
+    则 \([D]_{1,1} = 0 + [A]_{1,k} + [A]_{k,1}
+        = 2 [A]_{1,k} \neq 0\).
+    问题被变为前面讨论过的情形.
+
+    综上, 作若干次列的倍加, 与对应的行的倍加,
+    我们可变 \(A\) 为 \(n\)~级对称阵 \(C\),
+    其中, 当 \(i \neq 1\) 时, \([C]_{i,1} = 0 = [C]_{1,i}\).
+
+    考虑 \(C\) 的右下角的 \(n-1\)~级子阵 \(C(1|1)\).
+    不难看出, 它是一个 \(n-1\)~级对称阵.
+    由假定,
+    作若干次列的倍加, 与对应的行的倍加,
+    我们可变 \(C(1|1)\) 为 \(n-1\)~级阵 \(G\),
+    其中, 当 \(i \neq 1\) 时, \([G]_{i,1} = 0 = [G]_{1,i}\).
+
+    注意, 既然当 \(i \neq 1\) 时,
+    \([C]_{i,1} = 0 = [C]_{1,i}\),
+    那么,
+    无论如何对 \(C\) 的不是列~\(1\) 的列作倍加,
+    且无论如何对 \(C\) 的不是行~\(1\) 的行作倍加,
+    得到的阵的 \((1, j)\)-元与 \((j, 1)\)-元都是 \(0\)
+    \((j \neq 1)\).
+    所以, 作若干次列的倍加, 与对应的行的倍加后,
+    我们可变 \(C\) 为一个 \(n\)~级对称阵 \(B\),
+    使当 \(i = 1\) 或 \(j = 1\) 时,
+    \([B]_{i,j} = [C]_{i,j}\),
+    且当 \(i \neq 1\) 且 \(j \neq 1\) 时,
+    \([B]_{i,j} = [G]_{i-1,j-1}\).
+    所以, 当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
+
+    所以, \(P(n)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{proof}
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级对称阵.
     则存在若干个形如 \(E(n; p, q; s)\)
     (\(s\) 是一个数,
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
     且 \(p \neq q\))
     的阵
-    \(E_1\), \(E_2\), \(\dots\), \(E_w\),
+    \(E_1\), \(E_2\), \(\dots\), \(E_u\),
+    使当 \(i \neq j\) 时,
+    \([V^{\mathrm{T}} A V]_{i,j} = 0\),
+    其中,
+    \(V = E_1 E_2 \dots E_u\).
+\end{theorem}
+
+\begin{proof}
+    由上个定理,
+    存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(E_1\), \(E_2\), \(\dots\), \(E_u\),
     使
     \begin{align*}
-        [A E_1 E_2 \dots E_w]_{i,j} =
-        \begin{cases}
-            \det {(A)},  & i = j = 1; \\
-            [I_n]_{i,j}, & \text{其他}.
-        \end{cases}
+        E_u^{\mathrm{T}} (\dots (E_2^{\mathrm{T}} (E_1^{\mathrm{T}} A E_1) E_2) \dots) E_u
+    \end{align*}
+    的 \((i, j)\)-元为 \(0\), 若 \(i \neq j\).
+    由结合律, 上式相当于
+    \begin{align*}
+        (E_u^{\mathrm{T}} \dots E_2^{\mathrm{T}} E_1^{\mathrm{T}}) A (E_1 E_2 \dots E_u).
+    \end{align*}
+    记 \(V = E_1 E_2 \dots E_u\).
+    由转置的性质,
+    \(V^{\mathrm{T}} = E_u^{\mathrm{T}} \dots E_2^{\mathrm{T}} E_1^{\mathrm{T}}\).
+    则上式相当于 \(V^{\mathrm{T}} A V\).
+
+\end{proof}
+
+回想, 若 \(n\)~级阵 \(A\) 适合,
+\([A]_{i,i} = 0\),
+且 \(A^{\mathrm{T}} = -A\),
+则 \(A\) 是反称阵.
+再回想, 若 \(A\) 是 \(n\)~级反称阵,
+则存在若干个形如 \(E(n; p, q; s)\)
+(\(s\) 是一个数,
+\(p\), \(q\) 是不超过 \(n\) 的正整数,
+且 \(p \neq q\))
+的阵
+\(E_1\), \(E_2\), \(\dots\), \(E_w\),
+使 \((E_1 E_2 \dots E_w)^{\mathrm{T}}
+A (E_1 E_2 \dots E_w)\)
+是形如
+\begin{equation*}
+    \begin{bmatrix}
+        0      & b_1    & 0      & 0      & \cdots & 0      & 0      \\
+        -b_1   & 0      & 0      & 0      & \cdots & 0      & 0      \\
+        0      & 0      & 0      & b_2    & \cdots & 0      & 0      \\
+        0      & 0      & -b_2   & 0      & \cdots & 0      & 0      \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0      & 0      & 0      & 0      & \cdots & 0      & b_m    \\
+        0      & 0      & 0      & 0      & \cdots & -b_m   & 0      \\
+    \end{bmatrix}
+\end{equation*}
+(若 \(n = 2m\) 是偶数), 或
+\begin{equation*}
+    \begin{bmatrix}
+        0      & b_1    & 0      & 0      & \cdots & 0      & 0      & 0      \\
+        -b_1   & 0      & 0      & 0      & \cdots & 0      & 0      & 0      \\
+        0      & 0      & 0      & b_2    & \cdots & 0      & 0      & 0      \\
+        0      & 0      & -b_2   & 0      & \cdots & 0      & 0      & 0      \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+        0      & 0      & 0      & 0      & \cdots & 0      & b_k    & 0      \\
+        0      & 0      & 0      & 0      & \cdots & -b_k   & 0      & 0      \\
+        0      & 0      & 0      & 0      & \cdots & 0      & 0      & 0      \\
+    \end{bmatrix}
+\end{equation*}
+(若 \(n = 2k + 1\) 是奇数) 的反称阵.
+
+由此可见, 若 \(A\) 是 \(n\)~级反称阵 (或对称阵),
+则存在 \(n\)~级阵 \(P\),
+使 \(\det {(P)} \neq 0\),
+且 \(P^{\mathrm{T}} A P\) 是
+``简单的'' 反称阵 (或对称阵).
+一般地,
+
+\begin{definition}
+    设 \(A\), \(B\) 是 \(n\)~级阵.
+    若存在 \(n\)~级阵 \(P\),
+    使 \(\det {(P)} \neq 0\),
+    且 \(B = P^{\mathrm{T}} A P\),
+    则我们说, \(A\) \emph{合同}于 \(B\).
+\end{definition}
+
+设 \(A\), \(B\), \(C\) 是 \(n\)~级阵.
+可以验证, ``合同于'' 适合:
+
+(1)
+\(A\) 合同于 \(A\).
+
+因为 \(A = I^{\mathrm{T}} A I\),
+且 \(\det {(I)} = 1\).
+
+(2)
+若 \(A\) 合同于 \(B\), 则 \(B\) 合同于 \(A\).
+
+既然 \(A\) 合同于 \(B\),
+则有 \(n\)~级阵 \(P\),
+使 \(\det {(P)} \neq 0\),
+且 \(B = P^{\mathrm{T}} A P\).
+作 \(P_1 = (\det {(P)})^{-1} \operatorname{adj} {(P)}\).
+则 \(P P_1
+= (\det {(P)})^{-1} (P \operatorname{adj} {(P)})
+= (\det {(P)})^{-1} (\det {(P)}\, I)
+= ((\det {(P)})^{-1} \det {(P)}) I
+= 1 I
+= I\).
+则 \(\det {(P)} \det {(P_1)}
+= \det {(P P_1)} = \det {(I)} = 1 \neq 0\).
+则 \(\det {(P_1)} \neq 0\).
+则
+\begin{align*}
+    P_1^{\mathrm{T}} B P_1
+    = {} &
+    P_1^{\mathrm{T}} (P^{\mathrm{T}} A P) P_1
+    \\
+    = {} &
+    (P_1^{\mathrm{T}} P^{\mathrm{T}}) A (P P_1)
+    \\
+    = {} &
+    (P P_1)^{\mathrm{T}} A (P P_1)
+    \\
+    = {} &
+    I^{\mathrm{T}} A I
+    \\
+    = {} &
+    A.
+\end{align*}
+
+(3)
+若 \(A\) 合同于 \(B\), 且 \(B\) 合同于 \(C\),
+则 \(A\) 合同于 \(C\).
+
+既然 \(A\) 合同于 \(B\),
+则有 \(n\)~级阵 \(P\),
+使 \(\det {(P)} \neq 0\),
+且 \(B = P^{\mathrm{T}} A P\);
+既然 \(B\) 合同于 \(C\),
+则有 \(n\)~级阵 \(Q\),
+使 \(\det {(Q)} \neq 0\),
+且 \(C = Q^{\mathrm{T}} B Q\).
+则
+\begin{align*}
+    C
+    = Q^{\mathrm{T}} B Q
+    = Q^{\mathrm{T}} (P^{\mathrm{T}} A P) Q
+    = (Q^{\mathrm{T}} P^{\mathrm{T}}) A (P Q)
+    = (P Q)^{\mathrm{T}} A (P Q),
+\end{align*}
+且
+\(\det {(P Q)} = \det {(P)} \det {(Q)} \neq 0\).
+
+因为性质 (2), 有时, 我们也说 ``\(A\) 与 \(B\) 合同'',
+若 \(A\) 合同于 \(B\).
+
+变 \(A\) 为 \(P^{\mathrm{T}} A P\)
+(其中, \(\det {(P)} \neq 0\))
+的行为是 ``合同变换''.
+研究以合同变换变方阵为 ``简单的'' 方阵%
+可能是一个有意思的问题.
+若您想知道更多,
+您可以见线性代数教材.
+
+\section{行列式、倍加、倍乘}
+
+本节, 我们用倍加与倍乘研究行列式.
+
+回想, 在第一章, 节~\sekcio{6}, 我们定义了行列式.
+定义是按列~\(1\) 展开.
+在第一章, 节~\sekcio{7}, 我们证明了,
+可按任何一列展开行列式.
+在第一章, 节~\sekcio{13},
+我们证明了行列式的关于列的多线性与交错性,
+且证明了, \(\det {(I)} = 1\).
+
+由关于列的多线性, 我们有, 对任何 \(n\)~级阵 \(X\),
+\begin{align*}
+    \det {(X M(n; q; s))}
+    = s \det {(X)}
+    = \det {(X)}\, s.
+\end{align*}
+注意, 特别地,
+\(\det {(M(n; q; s))}
+= \det {(I_n M(n; q; s))}
+= \det {(I_n)}\, s
+= s\).
+则
+\begin{equation}
+    \det {(X M(n; q; s))}
+    = \det {(X)} \det {(M(n; q; s))}.
+    \label{eq:det-multiply-column}
+\end{equation}
+
+设 \(X\) 是 \(n\)~级阵.
+设 \(p\), \(q\) 是不超过 \(n\) 的正整数,
+且互不相同.
+设 \(s\) 是数.
+设 \(Y\) 是这样的 \(n\)~级阵:
+若 \(j \neq q\), 则 \(Y\) 的列~\(j\) 是 \(X\) 的列~\(j\),
+且 \(Y\) 的列~\(q\) 是 \(X\) 的列~\(p\).
+则 \(Y\) 有相同的二列.
+则 \(\det {(Y)} = 0\).
+另一方面,
+\begin{align*}
+    [X E(n; p, q; s)]_{i,j}
+    = \begin{cases}
+          [X]_{i,j},                 & j \neq q; \\
+          1 [X]_{i,j} + s [Y]_{i,j}, & j = q.
+      \end{cases}
+\end{align*}
+则
+\begin{align*}
+    \det {(X E(n; p, q; s))}
+    = 1 \det {(X)} + s \det {(Y)}
+    = \det {(X)}.
+\end{align*}
+注意, 特别地,
+\(\det {(E(n; p, q; s))}
+= \det {(I_n E(n; p, q; s))}
+= \det {(I_n)} = 1\).
+则
+\begin{equation}
+    \det {(X E(n; p, q; s))}
+    = \det {(X)} \det {(E(n; p, q; s))}.
+    \label{eq:det-multiply-add-column}
+\end{equation}
+
+式~\eqref{eq:det-multiply-column}
+与式~\eqref{eq:det-multiply-add-column}
+在本节会被反复地用.
+
+% 在 ``按一行展开行列式'',
+% 我们用定义 (按列~\(1\) 展开)
+% 证明了, 可按任何一行展开行列式.
+% 于是, 关于行的多线性与交错性可被类似地证明.
+% 则类似地,
+% \begin{align}
+%     \det {(M(n; q; s) X)}    & = \det {(M(n; q; s))} \det {(X)},
+%     \label{eq:det-multiply-row}
+%     \\
+%     \det {(E(n; p, q; s) X)} & = \det {(E(n; p, q; s))} \det {(X)}.
+%     \label{eq:det-multiply-add-row}
+% \end{align}
+% 式~\eqref{eq:det-multiply-column}
+% 至式~\eqref{eq:det-multiply-add-row}
+% 在本节会被反复地用.
+
+回想, 我们有
+
+\TheoremMultiplyMultiplyAddUnu*
+
+特别地, 若 \(A\) 是方阵, 则
+
+\TheoremMultiplyMultiplyAddDu*
+
+好的.
+我们开始.
+
+\begin{theorem}
+    设 \(A\), \(B\) 是 \(n\)~级阵.
+    则
+    \begin{align*}
+        \det {(BA)} = \det {(B)} \det {(A)}.
     \end{align*}
 \end{theorem}
+
+\begin{proof}
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        \det {(X C_k)} = \det {(X)} \det {(C_k)}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(B A)}
+        = {} &
+        \det {(B (C_1 C_2 \dots C_w))}
+        \\
+        = {} &
+        \det {(((((B C_1) C_2) \dots) C_{w-1}) C_w)}
+        \\
+        = {} &
+        \det {((((B C_1) C_2) \dots) C_{w-1})}
+        \det {(C_w)}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \det {(B)} \det {(C_1)} \det {(C_2)} \dots \det {(C_w)}
+        \\
+        = {} &
+        \det {(B)} \det {(C_1 C_2)} \dots \det {(C_w)}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \det {(B)} \det {(C_1 C_2 \dots C_w)}
+        \\
+        = {} &
+        \det {(B)} \det {(A)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设定义在全体 \(n\)~级阵上的函数 \(f\)
+    适合:
+
+    (1)
+    对 \(n\)~级阵 \(A\),
+    加列~\(p\) 的 \(s\)~倍于列~\(q\)
+    (\(q \neq p\)),
+    且不改变其他的列,
+    得 \(n\)~级阵 \(B\).
+    则 \(f(B) = f(A)\).
+
+    (2)
+    对 \(n\)~级阵 \(A\),
+    以数 \(s\) 乘列~\(q\),
+    且不改变其他的列,
+    得 \(n\)~级阵 \(B\).
+    则 \(f(B) = f(A)\, m(s)\).
+    这里, 定义在数上的函数 \(m\) 是保乘的:
+    \(m(1) = 1\),
+    且对任何数 \(s\), \(t\), 有 \(m(st) = m(s)\, m(t)\).
+
+    那么, 对任何 \(n\)~级阵 \(A\),
+    \(f(A) = f(I)\, m(\det {(A)})\).
+\end{theorem}
+
+\begin{proof}
+    用倍加, 我们可改写性质 (1) 为,
+    对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        f(X E(n; p, q; s))
+        = f(X)
+        = f(X)\, m(\det {(E(n; p, q; s))}).
+    \end{align*}
+    用倍乘, 我们可改写性质 (2) 为,
+    对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        f(X M(n; q; s))
+        = f(X)\, m(s)
+        = f(X)\, m(\det {(M(n; q; s))}).
+    \end{align*}
+
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        f(X C_k) = f(X)\, m(\det {(C_k)}).
+    \end{align*}
+    注意, \(A = I A\).
+    则
+    \begin{align*}
+        f(A)
+        = {} &
+        f(I A)
+        \\
+        = {} &
+        f (I (C_1 C_2 \dots C_w))
+        \\
+        = {} &
+        f (((((I C_1) C_2) \dots) C_{w-1}) C_w)
+        \\
+        = {} &
+        f ((((I C_1) C_2) \dots) C_{w-1})\,
+        m(\det {(C_w)})
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1)})\,
+        m(\det {(C_2)})\,
+        \dots
+        m(\det {(C_w)})
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1)} \det {(C_2)} \dots \det {(C_w)})
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1 C_2)} \dots \det {(C_w)})
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1 C_2 \dots C_w)})
+        \\
+        = {} &
+        f(I)\, m(\det {(A)}).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+
+    (1)
+    \(f(A B) = f(A) f(B)\),
+    对任何 \(n\)~级阵 \(A\), \(B\).
+
+    (2)
+    设 \(n\)~级阵 \(D\) 适合,
+    若 \(i \neq j\), 则 \([D]_{i,j} = 0\).
+    则 \(f(D) = m(\det {(D)})\).
+    这里, 定义在数上的函数 \(m\) 是保乘的:
+    \(m(1) = 1\),
+    且对任何数 \(s\), \(t\), 有 \(m(st) = m(s)\, m(t)\).
+
+    那么, 对任何 \(n\)~级阵 \(A\),
+    \(f(A) = m(\det {(A)})\).
+\end{theorem}
+
+\begin{proof}
+    注意, \(f(M(n; q; s)) = m(\det {(M(n; q; s))})\),
+    且 \(f(I) = m(\det {(I)}) = 1\).
+
+    设 \(p\), \(q\) 是不超过 \(n\) 的正整数, 且互不相同.
+    设 \(s\) 是数.
+    我们证明,
+    \begin{align*}
+        f(E(n; p, q; s)) = m(\det {(E(n; p, q; s))}).
+    \end{align*}
+    设数 \(t \neq 1\), 且 \(t \neq 0\).
+    记
+    \(U = E(n; p, q; s/(1-t))\),
+    \(V = E(n; p, q; -s/(1-t))\),
+    \(G = M(n; p; t)\),
+    且 \(H = M(n; p; 1/t)\).
+    注意,
+    \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q}\, (-s/(1-t)) = 0\),
+    且
+    \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\)
+    (其他的情形).
+    故 \(UV = I_n\).
+    注意,
+    \([GH]_{p,p} = [G]_{p,p}\, (1/t) = 1\),
+    且
+    \([GH]_{i,j} = [G]_{i,j} = [I_n]_{i,j}\)
+    (其他的情形).
+    故 \(GH = I_n\).
+    我们计算 \(UGVH\).
+    首先,
+    \([UG]_{p,p} = [U]_{p,p}\, t = t\),
+    \([UG]_{p,q} = [U]_{p,q} = s/(1-t)\),
+    且
+    \([UG]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则
+    \([UGV]_{p,p} = [UG]_{p,p} = t\),
+    \([UGV]_{p,q} = [UG]_{p,q} + [UG]_{p,p}\, (-s/(1-t))
+    = s/(1-t) - st/(1-t) = s\),
+    且
+    \([UGV]_{i,j} = [UG]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则
+    \([UGVH]_{p,p} = [UGV]_{p,p}\, (1/t) = 1\),
+    \([UGVH]_{p,q} = [UGV]_{p,q} = s\),
+    且
+    \([UGVH]_{i,j} = [UGV]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则 \(UGVH = E(n; p, q; s)\).
+    故
+    \begin{align*}
+        f(E(n; p, q; s))
+        = {} &
+        f(UGVH)
+        \\
+        = {} &
+        f(UG) f(VH)
+        \\
+        = {} &
+        f(U) f(G) f(V) f(H)
+        \\
+        = {} &
+        f(U) f(V) f(G) f(H)
+        \\
+        = {} &
+        f(UV) f(GH)
+        \\
+        = {} &
+        f(I) f(I)
+        \\
+        = {} &
+        1
+        \\
+        = {} &
+        m(\det {(E(n; p, q; s))}).
+    \end{align*}
+
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        f(X C_k)
+        = f(X) f(C_k)
+        = f(X)\, m(\det {(C_k)}).
+    \end{align*}
+    注意, \(A = I A\).
+    则
+    \begin{align*}
+        f(A)
+        = {} &
+        f(I A)
+        \\
+        = {} &
+        f (I (C_1 C_2 \dots C_w))
+        \\
+        = {} &
+        f (((((I C_1) C_2) \dots) C_{w-1}) C_w)
+        \\
+        = {} &
+        f ((((I C_1) C_2) \dots) C_{w-1})\,
+        m(\det {(C_w)})
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1)})\,
+        m(\det {(C_2)})\,
+        \dots
+        m(\det {(C_w)})
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1)} \det {(C_2)} \dots \det {(C_w)})
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1 C_2)} \dots \det {(C_w)})
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        f(I)\,
+        m(\det {(C_1 C_2 \dots C_w)})
+        \\
+        = {} &
+        f(I)\, m(\det {(A)})
+        \\
+        = {} &
+        m(\det {(A)}).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+注意, 前面的三个证明几乎是一样的:
+我们写 \(A\) 为一些阵
+\(C_1\), \(C_2\), \(\dots\), \(C_w\) 的积,
+分别地 ``提出''
+\(\det {(C_w)}\), \(\dots\), \(\det {(C_2)}\), \(\det {(C_1)}\),
+且再 ``重组'' 它们为
+\(\det {(C_1 C_2 \dots C_w)}\),
+即 \(\det {(A)}\).
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    则 \(\det {(A^{\mathrm{T}})} = \det {(A)}\).
+\end{theorem}
+
+\begin{proof}
+    我们知道, 存在若干个形如
+    \(E(n; p, q; s)\)
+    的阵
+    \(E_1\), \(F_1\), \(E_2\), \(F_2\),
+    \(\dots\), \(E_u\), \(F_u\),
+    与若干个形如 \(M(n; q'; s')\) 的阵
+    \(M_1\), \(M_2\), \(\dots\), \(M_n\),
+    使
+    \begin{align*}
+        A
+        = {} &
+        F_1 F_2 \dots F_u
+        M_1 M_2 \dots M_n
+        E_u \dots E_2 E_1
+        \\
+        = {} &
+        I
+        F_1 F_2 \dots F_u
+        M_1 M_2 \dots M_n
+        E_u \dots E_2 E_1.
+    \end{align*}
+    则 (注意, \(M(n; q; s)\) 的转置是 \(M(n; q; s)\))
+    \begin{align*}
+        A^{\mathrm{T}}
+        = {} &
+        (F_1 F_2 \dots F_u
+        M_1 M_2 \dots M_n
+        E_u \dots E_2 E_1)^{\mathrm{T}}
+        \\
+        = {} &
+        E_1^{\mathrm{T}}
+        E_2^{\mathrm{T}}
+        \dots
+        E_u^{\mathrm{T}}
+        M_n^{\mathrm{T}}
+        \dots
+        M_2^{\mathrm{T}}
+        M_1^{\mathrm{T}}
+        F_u^{\mathrm{T}}
+        \dots
+        F_2^{\mathrm{T}}
+        F_1^{\mathrm{T}}
+        \\
+        = {} &
+        I
+        E_1^{\mathrm{T}}
+        E_2^{\mathrm{T}}
+        \dots
+        E_u^{\mathrm{T}}
+        M_n
+        \dots
+        M_2
+        M_1
+        F_u^{\mathrm{T}}
+        \dots
+        F_2^{\mathrm{T}}
+        F_1^{\mathrm{T}}.
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \det {(A)}
+        \\
+        = {} &
+        \det {(I)}
+        \cdot
+        \det {(F_1)}
+        \det {(F_2)}
+        \dots
+        \det {(F_u)}
+        \cdot
+        \det {(M_1)}
+        \det {(M_2)}
+        \dots
+        \det {(M_n)}
+        \\
+             &
+        \cdot
+        \det {(E_u)}
+        \dots
+        \det {(E_2)}
+        \det {(E_1)}
+        \\
+        = {} &
+        \det {(I)}
+        \det {(M_1)}
+        \det {(M_2)}
+        \dots
+        \det {(M_n)}.
+    \end{align*}
+    注意, 每个 \(E_k^{\mathrm{T}}\)
+    或每个 \(F_k^{\mathrm{T}}\)
+    也形如 \(E(n; p, q; s)\)
+    (具体地, \(E(n; p, q; s)\) 的转置是
+    \(E(n; q, p; s)\)).
+    则
+    \begin{align*}
+             &
+        \det {(A^{\mathrm{T}})}
+        \\
+        = {} &
+        \det {(I)}
+        \cdot
+        \det {(E_1^{\mathrm{T}})}
+        \det {(E_2^{\mathrm{T}})}
+        \dots
+        \det {(E_u^{\mathrm{T}})}
+        \cdot
+        \det {(M_n)}
+        \dots
+        \det {(M_2)}
+        \det {(M_1)}
+        \\
+             &
+        \cdot
+        \det {(F_u^{\mathrm{T}})}
+        \dots
+        \det {(F_2^{\mathrm{T}})}
+        \det {(F_1^{\mathrm{T}})}
+        \\
+        = {} &
+        \det {(I)}
+        \det {(M_n)}
+        \dots
+        \det {(M_2)}
+        \det {(M_1)}
+        \\
+        = {} &
+        \det {(I)}
+        \det {(M_1)}
+        \det {(M_2)}
+        \dots
+        \det {(M_n)}
+        \\
+        = {} &
+        \det {(A)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+% \begin{proof}
+%     我们知道, 存在若干个形如
+%     \(E(n; p, q; s)\)
+%     的阵
+%     \(E_1\), \(F_1\), \(E_2\), \(F_2\),
+%     \(\dots\), \(E_u\), \(F_u\),
+%     与 \(n\)~级阵 \(D\),
+%     使
+%     \begin{align*}
+%         A = F_1 F_2 \dots F_u D E_u \dots E_2 E_1,
+%     \end{align*}
+%     且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+%     注意, \(\det {(A)} = \det {(D)}\),
+%     因为倍加不改变行列式.
+
+%     注意, \(D = D^{\mathrm{T}}\).
+%     则, 另一方面,
+%     \begin{align*}
+%         A^{\mathrm{T}}
+%         = {} &
+%         (F_1 F_2 \dots F_u D E_u \dots E_2 E_1)^{\mathrm{T}}
+%         \\
+%         = {} &
+%         E_1^{\mathrm{T}}
+%         E_2^{\mathrm{T}}
+%         \dots
+%         E_u^{\mathrm{T}}
+%         D^{\mathrm{T}}
+%         F_u^{\mathrm{T}}
+%         \dots
+%         F_2^{\mathrm{T}}
+%         F_1^{\mathrm{T}}
+%         \\
+%         = {} &
+%         E_1^{\mathrm{T}}
+%         E_2^{\mathrm{T}}
+%         \dots
+%         E_u^{\mathrm{T}}
+%         D
+%         F_u^{\mathrm{T}}
+%         \dots
+%         F_2^{\mathrm{T}}
+%         F_1^{\mathrm{T}}.
+%     \end{align*}
+%     注意, 每个 \(E_k^{\mathrm{T}}\) 或 \(F_k^{\mathrm{T}}\)
+%     也形如 \(E(n; p, q; s)\)
+%     (具体地, \(E(n; p, q; s)\) 的转置是
+%     \(E(n; q, p; s)\)).
+%     则 \(\det {(A^{\mathrm{T}})} = \det {(D)}\).
+%     故 \(\det {(A^{\mathrm{T}})} = \det {(A)}\).
+% \end{proof}
+
+\begin{theorem}
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(p\), \(q\) 是不超过 \(n\) 的正整数, 且互不相同.
+    交换 \(A\) 的列~\(p\), \(q\),
+    且不改变其他的列,
+    得 \(n\)~级阵 \(B\).
+    则 \(\det {(B)} = -\det {(A)}\).
+\end{theorem}
+
+\begin{proof}
+    我们知道, 存在 \(n\)~级阵
+    \(E_1 = E(n; q, p; 1)\),
+    \(E_2 = E(n; p, q; -1)\),
+    \(E_3 = E(n; q, p; 1)\),
+    与 \(M = M(n; q; -1)\),
+    使 \(B = A E_1 E_2 E_3 M\).
+    注意, \(\det {(M)} = -1\).
+    则
+    \begin{align*}
+        \det {(B)}
+        = {} &
+        \det {(A E_1 E_2 E_3 M)}
+        \\
+        = {} &
+        {-\det {(A E_1 E_2 E_3)}}
+        \\
+        = {} &
+        {-\det {(A)}}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\section{古伴、倍加、倍乘}
+
+本节, 我们用倍加与倍乘研究古伴.
+
+回想, 在 ``古伴的性质 (1)'' 与 ``古伴的性质 (3)'',
+我们证明了,
+对任何 \(n\)~级阵 \(A\), \(B\),
+与任何数 \(c\),
+\begin{align*}
+    \operatorname{adj} {(A^{\mathrm{T}})}
+     & = (\operatorname{adj} {(A)})^{\mathrm{T}},           \\
+    \operatorname{adj} {(c A)}
+     & = c^{n-1} \operatorname{adj} {(A)},                  \\
+    \det {(\operatorname{adj} {(A)})}
+     & = (\det {(A)})^{n-1},                                \\
+    \operatorname{adj} {(\operatorname{adj} {(A)})}
+     & = (\det {(A)})^{n-2}\, A,                            \\
+    \operatorname{adj} {(B A)}
+     & = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
+\end{align*}
+前二个式的证明是简单的,
+但后三个式的证明是难的.
+证明式~3 与式~4 时, 我们要讨论
+\(\det {(A)} \neq 0\) 时的%
+与 \(\det {(A)} = 0\) 时的情形;
+证明式~5 时, 我们用了 Binet--Cauchy 公式,
+因为, 虽然我们在 \(\det {(BA)} \neq 0\) 时证明了式~5,
+我们未能在 \(\det {(BA)} = 0\) 时,
+用别的方法证明它.
+
+在上节, 当证明一些跟行列式有关的定理时,
+我们证明了式~\eqref{eq:det-multiply-column}
+与式~\eqref{eq:det-multiply-add-column},
+并反复地用它们.
+类似地, 若我们用倍加与倍乘研究古伴,
+我们也应先证明类似的关系.
+
+\begin{theorem}
+    设 \(D\) 是 \(n\)~级阵,
+    且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    则当 \(i \neq j\) 时,
+    \([\operatorname{adj} {(D)}]_{i,j} = 0\).
+\end{theorem}
+
+\begin{proof}
+    我证明, 若 \(n\)~级阵 \(U\) 适合,
+    当 \(i > j\) 时, \([U]_{i,j} = 0\),
+    则当 \(i > j\) 时,
+    \([\operatorname{adj} {(U)}]_{i,j} = 0\).
+    那么, 用转置, 或类似地,
+    您能证明,
+    若 \(n\)~级阵 \(L\) 适合,
+    当 \(i < j\) 时, \([L]_{i,j} = 0\),
+    则当 \(i < j\) 时,
+    \([\operatorname{adj} {(L)}]_{i,j} = 0\).
+    则由它们, 待证的事是对的,
+    因为 \(i \neq j\) 相当于
+    \(i > j\) 或 \(i < j\).
+
+    设 \(n\)~级阵 \(U\) 适合,
+    当 \(i > j\) 时, \([U]_{i,j} = 0\).
+    注意,
+    \begin{align*}
+        [\operatorname{adj} {(U)}]_{i,j}
+        = (-1)^{j+i} \det {(U(j|i))}.
+    \end{align*}
+    设 \(1 \leq s < t \leq n\).
+    记
+    \begin{align*}
+        V = U(s|t)
+        = U\binom{i_1,\dots,i_{n-1}}{j_1,\dots,j_{n-1}},
+    \end{align*}
+    其中,
+    \(i_1 < \dots < i_{n-1}\),
+    且 \(j_1 < \dots < j_{n-1}\).
+    注意, \(i_1\), \(\dots\), \(i_{n-1}\)
+    比 \(1\), \(2\), \(\dots\), \(n\) 少 \(s\),
+    且 \(j_1\), \(\dots\), \(j_{n-1}\)
+    比 \(1\), \(2\), \(\dots\), \(n\) 少 \(t\).
+    我们说明, \(\det {(V)} = 0\).
+
+    我们说, \(i_k \geq j_k\).
+    其实, 具体地, 对 \(k = 1\), \(\dots\), \(n-1\),
+    \begin{align*}
+        i_k =
+        \begin{cases}
+            k,     & k < s;    \\
+            k + 1, & k \geq s,
+        \end{cases}
+    \end{align*}
+    且
+    \begin{align*}
+        j_k =
+        \begin{cases}
+            k,     & k < t;    \\
+            k + 1, & k \geq t,
+        \end{cases}
+    \end{align*}
+    既然 \(s < t\),
+    则对小于 \(n\) 的正整数 \(k\),
+    \(k\) 一定适合如下三条件的一个:
+    (i) \(k < s\);
+    (ii) \(s \leq k < t\);
+    (iii) \(t \leq k\).
+    对 (i),
+    \(i_k = k = j_k\);
+    对 (ii),
+    \(i_k = k + 1 = j_k + 1 > j_k\);
+    对 (iii),
+    \(i_k = k + 1 = j_k\).
+    于是, 若 \(u > v\),
+    则 \(i_u \geq j_u > j_v\).
+    则 \([V]_{u,v} = [U]_{i_u,j_v} = 0\).
+    则 \(\det {(V)}
+    = [V]_{1,1} [V]_{2,2} \dots [V]_{n-1,n-1}\).
+    注意,
+    \([V]_{s,s} = [U]_{i_s,j_s} = [U]_{s+1,s} = 0\).
+    则 \(\det {(V)} = 0\).
+    则 \([\operatorname{adj} {(U)}]_{t,s}
+    = (-1)^{s+t} \det {(U(s|t))} = 0\),
+    若 \(t > s\).
+\end{proof}
+
+\begin{theorem}
+    设 \(D\) 是 \(n\)~级阵,
+    且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    则
+    \begin{align*}
+        [\operatorname{adj} {(D)}]_{i,j} =
+        \begin{dcases}
+            \det {(D(i|i))}
+            = \prod_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
+            {[D]_{\ell,\ell}},
+             & i = j;                             \\
+            0,
+             & \text{其他}.
+        \end{dcases}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    我们知道, 当 \(i \neq j\) 时,
+    \([\operatorname{adj} {(D)}]_{i,j} = 0\).
+    当 \(i = j\) 时,
+    \begin{align*}
+        [\operatorname{adj} {(D)}]_{i,j}
+        = {} &
+        (-1)^{i+i} \det {(D(i|i))}
+        \\
+        = {} &
+        \det {(D(i|i))}
+        \\
+        = {} &
+        [D(i|i)]_{1,1}
+            [D(i|i)]_{2,2}
+        \dots
+        [D(i|i)]_{n-1,n-1}
+        \\
+        = {} &
+        \prod_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
+        {[D]_{\ell,\ell}}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(q\) 是不超过 \(n\) 的正整数.
+    设 \(s\) 是数.
+    则
+    \begin{align*}
+        [\operatorname{adj} {(M(n; q; s))}]_{i,j} =
+        \begin{cases}
+            s, & i = j \neq q; \\
+            1, & i = j = q;    \\
+            0, & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(\operatorname{adj} {(M(n; q; s))})}
+        = (\det {(M(n; q; s))})^{n-1}.
+    \end{align*}
+    进一步地,
+    \begin{align*}
+        [\operatorname{adj} {(
+                \operatorname{adj} {(M(n; q; s))}
+                )}]_{i,j}
+        =
+        \begin{cases}
+            s^{n-2}, & i = j \neq q; \\
+            s^{n-1}, & i = j = q;    \\
+            0,       & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        \operatorname{adj} {(\operatorname{adj} {(M(n; q; s))})}
+        = (\det {(M(n; q; s))})^{n-2} M(n; q; s).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    回想, \(M(n; q; s)\) 是 \(n\)~级阵, 且
+    \begin{align*}
+        [M(n; q; s)]_{i,j} =
+        \begin{cases}
+            1, & i = j \neq q; \\
+            s, & i = j = q;    \\
+            0, & \text{其他}.
+        \end{cases}
+    \end{align*}
+    注意,
+    \begin{align*}
+        \det {(M(n; q; s))} = 1^{n-1} s = s.
+    \end{align*}
+
+    由前面的讨论,
+    \begin{align*}
+        [\operatorname{adj} {(M(n; q; s))}]_{i,j} =
+        \begin{cases}
+            1^{n-2} s, & i = j \neq q; \\
+            1^{n-1},   & i = j = q;    \\
+            0,         & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(\operatorname{adj} {(M(n; q; s))})}
+        = s^{n-1} 1
+        = s^{n-1}
+        = (\det {(M(n; q; s))})^{n-1}.
+    \end{align*}
+
+    进一步地, 由前面的讨论,
+    \begin{align*}
+        [\operatorname{adj} {(
+                \operatorname{adj} {(M(n; q; s))}
+                )}]_{i,j}
+        =
+        \begin{cases}
+            s^{n-2} 1, & i = j \neq q; \\
+            s^{n-1},   & i = j = q;    \\
+            0,         & \text{其他}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        \operatorname{adj} {(\operatorname{adj} {(M(n; q; s))})}
+        = {} & s^{n-2} M(n; q; s)                      \\
+        = {} & (\det {(M(n; q; s))})^{n-2} M(n; q; s).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(q\) 是不超过 \(n\) 的正整数.
+    设 \(s\) 是数.
+    设 \(A\) 是 \(n\)~级阵.
+    则
+    \begin{align*}
+        \operatorname{adj} {(A M(n; q; s))}
+        =
+        \operatorname{adj} {(M(n; q; s))}
+        \operatorname{adj} {(A)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, 以数 \(s\) 乘 \(A\)~的列~\(q\),
+    且不改变其他的列,
+    我们得阵 \(A M(n; q; s)\).
+
+    当 \(i \neq q\) 时,
+    \((A M(n; q; s))(j|i)\) 的列~\(q - \rho(q, i)\)
+    是 \(A(j|i)\) 的列~\(q - \rho(q, i)\)
+    的 \(s\)~倍,
+    且 \((A M(n; q; s))(j|i)\) 与 \(A(j|i)\)
+    的其他的列相同;
+    这里, 回想, 对任何整数 \(i\), \(j\),
+    \begin{align*}
+        \rho(i, j)
+        = \begin{cases}
+              0, & i < j;    \\
+              1, & i \geq j.
+          \end{cases}
+    \end{align*}
+    则 \(\det {((A M(n; q; s))(j|i))}
+    = s \det {(A(j|i))}\).
+    则, 当 \(i \neq q\) 时,
+    \begin{align*}
+        [\operatorname{adj} {(A M(n; q; s))}]_{i,j}
+        = {} &
+        (-1)^{j+i} \det {((A M(n; q; s))(j|i))}
+        \\
+        = {} &
+        (-1)^{j+i} s \det {(A(j|i))}
+        \\
+        = {} &
+        s\, [\operatorname{adj} {(A)}]_{i,j}
+        \\
+        = {} &
+        [\operatorname{adj} {(M(n; q; s))}]_{i,i}
+            [\operatorname{adj} {(A)}]_{i,j}.
+    \end{align*}
+    当 \(i = q\) 时,
+    \((A M(n; q; s))(j|i) = A(j|i)\).
+    则
+    \begin{align*}
+        [\operatorname{adj} {(A M(n; q; s))}]_{i,j}
+        = {} &
+        (-1)^{j+i} \det {((A M(n; q; s))(j|i))}
+        \\
+        = {} &
+        (-1)^{j+i} \det {(A(j|i))}
+        \\
+        = {} &
+        [\operatorname{adj} {(A)}]_{i,j}
+        \\
+        = {} &
+        [\operatorname{adj} {(M(n; q; s))}]_{i,i}
+            [\operatorname{adj} {(A)}]_{i,j}.
+    \end{align*}
+    另一方面,
+    \begin{align*}
+             &
+        [\operatorname{adj} {(M(n; q; s))}
+                \operatorname{adj} {(A)}]_{i,j}
+        \\
+        = {} &
+        \sum_{1 \leq k \leq n}
+        {[\operatorname{adj} {(M(n; q; s))}]_{i,k}
+                [\operatorname{adj} {(A)}]_{k,j}}
+        \\
+        = {} &
+        [\operatorname{adj} {(M(n; q; s))}]_{i,i}
+            [\operatorname{adj} {(A)}]_{i,j}
+        +
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
+        {[\operatorname{adj} {(M(n; q; s))}]_{i,k}
+                [\operatorname{adj} {(A)}]_{k,j}}
+        \\
+        = {} &
+        [\operatorname{adj} {(M(n; q; s))}]_{i,i}
+            [\operatorname{adj} {(A)}]_{i,j}
+        +
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
+        {[\operatorname{adj} {(M(n; q; s))}]_{i,k}
+                [\operatorname{adj} {(A)}]_{k,j}}
+        \\
+        = {} &
+        [\operatorname{adj} {(M(n; q; s))}]_{i,i}
+            [\operatorname{adj} {(A)}]_{i,j}
+        +
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
+        {0\, [\operatorname{adj} {(A)}]_{k,j}}
+        \\
+        = {} &
+        [\operatorname{adj} {(M(n; q; s))}]_{i,i}
+            [\operatorname{adj} {(A)}]_{i,j}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(p\), \(q\) 是不超过 \(n\) 的正整数, 且 \(p \neq q\).
+    设 \(s\) 是数.
+    则
+    \begin{align*}
+        \operatorname{adj} {(E(n; p, q; s))}
+        = E(n; p, q; -s).
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(\operatorname{adj} {(E(n; p, q; s))})}
+        = (\det {(E(n; p, q; s))})^{n-1}.
+    \end{align*}
+    进一步地,
+    \begin{align*}
+        \operatorname{adj} {(
+            \operatorname{adj} {(E(n; p, q; s))}
+            )}
+        = (\det {(E(n; p, q; s))})^{n-2} E(n; p, q; s).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    回想, \(E(n; p, q; s) E(n; p, q; -s) = I_n\),
+    且 \(\det {(E(n; p, q; s))} = 1\).
+    则
+    \begin{align*}
+        \operatorname{adj} {(E(n; p, q; s))}
+        = {} &
+        \operatorname{adj} {(E(n; p, q; s))}\, I_n
+        \\
+        = {} &
+        \operatorname{adj} {(E(n; p, q; s))}\, (E(n; p, q; s) E(n; p, q; -s))
+        \\
+        = {} &
+        (\operatorname{adj} {(E(n; p, q; s))}\, E(n; p, q; s)) E(n; p, q; -s)
+        \\
+        = {} &
+        (\det {(E(n; p, q; s))}\, I_n)
+        E(n; p, q; -s)
+        \\
+        = {} &
+        \det {(E(n; p, q; s))}\, I_n E(n; p, q; -s)
+        \\
+        = {} &
+        E(n; p, q; -s).
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(\operatorname{adj} {(E(n; p, q; s))})}
+        = \det {(E(n; p, q; -s))}
+        = 1
+        = (\det {(E(n; p, q; s))})^{n-1}.
+    \end{align*}
+    进一步地,
+    \begin{align*}
+        \operatorname{adj} {(
+            \operatorname{adj} {(E(n; p, q; s))}
+            )}
+        = {} &
+        \operatorname{adj} {(E(n; p, q; -s))}
+        \\
+        = {} &
+        E(n; p, q; -(-s))
+        \\
+        = {} &
+        (\det {(E(n; p, q; s))})^{n-2}
+        E(n; p, q; s).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(p\), \(q\) 是不超过 \(n\) 的正整数, 且 \(p \neq q\).
+    设 \(s\) 是数.
+    设 \(A\) 是 \(n\)~级阵.
+    则
+    \begin{align*}
+        \operatorname{adj} {(A E(n; p, q; s))}
+        =
+        \operatorname{adj} {(E(n; p, q; s))}
+        \operatorname{adj} {(A)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, 加 \(A\) 的列~\(p\) 的 \(s\) 倍于列~\(q\),
+    且不改变其他的列, 我们得阵 \(A E(n; p, q; s)\).
+
+    当 \(i = q\) 时,
+    \((A E(n; p, q; s))(j|i) = A(j|i)\).
+    则
+    \begin{align*}
+        [\operatorname{adj} {(A E(n; p, q; s))}]_{i,j}
+        = {} &
+        (-1)^{j+i} \det {((A E(n; p, q; s))(j|i))}
+        \\
+        = {} &
+        (-1)^{j+i} \det {(A(j|i))}
+        \\
+        = {} &
+        [\operatorname{adj} {(A)}]_{i,j}.
+    \end{align*}
+
+    当 \(i \neq q\), 且 \(i \neq p\) 时,
+    \((A E(n; p, q; s))(j|i)\)
+    可被认为是对 \(A(j|i)\) 作一次列的倍加得到的阵.
+    则 \(\det {((A E(n; p, q; s))(j|i))} = \det {(A(j|i))}\).
+    则, 类似地,
+    \begin{align*}
+        [\operatorname{adj} {(A E(n; p, q; s))}]_{i,j}
+            = [\operatorname{adj} {(A)}]_{i,j}.
+    \end{align*}
+
+    设 \(i = p\).
+    作 \(n\)~级阵 \(C\),
+    使 \([C]_{u,v} = [A]_{u,v}\) (若 \(v \neq q\)),
+    且 \([C]_{u,q} = [A]_{u,p}\).
+    则 \(A E(n; p, q; s)\), \(A\), \(C\) 的列~\(v\) 相等
+    (若 \(v \neq q\)),
+    且 \([A E(n; p, q; s)]_{u,q}
+        = [A]_{u,q} + s [A]_{u,p}
+        = 1 [A]_{u,q} + s [C]_{u,q}\).
+    然后, 考虑
+    \((A E(n; p, q; s))(j|p)\),
+    \(A(j|p)\), \(C(j|p)\).
+    记 \(q' = q - \rho(q, p)\).
+    则 \(A E(n; p, q; s))(j|p)\) 的列~\(q'\)
+    仍是 \(A(j|p)\) 的列~\(q'\) 的 \(1\)~倍%
+    加 \(C(j|p)\) 的列~\(q'\) 的 \(s\)~倍,
+    且 \((A E(n; p, q; s))(j|p)\),
+    \(A(j|p)\), \(C(j|p)\) 的其他的列相同.
+    由多线性,
+    \begin{align*}
+        \det {((A E(n; p, q; s))(j|p))}
+        = 1 \det {(A(j|p))} + s \det {(C(j|p))}.
+    \end{align*}
+
+    考虑 \(n-1\)~级阵 \(A(j|q)\).
+    注意, \(A\) 的列~\(v\) (\(v \neq q\)) 对应
+    \(A(j|q)\) 的列 \(v - \rho(v, q)\),
+    且 \(C\) 的列~\(w\) (\(w \neq p\)) 对应
+    \(C(j|p)\) 的列 \(w - \rho(w, p)\).
+    注意, \(A\), \(C\) 的列~\(u\) 相等
+    (若 \(u \neq q\)).
+    于是, 若 \(w \neq p\), 且 \(w \neq q\),
+    则 \(A\) 的列~\(w\) 对应
+    \(A(j|q)\) 的列 \(w - \rho(w, q)\),
+    与 \(C(j|p)\) 的列 \(w - \rho(w, p)\).
+    因为 \(A\) 的列~\(p\) 等于 \(C\) 的列~\(q\),
+    则 \(A\) 的列~\(p\) 对应
+    \(C(j|p)\) 的列 \(q - \rho(q, p)\).
+    当然, \(A\) 的列~\(p\) 也对应
+    \(A(j|q)\) 的列 \(p - \rho(p, q)\).
+    所以, 不计次序,
+    \(C(j|p)\) 与 \(A(j|q)\) 有相同的列.
+    注意, \(C(j|{p,q}) = A(j|{p,q})\).
+    记 \(L\) 是从 \(A\) 的列~\(p\) 去除行~\(j\)
+    得到的 \((n - 1) \times 1\)~阵.
+    于是, 我们可如此得到
+    \(A(j|q)\) 与 \(C(j|p)\):
+    在 \(A(j|{p,q})\) 的某列的左侧或右侧加入 \(L\),
+    得 \(A(j|q)\);
+    在 \(A(j|{p,q})\) 的某列的左侧或右侧加入 \(L\),
+    得 \(C(j|p)\).
+    于是, 若我们对 \(C(j|p)\) 作若干次相邻的列的交换,
+    我们可变它为 \(A(j|q)\).
+
+    回想, \(q' = q - \rho(q, p)\).
+    我们再记 \(p' = p - \rho(p, q)\).
+    则 \(L\) 在 \(A(j|q)\) 的列~\(p'\) 的位置,
+    且 \(L\) 在 \(C(j|p)\) 的列~\(q'\) 的位置.
+
+    若 \(p' = q'\), 则 \(C(j|p) = A(j|q)\).
+    则 \(\det {(C(j|p))} = (-1)^{q'-p'} \det {(A(j|q))}\).
+
+    若 \(p' < q'\), 则我们记 \(C_0 = C(j|p)\).
+    那么, 对 \(C_k\),
+    我们交换列 \(q' - k\) 与 \(q' - k - 1\),
+    得阵 \(C_{k+1}\)
+    (\(0 \leq k < q' - p'\)).
+    注意, 作 \(q' - p'\) 次相邻的列的交换后,
+    我们得 \(C_{q'-p'-1} = A(j|q)\).
+    则 \(\det {(C(j|p))} = (-1)^{q' - p'} \det {(A(j|q))}\).
+
+    若 \(p' > q'\), 则我们记 \(C'_0 = C(j|p)\).
+    那么, 对 \(C'_k\),
+    我们交换列 \(q' + k\) 与 \(q' + k + 1\),
+    得阵 \(C'_{k+1}\)
+    (\(0 \leq k < p' - q'\)).
+    注意, 作 \(p' - q'\) 次相邻的列的交换后,
+    我们得 \(C'_{p'-q'+1} = A(j|q)\).
+    则 \(\det {(C(j|p))}
+    = (-1)^{p' - q'} \det {(A(j|q))}
+    = (-1)^{q' - p'} \det {(A(j|q))}\).
+
+    综上,
+    \begin{align*}
+        \det {(C(j|p))}
+        = {} &
+        (-1)^{q' - p'} \det {(A(j|q))}
+        \\
+        = {} &
+        (-1)^{q - \rho(q, p) - p + \rho(p, q)}
+        \det {(A(j|q))}
+        \\
+        = {} &
+        (-1)^{q - \rho(q, p) - p - \rho(p, q)}
+        \det {(A(j|q))}
+        \\
+        = {} &
+        (-1)^{q - p - 1} \det {(A(j|q))}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {((A E(n; p, q; s))(j|p))}
+        = \det {(A(j|p))} - s (-1)^{q-p} \det {(A(j|q))}.
+    \end{align*}
+    于是, 当 \(i = p\) 时,
+    \begin{align*}
+             &
+        [\operatorname{adj} {(A E(n; p, q; s))}]_{i,j}
+        \\
+        = {} &
+        (-1)^{j+p}
+        \det {((A E(n; p, q; s))(j|p))}
+        \\
+        = {} &
+        (-1)^{j+p} \det {(A(j|p))}
+        - (-1)^{j+p} s (-1)^{q-p} \det {(A(j|q))}
+        \\
+        = {} &
+        (-1)^{j+p} \det {(A(j|p))}
+        - s (-1)^{j+q} \det {(A(j|q))}
+        \\
+        = {} &
+        [\operatorname{adj} {(A)}]_{p,j}
+        - s\, [\operatorname{adj} {(A)}]_{q,j}
+        \\
+        = {} &
+        [E(n; p, q; -s) \operatorname{adj} {(A)}]_{i,j}
+        \\
+        = {} &
+        [\operatorname{adj} {(E(n; p, q; s))}
+                \operatorname{adj} {(A)}]_{i,j}.
+    \end{align*}
+    最后, 回想, 当 \(i \neq p\) 时,
+    \begin{align*}
+        [\operatorname{adj} {(A E(n; p, q; s))}]_{i,j}
+        = {} &
+        [\operatorname{adj} {(A)}]_{i,j}
+        \\
+        = {} &
+        [E(n; p, q; -s)\, \operatorname{adj} {(A)}]_{i,j}
+        \\
+        = {} &
+        [\operatorname{adj} {(E(n; p, q; s))}
+                \operatorname{adj} {(A)}]_{i,j}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+好的.
+我们现在可以统一地证明下面的定理.
+
+% subfile fix: repeat restatable
+% see:
+% postrakonto - klasikaj adjunktaj matricoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{AdjOfProduct}
+        设 \(A\), \(B\) 是 \(n\)~级阵.
+        则
+        \begin{align*}
+            \operatorname{adj} {(BA)}
+            = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
+        \end{align*}
+    \end{restatable}
+}{\AdjOfProduct*}
+
+\begin{proof}
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        \operatorname{adj} {(X C_k)}
+        = \operatorname{adj} {(C_k)} \operatorname{adj} {(X)}.
+    \end{align*}
+    则
+    \begin{align*}
+        \operatorname{adj} {(B A)}
+        = {} &
+        \operatorname{adj} {(B (C_1 C_2 \dots C_{w-1} C_w))}
+        \\
+        = {} &
+        \operatorname{adj}
+        {(((((B C_1) C_2) \dots) C_{w-1}) C_w)}
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj}
+        {((((B C_1) C_2) \dots) C_{w-1})}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj} {(C_{w-1})}
+        \dots
+        \operatorname{adj} {(C_2)}
+        \operatorname{adj} {(C_1)}
+        \operatorname{adj} {(B)}
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj} {(C_{w-1})}
+        \dots
+        \operatorname{adj} {(C_1 C_2)}
+        \operatorname{adj} {(B)}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{adj} {(C_1 C_2 \dots C_w)}
+        \operatorname{adj} {(B)}
+        \\
+        = {} &
+        \operatorname{adj} {(A)}
+        \operatorname{adj} {(B)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+% subfile fix: repeat restatable
+% see:
+% postrakonto - klasikaj adjunktaj matricoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{DetOfAdjugate}
+        设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
+        则
+        \(\det {(\operatorname{adj} {(A)})} = (\det {(A)})^{n-1}\).
+    \end{restatable}
+}{\DetOfAdjugate*}
+
+\begin{proof}
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        \operatorname{adj} {(X C_k)}
+        = \operatorname{adj} {(C_k)} \operatorname{adj} {(X)},
+    \end{align*}
+    且
+    \begin{align*}
+        \det {(\operatorname{adj} {(C_k)})}
+        = (\det {(C_k)})^{n-1}.
+    \end{align*}
+    注意,
+    \begin{align*}
+        \operatorname{adj} {(A)}
+        = {} &
+        \operatorname{adj} {(C_1 C_2 \dots C_{w-1} C_w)}
+        \\
+        = {} &
+        \operatorname{adj} {((((C_1 C_2) \dots) C_{w-1}) C_w)}
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj} {(((C_1 C_2) \dots) C_{w-1})}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj} {(C_{w-1})}
+        \dots
+        \operatorname{adj} {(C_2)}
+        \operatorname{adj} {(C_1)}.
+    \end{align*}
+    则
+    \begin{align*}
+             &
+        \det {(\operatorname{adj} {(A)})}
+        \\
+        = {} &
+        \det {(\operatorname{adj} {(C_w)}
+            \operatorname{adj} {(C_{w-1})}
+            \dots
+            \operatorname{adj} {(C_2)}
+            \operatorname{adj} {(C_1)})}
+        \\
+        = {} &
+        \det {(\operatorname{adj} {(C_w)})}
+        \det {(\operatorname{adj} {(C_{w-1})})}
+        \dots
+        \det {(\operatorname{adj} {(C_2)})}
+        \det {(\operatorname{adj} {(C_1)})}
+        \\
+        = {} &
+        (\det {(C_w)})^{n-1}
+        (\det {(C_{w-1})})^{n-1}
+        \dots
+        (\det {(C_2)})^{n-1}
+        (\det {(C_1)})^{n-1}
+        \\
+        = {} &
+        (\det {(C_1)})^{n-1}
+        (\det {(C_2)})^{n-1}
+        \dots
+        (\det {(C_{w-1})})^{n-1}
+        (\det {(C_w)})^{n-1}
+        \\
+        = {} &
+        (\det {(C_1)} \det {(C_2)} \dots \det {(C_w)})^{n-1}
+        \\
+        = {} &
+        (\det {(C_1 C_2)} \dots \det {(C_w)})^{n-1}
+        \\
+        = {} &
+        (\det {(C_1 C_2 \dots C_w)})^{n-1}
+        \\
+        = {} &
+        (\det {(A)})^{n-1}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+% subfile fix: repeat restatable
+% see:
+% postrakonto - klasikaj adjunktaj matricoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{AdjOfAdjugate}
+        设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
+        则
+        \(\operatorname{adj} {(\operatorname{adj} {(A)})}
+        = (\det {(A)})^{n-2}\,A\).
+    \end{restatable}
+}{\AdjOfAdjugate*}
+
+\begin{proof}
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
+    \begin{align*}
+        \operatorname{adj} {(X C_k)}
+        = \operatorname{adj} {(C_k)} \operatorname{adj} {(X)},
+    \end{align*}
+    且
+    \begin{align*}
+        \operatorname{adj} {(\operatorname{adj} {(C_k)})}
+        = (\det {(C_k)})^{n-2} C_k.
+    \end{align*}
+    注意,
+    \begin{align*}
+        \operatorname{adj} {(A)}
+        = {} &
+        \operatorname{adj} {(C_1 C_2 \dots C_{w-1} C_w)}
+        \\
+        = {} &
+        \operatorname{adj} {((((C_1 C_2) \dots) C_{w-1}) C_w)}
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj} {(((C_1 C_2) \dots) C_{w-1})}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{adj} {(C_w)}
+        \operatorname{adj} {(C_{w-1})}
+        \dots
+        \operatorname{adj} {(C_2)}
+        \operatorname{adj} {(C_1)}.
+    \end{align*}
+    则
+    (注意, 对任何 \(n\)~级阵 \(A\), \(B\),
+    \(\operatorname{adj} {(Y X)}
+    = \operatorname{adj} {(X)} \operatorname{adj} {(Y)}\))
+    \begin{align*}
+             &
+        \operatorname{adj} {(\operatorname{adj} {(A)})}
+        \\
+        = {} &
+        \operatorname{adj}
+        {(\operatorname{adj} {(C_w)}
+            \operatorname{adj} {(C_{w-1})}
+            \dots
+            \operatorname{adj} {(C_2)}
+            \operatorname{adj} {(C_1)})}
+        \\
+        = {} &
+        \operatorname{adj} {(\operatorname{adj} {(C_1)})}
+        \operatorname{adj}
+        {(\operatorname{adj} {(C_w)}
+            \operatorname{adj} {(C_{w-1})}
+            \dots
+            \operatorname{adj} {(C_2)})}
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        \operatorname{adj} {(\operatorname{adj} {(C_1)})}
+        \operatorname{adj} {(\operatorname{adj} {(C_2)})}
+        \dots
+        \operatorname{adj} {(\operatorname{adj} {(C_{w-1})})}
+        \operatorname{adj} {(\operatorname{adj} {(C_w)})}
+        \\
+        = {} &
+        ((\det {(C_1)})^{n-2} C_1)
+        ((\det {(C_2)})^{n-2} C_2)
+        \dots
+        ((\det {(C_w)})^{n-2} C_{w})
+        \\
+        = {} &
+        ((\det {(C_1)})^{n-2}
+        (\det {(C_2)})^{n-2}
+        \dots
+        (\det {(C_w)})^{n-2})
+        (C_1 C_2 \dots C_w)
+        \\
+        = {} &
+        (\det {(C_1)} \det {(C_2)} \dots \det {(C_w)})^{n-2}
+        (C_1 C_2 \dots C_w)
+        \\
+        = {} &
+        (\det {(C_1 C_2)} \dots \det {(C_w)})^{n-2}
+        (C_1 C_2 \dots C_w)
+        \\
+        = {} &
+        (\det {(C_1 C_2 \dots C_w)})^{n-2}
+        (C_1 C_2 \dots C_w)
+        \\
+        = {} &
+        (\det {(A)})^{n-2} A.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\end{document}
 
 This material discusses determinants of skew-symmetric matrices.
 
@@ -5141,77 +8936,3 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         % \qedhere
     \end{equation*}
 \end{proof}
-
-\section{\texorpdfstring{辛阵的行列式为 \(1\)}%
-  {辛阵的行列式为 1}}
-
-现在, 我们可以证明, 辛阵的行列式为 \(1\).
-
-回想, 说一个 \(2m\)~级阵 \(A\) 是辛阵,
-若 \(A^{\mathrm{T}} K_m A = K_m\),
-其中 \(K_m\) 是形如
-\begin{align*}
-    \begin{bmatrix}
-        0    & I_m \\
-        -I_m & 0   \\
-    \end{bmatrix}
-\end{align*}
-的 \(2m\)~级反称阵.
-
-% 不难算出, \(\operatorname{pf} {(K_m)} = (-1)^{m(m-1)/2}\).
-% 则 \(\operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)} = 1\).
-不难算出, \(\det {(K_m)} = 1\).
-则 \(\operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)}
-= \det {(K_m)} = 1\).
-由 \(\operatorname{pf} {(K_m)}
-= \operatorname{pf} {(A^{\mathrm{T}} K_m A)}
-= \operatorname{pf} {(K_m)} \det {(A)}\),
-知 \(\operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)}
-= \operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)} \det {(A)}\),
-即 \(1 = 1 \det {(A)} = \det {(A)}\).
-
-当然, 还有别的证明辛阵的行列式为 \(1\) 的方法,
-但我就不在这儿说它们了.
-
-\subfile{postrakonto - eksplicita esprimo de la pfaffo}
-
-\end{document}
-
-This material discusses determinants of skew-symmetric matrices.
-
-I define pfaffians of skew-symmetric matrices recursively,
-instead of giving an explicit formula
-(that resembles the Leibniz formula for determinants)
-or using the theory of polynomials.
-
-With the recursive definition,
-one can (essentially) prove (in an easy manner) that
-pf (E^T A E) = pf (A) det (E),        ...(1)
-in which A is a skew-symmetric matrix
-and E is an elementary matrix (of the same size of that of A)
-(the reason for which I say "(essentially)" is
-that I only explicitly use one kind of elementary matrices,
-which replace one row/column by
-the sum of that row/column
-and a multiple of another row/column),
-by which one can prove that Equation (1) holds
-for every skew-symmetric matrix A
-and every elementary matrix E (of the same size of that of A).
-One will learn
-how powerful elementary row/column operations are.
-
-Incidentally, the recursive definition
-unifies the two cases
-that the size of A (a skew-symmetric matrix) is even
-and that the size of A is odd,
-so one can also speak of
-the pfaffian of a skew-symmetric matrix of odd size,
-which is (always) zero;
-some materials only define pfaffians
-for skew-symmetric matrices of even size.
-(However, this point does not really matter.)
-
-Finally, I prove that the pfaffian can be also expressed explicitly.
-
-I am convinced that the material presented here
-is a very elementary introduction to pfaffians.
