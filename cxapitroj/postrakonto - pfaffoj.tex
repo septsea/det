@@ -413,7 +413,7 @@
 
 \section{反称阵}
 
-从本节开始, 我们讨论反称阵与其性质.
+从本节开始, 我们讨论反称阵与它的性质.
 
 \begin{definition}
     设 \(A\) 是一个 \(n\)~级阵.
@@ -974,7 +974,7 @@
     注意, \(A(1,i|1,i)\) 是 \(n - 2\)~级,
     即 \(2(k-1) - 1\)~级反称阵;
     由假定,
-    其行列式为 \(0\).
+    它的行列式为 \(0\).
     再注意, \(n = 2k - 1\),
     故 \(1 + (-1)^n = 0\).
     所以, \(\det {(A)} = 0\).
@@ -1122,7 +1122,7 @@
 \begin{proof}
     前面的说明就是一个证明.
     当然, 不考虑前面的说明, 我们也可直接用阵的积的定义验证它.
-    毕竟, 我们的目标是
+    我们的目标是
     \begin{equation*}
         [A E(n; p, q; s)]_{i,j}
         = \begin{cases}
@@ -1177,14 +1177,24 @@
 且 \(p \neq q\).
 
 不难看出, \(E(n; p, q; s)\) 的行列式为 \(1\):
-毕竟, 这是对单位阵作一次倍加后得到的方阵,
+这是对单位阵作一次倍加后得到的方阵,
 且单位阵的行列式为 \(1\).
 
 不难验证, \(E(n; p, q; s)\) 的转置是
 \(E(n; q, p; s)\);
 比较这二个阵的元即可.
 
-最后, 我说, 用阵的积表示倍加是好的.
+注意,
+当 \(n = 1\) 时, 不存在不超过 \(n\),
+且互不相同的正整数 \(p\), \(q\).
+不过, 回想, 不变也是倍加.
+那么, 我们约定, 当 \(n = 1\) 时,
+无论 \(p\), \(q\), \(s\) 是什么,
+\(E(n; p, q; s)\),
+即 \(E(1; p, q; s)\),
+表示且只表示 \(1\)~级单位阵 \(I_1 = [1]\).
+
+用阵的积表示倍加是好的.
 我们知道, 阵的积适合一些运算律,
 故我们或可用阵的运算律发现倍加的某些规律;
 反过来, 我们也或可用倍加发现阵的一些性质.
@@ -1373,8 +1383,7 @@
     其中 \(p \neq q\)),
     然后立即作一次对应的行的倍加
     (加行~\(p\) 的 \(s\)~倍于行~\(q\)).
-    然后再作一次列的, 且再作一次对应的行的 (若还有)
-    …….
+    然后再作一次列的, 且再作一次对应的行的 (若还有).
 
     当然, 若 \(n = 2\), 则 \(A\) 已形如
     \begin{align*}
@@ -1419,7 +1428,7 @@
     得 \(Q(n)\) 是对的.
 
     任取一个 \(n\)~级反称阵 \(A\).
-    我们先说明:
+    我们先说明,
     存在若干次列的倍加, 与对应的行的倍加,
     其变 \(A\) 为一个反称阵 \(C\),
     其中
@@ -1547,7 +1556,7 @@
     且无论如何对 \(C\) 的不是行~\(1\) 或行~\(2\) 的行作倍加,
     得到的阵的
     \((1, j)\)-元, \((2, j)\)-元, \((j, 1)\)-元, \((j, 2)\)-元%
-    是 \(0\).
+    是 \(0\) \((j > 2)\).
     所以, 作若干次列的倍加, 与对应的行的倍加后,
     我们可变 \(C\) 为一个 \(n\)~级反称阵 \(B\),
     使当 \(i \leq 2\) 或 \(j \leq 2\) 时,
@@ -1695,7 +1704,7 @@
 还有一件事值得提.
 注意, 倍加不改变行列式.
 由此, 我们立得, 奇数级反称阵的行列式为 \(0\):
-毕竟, 利用倍加, 我们可变一个奇数级反称阵为%
+利用倍加, 我们可变一个奇数级反称阵为%
 一个至少有一列的元全为 \(0\) 的阵.
 
 \section{Pfaffian}
@@ -1705,9 +1714,11 @@
 本节, 我们学习反称阵的另一个属性.
 它也是重要的, 且与行列式有关.
 
-\begin{definition}[pfaffian]
+\begin{definition}
     设 \(A\) 是 \(n\)~级反称阵.
-    定义 \(A\)~的 \emph{pfaffian} 为
+    定义 \(A\)~的 \emph{pfaffian}
+    \pinjino{fāfìyan}
+    为
     \begin{align*}
         \operatorname{pf} {(A)} =
         \begin{dcases}
@@ -1723,8 +1734,8 @@
     \end{align*}
 \end{definition}
 
-% 据说, 这是英国数学家 Arthur Cayley
-% 用德国数学家 Johann Friedrich Pfaff 的姓%
+% 据说, 这是英国数学人 Arthur Cayley
+% 用德国数学人 Johann Friedrich Pfaff 的姓%
 % 命名的概念.
 
 注意, 我们只对反称阵定义 pfaffian.
@@ -2509,7 +2520,7 @@
     \(C({1,j}|{1,j})\)
     适合:
 
-    (1\ensuremath{'})
+    (1\('\))
     \([A({1,j}|{1,j})]_{u,v}
     = [B({1,j}|{1,j})]_{u,v}
     = [C({1,j}|{1,j})]_{u,v}\),
@@ -2517,7 +2528,7 @@
     = q - 1 - \rho(q, j)\),
     且不超过 \(n-2\) 的正整数 \(u\), \(v\);
 
-    (2\ensuremath{'})
+    (2\('\))
     \([C({1,j}|{1,j})]_{u,v}
     = s [A({1,j}|{1,j})]_{u,v}
     + t [B({1,j}|{1,j})]_{u,v}\),
@@ -3755,9 +3766,11 @@
     形式地, 这是按列~\(j\) 展开 pfaffian.
 \end{example}
 
-\section{阵的积与倍加 (续)}
+\section{阵的积、倍加、倍乘}
 
-本节, 我们进一步地讨论阵的积与 (列的) 倍加的关系.
+回想, 倍加是加一个阵的一列 (或一行) 的倍于另一列 (或另一行).
+本节, 我们进一步地讨论阵的积与倍加的关系.
+并且, 我们会讨论新的行为, 倍乘.
 
 回想, 我们有如下结论.
 
@@ -3774,25 +3787,739 @@
     \end{restatable}
 }{\TheoremMultiplyAndAdd*}
 
-那么, 特别地, 取 \(A\) 为方阵, 有
+% 完全类似地, 或用转置, 我们可证
+
+% \begin{theorem}
+%     设 \(A\) 是一个 \(m \times n\)~阵.
+%     利用若干次 (行的) 倍加,
+%     我们可变 \(A\) 为一个 \(m \times n\)~阵 \(B\),
+%     使当 \(i > j\) 时,
+%     \([B]_{i,j} = 0\).
+% \end{theorem}
+
+% 我们知道, 我们可用阵的积表示倍加.
+% 于是
+
+% \begin{theorem}
+%     设 \(A\) 是一个 \(m \times n\)~阵.
+
+%     (1)
+%     存在若干个形如 \(E(n; p, q; s)\)
+%     (\(s\) 是一个数,
+%     \(p\), \(q\) 是不超过 \(n\) 的正整数,
+%     且 \(p \neq q\))
+%     的阵
+%     \(E_1\), \(E_2\), \(\dots\), \(E_w\),
+%     使当 \(i < j\) 时,
+%     \([A E_1 E_2 \dots E_w]_{i,j} = 0\).
+
+%     回想, \(E(n; p, q; s)\)
+%     (\(s\) 是一个数,
+%     \(p\), \(q\) 是不超过 \(n\) 的正整数,
+%     且 \(p \neq q\))
+%     是适合如下条件的 \(n\)~级阵:
+%     \begin{align*}
+%         [E(n; p, q; s)]_{i,j}
+%         = \begin{cases}
+%               s,           & \text{\(i = p\), 且 \(j = q\)}; \\
+%               [I_n]_{i,j}, & \text{其他}.
+%           \end{cases}
+%     \end{align*}
+
+%     (2)
+%     存在若干个形如 \(E(m; p, q; s)\)
+%     (\(s\) 是一个数,
+%     \(p\), \(q\) 是不超过 \(m\) 的正整数,
+%     且 \(p \neq q\))
+%     的阵
+%     \(F_1\), \(F_2\), \(\dots\), \(F_v\),
+%     使当 \(i > j\) 时,
+%     \([F_v \dots F_2 F_1 A]_{i,j} = 0\).
+% \end{theorem}
+
+通俗地, 对 \(m \times n\)~阵,
+我们总可作列的倍加, 以变一些元为 \(0\).
+
+若我们既作列的倍加, 且也作行的倍加, 则我们有
 
 \begin{theorem}
-    设 \(A\) 是 \(n\)~级阵.
-    利用若干次列的倍加,
-    我们可变 \(A\) 为 \(n\)~级阵 \(B\),
-    使当 \(i < j\) 时,
-    \([B]_{i,j} = 0\).
+    设 \(A\) 是一个 \(m \times n\)~阵.
+    利用若干次列的倍加与行的倍加,
+    我们可变 \(A\) 为一个 \(m \times n\)~阵 \(B\),
+    使当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
 \end{theorem}
 
-通俗地, 对任何 \(n\)~级阵
+\begin{proof}
+    我们用数学归纳法证明此事.
+    具体地, 设 \(P(n)\) 为命题
+    \begin{quotation}
+        对任何正整数 \(m\),
+        对任何 \(m \times n\)~阵 \(A\),
+        利用若干次列的倍加与行的倍加,
+        我们可变 \(A\) 为一个 \(m \times n\)~阵 \(B\),
+        使当 \(i \neq j\) 时,
+    \([B]_{i,j} = 0\).
+    \end{quotation}
+    则, 我们的目标是:
+    对任何正整数 \(n\), \(P(n)\) 是对的.
+
+    我们先说明, \(P(1)\) 是对的.
+    设 \(A\) 是 \(m \times 1\)~阵.
+
+    若 \(A = 0\), 我们不变, 取 \(B\) 为 \(A\).
+
+    若 \([A]_{1,1} \neq 0\),
+    加行~\(1\) 的 \(-[A]_{i,1}/[A]_{1,1}\) 倍于行~\(i\)
+    (\(i = 2\), \(3\), \(\dots\), \(m\)),
+    得 \(m \times 1\)~阵 \(C\).
+    则 \(i \neq 1\) 时,
+    \([C]_{i,1}
+        = [A]_{i,1} + (-[A]_{i,1}/[A]_{1,1}) [A]_{1,1}
+    = 0\).
+    取 \(B\) 为 \(C\) 即可.
+
+    若 \([A]_{1,1} = 0\), 但某 \([A]_{k,1} \neq 0\)
+    (\(k \neq 1\)),
+    加行~\(k\) (的 \(1\)~倍) 于行~\(1\),
+    得 \(m \times 1\)~阵 \(D\).
+    则 \([D]_{1,1} = [A]_{k,1} \neq 0\).
+    问题被变为前面讨论过的情形.
+
+    综上, \(P(1)\) 是对的.
+
+    假定 \(P(n-1)\) 是对的.
+    我们由此证 \(P(n)\) 也是对的.
+
+    任取正整数 \(m\).
+    任取一个 \(m \times n\)~阵 \(A\).
+
+    我们先说明, 利用若干次倍加,
+    我们可变 \(A\) 为一个 \(m \times n\)~阵 \(C\),
+    使当 \(i \neq 1\) 时, \([C]_{i,1} = 0\),
+    且当 \(j \neq 1\) 时, \([C]_{1,j} = 0\).
+
+    若 \(A\) 的行~\(1\) 的与列~\(1\) 的元全为 \(0\),
+    我们不变, 取 \(C\) 为 \(A\).
+
+    若 \([A]_{1,1} \neq 0\),
+    对 \(A\), 加列~\(1\) 的
+    \(-[A]_{1,j} / [A]_{1,1}\)~倍于列~\(j\)
+    (\(j = 2\), \(3\), \(\dots\), \(n\)),
+    得 \(m \times n\)~阵 \(A_1\).
+    则 \(j \neq 1\) 时,
+    \([A_1]_{1,j}
+        = [A]_{1,j} + (-[A]_{1,j}/[A]_{1,1}) [A]_{1,1}
+    = 0\).
+    注意, \([A_1]_{1,1} = [A]_{1,1} \neq 0\).
+    然后, 对 \(A_1\), 加行~\(1\) 的
+    \(-[A_1]_{i,1}/[A_1]_{1,1}\) 倍于行~\(i\)
+    (\(i = 2\), \(3\), \(\dots\), \(m\)),
+    得 \(m \times n\)~阵 \(A_2\).
+    则 \(i \neq 1\) 时,
+    \([A_2]_{i,1}
+        = [A_1]_{i,1} + (-[A_1]_{i,1}/[A_1]_{1,1}) [A_1]_{1,1}
+    = 0\).
+    我们取 \(C\) 为 \(A_2\).
+
+    若 \([A]_{1,1} = 0\), 但某 \([A]_{1,\ell} \neq 0\)
+    (\(\ell \neq 1\)),
+    加列~\(\ell\) (的 \(1\)~倍) 于列~\(1\),
+    得 \(m \times n\)~阵 \(D_1\).
+    则 \([D_1]_{1,1} = [A]_{1,\ell} \neq 0\).
+    问题被变为前面讨论过的情形.
+
+    若 \([A]_{1,1} = 0\), 但某 \([A]_{k,1} \neq 0\)
+    (\(k \neq 1\)),
+    加行~\(k\) (的 \(1\)~倍) 于行~\(1\),
+    得 \(m \times n\)~阵 \(D_2\).
+    则 \([D_2]_{1,1} = [A]_{k,1} \neq 0\).
+    问题被变为前面讨论过的情形.
+
+    综上, 作若干次倍加,
+    我们可变 \(A\) 为一个 \(m \times n\)~阵 \(C\),
+    使当 \(i \neq 1\) 时, \([C]_{i,1} = 0\),
+    且当 \(j \neq 1\) 时, \([C]_{1,j} = 0\).
+
+    考虑 \(C\) 的右下角的 \((m-1) \times (n-1)\)~子阵
+    \(C(1|1)\).
+    由假定, 作若干次倍加, 我们可变 \(C(1|1)\) 为一个
+    \((m-1) \times (n-1)\)~阵 \(G\),
+    使当 \(i \neq j\) 时, \([G]_{i,j} = 0\).
+
+    注意, 既然当 \(i \neq 1\) 时, \([C]_{i,1} = 0\),
+    且当 \(j \neq 1\) 时, \([C]_{1,j} = 0\),
+    那么, 无论如何对 \(C\) 的不是列~\(1\) 的列作倍加,
+    且无论如何对 \(C\) 的不是行~\(1\) 的行作倍加,
+    得到的阵的 \((i, 1)\)-元与 \((1, j)\)-元都是 \(0\)
+    (\(i\), \(j \neq 1\)).
+    那么, 作若干次倍加后,
+    我们可变 \(C\) 为一个 \(m \times n\)~阵 \(B\),
+    使当 \(i = 1\) 或 \(j = 1\) 时,
+    \([B]_{i,j} = [C]_{i,j}\),
+    且当 \(i \neq 1\) 且 \(j \neq 1\) 时,
+    \([B]_{i,j} = [G]_{i-1,j-1}\).
+    所以, 当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
+
+    所以, \(P(n)\) 是对的.
+    由数学归纳法, 待证命题成立.
+\end{proof}
+
+注意,
+一次列的倍加可被认为是先作这个列的倍加,
+再作一次 ``什么也不作'' 的行的倍加
+(加一行的 \(0\) 倍于另一行),
+且一次行的倍加可被认为是先作一次 ``什么也不作'' 的列的倍加
+(加一列的 \(0\) 倍于另一列),
+再作这个行的倍加.
+若我们用阵的积写此事, 则它是明显的:
+\begin{align*}
+    A E(n; p_1, q_1; s_1) & = I_m (A E(n; p_1, q_1; s_1))
+    = E(m; u, v; 0) (A E(n; p_1, q_1; s_1)),              \\
+    E(m; p_2, q_2; s_2) A & = E(m; p_2, q_2; s_2) (A I_n)
+    = E(m; p_2, q_2; s_2) (A E(n; u, v; 0)),
+\end{align*}
+其中, \(A\) 是 \(m \times n\)~阵.
+并且,
+\begin{align*}
+    (E(m; p_4, q_4; s_4) A) E(n; p_3, q_3; s_3)
+    = E(m; p_4, q_4; s_4) (A E(n; p_3, q_3; s_3)).
+\end{align*}
+于是, 作倍加时,
+我们可使列的倍加的次数与行的倍加的次数相等,
+且我们可先列后行, 交替地作
+(先作一次列的倍加, 且再作一次行的倍加;
+然后, 又先作一次列的倍加, 且再作一次行的倍加, 若还有).
+
+\begin{theorem}
+    设 \(A\) 是一个 \(m \times n\) 阵.
+    则存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(G_1\), \(G_2\), \(\dots\), \(G_u\),
+    与若干个形如 \(E(m; p', q'; s')\)
+    (\(s'\) 是一个数,
+    \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
+    且 \(p' \neq q'\))
+    的阵
+    \(H_1\), \(H_2\), \(\dots\), \(H_u\),
+    使当 \(i \neq j\) 时,
+    \([(H_u \dots H_2 H_1) A (G_1 G_2 \dots G_u)]_{i,j} = 0\).
+\end{theorem}
+
+\begin{proof}
+    由上个定理,
+    存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(G_1\), \(G_2\), \(\dots\), \(G_u\),
+    与若干个形如 \(E(m; p', q'; s')\)
+    (\(s'\) 是一个数,
+    \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
+    且 \(p' \neq q'\))
+    的阵
+    \(H_1\), \(H_2\), \(\dots\), \(H_u\),
+    使
+    \begin{align*}
+        H_u (\dots (H_2 (H_1 A G_1) G_2) \dots) G_u
+    \end{align*}
+    的 \((i, j)\)-元为 \(0\), 若 \(i \neq j\).
+    由结合律, 上式相当于
+    \begin{equation*}
+        (H_u \dots H_2 H_1) A (G_1 G_2 \dots G_u).
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(p\), \(q\) 是不超过 \(n\) 的正整数, 且 \(p \neq q\).
+    设 \(s\) 是数.
+    则
+    \begin{align*}
+        E(n; p, q; s) E(n; p, q; -s)
+        = I_n
+        = E(n; p, q; -s) E(n; p, q; s).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, \(E(n; p, q; s) E(n; p, q; -s)\) 可被认为是由加
+    \(E(n; p, q; s)\) 的列~\(p\) 的 \(-s\) 于列~\(q\) 得到的 \(n\)~级阵.
+    当 \(j \neq q\) 时, \(E(n; p, q; s)\) 的列~\(j\) 是 \(I_n\) 的列~\(j\);
+    当 \(j = q\) 时, \(E(n; p, q; s)\) 的列~\(j\) 是
+    \(I_n\) 的列~\(q\) 加 \(I_n\) 的列~\(p\) 的 \(s\) 倍.
+    所以, 当 \(j \neq q\) 时,
+    \(E(n; p, q; s) E(n; p, q; -s)\) 的列~\(j\) 是
+    \(E(n; p, q; s)\) 的列~\(j\),
+    即 \(I_n\) 的列~\(j\);
+    当 \(j = q\) 时,
+    \(E(n; p, q; s) E(n; p, q; -s)\) 的列~\(j\) 是
+    \(E(n; p, q; s)\) 的列~\(q\)
+    加 \(E(n; p, q; s)\) 的列~\(p\) 的 \(-s\) 倍,
+    即 \(I_n\) 的列~\(q\) 加 \(I_n\) 的列~\(p\) 的 \(s\) 倍,
+    再加 \(I_n\) 的列~\(p\) 的 \(-s\) 倍,
+    即 \(I_n\) 的列~\(q\).
+    则 \(E(n; p, q; s) E(n; p, q; -s) = I_n\).
+
+    若我们代 \(s\) 以 \(-s\),
+    则 \(-s\) 被代以 \(-(-s) = s\).
+    则 \(E(n; p, q; -s) E(n; p, q; s) = I_n\).
+\end{proof}
+
+由此, 我们有
+
+% restatable
+\begin{restatable}{theorem}{TheoremMultiplyMultiplyAddUnu}
+    设 \(A\) 是一个 \(m \times n\) 阵.
+    则存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(E_1\), \(E_2\), \(\dots\), \(E_u\),
+    与若干个形如 \(E(m; p', q'; s')\)
+    (\(s'\) 是一个数,
+    \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
+    且 \(p' \neq q'\))
+    的阵
+    \(F_1\), \(F_2\), \(\dots\), \(F_u\),
+    与 \(m \times n\)~阵 \(D\),
+    使
+    \(A = (F_1 F_2 \dots F_u) D (E_u \dots E_2 E_1)\),
+    且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+\end{restatable}
+
+\begin{proof}
+    我们知道,
+    存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(G_1\), \(G_2\), \(\dots\), \(G_u\),
+    与若干个形如 \(E(m; p', q'; s')\)
+    (\(s'\) 是一个数,
+    \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
+    且 \(p' \neq q'\))
+    的阵
+    \(H_1\), \(H_2\), \(\dots\), \(H_u\),
+    使
+    \([D]_{i,j} = 0\),
+    若 \(i \neq j\),
+    其中,
+    \(D = (H_u \dots H_2 H_1) A (G_1 G_2 \dots G_u)\).
+
+    我们知道,
+    存在形如 \(E(n; p, q; s)\) 的阵 \(E_k\), 使
+    \(G_k E_k = I_n\),
+    且存在形如 \(E(m; p', q'; s')\) 的阵 \(F_k\), 使
+    \(F_k H_k = I_m\)
+    (\(k = 1\), \(2\), \(\dots\), \(u\)).
+    则
+    \begin{align*}
+        %  &
+        (F_1 F_2 \dots F_u) (H_u \dots H_2 H_1)
+        % \\
+        = {} &
+        F_1 (F_2 \dots (F_{u-1} (F_u H_u) H_{u-1}) \dots H_2) H_1
+        \\
+        = {} &
+        F_1 (F_2 \dots (F_{u-1} I_m H_{u-1}) \dots H_2) H_1
+        \\
+        = {} &
+        F_1 (F_2 \dots (F_{u-1} H_{u-1}) \dots H_2) H_1
+        \\
+        = {} &
+        \dots
+        \\
+        = {} &
+        F_1 H_1
+        \\
+        = {} &
+        I_m.
+    \end{align*}
+    类似地,
+    \((G_1 G_2 \dots G_u) (E_u \dots E_2 E_1) = I_n\).
+    则
+    \begin{align*}
+        A
+        = {} &
+        I_m A I_n
+        \\
+        = {} &
+        ((F_1 F_2 \dots F_u) (H_u \dots H_2 H_1))
+        A
+        ((G_1 G_2 \dots G_u) (E_u \dots E_2 E_1))
+        \\
+        = {} &
+        (F_1 F_2 \dots F_u)
+        ((H_u \dots H_2 H_1) A (G_1 G_2 \dots G_u))
+        (E_u \dots E_2 E_1)
+        \\
+        = {} &
+        (F_1 F_2 \dots F_u) D (E_u \dots E_2 E_1).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+由此可见, 我们可写一个 \(m \times n\)~阵为一些形如
+\(E(m; p', q'; s')\),
+与 \(m \times n\)~阵 \(D\),
+与一些形如 \(E(n; p, q; s)\) 的阵的积,
+其中, 当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+我们知道, 若 \(B\) 的列数为 \(n\),
+则 \(B E(n; p, q; s)\)
+是加 \(B\)~的列 \(p\) 的 \(s\)~倍于列~\(q\) 得到的阵.
+那么, 若 \(C\) 的列数为 \(m\),
+则 \(C D\) 是什么?
+
+\begin{theorem}
+    设 \(C\) 是 \(t \times m\)~阵.
+    设 \(D\) 是 \(m \times n\)~阵,
+    且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    则 \(CD\) 是这样的 \(t \times n\)~阵:
+    \(CD\) 的列~\(j\) 是 \(C\) 的列~\(j\) 的 \(d_j\)~倍
+    (\(j = 1\), \(2\), \(\dots\), \(n\)),
+    其中,
+    \begin{align*}
+        d_j =
+        \begin{cases}
+            [D]_{j,j}, & \text{\(j \leq m\), 且 \(j \leq n\)}; \\
+            0,         & \text{其他}.
+        \end{cases}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        [C D]_{i,j}
+        = \sum_{\ell = 1}^{m} {[C]_{i,\ell} [D]_{\ell,j}}.
+    \end{align*}
+
+    若 \(j > m\),
+    则 \(j > m \geq \ell\).
+    从而 \([D]_{\ell,j} = 0\).
+    另一方面, \(d_j = 0\).
+    则 \([C D]_{i,j} = 0 = [C]_{i,j}\, d_j\).
+
+    若 \(j \leq m\), 且 \(j \leq n\),
+    \begin{align*}
+        [C D]_{i,j}
+        = {} &
+        \sum_{\ell = 1}^{m} {[C]_{i,\ell} [D]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{\substack{1 \leq \ell \leq m \\ \ell = j}}
+        {[C]_{i,\ell} [D]_{\ell,j}}
+        +
+        \sum_{\substack{1 \leq \ell \leq m \\ \ell \neq j}}
+        {[C]_{i,\ell} [D]_{\ell,j}}
+        \\
+        = {} &
+        [C]_{i,j} [D]_{j,j}
+        +
+        \sum_{\substack{1 \leq \ell \leq m \\ \ell \neq j}}
+        {[C]_{i,\ell}\, 0}
+        \\
+        = {} &
+        [C]_{i,j}\, d_j.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+由此, 我们定义
+
+\begin{definition}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(q\) 是不超过 \(n\) 的正整数.
+    设 \(s\) 是数.
+    作 \(m \times n\)~阵 \(B\), 其中,
+    \begin{align*}
+        [B]_{i,j} =
+        \begin{cases}
+            [A]_{i,j},   & j \neq q; \\
+            s [A]_{i,q}, & j = q.
+        \end{cases}
+    \end{align*}
+    (通俗地, 以 \(s\) 乘 \(A\) 的列~\(q\),
+    且不改变其他的列, 得阵 \(B\).)
+    我们说, 变 \(A\) 为 \(B\) 的行为是一次\emph{倍乘}.
+\end{definition}
+
+由上个定理, 我们有
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(q\) 是不超过 \(n\) 的正整数.
+    设 \(s\) 是数.
+    作 \(n\)~级阵 \(M(n; q; s)\), 其中,
+    \begin{align*}
+        [M(n; q; s)]_{i,j} =
+        \begin{cases}
+            [I_n]_{i,j},   & j \neq q; \\
+            s [I_n]_{i,q}, & j = q.
+        \end{cases}
+    \end{align*}
+    (通俗地, 以 \(s\) 乘 \(I_n\) 的列~\(q\),
+    且不改变其他的列, 得阵 \(M(n; q; s)\).)
+    则
+    \begin{align*}
+        [A M(n; q; s)]_{i,j} =
+        \begin{cases}
+            [A]_{i,j},   & j \neq q; \\
+            s [A]_{i,q}, & j = q.
+        \end{cases}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, 以 \(1\) 乘一个数 (或一个阵) 不改变此数 (或此阵).
+    再注意, 当 \(i \neq j\) 时,
+    \([M(n; q; s)]_{i,j} = 0\).
+    取上个定理的 \(C\), \(D\)
+    为 \(A\), \(M(n; q; s)\) 即可.
+\end{proof}
+
+由此, 我们有
+
+\begin{theorem}
+    设 \(D\) 是 \(n\)~级阵,
+    且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    则
+    \begin{align*}
+        D =
+        M(n; 1; [D]_{1,1})
+        M(n; 2; [D]_{2,2})
+        \dots
+        M(n; n; [D]_{n,n}).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, \(D\) 可被认为是分别以
+    \([D]_{1,1}\), \([D]_{2,2}\), \(\dots\), \([D]_{n,n}\)
+    乘 \(I_n\) 的列~\(1\), \(2\), \(\dots\), \(n\)
+    得到的阵.
+    则
+    \begin{align*}
+        D
+        = {} &
+        (((I_n M(n; 1; [D]_{1,1})) M(n; 2; [D]_{2,2}))
+        \dots) M(n; n; [D]_{n,n})
+        \\
+        = {} &
+        I_n (M(n; 1; [D]_{1,1}) M(n; 2; [D]_{2,2})
+        \dots M(n; n; [D]_{n,n}))
+        \\
+        = {} &
+        M(n; 1; [D]_{1,1})
+        M(n; 2; [D]_{2,2})
+        \dots
+        M(n; n; [D]_{n,n}).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+% restatable
+\begin{restatable}{theorem}{TheoremMultiplyMultiplyAddDu}
+    设 \(A\) 是一个 \(n\)~级阵.
+    则存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(E_1\),
+    \(F_1\),
+    \(E_2\),
+    \(F_2\),
+    \(\dots\),
+    \(E_u\),
+    \(F_u\),
+    与若干个形如 \(M(n; q'; s')\) 的阵
+    \(M_1\), \(M_2\), \(\dots\), \(M_n\),
+    使
 \begin{align*}
     A =
+        F_1 F_2 \dots F_u
+        M_1 M_2 \dots M_n
+        E_u \dots E_2 E_1.
+    \end{align*}
+\end{restatable}
+
+\begin{proof}
+    我们知道, 对 \(n\)~级阵 \(A\),
+    存在若干个形如 \(E(n; p, q; s)\)
+    (\(s\) 是一个数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    且 \(p \neq q\))
+    的阵
+    \(E_1\), \(E_2\), \(\dots\), \(E_u\),
+    与若干个形如 \(E(n; p', q'; s')\)
+    (\(s'\) 是一个数,
+    \(p'\), \(q'\) 是不超过 \(n\) 的正整数,
+    且 \(p' \neq q'\))
+    的阵
+    \(F_1\), \(F_2\), \(\dots\), \(F_u\),
+    与 \(n\)~级阵 \(D\),
+    使
+    \(A = (F_1 F_2 \dots F_u) D (E_u \dots E_2 E_1)\),
+    且当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    我们也知道, 对 \(D\),
+    存在若干个形如 \(M(n; q''; s'')\) 的阵
+    \(M_1\), \(M_2\), \(\dots\), \(M_n\),
+    使 \(D = M_1 M_2 \dots M_n\).
+    则
+    \begin{align*}
+        A
+        = {} &
+        (F_1 F_2 \dots F_u) D (E_u \dots E_2 E_1)
+        \\
+        = {} &
+        (F_1 F_2 \dots F_u)
+        (M_1 M_2 \dots M_n)
+        (E_u \dots E_2 E_1)
+        \\
+        = {} &
+        F_1 F_2 \dots F_u
+        M_1 M_2 \dots M_n
+        E_u \dots E_2 E_1.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+我们以一个例结束本节.
+
+\begin{example}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(p\), \(q\) 是不超过 \(n\),
+    且不等的正整数.
+
+    对 \(A\),
+    加列~\(q\) 到列~\(p\),
+    得 \(m \times n\)~阵 \(A_1\).
+    则当 \(j \neq p\) 且 \(j \neq q\) 时,
+    \(A_1\) 的列~\(j\) 是 \(A\) 的列~\(j\);
+    当 \(j = p\) 时,
+    \(A_1\) 的列~\(j\) 是
+    \(A\) 的列~\(p\) 加 \(A\) 的列 \(q\);
+    当 \(j = q\) 时,
+    \(A_1\) 的列~\(j\) 是 \(A\) 的列~\(q\).
+
+    对 \(A_1\),
+    加列~\(p\) 的 \(-1\)~倍到列~\(q\),
+    得 \(m \times n\)~阵 \(A_2\).
+    则当 \(j \neq p\) 且 \(j \neq q\) 时,
+    \(A_2\) 的列~\(j\) 是 \(A_1\) 的列~\(j\),
+    即 \(A\) 的列 \(j\);
+    当 \(j = p\) 时,
+    \(A_2\) 的列~\(j\) 是 \(A_1\) 的列~\(p\),
+    即 \(A\) 的列~\(p\) 加 \(A\) 的列 \(q\);
+    当 \(j = q\) 时,
+    \(A_2\) 的列~\(j\) 是
+    \(A_1\) 的列~\(q\) 加 \(A_1\) 的列~\(p\) 的 \(-1\)~倍,
+    即 \(A\) 的列~\(p\) 的 \(-1\)~倍.
+
+    对 \(A_2\),
+    加列~\(q\) 到列~\(p\),
+    得 \(m \times n\)~阵 \(A_3\).
+    则当 \(j \neq p\) 且 \(j \neq q\) 时,
+    \(A_3\) 的列~\(j\) 是 \(A_2\) 的列~\(j\),
+    即 \(A\) 的列 \(j\);
+    当 \(j = p\) 时,
+    \(A_3\) 的列~\(j\) 是
+    \(A_2\) 的列~\(p\) 加 \(A_2\) 的列~\(q\),
+    即 \(A\) 的列~\(p\) 加 \(A\) 的列 \(q\),
+    再加 \(A\) 的列~\(p\) 的 \(-1\)~倍,
+    即 \(A\) 的列 \(q\);
+    当 \(j = q\) 时,
+    \(A_3\) 的列~\(q\) 是 \(A_2\) 的列~\(q\),
+    即 \(A\) 的列~\(p\) 的 \(-1\)~倍.
+
+    由此可见,
+    三次列的倍加 ``几乎'' 可交换阵的二列.
+    具体地,
+    \begin{align*}
+        [A E(n; q, p; 1) E(n; p, q; -1) E(n; q, p; 1)]_{i,j}
+        = \begin{cases}
+              [A]_{i,q},  & \text{\(j = p\)}; \\
+              -[A]_{i,p}, & \text{\(j = q\)}; \\
+              [A]_{i,j},  & \text{其他}.
+          \end{cases}
+    \end{align*}
+
+    进一步地, 对 \(A_3\), 若我们以 \(-1\) 乘列 \(q\),
+    得 \(m \times n\)~阵 \(A_4\),
+    则当 \(j \neq p\) 且 \(j \neq q\) 时,
+    \(A_4\) 的列~\(j\) 是 \(A\) 的列~\(j\);
+    当 \(j = p\) 时,
+    \(A_4\) 的列~\(j\) 是 \(A\) 的列~\(q\);
+    当 \(j = q\) 时,
+    \(A_4\) 的列~\(j\) 是 \(A\) 的列~\(p\).
+
+    由此可见,
+    三次列的倍加与一次列的倍乘可交换阵的二列.
+    具体地,
+    \begin{align*}
+        [A E(n; q, p; 1) E(n; p, q; -1) E(n; q, p; 1)
+            M(n; q; -1)]_{i,j}
+        = \begin{cases}
+              [A]_{i,q}, & \text{\(j = p\)}; \\
+              [A]_{i,p}, & \text{\(j = q\)}; \\
+              [A]_{i,j}, & \text{其他}.
+          \end{cases}
+    \end{align*}
+\end{example}
+
+\section{\texorpdfstring{辛阵的行列式为 \(1\)}%
+  {辛阵的行列式为 1}}
+
+\begin{theorem}
+    设 \(K_m\) 是形如
+    \begin{align*}
     \begin{bmatrix}
-        [A]_{1,1}   & [A]_{1,2}   & \cdots & [A]_{1,n-1}   & [A]_{1,n}   \\
-        [A]_{2,1}   & [A]_{2,2}   & \cdots & [A]_{2,n-1}   & [A]_{2,n}   \\
-        \vdots      & \vdots      & {}     & \vdots        & \vdots      \\
-        [A]_{n-1,1} & [A]_{n-1,2} & \cdots & [A]_{n-1,n-1} & [A]_{n-1,n} \\
-        [A]_{n,1}   & [A]_{n,2}   & \cdots & [A]_{n,n-1}   & [A]_{n,n}   \\
+            0    & I_m \\
+            -I_m & 0   \\
+        \end{bmatrix}
+    \end{align*}
+    的 \(2m\)~级反称阵.
+    设 \(2m\)~级阵 \(A\) 适合
+    \(A^{\mathrm{T}} K_m A = K_m\).
+    (我们说, \(A\) 是一个辛阵.)
+    则 \(\det {(A)} = 1\).
+\end{theorem}
+
+\begin{proof}
+    不难算出, \(\det {(K_m)} = 1\).
+    则
+    \begin{align*}
+        \operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)}
+        = \det {(K_m)} = 1.
+    \end{align*}
+    由
+    \begin{align*}
+        \operatorname{pf} {(K_m)}
+        = \operatorname{pf} {(A^{\mathrm{T}} K_m A)}
+        = \operatorname{pf} {(K_m)} \det {(A)},
+    \end{align*}
+    知
+    \begin{align*}
+        \operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)}
+        = \operatorname{pf} {(K_m)} \operatorname{pf} {(K_m)} \det {(A)},
+    \end{align*}
+    即
+    \begin{equation*}
+        1 = 1 \det {(A)} = \det {(A)}.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+% 当然, 还有别的证明辛阵的行列式为 \(1\) 的方法,
+% 但我就不在这儿说它们了.
     \end{bmatrix},
 \end{align*}
 我们总可作列的倍加, 变 \(A\) 为
@@ -4068,18 +4795,53 @@
     \end{align*}
 \end{theorem}
 
-% 回想, \(E(n; p, q; s)\)
-% (\(s\) 是一个数,
-% \(p\), \(q\) 是不超过 \(n\) 的正整数,
-% 且 \(p \neq q\))
-% 是适合如下条件的 \(n\)~级阵:
-% \begin{align*}
-%     [E(n; p, q; s)]_{i,j}
-%     = \begin{cases}
-%           s,           & \text{\(i = p\), 且 \(j = q\)}; \\
-%           [I_n]_{i,j}, & \text{其他}.
-%       \end{cases}
-% \end{align*}
+This material discusses determinants of skew-symmetric matrices.
+
+I define pfaffians of skew-symmetric matrices recursively,
+instead of giving an explicit formula
+(that resembles the Leibniz formula for determinants)
+or using the theory of polynomials.
+
+With the recursive definition,
+one can (essentially) prove (in an easy manner) that
+pf (E^T A E) = pf (A) det (E),        ...(1)
+in which A is a skew-symmetric matrix
+and E is an elementary matrix (of the same size of that of A)
+(the reason for which I say "(essentially)" is
+that I only explicitly use one kind of elementary matrices,
+which replace one row/column by
+the sum of that row/column
+and a multiple of another row/column),
+by which one can prove that Equation (1) holds
+for every skew-symmetric matrix A
+and every elementary matrix E (of the same size of that of A).
+One will learn
+how powerful elementary row/column operations are.
+
+Incidentally, the recursive definition
+unifies the two cases
+that the size of A (a skew-symmetric matrix) is even
+and that the size of A is odd,
+so one can also speak of
+the pfaffian of a skew-symmetric matrix of odd size,
+which is (always) zero;
+some materials only define pfaffians
+for skew-symmetric matrices of even size.
+(However, this point does not really matter.)
+
+Finally, I prove that the pfaffian can be also expressed explicitly.
+
+I am convinced that the material presented here
+is a very elementary introduction to pfaffians.
+
+---
+
+Postscript on 2025-07-13:
+
+There are more materials about "adding a multiple of
+a row to another" and "multiplying a row by a scalar".
+
+The section "Pfaffian 的性质 (续)" was rewritten.
 
 \section{Pfaffian 的性质 (续)}
 
@@ -4130,9 +4892,8 @@
         =
         \operatorname{pf} {(A)}
         \det {(E(n; p, q; s))}.
+        % \qedhere
     \end{equation*}
-    % a manual line break
-
 \end{proof}
 
 好的.
@@ -4377,9 +5138,8 @@
         \det {(P)} \operatorname{pf} {(A)}
         =
         \operatorname{pf} {(A)} \det {(P)}.
+        % \qedhere
     \end{equation*}
-    % a manual line break
-
 \end{proof}
 
 \section{\texorpdfstring{辛阵的行列式为 \(1\)}%

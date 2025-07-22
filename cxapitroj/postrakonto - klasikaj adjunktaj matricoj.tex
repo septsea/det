@@ -64,12 +64,12 @@
 那么, 若 \(xy = xz\), 或 \(yx = zx\),
 还有 \(y = z\) 吗?
 不一定.
-毕竟, 对任何数 \(a\), 必 \(0a = 0 = a0\).
+对任何数 \(a\), 必 \(0a = 0 = a0\).
 于是, 虽然 \(0 \cdot 0 = 0 \cdot 1\),
 但 \(0 \neq 1\).
 
-可是, 若我们还要求 \(x \neq 0\), 则 \(y = z\) 是对的.
-毕竟:
+可是, 若我们还要求 \(x \neq 0\), 则 \(y = z\) 是对的,
+因为:
 
 (5)
 存在数 \(1\), 使对任何数 \(a\), 必 \(1a = a = a1\);
@@ -156,13 +156,13 @@
 \end{proof}
 
 以上结论也可被推广.
-不过, 还是以上结论更常用, 更常见.
+% 不过, 还是以上结论更常用, 更常见.
 
 \begin{theorem}
     设 \(A\) 是一个 \(s \times n\)~阵.
     设 \(A\) 有一个行列式非零的 \(n\)~级子阵
     \begin{align*}
-        A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n},
+        L = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n},
     \end{align*}
     其中 \(1 \leq i_1 < \dots < i_n \leq s\).
     设 \(n \times m\)~阵 \(B\), \(C\) 适合 \(AB = AC\).
@@ -171,20 +171,39 @@
     设 \(H\) 是一个 \(n \times t\)~阵.
     设 \(H\) 有一个行列式非零的 \(n\)~级子阵
     \begin{align*}
-        H\binom{1,2,\dots,n}{j_1,j_2,\dots,j_n},
+        K = H\binom{1,2,\dots,n}{j_1,j_2,\dots,j_n},
     \end{align*}
     其中 \(1 \leq j_1 < \dots < j_n \leq t\).
     设 \(m \times n\)~阵 \(F\), \(G\) 适合 \(FH = GH\).
     则 \(F = G\).
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[证~1]
     我证第~1~个; 我留第~2~个为您的习题.
 
-    记
+    注意, \([L]_{p,v} = [A]_{i_p,v}\).
+    注意,
     \begin{align*}
-        L = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}.
+        [L B]_{u,j}
+        =
+        \sum_{p = 1}^{n} {[L]_{u,p} [B]_{p,j}}
+        =
+        \sum_{p = 1}^{n} {[A]_{i_u,p} [B]_{p,j}}
+            =
+            [A B]_{i_u,j}.
     \end{align*}
+    类似地, \([L C]_{u,j} = [A C]_{i_u,j}\).
+    因为 \(A B = A C\),
+    我们有 \([L B]_{u,j} = [L C]_{u,j}\).
+    注意, \(L B\) 与 \(L C\) 都是 \(n \times m\)~阵.
+    则 \(L B = L C\).
+    因为 \(\det {(L)} \neq 0\),
+    由上个定理, \(B = C\).
+\end{proof}
+
+\begin{proof}[证~2]
+    我证第~1~个; 我留第~2~个为您的习题.
+
     注意, \([L]_{p,v} = [A]_{i_p,v}\).
 
     从 \(1\), \(2\), \(\dots\), \(s\)
@@ -258,7 +277,7 @@
 
 一个 \(n\)~级阵 \(A\) 的古伴 \(\operatorname{adj} {(A)}\)
 是一个 \(n\)~级阵,
-其 \((i, j)\)-元
+其的 \((i, j)\)-元
 \begin{align*}
     [\operatorname{adj} {(A)}]_{i,j} = (-1)^{j+i} \det {(A(j|i))}.
 \end{align*}
@@ -337,11 +356,14 @@
     \end{align*}
 \end{proof}
 
-\begin{theorem}
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - pfaffoj.tex
+\begin{restatable}{theorem}{DetOfAdjugate}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
     则
     \(\det {(\operatorname{adj} {(A)})} = (\det {(A)})^{n-1}\).
-\end{theorem}
+\end{restatable}
 
 \begin{proof}
     注意,
@@ -826,12 +848,15 @@
 
 本节, 我们认识古伴的二个性质.
 
-\begin{theorem}
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - pfaffoj.tex
+\begin{restatable}{theorem}{AdjOfAdjugate}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
     则
     \(\operatorname{adj} {(\operatorname{adj} {(A)})}
     = (\det {(A)})^{n-2}\,A\).
-\end{theorem}
+\end{restatable}
 
 \begin{proof}
     设 \(n = 2\).
@@ -911,14 +936,17 @@
     = 0 = 0A = (\det {(A)})^{n-2}\,A\).
 \end{proof}
 
-\begin{theorem}
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - pfaffoj.tex
+\begin{restatable}{theorem}{AdjOfProduct}
     设 \(A\), \(B\) 是 \(n\)~级阵.
     则
     \begin{align*}
         \operatorname{adj} {(BA)}
         = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
     \end{align*}
-\end{theorem}
+\end{restatable}
 
 \begin{proof}
     注意,

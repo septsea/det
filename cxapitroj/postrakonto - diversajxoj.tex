@@ -110,7 +110,7 @@
     于是, 我们可分这些数为 \(n+1\)~组:
     适合 \(c_1 + c_2 + \dots + c_n = 0\) 的项在一组;
     适合 \(c_1 + c_2 + \dots + c_n = 1\) 的项在一组;
-    ……;
+    ……
     适合 \(c_1 + c_2 + \dots + c_n = n\) 的项在一组.
     不难看出,
     每一项在某一组里,
@@ -629,7 +629,7 @@
     另一方面, 我们%
     加列~\(m+1\) 的 \(b_1\)~倍于列~\(1\),
     加列~\(m+1\) 的 \(b_2\)~倍于列~\(2\),
-    ……,
+    ……
     加列~\(m+1\) 的 \(b_m\)~倍于列~\(m\),
     得 \(m+1\)~级阵
     \begin{align*}
@@ -649,7 +649,7 @@
     我们%
     加列~\(1\) 的 \(a_1\)~倍于列~\(m+1\),
     加列~\(1\) 的 \(a_2\)~倍于列~\(m+1\),
-    ……,
+    ……
     加列~\(1\) 的 \(a_m\)~倍于列~\(m+1\),
     得 \(m+1\)~级阵
     \begin{align*}
@@ -1362,7 +1362,7 @@
     \end{align*}
 
     (3)
-    (Cayley--Hamilton 定理)
+    (Cayley--Hamilton \pinjino{kēili--hāmérten} 定理)
     \begin{align*}
         c_0 A^{n} + c_1 A^{n-1} + \dots + c_{n} I = 0.
     \end{align*}
@@ -1493,242 +1493,6 @@
         0.
     \end{align*}
     则 (3) 被验证.
-\end{example}
-
-\begin{example}
-    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
-
-    (1)
-    \(f(A B) = f(A) f(B)\),
-    对任何 \(n\)~级阵 \(A\), \(B\);
-
-    (2)
-    若 \(n\)~级阵 \(D\) 适合
-    \([D]_{i,j} = 0\) (\(i \neq j\)),
-    则 \(f(D) = \det {(D)}\).
-    % (2)
-    % 若 \(n\)~级阵 \(D\) 适合 \([D]_{i,j} = 0\),
-    % 当 \(i \neq j\) 时,
-    % 则 \(f(D) = [D]_{1,1} [D]_{2,2} \dots [D]_{n,n}\).
-
-    我们说明, \(f(A) = \det {(A)}\),
-    对任何 \(n\)~级阵 \(A\).
-
-    设 \(A\) 是 \(n\)~级阵.
-    设 \(p\) 是不超过 \(n\) 的正整数.
-    设 \(s\) 是数.
-    作 \(n\)~级阵 \(M(n; p; s)\) 如下:
-    \begin{align*}
-        [M(n; p; s)]_{i,j} =
-        \begin{cases}
-            [I_n]_{i,j},   & j \neq p; \\
-            s [I_n]_{i,p}, & j = p.
-        \end{cases}
-    \end{align*}
-    我们考虑 \(A M(n; p; s)\).
-    当 \(j \neq p\) 时,
-    \begin{align*}
-        [A M(n; p; s)]_{i,j}
-        = {} &
-        \sum_{k = 1}^{n} {[A]_{i,k} [M(n; p; s)]_{k,j}}
-        \\
-        = {} &
-        \sum_{k = 1}^{n} {[A]_{i,k} [I_n]_{k,j}}
-        \\
-        = {} &
-        [A I_n]_{i,j}
-        \\
-        = {} &
-        [A]_{i,j}.
-    \end{align*}
-    当 \(j = p\) 时,
-    \begin{align*}
-        [A M(n; p; s)]_{i,j}
-        = {} &
-        \sum_{k = 1}^{n} {[A]_{i,k} [M(n; p; s)]_{k,p}}
-        \\
-        = {} &
-        \sum_{k = 1}^{n} {[A]_{i,k} s [I_n]_{k,p}}
-        \\
-        = {} &
-        s [A I_n]_{i,p}
-        \\
-        = {} &
-        s [A]_{i,p}.
-    \end{align*}
-    则 \(A M(n; p; s)\) 的列~\(j\) 等于 \(A\) 的列~\(j\)
-    (\(j \neq p\)),
-    且 \(A M(n; p; s)\) 的列~\(p\) 是 \(A\) 的列~\(p\)
-    的 \(s\) 倍.
-    注意, 若 \(i \neq j\), 则 \([M(n; p; s)]_{i,j} = 0\).
-    则 \(f(M(n; p; s)) = \det {(M(n; p; s))} = s\).
-    % 则 \(f(M(n; p; s)) = s\).
-    则 \(f(A M(n; p; s)) = f(A) f(M(n; p; s))
-    = s f(A)\).
-    用 ``用行列式的性质确定行列式'' 的话,
-    这说明, \(f\) 有多齐性.
-    若我们还能说明 \(f\) 有倍加不变性,
-    则, 由 \(f(I_n) = \det {(I_n)} = 1\)
-    (注意, 若 \(i \neq j\), 则 \([I_n]_{i,j} = 0\)),
-    % (这是显然的),
-    我们立得 \(f(A) = \det {(A)}\).
-
-    我们知道, 可用阵的积表示倍加.
-    由 ``阵的积与倍加'' 的知识,
-    对 \(n\)~级阵 \(A\),
-    加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\)
-    (其中 \(p \neq q\)),
-    且不改变其他的列, 得 \(A E(n; p, q; s)\),
-    其中 \(n\)~级阵 \(E(n; p, q; s)\) 的元
-    \begin{align*}
-        [E(n; p, q; s)]_{i,j}
-        = \begin{cases}
-              s,           & \text{\(i = p\), 且 \(j = q\)}; \\
-              [I_n]_{i,j}, & \text{其他}.
-          \end{cases}
-    \end{align*}
-    % (类似地,
-    % 加 \(A\) 的行~\(q\) 的 \(s\)~倍于行~\(p\),
-    % 且不改变其他的行, 得 \(E(n; p, q; s) A\).)
-    则 \(f(A E(n; p, q; s)) = f(A) f(E(n; p, q; s))\).
-    我们的目标是 \(f(E(n; p, q; s)) = 1\).
-    % Postscript on 2024-08-19:
-    % If n ≥ 3, then
-    % E(n; p, q; s) =
-    % E(n; p, w; s) E(n; w, q; 1) E(n; p, w; -s) E(n; w, q; -1),
-    % in which w ≠ p and w ≠ q and p ≠ q.
-    % Commutators are useful, are they not.
-    %
-    % Alternatively, I have shown that
-    % for t with t ≠ 0 and t ≠ 1,
-    % M(n; p; t) =
-    % E(n; p, q; -s/(1-t)) E(n; p, q; s) M(n; p; t) E(n; p, q; s/(1-t)),
-    % or, equivalently,
-    % E(n; p, q; s) =
-    % E(n; p, q; s/(1-t)) M(n; p; t) E(n; p, q; -s/(1-t)) M(n; p; 1/t).
-
-    设数 \(t \neq 1\), 且 \(t \neq 0\).
-    记
-    \(U = E(n; p, q; s/(1-t))\),
-    \(V = E(n; p, q; -s/(1-t))\),
-    \(G = M(n; p; t)\),
-    且 \(H = M(n; p; 1/t)\).
-    注意,
-    \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q}\, (-s/(1-t)) = 0\),
-    且
-    \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\)
-    (其他的情形).
-    故 \(UV = I_n\).
-    注意,
-    \([GH]_{p,p} = [G]_{p,p}\, (1/t) = 1\),
-    且
-    \([GH]_{i,j} = [G]_{i,j} = [I_n]_{i,j}\)
-    (其他的情形).
-    故 \(GH = I_n\).
-    我们计算 \(UGVH\)
-    (注意, 这不是 \(UVGH\)).
-    首先,
-    \([UG]_{p,p} = [U]_{p,p}\, t = t\),
-    \([UG]_{p,q} = [U]_{p,q} = s/(1-t)\),
-    且
-    \([UG]_{i,j} = [U]_{i,j}\)
-    (其他的情形).
-    则
-    \([UGV]_{p,p} = [UG]_{p,p} = t\),
-    \([UGV]_{p,q} = [UG]_{p,q} + [UG]_{p,p}\, (-s/(1-t))
-    = s/(1-t) - st/(1-t) = s\),
-    且
-    \([UGV]_{i,j} = [UG]_{i,j} = [U]_{i,j}\)
-    (其他的情形).
-    则
-    \([UGVH]_{p,p} = [UGV]_{p,p}\, (1/t) = 1\),
-    \([UGVH]_{p,q} = [UGV]_{p,q} = s\),
-    且
-    \([UGVH]_{i,j} = [UGV]_{i,j} = [U]_{i,j}\)
-    (其他的情形).
-    则 \(UGVH = E(n; p, q; s)\).
-    故
-    \begin{align*}
-        f(E(n; p, q; s))
-        = {} &
-        f(UGVH)
-        \\
-        = {} &
-        f(UG) f(VH)
-        \\
-        = {} &
-        f(U) f(G) f(V) f(H)
-        \\
-        = {} &
-        f(U) f(V) f(G) f(H)
-        \\
-        = {} &
-        f(UV) f(GH)
-        \\
-        = {} &
-        f(I_n) f(I_n)
-        \\
-        = {} &
-        1.
-    \end{align*}
-
-    % https://www.quora.com/What-is-the-proof-that-the-matrix-determinant-is-uniquely-determined-by-the-rule-for-diagonal-matrices-and-det-AB-det-A-det-B-rules
-    % 取不超过 \(n\) 的正整数 \(p\), \(q\),
-    % 且 \(p \neq q\).
-    % 取数 \(s\).
-    % 设数 \(t \neq 1\), 且 \(t \neq 0\).
-    % 记 \(L = E(n; p, q; s) M(n; p; t)\).
-    % 则
-    % \([L]_{p,q} = [M(n; p; t)]_{p,q}
-    % + s [M(n; p; t)]_{q,q} = s\),
-    % 且 \([L]_{i,j} = [M(n; p; t)]_{i,j}\),
-    % 当 \(i \neq p\) 或 \(j \neq q\).
-    % 我们用二个方式算 \(f(L)\).
-
-    % 一方面,
-    % \(f(L) = f(E(n; p, q; s)) f(M(n; p; t))
-    % = f(E(n; p, q; s))\, t\).
-
-    % 另一方面, 我们可倍加二次,
-    % 变 \(L\) 为某个阵 \(D\),
-    % 使 \(f(L) = f(D)\),
-    % 且 \(i \neq j\) 时, \([D]_{i,j} = 0\).
-    % 记 \(U = E(n; p, q; s/(1-t))\)
-    % 与 \(V = E(n; p, q; -s/(1-t))\).
-    % 则 \([LU]_{p,q}
-    %     = [L]_{p,q} + [L]_{p,p} s/(1-t) = s/(1-t)\),
-    % 且 \([LU]_{i,j} = [L]_{i,j}\),
-    % 当 \(i \neq p\) 或 \(j \neq q\).
-    % 进一步, \([VLU]_{p,q} = [V(LU)]_{p,q}
-    %     = [LU]_{p,q} + [LU]_{q,q} (-s/(1-t)) = 0\),
-    % 且 \([VLU]_{i,j} = [LU]_{i,j} = [L]_{i,j}\),
-    % 当 \(i \neq p\) 或 \(j \neq q\).
-    % 则 \(VLU = M(n; p; t)\).
-    % 故 \(f(VLU) = t\).
-    % 注意,
-    % \begin{align*}
-    %     f(VLU)
-    %     = {} &
-    %     f(V (LU)) = f(V) f(LU) = f(LU) f(V)
-    %     \\
-    %     = {} &
-    %     f((LU) V) = f(L (UV)).
-    % \end{align*}
-    % 注意,
-    % \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q} (-s/(1-t)) = 0\),
-    % 且
-    % \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\),
-    % 当 \(i \neq p\) 或 \(j \neq q\).
-    % 故 \(UV = I_n\).
-    % 则 \(t = f(VLU) = f(L(UV)) = f(L I_n) = f(L)\).
-
-    % 比较二次计算的结果, 我们有
-    % \(t = f(L) = f(E(n; p, q; s))\, t\).
-    % 因为 \(t \neq 0\),
-    % 由消去律, \(f(E(n; p, q; s)) = 1\).
-    % 则 \(f\) 有 ``倍加不变性''.
-
-    % 综上, 我们有了新的用行列式的性质确定行列式的方式.
 \end{example}
 
 % \begin{example}
@@ -2380,7 +2144,7 @@
         \mathrm{D} (a + b)     & =
         \mathrm{D} (a) + \mathrm{D} (b), \\
         \mathrm{D} (a \cdot b) & =
-        \mathrm{D} (a) \cdot b + a \cdot \mathrm{D} b.
+        \mathrm{D} (a) \cdot b + a \cdot \mathrm{D} (b).
     \end{align*}
 
     由此, \(\mathrm{D} (1)
@@ -2796,12 +2560,12 @@
         \mathrm{D}_{\mathrm{c}} (A)]_{\ell,\ell}}.
     \end{align*}
 
-    最后, 我们再引入方阵的迹:
-    若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的迹
+    最后, 我们再引入方阵的 trace:
+    若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的
+    \emph{trace} \pinjino{chuìsi}
     \begin{align*}
         \operatorname{tr} {(A)} = \sum_{k = 1}^{n} {[A]_{k,k}}.
     \end{align*}
-    (\(\operatorname{tr}\) 来自英语 \angla{trace}.)
     则
     \begin{align*}
         \mathrm{D} (\det {(A)})
@@ -3064,11 +2828,11 @@
 \end{example}
 
 \begin{example}
-    回想, 若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的迹
+    回想, 若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的 trace
     \begin{align*}
         \operatorname{tr} {(A)} = \sum_{k = 1}^{n} {[A]_{k,k}}.
     \end{align*}
-    我们说, 迹也是方阵的一个属性,
+    我们说, trace 也是方阵的一个属性,
     就像行列式是方阵的一个属性那样.
 
     设 \(A\), \(B\) 是 \(n\)~级阵.
@@ -3393,9 +3157,246 @@ about determinants
     \item powers of a square matrix
     \item a formula for adj (-A) in terms of a polynomial in A
     \item Cayley--Hamilton
-    \item a new way for determining the determinant function
     \item more about skew-symmetric matrices
     \item the derivative of the determinant of a square matrix
     \item the trace of a square matrix
 \end{itemize}
 This material consists of one very long section.
+
+This example was rewritten, and it was moved to another place:
+
+\begin{example}
+    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+
+    (1)
+    \(f(A B) = f(A) f(B)\),
+    对任何 \(n\)~级阵 \(A\), \(B\);
+
+    (2)
+    若 \(n\)~级阵 \(D\) 适合
+    \([D]_{i,j} = 0\) (\(i \neq j\)),
+    则 \(f(D) = \det {(D)}\).
+    % (2)
+    % 若 \(n\)~级阵 \(D\) 适合 \([D]_{i,j} = 0\),
+    % 当 \(i \neq j\) 时,
+    % 则 \(f(D) = [D]_{1,1} [D]_{2,2} \dots [D]_{n,n}\).
+
+    我们说明, \(f(A) = \det {(A)}\),
+    对任何 \(n\)~级阵 \(A\).
+
+    设 \(A\) 是 \(n\)~级阵.
+    设 \(p\) 是不超过 \(n\) 的正整数.
+    设 \(s\) 是数.
+    作 \(n\)~级阵 \(M(n; p; s)\) 如下:
+    \begin{align*}
+        [M(n; p; s)]_{i,j} =
+        \begin{cases}
+            [I_n]_{i,j},   & j \neq p; \\
+            s [I_n]_{i,p}, & j = p.
+        \end{cases}
+    \end{align*}
+    我们考虑 \(A M(n; p; s)\).
+    当 \(j \neq p\) 时,
+    \begin{align*}
+        [A M(n; p; s)]_{i,j}
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} [M(n; p; s)]_{k,j}}
+        \\
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} [I_n]_{k,j}}
+        \\
+        = {} &
+        [A I_n]_{i,j}
+        \\
+        = {} &
+        [A]_{i,j}.
+    \end{align*}
+    当 \(j = p\) 时,
+    \begin{align*}
+        [A M(n; p; s)]_{i,j}
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} [M(n; p; s)]_{k,p}}
+        \\
+        = {} &
+        \sum_{k = 1}^{n} {[A]_{i,k} s [I_n]_{k,p}}
+        \\
+        = {} &
+        s [A I_n]_{i,p}
+        \\
+        = {} &
+        s [A]_{i,p}.
+    \end{align*}
+    则 \(A M(n; p; s)\) 的列~\(j\) 等于 \(A\) 的列~\(j\)
+    (\(j \neq p\)),
+    且 \(A M(n; p; s)\) 的列~\(p\) 是 \(A\) 的列~\(p\)
+    的 \(s\) 倍.
+    注意, 若 \(i \neq j\), 则 \([M(n; p; s)]_{i,j} = 0\).
+    则 \(f(M(n; p; s)) = \det {(M(n; p; s))} = s\).
+    % 则 \(f(M(n; p; s)) = s\).
+    则 \(f(A M(n; p; s)) = f(A) f(M(n; p; s))
+    = s f(A)\).
+    用 ``用行列式的性质确定行列式'' 的话,
+    这说明, \(f\) 有多齐性.
+    若我们还能说明 \(f\) 有倍加不变性,
+    则, 由 \(f(I_n) = \det {(I_n)} = 1\)
+    (注意, 若 \(i \neq j\), 则 \([I_n]_{i,j} = 0\)),
+    % (这是显然的),
+    我们立得 \(f(A) = \det {(A)}\).
+
+    我们知道, 可用阵的积表示倍加.
+    由 ``阵的积与倍加'' 的知识,
+    对 \(n\)~级阵 \(A\),
+    加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\)
+    (其中 \(p \neq q\)),
+    且不改变其他的列, 得 \(A E(n; p, q; s)\),
+    其中 \(n\)~级阵 \(E(n; p, q; s)\) 的元
+    \begin{align*}
+        [E(n; p, q; s)]_{i,j}
+        = \begin{cases}
+              s,           & \text{\(i = p\), 且 \(j = q\)}; \\
+              [I_n]_{i,j}, & \text{其他}.
+          \end{cases}
+    \end{align*}
+    % (类似地,
+    % 加 \(A\) 的行~\(q\) 的 \(s\)~倍于行~\(p\),
+    % 且不改变其他的行, 得 \(E(n; p, q; s) A\).)
+    则 \(f(A E(n; p, q; s)) = f(A) f(E(n; p, q; s))\).
+    我们的目标是 \(f(E(n; p, q; s)) = 1\).
+    % Postscript on 2024-08-19:
+    % If n ≥ 3, then
+    % E(n; p, q; s) =
+    % E(n; p, w; s) E(n; w, q; 1) E(n; p, w; -s) E(n; w, q; -1),
+    % in which w ≠ p and w ≠ q and p ≠ q.
+    % Commutators are useful, are they not.
+    %
+    % Alternatively, I have shown that
+    % for t with t ≠ 0 and t ≠ 1,
+    % M(n; p; t) =
+    % E(n; p, q; -s/(1-t)) E(n; p, q; s) M(n; p; t) E(n; p, q; s/(1-t)),
+    % or, equivalently,
+    % E(n; p, q; s) =
+    % E(n; p, q; s/(1-t)) M(n; p; t) E(n; p, q; -s/(1-t)) M(n; p; 1/t).
+
+    设数 \(t \neq 1\), 且 \(t \neq 0\).
+    记
+    \(U = E(n; p, q; s/(1-t))\),
+    \(V = E(n; p, q; -s/(1-t))\),
+    \(G = M(n; p; t)\),
+    且 \(H = M(n; p; 1/t)\).
+    注意,
+    \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q}\, (-s/(1-t)) = 0\),
+    且
+    \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\)
+    (其他的情形).
+    故 \(UV = I_n\).
+    注意,
+    \([GH]_{p,p} = [G]_{p,p}\, (1/t) = 1\),
+    且
+    \([GH]_{i,j} = [G]_{i,j} = [I_n]_{i,j}\)
+    (其他的情形).
+    故 \(GH = I_n\).
+    我们计算 \(UGVH\)
+    (注意, 这不是 \(UVGH\)).
+    首先,
+    \([UG]_{p,p} = [U]_{p,p}\, t = t\),
+    \([UG]_{p,q} = [U]_{p,q} = s/(1-t)\),
+    且
+    \([UG]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则
+    \([UGV]_{p,p} = [UG]_{p,p} = t\),
+    \([UGV]_{p,q} = [UG]_{p,q} + [UG]_{p,p}\, (-s/(1-t))
+    = s/(1-t) - st/(1-t) = s\),
+    且
+    \([UGV]_{i,j} = [UG]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则
+    \([UGVH]_{p,p} = [UGV]_{p,p}\, (1/t) = 1\),
+    \([UGVH]_{p,q} = [UGV]_{p,q} = s\),
+    且
+    \([UGVH]_{i,j} = [UGV]_{i,j} = [U]_{i,j}\)
+    (其他的情形).
+    则 \(UGVH = E(n; p, q; s)\).
+    故
+    \begin{align*}
+        f(E(n; p, q; s))
+        = {} &
+        f(UGVH)
+        \\
+        = {} &
+        f(UG) f(VH)
+        \\
+        = {} &
+        f(U) f(G) f(V) f(H)
+        \\
+        = {} &
+        f(U) f(V) f(G) f(H)
+        \\
+        = {} &
+        f(UV) f(GH)
+        \\
+        = {} &
+        f(I_n) f(I_n)
+        \\
+        = {} &
+        1.
+    \end{align*}
+
+    % https://www.quora.com/What-is-the-proof-that-the-matrix-determinant-is-uniquely-determined-by-the-rule-for-diagonal-matrices-and-det-AB-det-A-det-B-rules
+    % 取不超过 \(n\) 的正整数 \(p\), \(q\),
+    % 且 \(p \neq q\).
+    % 取数 \(s\).
+    % 设数 \(t \neq 1\), 且 \(t \neq 0\).
+    % 记 \(L = E(n; p, q; s) M(n; p; t)\).
+    % 则
+    % \([L]_{p,q} = [M(n; p; t)]_{p,q}
+    % + s [M(n; p; t)]_{q,q} = s\),
+    % 且 \([L]_{i,j} = [M(n; p; t)]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 我们用二个方式算 \(f(L)\).
+
+    % 一方面,
+    % \(f(L) = f(E(n; p, q; s)) f(M(n; p; t))
+    % = f(E(n; p, q; s))\, t\).
+
+    % 另一方面, 我们可倍加二次,
+    % 变 \(L\) 为某个阵 \(D\),
+    % 使 \(f(L) = f(D)\),
+    % 且 \(i \neq j\) 时, \([D]_{i,j} = 0\).
+    % 记 \(U = E(n; p, q; s/(1-t))\)
+    % 与 \(V = E(n; p, q; -s/(1-t))\).
+    % 则 \([LU]_{p,q}
+    %     = [L]_{p,q} + [L]_{p,p} s/(1-t) = s/(1-t)\),
+    % 且 \([LU]_{i,j} = [L]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 进一步, \([VLU]_{p,q} = [V(LU)]_{p,q}
+    %     = [LU]_{p,q} + [LU]_{q,q} (-s/(1-t)) = 0\),
+    % 且 \([VLU]_{i,j} = [LU]_{i,j} = [L]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 则 \(VLU = M(n; p; t)\).
+    % 故 \(f(VLU) = t\).
+    % 注意,
+    % \begin{align*}
+    %     f(VLU)
+    %     = {} &
+    %     f(V (LU)) = f(V) f(LU) = f(LU) f(V)
+    %     \\
+    %     = {} &
+    %     f((LU) V) = f(L (UV)).
+    % \end{align*}
+    % 注意,
+    % \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q} (-s/(1-t)) = 0\),
+    % 且
+    % \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\),
+    % 当 \(i \neq p\) 或 \(j \neq q\).
+    % 故 \(UV = I_n\).
+    % 则 \(t = f(VLU) = f(L(UV)) = f(L I_n) = f(L)\).
+
+    % 比较二次计算的结果, 我们有
+    % \(t = f(L) = f(E(n; p, q; s))\, t\).
+    % 因为 \(t \neq 0\),
+    % 由消去律, \(f(E(n; p, q; s)) = 1\).
+    % 则 \(f\) 有 ``倍加不变性''.
+
+    % 综上, 我们有了新的用行列式的性质确定行列式的方式.
+\end{example}

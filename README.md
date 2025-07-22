@@ -20,7 +20,7 @@ There are novel ideas in this book, but there are just a few, and they do not se
 若您发现本书的错误, 请使我知道它. 谢谢.  
 If there is any mistake in this book, please do not hesitate to tell me about it. Thanks.
 
-<!-- 我用约 5/2 周 (完成本书的初版的确只花了约 5/2 周; 您现在看到的版本当然需要更多个 5/2 周) 时间写了一本《行列式入门》. 正如其标题所言, 它是一本为初学者准备的行列式教材. 行列式是一个有用的工具. 我认为, 学习此工具是有用的. 本书用简单的归纳法定义行列式, 并证明了关于行列式的一些结论 (当然, 一些东西被留为您的习题).  
+<!-- 我用约 5/2 周 (完成本书的初版的确只花了约 5/2 周; 您现在看到的版本当然需要更多个 5/2 周) 时间写了一本《行列式入门》. 正如它的标题所言, 它是一本为初学者准备的行列式教材. 行列式是一个有用的工具. 我认为, 学习此工具是有用的. 本书用简单的归纳法定义行列式, 并证明了关于行列式的一些结论 (当然, 一些东西被留为您的习题).  
 I spent approximately a 5/2-week (= a period of 5/2 consecutive weeks) in writing a book titled _An introduction to determinants_ (let us also note that it is true that I spent approximately a 5/2-week in writing the **initial version** of the book, but the version at which you are looking needs of course more 5/2-weeks). As is indicated by the title, the book is a textbook about determinants and for beginners. Determinants are a useful device. I am convinced that learning it is useful. In this book, I define determinants and prove some results of them using mathematical induction (some of the results in the book are left as your exercises, though). -->
 
 这是封面; 我从[这儿](https://github.com/oetiker/lshort)抄来的. 副标题 "或 367 分了解行列式" 的数字没有什么特别的意思; "版本 2π, 2025" 也没有什么特别的意思.

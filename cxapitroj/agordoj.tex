@@ -395,17 +395,21 @@
     numbered=no%
 ]{remark*}
 
-% To define one's own proof environment,
-% one has first to undefine the proof environment
-% provided by "amsthm".
-\let\proof\relax
-\let\endproof\relax
+% I redefine the proof environment,
+% so that I can use thmtools to typeset a proof,
+% but still have an optional argument,
+% the title of the proof.
+% \let\proof\relax
+% \let\endproof\relax
+\renewcommand{\proofname}{证}
+\newcommand{\nomodepruvo}{证}
+\renewcommand*{\qedsymbol}{证完.}
 \declaretheorem[%
     style=ProofStyle,%
-    name=证,
+    name=\protect\nomodepruvo,
     numbered=no%
-]{proof}
-\renewcommand*{\qedsymbol}{证毕.}
+]{pruvo}
+\renewenvironment{proof}[1][\proofname]{\renewcommand{\nomodepruvo}{#1}\begin{pruvo}}{\end{pruvo}}
 
 % I copied the magic from "memoir", a document class
 % for typesetting poetry, fiction, non-fiction,
@@ -580,6 +584,9 @@
 % This command marks the use of English
 % (but I do not mark every use of English).
 \providecommand{\angla}[1]{#1}
+
+% This command marks the use of Pinyin.
+\providecommand{\pinjino}[1]{\textsf{(#1)}}
 
 % This package deals with headers and footers.
 \usepackage{fancyhdr}

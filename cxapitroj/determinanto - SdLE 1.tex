@@ -48,14 +48,16 @@
 
 \emph{由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组},
 是形如
-\begin{align*}
-    \begin{cases}
-        a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n = b_1, \\
-        a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n = b_2, \\
-        \dots,                                                 \\
-        a_{m,1} x_1 + a_{m,2} x_2 + \dots + a_{m,n} x_n = b_m  \\
-    \end{cases}
-\end{align*}
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n & = b_1, \\
+        a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n & = b_2, \\
+                                                        & \dots, \\
+        a_{m,1} x_1 + a_{m,2} x_2 + \dots + a_{m,n} x_n & = b_m
+    \end{aligned}
+    \right.
+\end{equation*}
 的方程组,
 其中
 \(a_{1,1}\), \(a_{1,2}\), \(\dots\), \(a_{1,n}\),
@@ -76,10 +78,10 @@
 
 若数 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 适合
 \begin{align*}
-     & a_{1,1} c_1 + a_{1,2} c_2 + \dots + a_{1,n} c_n = b_1, \\
-     & a_{2,1} c_1 + a_{2,2} c_2 + \dots + a_{2,n} c_n = b_2, \\
-     & \dots,                                                 \\
-     & a_{m,1} c_1 + a_{m,2} c_2 + \dots + a_{m,n} c_n = b_m,
+    a_{1,1} c_1 + a_{1,2} c_2 + \dots + a_{1,n} c_n & = b_1, \\
+    a_{2,1} c_1 + a_{2,2} c_2 + \dots + a_{2,n} c_n & = b_2, \\
+                                                    & \dots, \\
+    a_{m,1} c_1 + a_{m,2} c_2 + \dots + a_{m,n} c_n & = b_m,
 \end{align*}
 我们说, \((c_1, c_2, \dots, c_n)\)
 是此方程组的一个\emph{解}.
@@ -114,16 +116,18 @@
     注意, 这二个式都是 \(2\)~元 \({\leq} 1\)~次式.
     我们可列出%
     由 \(2\)~个 \(2\)~元 \({\leq} 1\)~次方程作成的方程组
-    \begin{align*}
-        \begin{cases}
-            x_1 + x_2 = 35, \\
-            2x_1 + 4x_2 = 94.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            x_1 + x_2   & = 35, \\
+            2x_1 + 4x_2 & = 94.
+        \end{aligned}
+        \right.
+    \end{equation*}
     接下来的问题, 就是解这个方程组.
     不过,
     % 不要急;
-    此例的目的是使您熟悉概念.
+    此例的目的是使您了解概念.
     我想在后面讲如何解这个方程组.
 
     可以验证, \((23, 12)\) 是此方程组的一个解:
@@ -144,17 +148,19 @@
 \begin{example}
     考虑%
     由 \(2\)~个 \(3\)~元 \({\leq} 1\)~次方程作成的方程组
-    \begin{align*}
-        \begin{cases}
-            x_1 + 2x_2 + 3x_3 = 0, \\
-            4x_1 + 5x_2 + 6x_3 = 0.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            x_1 + 2x_2 + 3x_3  & = 0, \\
+            4x_1 + 5x_2 + 6x_3 & = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
     可以验证, 对每一个数~\(k\),
     \((k, -2k, k)\) 是此方程组的一个解:
     \begin{align*}
-        k + 2(-2k) + 3k = k - 4k + 3k = 0, \\
-        4k + 5(-2k) + 6k = 4k - 10k + 6k = 0.
+        k + 2(-2k) + 3k  & = k - 4k + 3k = 0,   \\
+        4k + 5(-2k) + 6k & = 4k - 10k + 6k = 0.
     \end{align*}
     当 \(k = 0\) 时, 这是零解;
     当 \(k \neq 0\) 时, 因为
@@ -213,7 +219,7 @@
 (\(X\) 的元是未知数, 且 \(X\) 是恰有 \(1\)~列的阵)
 是一个线性方程组.
 相应地, 若 \(n \times 1\)~阵 \(C\)
-(其元跟 \(X\)~的元相比, 自然都是已知数)
+(其的元跟 \(X\)~的元相比, 自然都是已知数)
 适合 \(AC = B\),
 我们说, \(C\) 是此方程组的一个解;
 若 \(C = 0\)
@@ -227,12 +233,14 @@
 
 \begin{example}
     我们可改写
-    \begin{align*}
-        \begin{cases}
-            x_1 + x_2 = 35, \\
-            2x_1 + 4x_2 = 94.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            x_1 + x_2   & = 35, \\
+            2x_1 + 4x_2 & = 94.
+        \end{aligned}
+        \right.
+    \end{equation*}
     为
     \begin{align*}
         \begin{bmatrix}
@@ -316,12 +324,14 @@
 
 \begin{example}
     我们可改写
-    \begin{align*}
-        \begin{cases}
-            x_1 + 2x_2 + 3x_3 = 0, \\
-            4x_1 + 5x_2 + 6x_3 = 0.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            x_1 + 2x_2 + 3x_3  & = 0, \\
+            4x_1 + 5x_2 + 6x_3 & = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
     为
     \begin{align*}
         \begin{bmatrix}
@@ -429,13 +439,15 @@
     \end{bmatrix}
 \end{align*}
 为
-\begin{align*}
-    \begin{cases}
-        2x_1 + 3x_2 - 5x_3 + 7x_4 = 7,   \\
-        x_2 + 11x_3 + 13x_4 - 17x_5 = 8, \\
-        4x_1 - 6x_2 + 8x_3 - 9x_4 + 12x_5 = 9.
-    \end{cases}
-\end{align*}
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        2x_1 + 3x_2 - 5x_3 + 7x_4         & = 7, \\
+        x_2 + 11x_3 + 13x_4 - 17x_5       & = 8, \\
+        4x_1 - 6x_2 + 8x_3 - 9x_4 + 12x_5 & = 9.
+    \end{aligned}
+    \right.
+\end{equation*}
 (注意, 我们未写系数为 \(0\) 的项.)
 
 \section{\texorpdfstring{由 \(n\)~个 \(n\)~元
@@ -458,7 +470,7 @@
 我们讨论一个特别的情形.
 这会是有用的.
 
-\begin{theorem}[Cramer 公式, 1]
+\begin{theorem}[Cramer \pinjino{kērèimer} 公式, 1]
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
     设 \(B\) 是 \(n \times 1\)~阵.
     设 \(X\) 是未知的 \(n \times 1\)~阵.
@@ -674,17 +686,16 @@
 
 \begin{theorem}[Cramer 公式, 2]
     设线性方程组
-    \begin{align*}
-        \begin{cases}
-            a_{1,1} x_1 + a_{1,2} x_2 + \dots
-            + a_{1,n} x_n = b_1, \\
-            a_{2,1} x_1 + a_{2,2} x_2 + \dots
-            + a_{2,n} x_n = b_2, \\
-            \dots,               \\
-            a_{n,1} x_1 + a_{n,2} x_2 + \dots
-            + a_{n,n} x_n = b_n. \\
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n & = b_1, \\
+            a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n & = b_2, \\
+                                                            & \dots, \\
+            a_{n,1} x_1 + a_{n,2} x_2 + \dots + a_{n,n} x_n & = b_n.
+        \end{aligned}
+        \right.
+    \end{equation*}
     (注意, 方程数等于未知数数.)
     记
     \begin{align*}
@@ -714,12 +725,14 @@
 
 \begin{example}
     考虑由 \(2\)~个 \(2\)~元 \({\leq} 1\)~次方程作成的方程组
-    \begin{align*}
-        \begin{cases}
-            a_{1,1} x_1 + a_{1,2} x_2 = b_1, \\
-            a_{2,1} x_1 + a_{2,2} x_2 = b_2. \\
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            a_{1,1} x_1 + a_{1,2} x_2 & = b_1, \\
+            a_{2,1} x_1 + a_{2,2} x_2 & = b_2.
+        \end{aligned}
+        \right.
+    \end{equation*}
     根据 Cramer 公式, 若
     \(\det {
         \begin{bmatrix}
@@ -764,12 +777,14 @@
 
 \begin{example}
     考虑线性方程组
-    \begin{align*}
-        \begin{cases}
-            x_1 + x_2 = 35, \\
-            2x_1 + 4x_2 = 94.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            x_1 + x_2   & = 35, \\
+            2x_1 + 4x_2 & = 94.
+        \end{aligned}
+        \right.
+    \end{equation*}
     因为 \(\det {
         \begin{bmatrix}
             1 & 1 \\
@@ -821,19 +836,21 @@
 解线性方程组.
 
 还是以
-\begin{align*}
-    \begin{cases}
-        x_1 + x_2 = 35, \\
-        2x_1 + 4x_2 = 94
-    \end{cases}
-\end{align*}
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        x_1 + x_2   & = 35, \\
+        2x_1 + 4x_2 & = 94
+    \end{aligned}
+    \right.
+\end{equation*}
 为例.
 由方程~\(1\), 有 \(x_1 = 35 - x_2\).
-代入其到方程~\(2\), 有
+代入它到方程~\(2\), 有
 \(2(35 - x_2) + 4x_2 = 94\),
 即 \(2x_2 = 24\).
 由此可知 \(x_2 = 12\).
-代入其到 \(x_1 = 35 - x_2\),
+代入它到 \(x_1 = 35 - x_2\),
 有 \(x_1 = 23\).
 最后, 经验证, \((23, 12)\) 的确是此方程组的一个解.
 

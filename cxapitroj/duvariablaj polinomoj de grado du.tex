@@ -63,7 +63,7 @@
 \end{align*}
 可用此法助记此式.
 此式含 \(6\)~项,
-其每一项都是不同行不同列的 \(3\)~个数的积.
+其的每一项都是不同行不同列的 \(3\)~个数的积.
 % 由左上 \(a_{1,1}\) 画一条实对角线至右下 \(a_{3,3}\);
 % 再由右上 \(a_{1,3}\) 画一条虚对角线至左下 \(a_{3,1}\).
 % 实对角线及跟实对角线平行的线上的 \(3\)~个数的积
@@ -231,6 +231,51 @@
 \end{proof}
 
 \begin{theorem}
+    设 \(a_0\), \(a_1\), \(a_2\) 是复数,
+    且 \(a_0 \neq 0\).
+    则存在复数 \(z\), 使
+    \begin{align*}
+        a_0 z^2 + a_1 z + a_2 = 0.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        a_0 x^2 + a_1 x + a_2
+        = {} &
+        \frac{1}{4a_0} (4 a_0 a_0 x^2 + 4 a_0 a_1 x + 4 a_0 a_2)
+        \\
+        = {} &
+        \frac{1}{4a_0} ((2 a_0 x)^2 + 2 a_1 (2 a_0 x) + 4 a_0 a_2)
+        \\
+        = {} &
+        \frac{1}{4a_0} ((2 a_0 x + a_1)^2 - a_1^2 + 4 a_0 a_2)
+        \\
+        = {} &
+        \frac{1}{4a_0} ((2 a_0 x + a_1)^2 - (a_1^2 - 4 a_0 a_2)).
+    \end{align*}
+    注意, \(a_1^2 - 4 a_0 a_2\) 是复数.
+    则存在复数 \(t\), 使 \(t^2 = a_1^2 - 4 a_0 a_2\).
+    则
+    \begin{align*}
+        a_0 x^2 + a_1 x + a_2
+        = {} &
+        \frac{1}{4a_0} ((2 a_0 x + a_1)^2 - t^2)
+        \\
+        = {} &
+        \frac{1}{4a_0} (2 a_0 x + a_1 + t) (2 a_0 x + a_1 - t)
+        \\
+        = {} &
+        a_0
+        \left( x - \frac{-a_1 - t}{2 a_0} \right)
+        \left( x - \frac{-a_1 + t}{2 a_0} \right).
+    \end{align*}
+    于是, 若 \(z = (-a_1 \pm t) / (2 a_0)\),
+    则 \(a_0 z^2 + a_1 z + a_2 = 0\).
+\end{proof}
+
+\begin{theorem}
     设 \(a\), \(b\) 是复数.
     则
     \begin{align*}
@@ -372,10 +417,12 @@
 其中 \(k_2 = a_2/a_0\), 且 \(k_3 = a_3/a_0\).
 考虑方程组
 \begin{equation}
-    \begin{cases}
-        -3uv = k_2, \\
-        -(u^3 + v^3) = k_3.
-    \end{cases}
+    \left\{
+    \begin{aligned}
+        -3uv         & = k_2, \\
+        -(u^3 + v^3) & = k_3.
+    \end{aligned}
+    \right.
     \label{eq:A0101}
 \end{equation}
 若我们能找到一个解 \(u = b\), \(v = c\),
@@ -419,7 +466,7 @@
     \label{eq:A0102}
 \end{equation}
 的解.
-我们熟知, \(1\)~元 \(2\)~次方程总有一个解.
+我们知道, \(1\)~元 \(2\)~次方程总有一个解.
 我们设复数 \(z = z_0\)
 是方程~\eqref{eq:A0102} 的一个解.
 开立方根, 可知, 存在一个复数 \(q\) 使 \(q^3 = z_0\).
@@ -428,28 +475,150 @@
 不难验证,
 \(u = b\), \(v = c\) 是方程组~\eqref{eq:A0101} 的一个解.
 
-\begin{theorem}
-    作适当的换元,
-    每一个 \(1\)~元 \(3\)~次方程都可被变为%
-    缺 \(2\)~次项的方程.
-\end{theorem}
-
-\begin{proof}
-    取 \(1\)~元 \(3\)~次方程
-    \(d_0 x^3 + d_1 x^2 + d_2 x + d_3 = 0\),
-    其中 \(d_0 \neq 0\).
-    代 \(x\) 以 \(y - d_1/(3d_0)\), 有
-    \begin{equation*}
-        d_0 y^3 + \left(d_2 - \frac{d_1^2}{3d_0} \right)y
-        + d_3 + \frac{2 d_1^3}{27 d_0^2} - \frac{d_1 d_2}{3d_0}
-        = 0.
-        \qedhere
-    \end{equation*}
-\end{proof}
+我们说, 若我们作适当的换元,
+则每一个 \(1\)~元 \(3\)~次方程都可被变为%
+缺 \(2\)~次项的方程.
+为此, 取 \(1\)~元 \(3\)~次方程
+\begin{equation}
+    d_0 x^3 + d_1 x^2 + d_2 x + d_3 = 0,
+    \quad d_0 \neq 0.
+    \label{eq:cubic-equation-1}
+\end{equation}
+设 \(e\) 是数.
+我们代 \(x\) 以 \(y - e\).
+则方程~\eqref{eq:cubic-equation-1} 的右侧是 \(0\),
+且它的左侧是
+\begin{align*}
+    d_0 y^3
+    + (d_1 - 3d_0 e) y^2
+    + (d_2 - 2d_1 e + 3d_0 e^2) y
+    + (d_3 - d_2 e + d_1 e^2 - d_0 e^3).
+\end{align*}
+于是, 若我们取 \(e = d_1/(3d_0)\),
+则方程~\eqref{eq:cubic-equation-1} 被变为
+\begin{align*}
+    d_0 y^3 + \left(d_2 - \frac{d_1^2}{3d_0} \right)y
+    + d_3 + \frac{2 d_1^3}{27 d_0^2} - \frac{d_1 d_2}{3d_0}
+    = 0.
+\end{align*}
+则我们可解此方程.
+设 \(u\), \(v\) 适合
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        -3uv         & =
+        \frac{1}{d_0}
+        \left(d_2 - \frac{d_1^2}{3d_0} \right),
+        \\
+        -(u^3 + v^3) & =
+        \frac{1}{d_0}
+        \left(d_3 + \frac{2 d_1^3}{27 d_0^2} - \frac{d_1 d_2}{3d_0}\right).
+    \end{aligned}
+    \right.
+\end{equation*}
+则
+\begin{align*}
+         &
+    d_0 y^3 + \left(d_2 - \frac{d_1^2}{3d_0} \right)y
+    + d_3 + \frac{2 d_1^3}{27 d_0^2} - \frac{d_1 d_2}{3d_0}
+    \\
+    = {} &
+    d_0 y^3 - 3 u v d_0 y - (u^3 + v^3) d_0
+    \\
+    = {} &
+    d_0 (y^3 - 3 u v y - (u^3 + v^3))
+    \\
+    = {} &
+    d_0
+    (y - (u + v))
+    (y - (\omega u + \omega^2 v))
+    (y - (\omega^2 u + \omega v)).
+\end{align*}
+则
+\begin{align*}
+         &
+    d_0 x^3 + d_1 x^2 + d_2 x + d_3
+    \\
+    = {} &
+    d_0 (y - e)^3 + d_1 (y - e)^2 + d_2 (y - e) + d_3
+    \\
+    = {} &
+    d_0 y^3 + \left(d_2 - \frac{d_1^2}{3d_0} \right)y
+    + d_3 + \frac{2 d_1^3}{27 d_0^2} - \frac{d_1 d_2}{3d_0}
+    \\
+    = {} &
+    d_0
+    (y - (u + v))
+    (y - (\omega u + \omega^2 v))
+    (y - (\omega^2 u + \omega v))
+    \\
+    = {} &
+    d_0
+    (x + e - (u + v))
+    (x + e - (\omega u + \omega^2 v))
+    (x + e - (\omega^2 u + \omega v))
+    \\
+    = {} &
+    d_0
+    (x - (-e + u + v))
+    (x - (-e + \omega u + \omega^2 v))
+    (x - (-e + \omega^2 u + \omega v)).
+\end{align*}
+于是,
+我们找到了
+\(d_0 x^3 + d_1 x^2 + d_2 x + d_3 = 0\)
+的解:
+\(x = -e + u + v\),
+或 \(x = -e + \omega u + \omega^2 v\),
+或 \(x = -e + \omega^2 u + \omega v\).
 
 所以, 理论地, 我们可解任何 \(1\)~元 \(3\)~次方程.
 不过, 这个解方程的方法是复杂的,
 故我们一般不用它.
+
+最后, 有一件事值得提.
+
+设 \(a_0 x + a_1\) (\(a_0 \neq 0\)) 是 \(1\)~次式.
+则
+\begin{align*}
+    a_0 x + a_1
+    = a_0 \left(x + \frac{a_1}{a_0}\right)
+    = a_0 \left(x - \frac{-a_1}{a_0}\right).
+\end{align*}
+
+设 \(a_0 x^2 + a_1 x + a_2\) (\(a_0 \neq 0\))
+是 \(2\)~次式.
+回想,
+\begin{align*}
+    a_0 x^2 + a_1 x + a_2
+    = a_0
+    \left( x - \frac{-a_1 - t}{2 a_0} \right)
+    \left( x - \frac{-a_1 + t}{2 a_0} \right),
+\end{align*}
+其中, 复数 \(t\) 适合 \(t^2 = a_1^2 - 4 a_0 a_2\).
+
+设 \(a_0 x^3 + a_1 x^2 + a_2 x + a_3\) (\(a_0 \neq 0\))
+是 \(3\)~次式.
+由前面的讨论, 存在复数 \(x_1\), \(x_2\), \(x_3\),
+使
+\begin{align*}
+    a_0 x^3 + a_1 x^2 + a_2 x + a_3
+    = a_0 (x - x_1) (x - x_2) (x - x_3).
+\end{align*}
+
+由此, 我们有
+
+\begin{theorem}
+    设 \(n\) 是不超过 \(3\) 的正整数.
+    设 \(p(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    是 \(n\)~次式
+    (\(a_0 \neq 0\)).
+    则存在复数 \(x_1\), \(\dots\), \(x_n\),
+    使
+    \begin{align*}
+        p(x) = a_0 (x - x_1) \dots (x - x_n).
+    \end{align*}
+\end{theorem}
 
 \section{\texorpdfstring{\(2\)~元 \(2\)~次式}%
   {2 元 2 次式}}
@@ -765,12 +934,12 @@
 \begin{theorem}
     设 \(f(x, y) = Ax^2 + 2Bxy + Cy^2 + 2Dx + 2Ey + F\).
     若 \(f(x, y)\) 的判别式为 \(0\),
-    则我们必可写其为二个 (复系数的)
+    则我们可写它为二个 (复系数的)
     \(2\)~元 \({\leq} 1\)~次式的积;
     反过来,
     若 \(f(x, y)\) 是二个 (复系数的)
     \(2\)~元 \({\leq} 1\)~次式的积,
-    则其判别式必为 \(0\).
+    则它的判别式为 \(0\).
 \end{theorem}
 
 我们看二个例.
@@ -799,7 +968,7 @@
         = 1.
         % = -484.
     \end{align*}
-    所以, 我们无法写其为二个
+    所以, 我们无法写它为二个
     (关于 \(x\), \(y\) 的)
     \(2\)~元 \({\leq} 1\)~次式的积.
 \end{example}
@@ -865,10 +1034,12 @@
 
 本节, 我们讨论如何求解方程组
 \begin{equation}
-    \begin{cases}
-        f_1 (x, y) = 0, \\
-        f_2 (x, y) = 0,
-    \end{cases}
+    \left\{
+    \begin{aligned}
+        f_1 (x, y) & = 0, \\
+        f_2 (x, y) & = 0,
+    \end{aligned}
+    \right.
     \label{eq:A0301}
 \end{equation}
 其中 \(f_i (x, y) = A_i x^2 + 2B_i xy + C_i y^2
@@ -879,12 +1050,14 @@
 
 \begin{example}
     解方程组
-    \begin{align*}
-        \begin{cases}
-            f_1 (x, y) = x^2 - y^2 - 4x + 4 = 0, \\
-            f_2 (x, y) = x^2 + y^2 - 2x = 0.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_1 (x, y) & = x^2 - y^2 - 4x + 4 = 0, \\
+            f_2 (x, y) & = x^2 + y^2 - 2x = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
 
     注意,
     \begin{align*}
@@ -955,12 +1128,14 @@
 
 \begin{example}\label{emp:A0301}
     解方程组
-    \begin{align*}
-        \begin{cases}
-            f_1 (x, y) = x^2 + 3y^2 + 2x - 11 = 0, \\
-            f_2 (x, y) = 3x^2 - y^2 - 4x - 3 = 0.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_1 (x, y) & = x^2 + 3y^2 + 2x - 11 = 0, \\
+            f_2 (x, y) & = 3x^2 - y^2 - 4x - 3 = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
 
     我们试用老方法解此方程组.
     不过, 试了试, 发现
@@ -997,10 +1172,12 @@
     则方程组~\eqref{eq:A0301}
     与方程组
     \begin{equation}
-        \begin{cases}
-            f_1 (x, y) + kf_2 (x, y) = 0, \\
-            f_2 (x, y) = 0
-        \end{cases}
+        \left\{
+        \begin{aligned}
+            f_1 (x, y) + kf_2 (x, y) & = 0, \\
+            f_2 (x, y)               & = 0
+        \end{aligned}
+        \right.
         \label{eq:A0302}
     \end{equation}
     同解.
@@ -1112,21 +1289,25 @@
 }
 \begin{example}[continues=emp:A0301]
     我们解当时未能求解的方程组
-    \begin{align*}
-        \begin{cases}
-            f_1 (x, y) = x^2 + 3y^2 + 2x - 11 = 0, \\
-            f_2 (x, y) = 3x^2 - y^2 - 4x - 3 = 0.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_1 (x, y) & = x^2 + 3y^2 + 2x - 11 = 0, \\
+            f_2 (x, y) & = 3x^2 - y^2 - 4x - 3 = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
 
     待定复数 \(k\).
     作出同解方程组
-    \begin{align*}
-        \begin{cases}
-            f_3 (x, y) = 0, \\
-            f_2 (x, y) = 0,
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_3 (x, y) & = 0, \\
+            f_2 (x, y) & = 0,
+        \end{aligned}
+        \right.
+    \end{equation*}
     其中
     \begin{align*}
         f_3 (x, y)
@@ -1198,12 +1379,12 @@
 \end{align*}
 则 \((s, s^2)\) 是 \(2\)~元 \(2\)~次方程组
 \begin{equation}
-    \begin{cases}
-        f_1 (x, y)
-        = a_1 xy + a_0 y^2 + a_3 x + a_2 y + a_4 = 0, \\
-        f_2 (x, y)
-        = x^2 - y = 0
-    \end{cases}
+    \left\{
+    \begin{aligned}
+        f_1 (x, y) & = a_1 xy + a_0 y^2 + a_3 x + a_2 y + a_4 = 0, \\
+        f_2 (x, y) & = x^2 - y = 0
+    \end{aligned}
+    \right.
     \label{eq:A0402}
 \end{equation}
 的一个解.
@@ -1228,10 +1409,12 @@
 待定复数 \(k\).
 作一个跟方程组~\eqref{eq:A0402} 同解的方程组
 \begin{equation}
-    \begin{cases}
-        f_3 (x, y) = 0, \\
-        f_2 (x, y) = 0,
-    \end{cases}
+    \left\{
+    \begin{aligned}
+        f_3 (x, y) & = 0, \\
+        f_2 (x, y) & = 0,
+    \end{aligned}
+    \right.
     \label{eq:A0403}
 \end{equation}
 其中
@@ -1276,22 +1459,26 @@
     \end{align*}
 
     考虑方程组
-    \begin{align*}
-        \begin{cases}
-            f_1 (x, y) = -2xy + y^2 + 44x - 10y - 48 = 0, \\
-            f_2 (x, y) = x^2 - y = 0.
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_1 (x, y) & = -2xy + y^2 + 44x - 10y - 48 = 0, \\
+            f_2 (x, y) & = x^2 - y = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
     此方程组的解的首个分量即为原方程的解.
 
     待定复数 \(k\).
     作出同解方程组
-    \begin{align*}
-        \begin{cases}
-            f_3 (x, y) = 0, \\
-            f_2 (x, y) = 0,
-        \end{cases}
-    \end{align*}
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_3 (x, y) & = 0, \\
+            f_2 (x, y) & = 0,
+        \end{aligned}
+        \right.
+    \end{equation*}
     其中
     \begin{align*}
         f_3 (x, y)
@@ -1352,194 +1539,100 @@
     经验证, 它们都是原方程的解.
 \end{example}
 
-% 任取一个 \(1\)~元 \(4\)~次方程
-% \begin{equation}
-%     a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4 = 0,
-%     \label{eq:A0401}
-% \end{equation}
-% 其中 \(a_0 \neq 0\).
-% 若 \(a_4 = 0\), 则我们可写
-% \begin{align*}
-%     a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4
-%     = x(a_0 x^3 + a_1 x^2 + a_2 x + a_3).
-% \end{align*}
-% 括号里有一个 \(1\)~元 \(3\)~次式.
-% 这, 理论地, 是可解的.
-% 所以, 接下来, 我们假定 \(a_4 \neq 0\).
+最后, 有一件事值得提.
 
-% 假定 \(s\) 是方程~\eqref{eq:A0401} 的一个解.
-% 因为 \(a_4 \neq 0\), 故 \(s \neq 0\).
-% 从而
-% \begin{align*}
-%     a_0 s^2 + a_1 s + a_2
-%     + a_3 \frac{1}{s} + a_4 \frac{1}{s^2} = 0.
-% \end{align*}
-% 由此可见, \((s, 1/s)\) 是 \(2\)~元 \(2\)~次方程组
-% \begin{equation}
-%     \begin{cases}
-%         f_1 (x, y)
-%         = a_0 x^2 + a_4 y^2 + a_1 x + a_3 y + a_2 = 0, \\
-%         f_2 (x, y)
-%         = xy - 1 = 0
-%     \end{cases}
-%     \label{eq:A0402}
-% \end{equation}
-% 的一个解.
+记 \(p (x) = a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4\)
+(\(a_0 \neq 0\)).
+记 \(f_1 (x, y) = a_1 x y + a_0 y^2 + a_3 x + a_2 y + a_4\).
+记 \(f_2 (x, y) = x^2 - y\).
+设 \(k\) 是数.
+设
+\begin{align*}
+    f_3 (x, y)
+    = {} &
+    f_1 (x, y) + k f_2 (x, y)
+    \\
+    = {} &
+    k x^2
+    + \frac{a_1}{2} \cdot 2xy
+    + a_0 y^2
+    + \frac{a_3}{2} \cdot 2x
+    + \frac{a_2 - k}{2} \cdot 2y
+    + a_4.
+\end{align*}
+则对任何数 \(x\) 与 \(k\),
+\(p(x) = f_3 (x, x^2)\),
+因为 \(p(x) = f_1 (x, x^2)\),
+且 \(0 = f_2 (x, x^2)\).
 
-% 反过来, 设 \((u, v)\) 是方程组~\eqref{eq:A0402} 的一个解.
-% 那么, \(v = 1/u\).
-% 从而
-% \begin{align*}
-%     a_0 u^2 + a_4 \frac{1}{u^2} + a_1 u
-%     + a_3 \frac{1}{u} + a_2 = 0.
-% \end{align*}
-% 即
-% \begin{align*}
-%     a_0 u^4 + a_4 + a_1 u^3 + a_3 u + a_2 u^2 = 0.
-% \end{align*}
-% 故 \(u\) 是方程~\eqref{eq:A0401} 的一个解.
+我们知道,
+存在 \(k\),
+使存在复数
+\(b_1\), \(b_2\), \(b_3\), \(b_4\), \(b_5\), \(b_6\),
+使对任何 \(x\), \(y\),
+\begin{align*}
+    f_3 (x, y)
+    = (b_1 x + b_2 y + b_3) (b_4 x + b_5 y + b_6).
+\end{align*}
+(注意, \(b_2 b_5 = a_0 \neq 0\).
+则 \(b_2 \neq 0\), 且 \(b_5 \neq 0\).)
+则
+\begin{align*}
+    p(x) = f_3 (x, x^2)
+    = (b_1 x + b_2 x^2 + b_3) (b_4 x + b_5 x^2 + b_6).
+\end{align*}
+则存在复数 \(x_1\), \(x_2\), 使
+\begin{align*}
+    b_1 x + b_2 x^2 + b_3
+    = b_2 x^2 + b_1 x + b_3
+    = b_2 (x - x_1) (x - x_2);
+\end{align*}
+存在复数 \(x_3\), \(x_4\), 使
+\begin{align*}
+    b_4 x + b_5 x^2 + b_6
+    = b_5 x^2 + b_4 x + b_6
+    = b_5 (x - x_3) (x - x_4).
+\end{align*}
+则
+\begin{align*}
+    p(x)
+    = {} &
+    b_2 (x - x_1) (x - x_2)
+    \cdot b_5 (x - x_3) (x - x_4)
+    \\
+    = {} &
+    a_0 (x - x_1) (x - x_2) (x - x_3) (x - x_4).
+\end{align*}
 
-% 这么看来, 我们可变%
-% 解 \(1\)~元 \(4\)~次方程的问题%
-% 为%
-% 解 \(2\)~元 \(2\)~次方程组的问题.
+由此, 我们有 (回想在 ``准备'' 的讨论)
 
-% 待定复数 \(k\).
-% 作一个跟方程组~\eqref{eq:A0402} 同解的方程组
-% \begin{equation}
-%     \begin{cases}
-%         f_3 (x, y) = 0, \\
-%         f_2 (x, y) = 0,
-%     \end{cases}
-%     \label{eq:A0403}
-% \end{equation}
-% 其中
-% \begin{align*}
-%     f_3 (x, y)
-%     = {} &
-%     f_1 (x, y) + k f_2 (x, y)
-%     \\
-%     = {} &
-%     a_0 x^2
-%     + \frac{k}{2} \cdot 2xy
-%     + a_4 y^2
-%     + \frac{a_1}{2} \cdot 2x
-%     + \frac{a_3}{2} \cdot 2y
-%     + (a_2 - k).
-% \end{align*}
-% 计算 \(f_3 (x, y)\) 的判别式
-% \begin{align*}
-%     \Delta_3
-%     = {} &
-%     \tridet \det \begin{bmatrix}
-%                      a_0   & k/2   & a_1/2   \\
-%                      k/2   & a_4   & a_3/2   \\
-%                      a_1/2 & a_3/2 & a_2 - k \\
-%                  \end{bmatrix} \tridet
-%     \\
-%     = {} &
-%     \frac{2 k^3 - 2a_2 k^2
-%         + (2a_1 a_3 - 8a_0 a_4) k
-%         + (8a_0 a_2 a_4 - 2a_0 a_3^2 - 2a_1^2 a_4)}
-%     {8}.
-% \end{align*}
-% \(\Delta_3\) 是一个关于 \(k\)~的 \(1\)~元 \(3\)~次式,
-% 故 \(\Delta_3 = 0\) 是一个 \(1\)~元 \(3\)~次方程.
-% 理论地, 这是可解的.
-% 解出一个 \(k\).
-% 从而, 我们可用老方法解方程组~\eqref{eq:A0403},
-% 进而得到方程~\eqref{eq:A0401} 的解.
+\begin{theorem}
+    设 \(n\) 是不超过 \(4\) 的正整数.
+    设 \(p(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    是 \(n\)~次式
+    (\(a_0 \neq 0\)).
+    则存在复数 \(x_1\), \(\dots\), \(x_n\),
+    使
+    \begin{align*}
+        p(x) = a_0 (x - x_1) \dots (x - x_n).
+    \end{align*}
+\end{theorem}
 
-% \begin{example}
-%     解方程
-%     \begin{align*}
-%         x^4 - 2x^3 - 10x^2 + 44x - 48 = 0.
-%     \end{align*}
+最后, 我指出, 如下的一般的定理是对的.
+不过, 我就不在这儿证明它了.
+若您想知道更多, 您可以找相关的文献.
 
-%     注意, \(0\)~次项 \(-48\) 非零,
-%     故此方程无零解.
-%     考虑方程组
-%     \begin{align*}
-%         \begin{cases}
-%             f_1 (x, y) = x^2 - 2x - 10 + 44y - 48y^2 = 0, \\
-%             f_2 (x, y) = xy - 1 = 0.
-%         \end{cases}
-%     \end{align*}
-%     此方程组的解的首个分量即为原方程的解.
-
-%     待定复数 \(k\).
-%     作出同解方程组
-%     \begin{align*}
-%         \begin{cases}
-%             f_3 (x, y) = 0, \\
-%             f_2 (x, y) = 0,
-%         \end{cases}
-%     \end{align*}
-%     其中
-%     \begin{align*}
-%         f_3 (x, y)
-%         = {} & f_1 (x, y) + kf_2 (x, y)                  \\
-%         = {} & x^2 + kxy - 48y^2 - 2x + 44y + (-10 - k).
-%     \end{align*}
-%     计算 \(f_3 (x, y)\) 的判别式
-%     \begin{align*}
-%         \Delta_3
-%         = \tridet \det \begin{bmatrix}
-%                            1   & k/2 & -1    \\
-%                            k/2 & -48 & 22    \\
-%                            -1  & 22  & -10-k \\
-%                        \end{bmatrix} \tridet
-%         = \frac{1}{4} (k + 2) (k^2 + 8k + 88).
-%     \end{align*}
-%     所以, 我们可取 \(k = -2\).
-%     则
-%     \begin{align*}
-%         f_3 (x, y)
-%         = {} & x^2 - 2xy - 48y^2 - 2x + 44y - 8           \\
-%         = {} & x^2 + 2x(-y-1) - 48y^2 + 44y - 8           \\
-%         = {} & (x - y - 1)^2 - (-y-1)^2 - 48y^2 + 44y - 8 \\
-%         = {} & (x - y - 1)^2 - (7y - 3)^2                 \\
-%         = {} & (x + 6y - 4) (x - 8y + 2).
-%     \end{align*}
-%     所以
-%     \begin{align*}
-%         x + 6y - 4 = 0
-%         \quad \text{或} \quad
-%         x - 8y + 2 = 0.
-%     \end{align*}
-%     从而
-%     \begin{align*}
-%         x^2 + 6xy - 4x = 0
-%         \quad \text{或} \quad
-%         x^2 - 8xy + 2x = 0.
-%     \end{align*}
-%     因为 \(xy - 1 = 0\),
-%     故
-%     \begin{align*}
-%         x^2 - 4x + 6 = 0
-%         \quad \text{或} \quad
-%         x^2 + 2x - 8 = 0.
-%     \end{align*}
-%     注意,
-%     我们的目的是求解 (原方程的) \(x\),
-%     而 \(y\) 只是辅助量,
-%     故我们用 \(y = 1/x\) 消去了 \(y\),
-%     进而直接求解 \(x\).
-%     我们不必同时解出 \(x\) 与 \(y\).
-
-%     \(1\)~元 \(2\)~次方程是不难求解的.
-%     不难算出
-%     \begin{align*}
-%         x = 2 + \mathrm{i} \sqrt{2}
-%         \quad \text{或} \quad
-%         x = 2 - \mathrm{i} \sqrt{2}
-%         \quad \text{或} \quad
-%         x = -4
-%         \quad \text{或} \quad
-%         x = 2.
-%     \end{align*}
-%     经验证, 它们都是原方程的解.
-% \end{example}
+\begin{theorem}[代数基本定理]
+    设 \(n\) 是正整数.
+    设 \(p(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    是 \(n\)~次式
+    (\(a_0 \neq 0\)).
+    则存在复数 \(x_1\), \(\dots\), \(x_n\),
+    使
+    \begin{align*}
+        p(x) = a_0 (x - x_1) \dots (x - x_n).
+    \end{align*}
+\end{theorem}
 
 \end{document}
 
@@ -1558,3 +1651,206 @@ and accepts results about
 existence of the (or rather, a) square root
 and that of the (or rather, a) cubic root.
 Yes, complex numbers are really needed.
+
+I also hint the fundamental theorem of algebra.
+
+Here is what I used to write in section 4.
+It is now obsolete.
+
+\section{\texorpdfstring{\(1\)~元 \(4\)~次方程}%
+  {1 元 4 次方程}}
+
+任取一个 \(1\)~元 \(4\)~次方程
+\begin{equation}
+    a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4 = 0,
+    % \label{eq:A0401}
+\end{equation}
+其中 \(a_0 \neq 0\).
+若 \(a_4 = 0\), 则我们可写
+\begin{align*}
+    a_0 x^4 + a_1 x^3 + a_2 x^2 + a_3 x + a_4
+    = x(a_0 x^3 + a_1 x^2 + a_2 x + a_3).
+\end{align*}
+括号里有一个 \(1\)~元 \(3\)~次式.
+这, 理论地, 是可解的.
+所以, 接下来, 我们假定 \(a_4 \neq 0\).
+
+假定 \(s\) 是方程~\eqref{eq:A0401} 的一个解.
+因为 \(a_4 \neq 0\), 故 \(s \neq 0\).
+从而
+\begin{align*}
+    a_0 s^2 + a_1 s + a_2
+    + a_3 \frac{1}{s} + a_4 \frac{1}{s^2} = 0.
+\end{align*}
+由此可见, \((s, 1/s)\) 是 \(2\)~元 \(2\)~次方程组
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        f_1 (x, y) & = a_0 x^2 + a_4 y^2 + a_1 x + a_3 y + a_2 = 0, \\
+        f_2 (x, y) & = xy - 1 = 0
+    \end{aligned}
+    \right.
+    % \label{eq:A0402}
+\end{equation}
+的一个解.
+
+反过来, 设 \((u, v)\) 是方程组~\eqref{eq:A0402} 的一个解.
+那么, \(v = 1/u\).
+从而
+\begin{align*}
+    a_0 u^2 + a_4 \frac{1}{u^2} + a_1 u
+    + a_3 \frac{1}{u} + a_2 = 0.
+\end{align*}
+即
+\begin{align*}
+    a_0 u^4 + a_4 + a_1 u^3 + a_3 u + a_2 u^2 = 0.
+\end{align*}
+故 \(u\) 是方程~\eqref{eq:A0401} 的一个解.
+
+这么看来, 我们可变%
+解 \(1\)~元 \(4\)~次方程的问题%
+为%
+解 \(2\)~元 \(2\)~次方程组的问题.
+
+待定复数 \(k\).
+作一个跟方程组~\eqref{eq:A0402} 同解的方程组
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        f_3 (x, y) & = 0, \\
+        f_2 (x, y) & = 0,
+    \end{aligned}
+    \right.
+    % \label{eq:A0403}
+\end{equation}
+其中
+\begin{align*}
+    f_3 (x, y)
+    = {} &
+    f_1 (x, y) + k f_2 (x, y)
+    \\
+    = {} &
+    a_0 x^2
+    + \frac{k}{2} \cdot 2xy
+    + a_4 y^2
+    + \frac{a_1}{2} \cdot 2x
+    + \frac{a_3}{2} \cdot 2y
+    + (a_2 - k).
+\end{align*}
+计算 \(f_3 (x, y)\) 的判别式
+\begin{align*}
+    \Delta_3
+    = {} &
+    \tridet \det \begin{bmatrix}
+                     a_0   & k/2   & a_1/2   \\
+                     k/2   & a_4   & a_3/2   \\
+                     a_1/2 & a_3/2 & a_2 - k \\
+                 \end{bmatrix} \tridet
+    \\
+    = {} &
+    \frac{2 k^3 - 2a_2 k^2
+        + (2a_1 a_3 - 8a_0 a_4) k
+        + (8a_0 a_2 a_4 - 2a_0 a_3^2 - 2a_1^2 a_4)}
+    {8}.
+\end{align*}
+\(\Delta_3\) 是一个关于 \(k\)~的 \(1\)~元 \(3\)~次式,
+故 \(\Delta_3 = 0\) 是一个 \(1\)~元 \(3\)~次方程.
+理论地, 这是可解的.
+解出一个 \(k\).
+从而, 我们可用老方法解方程组~\eqref{eq:A0403},
+进而得到方程~\eqref{eq:A0401} 的解.
+
+\begin{example}
+    解方程
+    \begin{align*}
+        x^4 - 2x^3 - 10x^2 + 44x - 48 = 0.
+    \end{align*}
+
+    注意, \(0\)~次项 \(-48\) 非零,
+    故此方程无零解.
+    考虑方程组
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_1 (x, y) & = x^2 - 2x - 10 + 44y - 48y^2 = 0, \\
+            f_2 (x, y) & = xy - 1 = 0.
+        \end{aligned}
+        \right.
+    \end{equation*}
+    此方程组的解的首个分量即为原方程的解.
+
+    待定复数 \(k\).
+    作出同解方程组
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f_3 (x, y) & = 0, \\
+            f_2 (x, y) & = 0,
+        \end{aligned}
+        \right.
+    \end{equation*}
+    其中
+    \begin{align*}
+        f_3 (x, y)
+        = {} & f_1 (x, y) + kf_2 (x, y)                  \\
+        = {} & x^2 + kxy - 48y^2 - 2x + 44y + (-10 - k).
+    \end{align*}
+    计算 \(f_3 (x, y)\) 的判别式
+    \begin{align*}
+        \Delta_3
+        = \tridet \det \begin{bmatrix}
+                           1   & k/2 & -1    \\
+                           k/2 & -48 & 22    \\
+                           -1  & 22  & -10-k \\
+                       \end{bmatrix} \tridet
+        = \frac{1}{4} (k + 2) (k^2 + 8k + 88).
+    \end{align*}
+    所以, 我们可取 \(k = -2\).
+    则
+    \begin{align*}
+        f_3 (x, y)
+        = {} & x^2 - 2xy - 48y^2 - 2x + 44y - 8           \\
+        = {} & x^2 + 2x(-y-1) - 48y^2 + 44y - 8           \\
+        = {} & (x - y - 1)^2 - (-y-1)^2 - 48y^2 + 44y - 8 \\
+        = {} & (x - y - 1)^2 - (7y - 3)^2                 \\
+        = {} & (x + 6y - 4) (x - 8y + 2).
+    \end{align*}
+    所以
+    \begin{align*}
+        x + 6y - 4 = 0
+        \quad \text{或} \quad
+        x - 8y + 2 = 0.
+    \end{align*}
+    从而
+    \begin{align*}
+        x^2 + 6xy - 4x = 0
+        \quad \text{或} \quad
+        x^2 - 8xy + 2x = 0.
+    \end{align*}
+    因为 \(xy - 1 = 0\),
+    故
+    \begin{align*}
+        x^2 - 4x + 6 = 0
+        \quad \text{或} \quad
+        x^2 + 2x - 8 = 0.
+    \end{align*}
+    注意,
+    我们的目的是求解 (原方程的) \(x\),
+    而 \(y\) 只是辅助量,
+    故我们用 \(y = 1/x\) 消去了 \(y\),
+    进而直接求解 \(x\).
+    我们不必同时解出 \(x\) 与 \(y\).
+
+    \(1\)~元 \(2\)~次方程是不难求解的.
+    不难算出
+    \begin{align*}
+        x = 2 + \mathrm{i} \sqrt{2}
+        \quad \text{或} \quad
+        x = 2 - \mathrm{i} \sqrt{2}
+        \quad \text{或} \quad
+        x = -4
+        \quad \text{或} \quad
+        x = 2.
+    \end{align*}
+    经验证, 它们都是原方程的解.
+\end{example}
