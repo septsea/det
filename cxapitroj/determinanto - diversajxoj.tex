@@ -9,7 +9,7 @@
 \begin{example}
     设 \(A\) 是 \(n\)~级阵.
     设 \(k\) 是数.
-    求证: \(\det {(kA)} = k^n \det {(A)}\).
+    证明, \(\det {(kA)} = k^n \det {(A)}\).
 \end{example}
 
 这里, 我展现一个用行列式定义的方法.
@@ -47,7 +47,7 @@
             \det {(kA)} = k^n \det {(A)}.
         \end{align*}
     \end{quotation}
-    则, 我们的目标是:
+    则, 我们的目标是,
     对任何正整数 \(n\), \(P(n)\) 是对的.
 
     \(P(1)\) 是对的.
@@ -197,7 +197,7 @@
         B(|j)  & D     \\
     \end{bmatrix},
 \end{align*}
-其中 \(B(|j)\) 表示去除 \(B\)~的列~\(j\) 后得到的阵
+其中, \(B(|j)\) 表示去除 \(B\)~的列~\(j\) 后得到的阵
 (不去除它的行),
 且 \(C(i|)\) 表示去除 \(C\)~的行~\(i\) 后得到的阵
 (不去除它的列).
@@ -205,7 +205,7 @@
 \begin{example}
     设 \(A\), \(D\) 分别是 \(n\), \(t\)~级阵.
     设 \(C\) 是 \(n \times t\)~阵.
-    求证:
+    证明,
     \begin{align*}
         \det {
             \begin{bmatrix}
@@ -215,7 +215,7 @@
         }
         = \det {(A)} \det {(D)},
     \end{align*}
-    其中左下角的 \(0\) 指 \(t \times n\)~零阵.
+    其中, 左下角的 \(0\) 指 \(t \times n\)~零阵.
 \end{example}
 
 % 若您学过 ``按多列 (行) 展开行列式'',
@@ -244,9 +244,9 @@
             }
             = \det {(A)} \det {(D)},
         \end{align*}
-        其中左下角的 \(0\) 指 \(t \times n\)~零阵.
+        其中, 左下角的 \(0\) 指 \(t \times n\)~零阵.
     \end{quotation}
-    则, 我们的目标是:
+    则, 我们的目标是,
     对任何正整数 \(n\), \(P(n)\) 是对的.
 
     \(P(1)\) 是对的.
@@ -259,7 +259,7 @@
             0 & D \\
         \end{bmatrix},
     \end{align*}
-    其中左下角的 \(0\) 指 \(t \times 1\)~零阵.
+    其中, 左下角的 \(0\) 指 \(t \times 1\)~零阵.
     则
     \begin{align*}
              & \det {(J)}
@@ -295,7 +295,7 @@
                 0 & D \\
             \end{bmatrix},
     \end{align*}
-    其中左下角的 \(0\) 指 \(t \times m\)~零阵.
+    其中, 左下角的 \(0\) 指 \(t \times m\)~零阵.
     则
     \begin{align*}
              & \det {(M)}
@@ -326,7 +326,7 @@
               0      & D     \\
           \end{bmatrix},
     \end{align*}
-    其中左下角的 \(0\) 指 \(t \times (m-1)\)~零阵.
+    其中, 左下角的 \(0\) 指 \(t \times (m-1)\)~零阵.
     根据假定,
     \begin{align*}
         \det {(M(i|1))} = \det {(A(i|1))} \det {(D)}.

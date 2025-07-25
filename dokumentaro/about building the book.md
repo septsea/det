@@ -190,7 +190,7 @@ Downloading Source Han Serif CN is easy:
 - you can download more variants [here](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/);
 - you can also download all the variants (as a compressed file) [here](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/SourceHanSerifCN.zip).
 
-下载 Sarasa Mono SC 不难. 在[这儿](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)下载 `SarasaMonoSC-TTF-*.7z`, 其中 `*` 是版本号 (如 `1.0.0`), 且文件名不含 `Unhinted`. 然后, 解压这个压缩文件.  
+下载 Sarasa Mono SC 不难. 在[这儿](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)下载 `SarasaMonoSC-TTF-*.7z`, 其中, `*` 是版本号 (如 `1.0.0`), 且文件名不含 `Unhinted`. 然后, 解压这个压缩文件.  
 Downloading Sarasa Mono SC is easy. Download `SarasaMonoSC-TTF-*.7z` [here](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/), in which `*` is the version number (for example, `1.0.0`), and the filename does not contain `Unhinted`. Extract the compressed file.
 
 我教您如何安装字体. 我假定您用窗系统 (Windows). 选中您想安装的字体文件 (`.ttf` 文件 / `.otf` 文件). (注意, 您可以一次选多个.) 右击它 (们). **点一下 "为所有用户安装".** 不难吧? 若您用其他的系统, 您就自行寻找方法吧 (我不熟悉其他的系统).  
@@ -229,7 +229,7 @@ to contain the Korean script (諺文/韓㐎; 언문/한글; eonmun/han'geul).
 
 ## 关于 "美客" (`make`) (About `make`)
 
-您当然可在窗上用美客. [去这儿下载](https://sourceforge.net/projects/ezwinports/files/). 一般地, 下载 `make-x.y-without-guile-w32-bin.zip` 即可 (其中 `x.y` 是版本号). 您置 `make.exe` 所在的文件夹于环境变量里, 就能用 `make` 了. 若您用包管理器 `winupg`, 您可执行 `winget install ezwinports.make` 以安装美客.  
+您当然可在窗上用美客. [去这儿下载](https://sourceforge.net/projects/ezwinports/files/). 一般地, 下载 `make-x.y-without-guile-w32-bin.zip` 即可 (其中, `x.y` 是版本号). 您置 `make.exe` 所在的文件夹于环境变量里, 就能用 `make` 了. 若您用包管理器 `winupg`, 您可执行 `winget install ezwinports.make` 以安装美客.  
 You can certainly use `make` on Windows. Download it [here](https://sourceforge.net/projects/ezwinports/files/). Just download the file `make-x.y-without-guile-w32-bin.zip` (in which `x.y` is the version number). Put `make.exe` into the folder which is in the environmental variables, and you will be able to use `make`. If you use `winupg` the package manager, you can execute `winget install ezwinports.make` to install `make`.
 
 **美客只是可选项.**  

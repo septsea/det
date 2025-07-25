@@ -20,7 +20,7 @@
     设 \(A\) 是 \(m \times n\)~阵.
     设 \(B\) 是 \(m \times 1\)~阵.
     作一个 \(m \times (n+1)\)~阵 \(G\),
-    其中
+    其中,
     \begin{align*}
         [G]_{i,j}
         = \begin{cases}
@@ -436,11 +436,22 @@
 
 \begin{proof}
     设 \(r = \operatorname{rank} {(A)}\).
+    则 \(A\) 有行列式非零的 \(r\)~级子阵,
+    且 \(A\) 没有行列式非零的 \(r + 1\)~级子阵.
+    \(A\) 是 \([A, AC]\) 的子阵,
+    故 \([A, AC]\) 也有行列式非零的 \(r\)~级子阵.
     由上个定理的 (1),
-    \(\operatorname{rank} {([A, AC])} \leq r\).
-    另一方面, 既然 \(A\) 是 \([A, AC]\) 的子阵,
-    则 \(\operatorname{rank} {([A, AC])} \geq r\).
+    \([A, AC]\) 没有行列式非零的 \(r + 1\)~级子阵.
+    则 \(\operatorname{rank} {([A, AC])} = r\).
 \end{proof}
+
+% \begin{proof}
+%     设 \(r = \operatorname{rank} {(A)}\).
+%     由上个定理的 (1),
+%     \(\operatorname{rank} {([A, AC])} \leq r\).
+%     另一方面, 既然 \(A\) 是 \([A, AC]\) 的子阵,
+%     则 \(\operatorname{rank} {([A, AC])} \geq r\).
+% \end{proof}
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -986,7 +997,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         我们可变 \(A\) 为 \(m \times n\)~阵 \(B\),
         使 \(B\) 是 REF 阵.
     \end{quotation}
-    则, 我们的目标是:
+    则, 我们的目标是,
     对任何正整数 \(m\), \(P(m)\) 是对的.
 
     \(P(1)\) 是对的.
@@ -1350,7 +1361,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         + (a_{q,n} + s a_{p,n}) c_n
         \\
         = {} &
-        a_{q,1} c_1 + a_{q,2} c_2 + \dots + a_{q,n} c_n
+        (a_{q,1} c_1 + a_{q,2} c_2 + \dots + a_{q,n} c_n)
         + s (a_{p,1} c_1 + a_{p,2} c_2 + \dots + a_{p,n} c_n)
         \\
         = {} &
@@ -1598,6 +1609,11 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \quad
     \text{\(i = r\), \(r - 1\), \(\dots\), \(1\)}.
 \end{align*}
+(这里, 注意, 若 \(i = r\), 则
+\begin{align*}
+    - \sum_{i < w \leq r} {a'_{i,k_w} x_{k_w}}
+\end{align*}
+被认为是 \(0\).)
 注意, \(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\)
 可取任何数.
 则方程组~\eqref{eq:sole-5} 有不唯一的解.
@@ -1993,7 +2009,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         \quad
         i = 1, 2, 3, 4, 5
     \end{align*}
-    (其中 \(A \{i, B\}\) 是以
+    (其中, \(A \{i, B\}\) 是以
     \(B\) 代阵~\(A\) 的列~\(i\) 后得到的阵),
     则我们要计算 \(5\)~个 \(5\)~级阵的行列式.
 \end{example}

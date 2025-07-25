@@ -28,6 +28,11 @@
 本节, 我们讨论, 线性方程组有解时, 解是否唯一.
 
 我们先看一个简单的事实.
+注意, 对任何 \(m \times n\)~阵 \(A\),
+\(A 0 = 0\),
+其中, 左侧的 \(0\) 是 \(n \times 1\)~零阵,
+而右侧的 \(0\) 是 \(m \times 1\)~零阵.
+故 \(A X = 0\) 必有零解.
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -60,14 +65,14 @@
 
     % (2)
     % 要证 \(AX = B\) 有无限多个解,
-    % 只要证:
+    % 只要证,
     % 对任何正整数 \(\ell\),
     % 我们能找到 \(AX = B\) 的
     % \(\ell\) 个互不相同的解.
 
     % 作 \(\ell\)~个 \(n \times 1\)~阵
     % \(C_1\), \(C_2\), \(\dots\), \(C_\ell\),
-    % 其中 \(C_j = C + jD\).
+    % 其中, \(C_j = C + jD\).
     % 首先, 每一个 \(C_j\) 都是 \(AX = B\) 的解:
     % \begin{align*}
     %     AC_j = A(C + jD) = AC + A(jD) = B + j(AD) = B + j0 = B.
@@ -129,7 +134,7 @@
     \begin{quotation}
         \(A\) 没有行列式非零的 \(s\)~级子阵.
     \end{quotation}
-    则我们的目标是:
+    则我们的目标是,
     对任何高于 \(r\)~的整数 \(s\),
     \(P(s)\) 是对的.
 
@@ -202,7 +207,7 @@
     设 \(B\) 是 \(m \times 1\)~阵.
     设 \(k\) 是一个不超过 \(m\)~的正整数.
     作一个 \((m + 1) \times n\)~阵 \(\underbar{A}\),
-    其中
+    其中,
     \begin{align*}
         [\underbar{A}]_{i,j}
         = \begin{cases}
@@ -214,7 +219,7 @@
     (通俗地, \(\underbar{A}\)
     是在 \(A\)~的行~\(k\) 下写一行 \(0\) 作成的阵.)
     再作一个 \((m + 1) \times 1\)~阵 \(\underbar{B}\),
-    其中
+    其中,
     \begin{align*}
         [\underbar{B}]_{i,1}
         = \begin{cases}
@@ -425,7 +430,7 @@
 
     我们无妨设 \(m \geq n\).
     若 \(m < n\), 我们作一个 \(n\)~级阵 \(\underbar{A}\),
-    其中
+    其中,
     \begin{align*}
         [\underbar{A}]_{i,j}
         = \begin{cases}
@@ -463,7 +468,7 @@
     A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
     \)
     的行列式非零,
-    其中 \(i_1 < i_2 < \dots < i_r\),
+    其中, \(i_1 < i_2 < \dots < i_r\),
     且 \(j_1 < j_2 < \dots < j_r\).
     我们从 \(1\), \(2\), \(\dots\), \(m\) 中%
     去除 \(r\)~个整数
@@ -499,7 +504,7 @@
 
     接下来, 我们设法由此得到 \(AX = 0\)
     的一个非零解.
-    我们作一个 \(n \times 1\)~阵 \(W\), 其中
+    我们作一个 \(n \times 1\)~阵 \(W\), 其中,
     \begin{align*}
         [W]_{\ell,1}
         = \begin{cases}
@@ -597,7 +602,7 @@
         (-1)^{f(i_{r+1})+g(j_p)}
         \det {(E(f(i_{r+1})|g(j_p)))}}.
     \end{align*}
-    作一个 \(r+1\)~级阵 \(C_q\), 其中
+    作一个 \(r+1\)~级阵 \(C_q\), 其中,
     \begin{align*}
         [C_q]_{h,g(j_p)}
         = \begin{cases}
@@ -685,7 +690,7 @@
         K = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
     \end{align*}
     的行列式非零,
-    其中
+    其中,
     \(1 \leq i_1 < i_2 < \dots < i_n \leq m\).
     因为 \(C\) 适合
     \begin{align*}
@@ -772,7 +777,7 @@
     设存在 \(n \times 1\)~阵 \(C\)
     适合 \(AC = B\).
     作一个 \(m \times (n+1)\)~阵 \(G\),
-    其中
+    其中,
     \begin{align*}
         [G]_{i,j}
         = \begin{cases}
@@ -831,7 +836,7 @@
     \begin{align*}
         D = G\binom{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,n+1},
     \end{align*}
-    其中
+    其中,
     \(1 \leq i_1 < \dots < i_r < i_{r+1} \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\).
     记 \((r+1) \times n\)~阵
@@ -911,7 +916,7 @@
     设 \(p\), \(q\) 是二个不超过 \(n\)~的正整数,
     且 \(p \neq q\).
     设 \(x\) 是一个数.
-    作 \(n\)~级阵 \(L\), 其中
+    作 \(n\)~级阵 \(L\), 其中,
     \begin{align*}
         [L]_{i,j}
         = \begin{cases}
@@ -1012,7 +1017,7 @@
     \begin{align*}
         A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中
+    (其中,
     \(1 \leq i_1 < \dots < i_r \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\)),
     但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
@@ -1044,7 +1049,7 @@
     \begin{align*}
         A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中
+    (其中,
     \(1 \leq i_1 < \dots < i_r \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\)),
     但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
@@ -1273,7 +1278,7 @@
         \sum_{s = 1}^{r}
         {[A]_{i_s,v} d_{p,s}},
     \end{align*}
-    其中 \(v = j_1\), \(\dots\), \(j_r\), \(q\).
+    其中, \(v = j_1\), \(\dots\), \(j_r\), \(q\).
     所以, 当
     % \(t \neq r+1\)
     \(g(v) \neq g(q)\)
@@ -1326,7 +1331,7 @@
     设 \(A\) 是 \(m \times n\)~阵.
     设 \(B\) 是 \(m \times 1\)~阵.
     作一个 \(m \times (n+1)\)~阵 \(G\),
-    其中
+    其中,
     \begin{align*}
         [G]_{i,j}
         = \begin{cases}
@@ -1359,7 +1364,7 @@
     \begin{align*}
         A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中
+    (其中,
     \(1 \leq i_1 < \dots < i_r \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\))
     的行列式非零.
@@ -1421,7 +1426,7 @@
         - \sum_{r < \ell \leq n}
         {[A]_{p,j_\ell} x_{j_\ell}},
     \end{align*}
-    其中 \(p = i_1\), \(i_2\), \(\dots\), \(i_r\),
+    其中, \(p = i_1\), \(i_2\), \(\dots\), \(i_r\),
     下同.
 
     设
@@ -1453,7 +1458,7 @@
             z_{i_r} \\
         \end{bmatrix},
     \end{align*}
-    其中
+    其中,
     \begin{align*}
         z_p = [B]_{p,1}
         - \sum_{r < \ell \leq n}
@@ -1488,7 +1493,7 @@
         [A]_{i_r,1} c_1 + [A]_{i_r,2} c_2 + \dots + [A]_{i_r,n} c_n & = [B]_{i_r,1}.
     \end{align*}
     作 \(n \times 1\)~阵 \(C\),
-    其中 \([C]_{i,1} = c_i\).
+    其中, \([C]_{i,1} = c_i\).
     我们证明, \(AC = B\).
 
     若 \(i\) 等于某 \(i_s\), 则
@@ -1598,7 +1603,7 @@
     设 \(A\) 是 \(m \times n\)~阵.
     设 \(B\) 是 \(m \times 1\)~阵.
     作一个 \(m \times (n+1)\)~阵 \(G\),
-    其中
+    其中,
     \begin{align*}
         [G]_{i,j}
         = \begin{cases}
@@ -1654,7 +1659,7 @@
 \begin{align*}
     T = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
 \end{align*}
-(其中
+(其中,
 \(1 \leq i_1 < \dots < i_r \leq m\),
 且 \(1 \leq j_1 < \dots < j_r \leq n\)),
 但没有行列式非零的 \(r+1\)~级子阵.
@@ -1731,12 +1736,12 @@
 \begin{theorem}
     设 \(V\) 是一个 \(r \times 1\)~阵.
     设 \(U\) 是一个 \(r \times n\)~阵,
-    其中 \(r < n\),
+    其中, \(r < n\),
     且 \(U\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
         T = U\binom{1,\dots,r}{j_1,\dots,j_r},
     \end{align*}
-    其中 \(1 \leq j_1 < \dots < j_r \leq n\).
+    其中, \(1 \leq j_1 < \dots < j_r \leq n\).
     从 \(1\), \(2\), \(\dots\), \(n\)
     去除 \(j_1\), \(j_2\), \(\dots\), \(j_r\)
     后, 还剩 \(n - r\)~个数.
@@ -1749,7 +1754,7 @@
     (1)
     设 \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
     是 \(n-r\)~个常数.
-    作 \(n \times 1\)~阵 \(C\), 其中
+    作 \(n \times 1\)~阵 \(C\), 其中,
     \begin{align*}
         [C]_{j_k,1}
         = \begin{dcases}
@@ -1762,7 +1767,7 @@
                & k > r.
           \end{dcases}
     \end{align*}
-    其中 \(T\{k,Y\}\) 是以 \(r \times 1\)~阵 \(Y\)
+    其中, \(T\{k,Y\}\) 是以 \(r \times 1\)~阵 \(Y\)
     代 \(T\) 的列~\(k\) 后得到的阵.
     则 \(UC = V\).
 
@@ -1797,7 +1802,7 @@
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} x_{j_\ell}},
     \end{align*}
-    其中 \(p = 1\), \(2\), \(\dots\), \(r\),
+    其中, \(p = 1\), \(2\), \(\dots\), \(r\),
     下同.
     考虑%
     由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
@@ -1834,7 +1839,7 @@
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} c_{j_\ell}},
     \end{align*}
-    其中
+    其中,
     \begin{align*}
         c_{j_k}
         = {} &
@@ -1911,7 +1916,7 @@
         {c_{j_\ell}
         \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}
     \end{align*}
-    (其中 \(k = 1\), \(2\), \(\dots\), \(r\), 下同)
+    (其中, \(k = 1\), \(2\), \(\dots\), \(r\), 下同)
     是一个解;
     另一方面,
     \(y_k = [D]_{j_k,1}\) 也是一个解.
@@ -1944,12 +1949,12 @@
 \begin{theorem}
     设 \(V\) 是一个 \(r \times 1\)~阵.
     设 \(U\) 是一个 \(r \times n\)~阵,
-    其中 \(r \leq n\),
+    其中, \(r \leq n\),
     且 \(U\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
         T = U\binom{1,\dots,r}{j_1,\dots,j_r},
     \end{align*}
-    其中 \(1 \leq j_1 < \dots < j_r \leq n\).
+    其中, \(1 \leq j_1 < \dots < j_r \leq n\).
     从 \(1\), \(2\), \(\dots\), \(n\)
     去除 \(j_1\), \(j_2\), \(\dots\), \(j_r\)
     后, 还剩 \(n - r\)~个数.
@@ -1971,7 +1976,7 @@
                & k > r,
           \end{dcases}
     \end{align*}
-    其中 \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
+    其中, \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
     是任何 \(n-r\) 个数.
 \end{theorem}
 
@@ -1981,7 +1986,7 @@
     设 \(A\) 是 \(m \times n\)~阵.
     设 \(B\) 是 \(m \times 1\)~阵.
     作一个 \(m \times (n+1)\)~阵 \(G\),
-    其中
+    其中,
     \begin{align*}
         [G]_{i,j}
         = \begin{cases}
@@ -2027,7 +2032,7 @@
     \begin{align*}
         T = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中 \(1 \leq i_1 < \dots < i_r \leq m\),
+    (其中, \(1 \leq i_1 < \dots < i_r \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\)),
     但 \(G\) 没有行列式非零的 \(r+1\)~级子阵.
     则 \(s = r\).
@@ -2076,7 +2081,7 @@
                & k > r,
           \end{dcases}
     \end{align*}
-    其中
+    其中,
     \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
     是任何 \(n-r\) 个数,
     \(T\{k,Y\}\) 是以 \(r \times 1\)~阵 \(Y\)
