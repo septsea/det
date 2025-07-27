@@ -8935,3 +8935,126 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         % \qedhere
     \end{equation*}
 \end{proof}
+
+% Here is a remark for this theorem:
+
+% \begin{theorem}
+%     设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+
+%     (1)
+%     \(f(A B) = f(A) f(B)\),
+%     对任何 \(n\)~级阵 \(A\), \(B\).
+
+%     (2)
+%     设 \(n\)~级阵 \(D\) 适合,
+%     若 \(i \neq j\), 则 \([D]_{i,j} = 0\).
+%     则 \(f(D) = m(\det {(D)})\).
+%     这里, 定义在数上的函数 \(m\) 是保乘的:
+%     \(m(1) = 1\),
+%     且对任何数 \(s\), \(t\), 有 \(m(st) = m(s)\, m(t)\).
+
+%     那么, 对任何 \(n\)~级阵 \(A\),
+%     \(f(A) = m(\det {(A)})\).
+% \end{theorem}
+
+Suppose that $F$ is a field.
+Let $\mathsf{Mat} (m, n; F)$
+be the set of matrices of size $m \times n$
+with entries in $F$.
+
+Suppose that the function
+$f$: $\mathsf{Mat} (n, n; F) \to F$
+satisfies that
+$f(A B) = f(A) f(B)$
+for all $A$, $B \in \mathsf{Mat} (n, n; F)$.
+We show that $f(A) = f(M(n; \det {(A)}; 1))$
+for each $A \in \mathsf{Mat} (n, n; F)$.
+
+We know that
+$f(I) = f(I I) = f(I) f(I)$,
+where $I$ is the identity matrix of size $n$.
+Then $f(I) = 1$ or $f(I) = 0$.
+
+Suppose that $f(I) = 1$.
+Then we know that $f(E(n; p, q; s)) = 1$,
+where $p \neq q$ and $s \in F$.
+(Note that the proof in the text is not correct
+if $F$ is $\mathbb{Z}/(2\mathbb{Z})$,
+the field consisting of exactly two elements $0$ and $1$,
+with the following operations:
+$$
+    \begin{aligned}
+         & 0 + 0 = 0 - 0 = 0;         \\
+         & 1 + 0 = 1 - 0 = 1;         \\
+         & 0 + 1 = 0 - 1 = 1;         \\
+         & 1 + 1 = 1 - 1 = 0;         \\
+         & 0 ⋅ 0 = 0 ⋅ 1 = 1 ⋅ 0 = 0; \\
+         & 1 ⋅ 1 = 1 / 1 = 1.
+    \end{aligned}
+$$
+The reason is simply that there is
+no element $t \in \mathbb{Z}/(2\mathbb{Z})$
+such that $t \neq 0$ and $t \neq 1$.
+However, this can be easily remedied,
+because that
+$1 = f(I) = f(E(n; p, q; s) E(n; p, q; -s))
+    = f(E(n; p, q; s)) f(E(n; p, q; -s))$
+forces that $f(E(n; p, q; s)) = 1$.)
+Define $g$: $F \to F$ by
+$g(s) = f(M(n; s; 1))$.
+Then $g(s t) = g(s) g(t)$
+because $M(n; s t; 1) = M(n; s; 1) M(n; t; 1)$,
+and $g(1) = f(M(n; 1; 1)) = f(I) = 1$.
+We show that $g(s) = f(M(n; s; q))$.
+If $q = 1$, this is obvious.
+If $q \neq 1$, we just note that three column-additions
+$E_1 = E(n; q, 1; 1)$,
+$E_2 = E(n; 1, q; -1)$,
+$E_3 = E(n; q, 1; 1)$
+turn $M(n; s; q)$ into $M'$, where
+$$
+    [M']_{i,j}
+    = \begin{cases}
+        [M(n; s; q)]_{i,q},  & j = 1;           \\
+        -[M(n; s; q)]_{i,1}, & j = q;           \\
+        [M(n; s; q)]_{i,j},  & \text{otherwise}
+    \end{cases}
+    = \begin{cases}
+        s,         & (i, j) = (q, 1);  \\
+        -1,        & (i, j) = (1, q);  \\
+        [I]_{i,j}, & \text{otherwise},
+    \end{cases}
+$$
+and furthermore that three row-additions
+$H_1$, $H_2$, $H_3$
+turn $M'$ into $M''$, where
+$$
+    [M'']_{i,j}
+    = \begin{cases}
+        [M']_{q,j},  & i = 1;           \\
+        -[M']_{1,j}, & i = q;           \\
+        [M']_{i,j},  & \text{otherwise}
+    \end{cases}
+    = \begin{cases}
+        s,         & (i, j) = (1, 1); \\
+        1,         & (i, j) = (q, q); \\
+        [I]_{i,j}, & \text{otherwise}
+    \end{cases}
+    = [M(n; s; 1)]_{i,j}.
+$$
+Hence
+$f(M(n; s; 1))
+    = f(H_3 H_2 H_1 M(n; s; q) E_1 E_2 E_3)
+    = f(H_3) f(H_2) f(H_1) f(M(n; s; q)) f(E_1) f(E_2) f(E_3)
+    = f(M(n; s; q))$.
+Hence
+$f(M(n; s; q)) = f(M(n; s; 1)) = g(s)$.
+Then the argument in the text gives that
+$f(A) = g(\det {(A)}) = f(M(n; \det {(A)}; 1))$
+for each $A \in \mathsf{Mat} (n, n; F)$.
+
+Suppose that $f(I) = 0$.
+Then $f(A) = f(A I) = f(A) f(I) = f(A)\, 0 = 0$
+for each $A \in \mathsf{Mat} (n, n; F)$.
+It is of course that
+$0 = f(M(n; \det {(A)}; 1))$.
