@@ -72,6 +72,10 @@ I also advertise this book at the following places:
 <!-- 好的. 若您只想看书, 那么, 看到这儿也就够了.  
 Okay. If you just want to read the book, you do not have to read the other sections in the README file (you are currently reading the README file, are you not). -->
 
+## 关于编书 (About building the book)
+
+[读我 (Read me).](./dokumentaro/about%20building%20the%20book.md)
+
 ## 关于著作权 (About the copyright)
 
 我用 [0BSD](https://opensource.org/license/0bsd) 协议发布了本书:  

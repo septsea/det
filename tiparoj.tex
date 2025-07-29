@@ -5,8 +5,6 @@
 % - [XITS](https://ctan.org/pkg/xits)
 % - [Fira Sans](https://ctan.org/pkg/fira)
 % - [XITS Math](https://ctan.org/pkg/xits)
-% - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
-% - [STIX Two Math](https://ctan.org/pkg/stix2-otf)
 
 % One can build the document with:
 % latexmk -xelatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj
@@ -170,15 +168,9 @@
 ]{unicode-math}
 \allowdisplaybreaks[3]
 
-% I specify the mathematical fonts used by the document.
+% I specify the mathematical font(s) used by the document.
 \IfFontExistsTF{XITSMath-Regular.otf}{%
     \setmathfont[]{XITSMath-Regular.otf}
-}{}
-\IfFontExistsTF{texgyretermes-math.otf}{%
-\setmathfont[range=bb/{latin,Latin}]{texgyretermes-math.otf}
-}{}
-\IfFontExistsTF{STIXTwoMath-Regular.otf}{%
-    \setmathfont[range={"2218-"2218}]{STIXTwoMath-Regular.otf}
 }{}
 
 % https://clagnut.com/blog/2380
@@ -303,6 +295,35 @@
     = (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca)
 \end{equation*}
 
+\begin{equation*}
+    \mathbb{N}
+    \subset \mathbb{Z}
+    \subset \mathbb{Q}
+    \subset \mathbb{R}
+    \subset \mathbb{C}
+\end{equation*}
+
+\begin{equation*}
+    (h \circ g) \circ f = h \circ (g \circ f)
+\end{equation*}
+
+\end{document}
+
+Postscript:
+
+TeX Gyre Termes Math and STIX Two Math were used in this project.
+
+% This file is used to test whether
+% the following fonts exist:
+% - [Source Han Serif CN](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/)
+% - [Sarasa Mono SC](https://mirrors.tuna.tsinghua.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)
+% - [XITS](https://ctan.org/pkg/xits)
+% - [Fira Sans](https://ctan.org/pkg/fira)
+% - [XITS Math](https://ctan.org/pkg/xits)
+% - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
+% - [STIX Two Math](https://ctan.org/pkg/stix2-otf)
+
+
 % TeX Gyre Termes Math (ℕ, ℤ, ℚ, ℝ, ℂ)
 % and XITS Math (⊂)
 \begin{equation*}
@@ -318,5 +339,3 @@
 \begin{equation*}
     (h \circ g) \circ f = h \circ (g \circ f)
 \end{equation*}
-
-\end{document}

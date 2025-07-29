@@ -311,16 +311,21 @@
 ]{unicode-math}
 \allowdisplaybreaks[3]
 
-% I specify the mathematical fonts used by the document.
+% I specify the mathematical font(s) used by the document.
 \IfFontExistsTF{XITSMath-Regular.otf}{%
     \setmathfont[]{XITSMath-Regular.otf}
 }{}
-\IfFontExistsTF{texgyretermes-math.otf}{%
-\setmathfont[range=bb/{latin,Latin}]{texgyretermes-math.otf}
-}{}
-\IfFontExistsTF{STIXTwoMath-Regular.otf}{%
-    \setmathfont[range={"2218-"2218}]{STIXTwoMath-Regular.otf}
-}{}
+
+% % I specify the mathematical font(s) used by the document.
+% \IfFontExistsTF{XITSMath-Regular.otf}{%
+%     \setmathfont[]{XITSMath-Regular.otf}
+% }{}
+% \IfFontExistsTF{texgyretermes-math.otf}{%
+% \setmathfont[range=bb/{latin,Latin}]{texgyretermes-math.otf}
+% }{}
+% \IfFontExistsTF{STIXTwoMath-Regular.otf}{%
+%     \setmathfont[range={"2218-"2218}]{STIXTwoMath-Regular.otf}
+% }{}
 
 % \IfFontExistsTF{XITS Math}{%
 %     % Standing-up-straight integral symbol (For XITS Math).

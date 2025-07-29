@@ -1,25 +1,3 @@
-<!--
-spell-checker: ignore septsea
-spell-checker: ignore determinantulo
-spell-checker: ignore libro
-spell-checker: ignore buildthebook
-spell-checker: ignore xelatex
-spell-checker: ignore synctex
-spell-checker: ignore nonstopmode
-spell-checker: ignore latexmk
-spell-checker: ignore lualatex
-spell-checker: ignore Sarasa
-spell-checker: ignore XITS
-spell-checker: ignore Fira
-spell-checker: ignore STIX
-spell-checker: ignore Termes
-spell-checker: ignore Unhinted
-spell-checker: ignore tiparoj
-spell-checker: ignore testfonts
-spell-checker: ignore biber
-spell-checker: ignore texify
--->
-
 # About building the book (关于编书的说明)
 
 我置本书的代码于:  
@@ -147,7 +125,7 @@ When I say "execute", you please open a terminal window
 and go to the folder in which the file [`libro.tex`](../libro.tex) is.
 
 您可用下面的任何方法编本书:
-- 执行 [`buildthebook.cmd`](../buildthebook.cmd). (假如您无法执行它, 就换后一个方法. 下同.)
+<!-- - 执行 [`buildthebook.cmd`](../buildthebook.cmd). (假如您无法执行它, 就换后一个方法. 下同.) -->
 - 执行 `make` .
 - 执行 `latexmk -xelatex -file-line-error -cd -synctex=1 -interaction=nonstopmode -halt-on-error -silent libro` .
 - 执行 `make lua` .
@@ -156,8 +134,8 @@ and go to the folder in which the file [`libro.tex`](../libro.tex) is.
 - 假如您不喜欢我给出的方法, 那您当然也可用自己喜欢的方法; 您编出来就行. 我只提一个硬要求: **用 XeLaTeX 或 LuaLaTeX**. (至少, 我能用 XeLaTeX 或 LuaLaTeX 无问题地编译本书.)
 
 Use any of the following methods to build the book.
-- Execute [`buildthebook.cmd`](../buildthebook.cmd).
-(Try another method if this does not function.)
+<!-- - Execute [`buildthebook.cmd`](../buildthebook.cmd).
+(Try another method if this does not function.) -->
 - Execute `make` .
 - Execute `latexmk -xelatex -file-line-error -cd -synctex=1 -interaction=nonstopmode -halt-on-error -silent libro` .
 - Execute `make lua` .
@@ -167,18 +145,21 @@ Use any of the following methods to build the book.
 
 ## 关于字体 (About fonts)
 
-我用到了如下的字体:  
+我用到了如下字体:  
 I used the following fonts:
 - [Source Han Serif CN](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/)
 - [Sarasa Mono SC](https://mirrors.tuna.tsinghua.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)
 - [XITS](https://ctan.org/pkg/xits)
 - [Fira Sans](https://ctan.org/pkg/fira)
 - [XITS Math](https://ctan.org/pkg/xits)
-- [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
-- [STIX Two Math](https://ctan.org/pkg/stix2-otf)
+<!-- - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
+- [STIX Two Math](https://ctan.org/pkg/stix2-otf) -->
 
-一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math. 所以, 您一般不必安装这 5 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC 即可.  
-Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC.
+一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math. 所以, 您一般不必安装这 3 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC 即可.  
+Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC.
+
+<!-- 一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math. 所以, 您一般不必安装这 5 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC 即可.  
+Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC. -->
 
 下载 Source Han Serif CN 是方便的:
 - 可以只下载本书用到的 [Source Han Serif CN Light](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/SourceHanSerifCN-Light.otf);
@@ -197,7 +178,7 @@ Downloading Sarasa Mono SC is easy. Download `SarasaMonoSC-TTF-*.7z` [here](http
 I tell you how to install fonts. I suppose that you use Windows. Select the font(s) that you want to install (`.ttf` and/or `.otf` files). Right-click on it/them. **Click on "Install for all users".** It is not hard, is it? If you use another operating system, please find the method elsewhere (I am sorry that I am not familiar with operating systems other than Windows).
 
 我准备了一个小文件 [`tiparoj.tex`](../tiparoj.tex). 若您认为, 您的电脑里已有这 7 个字体, 且乳胶认识它们, 那就可以试编 [`tiparoj.tex`](../tiparoj.tex), 验证此事:
-- 可以执行 [`testfonts.cmd`](../testfonts.cmd);
+<!-- - 可以执行 [`testfonts.cmd`](../testfonts.cmd); -->
 - 可以执行 `make fonts`;
 - 可以执行 `make tiparoj`;
 - 可以执行 `latexmk -xelatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj`;
@@ -207,7 +188,7 @@ I tell you how to install fonts. I suppose that you use Windows. Select the font
 当然, 若您不想用这些方法, 那您就自己设法吧.
 
 I contained a small file [`tiparoj.tex`](../tiparoj.tex) in this repository. If you believe that there are the seven fonts on your computer, and that LaTeX knows them well, you can build [`tiparoj.tex`](../tiparoj.tex) to check whether that is the case.
-- You can execute [`testfonts.cmd`](../testfonts.cmd);
+<!-- - You can execute [`testfonts.cmd`](../testfonts.cmd); -->
 - you can execute `make fonts`;
 - you can execute `make tiparoj`;
 - you can execute `latexmk -xelatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj`;
@@ -235,11 +216,9 @@ You can certainly use `make` on Windows. Download it [here](https://sourceforge.
 **美客只是可选项.**  
 **`make` is just optional.**
 
-## About MikTeX
+<!-- ## About MikTeX
 
 Some users do not use TeX Live; they use [MikTeX](https://miktex.org/) instead. I was asked how to build this book using MikTeX. Hence I did an experiment on 2024-10-23 on a Windows PC. The version of MikTeX that I used for the experiment was 24.1 (on 2024-01-28).
-
-<!-- spell-checker: disable -->
 
 If you want to use XeLaTeX, execute:  
 ```bash
@@ -261,12 +240,10 @@ lualatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 The following packages are needed if LuaLaTeX is used:  
 > lua-uni-algos, subfiles, import, ctex, luatexja, infwarerr, luatexbase, ctablestack, ltxcmds, everyhook, svn-prov, adobemapping, chinese-jfm, zhnumber, xits, fira, mathtools, unicode-math, lualatex-math, tex-gyre-math, stix2-otf, amscls, thmtools, kvsetkeys, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
 
-<!-- spell-checker: enable -->
-
 You might be curious about why `latexmk` is not used here. Two reasons:  
 - `latexmk` is not (yet) part of a default installation of MikTeX, but can be installed manually if needed. However, because MikTeX does not contain Perl, on which `latexmk` depends, one has to install Perl manually in order to use `latexmk` (if there is no Perl executable file). (If one is willing to install Perl, one is highly recommended using `latexmk`.)
 - MikTeX does include `texify`, which is an alternative to `latexmk` and does not depend on Perl as `latexmk` does, as part of a default installation of MikTeX. However, `texify` does not get along well with `biber`. (The issue existed many years ago and has not been fixed yet.)
 
 Given the above considerations, I decide that I keep using TeX Live for this project.
 
-Postscript: The package `fandol` (a set of a few Chinese fonts) can be installed, if needed.
+Postscript: The package `fandol` (a set of a few Chinese fonts) can be installed, if needed. -->

@@ -1376,7 +1376,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     对方程组~\eqref{eq:sole-2},
     我们加方程~\(p\) 的 \(-s\) 倍于方程~\(q\),
     且不改变其他的方程,
-    得线性方程组
+    得方程组
     \begin{equation}
         \left\{
         \begin{aligned}
@@ -1502,7 +1502,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 \end{align*}
 (注意, 若 \(r = m\),
 则行~\(r + 1\), \(r + 2\), \(\dots\) 当然不出现.)
-则线性方程组~\eqref{eq:sole-4} 被相应地变为
+则方程组~\eqref{eq:sole-4} 被相应地变为
 \begin{equation}
     \left\{
     \begin{aligned}
@@ -1620,7 +1620,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 则方程组~\eqref{eq:sole-4} 也有不唯一的解.
 
 注意, \(r > n\) 是不可能的,
-因为 \(r \leq k_r \leq n\)
+因为 \(r \leq k_r \leq n\).
 (注意, \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
 故 \(n \geq k_r \geq k_{r-1} + 1 \geq \dots \geq r_1 + r-1
 \geq 1 + r - 1 = r\).)
@@ -1630,23 +1630,23 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 \begin{theorem}
     考虑线性方程组~\eqref{eq:sole-4}.
     通过若干次 ``加一个方程的倍于另一个方程'' 的行为,
-    我们可变线性方程组~\eqref{eq:sole-4}
-    为线性方程组~\eqref{eq:sole-5},
+    我们可变方程组~\eqref{eq:sole-4}
+    为方程组~\eqref{eq:sole-5},
     且它们有相同的解.
 
     (1)
     若 \(b'_{r+1} \neq 0\),
-    则线性方程组~\eqref{eq:sole-4} 无解.
+    则方程组~\eqref{eq:sole-4} 无解.
 
     (2)
     若 \(b'_{r+1} = 0\)
     (或 ``\(0 = b'_{r+1}\)'' 不存在),
-    则线性方程组~\eqref{eq:sole-4} 有解.
+    则方程组~\eqref{eq:sole-4} 有解.
     进一步地,
     若 \(r = n\),
-    则线性方程组~\eqref{eq:sole-4} 有唯一的解;
+    则方程组~\eqref{eq:sole-4} 有唯一的解;
     若 \(r < n\),
-    则线性方程组~\eqref{eq:sole-4} 有不唯一的解.
+    则方程组~\eqref{eq:sole-4} 有不唯一的解.
     (\(r > n\) 是不可能的.)
 \end{theorem}
 
@@ -1908,7 +1908,21 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 求它的子阵的行列式简单.
 
 \begin{example}
-    设
+    解线性方程组
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            0 x_1 + 1 x_2 + 1 x_3 + 1 x_4 + 1 x_5 & = 17, \\
+            1 x_1 + 0 x_2 + 1 x_3 + 1 x_4 + 1 x_5 & = 15, \\
+            1 x_1 + 1 x_2 + 0 x_3 + 1 x_4 + 1 x_5 & = 14, \\
+            1 x_1 + 1 x_2 + 1 x_3 + 0 x_4 + 1 x_5 & = 12, \\
+            1 x_1 + 1 x_2 + 1 x_3 + 1 x_4 + 0 x_5 & = 10.
+        \end{aligned}
+        \right.
+        \label{eq:sole-6}
+    \end{equation}
+
+    记
     \begin{align*}
         A =
         \begin{bmatrix}
@@ -1917,6 +1931,15 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
             1 & 1 & 0 & 1 & 1 \\
             1 & 1 & 1 & 0 & 1 \\
             1 & 1 & 1 & 1 & 0 \\
+        \end{bmatrix},
+        \quad
+        X =
+        \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+            x_3 \\
+            x_4 \\
+            x_5 \\
         \end{bmatrix},
         \quad
         B =
@@ -1928,25 +1951,12 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
             10 \\
         \end{bmatrix}.
     \end{align*}
-    设 \(X\) 是未知的 \(5 \times 1\)~阵.
-    我们解 \(AX = B\).
+    则方程组~\eqref{eq:sole-6} 相当于 \(A X = B\).
 
-    记 \(X = [x_1, x_2, \dots, x_n]^{\mathrm{T}}\).
-    则 \(A X = B\) 相当于
-    \begin{equation*}
-        \left\{
-        \begin{aligned}
-            0 x_1 + 1 x_2 + 1 x_3 + 1 x_4 + 1 x_5 & = 17, \\
-            1 x_1 + 0 x_2 + 1 x_3 + 1 x_4 + 1 x_5 & = 15, \\
-            1 x_1 + 1 x_2 + 0 x_3 + 1 x_4 + 1 x_5 & = 14, \\
-            1 x_1 + 1 x_2 + 1 x_3 + 0 x_4 + 1 x_5 & = 12, \\
-            1 x_1 + 1 x_2 + 1 x_3 + 1 x_4 + 0 x_5 & = 10.
-        \end{aligned}
-        \right.
-    \end{equation*}
-    则此线性方程组对应 \(5 \times (5 + 1)\)~阵
+    线性方程组~\eqref{eq:sole-6}
+    对应 \(5 \times (5 + 1)\)~阵
     \begin{align*}
-        G =
+        G = [A, B] =
         \begin{bmatrix}
             0 & 1 & 1 & 1 & 1 & 17 \\
             1 & 0 & 1 & 1 & 1 & 15 \\
@@ -1966,14 +1976,16 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
             0 & 0  & 0  & 0  & -1 & -7 \\
         \end{bmatrix}.
     \end{align*}
-    由此, 我们知道,
+    设 \(A'\) 是由 \(G'\) 的前 \(5\) 列作成的阵.
+    则
     \(\operatorname{rank} {(G)}
     = \operatorname{rank} {(G')}
     = \operatorname{rank} {(A')}
     = \operatorname{rank} {(A)}
-    = 5\),
-    其中, \(A'\) 是由 \(G'\) 的前 \(5\) 列作成的阵.
-    则 \(A X = B\) 有唯一的解.
+    = 5\).
+    故方程组~\eqref{eq:sole-6} 有解.
+    因为 \(A\)~的秩等于 \(A\)~的列数,
+    方程组~\eqref{eq:sole-6} 有唯一的解.
 
     \(G'\) 对应线性方程组
     \begin{equation*}
@@ -1987,6 +1999,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         \end{aligned}
         \right.
     \end{equation*}
+    它与方程组~\eqref{eq:sole-6} 有相同的解.
     由此, 我们可解得
     \(x_1 = 0\), \(x_2 = 2\), \(x_3 = 3\),
     \(x_4 = 5\), \(x_5 = 7\).
@@ -1996,7 +2009,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \(\det {(A)} = \det {(A')}
     = 4 \cdot (-1)^4 = 4\).
     于是, 理论地, 我们也可用 Cramer 公式%
-    解这个线性方程组.
+    解线性方程组~\eqref{eq:sole-6}.
     不过, 计算行列式不是简单的事情:
     若我们用 Cramer 公式~1,
     \begin{align*}
@@ -2016,13 +2029,39 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 
 \begin{example}
     设 \(k\) 是参数.
-    设
+    考虑由 \(3\)~个%
+    关于 \(x\), \(y\) 的
+    \(2\)~元 \(1\)~次方程作成的方程组
+    \begin{equation}
+        \left\{
+        \begin{alignedat}{4}
+            1 x              & {} + {} & k y & {} = {} & 1,             \\
+            k x              & {} + {} & 1 y & {} = {} & 1,             \\
+            (-k^2 + k + 1) x & {} + {} & 1 y & {} = {} & k^2 - 2 k + 2, \\
+        \end{alignedat}
+        \right.
+        \label{eq:sole-7}
+    \end{equation}
+    若方程组~\eqref{eq:sole-7} 有解,
+    \(k\) 应适合什么条件?
+    反过来, 当 \(k\) 适合什么条件时,
+    方程组~\eqref{eq:sole-7} 有解?
+    当方程组~\eqref{eq:sole-7} 有解时,
+    求它的解.
+
+    记
     \begin{align*}
         A =
         \begin{bmatrix}
             1        & k \\
             k        & 1 \\
             -k^2+k+1 & 1 \\
+        \end{bmatrix},
+        \quad
+        X =
+        \begin{bmatrix}
+            x \\
+            y \\
         \end{bmatrix},
         \quad
         B =
@@ -2032,28 +2071,12 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
             k^2-2k+2 \\
         \end{bmatrix}.
     \end{align*}
-    设 \(X\) 是未知的 \(3 \times 1\) 阵.
-    若 \(A X = B\) 有解,
-    \(k\) 应适合什么条件?
-    反过来, 当 \(k\) 适合什么条件时,
-    \(A X = B\) 有解?
-    当 \(A X = B\) 有解时,
-    求它的解.
+    则方程组~\eqref{eq:sole-7} 相当于 \(A X = B\).
 
-    设 \(X = [x_1, x_2, x_3]^{\mathrm{T}}\).
-    \(A X = B\) 相当于
-    \begin{equation*}
-        \left\{
-        \begin{alignedat}{4}
-            1 x_1              & {} + {} & k x_2 & {} = {} & 1,             \\
-            k x_1              & {} + {} & 1 x_2 & {} = {} & 1,             \\
-            (-k^2 + k + 1) x_1 & {} + {} & 1 x_2 & {} = {} & k^2 - 2 k + 2, \\
-        \end{alignedat}
-        \right.
-    \end{equation*}
-    其对应 \(3 \times (2 + 1)\)~阵
+    线性方程组~\eqref{eq:sole-7}
+    对应 \(3 \times (2 + 1)\)~阵
     \begin{align*}
-        G =
+        G = [A, B] =
         \begin{bmatrix}
             1        & k & 1        \\
             k        & 1 & 1        \\
@@ -2098,8 +2121,8 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         \\
         = {} &
         \begin{cases}
-            2, & \text{\(k^2-k = 0\), 且 \(1-k^2 \neq 0\)};    \\
-            3, & \text{\(k^2-k \neq 0\), 且 \(1-k^2 \neq 0\)}.
+            2, & \text{\(k^2-k = 0\), 且 \(1-k^2 \neq 0\)};   \\
+            3, & \text{\(k^2-k \neq 0\), 且 \(1-k^2 \neq 0\)}
         \end{cases}
         \\
         = {} &
@@ -2109,26 +2132,30 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         \end{cases}
     \end{align*}
     所以, 当 \(1 - k^2 \neq 0\) 时,
-    若 \(A X = B\) 有解, 必
+    若方程组~\eqref{eq:sole-7} 有解, 必
     \(\operatorname{rank} {(G)} = \operatorname{rank} {(A)}\),
     即 \(k = 0\).
     反过来, 当 \(k = 0\) 时,
     \(\operatorname{rank} {(G)} = \operatorname{rank} {(A)}\),
-    故 \(A X = B\) 有解.
+    故方程组~\eqref{eq:sole-7} 有解.
     因为 \(A\)~的秩等于 \(A\)~的列数,
     则当 \(k = 0\) 时,
-    \(A X = B\) 有唯一的解.
-    进一步地, 当 \(k = 0\) 时, \(G'\) 对应线性方程组
+    方程组~\eqref{eq:sole-7} 有唯一的解.
+
+    进一步地, 当 \(k = 0\) 时,
+    \(G'\) 对应线性方程组
     \begin{equation*}
         \left\{
         \begin{aligned}
-            x_1 & = 1, \\
-            x_2 & = 1, \\
-            0   & = 0.
+            x & = 1, \\
+            y & = 1, \\
+            0 & = 0.
         \end{aligned}
         \right.
     \end{equation*}
-    则 \(x_1 = 1\), \(x_2 = 1\).
+    它与方程组~\eqref{eq:sole-7}
+    (其中, \(k = 0\)) 有相同的解.
+    则 \(x = 1\), \(y = 1\).
 
     设 \(1 - k^2 = 0\).
     则 \(k = 1\), 或 \(k = -1\).
@@ -2165,25 +2192,30 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
           \end{cases}
     \end{align*}
     所以, 当 \(1 - k^2 = 0\) 时,
-    若 \(A X = B\) 有解,
+    若方程组~\eqref{eq:sole-7} 有解,
     必
     \(\operatorname{rank} {(G)} = \operatorname{rank} {(A)}\),
     即 \(k = 1\).
+    反过来, 当 \(k = 1\) 时,
+    \(\operatorname{rank} {(G)} = \operatorname{rank} {(A)}\),
+    故方程组~\eqref{eq:sole-7} 有解.
     因为 \(A\)~的秩小于 \(A\)~的列数,
     则当 \(k = 1\) 时,
-    \(A X = B\) 有不唯一的解.
+    方程组~\eqref{eq:sole-7} 有不唯一的解.
+
     进一步地, 当 \(k = 1\) 时, \(G'\) 对应线性方程组
     \begin{equation*}
         \left\{
         \begin{aligned}
-            x_1 + x_2 & = 1, \\
-            0         & = 0, \\
-            0         & = 0.
+            x + y & = 1, \\
+            0     & = 0, \\
+            0     & = 0.
         \end{aligned}
         \right.
     \end{equation*}
-    则 \(x_1 = 1 - c\),
-    \(x_2 = c\),
+    它与方程组~\eqref{eq:sole-7}
+    (其中, \(k = 1\)) 有相同的解.
+    则 \(x = 1 - c\), \(y = c\),
     其中, \(c\) 是任何数.
 \end{example}
 
