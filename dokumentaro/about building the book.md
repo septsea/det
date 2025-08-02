@@ -120,6 +120,19 @@ Given the source code of the book, you might want to build the book. Here are so
 我假定您可正常地用乳胶 (LaTeX). [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 或 2025 均可被用于编译本书.  
 It is assumed that LaTeX functions well on your computer. Any of [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 2025 can be used to build the book.
 
+TeX Live 2020 也可被用于编译本书. 不过, 为使书可被成功地编译, 您要更新包. 执行  
+TeX Live 2020 can also be used to build the book, but the packages have to be updated so that the book can be built successfully. Execute either
+```bash
+tlmgr update --reinstall-forcibly-removed --all --self --repository https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/2020/tlnet-final/
+```
+或  
+or  
+```bash
+tlmgr update --reinstall-forcibly-removed --all --self --repository https://mirror.nju.edu.cn/tex-historic/systems/texlive/2020/tlnet-final/
+```
+以更新包. (见 [https://tug.org/historic/](https://tug.org/historic/) 以了解更多.)  
+to update the packages. (See [https://tug.org/historic/](https://tug.org/historic/) for more information.)
+
 当我说 "执行" 时, 请您打开一个可执行命令的窗口, 并进入 [`libro.tex`](../libro.tex) 所在的目录.  
 When I say "execute", you please open a terminal window
 and go to the folder in which the file [`libro.tex`](../libro.tex) is.
