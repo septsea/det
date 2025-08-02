@@ -1,16 +1,18 @@
-\documentclass[%
-    a4paper,
-    oneside,
-    punct=kaiming,
-    zihao=-4,
-    landscape
-]{ctexbook}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{afisxo}[2025/06/28 Class for A4 posters
+    for "An introduction to determinants"]
 
-\providecommand*{\laauxtoro}{the \textsf{mwe}
-    (Minimal Working Example) package}
-\providecommand*{\lailustrajxo}{\includepdf{example-image-a4-landscape.pdf}}
+\newif\if@pejzagxa\@pejzagxafalse
+\DeclareOption{pejzagxa}{\@pejzagxatrue}
+\ProcessOptions\relax
 
-\usepackage[margin=2.5cm]{geometry}
+\if@pejzagxa
+    \LoadClass[a4paper,oneside,punct=kaiming,zihao=-4,landscape]{ctexbook}
+\else
+    \LoadClass[a4paper,oneside,punct=kaiming,zihao=-4]{ctexbook}
+\fi
+
+\RequirePackage[margin=2.5cm]{geometry}
 \pagestyle{empty}
 
 \IfFontExistsTF{FiraSans-Regular.otf}{%
@@ -108,7 +110,7 @@
     }{}
 }
 
-\usepackage[
+\RequirePackage[
     math-style=ISO,
     bold-style=ISO,
     mathrm=sym,
@@ -118,14 +120,12 @@
     \setmathfont[]{FiraMath-Regular.otf}
 }{}
 
-\makeatletter
 \providecommand*{\midsloppy}{%
     \tolerance 5000%
     \hbadness 4000%
     \emergencystretch 1.5em%
     \hfuzz .1\p@%
     \vfuzz\hfuzz}
-\makeatother
 
 \renewcommand*{\familydefault}{\sfdefault}
 
@@ -135,88 +135,155 @@
     \renewcommand*{\UrlFont}{\ttfamily}
 }
 
-\usepackage[breaklinks,hidelinks,unicode]{hyperref}
-\usepackage{xurl}
+\RequirePackage[breaklinks,hidelinks,unicode]{hyperref}
+\RequirePackage{xurl}
 
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{pdfpages}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{pdfpages}
 
-\begin{document}
+\providecommand*{\laauxtoro}{the \textsf{mwe} (Minimal Working Example) package}
+\providecommand*{\lailustrajxo}{%
+    \if@pejzagxa%
+        \includepdf{example-image-a4-landscape.pdf}%
+    \else%
+        \includepdf{example-image-a4.pdf}%
+    \fi%
+}
 
-\lailustrajxo
-\clearpage
-
-\noindent\phantom{\parbox{\linewidth}{\footnotesize%
+\providecommand{\afisxodeauxtorrajto}{%
+    \parbox{\linewidth}{\footnotesize%
         \texttt{©} Determinantulo.
         All rights reserved.\\
         The illustration on the reverse side was drawn by
         \laauxtoro.%
-    }}
+    }%
+}
 
-\vfill
+\providecommand{\pejzagxaenhavo}{%
+    \begin{align*}
+        \det \begin{bmatrix}
+                 a_{1,1} & a_{1,2} & a_{1,3} \\
+                 a_{2,1} & a_{2,2} & a_{2,3} \\
+                 a_{3,1} & a_{3,2} & a_{3,3} \\
+             \end{bmatrix}
+        =
+        a_{1,1} a_{2,2} a_{3,3}
+        + a_{1,2} a_{2,3} a_{3,1}
+        + a_{1,3} a_{2,1} a_{3,2}
+        - a_{1,1} a_{2,3} a_{3,2}
+        - a_{1,2} a_{2,1} a_{3,3}
+        - a_{1,3} a_{2,2} a_{3,1}
+    \end{align*}
 
-\begin{align*}
-    \det \begin{bmatrix}
-             a_{1,1} & a_{1,2} & a_{1,3} \\
-             a_{2,1} & a_{2,2} & a_{2,3} \\
-             a_{3,1} & a_{3,2} & a_{3,3} \\
-         \end{bmatrix}
-    =
-    a_{1,1} a_{2,2} a_{3,3}
-    + a_{1,2} a_{2,3} a_{3,1}
-    + a_{1,3} a_{2,1} a_{3,2}
-    - a_{1,1} a_{2,3} a_{3,2}
-    - a_{1,2} a_{2,1} a_{3,3}
-    - a_{1,3} a_{2,2} a_{3,1}
-\end{align*}
-
-\begin{figure*}[h!]
-    \centering
-    \begin{minipage}[h!]{0.49\textwidth}
+    \begin{figure*}[h!]
         \centering
-        \includegraphics[width=\textwidth]{koro.pdf}
+        \begin{minipage}[h!]{0.49\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{koro.pdf}
+
+            \caption*{%
+                \centering%
+                Memorhelpilo de la determinanto de \(3 \times 3\)-matrico\\
+                A mnemonic device of the determinant of a \(3 \times 3\) matrix\\
+                \(3 \times 3\) 阵的行列式的记忆方法}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[h!]{0.49\textwidth}
+            \centering
+            \begin{subfigure}{\textwidth}
+                \centering
+                \includegraphics{rapidresponda kodo por GitHub.pdf}
+                \caption*{\url{https://github.com/septsea/det}}
+            \end{subfigure}
+
+            \,
+
+            \begin{subfigure}{\textwidth}
+                \centering
+                \includegraphics{rapidresponda kodo por Gitee.pdf}
+                \caption*{\url{https://gitee.com/septsea/det}}
+            \end{subfigure}
+
+            % \vspace{1ex}
+
+            \caption*{%
+                \centering%
+                Legu \textit{Enkonduko al determinantoj} por pli multaj informoj.\\
+                Read \textit{An introduction to determinants} for more information.\\
+                阅读\,《行列式入门》\,以了解更多.}
+        \end{minipage}
+    \end{figure*}%
+}
+
+\providecommand{\portretaenhavo}{%
+    \begin{align*}
+             &
+        \det \begin{bmatrix}
+                 a_{1,1} & a_{1,2} & a_{1,3} \\
+                 a_{2,1} & a_{2,2} & a_{2,3} \\
+                 a_{3,1} & a_{3,2} & a_{3,3} \\
+             \end{bmatrix}
+        \\
+        = {} &
+        a_{1,1} a_{2,2} a_{3,3}
+        + a_{1,2} a_{2,3} a_{3,1}
+        + a_{1,3} a_{2,1} a_{3,2}
+        - a_{1,1} a_{2,3} a_{3,2}
+        - a_{1,2} a_{2,1} a_{3,3}
+        - a_{1,3} a_{2,2} a_{3,1}
+    \end{align*}
+
+    \begin{figure*}[h!]
+        \centering
+        \includegraphics{koro.pdf}
 
         \caption*{%
             \centering%
             Memorhelpilo de la determinanto de \(3 \times 3\)-matrico\\
             A mnemonic device of the determinant of a \(3 \times 3\) matrix\\
             \(3 \times 3\) 阵的行列式的记忆方法}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[h!]{0.49\textwidth}
+    \end{figure*}
+
+    \begin{figure*}[h!]
         \centering
-        \begin{subfigure}{\textwidth}
+        \begin{subfigure}{0.4\textwidth}
             \centering
             \includegraphics{rapidresponda kodo por GitHub.pdf}
             \caption*{\url{https://github.com/septsea/det}}
         \end{subfigure}
-
-        \,
-
-        \begin{subfigure}{\textwidth}
+        \begin{subfigure}{0.4\textwidth}
             \centering
             \includegraphics{rapidresponda kodo por Gitee.pdf}
             \caption*{\url{https://gitee.com/septsea/det}}
         \end{subfigure}
-
-        % \vspace{1ex}
 
         \caption*{%
             \centering%
             Legu \textit{Enkonduko al determinantoj} por pli multaj informoj.\\
             Read \textit{An introduction to determinants} for more information.\\
             阅读\,《行列式入门》\,以了解更多.}
-    \end{minipage}
-\end{figure*}
-
-\vfill
-
-\noindent\parbox{\linewidth}{\footnotesize%
-    \texttt{©} Determinantulo.
-    All rights reserved.\\
-    The illustration on the reverse side was drawn by
-    \laauxtoro.%
+    \end{figure*}%
 }
 
-\end{document}
+\providecommand{\farudokumenton}{%
+    \lailustrajxo
+    \clearpage
+    \noindent\phantom{\afisxodeauxtorrajto}
+    \vfill
+    \if@pejzagxa%
+        \pejzagxaenhavo
+    \else%
+        \portretaenhavo
+    \fi%
+    \vfill
+    \noindent\afisxodeauxtorrajto%
+}
+
+\endinput
+
+This document-class is used for creating posters for "An introduction to determinants".
+
+Usages can be seen in files with names beginning with "afisxo de".
+
+In order to build the posters, the heart (`koro.tex`) and the two quick-respond codes (`rapidresponda kodo por GitHub.tex` and `rapidresponda kodo por Gitee.tex`) have to be built first.
