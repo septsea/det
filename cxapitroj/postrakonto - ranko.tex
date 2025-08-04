@@ -676,13 +676,12 @@
 则 \(\det {(A)} \neq 0\).
 则 \(\det {(\operatorname{adj} {(A)})}
 = (\det {(A)})^{n-1} \neq 0\).
-则
-\(\operatorname{rank} {(\operatorname{adj} {(A)})} = n\).
+则 \(\operatorname{rank} {(\operatorname{adj} {(A)})} = n\).
 
 若 \(\operatorname{rank} {(A)} < n - 1\),
 则 \(A\) 的 \(n-1\)~级子阵 \(A(j|i)\) 的行列式为 \(0\).
 则 \(\operatorname{adj} {(A)} = 0\).
-\(\operatorname{rank} {(\operatorname{adj} {(A)})} = 0\).
+则 \(\operatorname{rank} {(\operatorname{adj} {(A)})} = 0\).
 
 有挑战的情形或许是当 \(\operatorname{rank} {(A)} = n - 1\) 时.
 我们证明,
@@ -690,19 +689,17 @@
 
 \begin{proof}[证~1]
     我们说, 若 \(\det {(A)} = 0\),
-    且 \(r > 1\),
     则 \(\operatorname{adj} {(A)}\)
-    没有行列式非零的 \(r\)~级子阵
+    没有行列式非零的 \(2\)~级子阵
     (见 ``古伴的性质 (2)'').
-    则
-    \(\operatorname{rank} {(\operatorname{adj} {(A)})} \leq 1\).
     另一方面, 既然 \(\operatorname{rank} {(A)} = n - 1\),
     则 \(A\) 的某 \(n-1\)~级子阵的行列式
     \(\det {(A(v|u))} \neq 0\).
     则 \([\operatorname{adj} {(A)}]_{u,v}
     = (-1)^{v+u} \det {(A(v|u))} \neq 0\).
-    则
-    \(\operatorname{rank} {(\operatorname{adj} {(A)})} \geq 1\).
+    则 \(\operatorname{adj} {(A)}\)
+    有行列式非零的 \(1\)~级子阵.
+    则 \(\operatorname{rank} {(\operatorname{adj} {(A)})} = 1\).
 \end{proof}
 
 注意, 倍加不改变秩.
@@ -1462,11 +1459,123 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 加行~\(p\) 的 \(s\)~倍于行~\(q\)  (\(q \neq p\)),
 且不改变其他的行.
 
-我们知道, 我们可用行的倍加, 变一个阵为一个 REF 阵.
-设我们用行的倍加, 变阵~\eqref{eq:sole-4-mat}
-为 REF 阵
+我们知道, 我们可用若干次行的倍加,
+变 \(G\) 为 REF 阵 \(G'\).
+则存在非负整数 \(u\), 使
 \begin{align*}
-    G' =
+    \operatorname{pivot} {(G'; 1)}
+    < \operatorname{pivot} {(G'; 2)}
+    < \dots
+    < \operatorname{pivot} {(G'; u-1)}
+    < \operatorname{pivot} {(G'; u)}
+    < \infty,
+\end{align*}
+且对 \(i > u\),
+\(G'\) 的行~\(i\) 是 \(0\).
+记 \(\operatorname{pivot} {(G'; i)} = p_i\)
+(\(i = 1\), \(2\), \(\dots\), \(u\)).
+
+若 \(p_u = n + 1\),
+则 \(G'\) 形如
+\begin{align*}
+    \begin{bmatrix}
+        {}         & [G']_{1,p_1} & \cdots & [G']_{1,p_2} & \cdots     & [G']_{1,p_{u-1}}   & \cdots & [G']_{1,n+1}   \\
+        {}         & 0            & \cdots & [G']_{2,p_2} & \cdots     & [G']_{2,p_{u-1}}   & \cdots & [G']_{2,n+1}   \\
+        \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots             & \cdots & \vdots         \\
+        {}         & 0            & \cdots & 0            & \cdots     & [G']_{u-1,p_{u-1}} & \cdots & [G']_{u-1,n+1} \\
+        {}         & 0            & \cdots & 0            & \cdots     & 0                  & \cdots & [G']_{u,n+1}   \\
+        {}         & {}           & {}     & {}           & \mathsf{O} & {}                 & {}     & {}             \\
+    \end{bmatrix},
+\end{align*}
+其中, \(\mathsf{O}\) 表示可能出现的 \(0\), 下同.
+记 \(r = u - 1\),
+且 \(k_i = p_i\)
+(\(i = 1\), \(2\), \(\dots\), \(u - 1\)).
+
+若 \(p_u \leq n\),
+则 \(G'\) 形如
+\begin{align*}
+    \begin{bmatrix}
+        {}         & [G']_{1,p_1} & \cdots & [G']_{1,p_2} & \cdots     & [G']_{1,p_u} & \cdots & [G']_{1,n+1} \\
+        {}         & 0            & \cdots & [G']_{2,p_2} & \cdots     & [G']_{2,p_u} & \cdots & [G']_{2,n+1} \\
+        \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots       \\
+        {}         & 0            & \cdots & 0            & \cdots     & [G']_{u,p_u} & \cdots & [G']_{u,n+1} \\
+        {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}           \\
+    \end{bmatrix}
+\end{align*}
+记 \(r = u\),
+且 \(k_i = p_i\)
+(\(i = 1\), \(2\), \(\dots\), \(u\)).
+
+于是, 统一地, \(G'\) 形如
+\begin{align*}
+    \begin{bmatrix}
+        {}         & [G']_{1,k_1} & \cdots & [G']_{1,k_2} & \cdots     & [G']_{1,k_r} & \cdots & [G']_{1,n+1}   \\
+        {}         & 0            & \cdots & [G']_{2,k_2} & \cdots     & [G']_{2,k_r} & \cdots & [G']_{2,n+1}   \\
+        \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots         \\
+        {}         & 0            & \cdots & 0            & \cdots     & [G']_{r,k_r} & \cdots & [G']_{r,n+1}   \\
+        {}         & 0            & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{r+1,n+1} \\
+        {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}             \\
+    \end{bmatrix},
+\end{align*}
+其中,
+\(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+且 \([G']_{i,k_i} \neq 0\)
+(\(i = 1\), \(2\), \(\dots\), \(r\)),
+且当 \(i > r + 1\) 时, \([G']_{i,n+1} = 0\),
+且当 \(i > r\), 且 \(j \leq n\) 时,
+\([G']_{i,j} = 0\),
+(注意, 若 \(r = m\), 则 \([G']_{r+1,n+1}\) 不出现.)
+
+% 我们知道, 我们可用行的倍加, 变一个阵为一个 REF 阵.
+% 设我们用行的倍加, 变阵~\eqref{eq:sole-4-mat}
+% 为 REF 阵
+% \begin{align*}
+%     G' =
+%     \begin{bmatrix}
+%         {}         & a'_{1,k_1} & \cdots & a'_{1,k_2} & \cdots     & a'_{1,k_r} & \cdots & b'_1     \\
+%         {}         & 0          & \cdots & a'_{2,k_2} & \cdots     & a'_{2,k_r} & \cdots & b'_2     \\
+%         \mathsf{O} & \vdots     & {}     & \vdots     & {}         & \vdots     & \cdots & \vdots   \\
+%         {}         & 0          & \cdots & 0          & \cdots     & a'_{r,k_r} & \cdots & b'_r     \\
+%         {}         & 0          & \cdots & 0          & \cdots     & 0          & \cdots & b'_{r+1} \\
+%         {}         & {}         & {}     & {}         & \mathsf{O} & {}         & {}     & {}       \\
+%     \end{bmatrix},
+% \end{align*}
+% 其中,
+% \(\mathsf{O}\) 表示可能出现的 \(0\);
+% 具体地, 存在不高于 \(m\) 的非负整数 \(r\), 使
+% \begin{align*}
+%     \operatorname{pivot} {(G'; i)} = k_i \leq n,
+%       & \quad
+%     \text{\(i = 1\), \(2\), \(\dots\), \(r\)};
+%     \\
+%     \operatorname{pivot} {(G'; i)}
+%     < \operatorname{pivot} {(G'; i + 1)},
+%       & \quad
+%     \text{\(i = 1\), \(\dots\), \(r-1\)};
+%     \\
+%     \operatorname{pivot} {(G'; r+1)}
+%     = &
+%     \begin{cases}
+%         n + 1,  & b'_{r+1} \neq 0; \\
+%         \infty, & b'_{r+1} = 0;
+%     \end{cases}
+%     \\
+%     \operatorname{pivot} {(G'; i)} = \infty,
+%       & \quad
+%     \text{\(i > r + 1\)}.
+% \end{align*}
+% (注意, 若 \(r = m\),
+% 则行~\(r + 1\), \(r + 2\), \(\dots\) 当然不出现.)
+
+为方便, 记 \([G']_{i,n+1} = b'_i\).
+则当 \(i > r + 1\) 时, \(b'_i = 0\).
+记 \([G']_{i,j} = a'_{i,j}\)
+(若 \(j \leq n\)).
+则当 \(i > r\), 且 \(j \leq n\) 时,
+\(a'_{i,j} = 0\).
+则 \(G'\) 形如
+\begin{align*}
     \begin{bmatrix}
         {}         & a'_{1,k_1} & \cdots & a'_{1,k_2} & \cdots     & a'_{1,k_r} & \cdots & b'_1     \\
         {}         & 0          & \cdots & a'_{2,k_2} & \cdots     & a'_{2,k_r} & \cdots & b'_2     \\
@@ -1474,34 +1583,8 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         {}         & 0          & \cdots & 0          & \cdots     & a'_{r,k_r} & \cdots & b'_r     \\
         {}         & 0          & \cdots & 0          & \cdots     & 0          & \cdots & b'_{r+1} \\
         {}         & {}         & {}     & {}         & \mathsf{O} & {}         & {}     & {}       \\
-    \end{bmatrix},
+    \end{bmatrix}.
 \end{align*}
-其中,
-\(\mathsf{O}\) 表示可能出现的 \(0\);
-具体地, 存在不高于 \(m\) 的非负整数 \(r\), 使
-\begin{align*}
-    \operatorname{pivot} {(G'; i)} = k_i \leq n,
-      & \quad
-    \text{\(i = 1\), \(2\), \(\dots\), \(r\)};
-    \\
-    \operatorname{pivot} {(G'; i)}
-    < \operatorname{pivot} {(G'; i + 1)},
-      & \quad
-    \text{\(i = 1\), \(\dots\), \(r-1\)};
-    \\
-    \operatorname{pivot} {(G'; r+1)}
-    = &
-    \begin{cases}
-        n + 1,  & b'_{r+1} \neq 0; \\
-        \infty, & b'_{r+1} = 0;
-    \end{cases}
-    \\
-    \operatorname{pivot} {(G'; i)} = \infty,
-      & \quad
-    \text{\(i > r + 1\)}.
-\end{align*}
-(注意, 若 \(r = m\),
-则行~\(r + 1\), \(r + 2\), \(\dots\) 当然不出现.)
 则方程组~\eqref{eq:sole-4} 被相应地变为
 \begin{equation}
     \left\{
@@ -1522,20 +1605,21 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 且 \(a'_{i,k_i} \neq 0\)
 (\(i = 1\), \(2\), \(\dots\), \(r\)).
 (注意, 若 \(r = m\),
-则方程~\(r + 1\), \(r + 2\), \(\dots\) 当然不出现.)
+则方程 ``\(0 = b'_{r+1}\)'' 当然不出现.)
 由前面的讨论, 方程组~\eqref{eq:sole-5}
 与方程组~\eqref{eq:sole-4} 有相同的解.
 
 (1)
 设 \(b'_{r+1} \neq 0\).
-则方程组~\eqref{eq:sole-5} 的方程~\(r+1\) 是矛盾.
+则方程组~\eqref{eq:sole-5} 的方程
+``\(0 = b'_{r+1}\)'' 是矛盾.
 则方程组~\eqref{eq:sole-5} 无解.
 则方程组~\eqref{eq:sole-4} 也无解.
 (注意, 此时必 \(r < m\).)
 
 (2)
 设 \(b'_{r+1} = 0\) (当 \(r < m\)),
-或 ``\(0 = b'_{r+1}\)'' 不存在 (当 \(r = m\)).
+或 ``\(0 = b'_{r+1}\)'' 不出现 (当 \(r = m\)).
 
 若 \(r = n\),
 则 \(k_i = i\) (\(i = 1\), \(2\), \(\dots\), \(n\)).
@@ -1551,7 +1635,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \right.
 \end{equation*}
 其中, \(a'_{i,i} \neq 0\).
-这里, 我们未写形如 \(0 = 0\) 的方程 (若它们存在),
+这里, 我们未写形如 ``\(0 = 0\)'' 的方程 (若它们出现),
 因为它们是恒等式,
 且去除它们不影响方程组的解.
 由方程~\(n\), 我们有
@@ -1594,7 +1678,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \right.
 \end{equation*}
 其中, \(a'_{i,k_i} \neq 0\).
-这里, 我们未写形如 \(0 = 0\) 的方程 (若它们存在).
+这里, 我们未写形如 ``\(0 = 0\)'' 的方程 (若它们出现).
 选取 \(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\) 后,
 我们可类似地, 从后向前地确定
 \(x_{k_r}\), \(x_{k_{r-1}}\), \(\dots\), \(x_{k_1}\):
@@ -1640,7 +1724,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 
     (2)
     若 \(b'_{r+1} = 0\)
-    (或 ``\(0 = b'_{r+1}\)'' 不存在),
+    (或 ``\(0 = b'_{r+1}\)'' 不出现),
     则方程组~\eqref{eq:sole-4} 有解.
     进一步地,
     若 \(r = n\),
@@ -1739,9 +1823,9 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     其中,
     \(\mathsf{O}\) 表示可能出现的 \(0\),
     \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
-    且 \([G']_{i,k_i} \neq 0\)
+    且 \(\operatorname{pivot} {(G'; i)} = k_i\)
     (\(i = 1\), \(2\), \(\dots\), \(r\)).
-    (\([G']_{r+1,n+1}\) 可能不存在.)
+    (\([G']_{r+1,n+1}\) 可能不出现.)
     则由 \(G'\) 的前 \(n\)~列作成的
     \(m \times n\)~阵 \(A'\)
     也是 REF 阵,
@@ -1761,84 +1845,85 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 
     (4)
     \([G']_{r+1,n+1} = 0\)
-    (或 ``\([G']_{r+1,n+1}\)'' 不存在) 对应
+    (或 ``\([G']_{r+1,n+1}\)'' 不出现) 对应
     \(\operatorname{rank} {(G')} = \operatorname{rank} {(A')}\),
     即
     \(\operatorname{rank} {(G)} = \operatorname{rank} {(A)}\).
 \end{theorem}
 
 \begin{proof}
+    % (1)
+    % 我们知道, 我们可用若干次行的倍加,
+    % 变 \(G\) 为 REF 阵 \(G'\).
+    % 则存在非负整数 \(u\), 使
+    % \begin{align*}
+    %     \operatorname{pivot} {(G'; 1)}
+    %     < \operatorname{pivot} {(G'; 2)}
+    %     < \dots
+    %     < \operatorname{pivot} {(G'; u-1)}
+    %     < \operatorname{pivot} {(G'; u)}
+    %     < \infty,
+    % \end{align*}
+    % 且对 \(i > u\),
+    % \(G'\) 的行~\(i\) 是 \(0\).
+    % 记 \(\operatorname{pivot} {(G'; i)} = \ell_i\)
+    % (\(i = 1\), \(2\), \(\dots\), \(u\)).
+
+    % 若 \(\ell_u = n + 1\),
+    % 则 \(G'\) 形如
+    % \begin{align*}
+    %     \begin{bmatrix}
+    %         {}         & [G']_{1,\ell_1} & \cdots & [G']_{1,\ell_2} & \cdots     & [G']_{1,\ell_{u-1}}   & \cdots & [G']_{1,n+1}   \\
+    %         {}         & 0               & \cdots & [G']_{2,\ell_2} & \cdots     & [G']_{2,\ell_{u-1}}   & \cdots & [G']_{2,n+1}   \\
+    %         \mathsf{O} & \vdots          & {}     & \vdots          & {}         & \vdots                & \cdots & \vdots         \\
+    %         {}         & 0               & \cdots & 0               & \cdots     & [G']_{u-1,\ell_{u-1}} & \cdots & [G']_{u-1,n+1} \\
+    %         {}         & 0               & \cdots & 0               & \cdots     & 0                     & \cdots & [G']_{u,n+1}   \\
+    %         {}         & {}              & {}     & {}              & \mathsf{O} & {}                    & {}     & {}             \\
+    %     \end{bmatrix},
+    % \end{align*}
+    % 其中, \(\mathsf{O}\) 表示可能出现的 \(0\), 下同.
+    % 记 \(r = u - 1\),
+    % 且 \(k_i = \ell_i\)
+    % (\(i = 1\), \(2\), \(\dots\), \(u - 1\)).
+
+    % 若 \(\ell_u \leq n\),
+    % 则 \(G'\) 形如
+    % \begin{align*}
+    %     \begin{bmatrix}
+    %         {}         & [G']_{1,\ell_1} & \cdots & [G']_{1,\ell_2} & \cdots     & [G']_{1,\ell_u} & \cdots & [G']_{1,n+1} \\
+    %         {}         & 0               & \cdots & [G']_{2,\ell_2} & \cdots     & [G']_{2,\ell_u} & \cdots & [G']_{2,n+1} \\
+    %         \mathsf{O} & \vdots          & {}     & \vdots          & {}         & \vdots          & \cdots & \vdots       \\
+    %         {}         & 0               & \cdots & 0               & \cdots     & [G']_{u,\ell_u} & \cdots & [G']_{u,n+1} \\
+    %         {}         & {}              & {}     & {}              & \mathsf{O} & {}              & {}     & {}           \\
+    %     \end{bmatrix}
+    % \end{align*}
+    % 记 \(r = u\),
+    % 且 \(k_i = \ell_i\)
+    % (\(i = 1\), \(2\), \(\dots\), \(u\)).
+
+    % 于是, 统一地, \(G'\) 形如
+    % \begin{align*}
+    %     \begin{bmatrix}
+    %         {}         & [G']_{1,k_1} & \cdots & [G']_{1,k_2} & \cdots     & [G']_{1,k_r} & \cdots & [G']_{1,n+1}   \\
+    %         {}         & 0            & \cdots & [G']_{2,k_2} & \cdots     & [G']_{2,k_r} & \cdots & [G']_{2,n+1}   \\
+    %         \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots         \\
+    %         {}         & 0            & \cdots & 0            & \cdots     & [G']_{r,k_r} & \cdots & [G']_{r,n+1}   \\
+    %         {}         & 0            & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{r+1,n+1} \\
+    %         {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}             \\
+    %     \end{bmatrix},
+    % \end{align*}
+    % 其中,
+    % \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+    % 且 \([G']_{i,k_i} \neq 0\)
+    % (\(i = 1\), \(2\), \(\dots\), \(r\)).
+    % (\([G']_{r+1,n+1}\) 可能不存在.)
+
     (1)
-    我们知道, 我们可用若干次行的倍加,
-    变 \(G\) 为 REF 阵 \(G'\).
-    则存在非负整数 \(u\), 使
-    \begin{align*}
-        \operatorname{pivot} {(G'; 1)}
-        < \operatorname{pivot} {(G'; 2)}
-        < \dots
-        < \operatorname{pivot} {(G'; u-1)}
-        < \operatorname{pivot} {(G'; u)}
-        < \infty,
-    \end{align*}
-    且对 \(i > u\),
-    \(G'\) 的行~\(i\) 是 \(0\).
-    记 \(\operatorname{pivot} {(G'; i)} = \ell_i\)
-    (\(i = 1\), \(2\), \(\dots\), \(u\)).
-
-    若 \(\ell_u = n + 1\),
-    则 \(G'\) 形如
-    \begin{align*}
-        \begin{bmatrix}
-            {}         & [G']_{1,\ell_1} & \cdots & [G']_{1,\ell_2} & \cdots     & [G']_{1,\ell_{u-1}}   & \cdots & [G']_{1,n+1}   \\
-            {}         & 0               & \cdots & [G']_{2,\ell_2} & \cdots     & [G']_{2,\ell_{u-1}}   & \cdots & [G']_{2,n+1}   \\
-            \mathsf{O} & \vdots          & {}     & \vdots          & {}         & \vdots                & \cdots & \vdots         \\
-            {}         & 0               & \cdots & 0               & \cdots     & [G']_{u-1,\ell_{u-1}} & \cdots & [G']_{u-1,n+1} \\
-            {}         & 0               & \cdots & 0               & \cdots     & 0                     & \cdots & [G']_{u,n+1}   \\
-            {}         & {}              & {}     & {}              & \mathsf{O} & {}                    & {}     & {}             \\
-        \end{bmatrix},
-    \end{align*}
-    其中, \(\mathsf{O}\) 表示可能出现的 \(0\), 下同.
-    记 \(r = u - 1\),
-    且 \(k_i = \ell_i\)
-    (\(i = 1\), \(2\), \(\dots\), \(u - 1\)).
-
-    若 \(\ell_u \leq n\),
-    则 \(G'\) 形如
-    \begin{align*}
-        \begin{bmatrix}
-            {}         & [G']_{1,\ell_1} & \cdots & [G']_{1,\ell_2} & \cdots     & [G']_{1,\ell_u} & \cdots & [G']_{1,n+1} \\
-            {}         & 0               & \cdots & [G']_{2,\ell_2} & \cdots     & [G']_{2,\ell_u} & \cdots & [G']_{2,n+1} \\
-            \mathsf{O} & \vdots          & {}     & \vdots          & {}         & \vdots          & \cdots & \vdots       \\
-            {}         & 0               & \cdots & 0               & \cdots     & [G']_{u,\ell_u} & \cdots & [G']_{u,n+1} \\
-            {}         & {}              & {}     & {}              & \mathsf{O} & {}              & {}     & {}           \\
-        \end{bmatrix}
-    \end{align*}
-    记 \(r = u\),
-    且 \(k_i = \ell_i\)
-    (\(i = 1\), \(2\), \(\dots\), \(u\)).
-
-    于是, 统一地, \(G'\) 形如
-    \begin{align*}
-        \begin{bmatrix}
-            {}         & [G']_{1,k_1} & \cdots & [G']_{1,k_2} & \cdots     & [G']_{1,k_r} & \cdots & [G']_{1,n+1}   \\
-            {}         & 0            & \cdots & [G']_{2,k_2} & \cdots     & [G']_{2,k_r} & \cdots & [G']_{2,n+1}   \\
-            \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots         \\
-            {}         & 0            & \cdots & 0            & \cdots     & [G']_{r,k_r} & \cdots & [G']_{r,n+1}   \\
-            {}         & 0            & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{r+1,n+1} \\
-            {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}             \\
-        \end{bmatrix},
-    \end{align*}
-    其中,
-    \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
-    且 \([G']_{i,k_i} \neq 0\)
-    (\(i = 1\), \(2\), \(\dots\), \(r\)).
-    (\([G']_{r+1,n+1}\) 可能不存在.)
-
     设 \(A'\) 是由 \(G'\) 的前 \(n\) 列作成的 \(m \times n\)~阵.
     则
     \(\operatorname{pivot} {(A'; i)} = \operatorname{pivot} {(G'; i)}\)
     (\(i = 1\), \(2\), \(\dots\), \(r\)),
-    且对 \(i > u\),
+    且对 \(i > r\),
     \(A'\) 的行~\(i\) 是 \(0\).
     则 \(A'\) 是 REF 阵.
 
@@ -1880,7 +1965,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     则 \(\operatorname{rank} {(G')} > \operatorname{rank} {(A')}\).
 
     若 \([G']_{r+1,n+1} = 0\)
-    (或 ``\([G']_{r+1,n+1}\)'' 不存在),
+    (或 ``\([G']_{r+1,n+1}\)'' 不出现),
     则 \(G'\) 有 \(r\)~个非零行.
     则 \(\operatorname{rank} {(G')} = \operatorname{rank} {(A')}\).
 
@@ -1893,7 +1978,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 
     若
     \(\operatorname{rank} {(G')} = \operatorname{rank} {(A')}\),
-    则 ``\([G']_{r+1,n+1}\)'' 不存在,
+    则 ``\([G']_{r+1,n+1}\)'' 不出现,
     或 \([G']_{r+1,n+1} = 0\)
     (若不然, 则
     \(\operatorname{rank} {(G')} > \operatorname{rank} {(A')}\);
