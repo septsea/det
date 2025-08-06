@@ -2375,7 +2375,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     我们说, \(A\) 是 \emph{SREF 阵}.
 \end{definition}
 
-``SREF'' 来自英语 \angla{simplified row-echelon form}.
+``SREF'' 来自英语 \angla{special row-echelon form}.
 
 注意, SREF 阵是 REF 阵,
 但 REF 阵不一定是 SREF 阵.
@@ -2385,43 +2385,34 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \begin{align*}
         G =
         \begin{bmatrix}
-            0 & 1 & 1 & 1 & 1 & 17 \\
-            1 & 0 & 1 & 1 & 1 & 15 \\
-            1 & 1 & 0 & 1 & 1 & 14 \\
-            1 & 1 & 1 & 0 & 1 & 12 \\
-            1 & 1 & 1 & 1 & 0 & 10 \\
+            2 & 4 & 94 \\
+            1 & 1 & 35 \\
         \end{bmatrix}.
     \end{align*}
     注意, \(G\) 不是 REF 阵, 且 \(G\) 不是 SREF 阵.
 
-    由前面的讨论, 我们可用行的倍加,
-    变 \(G\) 为
+    对 \(G\),
+    我们加行~\(1\) 的 \(-1/2\) 倍于行~\(2\),
+    得
     \begin{align*}
         G_1 =
         \begin{bmatrix}
-            4 & 4  & 4  & 4  & 4  & 68 \\
-            0 & -1 & 0  & 0  & 0  & -2 \\
-            0 & 0  & -1 & 0  & 0  & -3 \\
-            0 & 0  & 0  & -1 & 0  & -5 \\
-            0 & 0  & 0  & 0  & -1 & -7 \\
+            2 & 4  & 94  \\
+            0 & -1 & -12 \\
         \end{bmatrix}.
     \end{align*}
     注意, \(G_1\) 是 REF 阵, 但 \(G_1\) 不是 SREF 阵,
-    因为, 比如, 虽然 \(1 \neq 2\),
-    可是,
-    \([G_1]_{1,\operatorname{pivot} {(G_1; 2)}}
-        = [G_1]_{1,2} \neq 0\).
+    因为 \(1 \neq \operatorname{pivot} {(G_1; 2)} = 2\),
+    但 \([G_1]_{1,2} = 4 \neq 0\).
 
-    由前面的讨论, 我们可用行的倍加,
-    进一步地变 \(G_1\) 为
+    对 \(G_1\),
+    我们加行~\(2\) 的 \(4\) 倍于行~\(1\),
+    得
     \begin{align*}
         G_2 =
         \begin{bmatrix}
-            4 & 0  & 0  & 0  & 0  & 0  \\
-            0 & -1 & 0  & 0  & 0  & -2 \\
-            0 & 0  & -1 & 0  & 0  & -3 \\
-            0 & 0  & 0  & -1 & 0  & -5 \\
-            0 & 0  & 0  & 0  & -1 & -7 \\
+            2 & 0  & 46  \\
+            0 & -1 & -12 \\
         \end{bmatrix}.
     \end{align*}
     注意, \(G_2\) 是 REF 阵, 且 \(G_2\) 是 SREF 阵.
@@ -3141,16 +3132,15 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 \begin{theorem}
     设 \(B\), \(C\) 是 \(m \times n\) REF 阵.
     记 \(k_i = \operatorname{pivot} {(B; i)}\);
-    记 \(k'_i = \operatorname{pivot} {(B'; i)}\).
-    设
-    \begin{align*}
-        k_1 < k_2 < \dots < k_r < \infty,
-        \quad
-        k'_1 < k'_2 < \dots < k'_{r'} < \infty,
-    \end{align*}
-    且对 \(i > r\), \(B\) 的行~\(i\) 是 \(0\),
+    记 \(k'_i = \operatorname{pivot} {(C; i)}\).
+    设 \(k_1 < k_2 < \dots < k_r < \infty\),
+    且对 \(i > r\), \(B\) 的行~\(i\) 是 \(0\).
+    设 \(k'_1 \allowbreak
+    < k'_2 \allowbreak
+    < \dots \allowbreak
+    < k'_{r'} \allowbreak
+    < \infty\),
     且对 \(i' > r'\), \(C\) 的行~\(i'\) 是 \(0\).
-
     设 \(m\)~级阵 \(P\), \(Q\) 适合,
     \(B = PC\), 且 \(C = QB\).
     则 \(r = r'\),
@@ -3168,10 +3158,17 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     但
     \begin{align*}
         [B]_{1,k_1}
-            = [P C]_{1,k_1}
-        = \sum_{1 \leq v \leq m} {[P]_{1,v} [C]_{v,k_1}}
-        = \sum_{1 \leq v \leq m} {[P]_{1,v} 0}
-        = 0.
+        = {} &
+        [P C]_{1,k_1}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m} {[P]_{1,v} [C]_{v,k_1}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m} {[P]_{1,v} 0}
+        \\
+        = {} &
+        0.
     \end{align*}
     这是矛盾.
     故 \(k_1 \geq k'_1\).
@@ -3180,7 +3177,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     则 \(k_1 = k'_1\).
 
     设我们已知 \(k_\ell = k'_\ell\)
-    (\(\ell \leq t\)).
+    (\(\ell \leq t\), 且 \(t < r\), 且 \(t < r'\)).
     我们由此证明, \(k_{t+1} = k'_{t+1}\).
     为此, 我们先证明, \(k_{t+1} \geq k'_{t+1}\).
     反设 \(k_{t+1} < k'_{t+1}\).
@@ -3404,16 +3401,15 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 \begin{theorem}
     设 \(B\), \(C\) 是 \(m \times n\) SREF 阵.
     记 \(k_i = \operatorname{pivot} {(B; i)}\);
-    记 \(k'_i = \operatorname{pivot} {(B'; i)}\).
-    设
-    \begin{align*}
-        k_1 < k_2 < \dots < k_r < \infty,
-        \quad
-        k'_1 < k'_2 < \dots < k'_{r'} < \infty,
-    \end{align*}
-    且对 \(i > r\), \(B\) 的行~\(i\) 是 \(0\),
+    记 \(k'_i = \operatorname{pivot} {(C; i)}\).
+    设 \(k_1 < k_2 < \dots < k_r < \infty\),
+    且对 \(i > r\), \(B\) 的行~\(i\) 是 \(0\).
+    设 \(k'_1 \allowbreak
+    < k'_2 \allowbreak
+    < \dots \allowbreak
+    < k'_{r'} \allowbreak
+    < \infty\),
     且对 \(i' > r'\), \(C\) 的行~\(i'\) 是 \(0\).
-
     设 \(m\)~级阵 \(P\), \(Q\) 适合,
     \(B = PC\), 且 \(C = QB\).
     则 \(r = r'\),
@@ -3676,26 +3672,19 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \begin{align*}
         G_2 =
         \begin{bmatrix}
-            4 & 0  & 0  & 0  & 0  & 0  \\
-            0 & -1 & 0  & 0  & 0  & -2 \\
-            0 & 0  & -1 & 0  & 0  & -3 \\
-            0 & 0  & 0  & -1 & 0  & -5 \\
-            0 & 0  & 0  & 0  & -1 & -7 \\
+            2 & 0  & 46  \\
+            0 & -1 & -12 \\
         \end{bmatrix}.
     \end{align*}
-    对 \(G_2\),
-    我们分别地以
-    \(1/4\), \(-1\), \(-1\), \(-1\), \(-1\)
-    乘行~\(1\), \(2\), \(3\), \(4\), \(5\),
+    它不是 RREF 阵.
+    不过, 对 \(G_2\),
+    我们分别地以 \(1/2\), \(-1\) 乘行~\(1\), \(2\),
     得 RREF 阵
     \begin{align*}
         G_3 =
         \begin{bmatrix}
-            1 & 0 & 0 & 0 & 0 & 0 \\
-            0 & 1 & 0 & 0 & 0 & 2 \\
-            0 & 0 & 1 & 0 & 0 & 3 \\
-            0 & 0 & 0 & 1 & 0 & 5 \\
-            0 & 0 & 0 & 0 & 1 & 7 \\
+            1 & 0 & 23 \\
+            0 & 1 & 12 \\
         \end{bmatrix}.
     \end{align*}
 \end{example}
@@ -3703,13 +3692,14 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 注意, 只作行的倍加不一定能变阵为 RREF 阵.
 
 \begin{example}
-    考虑
-    \(A =
-    \begin{bmatrix}
-        1 & 0  \\
-        0 & -1 \\
-    \end{bmatrix}\).
-    \(A\) 是 SREF 阵.
+    设 SREF 阵
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            1 & 0  \\
+            0 & -1 \\
+        \end{bmatrix}.
+    \end{align*}
     我们说, 我们不能只作行的倍加,
     以变 \(A\) 为 RREF 阵.
 
@@ -3717,19 +3707,48 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     以变 \(A\) 为 RREF 阵 \(B\).
     则存在 \(2\)~级阵 \(P\), \(Q\),
     使 \(B = P A\), 且 \(A = Q B\).
-    由前面的讨论,
-    \(B\) 应形如
-    \(\begin{bmatrix}
-        [B]_{1,1} & 0         \\
-        0         & [B]_{2,2} \\
-    \end{bmatrix}\),
+    注意, \(A\) 与 \(B\) 都是 SREF 阵.
+    则由前面的讨论, \(B\) 应形如
+    \begin{align*}
+        \begin{bmatrix}
+            [B]_{1,1} & 0         \\
+            0         & [B]_{2,2} \\
+        \end{bmatrix},
+    \end{align*}
     其中, \([B]_{i,i} \neq 0\).
     \(B\) 是 RREF 阵, 故
     \([B]_{1,1} = [B]_{2,2} = 1\).
     则 \(\det {(B)} = 1\).
-    可是, 倍加不改变行列式, 且 \(\det {(A)} = -1\).
+    注意, 倍加不改变行列式,
+    但 \(\det {(A)} = -1\).
     这是矛盾.
 \end{example}
+
+由前面的讨论, 对 RREF 阵, 我们有:
+
+\begin{theorem}
+    设 \(B\), \(B'\) 是 \(m \times n\) RREF 阵.
+    设 \(m\)~级阵 \(P\), \(Q\) 适合,
+    \(B = P B'\), 且 \(B' = Q B\).
+    则 \(B = B'\).
+\end{theorem}
+
+\begin{proof}
+    RREF 阵是 SREF 阵.
+    则 \(\operatorname{pivot} {(B; i)}
+    = \operatorname{pivot} {(B'; i)}\),
+    且 \(B\), \(B'\) 的非零行的数目相等
+    (其我们设是 \(r\)),
+    且对 \(i \leq r\),
+    \(B\) 的行~\(i\) 是 \(B'\) 的行~\(i\) 的
+    \(1/1 = 1\)~倍
+    (注意, 对 \(i \leq r\),
+    \([B]_{i,\operatorname{pivot} {(B; i)}}
+    = 1 = [B']_{i,\operatorname{pivot} {(B'; i)}}\)).
+    对 \(i > r\),
+    \(B\) 的行~\(i\) 与 \(B'\) 的行~\(i\) 都是 \(0\).
+    则 \(B = B'\).
+\end{proof}
 
 设 \(A\) 是 \(m \times n\)~阵.
 设我们用行的倍加与行的倍乘
@@ -3771,20 +3790,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 \end{align*}
 则存在 \(m\)~级阵 \(P\), \(Q\),
 使 \(B = P B'\), 且 \(B' = Q B\).
-则 \(\operatorname{pivot} {(B; i)}
-= \operatorname{pivot} {(B'; i)}\),
-且 \(B\), \(B'\) 的非零行的数目相等
-(其是 \(r\)),
-且对 \(i \leq r\),
-\(B\) 的行~\(i\) 是 \(B'\) 的行~\(i\) 的
-\(1/1 = 1\)~倍
-(注意, 对 \(i \leq r\),
-\([B]_{i,\operatorname{pivot} {(B; i)}}
-= 1 = [B']_{i,\operatorname{pivot} {(B'; i)}}\)).
-对 \(i > r\),
-\(B\) 的行~\(i\) 与 \(B'\) 的行~\(i\) 都是 \(0\).
-则 \(B = B'\).
-于是,
+我们有:
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
