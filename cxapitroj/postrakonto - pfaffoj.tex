@@ -1517,7 +1517,7 @@
     \([G_n]_{1,j} = 0\),
     \([G_n]_{j,1} = 0\),
     \([G_n]_{2,j} = 0\),
-    且 \([G_n]_{j,2} = 0\),
+    且 \([G_n]_{j,2} = 0\)
     (\(j = 3\), \(4\), \(\dots\)).
     取 \(C\) 为 \(G_n\) 即可.
 
@@ -3988,7 +3988,7 @@
 我们可使列的倍加的次数与行的倍加的次数相等,
 且我们可先列后行, 交替地作
 (先作一次列的倍加, 且再作一次行的倍加;
-然后, 又先作一次列的倍加, 且再作一次行的倍加, 若还有).
+然后, 再先作一次列的倍加, 且再作一次行的倍加, 若还有).
 
 \begin{theorem}
     设 \(A\) 是一个 \(m \times n\) 阵.
@@ -4248,7 +4248,8 @@
     \end{align*}
     (通俗地, 以 \(s\) 乘 \(A\) 的列~\(q\),
     且不改变其他的列, 得阵 \(B\).)
-    我们说, 变 \(A\) 为 \(B\) 的行为是一次\emph{倍乘}.
+    我们说, 变 \(A\) 为 \(B\) 的行为是一次
+    (列的) \emph{倍乘}.
 \end{definition}
 
 由上个定理, 我们有
@@ -5515,7 +5516,7 @@ Pfaffian 的完全展开有如下变体:
     其中, \(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
     且 \(i_1 < \dots < i_m\).
     反过来,
-    对于任何这样的
+    对任何这样的
     \(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\),
     我们分它的 \(2m\) 个数为 \(m\) 个偶
     \((i_1, j_1)\), \(\dots\), \((i_m, j_m)\),
@@ -8967,7 +8968,7 @@ $f$: $\mathsf{Mat} (n, n; F) \to F$
 satisfies that
 $f(A B) = f(A) f(B)$
 for all $A$, $B \in \mathsf{Mat} (n, n; F)$.
-We show that $f(A) = f(M(n; \det {(A)}; 1))$
+We show that $f(A) = f(M(n; 1; \det {(A)}))$
 for each $A \in \mathsf{Mat} (n, n; F)$.
 
 We know that
@@ -9001,23 +9002,23 @@ $1 = f(I) = f(E(n; p, q; s) E(n; p, q; -s))
     = f(E(n; p, q; s)) f(E(n; p, q; -s))$
 forces that $f(E(n; p, q; s)) = 1$.)
 Define $g$: $F \to F$ by
-$g(s) = f(M(n; s; 1))$.
+$g(s) = f(M(n; 1; s))$.
 Then $g(s t) = g(s) g(t)$
-because $M(n; s t; 1) = M(n; s; 1) M(n; t; 1)$,
+because $M(n; 1; s t) = M(n; 1; s) M(n; 1; t)$,
 and $g(1) = f(M(n; 1; 1)) = f(I) = 1$.
-We show that $g(s) = f(M(n; s; q))$.
+We show that $g(s) = f(M(n; q; s))$.
 If $q = 1$, this is obvious.
 If $q \neq 1$, we just note that three column-additions
 $E_1 = E(n; q, 1; 1)$,
 $E_2 = E(n; 1, q; -1)$,
 $E_3 = E(n; q, 1; 1)$
-turn $M(n; s; q)$ into $M'$, where
+turn $M(n; q; s)$ into $M'$, where
 $$
     [M']_{i,j}
     = \begin{cases}
-        [M(n; s; q)]_{i,q},  & j = 1;           \\
-        -[M(n; s; q)]_{i,1}, & j = q;           \\
-        [M(n; s; q)]_{i,j},  & \text{otherwise}
+        [M(n; q; s)]_{i,q},  & j = 1;           \\
+        -[M(n; q; s)]_{i,1}, & j = q;           \\
+        [M(n; q; s)]_{i,j},  & \text{otherwise}
     \end{cases}
     = \begin{cases}
         s,         & (i, j) = (q, 1);  \\
@@ -9040,21 +9041,21 @@ $$
         1,         & (i, j) = (q, q); \\
         [I]_{i,j}, & \text{otherwise}
     \end{cases}
-    = [M(n; s; 1)]_{i,j}.
+    = [M(n; 1; s)]_{i,j}.
 $$
 Hence
-$f(M(n; s; 1))
-    = f(H_3 H_2 H_1 M(n; s; q) E_1 E_2 E_3)
-    = f(H_3) f(H_2) f(H_1) f(M(n; s; q)) f(E_1) f(E_2) f(E_3)
-    = f(M(n; s; q))$.
+$f(M(n; 1; s))
+    = f(H_3 H_2 H_1 M(n; q; s) E_1 E_2 E_3)
+    = f(H_3) f(H_2) f(H_1) f(M(n; q; s)) f(E_1) f(E_2) f(E_3)
+    = f(M(n; q; s))$.
 Hence
-$f(M(n; s; q)) = f(M(n; s; 1)) = g(s)$.
+$f(M(n; q; s)) = f(M(n; 1; s)) = g(s)$.
 Then the argument in the text gives that
-$f(A) = g(\det {(A)}) = f(M(n; \det {(A)}; 1))$
+$f(A) = g(\det {(A)}) = f(M(n; 1; \det {(A)}))$
 for each $A \in \mathsf{Mat} (n, n; F)$.
 
 Suppose that $f(I) = 0$.
 Then $f(A) = f(A I) = f(A) f(I) = f(A)\, 0 = 0$
 for each $A \in \mathsf{Mat} (n, n; F)$.
 It is of course that
-$0 = f(M(n; \det {(A)}; 1))$.
+$0 = f(M(n; 1; \det {(A)}))$.

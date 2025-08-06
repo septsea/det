@@ -812,7 +812,7 @@
 
 \section{REF 阵、线性方程组、秩}
 
-本节, 我们讨论 REF (\angla{row echelon form}) 阵,
+本节, 我们讨论 REF (\angla{row-echelon form}) 阵,
 并用它研究线性方程组与秩.
 
 我们知道, 最大的整数不存在:
@@ -1501,7 +1501,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots       \\
         {}         & 0            & \cdots & 0            & \cdots     & [G']_{u,p_u} & \cdots & [G']_{u,n+1} \\
         {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}           \\
-    \end{bmatrix}
+    \end{bmatrix}.
 \end{align*}
 记 \(r = u\),
 且 \(k_i = p_i\)
@@ -1524,7 +1524,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 (\(i = 1\), \(2\), \(\dots\), \(r\)),
 且当 \(i > r + 1\) 时, \([G']_{i,n+1} = 0\),
 且当 \(i > r\), 且 \(j \leq n\) 时,
-\([G']_{i,j} = 0\),
+\([G']_{i,j} = 0\).
 (注意, 若 \(r = m\), 则 \([G']_{r+1,n+1}\) 不出现.)
 
 % 我们知道, 我们可用行的倍加, 变一个阵为一个 REF 阵.
@@ -1665,7 +1665,8 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 还剩 \(n - r\)~个数.
 我们从小到大地叫这 \(n - r\)~个数为
 \(\ell_1\), \(\dots\), \(\ell_{n-r}\).
-于是, 我们移含 \(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\) 的项到右侧,
+于是, 我们移含
+\(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\) 的项到右侧,
 有
 \begin{equation*}
     \left\{
@@ -1697,7 +1698,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 \begin{align*}
     - \sum_{i < w \leq r} {a'_{i,k_w} x_{k_w}}
 \end{align*}
-被认为是 \(0\).)
+不出现, 或被认为是 \(0\).)
 注意, \(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\)
 可取任何数.
 则方程组~\eqref{eq:sole-5} 有不唯一的解.
@@ -1791,8 +1792,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
 
 于是, 若我们用行的倍加变 \(A\) 为 REF 阵 \(F\),
 则 \(A\)~的秩是 \(F\) 的非零行的数目,
-因为 \(\operatorname{rank} {(A)}
-= \operatorname{rank} {(F)}\).
+因为倍加不改变秩.
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -1985,7 +1985,41 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     这是矛盾).
 \end{proof}
 
-综上, 我们能用 REF 阵判断线性方程组是否有解,
+结合前面的讨论, 我们注意,
+我们其实再证明了如下定理:
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    作 \(m \times (n+1)\)~阵 \(G\),
+    其中,
+    \begin{align*}
+        [G]_{i,j}
+        = \begin{cases}
+              [A]_{i,j}, & j \leq n;  \\
+              [B]_{i,1}, & j = n + 1.
+          \end{cases}
+    \end{align*}
+
+    (1)
+    若 \(\operatorname{rank} {(G)}
+    = \operatorname{rank} {(A)}\),
+    则线性方程组 \(A X = B\) 有解.
+    进一步地, 若 \(\operatorname{rank} {(A)} < n\),
+    则 \(AX = B\) 的解不唯一;
+    若 \(\operatorname{rank} {(A)} = n\),
+    则 \(AX = B\) 的解唯一.
+
+    (2)
+    若 \(\operatorname{rank} {(G)}
+    > \operatorname{rank} {(A)}\),
+    则线性方程组 \(A X = B\) 无解.
+
+    注意, \(\operatorname{rank} {(G)}\)
+    不可能小于 \(\operatorname{rank} {(A)}\).
+\end{theorem}
+
+于是, 我们能用 REF 阵判断线性方程组是否有解,
 判断线性方程组的解是否唯一 (若解存在),
 解线性方程组 (若解存在),
 且求阵的秩.
@@ -2304,8 +2338,1466 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     其中, \(c\) 是任何数.
 \end{example}
 
+前面, 我们用 REF 阵得到了线性方程组的一些理论.
+我们说, 我们还能得到更多.
+
+\begin{definition}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设存在不高于 \(m\) 的非负整数 \(r\), 使:
+
+    (1)
+    对任何不高于 \(r\) 的正整数 \(i\),
+    \begin{align*}
+        \operatorname{pivot} {(A; i)} < \infty;
+    \end{align*}
+
+    (2)
+    对任何低于 \(r\) 的正整数 \(i\),
+    \begin{align*}
+        \operatorname{pivot} {(A; i)}
+        < \operatorname{pivot} {(A; i + 1)};
+    \end{align*}
+
+    (3)
+    对任何高于 \(r\) 且不高于 \(m\) 的整数 \(i\),
+    \begin{align*}
+        \operatorname{pivot} {(A; i)} = \infty;
+    \end{align*}
+
+    (4)
+    对任何不高于 \(r\) 的正整数 \(i\),
+    与任何不等于 \(i\),
+    且不高于 \(m\) 的正整数 \(\ell\),
+    \begin{align*}
+        [A]_{\ell,\operatorname{pivot} {(A; i)}} = 0.
+    \end{align*}
+
+    我们说, \(A\) 是 \emph{SREF 阵}.
+\end{definition}
+
+``SREF'' 来自英语 \angla{simplified row-echelon form}.
+
+注意, SREF 阵是 REF 阵,
+但 REF 阵不一定是 SREF 阵.
+
+\begin{example}
+    设
+    \begin{align*}
+        G =
+        \begin{bmatrix}
+            0 & 1 & 1 & 1 & 1 & 17 \\
+            1 & 0 & 1 & 1 & 1 & 15 \\
+            1 & 1 & 0 & 1 & 1 & 14 \\
+            1 & 1 & 1 & 0 & 1 & 12 \\
+            1 & 1 & 1 & 1 & 0 & 10 \\
+        \end{bmatrix}.
+    \end{align*}
+    注意, \(G\) 不是 REF 阵, 且 \(G\) 不是 SREF 阵.
+
+    由前面的讨论, 我们可用行的倍加,
+    变 \(G\) 为
+    \begin{align*}
+        G_1 =
+        \begin{bmatrix}
+            4 & 4  & 4  & 4  & 4  & 68 \\
+            0 & -1 & 0  & 0  & 0  & -2 \\
+            0 & 0  & -1 & 0  & 0  & -3 \\
+            0 & 0  & 0  & -1 & 0  & -5 \\
+            0 & 0  & 0  & 0  & -1 & -7 \\
+        \end{bmatrix}.
+    \end{align*}
+    注意, \(G_1\) 是 REF 阵, 但 \(G_1\) 不是 SREF 阵,
+    因为, 比如, 虽然 \(1 \neq 2\),
+    可是,
+    \([G_1]_{1,\operatorname{pivot} {(G_1; 2)}}
+        = [G_1]_{1,2} \neq 0\).
+
+    由前面的讨论, 我们可用行的倍加,
+    进一步地变 \(G_1\) 为
+    \begin{align*}
+        G_2 =
+        \begin{bmatrix}
+            4 & 0  & 0  & 0  & 0  & 0  \\
+            0 & -1 & 0  & 0  & 0  & -2 \\
+            0 & 0  & -1 & 0  & 0  & -3 \\
+            0 & 0  & 0  & -1 & 0  & -5 \\
+            0 & 0  & 0  & 0  & -1 & -7 \\
+        \end{bmatrix}.
+    \end{align*}
+    注意, \(G_2\) 是 REF 阵, 且 \(G_2\) 是 SREF 阵.
+\end{example}
+
+我们知道, 我们可用行的倍加,
+变一个阵为 REF 阵.
+进一步地, 我们有
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    则我们可用行的倍加,
+    变 \(A\) 为某 \(m \times n\) SREF 阵 \(D\).
+\end{theorem}
+
+\begin{proof}
+    我们可用行的倍加,
+    变 \(A\) 为某 \(m \times n\) REF 阵 \(B\).
+    则存在非负整数 \(r\), 使
+    \begin{align*}
+        \operatorname{pivot} {(B; 1)}
+        < \operatorname{pivot} {(B; 2)}
+        < \dots
+        < \operatorname{pivot} {(B; r-1)}
+        < \operatorname{pivot} {(B; r)}
+        < \infty,
+    \end{align*}
+    且对 \(i > r\),
+    \(B\) 的行~\(i\) 是 \(0\).
+    记 \(\operatorname{pivot} {(B; i)} = k_i\)
+    (\(i = 1\), \(2\), \(\dots\), \(r\)).
+
+    注意, 若 \(\ell > i\), 则 \([B]_{\ell,k_i} = 0\).
+    于是, 若 \(i \leq 1\),
+    且 \(\ell \neq i\),
+    则 \([B]_{\ell,k_i} = 0\).
+
+    对 \(B\),
+    我们加行~\(2\) 的
+    \(-[B]_{1,k_2} / [B]_{2,k_2}\)~倍于行~\(1\),
+    得阵 \(B_2\).
+    于是, 若 \(\ell \neq 2\), 则 \([B_2]_{\ell,k_2} = 0\).
+    注意, \(\operatorname{pivot} {(B_2; i)}
+    = \operatorname{pivot} {(B; i)}\),
+    且若 \(j < k_1\),
+    则 \([B_2]_{i,j} = [B]_{i,j}\).
+    于是, 若 \(i \leq 2\),
+    且 \(\ell \neq i\),
+    则 \([B_2]_{\ell,k_i} = 0\).
+
+    对 \(B_2\),
+    我们加行~\(3\) 的
+    \(-[B_2]_{1,k_3} / [B_2]_{3,k_3}\)~倍于行~\(1\),
+    且加行~\(3\) 的
+    \(-[B_2]_{2,k_3} / [B_2]_{3,k_3}\)~倍于行~\(2\),
+    得阵 \(B_3\).
+    于是, 若 \(\ell \neq 3\), 则 \([B_3]_{\ell,k_3} = 0\).
+    注意, \(\operatorname{pivot} {(B_3; i)}
+    = \operatorname{pivot} {(B_2; i)}
+    = \operatorname{pivot} {(B; i)}\),
+    且若 \(j < k_2\),
+    则 \([B_3]_{i,j} = [B_2]_{i,j}\).
+    于是, 若 \(i \leq 3\),
+    且 \(\ell \neq i\),
+    则 \([B_3]_{\ell,k_i} = 0\).
+
+    ……
+    最后, 用若干次行的倍加,
+    我们得 \(m \times n\)~阵 \(D\),
+    使 \(\operatorname{pivot} {(D; i)}
+    = \operatorname{pivot} {(B; i)}\).
+    并且, 若 \(i \leq r\),
+    且 \(\ell \neq i\),
+    则 \([D]_{\ell,k_i} = 0\).
+    则 \(D\) 是 SREF 阵.
+\end{proof}
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设 \(B\) 是 \(m \times 1\)~阵.
+    作 \(m \times (n + 1)\)~阵
+    \(G = [A, B]\).
+    则我们可用行的倍加,
+    变 \(G\) 为 REF 阵 \(G'\),
+    且由 \(G'\) 的前 \(n\)~列作成的
+    \(m \times n\)~阵 \(A'\)
+    是 SREF 阵.
+\end{theorem}
+
+\begin{proof}
+    我们知道, 我们可用若干次行的倍加,
+    变 \(G\) 为 SREF 阵 \(G'\).
+    则存在非负整数 \(u\), 使
+    \begin{align*}
+        \operatorname{pivot} {(G'; 1)}
+        < \operatorname{pivot} {(G'; 2)}
+        < \dots
+        < \operatorname{pivot} {(G'; u-1)}
+        < \operatorname{pivot} {(G'; u)}
+        < \infty,
+    \end{align*}
+    且对 \(i > u\),
+    \(G'\) 的行~\(i\) 是 \(0\).
+    记 \(\operatorname{pivot} {(G'; i)} = p_i\)
+    (\(i = 1\), \(2\), \(\dots\), \(u\)).
+    则当 \(i \leq u\),
+    且 \(\ell \neq i\) 时,
+    \([G']_{\ell,k_i} = 0\).
+
+    若 \(p_u = n + 1\),
+    则 \(G'\) 形如
+    \begin{align*}
+        \begin{bmatrix}
+            {}         & [G']_{1,p_1} & \cdots & 0            & \cdots     & 0                  & \cdots & 0            \\
+            {}         & 0            & \cdots & [G']_{2,p_2} & \cdots     & 0                  & \cdots & 0            \\
+            \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots             & \cdots & \vdots       \\
+            {}         & 0            & \cdots & 0            & \cdots     & [G']_{u-1,p_{u-1}} & \cdots & 0            \\
+            {}         & 0            & \cdots & 0            & \cdots     & 0                  & \cdots & [G']_{u,n+1} \\
+            {}         & {}           & {}     & {}           & \mathsf{O} & {}                 & {}     & {}           \\
+        \end{bmatrix},
+    \end{align*}
+    其中, \(\mathsf{O}\) 表示可能出现的 \(0\), 下同.
+    记 \(r = u - 1\),
+    且 \(k_i = p_i\)
+    (\(i = 1\), \(2\), \(\dots\), \(u - 1\)).
+
+    若 \(p_u \leq n\),
+    则 \(G'\) 形如
+    \begin{align*}
+        \begin{bmatrix}
+            {}         & [G']_{1,p_1} & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{1,n+1} \\
+            {}         & 0            & \cdots & [G']_{2,p_2} & \cdots     & 0            & \cdots & [G']_{2,n+1} \\
+            \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots       \\
+            {}         & 0            & \cdots & 0            & \cdots     & [G']_{u,p_u} & \cdots & [G']_{u,n+1} \\
+            {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}           \\
+        \end{bmatrix}
+    \end{align*}
+    记 \(r = u\),
+    且 \(k_i = p_i\)
+    (\(i = 1\), \(2\), \(\dots\), \(u\)).
+
+    于是, 统一地, \(G'\) 形如
+    \begin{align*}
+        \begin{bmatrix}
+            {}         & [G']_{1,k_1} & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{1,n+1}   \\
+            {}         & 0            & \cdots & [G']_{2,k_2} & \cdots     & 0            & \cdots & [G']_{2,n+1}   \\
+            \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots         \\
+            {}         & 0            & \cdots & 0            & \cdots     & [G']_{r,k_r} & \cdots & [G']_{r,n+1}   \\
+            {}         & 0            & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{r+1,n+1} \\
+            {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}             \\
+        \end{bmatrix},
+    \end{align*}
+    其中,
+    \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+    且 \([G']_{i,k_i} \neq 0\)
+    (\(i = 1\), \(2\), \(\dots\), \(r\)),
+    且当 \(i > r + 1\) 时, \([G']_{i,n+1} = 0\),
+    且当 \(i > r\), 且 \(j \leq n\) 时,
+    \([G']_{i,j} = 0\),
+    且当 \(i \leq r\), 且 \(\ell \neq i\) 时,
+    \([G']_{\ell,k_i} = 0\).
+    (注意, 若 \(r = m\), 则 \([G']_{r+1,n+1}\) 不出现.)
+
+    设 \(A'\) 是由 \(G'\) 的前 \(n\)~列作成的
+    \(m \times n\)~阵.
+    则
+    \(\operatorname{pivot} {(A'; i)} = \operatorname{pivot} {(G'; i)}\)
+    (\(i = 1\), \(2\), \(\dots\), \(r\)),
+    且对 \(i > r\),
+    \(A'\) 的行~\(i\) 是 \(0\),
+    且当 \(i \leq r\), 且 \(\ell \neq i\) 时,
+    \([A']_{\ell,k_i} = [G']_{\ell,k_i} = 0\).
+    则 \(A'\) 是 SREF 阵.
+\end{proof}
+
+再考虑线性方程组
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n & = b_1, \\
+        a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n & = b_2, \\
+                                                        & \dots, \\
+        a_{m,1} x_1 + a_{m,2} x_2 + \dots + a_{m,n} x_n & = b_m.
+    \end{aligned}
+    \right.
+    \label{eq:sole-8}
+\end{equation}
+它跟 \(m \times (n + 1)\)~阵
+\begin{align*}
+    G =
+    \begin{bmatrix}
+        a_{1,1} & a_{1,2} & \cdots & a_{1,n} & b_1    \\
+        a_{2,1} & a_{2,2} & \cdots & a_{2,n} & b_2    \\
+        \vdots  & \vdots  & {}     & \vdots  & \vdots \\
+        a_{m,1} & a_{m,2} & \cdots & a_{m,n} & b_m    \\
+    \end{bmatrix}
+\end{align*}
+对应.
+我们知道, 我们可用行的倍加,
+变 \(G\) 为 REF 阵
+\begin{align*}
+    G'' =
+    \begin{bmatrix}
+        {}         & [G'']_{1,k_1} & \cdots & 0             & \cdots     & 0             & \cdots & [G'']_{1,n+1}   \\
+        {}         & 0             & \cdots & [G'']_{2,k_2} & \cdots     & 0             & \cdots & [G'']_{2,n+1}   \\
+        \mathsf{O} & \vdots        & {}     & \vdots        & {}         & \vdots        & \cdots & \vdots          \\
+        {}         & 0             & \cdots & 0             & \cdots     & [G'']_{r,k_r} & \cdots & [G'']_{r,n+1}   \\
+        {}         & 0             & \cdots & 0             & \cdots     & 0             & \cdots & [G'']_{r+1,n+1} \\
+        {}         & {}            & {}     & {}            & \mathsf{O} & {}            & {}     & {}              \\
+    \end{bmatrix},
+\end{align*}
+其中,
+\(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+且 \([G'']_{i,k_i} \neq 0\)
+(\(i = 1\), \(2\), \(\dots\), \(r\)),
+且当 \(i > r + 1\) 时, \([G'']_{i,n+1} = 0\),
+且当 \(i > r\), 且 \(j \leq n\) 时,
+\([G'']_{i,j} = 0\),
+且当 \(i \leq r\), 且 \(\ell \neq i\) 时,
+\([G'']_{\ell,k_i} = 0\).
+(注意, 若 \(r = m\), 则 \([G'']_{r+1,n+1}\) 不出现.)
+
+为方便, 记 \([G'']_{i,n+1} = b''_i\).
+则当 \(i > r + 1\) 时, \(b''_i = 0\).
+记 \([G'']_{i,j} = a''_{i,j}\)
+(若 \(j \leq n\)).
+则当 \(i > r\), 且 \(j \leq n\) 时,
+\(a''_{i,j} = 0\),
+且当 \(i \leq r\), 且 \(\ell \neq i\) 时,
+\(a''_{\ell,k_i} = 0\).
+则 \(G''\) 形如
+\begin{align*}
+    \begin{bmatrix}
+        {}         & a''_{1,k_1} & \cdots & 0           & \cdots     & 0           & \cdots & b''_1     \\
+        {}         & 0           & \cdots & a''_{2,k_2} & \cdots     & 0           & \cdots & b''_2     \\
+        \mathsf{O} & \vdots      & {}     & \vdots      & {}         & \vdots      & \cdots & \vdots    \\
+        {}         & 0           & \cdots & 0           & \cdots     & a''_{r,k_r} & \cdots & b''_r     \\
+        {}         & 0           & \cdots & 0           & \cdots     & 0           & \cdots & b''_{r+1} \\
+        {}         & {}          & {}     & {}          & \mathsf{O} & {}          & {}     & {}        \\
+    \end{bmatrix}.
+\end{align*}
+设从 \(1\), \(2\), \(\dots\), \(n\)
+去除 \(k_1\), \(\dots\), \(k_r\) 后,
+还剩 \(n - r\)~个数.
+我们从小到大地叫这 \(n - r\)~个数为
+\(\ell_1\), \(\dots\), \(\ell_{n-r}\).
+(注意, 若 \(r = n\), 则
+\(\ell_1\), \(\dots\), \(\ell_{n-r}\)
+不出现.)
+则 \(G''\) 对应线性方程组
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        a''_{1,k_1} x_{k_1} + \sum_{1 \leq v \leq n-r} {a''_{1,\ell_v} x_{\ell_v}} & = b''_1,     \\
+        a''_{2,k_2} x_{k_2} + \sum_{1 \leq v \leq n-r} {a''_{2,\ell_v} x_{\ell_v}} & = b''_2,     \\
+                                                                                   & \dots,       \\
+        a''_{r,k_r} x_{k_r} + \sum_{1 \leq v \leq n-r} {a''_{r,\ell_v} x_{\ell_v}} & = b''_r,     \\
+        0                                                                          & = b''_{r+1}, \\
+        0                                                                          & = 0,         \\
+                                                                                   & \dots,       \\
+        0                                                                          & = 0,
+    \end{aligned}
+    \right.
+    \label{eq:sole-9}
+\end{equation}
+其中, \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+且 \(a''_{i,k_i} \neq 0\)
+(\(i = 1\), \(2\), \(\dots\), \(r\)).
+(注意, 若 \(r = n\), 则
+\begin{align*}
+    + \sum_{1 \leq v \leq n-r} {a''_{i,\ell_v} x_{\ell_v}},
+    \quad
+    i = 1, 2, \dots, r
+\end{align*}
+不出现, 或被认为是 \(0\).)
+由前面的讨论, 方程组~\eqref{eq:sole-9}
+与方程组~\eqref{eq:sole-8} 有相同的解.
+(注意, 形式地, 方程组~\eqref{eq:sole-9}
+比方程组~\eqref{eq:sole-5} 更简单.)
+
+类似地, 设 \(b''_{r+1} \neq 0\).
+则方程组~\eqref{eq:sole-9} 的方程
+``\(0 = b''_{r+1}\)'' 是矛盾.
+则方程组~\eqref{eq:sole-9} 无解.
+则方程组~\eqref{eq:sole-8} 也无解.
+(注意, 此时必 \(r < m\).)
+
+类似地, 设 \(b''_{r+1} = 0\) (当 \(r < m\)),
+或 ``\(0 = b''_{r+1}\)'' 不出现 (当 \(r = m\)).
+
+若 \(r = n\),
+则 \(k_i = i\) (\(i = 1\), \(2\), \(\dots\), \(n\)).
+则方程组~\eqref{eq:sole-9} 形如
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        a''_{1,1} x_1 & = b''_1, \\
+        a''_{2,2} x_2 & = b''_2, \\
+                      & \dots,   \\
+        a''_{n,n} x_n & = b''_n,
+    \end{aligned}
+    \right.
+\end{equation*}
+其中, \(a''_{i,i} \neq 0\).
+这里, 我们未写形如 ``\(0 = 0\)'' 的方程 (若它们出现),
+因为它们是恒等式,
+且去除它们不影响方程组的解.
+由此, 我们可直接地确定
+\begin{align*}
+    x_i = \frac{b''_i}{a''_{i,i}},
+    \quad i = 1, 2, \dots, n.
+\end{align*}
+(注意, 形式地, 这儿的公式更简单.)
+则方程组~\eqref{eq:sole-9} 有唯一的解.
+则方程组~\eqref{eq:sole-8} 有唯一的解.
+
+若 \(r < n\), 我们移含
+\(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\) 的项到右侧,
+得
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        a''_{1,k_1} x_{k_1} & = b''_1 - \sum_{1 \leq v \leq n-r} {a''_{1,\ell_v} x_{\ell_v}}, \\
+        a''_{2,k_2} x_{k_2} & = b''_2 - \sum_{1 \leq v \leq n-r} {a''_{2,\ell_v} x_{\ell_v}}, \\
+                            & \dots,                                                          \\
+        a''_{r,k_r} x_{k_r} & = b''_r - \sum_{1 \leq v \leq n-r} {a''_{r,\ell_v} x_{\ell_v}},
+    \end{aligned}
+    \right.
+\end{equation*}
+其中, \(a''_{i,k_i} \neq 0\).
+这里, 我们未写形如 ``\(0 = 0\)'' 的方程 (若它们出现),
+因为它们是恒等式,
+且去除它们不影响方程组的解.
+选取 \(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\) 后,
+我们可确定 \(x_{k_1}\), \(\dots\), \(x_{k_r}\):
+\begin{align*}
+    x_{k_i} =
+    \frac{1}{a''_{i,k_i}}
+    \left(
+    b''_i
+    - \sum_{1 \leq v \leq n-r} {a''_{i,\ell_v} x_{\ell_v}}
+    \right),
+    \quad
+    i = 1, 2, \dots, r.
+\end{align*}
+(注意, 形式地, 这儿的公式更简单.)
+注意, \(x_{\ell_1}\), \(\dots\), \(x_{\ell_{n-r}}\)
+可取任何数.
+则方程组~\eqref{eq:sole-9} 有不唯一的解.
+则方程组~\eqref{eq:sole-8} 也有不唯一的解.
+
+由此可见,
+若我们变对应线性方程组~\eqref{eq:sole-8} 的
+\(m \times (n + 1)\)~阵 \(G\) 为 REF 阵 \(G'\),
+且进一步地要求,
+\(G'\) 的前 \(n\)~列作成 \(m \times n\) SREF 阵,
+则对应 \(G'\) 的线性方程组~\eqref{eq:sole-9} 的解%
+可被直接地写出.
+特别地, 我们可再得到
+
+\begin{theorem}
+    考虑线性方程组
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n & = b_1, \\
+            a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n & = b_2, \\
+                                                            & \dots, \\
+            a_{n,1} x_1 + a_{n,2} x_2 + \dots + a_{n,n} x_n & = b_n.
+        \end{aligned}
+        \right.
+        \label{eq:sole-10}
+    \end{equation}
+    (注意, 方程数等于未知数数.)
+    记
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+            a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+            \vdots  & \vdots  & {}     & \vdots  \\
+            a_{n,1} & a_{n,2} & \cdots & a_{n,n} \\
+        \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            b_1 \\ b_2 \\ \vdots \\ b_n
+        \end{bmatrix}.
+    \end{align*}
+
+    (1)
+    (Cramer 公式, 2)
+    若 \(\det {(A)} \neq 0\),
+    则方程组~\eqref{eq:sole-10} 有唯一的解
+    \begin{align*}
+        x_i = \frac{\det {(A \{i, B\})}}{\det {(A)}},
+        \quad
+        \text{\(i = 1\), \(2\), \(\dots\), \(n\)},
+    \end{align*}
+    其中, \(A \{i, B\}\) 是%
+    以 \(B\) 代阵~\(A\) 的列~\(i\) 后得到的阵.
+
+    (2)
+    若 \(\det {(A)} = 0\),
+    则方程组~\eqref{eq:sole-10} 要么无解,
+    要么有不唯一的解.
+\end{theorem}
+
+\begin{proof}
+    作 \(n \times (n + 1)\) 阵 \(G = [A, B]\).
+    我们可用行的倍加, 变 \(G\) 为 REF 阵
+    \begin{align*}
+        G' =
+        \begin{bmatrix}
+            {}         & [G']_{1,k_1} & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{1,n+1}   \\
+            {}         & 0            & \cdots & [G']_{2,k_2} & \cdots     & 0            & \cdots & [G']_{2,n+1}   \\
+            \mathsf{O} & \vdots       & {}     & \vdots       & {}         & \vdots       & \cdots & \vdots         \\
+            {}         & 0            & \cdots & 0            & \cdots     & [G']_{r,k_r} & \cdots & [G']_{r,n+1}   \\
+            {}         & 0            & \cdots & 0            & \cdots     & 0            & \cdots & [G']_{r+1,n+1} \\
+            {}         & {}           & {}     & {}           & \mathsf{O} & {}           & {}     & {}             \\
+        \end{bmatrix},
+    \end{align*}
+    其中,
+    \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+    且 \([G']_{i,k_i} \neq 0\)
+    (\(i = 1\), \(2\), \(\dots\), \(r\)),
+    且当 \(i > r + 1\) 时, \([G']_{i,n+1} = 0\),
+    且当 \(i > r\), 且 \(j \leq n\) 时,
+    \([G']_{i,j} = 0\),
+    且当 \(i \leq r\), 且 \(\ell \neq i\) 时,
+    \([G']_{\ell,k_i} = 0\).
+    (注意, 若 \(r = n\), 则 \([G']_{r+1,n+1}\) 不出现.)
+    则 \(G'\) 的前 \(n\)~列作成 \(n\)~级 SREF 阵 \(A'\).
+    记 \(G'\) 的列~\(n+1\) 为 \(B'\).
+    则 \(G' = [A', B']\).
+
+    为方便, 记 \([B']_{i,1} = b'_i\).
+    则当 \(i > r + 1\) 时, \(b'_i = 0\).
+    记 \([A']_{i,j} = a'_{i,j}\).
+    则当 \(i > r\), 且 \(j \leq n\) 时,
+    \(a'_{i,j} = 0\),
+    且当 \(i \leq r\), 且 \(\ell \neq i\) 时,
+    \(a'_{\ell,k_i} = 0\).
+    则 \(G'\) 形如
+    \begin{align*}
+        \begin{bmatrix}
+            {}         & a'_{1,k_1} & \cdots & 0          & \cdots     & 0          & \cdots & b'_1     \\
+            {}         & 0          & \cdots & a'_{2,k_2} & \cdots     & 0          & \cdots & b'_2     \\
+            \mathsf{O} & \vdots     & {}     & \vdots     & {}         & \vdots     & \cdots & \vdots   \\
+            {}         & 0          & \cdots & 0          & \cdots     & a'_{r,k_r} & \cdots & b'_r     \\
+            {}         & 0          & \cdots & 0          & \cdots     & 0          & \cdots & b'_{r+1} \\
+            {}         & {}         & {}     & {}         & \mathsf{O} & {}         & {}     & {}       \\
+        \end{bmatrix}.
+    \end{align*}
+    设从 \(1\), \(2\), \(\dots\), \(n\)
+    去除 \(k_1\), \(\dots\), \(k_r\) 后,
+    还剩 \(n - r\)~个数.
+    我们从小到大地叫这 \(n - r\)~个数为
+    \(\ell_1\), \(\dots\), \(\ell_{n-r}\).
+    (注意, 若 \(r = n\), 则
+    \(\ell_1\), \(\dots\), \(\ell_{n-r}\)
+    不出现.)
+    则 \(G'\) 对应线性方程组
+    \begin{equation}
+        \left\{
+        \begin{aligned}
+            a'_{1,k_1} x_{k_1} + \sum_{1 \leq v \leq n-r} {a'_{1,\ell_v} x_{\ell_v}} & = b'_1,     \\
+            a'_{2,k_2} x_{k_2} + \sum_{1 \leq v \leq n-r} {a'_{2,\ell_v} x_{\ell_v}} & = b'_2,     \\
+                                                                                     & \dots,      \\
+            a'_{r,k_r} x_{k_r} + \sum_{1 \leq v \leq n-r} {a'_{r,\ell_v} x_{\ell_v}} & = b'_r,     \\
+            0                                                                        & = b'_{r+1}, \\
+            0                                                                        & = 0,        \\
+                                                                                     & \dots,      \\
+            0                                                                        & = 0,
+        \end{aligned}
+        \right.
+        \label{eq:sole-11}
+    \end{equation}
+    其中, \(1 \leq k_1 < k_2 < \dots < k_r \leq n\),
+    且 \(a'_{i,k_i} \neq 0\)
+    (\(i = 1\), \(2\), \(\dots\), \(r\)).
+    (注意, 若 \(r = n\), 则
+    \begin{align*}
+        + \sum_{1 \leq v \leq n-r} {a'_{i,\ell_v} x_{\ell_v}},
+        \quad
+        i = 1, 2, \dots, r
+    \end{align*}
+    不出现, 或被认为是 \(0\).)
+    由前面的讨论, 方程组~\eqref{eq:sole-11}
+    与方程组~\eqref{eq:sole-10} 有相同的解.
+
+    设形如 \(E(m; p, q; s)\) (\(p \neq q\)) 的阵
+    \(E_1\), \(E_2\), \(\dots\), \(E_w\) 使
+    \begin{align*}
+        G' = E_w (\dots (E_2 (E_1 G))).
+    \end{align*}
+    记 \(P = E_w \dots E_2 E_1\).
+    则 \(G' = P G\).
+    设 \(G\) 的列
+    \(1\), \(2\), \(\dots\), \(n\), \(n+1\)
+    是 \(g_1\), \(g_2\), \(\dots\), \(g_n\), \(g_{n+1}\).
+    注意, \(g_j\) 是 \(A\) 的列~\(j\)
+    (\(j = 1\), \(2\), \(\dots\), \(n\)),
+    且 \(g_{n+1} = B\).
+    则
+    \begin{align*}
+        G' = [P g_1, P g_2, \dots, P g_n, P g_{n+1}].
+    \end{align*}
+    则
+    \begin{align*}
+        A'
+        = [P g_1, P g_2, \dots, P g_n]
+        = P [g_1, g_2, \dots, g_n]
+        = P A.
+    \end{align*}
+    则
+    \begin{align*}
+        A' = E_w (\dots (E_2 (E_1 A))).
+    \end{align*}
+    类似地, \(B' = P g_{n+1}
+    = P B
+    = E_w (\dots (E_2 (E_1 B)))\).
+
+    好的.
+    我们已好地准备.
+
+    (1)
+    若 \(\det {(A)} \neq 0\),
+    则因为我们可用行的倍加,
+    变 \(A\) 为 \(A'\),
+    \(\det {(A')} = \det {(A)} \neq 0\).
+    则 \(r = n\).
+    则 \(k_i = i\) (\(i = 1\), \(2\), \(\dots\), \(n\)).
+    则 \(G'\) 形如
+    \begin{align*}
+        \begin{bmatrix}
+            a'_{1,1} & 0        & \cdots & 0        & b'_1   \\
+            0        & a'_{2,2} & \cdots & 0        & b'_2   \\
+            \vdots   & \vdots   & {}     & \vdots   & \vdots \\
+            0        & 0        & \cdots & a'_{n,n} & b'_n   \\
+        \end{bmatrix},
+    \end{align*}
+    且方程组~\eqref{eq:sole-11} 形如
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            a'_{1,1} x_1 & = b'_1, \\
+            a'_{2,2} x_2 & = b'_2, \\
+                         & \dots,  \\
+            a'_{n,n} x_n & = b'_n,
+        \end{aligned}
+        \right.
+    \end{equation*}
+    其中, \(a'_{i,i} \neq 0\).
+    则方程组~\eqref{eq:sole-11} 有唯一的解
+    \begin{equation}
+        x_i = \frac{b'_i}{a'_{i,i}},
+        \quad i = 1, 2, \dots, n.
+        \label{eq:sole-10-solutions}
+    \end{equation}
+    则方程组~\eqref{eq:sole-10} 有唯一的解
+    \eqref{eq:sole-10-solutions}.
+
+    注意,
+    \begin{align*}
+        A' \{i, B'\}
+        = {} &
+        ([\dots, P g_{i-1}, P g_i, P g_{i+1}, \dots])
+        \{i, P B\}
+        \\
+        = {} &
+        [\dots, P g_{i-1}, P B, P g_{i+1}, \dots]
+        \\
+        = {} &
+        P [\dots, g_{i-1}, B, g_{i+1}, \dots]
+        \\
+        = {} &
+        P (A\{i, B\})
+        \\
+        = {} &
+        E_w (\dots (E_2 (E_1 (A\{i, B\})))).
+    \end{align*}
+    则我们可用行的倍加,
+    变 \(A\{i, B\}\) 为 \(A' \{i, B'\}\).
+    则
+    \begin{align*}
+        \frac{\det {(A\{i, B\})}}{\det {(A)}}
+        = \frac{\det {(A' \{i, B'\})}}{\det {(A')}}.
+    \end{align*}
+    注意, 对 \(A' \{i, B'\}\) (或 \(A'\)),
+    若 \(j \neq i\),
+    则 \([A' \{i, B'\}]_{i,j} = 0\)
+    (或 \([A']_{i,j} = 0\)).
+    则, 按行~\(i\) 展开,
+    \begin{align*}
+        \frac{\det {(A' \{i, B'\})}}{\det {(A')}}
+        = {} &
+        \frac%
+        {(-1)^{i+i} [A' \{i, B'\}]_{i,i}
+            \det {((A' \{i, B'\}) (i|i))}}%
+        {(-1)^{i+i} [A']_{i,i}
+            \det {(A' (i|i))}}
+        \\
+        = {} &
+        \frac%
+        {(-1)^{i+i} [B']_{i,1}
+            \det {((A' \{i, B'\}) (i|i))}}%
+        {(-1)^{i+i} [A']_{i,i}
+            \det {(A' (i|i))}}
+        \\
+        = {} &
+        \frac%
+        {(-1)^{i+i} b'_i
+        \det {(A' (i|i))}}%
+        {(-1)^{i+i} a'_{i,i}
+        \det {(A' (i|i))}}
+        \\
+        = {} &
+        \frac{b'_i}{a'_{i,i}}
+        \\
+        = {} &
+        x_i.
+    \end{align*}
+    则方程组~\eqref{eq:sole-10}
+    的唯一的解~\eqref{eq:sole-10-solutions} 可被写为
+    \begin{align*}
+        x_i
+        = \frac{\det {(A' \{i, B'\})}}{\det {(A')}}
+        = \frac{\det {(A\{i, B\})}}{\det {(A)}},
+        \quad
+        i = 1, 2, \dots, n.
+    \end{align*}
+
+    (2)
+    若 \(\det {(A)} = 0\),
+    则 \(\det {(A')} = \det {(A)} = 0\).
+    则 \(r < n\).
+
+    若 \(b'_{r,n+1} \neq 0\),
+    则方程组~\eqref{eq:sole-11} 无解.
+    则方程组~\eqref{eq:sole-10} 无解.
+
+    若 \(b'_{r,n+1} = 0\),
+    则方程组~\eqref{eq:sole-11} 有解.
+    则方程组~\eqref{eq:sole-10} 有解.
+    因为 \(r < n\),
+    方程组~\eqref{eq:sole-11} 有不唯一的解.
+    则方程组~\eqref{eq:sole-10} 有不唯一的解.
+\end{proof}
+
+我们进一步地讨论 REF 阵.
+
+我们知道, 我们能用行的倍加, 变阵 \(A\) 为某 REF 阵 \(B\).
+不过, 变 \(A\) 为 REF 阵的方式一般是不唯一的.
+设我们也用行的倍加, 变 \(A\) 为某 REF 阵 \(C\).
+我们研究 \(B\) 与 \(C\) 的关系.
+
+设用若干次行的倍加, 我们可变 \(m \times n\)~阵 \(A\)
+为 REF 阵 \(B\).
+则存在形如 \(E(m; p, q; s)\) (\(p \neq q\)) 的阵
+\(E_1\), \(E_2\), \(\dots\), \(E_u\),
+使
+\begin{align*}
+    B
+    = E_u (E_{u-1} \dots (E_2 (E_1 A)))
+    = (E_u E_{u-1} \dots E_2 E_1) A.
+\end{align*}
+类似地,
+设用若干次行的倍加, 我们可变 \(m \times n\)~阵 \(A\)
+为 REF 阵 \(C\).
+则存在形如 \(E(m; p, q; s)\) (\(p \neq q\)) 的阵
+\(F_1\), \(F_2\), \(\dots\), \(F_v\),
+使
+\begin{align*}
+    C
+    = F_v (F_{v-1} \dots (F_2 (F_1 A)))
+    = (F_v F_{v-1} \dots F_2 F_1) A.
+\end{align*}
+我们知道, 对每个 \(E_i\) (或 \(F_j\)),
+存在形如 \(E(m; p, q; s)\) (\(p \neq q\)) 的阵
+\(G_i\) (或 \(H_j\)),
+使 \(G_i E_i = I_m\)
+(或 \(H_j F_j = I_m\)).
+则
+\begin{align*}
+    (G_1 G_2 \dots G_{u-1} G_u) B
+    = {} &
+    (G_1 G_2 \dots G_{u-1} G_u)
+    (E_u E_{u-1} \dots E_2 E_1) A
+    \\
+    = {} &
+    (G_1 (G_2 (\dots (G_{u-1} (G_u E_u) E_{u-1}) \dots) E_2) E_1)
+    A
+    \\
+    = {} &
+    I_m A
+    \\
+    = {} &
+    A.
+\end{align*}
+类似地, \((H_1 H_2 \dots H_{v-1} H_v) C = A\).
+则
+\begin{align*}
+    B
+    = (E_u \dots E_1) A
+    = (E_u \dots E_1) ((H_1 \dots H_v) C)
+    = ((E_u \dots E_1) (H_1 \dots H_v)) C.
+\end{align*}
+则存在 \(m\)~级阵 \(P = (E_u \dots E_1) (H_1 \dots H_v)\),
+使 \(B = P C\).
+类似地, 也存在 \(m\)~级阵
+\(Q = (F_v \dots F_1) (G_1 \dots G_u)\),
+使 \(C = Q B\).
+
+由此, 我们可以证明:
+
+\begin{theorem}
+    设 \(B\), \(C\) 是 \(m \times n\) REF 阵.
+    记 \(k_i = \operatorname{pivot} {(B; i)}\);
+    记 \(k'_i = \operatorname{pivot} {(B'; i)}\).
+    设
+    \begin{align*}
+        k_1 < k_2 < \dots < k_r < \infty,
+        \quad
+        k'_1 < k'_2 < \dots < k'_{r'} < \infty,
+    \end{align*}
+    且对 \(i > r\), \(B\) 的行~\(i\) 是 \(0\),
+    且对 \(i' > r'\), \(C\) 的行~\(i'\) 是 \(0\).
+
+    设 \(m\)~级阵 \(P\), \(Q\) 适合,
+    \(B = PC\), 且 \(C = QB\).
+    则 \(r = r'\),
+    且对 \(i \leq r\),
+    \(k_i = k'_i\).
+\end{theorem}
+
+\begin{proof}
+    我们证明, \(k_1 = k'_1\).
+    为此, 我们先证明, \(k_1 \geq k'_1\).
+    反设 \(k_1 < k'_1\).
+    \(C\) 是 REF 阵, 且 \(k_1 < k'_1\),
+    故若 \(v \geq 1\), 则 \([C]_{v,k_1} = 0\).
+    \(B\) 是 REF 阵, 故 \([B]_{1,k_1} \neq 0\).
+    但
+    \begin{align*}
+        [B]_{1,k_1}
+            = [P C]_{1,k_1}
+        = \sum_{1 \leq v \leq m} {[P]_{1,v} [C]_{v,k_1}}
+        = \sum_{1 \leq v \leq m} {[P]_{1,v} 0}
+        = 0.
+    \end{align*}
+    这是矛盾.
+    故 \(k_1 \geq k'_1\).
+    类似地, 由 \(C = Q P\),
+    我们可证明, \(k_1 \leq k'_1\).
+    则 \(k_1 = k'_1\).
+
+    设我们已知 \(k_\ell = k'_\ell\)
+    (\(\ell \leq t\)).
+    我们由此证明, \(k_{t+1} = k'_{t+1}\).
+    为此, 我们先证明, \(k_{t+1} \geq k'_{t+1}\).
+    反设 \(k_{t+1} < k'_{t+1}\).
+    \(B\) 是 REF 阵,
+    故对 \(\ell \leq t\),
+    \([B]_{t+1,k_\ell} = 0\).
+    则
+    \begin{align*}
+        0
+        = {} &
+        [B]_{t+1,k_\ell}
+        \\
+        = {} &
+        [P C]_{t+1,k_\ell}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{t+1,v} [C]_{v,k_\ell}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{t+1,v} [C]_{v,k'_\ell}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq \ell}
+        {[P]_{t+1,v} [C]_{v,k'_\ell}}
+        +
+        \sum_{\ell < v \leq m}
+        {[P]_{t+1,v} [C]_{v,k'_\ell}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq \ell}
+        {[C]_{v,k'_\ell} [P]_{t+1,v}}
+        +
+        \sum_{\ell < v \leq m}
+        {[P]_{t+1,v} 0}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq \ell}
+        {[C]_{v,k'_\ell} [P]_{t+1,v}}.
+    \end{align*}
+    则
+    \begin{equation*}
+        \begin{alignedat}{7}
+            [C]_{1,k'_1} [P]_{t+1,1} &         &                          &         &       &         &                          & {} = 0, \\
+            [C]_{1,k'_2} [P]_{t+1,1} & {} + {} & [C]_{2,k'_2} [P]_{t+1,2} &         &       &         &                          & {} = 0, \\
+                                     &         &                          &         &       &         &                          & \dots,  \\
+            [C]_{1,k'_t} [P]_{t+1,1} & {} + {} & [C]_{2,k'_t} [P]_{t+1,2} & {} + {} & \dots & {} + {} & [C]_{t,k'_t} [P]_{t+1,t} & {} = 0.
+        \end{alignedat}
+    \end{equation*}
+    因为 \([C]_{\ell,k'_\ell} \neq 0\),
+    我们可从前向后地确定,
+    \([P]_{t+1,1}\), \([P]_{t+1,2}\), \(\dots\), \([P]_{t+1,t}\)
+    都是 \(0\).
+    注意, \([B]_{t+1,k_{t+1}} \neq 0\).
+    注意,
+    \begin{align*}
+        [B]_{t+1,k_{t+1}}
+        = {} &
+        [P C]_{t+1,k_{t+1}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{t+1,v} [C]_{v,k_{t+1}}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq t}
+        {[P]_{t+1,v} [C]_{v,k_{t+1}}}
+        +
+        \sum_{t < v \leq m}
+        {[P]_{t+1,v} [C]_{v,k_{t+1}}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq t}
+        {0\, [C]_{v,k_{t+1}}}
+        +
+        \sum_{t < v \leq m}
+        {[P]_{t+1,v} [C]_{v,k_{t+1}}}
+        \\
+        = {} &
+        \sum_{t < v \leq m}
+        {[P]_{t+1,v} [C]_{v,k_{t+1}}}.
+    \end{align*}
+    注意, \(C\) 是 REF 阵,
+    且 \(k_{t+1} < k'_{t+1}\),
+    故若 \(v \geq t+1\),
+    则 \([C]_{v,k_{t+1}} = 0\).
+    则 \([B]_{t+1,k_{t+1}} = 0\).
+    这是矛盾.
+    故 \(k_{t+1} \geq k'_{t+1}\).
+    类似地, 由 \(C = Q P\),
+    我们可证明, \(k_{t+1} \leq k'_{t+1}\).
+    则 \(k_{t+1} = k'_{t+1}\).
+
+    最后, 我们证明, \(r = r'\).
+    为此, 我们先证明, \(r' \geq r\).
+    反设 \(r' < r\).
+    那么, 由前面的讨论, 对 \(\ell \leq r' < r\),
+    \(k_\ell = k'_\ell\).
+    \(B\) 是 REF 阵,
+    故对 \(\ell \leq r' < r\),
+    \([B]_{r,k_\ell} = 0\).
+    注意, 对 \(v > r'\),
+    \([C]_{v,j} = 0\).
+    则
+    \begin{align*}
+        0
+        = {} &
+        [B]_{r,k_\ell}
+        \\
+        = {} &
+        [P C]_{r,k_\ell}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{r,v} [C]_{v,k_\ell}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq r'}
+        {[P]_{r,v} [C]_{v,k_\ell}}
+        +
+        \sum_{r' < v \leq m}
+        {[P]_{r,v} [C]_{v,k_\ell}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq r'}
+        {[P]_{r,v} [C]_{v,k'_\ell}}
+        +
+        \sum_{r' < v \leq m}
+        {[P]_{r,v} 0}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq r'}
+        {[C]_{v,k'_\ell} [P]_{r,v}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq \ell}
+        {[C]_{v,k'_\ell} [P]_{r,v}}
+        +
+        \sum_{\ell < v \leq r'}
+        {[C]_{v,k'_\ell} [P]_{r,v}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq \ell}
+        {[C]_{v,k'_\ell} [P]_{r,v}}
+        +
+        \sum_{\ell < v \leq r'}
+        {0\, [P]_{r,v}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq \ell}
+        {[C]_{v,k'_\ell} [P]_{r,v}}.
+    \end{align*}
+    则
+    \begin{equation*}
+        \begin{alignedat}{7}
+            [C]_{1,k'_1} [P]_{r,1}    &         &                           &         &       &         &                             & {} = 0, \\
+            [C]_{1,k'_2} [P]_{r,1}    & {} + {} & [C]_{2,k'_2} [P]_{r,2}    &         &       &         &                             & {} = 0, \\
+                                      &         &                           &         &       &         &                             & \dots,  \\
+            [C]_{1,k'_{r'}} [P]_{r,1} & {} + {} & [C]_{2,k'_{r'}} [P]_{r,2} & {} + {} & \dots & {} + {} & [C]_{r',k'_{r'}} [P]_{r,r'} & {} = 0.
+        \end{alignedat}
+    \end{equation*}
+    因为 \([C]_{\ell,k'_\ell} \neq 0\),
+    我们可从前向后地确定,
+    \([P]_{r,1}\), \([P]_{r,2}\), \(\dots\), \([P]_{r,r'}\)
+    都是 \(0\).
+    则
+    \begin{align*}
+        [B]_{r,j}
+        = {} &
+        [P C]_{r,j}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{r,v} [C]_{v,j}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq r'}
+        {[P]_{r,v} [C]_{v,j}}
+        +
+        \sum_{r' < v \leq m}
+        {[P]_{r,v} [C]_{v,j}}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq r'}
+        {0\, [C]_{v,j}}
+        +
+        \sum_{r' < v \leq m}
+        {[P]_{r,v} 0}
+        \\
+        = {} &
+        0.
+    \end{align*}
+    则 \(B\) 的行~\(r\) 是 \(0\).
+    这是矛盾, 因为 \([B]_{r,k_r} \neq 0\).
+    故 \(r' \geq r\).
+    类似地, 由 \(C = Q P\),
+    我们可证明, \(r \geq r'\).
+    则 \(r = r'\).
+\end{proof}
+
+值得提, 我们也能如此证明, \(r = r'\).
+注意,
+\(\operatorname{rank} {(B)}
+= \operatorname{rank} {(P C)}
+\leq \operatorname{rank} {(C)}\),
+且
+\(\operatorname{rank} {(C)}
+= \operatorname{rank} {(Q B)}
+\leq \operatorname{rank} {(B)}\),
+故 \(\operatorname{rank} {(B)}
+= \operatorname{rank} {(C)}\).
+回想, 对 REF 阵 \(B\) 与 \(C\),
+\(B\) 有 \(r = \operatorname{rank} {(B)}\) 个非零行,
+且 \(C\) 有 \(r' = \operatorname{rank} {(C)}\) 个非零行.
+则 \(r = r'\).
+由此可见, 秩 (与行列式) 是有用的工具.
+
+进一步地, 对 SREF 阵, 我们有:
+
+\begin{theorem}
+    设 \(B\), \(C\) 是 \(m \times n\) SREF 阵.
+    记 \(k_i = \operatorname{pivot} {(B; i)}\);
+    记 \(k'_i = \operatorname{pivot} {(B'; i)}\).
+    设
+    \begin{align*}
+        k_1 < k_2 < \dots < k_r < \infty,
+        \quad
+        k'_1 < k'_2 < \dots < k'_{r'} < \infty,
+    \end{align*}
+    且对 \(i > r\), \(B\) 的行~\(i\) 是 \(0\),
+    且对 \(i' > r'\), \(C\) 的行~\(i'\) 是 \(0\).
+
+    设 \(m\)~级阵 \(P\), \(Q\) 适合,
+    \(B = PC\), 且 \(C = QB\).
+    则 \(r = r'\),
+    且对 \(i \leq r\),
+    \(k_i = k'_i\),
+    且对 \(i \leq r\),
+    \(B\) 的行~\(i\) 是 \(C\) 的行~\(i\) 的
+    \([B]_{i,k_i} / [C]_{i,k_i}\)~倍.
+\end{theorem}
+
+\begin{proof}
+    SREF 阵是 REF 阵,
+    故由上个定理, 我们再确定元的关系即可.
+
+    注意, \(C\) 是 SREF 阵.
+    则对 \(i\), \(\ell \leq r\),
+    \begin{align*}
+        [B]_{i,k_\ell}
+        = {} &
+        [P C]_{i,k_\ell}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{i,v} [C]_{v,k_\ell}}
+        \\
+        = {} &
+        [P]_{i,\ell} [C]_{\ell,k_\ell}
+        +
+        \sum_{\substack{1 \leq v \leq m \\ v \neq \ell}}
+        {[P]_{i,v} [C]_{v,k_\ell}}
+        \\
+        = {} &
+        [P]_{i,\ell} [C]_{\ell,k_\ell}
+        +
+        \sum_{\substack{1 \leq v \leq m \\ v \neq \ell}}
+        {[P]_{i,v} 0}
+        \\
+        = {} &
+        [P]_{i,\ell} [C]_{\ell,k_\ell}.
+    \end{align*}
+    当 \(i \neq \ell\) 时, \([B]_{i,k_\ell} = 0\).
+    则当 \(i \neq \ell\) 时, \([P]_{i,\ell} = 0\).
+    另一方面, 我们取 \(\ell = i\),
+    得 \([P]_{i,i} = [B]_{i,k_i} / [C]_{i,k_i}\).
+    则当 \(i \leq r\) 时,
+    \begin{align*}
+        [B]_{i,j}
+        = {} &
+        [P C]_{i,j}
+        \\
+        = {} &
+        \sum_{1 \leq v \leq m}
+        {[P]_{i,v} [C]_{v,j}}
+        \\
+        = {} &
+        [P]_{i,i} [C]_{i,j}
+        +
+        \sum_{\substack{1 \leq v \leq m \\ v \neq i}}
+        {[P]_{i,v} [C]_{v,j}}
+        \\
+        = {} &
+        \frac{[B]_{i,k_i}}{[C]_{i,k_i}}
+        [C]_{i,j}
+        +
+        \sum_{\substack{1 \leq v \leq m \\ v \neq i}}
+        {0\, [C]_{v,j}}
+        \\
+        = {} &
+        \frac{[B]_{i,k_i}}{[C]_{i,k_i}}
+        [C]_{i,j}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+回想, 我们定义了 (列的) 倍乘:
+以某数乘阵的一列.
+类似地, 我们可考虑行的倍乘:
+以数 \(s\) 乘 \(m \times n\)~阵 \(A\) 的行~\(q\),
+且不改变其他的行, 得阵 \(B\).
+则我们可类似地证明,
+\(B = M(m; q; s) A\).
+
+若 \(s \neq 0\), 我们可以证明,
+\(M(m; q; s^{-1}) M(m; q; s) = I_m\):
+考虑行~\(q\) 的元即可.
+类似地, 若 \(s \neq 0\),
+\(M(m; q; s) M(m; q; s^{-1}) = I_m\).
+
+若 \(s \neq 0\), 则对 \(m \times n\)~阵 \(A\),
+\begin{align*}
+    \operatorname{rank} {(A)}
+    \geq {} &
+    \operatorname{rank} {(M(m; q; s) A)}
+    \\
+    \geq {} &
+    \operatorname{rank}
+    {(M(m; q; s^{-1}) (M(m; q; s) A))}
+    \\
+    = {}    &
+    \operatorname{rank}
+    {((M(m; q; s^{-1}) M(m; q; s)) A)}
+    \\
+    = {}    &
+    \operatorname{rank} {(I_m A)}
+    \\
+    = {}    &
+    \operatorname{rank} {(A)}.
+\end{align*}
+故 \(\operatorname{rank} {(A)}
+\geq \operatorname{rank} {(M(m; q; s) A)}
+\geq \operatorname{rank} {(A)}\).
+于是, 以非零的数乘阵的一行不改变秩.
+(类似地, 以非零的数乘阵的一列不改变秩.)
+
+% 类似地, 我们可以证明,
+% 以非零的数乘线性方程组的一个方程不改变它的解:
+% 若 \(a_{i,1} c_1 + a_{i,2} c_2 + \dots + a_{i,n} c_n = b_i\),
+% 则
+% \begin{align*}
+%          &
+%     (s a_{i,1}) c_1 + (s a_{i,2}) c_2 + \dots + (s a_{i,n}) c_n
+%     \\
+%     = {} &
+%     s (a_{i,1} c_1) + s (a_{i,2} c_2) + \dots + s (a_{i,n} c_n)
+%     \\
+%     = {} &
+%     s (a_{i,1} c_1 + a_{i,2} c_2 + \dots + a_{i,n} c_n)
+%     \\
+%     = {} &
+%     s b_i;
+% \end{align*}
+% 反过来, 若
+% \((s a_{i,1}) d_1 + (s a_{i,2}) d_2 + \dots + (s a_{i,n}) d_n
+% = s b_i\),
+% 则因 \(s^{-1} s = 1\),
+% \begin{align*}
+%          &
+%     a_{i,1} d_1 + a_{i,2} d_2 + \dots + a_{i,n} d_n
+%     \\
+%     = {} &
+%     (s^{-1} s) a_{i,1} d_1 + (s^{-1} s) a_{i,2} d_2
+%     + \dots + (s^{-1} s) a_{i,n} d_n
+%     \\
+%     = {} &
+%     s^{-1} (s a_{i,1}) d_1 + s^{-1} (s a_{i,2}) d_2
+%     + \dots + s^{-1} (s a_{i,n}) d_n
+%     \\
+%     = {} &
+%     s^{-1}
+%     ((s a_{i,1}) d_1 + (s a_{i,2}) d_2 + \dots + (s a_{i,n}) d_n)
+%     \\
+%     = {} &
+%     s^{-1} (s b_i)
+%     \\
+%     = {} &
+%     (s^{-1} s) b_i
+%     \\
+%     = {} &
+%     b_i.
+% \end{align*}
+
+类似地, 我们可以证明,
+以非零的数乘线性方程组的一个方程不改变它的解:
+当 \(s \neq 0\) 时,
+若
+\(a_{q,1} c_1 + a_{q,2} c_2 + \dots + a_{q,n} c_n = b_q\),
+则
+\((s a_{q,1}) c_1 + (s a_{q,2}) c_2 + \dots + (s a_{q,n}) c_n
+= s b_q\),
+且若
+\((s a_{q,1}) d_1 + (s a_{q,2}) d_2 + \dots + (s a_{q,n}) d_n
+= s b_q\),
+则
+\(a_{q,1} d_1 + a_{q,2} d_2 + \dots + a_{q,n} d_n = b_q\).
+
+\begin{definition}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设存在不高于 \(m\) 的非负整数 \(r\), 使:
+
+    (1)
+    对任何不高于 \(r\) 的正整数 \(i\),
+    \begin{align*}
+        \operatorname{pivot} {(A; i)} < \infty;
+    \end{align*}
+
+    (2)
+    对任何低于 \(r\) 的正整数 \(i\),
+    \begin{align*}
+        \operatorname{pivot} {(A; i)}
+        < \operatorname{pivot} {(A; i + 1)};
+    \end{align*}
+
+    (3)
+    对任何高于 \(r\) 且不高于 \(m\) 的整数 \(i\),
+    \begin{align*}
+        \operatorname{pivot} {(A; i)} = \infty;
+    \end{align*}
+
+    (4)
+    对任何不高于 \(r\) 的正整数 \(i\),
+    与任何不高于 \(m\) 的正整数 \(\ell\),
+    \begin{align*}
+        [A]_{\ell,\operatorname{pivot} {(A; i)}} =
+        \begin{cases}
+            0, & \ell \neq i; \\
+            1, & \ell = i.
+        \end{cases}
+    \end{align*}
+
+    我们说, \(A\) 是 \emph{RREF 阵}.
+\end{definition}
+
+``RREF'' 来自英语 \angla{reduced row-echelon form}.
+
+注意, RREF 阵是 SREF 阵,
+但 SREF 阵不一定是 RREF 阵.
+比如, \([-1]\) 是 SREF 阵, 但它不是 RREF 阵.
+
+我们知道, 我们可用行的倍加,
+变一个阵为 SREF 阵.
+类似地,
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    则我们可用行的倍加与行的倍乘
+    (且不以 \(0\) 乘阵的行),
+    变 \(A\) 为某 \(m \times n\) RREF 阵 \(D\).
+\end{theorem}
+
+\begin{proof}
+    我们可用行的倍加,
+    变 \(A\) 为某 \(m \times n\) SREF 阵 \(B\).
+    则存在非负整数 \(r\), 使
+    \begin{align*}
+        \operatorname{pivot} {(B; 1)}
+        < \operatorname{pivot} {(B; 2)}
+        < \dots
+        < \operatorname{pivot} {(B; r-1)}
+        < \operatorname{pivot} {(B; r)}
+        < \infty,
+    \end{align*}
+    且对 \(i > r\),
+    \(B\) 的行~\(i\) 是 \(0\),
+    且若 \(\ell \neq i\),
+    则 \([B]_{\ell,\operatorname{pivot} {(B; i)}} = 0\).
+    对 \(B\),
+    我们分别地以
+    \(1/[B]_{i,\operatorname{pivot} {(B; i)}} \neq 0\)
+    乘行~\(i\)
+    (\(i = 1, 2, \dots, r\)),
+    得阵 \(D\).
+    则 \(\operatorname{pivot} {(D; i)}
+    = \operatorname{pivot} {(B; i)}\),
+    且 \([D]_{i,\operatorname{pivot} {(D; i)}} = 1\).
+    则 \(D\) 是 RREF 阵.
+\end{proof}
+
+\begin{example}
+    设 SREF 阵
+    \begin{align*}
+        G_2 =
+        \begin{bmatrix}
+            4 & 0  & 0  & 0  & 0  & 0  \\
+            0 & -1 & 0  & 0  & 0  & -2 \\
+            0 & 0  & -1 & 0  & 0  & -3 \\
+            0 & 0  & 0  & -1 & 0  & -5 \\
+            0 & 0  & 0  & 0  & -1 & -7 \\
+        \end{bmatrix}.
+    \end{align*}
+    对 \(G_2\),
+    我们分别地以
+    \(1/4\), \(-1\), \(-1\), \(-1\), \(-1\)
+    乘行~\(1\), \(2\), \(3\), \(4\), \(5\),
+    得 RREF 阵
+    \begin{align*}
+        G_3 =
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 & 0 & 2 \\
+            0 & 0 & 1 & 0 & 0 & 3 \\
+            0 & 0 & 0 & 1 & 0 & 5 \\
+            0 & 0 & 0 & 0 & 1 & 7 \\
+        \end{bmatrix}.
+    \end{align*}
+\end{example}
+
+注意, 只作行的倍加不一定能变阵为 RREF 阵.
+
+\begin{example}
+    考虑
+    \(A =
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1 \\
+    \end{bmatrix}\).
+    \(A\) 是 SREF 阵.
+    我们说, 我们不能只作行的倍加,
+    以变 \(A\) 为 RREF 阵.
+
+    反设, 我们能只作行的倍加,
+    以变 \(A\) 为 RREF 阵 \(B\).
+    则存在 \(2\)~级阵 \(P\), \(Q\),
+    使 \(B = P A\), 且 \(A = Q B\).
+    由前面的讨论,
+    \(B\) 应形如
+    \(\begin{bmatrix}
+        [B]_{1,1} & 0         \\
+        0         & [B]_{2,2} \\
+    \end{bmatrix}\),
+    其中, \([B]_{i,i} \neq 0\).
+    \(B\) 是 RREF 阵, 故
+    \([B]_{1,1} = [B]_{2,2} = 1\).
+    则 \(\det {(B)} = 1\).
+    可是, 倍加不改变行列式, 且 \(\det {(A)} = -1\).
+    这是矛盾.
+\end{example}
+
+设 \(A\) 是 \(m \times n\)~阵.
+设我们用行的倍加与行的倍乘
+(且不以 \(0\) 乘阵的行, 下同),
+变 \(A\) 为某 \(m \times n\) RREF 阵 \(B\).
+设我们用行的倍加与行的倍乘,
+变 \(A\) 为某 \(m \times n\) RREF 阵 \(B'\).
+则存在形如 \(E(m; p, q; s)\) (\(p \neq q\))
+或 \(M(m; q; s)\) (\(s \neq 0\)) 的阵
+\(C_1\), \(C_2\), \(\dots\), \(C_u\),
+与 \(D_1\), \(D_2\), \(\dots\), \(D_v\),
+使
+\begin{align*}
+    B  & = C_u (C_{u-1} \dots (C_2 (C_1 A)))
+    = (C_u C_{u-1} \dots C_2 C_1) A,
+    \\
+    B' & = D_v (D_{v-1} \dots (D_2 (D_1 A)))
+    = (D_v D_{v-1} \dots D_2 D_1) A.
+\end{align*}
+对每个 \(C_i\) (或 \(D_j\)),
+存在形如 \(E(m; p, q; s)\) (\(p \neq q\))
+或 \(M(m; q; s)\) (\(s \neq 0\)) 的阵
+\(F_i\) (或 \(G_j\)),
+使 \(F_i C_i = I_m\)
+(或 \(G_j D_j = I_m\)).
+则, 可以验证,
+\begin{align*}
+    (F_1 F_2 \dots F_{u-1} F_u) B
+    = A
+    = (G_1 G_2 \dots G_{v-1} G_v) B'.
+\end{align*}
+则
+\begin{align*}
+    B  & = (C_u \dots C_1) A
+    = ((C_u \dots C_1) (G_1 \dots G_v)) B',
+    \\
+    B' & = (D_v \dots D_1) A
+    = ((D_v \dots D_1) (F_1 \dots F_u)) B.
+\end{align*}
+则存在 \(m\)~级阵 \(P\), \(Q\),
+使 \(B = P B'\), 且 \(B' = Q B\).
+则 \(\operatorname{pivot} {(B; i)}
+= \operatorname{pivot} {(B'; i)}\),
+且 \(B\), \(B'\) 的非零行的数目相等
+(其是 \(r\)),
+且对 \(i \leq r\),
+\(B\) 的行~\(i\) 是 \(B'\) 的行~\(i\) 的
+\(1/1 = 1\)~倍
+(注意, 对 \(i \leq r\),
+\([B]_{i,\operatorname{pivot} {(B; i)}}
+= 1 = [B']_{i,\operatorname{pivot} {(B'; i)}}\)).
+对 \(i > r\),
+\(B\) 的行~\(i\) 与 \(B'\) 的行~\(i\) 都是 \(0\).
+则 \(B = B'\).
+于是,
+
+\begin{theorem}
+    设 \(A\) 是 \(m \times n\)~阵.
+    设我们用行的倍加与行的倍乘
+    (且不以 \(0\) 乘阵的行, 下同),
+    变 \(A\) 为某 \(m \times n\) RREF 阵 \(B\).
+    设我们用行的倍加与行的倍乘,
+    变 \(A\) 为某 \(m \times n\) RREF 阵 \(B'\).
+    则 \(B = B'\).
+\end{theorem}
+
 \end{document}
 
 This material discusses the rank of a matrix,
-row-echelon-form matrices,
+matrices in row-echelon form,
 and systems of linear equations.
