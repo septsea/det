@@ -52,7 +52,7 @@
 我们说, 行列式是方阵的一个重要的属性.
 不过, 不是方阵的阵没有行列式,
 故行列式不是不是方阵的阵的属性.
-但是, 秩是每一个阵都有的一个重要的属性.
+但是, 秩是每个阵都有的一个重要的属性.
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -607,7 +607,7 @@
 \begin{align*}
     \operatorname{rank} {(A E(n; p, q; s))}
      & = \operatorname{rank} {(A)}, \\
-    \operatorname{rank} {(E(m; p', q'; s'))}
+    \operatorname{rank} {(E(m; p', q'; s') A)}
      & = \operatorname{rank} {(A)}.
 \end{align*}
 (回想, \(E(n; p, q; s) E(n; p, q; -s) = I_n\),
@@ -929,7 +929,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \(1 \times n\)~阵也是 REF 阵.
 
     下面的阵是 REF 阵, 其中,
-    我们标记了不为 Tiānyī 的 pivots 的位置:
+    我们标记了对应非 Tiānyī 的 pivots 的元:
     \begin{align*}
         \begin{bmatrix}
             \boxed{6} & 8         & 15         \\
@@ -955,7 +955,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \end{align*}
 
     下面的阵不是 REF 阵, 其中,
-    我们标记了不为 Tiānyī 的 pivots 的位置:
+    我们标记了对应非 Tiānyī 的 pivots 的元:
     \begin{align*}
         \begin{bmatrix}
             \boxed{1} \\
@@ -1735,7 +1735,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     (\(r > n\) 是不可能的.)
 \end{theorem}
 
-现在, 我们考虑 REF 阵的秩.
+我们考虑 REF 阵的秩.
 
 \begin{theorem}
     设 \(F\) 是 REF 阵.
@@ -3210,7 +3210,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         \\
         = {} &
         \sum_{1 \leq v \leq \ell}
-        {[C]_{v,k'_\ell} [P]_{t+1,v}}
+        {[P]_{t+1,v} [C]_{v,k'_\ell}}
         +
         \sum_{\ell < v \leq m}
         {[P]_{t+1,v} 0}
@@ -3232,8 +3232,12 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     我们可从前向后地确定,
     \([P]_{t+1,1}\), \([P]_{t+1,2}\), \(\dots\), \([P]_{t+1,t}\)
     都是 \(0\).
+    注意, \(C\) 是 REF 阵,
+    且 \(k_{t+1} < k'_{t+1}\),
+    故若 \(v \geq t+1\),
+    则 \([C]_{v,k_{t+1}} = 0\).
     注意, \([B]_{t+1,k_{t+1}} \neq 0\).
-    注意,
+    但
     \begin{align*}
         [B]_{t+1,k_{t+1}}
         = {} &
@@ -3255,17 +3259,11 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
         {0\, [C]_{v,k_{t+1}}}
         +
         \sum_{t < v \leq m}
-        {[P]_{t+1,v} [C]_{v,k_{t+1}}}
+        {[P]_{t+1,v} 0}
         \\
         = {} &
-        \sum_{t < v \leq m}
-        {[P]_{t+1,v} [C]_{v,k_{t+1}}}.
+        0.
     \end{align*}
-    注意, \(C\) 是 REF 阵,
-    且 \(k_{t+1} < k'_{t+1}\),
-    故若 \(v \geq t+1\),
-    则 \([C]_{v,k_{t+1}} = 0\).
-    则 \([B]_{t+1,k_{t+1}} = 0\).
     这是矛盾.
     故 \(k_{t+1} \geq k'_{t+1}\).
     类似地, 由 \(C = Q P\),
@@ -3720,7 +3718,7 @@ Tiānyī 记号来自中国 Vocaloid \pinjino{bōkālòyǐdo}
     \([B]_{1,1} = [B]_{2,2} = 1\).
     则 \(\det {(B)} = 1\).
     注意, 倍加不改变行列式,
-    但 \(\det {(A)} = -1\).
+    但 \(\det {(A)} = -1 \neq \det {(B)}\).
     这是矛盾.
 \end{example}
 

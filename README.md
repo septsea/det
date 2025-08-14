@@ -11,7 +11,7 @@
 这是一本关于行列式的书. 行列式是一个初等的, 有用的工具. 行列式在现在不如在过去那么重要了, 但学习行列式不是不好的. 行列式在代数, 微积分, 几何是有用的. 于是, 我写了本书.  
 This is a book about determinants. Determinants are an elementary but useful device. Determinants are not as important now as they were in the past, but it is not bad to learn determinants. Determinants are useful in algebra, calculus and geometry. That is the reason for which I penned this book.
 
-我假定您有中学代数基础 (包括但不限于有理数, 实数, 代数式, 2 元 1 次方程组, 整式的加减乘, 因式分解, 分式, 1 元 1 次不等式, 常量与变量, 函数, 2 次根式, 1 元 2 次方程; 我列不完). 我希望本书不会是难的, 但因为我几乎无法作实验 (用我的书教初学者行列式), 故我只能希望如此.  
+我假定您有中学代数基础 (包括但不限于可比数 (有理数), 实数, 代数式, 2 元 1 次方程组, 整式的加减乘, 因式分解, 分式, 1 元 1 次不等式, 常量与变量, 函数, 2 次根式, 1 元 2 次方程; 我列不完). 我希望本书不会是难的, 但因为我几乎无法作实验, 故我只能希望如此.  
 I assume that the reader is familiar with elementary algebra (whose topics include but are not limited to rational numbers, real numbers, algebraic expressions, systems of linear equations with 2 unknowns, basic operations of polynomials, factorisation, rational expressions, linear inequalities with 1 unknown, constants and variables, functions, square roots, quadratic equations with 1 unknown; I am sorry that I cannot name all). I hope that the book is not too hard, but I can only hope so, because I can hardly verify my guess (= I do not have the opportunity to teach beginners determinants with this book).
 
 本书有一些创新, 但不多, 且不重要.  
@@ -106,7 +106,7 @@ Briefly, you can use, modify and distribute my book without interference or rest
 **La arkverkoj en ĉi tiu deponejo ne nepre uzas la permesilon, kiun ĉi tiu libro uzas. Vi estis avertita.**  
 **The artworks in this repository do not necessarily use the licence that this book uses. You have been warned.**
 
-<!-- (还有一件事. 以上声明的 "Determinantulo" 曾经是 "佚名" 或 "Anonymous". 不过, 一个学法学的同志说, 为使以上声明有效, 我不应不留名. 于是, 我留下了一个假的名字.) -->
+<!-- (还有一件事. 以上声明的 "Determinantulo" 曾是 "佚名" 或 "Anonymous". 不过, 一个学法学的同志说, 为使以上声明有效, 我不应不留名. 于是, 我留下了一个假的名字.) -->
 
 <!-- ## 关于书的标识 (About the emblem of the book)
 

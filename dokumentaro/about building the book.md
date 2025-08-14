@@ -168,8 +168,8 @@ I used the following fonts:
 <!-- - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
 - [STIX Two Math](https://ctan.org/pkg/stix2-otf) -->
 
-一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math. 所以, 您一般不必安装这 3 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC 即可.  
-Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC.
+一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math. 所以, 您一般不必安装这 3 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC, **其是可选的**, 即可.  
+Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC, **which are optional**.
 
 <!-- 一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math. 所以, 您一般不必安装这 5 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC 即可.  
 Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC. -->
@@ -229,9 +229,9 @@ You can certainly use `make` on Windows. Download it [here](https://sourceforge.
 **美客只是可选项.**  
 **`make` is just optional.**
 
-<!-- ## About MikTeX
+## About MiKTeX
 
-Some users do not use TeX Live; they use [MikTeX](https://miktex.org/) instead. I was asked how to build this book using MikTeX. Hence I did an experiment on 2024-10-23 on a Windows PC. The version of MikTeX that I used for the experiment was 24.1 (on 2024-01-28).
+Some users do not use TeX Live; they use [MiKTeX](https://miktex.org/) instead. I was asked how to build this book using MiKTeX. Therefore I did an experiment on a Windows PC. The version of MiKTeX that I used for the experiment was 24.1 (on 2024-01-28).
 
 If you want to use XeLaTeX, execute:  
 ```bash
@@ -241,7 +241,7 @@ xelatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 xelatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 ```
 The following packages are needed if XeLaTeX is used:  
-> subfiles, import, ctex, xecjk, cjk, zhnumber, xits, fira, mathtools, unicode-math, tex-gyre-math, stix2-otf, amscls, thmtools, kvsetkeys, xpatch, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, ltxcmds, infwarerr, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
+> subfiles, import, ctex, xecjk, cjk, zhnumber, xits, fira, fontname, mathtools, unicode-math, amscls, thmtools, kvsetkeys, xpatch, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, ltxcmds, infwarerr, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
 
 If you want to use LuaLaTeX, execute:  
 ```bash
@@ -251,11 +251,11 @@ lualatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 lualatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 ```
 The following packages are needed if LuaLaTeX is used:  
-> lua-uni-algos, subfiles, import, ctex, luatexja, infwarerr, luatexbase, ctablestack, ltxcmds, everyhook, svn-prov, adobemapping, chinese-jfm, zhnumber, xits, fira, mathtools, unicode-math, lualatex-math, tex-gyre-math, stix2-otf, amscls, thmtools, kvsetkeys, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
+> lua-uni-algos, subfiles, import, ctex, luatexja, infwarerr, luatexbase, ctablestack, ltxcmds, everyhook, svn-prov, lua-ul, adobemapping, chinese-jfm, zhnumber, xits, fira, mathtools, unicode-math, lualatex-math, amscls, thmtools, kvsetkeys, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
 
-You might be curious about why `latexmk` is not used here. Two reasons:  
-- `latexmk` is not (yet) part of a default installation of MikTeX, but can be installed manually if needed. However, because MikTeX does not contain Perl, on which `latexmk` depends, one has to install Perl manually in order to use `latexmk` (if there is no Perl executable file). (If one is willing to install Perl, one is highly recommended using `latexmk`.)
-- MikTeX does include `texify`, which is an alternative to `latexmk` and does not depend on Perl as `latexmk` does, as part of a default installation of MikTeX. However, `texify` does not get along well with `biber`. (The issue existed many years ago and has not been fixed yet.)
+<!-- You might be curious about why `latexmk` is not used here. Two reasons:  
+- `latexmk` is not (yet) part of a default installation of MiKTeX, but can be installed manually if needed. However, because MiKTeX does not contain Perl, on which `latexmk` depends, one has to install Perl manually in order to use `latexmk` (if there is no Perl executable file). (If one is willing to install Perl, one is highly recommended using `latexmk`.)
+- MiKTeX does include `texify`, which is an alternative to `latexmk` and does not depend on Perl as `latexmk` does, as part of a default installation of MiKTeX. However, `texify` does not get along well with `biber`. (The issue existed many years ago and has not been fixed yet.)
 
 Given the above considerations, I decide that I keep using TeX Live for this project.
 

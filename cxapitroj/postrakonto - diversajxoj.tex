@@ -113,8 +113,8 @@
     ……
     适合 \(c_1 + c_2 + \dots + c_n = n\) 的项在一组.
     不难看出,
-    每一项在某一组里,
-    且每一项不能在二个不同的组里.
+    每项在某一组里,
+    且每项不能在二个不同的组里.
     则
     \begin{align*}
              &
@@ -1516,7 +1516,7 @@
 %     既然 \(A\) 的级不低于 \(2\),
 %     且 \(\det {(A)} = 0\),
 %     则 \(\operatorname{adj} {(A)}\) 的%
-%     每一个 \(2\)~级子阵的行列式是 \(0\)
+%     每个 \(2\)~级子阵的行列式是 \(0\)
 %     (见 ``古伴的性质 (2)'').
 %     那么, 对 \(1 \leq i < j \leq 2m\),
 %     \begin{align*}
@@ -1771,7 +1771,8 @@
         \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
         }.
     \end{align*}
-    设 \(n\) 是偶数.
+
+    以下, 设 \(n\) 是偶数.
     则
     \begin{align*}
              &
@@ -1975,8 +1976,8 @@
         \det {(A({i,v}|{i,u}))}
         \\
         = {} &
-        \operatorname{pf} {(A({i,v}|{i,u}))}
         \operatorname{pf} {(A({i,v}|{i,v}))}
+        \operatorname{pf} {(A({i,u}|{i,u}))}
         \\
         = {} &
         \operatorname{pf} {(A({i,u}|{i,u}))}
@@ -2052,15 +2053,19 @@
     则
     \begin{align*}
         [\operatorname{adj} {(A)}]_{i,j}
-        = \begin{cases}
-              (-1)^{\rho(i, j)}
-              (-1)^{i+j}
-              \operatorname{pf} {(A({i,j}|{i,j}))}
-              \operatorname{pf} {(A)},
-               & i \neq j; \\
-              0,
-               & i = j.
-          \end{cases}
+        = {} &
+        (-1)^{j+i} \det {(A(j|i))}
+        \\
+        = {} &
+        \begin{cases}
+            (-1)^{\rho(i, j)}
+            (-1)^{i+j}
+            \operatorname{pf} {(A({i,j}|{i,j}))}
+            \operatorname{pf} {(A)},
+             & i \neq j; \\
+            0,
+             & i = j.
+        \end{cases}
     \end{align*}
 \end{theorem}
 
@@ -2070,7 +2075,7 @@
     \begin{align*}
         [B]_{i,j} =
         \begin{cases}
-            0,         & \text{\(i = 2m\) 或 \(j = 2m\)}; \\
+            0,         & \text{\(i = 2m\), 或 \(j = 2m\)}; \\
             [A]_{i,j}, & \text{其他}.
         \end{cases}
     \end{align*}
@@ -2093,7 +2098,10 @@
     则
     \begin{align*}
         [\operatorname{adj} {(A)}]_{i,j}
-        =
+        = {} &
+        (-1)^{j+i} \det {(A(j|i))}
+        \\
+        = {} &
         (-1)^i \operatorname{pf} {(A(i|i))}
         \cdot
         (-1)^j \operatorname{pf} {(A(j|j))}.
@@ -2169,7 +2177,7 @@
     = \mathrm{D} (x) + \mathrm{D} (\pm y)
     = \mathrm{D} (x) \pm \mathrm{D} (y)\).
     于是, 若 \(s_1\), \(s_2\), \(\dots\), \(s_n\)
-    的每一个是 \(1\), \(0\), 或 \(-1\),
+    是 \(1\), \(0\), 或 \(-1\),
     则
     \begin{align*}
         \mathrm{D} \left(
@@ -3104,7 +3112,7 @@
     则 \(\det {(D)} = (-1)^{s - z} \det {(F)} = 0\).
     则 \([A B]_{i,i_s} = \det {(D)} = 0\).
 
-    综上, 既然 \(A B\) 的每一个元都是 \(0\), 则 \(A B = 0\).
+    综上, 既然 \(A B\) 的每个元都是 \(0\), 则 \(A B = 0\).
 
     我们可几乎类似地证, \(B A = 0\).
     当然, 我们也可这样作.
