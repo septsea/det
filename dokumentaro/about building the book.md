@@ -241,7 +241,7 @@ xelatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 xelatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 ```
 The following packages are needed if XeLaTeX is used:  
-> subfiles, import, ctex, xecjk, cjk, zhnumber, xits, fira, fontname, mathtools, unicode-math, amscls, thmtools, kvsetkeys, xpatch, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, ltxcmds, infwarerr, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
+> subfiles, import, ctex, xecjk, cjk, zhnumber, xits, fira, fontname, mathtools, unicode-math, amscls, thmtools, kvsetkeys, xpatch, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, ltxcmds, infwarerr, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark
 
 If you want to use LuaLaTeX, execute:  
 ```bash
@@ -251,7 +251,7 @@ lualatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 lualatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 ```
 The following packages are needed if LuaLaTeX is used:  
-> lua-uni-algos, subfiles, import, ctex, luatexja, infwarerr, luatexbase, ctablestack, ltxcmds, everyhook, svn-prov, lua-ul, adobemapping, chinese-jfm, zhnumber, xits, fira, mathtools, unicode-math, lualatex-math, amscls, thmtools, kvsetkeys, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark, newfloat
+> lua-uni-algos, subfiles, import, ctex, luatexja, infwarerr, luatexbase, ctablestack, ltxcmds, everyhook, svn-prov, lua-ul, adobemapping, chinese-jfm, zhnumber, xits, fira, mathtools, unicode-math, lualatex-math, amscls, thmtools, kvsetkeys, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark
 
 <!-- You might be curious about why `latexmk` is not used here. Two reasons:  
 - `latexmk` is not (yet) part of a default installation of MiKTeX, but can be installed manually if needed. However, because MiKTeX does not contain Perl, on which `latexmk` depends, one has to install Perl manually in order to use `latexmk` (if there is no Perl executable file). (If one is willing to install Perl, one is highly recommended using `latexmk`.)

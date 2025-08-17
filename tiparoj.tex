@@ -84,6 +84,21 @@
                     ItalicFont = * Light Italic,
                     BoldItalicFont = * SemiBold Italic
                 ]{Sarasa Mono SC}
+                \IfFontExistsTF{Source Han Serif CN Light}{%
+                    \setCJKmainfont[
+                        UprightFont = Source Han Serif CN Light,
+                        BoldFont = * SemiBold,
+                        ItalicFont = * Light Italic,
+                        BoldItalicFont = * SemiBold Italic
+                    ]{Sarasa Mono SC}
+                }{%
+                    \setCJKmainfont[
+                        UprightFont = * Light,
+                        BoldFont = * SemiBold,
+                        ItalicFont = * Light Italic,
+                        BoldItalicFont = * SemiBold Italic
+                    ]{Sarasa Mono SC}
+                }
             }{}
         }{}
     }{}
@@ -114,41 +129,23 @@
                         ItalicFont = *-LightItalic.ttf,
                         BoldItalicFont = *-SemiBoldItalic.ttf
                     ]{SarasaMonoSC}
-                }{}
-            }{}
-        }{}
-    }{}
-}
-
-\IfFontExistsTF{Source Han Serif CN}{%
-    \IfFontExistsTF{Sarasa Mono SC Light}{%
-        \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
-            \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
-                \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
-                    \setCJKmainfont[
-                        UprightFont = * Light,
-                        BoldFont = Sarasa Mono SC SemiBold,
-                        ItalicFont = Sarasa Mono SC Light Italic,
-                        BoldItalicFont = Sarasa Mono SC SemiBold Italic
-                    ]{Source Han Serif CN}
-                }{}
-            }{}
-        }{}
-    }{}
-}{
-    \IfFontExistsTF{SourceHanSerifCN-Light.otf}{%
-        \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
-            \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
-                \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
-                    \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+                    \IfFontExistsTF{SourceHanSerifCN-Light.otf}{%
+                        \setCJKmainfont[
+                            Path,
+                            UprightFont = SourceHanSerifCN-Light.otf,
+                            BoldFont = *-SemiBold.ttf,
+                            ItalicFont = *-LightItalic.ttf,
+                            BoldItalicFont = *-SemiBoldItalic.ttf
+                        ]{SarasaMonoSC}
+                    }{%
                         \setCJKmainfont[
                             Path,
                             UprightFont = *-Light.ttf,
                             BoldFont = *-SemiBold.ttf,
                             ItalicFont = *-LightItalic.ttf,
                             BoldItalicFont = *-SemiBoldItalic.ttf
-                        ]{SourceHanSerifCN}
-                    }{}
+                        ]{SarasaMonoSC}
+                    }
                 }{}
             }{}
         }{}
@@ -289,7 +286,6 @@
 
 \endgroup
 
-% XITS Math
 \begin{equation*}
     a^3 + b^3 + c^3 - 3abc
     = (a + b + c)(a^2 + b^2 + c^2 - ab - bc - ca)
@@ -309,33 +305,41 @@
 
 \end{document}
 
-Postscript:
-
-TeX Gyre Termes Math and STIX Two Math were used in this project.
-
-% This file is used to test whether
-% the following fonts exist:
-% - [Source Han Serif CN](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/)
-% - [Sarasa Mono SC](https://mirrors.tuna.tsinghua.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)
-% - [XITS](https://ctan.org/pkg/xits)
-% - [Fira Sans](https://ctan.org/pkg/fira)
-% - [XITS Math](https://ctan.org/pkg/xits)
-% - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
-% - [STIX Two Math](https://ctan.org/pkg/stix2-otf)
-
-
-% TeX Gyre Termes Math (ℕ, ℤ, ℚ, ℝ, ℂ)
-% and XITS Math (⊂)
-\begin{equation*}
-    \mathbb{N}
-    \subset \mathbb{Z}
-    \subset \mathbb{Q}
-    \subset \mathbb{R}
-    \subset \mathbb{C}
-\end{equation*}
-
-% STIX Two Math (∘)
-% and XITS Math (other mathematical symbols)
-\begin{equation*}
-    (h \circ g) \circ f = h \circ (g \circ f)
-\end{equation*}
+\IfFontExistsTF{Sarasa Mono SC Light}{%
+    \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+        \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                \setmonofont[
+                    UprightFont = * Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]{Sarasa Mono SC}
+            }{}
+        }{}
+    }{}
+}{%
+    \IfFontExistsTF{SarasaMonoSC-Light.ttf}{%
+        \IfFontExistsTF{SarasaMonoSC-LightItalic.ttf}{%
+            \IfFontExistsTF{SarasaMonoSC-SemiBold.ttf}{%
+                \IfFontExistsTF{SarasaMonoSC-SemiBoldItalic.ttf}{%
+                    \setmonofont[
+                        Path,
+                        UprightFont = *-Light.ttf,
+                        BoldFont = *-SemiBold.ttf,
+                        ItalicFont = *-LightItalic.ttf,
+                        BoldItalicFont = *-SemiBoldItalic.ttf
+                    ]{SarasaMonoSC}
+                }{}
+            }{}
+        }{}
+    }{%
+        \setmonofont[
+            Path,
+            UprightFont = *-Light.otf,
+            BoldFont = *-Semibold.otf,
+            ItalicFont = *-LightIt.otf,
+            BoldItalicFont = *-SemiboldIt.otf
+        ]{SourceCodePro}
+    }
+}

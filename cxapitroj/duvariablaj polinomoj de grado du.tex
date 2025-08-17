@@ -4,17 +4,6 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,matrix}
 
-% This package enables one to create new environments for floats.
-\usepackage{newfloat}
-% I create an environment exclusively for tikzpictures.
-\DeclareFloatingEnvironment[
-    fileext=los,
-    listname={Listo de Tikzbildoj},
-    name={Tikzbildo},
-    placement=tbhp,
-    within=section,
-]{tikzbildo}
-
 \begin{document}
 
 \ifSubfilesClassLoaded{\appendix}{}
@@ -1481,7 +1470,7 @@
     减由右上至左下的对角线 (虚线) 上的数的积的和%
     即为得数.
     % https://tex.stackexchange.com/questions/32978/typesetting-a-matrix-with-crossing-arrows-on-it/#32981
-    \begin{tikzbildo*}[h!]
+    \begin{figure*}[h!]
         \centering
         \begin{tikzpicture}[>=stealth]
             \matrix [%
@@ -1526,10 +1515,10 @@
             % \foreach \c in {1,2,3}
             %     {\node[anchor=north] at (s3h-3-\c.south) {\(-\)};}
         \end{tikzpicture}
-    \end{tikzbildo*}
+    \end{figure*}
 
     % % https://www.zhihu.com/question/525613625
-    % \begin{tikzbildo*}[h!]
+    % \begin{figure*}[h!]
     %     \centering
     %     \begin{tikzpicture}
     %         \matrix [%
@@ -1563,7 +1552,7 @@
     %             -- (b3-2-1) -- (b3-1-2);
     %         \end{scope}
     %     \end{tikzpicture}
-    % \end{tikzbildo*}
+    % \end{figure*}
 \end{definition}
 
 \begin{example}

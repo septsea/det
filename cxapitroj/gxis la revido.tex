@@ -9,7 +9,11 @@
 \begingroup
 \setlength{\parindent}{1.5em}%for 12pt
 
-% In this section, tau is 2pi, so it is upright here.
+% In this section, pi is upright.
+\let\umathpi\pi
+\renewcommand*{\pi}{\symup\umathpi}
+
+% In this section, tau is 2pi, so it is also upright.
 \let\umathtau\tau
 \renewcommand*{\tau}{\symup\umathtau}
 

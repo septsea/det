@@ -4,17 +4,6 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,matrix}
 
-% This package enables one to create new environments for floats.
-\usepackage{newfloat}
-% I create an environment exclusively for tikzpictures.
-\DeclareFloatingEnvironment[
-    fileext=los,
-    listname={Listo de Tikzbildoj},
-    name={Tikzbildo},
-    placement=tbhp,
-    within=section,
-]{tikzbildo}
-
 \begin{document}
 
 \ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
@@ -847,7 +836,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     我们会常用它.
     通俗地, 我们可用对角线记
     \(2\)~级阵的行列式.
-    \begin{tikzbildo*}[h!]
+    \begin{figure*}[h!]
         \centering
         \begin{tikzpicture}[>=stealth]
             \matrix [%
@@ -866,7 +855,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
             \node[anchor=east] at (s2-1-1.west) {\(+\)};
             \node[anchor=east] at (s2-2-1.west) {\(-\)};
         \end{tikzpicture}
-    \end{tikzbildo*}
+    \end{figure*}
 \end{example}
 
 \begin{example}
@@ -957,7 +946,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     减由左下至右上的对角线 (虚线) 上的数的积的和%
     即为此阵的行列式.
     % https://tex.stackexchange.com/questions/32978/typesetting-a-matrix-with-crossing-arrows-on-it/#32981
-    \begin{tikzbildo*}[h!]
+    \begin{figure*}[h!]
         \centering
         \begin{tikzpicture}[>=stealth]
             \matrix [%
@@ -992,7 +981,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
             \foreach \r in {4,5,6}
                 {\node[anchor=east] at (s3-\r-1.west) {\(-\)};}
         \end{tikzpicture}
-    \end{tikzbildo*}
+    \end{figure*}
 \end{example}
 
 不过, 注意,
@@ -1065,7 +1054,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
     \([A]_{4,1} [A]_{3,2} [A]_{2,3} [A]_{1,4}\)
     前的符号是 \(+\),
     而不是 \(-\).
-    \begin{tikzbildo*}[h!]
+    \begin{figure*}[h!]
         \centering
         \begin{tikzpicture}[>=stealth]
             \matrix [%
@@ -1095,7 +1084,7 @@ j - \rho(j, j_1) - \dots - \rho(j, j_t))\)-元.
             % {It is \(+\).};
             {\(+\)};
         \end{tikzpicture}
-    \end{tikzbildo*}
+    \end{figure*}
 
     我不要求您记如此具体的公式,
     因为 \(n\)~级阵 (\(n \geq 4\)) 的行列式的具体的公式%
