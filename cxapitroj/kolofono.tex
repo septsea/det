@@ -3,6 +3,9 @@
 % This is a package that includes many logotypes about TeX.
 \usepackage{hologo}
 
+% This package makes long tables.
+\usepackage{longtable}
+
 \begin{document}
 
 \ifSubfilesClassLoaded{\backmatter}{}
@@ -81,6 +84,62 @@ hosted at
 
 \endgroup
 
+\clearpage
+\thispagestyle{empty}
+
+\vspace*{\fill}
+
+\begin{longtable}[c]{lllll}
+    \multicolumn{5}{c}{\textbf{The Greek alphabet}}
+    \\[2ex]
+    \multicolumn{2}{c}{letter}
+          &
+    \multicolumn{2}{c}{name}
+          &
+    \multicolumn{1}{c}{pronunciation}
+    \\ \hline
+    \endfirsthead
+
+    \multicolumn{5}{r}{(continued from the previous page)}
+    \\[2ex]
+    \multicolumn{2}{c}{letter}
+          &
+    \multicolumn{2}{c}{name}
+          &
+    \multicolumn{1}{c}{pronunciation}
+    \\ \hline
+    \endhead
+
+    Α     & α     & άλφα    & alpha   & \textit{AL-fuh}                   \\
+    Β     & β     & βήτα    & beta    & \textit{BAY-tuh}                  \\
+    Γ     & γ     & γάμμα   & gamma   & \textit{GAM-muh}                  \\
+    Δ     & δ     & δέλτα   & delta   & \textit{DEL-tuh}                  \\
+    Ε     & ε (ϵ) & έψιλον  & epsilon & \textit{EP-suh-lon}               \\
+    Ζ     & ζ     & ζήτα    & zeta    & \textit{ZAY-tuh}                  \\
+    Η     & η     & ήτα     & eta     & \textit{AY-tuh}                   \\
+    Θ (ϴ) & θ (ϑ) & θήτα    & theta   & \textit{THAY-tuh}                 \\
+    Ι     & ι     & ιώτα    & iota    & \textit{eye-OH-tuh}               \\
+    Κ     & κ (ϰ) & κάππα   & kappa   & \textit{KAP-uh}                   \\
+    Λ     & λ     & λάμδα   & lambda  & \textit{LAM-duh}                  \\
+    Μ     & μ     & μι      & mu      & \textit{mew}                      \\
+    Ν     & ν     & νι      & nu      & \textit{new}                      \\
+    Ξ     & ξ     & ξι      & xi      & \textit{ksigh}                    \\
+    Ο     & ο     & όμικρον & omicron & \textit{OM-uh-CRON}               \\
+    Π     & π (ϖ) & πι      & pi      & \textit{pie}                      \\
+    Ρ     & ρ (ϱ) & ρο      & rho     & \textit{row}                      \\
+    Σ     & σ/ς   & σίγμα   & sigma   & \textit{SIG-muh}                  \\
+    Τ     & τ     & ταυ     & tau     & \textit{tow} (as in \textit{cow}) \\
+    Υ     & υ     & ύψιλον  & upsilon & \textit{OOP-suh-LON}              \\
+    Φ     & φ (ϕ) & φι      & phi     & \textit{fi} (as in \textit{hi})   \\
+    Χ     & χ     & χι      & chi     & \textit{ki} (as in \textit{hi})   \\
+    Ψ     & ψ     & ψι      & psi     & \textit{psigh}                    \\
+    Ω     & ω     & ωμέγα   & omega   & \textit{oh-MAY-guh}               \\
+\end{longtable}
+
+\vspace{.5\baselineskip}\mbox{}\vfill
+
+\clearpage
+
 \end{document}
 
 In publishing, a colophon is a brief statement
@@ -89,3 +148,5 @@ of a book such as an "imprint".
 
 As is mentioned above,
 this colophon was inspired by the one in Axler's book.
+
+Postscript: the Greek alphabet was added for reference.
