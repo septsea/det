@@ -8,7 +8,7 @@ Esperanto (literally "one who hopes"), created by Zamenhof, Ludwik Łazarz in 18
 
 > Determinantulo
 
-(literally) a person who is associated with determinants
+(literally) a person who is associated with determinants. Determinantulo = Determinanto + -ulo
 
 ---
 
@@ -34,7 +34,7 @@ Permission to use, copy, modify, and/or distribute this software for any purpose
 
 > Ĉi tiu libro estas dediĉita al ĉiuj homoj.
 
-This book is dedicated to all persons.
+This book is dedicated to all people.
 
 ---
 
@@ -71,3 +71,21 @@ a symplectic matrix -->
 > _Enkonduko al determinantoj_
 
 _An introduction to determinants_
+
+---
+
+> Ĝis la revido
+
+Until the re-seeing (or idiomatically, See you)
+
+---
+
+> mirinda
+
+worth marvelling at (mirinda = miri (to marvell at) + -inda (worth, worthy of, or meriting)) (or idiomatically, wonderful)
+
+---
+
+> Fartu bone. Kredu, ke ni renkontiĝos iam, ie, iel, ial.
+
+Do well. Believe that we will meet sometime, somewhere, somehow, for some reason.

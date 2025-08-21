@@ -1,0 +1,54 @@
+\documentclass[zihao=-4]{ctexart}
+
+\begin{filecontents*}[force]{\jobname.bib}
+@unpublished{Determinantulo:EaD,
+    author  = {{Determinantulo}},
+    date    = {2025-06-28},
+    note    = {This is an unpublished open-source textbook about determinants.},
+    title   = {行列式入门},
+    url     = {https://github.com/septsea/det},
+    urldate = {2025-07-21},
+    version = {版本 2π}
+}
+\end{filecontents*}
+
+\usepackage[default]{sourcesanspro}
+\usepackage[]{sourcecodepro}
+
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+\defbibheading{bibliography}[]{}
+\addbibresource{\jobname.bib}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,breaklines=true,columns=fullflexible,keepspaces=true,tabsize=4}
+
+\pagestyle{empty}
+
+\usepackage{hologo}
+
+\begin{document}
+
+\frenchspacing
+\renewcommand*{\UrlFont}{\ttfamily}
+
+\title{如何引用本书}
+\author{Determinantulo}
+\date{}
+\maketitle
+
+\thispagestyle{empty}
+
+您可以以如下 \hologo{BibTeX} 条目在 \hologo{LaTeX} 文档%
+引用本书 \cite{Determinantulo:EaD}:
+\lstinputlisting[]{\jobname.bib}
+其中, \lstinline[]`urldate` 是引用日期:
+比如, 若您在 2025 年 7 月 21 日引用本书, 则您写
+\lstinline[]`urldate = {2025-07-21}`
+(注意, 日期的格式是 yyyy-mm-dd, 年-月-日).
+则您可以看到 (设您用 GB/T 7714-2015 标准的顺序编码制):
+\printbibliography
+
+最后, 为方便, 我在此打印本文档的代码:
+\lstinputlisting[]{\jobname.tex}
+
+\end{document}
