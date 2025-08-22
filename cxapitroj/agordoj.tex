@@ -189,37 +189,12 @@
 ]{ProofStyle}
 
 \numberwithin{equation}{chapter}
-\declaretheorem[%
-    style=TheoremStyle,%
-    name=定理,%
-    sibling=equation%
-]{theorem}
-\declaretheorem[%
-    style=TheoremStyle,%
-    name=原理,%
-    sibling=theorem%
-]{principle}
-\declaretheorem[%
-    style=TheoremStyle,%
-    name=假定,%
-    sibling=theorem%
-]{assumption}
-
-\declaretheorem[%
-    style=TheoremStyle,%
-    name=定义,%
-    sibling=theorem%
-]{definition}
-\declaretheorem[%
-    style=TheoremStyle,%
-    name=例,%
-    sibling=theorem%
-]{example}
-\declaretheorem[%
-    style=TheoremStyle,%
-    name=注,%
-    numbered=no%
-]{remark*}
+\declaretheorem[style=TheoremStyle,name=定理,sibling=equation]{theorem}
+\declaretheorem[style=TheoremStyle,name=原理,sibling=theorem]{principle}
+\declaretheorem[style=TheoremStyle,name=假定,sibling=theorem]{assumption}
+\declaretheorem[style=TheoremStyle,name=定义,sibling=theorem]{definition}
+\declaretheorem[style=TheoremStyle,name=例,sibling=theorem]{example}
+\declaretheorem[style=TheoremStyle,name=注,numbered=no]{remark*}
 
 % I redefine the proof environment,
 % so that I can use thmtools to typeset a proof,
@@ -230,11 +205,7 @@
 \renewcommand{\proofname}{证}
 \newcommand{\nomodepruvo}{证}
 \renewcommand*{\qedsymbol}{证完.}
-\declaretheorem[%
-    style=ProofStyle,%
-    name=\protect\nomodepruvo,
-    numbered=no%
-]{pruvo}
+\declaretheorem[style=ProofStyle,name=\protect\nomodepruvo,numbered=no]{pruvo}
 \renewenvironment{proof}[1][\proofname]{\renewcommand{\nomodepruvo}{#1}\begin{pruvo}}{\end{pruvo}}
 
 % I copied the magic from "memoir", a document class
@@ -524,10 +495,6 @@
         \makebox[\maxlen][r]{#2}
     \end{minipage}
 }
-
-% % This package facilitates maintenance of
-% % this multi-file project.
-% \usepackage{subfiles}
 
 % Here are packages that are conditionally imported
 % so that less time is needed to build subfiles.
