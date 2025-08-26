@@ -199,26 +199,23 @@
 设 \(z\), \(w\) 是数.
 设 \(z\) 的绝对值是 \(|z|\).
 则:
-
-(1)
-\(|0| = 0\);
-若数 \(z\) 适合 \(|z| = 0\), 则 \(z = 0\).
-
-(2)
-\(|z| \geq 0\).
-
-(3)
-\(|zw| = |z|\, |w|\).
-
-(4)
-\(|{z + w}| \leq |z| + |w|\).
-
-(5)
-\(|{z - w}| \geq |z| - |w|\).
-
-\vspace{2ex}
-
+\begin{itemize}
+    \item \(|0| = 0\);
+          若数 \(z\) 适合 \(|z| = 0\), 则 \(z = 0\).
+    \item \(|z| \geq 0\).
+    \item \(|zw| = |z|\, |w|\).
+    \item \(|{z + w}| \leq |z| + |w|\).
+    \item \(|{z - w}| \geq |z| - |w|\).
+\end{itemize}
 这些事实会是有用的.
+
+最后, 值得提,
+因为 \((-1) (-z) = 1 z = z\),
+且 \(|{-1}| = 1\),
+\begin{align*}
+    |z| = |{(-1) (-z)}| = |{-1}|\, |{-z}| = 1 |{-z}| = |{-z}|.
+\end{align*}
+这也会是有用的.
 
 \section{关于实数的大小的几个事实}
 
@@ -316,17 +313,18 @@
 
 \begin{proof}
     因为 \(\det {(A)} = 0\),
-    故有非零的 \(n \times 1\)~阵 \(x\),
-    使 \(Ax = 0\)
-    (见第一章, 节~\malneprasekcio{23}
-    或节~\malneprasekcio{25}).
+    故有非零的 \(n \times 1\)~阵 \(X\),
+    使 \(A X = 0\)
+    (见第一章, 节~\malneprasekcio{23},
+    或第一章, 节~\malneprasekcio{25},
+    或 ``REF 阵、线性方程组、秩'').
 
     考虑不全为 \(0\) 的非负实数
-    \(|[x]_{1,1}|\), \(|[x]_{2,1}|\), \(\dots\), \(|[x]_{n,1}|\).
+    \(|[X]_{1,1}|\), \(|[X]_{2,1}|\), \(\dots\), \(|[X]_{n,1}|\).
     则有不超过 \(n\) 的正整数 \(i\),
     使对任何不超过 \(n\) 的正整数 \(u\),
-    有 \(|[x]_{i,1}| \geq |[x]_{u,1}|\),
-    且 \(|[x]_{i,1}| > 0\).
+    有 \(|[X]_{i,1}| \geq |[X]_{u,1}|\),
+    且 \(|[X]_{i,1}| > 0\).
     则
     \begin{align*}
         0
@@ -334,51 +332,51 @@
         [0]_{i,1}
         \\
         = {} &
-        [A x]_{i,1}
+        [A X]_{i,1}
         \\
         = {} &
         \sum_{1 \leq u \leq n}
-        {[A]_{i,u} [x]_{u,1}}
+        {[A]_{i,u} [X]_{u,1}}
         \\
         = {} &
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
-        {[A]_{i,u} [x]_{u,1}}
-        + [A]_{i,i} [x]_{i,1}.
+        {[A]_{i,u} [X]_{u,1}}
+        + [A]_{i,i} [X]_{i,1}.
     \end{align*}
     则
     \begin{align*}
-        |[A]_{i,i}|\,|[x]_{i,1}|
+        |[A]_{i,i}|\,|[X]_{i,1}|
         = {}    &
-        |{-1}|\, |{[A]_{i,i} [x]_{i,1}}|
+        |{[A]_{i,i} [X]_{i,1}}|
         \\
         = {}    &
-        |{-[A]_{i,i} [x]_{i,1}}|
+        |{-[A]_{i,i} [X]_{i,1}}|
         \\
         = {}    &
         \Bigg|
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
-        {[A]_{i,u} [x]_{u,1}}
+        {[A]_{i,u} [X]_{u,1}}
         \Bigg|
         \\
         \leq {} &
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
-        {|{[A]_{i,u} [x]_{u,1}}|}
+        {|{[A]_{i,u} [X]_{u,1}}|}
         \\
         = {}    &
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
-        {|[A]_{i,u}|\, |[x]_{u,1}|}
+        {|[A]_{i,u}|\, |[X]_{u,1}|}
         \\
         \leq {} &
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
-        {|[A]_{i,u}|\, |[x]_{i,1}|}
+        {|[A]_{i,u}|\, |[X]_{i,1}|}
         \\
         = {}    &
         \Bigg(
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A]_{i,u}|}
-        \Bigg) |[x]_{i,1}|.
+        \Bigg) |[X]_{i,1}|.
     \end{align*}
-    因为 \(|[x]_{i,1}| > 0\),
+    因为 \(|[X]_{i,1}| > 0\),
     故式~\eqref{eq:NonzeroDet1} 是对的.
 \end{proof}
 
@@ -421,17 +419,18 @@
 
 \begin{proof}
     因为 \(\det {(A)} = 0\),
-    故有非零的 \(n \times 1\)~阵 \(x\),
-    使 \(Ax = 0\)
-    (见第一章, 节~\malneprasekcio{23}
-    或节~\malneprasekcio{25}).
+    故有非零的 \(n \times 1\)~阵 \(X\),
+    使 \(A X = 0\)
+    (见第一章, 节~\malneprasekcio{23},
+    或第一章, 节~\malneprasekcio{25},
+    或 ``REF 阵、线性方程组、秩'').
 
     考虑不全为 \(0\) 的非负实数
-    \(|[x]_{1,1}|\), \(|[x]_{2,1}|\), \(\dots\), \(|[x]_{n,1}|\).
+    \(|[X]_{1,1}|\), \(|[X]_{2,1}|\), \(\dots\), \(|[X]_{n,1}|\).
     则有不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     使对任何不超过 \(n\), 且不等于 \(j\) 的正整数 \(p\),
-    有 \(|[x]_{j,1}| \geq |[x]_{k,1}| \geq |[x]_{p,1}|\),
-    且 \(|[x]_{j,1}| > 0\).
+    有 \(|[X]_{j,1}| \geq |[X]_{k,1}| \geq |[X]_{p,1}|\),
+    且 \(|[X]_{j,1}| > 0\).
 
     注意, 对任何不超过 \(n\) 的正整数 \(u\), 有
     \begin{align*}
@@ -440,68 +439,68 @@
         [0]_{u,1}
         \\
         = {} &
-        [A x]_{u,1}
+        [A X]_{u,1}
         \\
         = {} &
         \sum_{1 \leq v \leq n}
-        {[A]_{u,v} [x]_{v,1}}
+        {[A]_{u,v} [X]_{v,1}}
         \\
         = {} &
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
-        {[A]_{u,v} [x]_{v,1}}
-        + [A]_{u,u} [x]_{u,1}.
+        {[A]_{u,v} [X]_{v,1}}
+        + [A]_{u,u} [X]_{u,1}.
     \end{align*}
     故
     \begin{align*}
-        -[A]_{u,u} [x]_{u,1}
+        -[A]_{u,u} [X]_{u,1}
         = \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
-        {[A]_{u,v} [x]_{v,1}}.
+        {[A]_{u,v} [X]_{v,1}}.
     \end{align*}
     则
     \begin{align*}
-        |[A]_{u,u}|\, |[x]_{u,1}|
+        |[A]_{u,u}|\, |[X]_{u,1}|
         = {}    &
-        |{-1}|\, |{[A]_{u,u} [x]_{u,1}}|
+        |{[A]_{u,u} [X]_{u,1}}|
         \\
         = {}    &
-        |{-[A]_{u,u} [x]_{u,1}}|
+        |{-[A]_{u,u} [X]_{u,1}}|
         \\
         = {}    &
         \Bigg|
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
-        {[A]_{u,v} [x]_{v,1}}
+        {[A]_{u,v} [X]_{v,1}}
         \Bigg|
         \\
         \leq {} &
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
-        {|{[A]_{u,v} [x]_{v,1}}|}
+        {|{[A]_{u,v} [X]_{v,1}}|}
         \\
         = {}    &
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
-        {|{[A]_{u,v}|\, |[x]_{v,1}}|}.
+        {|{[A]_{u,v}|\, |[X]_{v,1}}|}.
     \end{align*}
     则
     (取 \(u = j\),
     并注意, 对任何不超过 \(n\), 且不等于 \(j\) 的正整数 \(p\),
-    有 \(|[x]_{p,1}| \leq |[x]_{k,1}|\))
+    有 \(|[X]_{p,1}| \leq |[X]_{k,1}|\))
     \begin{align*}
-        |[A]_{j,j}|\, |[x]_{j,1}|
+        |[A]_{j,j}|\, |[X]_{j,1}|
         \leq {} &
         \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-        {|{[A]_{j,p}|\, |[x]_{p,1}}|}
+        {|{[A]_{j,p}|\, |[X]_{p,1}}|}
         \\
         \leq {} &
         \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-        {|{[A]_{j,p}|\, |[x]_{k,1}}|}
+        {|{[A]_{j,p}|\, |[X]_{k,1}}|}
         \\
         = {}    &
         \Bigg(
         \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
         {|{[A]_{j,p}|}}
         \Bigg)
-        |[x]_{k,1}|.
+        |[X]_{k,1}|.
     \end{align*}
-    因为 \(|[x]_{j,1}| > 0\),
+    因为 \(|[X]_{j,1}| > 0\),
     \begin{align*}
         |[A]_{j,j}|
         \leq
@@ -509,52 +508,34 @@
         \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
         {|{[A]_{j,p}|}}
         \Bigg)
-        |[x]_{k,1}|\, |[x]_{j,1}|^{-1}.
+        |[X]_{k,1}|\, |[X]_{j,1}|^{-1}.
     \end{align*}
     另一方面
     (取 \(u = k\),
     并注意, 对任何不超过 \(n\) 的正整数 \(q\),
-    有 \(|[x]_{q,1}| \leq |[x]_{j,1}|\)),
+    有 \(|[X]_{q,1}| \leq |[X]_{j,1}|\)),
     \begin{align*}
-        |[A]_{k,k}|\, |[x]_{k,1}|
+        |[A]_{k,k}|\, |[X]_{k,1}|
         \leq {} &
         \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
-        {|{[A]_{k,q}|\, |[x]_{q,1}}|}
+        {|{[A]_{k,q}|\, |[X]_{q,1}}|}
         \\
         \leq {} &
         \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
-        {|{[A]_{k,q}|\, |[x]_{j,1}}|}
+        {|{[A]_{k,q}|\, |[X]_{j,1}}|}
         \\
         = {}    &
         \Bigg(
         \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
         {|{[A]_{k,q}|}}
         \Bigg)
-        |[x]_{j,1}|.
+        |[X]_{j,1}|.
     \end{align*}
-    % 故
-    % \begin{align*}
-    %             &
-    %     (|[A]_{j,j}|\, |[A]_{k,k}|)\,
-    %     (|[x]_{j,1}|\, |[x]_{k,1}|)
-    %     \\
-    %     \leq {} &
-    %     \Bigg(
-    %     \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-    %     {|{[A]_{j,p}|}}
-    %     \Bigg)
-    %     \Bigg(
-    %     \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
-    % {|{[A]_{k,q}|}}
-    %     \Bigg)
-    %     (|[x]_{j,1}|\, |[x]_{k,1}|).
-    % \end{align*}
-    % 因为 \(|[x]_{j,1}| > 0\),
     故
     \begin{align*}
         % &
         (|[A]_{j,j}|\, |[A]_{k,k}|)\,
-        |[x]_{k,1}|
+        |[X]_{k,1}|
         % \\
         % \leq {} &
         \leq
@@ -566,25 +547,12 @@
         \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
         {|{[A]_{k,q}|}}
         \Bigg)
-        |[x]_{k,1}|.
+        |[X]_{k,1}|.
     \end{align*}
 
-    若 \(|[x]_{k,1}| > 0\),
+    若 \(|[X]_{k,1}| > 0\),
     则式~\eqref{eq:NonzeroDet2} 当然是对的.
-    若 \(|[x]_{k,1}| = 0\),
-    % 则对任何不超过 \(n\), 且不等于 \(j\) 的正整数 \(p\),
-    % 有 \(0 = |[x]_{k,1}| \geq |[x]_{p,1}| \geq 0\).
-    % 故 \(|[x]_{p,1}| = 0\).
-    % 故 \([x]_{p,1} = 0\).
-    % 则
-    % \begin{align*}
-    %     -[A]_{j,j} [x]_{j,1}
-    %     = \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-    %     {[A]_{j,p} [x]_{p,1}} = 0.
-    % \end{align*}
-    % 因为 \(|[x]_{j,1}| > 0\),
-    % 故 \([x]_{j,1} \neq 0\).
-    % 从而 \([A]_{j,j} = 0\).
+    若 \(|[X]_{k,1}| = 0\),
     则
     \begin{align*}
         0 \leq
@@ -593,7 +561,7 @@
         \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
         {|{[A]_{j,p}|}}
         \Bigg)\,
-        0\, |[x]_{j,1}|^{-1} = 0.
+        0\, |[X]_{j,1}|^{-1} = 0.
     \end{align*}
     故 \(|[A]_{j,j}| = 0\).
     则式~\eqref{eq:NonzeroDet2} 的左侧是 \(0\).
@@ -2389,7 +2357,7 @@ This material presents some sufficient conditions
 that det (A) be nonzero (for a complex square matrix A)
 or be greater than zero (for a real square matrix A).
 The theorem that
-Ax = 0 has a nonzero solution if det (A) = 0
+A X = 0 has a nonzero solution if det (A) = 0
 is used,
 but it is proved at least two times
 (in sections 23 and 25 of chapter 1).
