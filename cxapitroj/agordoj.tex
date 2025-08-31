@@ -320,6 +320,13 @@
 {\endlist}
 \makeatother
 
+\ctexset{
+    chapter={
+      name={第~,~章},
+      number=\arabic{chapter}
+     }
+}
+
 % The following lines start a new page with each section.
 % https://tex.stackexchange.com/questions/9497/start-new-page-with-each-section
 \providecommand*{\phantomsection}{}
@@ -351,8 +358,8 @@
 % that is so often used.
 \newcommand*{\maldevigalegajxo}{%
     \begin{remark*}
-        本节是选学内容.
-        不学本节不影响理解任何必学内容
+        本节是\textit{选学内容}.
+        不学本节\textbf{不影响}理解任何必学内容
         (也就是, 未被声明为选学内容的节).
     \end{remark*}%
 }
