@@ -1,7 +1,7 @@
 # Illustration by Alpha
 
-Mi dankas Alpha, kiu desegnis ĉi tiun ilustraĵon por ĉi tiu libro. Mi dankas mian tre bonan amikinon [王一尾](https://space.bilibili.com/12952643/), kiu estis bona peranto pri ĉi tiu ilustraĵo.  
-I thank Alpha, who drew this illustration for this book. I thank my very good friend [王一尾](https://space.bilibili.com/12952643/), who was a good broker for this illustration.  
+Mi dankas Alpha (Alfa), kiu desegnis ĉi tiun ilustraĵon por ĉi tiu libro. Mi dankas mian tre bonan amikinon [王一尾 (Vang' I-Vej')](https://space.bilibili.com/12952643/), kiu estis bona peranto pri ĉi tiu ilustraĵo.  
+I thank Alpha, who drew this illustration for this book. I thank my very good friend [王一尾 (Wang Yiwei)](https://space.bilibili.com/12952643/), who was a good broker for this illustration.  
 我感谢 Alpha 为本书作此插画. 我感谢我的好友[王一尾](https://space.bilibili.com/12952643/)作中介.
 
 **Oni rajtas kopii kaj distribui ĉi tiun ilustraĵon en iu ajn medio aŭ formato por iu ajn celo, eĉ komerce, se oni donas taŭgan krediton kaj ne distribuas derivaĵojn de ĉi tiu ilustraĵo.**  

@@ -1,7 +1,7 @@
 # Illustration by 数声雨滴
 
-Mi dankas 数声雨滴, kiu desegnis ĉi tiun ilustraĵon por ĉi tiu libro. Mi dankas mian tre bonan amikinon, kiu volas resti anonima kaj estis bona peranto pri ĉi tiu ilustraĵo.  
-I thank 数声雨滴, who drew this illustration for this book. I thank my very good friend, who wants to remain anonymous and was a good broker for this illustration.  
+Mi dankas 数声雨滴 (Ŝu-ŝeng-i-di), kiu desegnis ĉi tiun ilustraĵon por ĉi tiu libro. Mi dankas mian tre bonan amikinon, kiu volas resti anonima kaj estis bona peranto pri ĉi tiu ilustraĵo.  
+I thank 数声雨滴 (Shushengyudi), who drew this illustration for this book. I thank my very good friend, who wants to remain anonymous and was a good broker for this illustration.  
 我感谢数声雨滴为本书作此插画. 我感谢我的好友, 其想匿名, 作中介.
 
 **Oni rajtas kopii kaj distribui ĉi tiun ilustraĵon en iu ajn medio aŭ formato por iu ajn celo, eĉ komerce, se oni donas taŭgan krediton kaj ne distribuas derivaĵojn de ĉi tiu ilustraĵo.**  
