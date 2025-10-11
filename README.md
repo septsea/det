@@ -122,7 +122,7 @@ https://github.com/PetricaT/ProgrammingVTuberLogos-Addon/tree/main/Determinant -
 Multaj informoj estas en [`dokumentaro`](./dokumentaro/).  
 More information is in [`dokumentaro`](./dokumentaro/) ("documentation"). -->
 
-可在本仓库的其他 "马当" 文件了解本书的更多情报.  
+可在本仓库的别的 "马当" 文件了解本书的更多情报.  
 Multaj informoj estas en aliaj Markdown-dosieroj en ĉi tiu deponejo.  
 More information is in other Markdown files in this repository.
 

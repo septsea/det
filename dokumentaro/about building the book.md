@@ -91,7 +91,7 @@ git clone git+ssh://septsea@git.launchpad.net/det
 git clone https://git.launchpad.net/det
 ```
 
-假如您不知道 `git clone` 的作用, 请自行了解它. 无论是百度还是谷歌还是必应还是其他都比我强.  
+假如您不知道 `git clone` 的作用, 请自行了解它. 无论是百度还是谷歌还是必应还是别的都比我强.  
 If you do not know what `git clone` does, please teach yourself about that. Information on the internet is better than my words.
 
 **获取方法乙:**  
@@ -187,7 +187,7 @@ Downloading Source Han Serif CN is easy:
 下载 Sarasa Mono SC 不难. 在[这儿](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)下载 `SarasaMonoSC-TTF-*.7z`, 其中, `*` 是版本号 (如 `1.0.0`), 且文件名不含 `Unhinted`. 然后, 解压这个压缩文件.  
 Downloading Sarasa Mono SC is easy. Download `SarasaMonoSC-TTF-*.7z` [here](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/), in which `*` is the version number (for example, `1.0.0`), and the filename does not contain `Unhinted`. Extract the compressed file.
 
-我教您如何安装字体. 我假定您用窗系统 (Windows). 选中您想安装的字体文件 (`.ttf` 文件 / `.otf` 文件). (注意, 您可以一次选多个.) 右击它 (们). **点一下 "为所有用户安装".** 不难吧? 若您用其他的系统, 您就自行寻找方法吧 (我不熟悉其他的系统).  
+我教您如何安装字体. 我假定您用窗系统 (Windows). 选中您想安装的字体文件 (`.ttf` 文件 / `.otf` 文件). (注意, 您可以一次选多个.) 右击它 (们). **点一下 "为所有用户安装".** 不难吧? 若您用别的系统, 您就自行寻找方法吧 (我不熟悉别的系统).  
 I tell you how to install fonts. I suppose that you use Windows. Select the font(s) that you want to install (`.ttf` and/or `.otf` files). Right-click on it/them. **Click on "Install for all users".** It is not hard, is it? If you use another operating system, please find the method elsewhere (I am sorry that I am not familiar with operating systems other than Windows).
 
 我准备了一个小文件 [`tiparoj.tex`](../tiparoj.tex). 若您认为, 您的电脑里已有这 7 个字体, 且乳胶认识它们, 那就可以试编 [`tiparoj.tex`](../tiparoj.tex), 验证此事:
@@ -218,7 +218,7 @@ to contain the Korean script (諺文/韓㐎; 언문/한글; eonmun/han'geul).
     <img src="../bildoj%20en%20Markdown/tofuo.png" alt="tofuo" />
 </p>
 
-**您当然也可用其他的字体; 您手动修改即可.**  
+**您当然也可用别的字体; 您手动修改即可.**  
 **You can also use other fonts that you would like to use; just change the settings yourself.**
 
 ## 关于 "美客" (`make`) (About `make`)

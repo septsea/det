@@ -12,8 +12,8 @@
     \begin{align*}
         [D]_{i,j}
         = \begin{cases}
-              d_i, & i = j;     \\
-              0,   & \text{其他}.
+              d_i, & i = j;       \\
+              0,   & \text{别的情形}.
           \end{cases}
     \end{align*}
     则
@@ -331,8 +331,8 @@
     \begin{align*}
         [xI_n]_{i,j}
         = \begin{cases}
-              x, & i = j;     \\
-              0, & \text{其他}.
+              x, & i = j;       \\
+              0, & \text{别的情形}.
           \end{cases}
     \end{align*}
     故, 由上个例,
@@ -574,8 +574,8 @@
     \begin{align*}
         [C]_{i,j} =
         \begin{cases}
-            1 + a_i b_i, & i = j;     \\
-            a_i b_j,     & \text{其他}.
+            1 + a_i b_i, & i = j;       \\
+            a_i b_j,     & \text{别的情形}.
         \end{cases}
     \end{align*}
     我们计算 \(\det {(C)}\).
@@ -605,7 +605,7 @@
             1,         & i = j = m+1; \\
             -a_i,      & i < j = m+1; \\
             0,         & m+1 = i > j; \\
-            [C]_{i,j}, & \text{其他}.
+            [C]_{i,j}, & \text{别的情形}.
         \end{cases}
     \end{align*}
     通俗地,
@@ -1811,7 +1811,7 @@
                & \text{\(p = i\), 且 \(q \neq u, v\),
               或 \(q = i\), 且 \(p \neq u, v\)};       \\
               [A]_{p,q},
-               & \text{其他}.
+               & \text{别的情形}.
           \end{cases}
     \end{align*}
     注意, \(A(i|i) = B(i|i)\).
@@ -1894,7 +1894,7 @@
     %           x,         & \text{\(p = i\), 且 \(q = v\)}; \\
     %           -x,        & \text{\(p = u\), 且 \(q = i\)}; \\
     %           -x,        & \text{\(p = v\), 且 \(q = i\)}; \\
-    %           [A]_{p,q}, & \text{其他}.
+    %           [A]_{p,q}, & \text{别的情形}.
     %       \end{cases}
     % \end{align*}
     % 注意, \(A(i|i) = B(i|i)\).
@@ -2076,7 +2076,7 @@
         [B]_{i,j} =
         \begin{cases}
             0,         & \text{\(i = 2m\), 或 \(j = 2m\)}; \\
-            [A]_{i,j}, & \text{其他}.
+            [A]_{i,j}, & \text{别的情形}.
         \end{cases}
     \end{align*}
     则 \(B({2m}|{2m}) = A\).
@@ -2392,8 +2392,8 @@
     \begin{align*}
         [\mathrm{D}_\ell (B)]_{i,j} =
         \begin{cases}
-            \mathrm{D} ([B]_{i,j}), & j = \ell;  \\
-            [B]_{i,j},              & \text{其他}.
+            \mathrm{D} ([B]_{i,j}), & j = \ell;    \\
+            [B]_{i,j},              & \text{别的情形}.
         \end{cases}
     \end{align*}
 
@@ -2937,14 +2937,14 @@
     \begin{align*}
         [A]_{i,j} =
         \begin{cases}
-            1, & i = j = 1; \\
-            0, & \text{其他},
+            1, & i = j = 1;   \\
+            0, & \text{别的情形},
         \end{cases}
         \quad
         [B]_{i,j} =
         \begin{cases}
-            1, & i = j = 2; \\
-            0, & \text{其他}.
+            1, & i = j = 2;   \\
+            0, & \text{别的情形}.
         \end{cases}
     \end{align*}
     可以验证, \(A B = 0\).
@@ -3001,7 +3001,7 @@
              & \text{若 \(i\) 等于某 \(j_t\), 且 \(j\) 等于某 \(i_s\)};
             \\
             0,
-             & \text{其他}.
+             & \text{别的情形}.
         \end{cases}
     \end{align*}
     则 \(B \neq 0\)
@@ -3079,8 +3079,8 @@
     \begin{align*}
         [D]_{u,v} =
         \begin{cases}
-            [A]_{i,j_v}, & u = s;     \\
-            [C]_{u,v},   & \text{其他}.
+            [A]_{i,j_v}, & u = s;       \\
+            [C]_{u,v},   & \text{别的情形}.
         \end{cases}
     \end{align*}
     则 \(C\) 的行 \(u\) 与 \(D\) 的行 \(u\) 相等
@@ -3141,14 +3141,14 @@
              & \text{若 \(i\) 等于某 \(i_s\), 且 \(j\) 等于某 \(j_t\)};
             \\
             0,
-             & \text{其他}.
+             & \text{别的情形}.
         \end{cases}
     \end{align*}
     则 \(G = B^{\mathrm{T}}\).
     (注意, \([\operatorname{adj} {(C^{\mathrm{T}})}]_{s,t}
         = [\operatorname{adj} {(C)}]_{t,s}\),
     故 \([G]_{i_s,j_t} = [B]_{j_t,i_s}\).
-    在其他的情形, \([G]_{i,j} = 0 = [B]_{j,i}\).)
+    在别的情形, \([G]_{i,j} = 0 = [B]_{j,i}\).)
     并且, 当然, \(G \neq 0\).
     那么, 由前面的讨论, \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
 \end{example}
@@ -3256,18 +3256,18 @@ This example was rewritten, and it was moved to another place:
     对 \(n\)~级阵 \(A\),
     加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\)
     (其中, \(p \neq q\)),
-    且不改变其他的列, 得 \(A E(n; p, q; s)\),
+    且不改变别的列, 得 \(A E(n; p, q; s)\),
     其中, \(n\)~级阵 \(E(n; p, q; s)\) 的元
     \begin{align*}
         [E(n; p, q; s)]_{i,j}
         = \begin{cases}
               s,           & \text{\(i = p\), 且 \(j = q\)}; \\
-              [I_n]_{i,j}, & \text{其他}.
+              [I_n]_{i,j}, & \text{别的情形}.
           \end{cases}
     \end{align*}
     % (类似地,
     % 加 \(A\) 的行~\(q\) 的 \(s\)~倍于行~\(p\),
-    % 且不改变其他的行, 得 \(E(n; p, q; s) A\).)
+    % 且不改变别的行, 得 \(E(n; p, q; s) A\).)
     则 \(f(A E(n; p, q; s)) = f(A) f(E(n; p, q; s))\).
     我们的目标是, \(f(E(n; p, q; s)) = 1\).
     % Postscript on 2024-08-19:
@@ -3295,13 +3295,13 @@ This example was rewritten, and it was moved to another place:
     \([UV]_{p,q} = [U]_{p,q} + [U]_{q,q}\, (-s/(1-t)) = 0\),
     且
     \([UV]_{i,j} = [U]_{i,j} = [I_n]_{i,j}\)
-    (其他的情形).
+    (别的情形).
     故 \(UV = I_n\).
     注意,
     \([GH]_{p,p} = [G]_{p,p}\, (1/t) = 1\),
     且
     \([GH]_{i,j} = [G]_{i,j} = [I_n]_{i,j}\)
-    (其他的情形).
+    (别的情形).
     故 \(GH = I_n\).
     我们计算 \(UGVH\)
     (注意, 这不是 \(UVGH\)).
@@ -3310,20 +3310,20 @@ This example was rewritten, and it was moved to another place:
     \([UG]_{p,q} = [U]_{p,q} = s/(1-t)\),
     且
     \([UG]_{i,j} = [U]_{i,j}\)
-    (其他的情形).
+    (别的情形).
     则
     \([UGV]_{p,p} = [UG]_{p,p} = t\),
     \([UGV]_{p,q} = [UG]_{p,q} + [UG]_{p,p}\, (-s/(1-t))
     = s/(1-t) - st/(1-t) = s\),
     且
     \([UGV]_{i,j} = [UG]_{i,j} = [U]_{i,j}\)
-    (其他的情形).
+    (别的情形).
     则
     \([UGVH]_{p,p} = [UGV]_{p,p}\, (1/t) = 1\),
     \([UGVH]_{p,q} = [UGV]_{p,q} = s\),
     且
     \([UGVH]_{i,j} = [UGV]_{i,j} = [U]_{i,j}\)
-    (其他的情形).
+    (别的情形).
     则 \(UGVH = E(n; p, q; s)\).
     故
     \begin{align*}
