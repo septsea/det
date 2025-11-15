@@ -95,11 +95,11 @@
         \\
         = {} &
         \sum_{p=1}^{n}
-        {[A^{\mathrm{T}}]_{p,j} [C^{\mathrm{T}}]_{i,p}}
+            {[A^{\mathrm{T}}]_{p,j} [C^{\mathrm{T}}]_{i,p}}
         \\
         = {} &
         \sum_{p=1}^{n}
-        {[C^{\mathrm{T}}]_{i,p} [A^{\mathrm{T}}]_{p,j}}
+            {[C^{\mathrm{T}}]_{i,p} [A^{\mathrm{T}}]_{p,j}}
         \\
         = {} &
         [C^{\mathrm{T}} A^{\mathrm{T}}]_{i,j}.
@@ -533,27 +533,27 @@
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[X^{\mathrm{T}}]_{i,\ell} [A X]_{\ell,i}}
+            {[X^{\mathrm{T}}]_{i,\ell} [A X]_{\ell,i}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[X]_{\ell,i} [A X]_{\ell,i}}
+            {[X]_{\ell,i} [A X]_{\ell,i}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {
-        [X]_{\ell,i}
-        \left(\sum_{k = 1}^{n} [A]_{\ell,k} [X]_{k,i}\right)
-        }
+            {
+                [X]_{\ell,i}
+                \left(\sum_{k = 1}^{n} [A]_{\ell,k} [X]_{k,i}\right)
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{n}
         \sum_{k = 1}^{n}
-        {[X]_{\ell,i} [A]_{\ell,k} [X]_{k,i}}
+            {[X]_{\ell,i} [A]_{\ell,k} [X]_{k,i}}
         \\
         = {} &
         \sum_{\ell, k = 1}^{n}
-        {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
+            {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
         \\
         = {} & \hphantom{{} + {}}
         \sum_{1 \leq \ell = k \leq n}
@@ -736,7 +736,7 @@
 \begin{align*}
     \det {(A)}
     = \sum_{i = 1}^{n}
-    {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}.
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}.
 \end{align*}
 这就是按列~\(1\) 展开行列式.
 
@@ -746,7 +746,7 @@
 \begin{align*}
     \det {(A)}
     = \sum_{j = 1}^{n}
-    {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+        {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
 \end{align*}
 这就是按行~\(1\) 展开行列式.
 
@@ -761,44 +761,44 @@
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{j = 2}^{n} {
-    (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
-    }
+            (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+        }
     \\
     = {} &
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{j = 2}^{n} {
-    (-1)^{1+j} [A]_{1,j}
-    \sum_{i = 2}^{n} {
-    (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
-    }
-    }
+            (-1)^{1+j} [A]_{1,j}
+            \sum_{i = 2}^{n} {
+                    (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
+                }
+        }
     \\
     = {} &
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{j = 2}^{n} {
-    \sum_{i = 2}^{n} {
-    (-1)^{1+j} [A]_{1,j}
-    (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
-    }
-    }
+            \sum_{i = 2}^{n} {
+                    (-1)^{1+j} [A]_{1,j}
+                    (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
+                }
+        }
     \\
     = {} &
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{i, j = 2}^{n} {
-    (-1)^{i+j-1}
-        [A]_{i,1} [A]_{1,j} \det {(A(1,i|1,j))}
-    }.
+            (-1)^{i+j-1}
+                [A]_{i,1} [A]_{1,j} \det {(A(1,i|1,j))}
+        }.
 \end{align*}
 特别地, 若 \(A\) 还是一个反称阵, 则
 \begin{align*}
     \det {(A)}
     = \sum_{i, j = 2}^{n} {
-    (-1)^{i+j}
-        [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
-    }.
+            (-1)^{i+j}
+                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+        }.
 \end{align*}
 
 (4)
@@ -860,9 +860,9 @@
              & \det {(A)}     \\
         = {} &
         \sum_{i, j = 2}^{n} {
-        (-1)^{i+j}
-            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
-        }
+                (-1)^{i+j}
+                    [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            }
         \\
         = {} &
         \hphantom{{} + {}}
@@ -1189,7 +1189,7 @@
 且互不相同的正整数 \(p\), \(q\).
 不过, 回想, 不变也是倍加.
 那么, 我们约定, 当 \(n = 1\) 时,
-无论 \(p\), \(q\), \(s\) 是什么,
+无论 \(p\), \(q\), \(s\) 是何,
 \(E(n; p, q; s)\),
 即 \(E(1; p, q; s)\),
 表示且只表示 \(1\)~级单位阵 \(I_1 = [1]\).
@@ -2315,7 +2315,7 @@
         \\
         = {} &
         \sum_{j = 2}^{2k-1}
-        {(-1)^{j} [A]_{1,j}\, 0}
+            {(-1)^{j} [A]_{1,j}\, 0}
         \\
         = {} &
         0.
@@ -3967,9 +3967,9 @@
 
 注意,
 一次列的倍加可被认为是先作这个列的倍加,
-再作一次 ``什么也不作'' 的行的倍加
+再作一次 ``何也不作'' 的行的倍加
 (加一行的 \(0\) 倍于另一行),
-且一次行的倍加可被认为是先作一次 ``什么也不作'' 的列的倍加
+且一次行的倍加可被认为是先作一次 ``何也不作'' 的列的倍加
 (加一列的 \(0\) 倍于另一列),
 再作这个行的倍加.
 若我们用阵的积写此事, 则它是明显的:
@@ -4176,7 +4176,7 @@
 则 \(B E(n; p, q; s)\)
 是加 \(B\)~的列 \(p\) 的 \(s\)~倍于列~\(q\) 得到的阵.
 那么, 若 \(C\) 的列数为 \(m\),
-则 \(C D\) 是什么?
+则 \(C D\) 是何?
 
 \begin{theorem}
     设 \(C\) 是 \(t \times m\)~阵.
@@ -4510,15 +4510,15 @@
         [M^{\mathrm{T}} A M]_{i,j}
         = {} &
         \sum_{k = 1}^{n}
-        {
-        [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
-        }
+            {
+                [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
+            }
         \\
         = {} &
         \sum_{k = 1}^{n}
-        {
-        [M]_{k,i} [A M]_{k,j}
-        }
+            {
+                [M]_{k,i} [A M]_{k,j}
+            }
         \\
         = {} &
         [M]_{i,i} [A M]_{i,j}
@@ -4543,7 +4543,7 @@
         = {} &
         [M]_{i,i}
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [M]_{\ell,j}}
+            {[A]_{i,\ell} [M]_{\ell,j}}
         \\
         = {} &
         [M]_{i,i}
@@ -4571,32 +4571,32 @@
     当 \(i \neq q\), \(j \neq q\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = 1\, [A]_{i,j}\, 1
             = [A]_{i,j};
     \end{align*}
     当 \(i = q\), \(j \neq q\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = s\, [A]_{i,j}\, 1
         = s\, [A]_{i,j};
     \end{align*}
     当 \(i \neq q\), \(j = q\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = 1\, [A]_{i,j} s
         = s\, [A]_{i,j};
     \end{align*}
     当 \(i = q\), \(j = q\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = s\, 0\, s
         = 0
         = s\, [A]_{i,j}.
@@ -4696,37 +4696,37 @@
         \\
         = {} &
         \operatorname{pf} {(
-        C_w^{\mathrm{T}} \dots C_2^{\mathrm{T}}
-        C_1^{\mathrm{T}} A
-        C_1 C_2 \dots C_w
-        )}
+            C_w^{\mathrm{T}} \dots C_2^{\mathrm{T}}
+            C_1^{\mathrm{T}} A
+            C_1 C_2 \dots C_w
+            )}
         \\
         = {} &
         \operatorname{pf} {
-        (C_w^{\mathrm{T}}
-        (C_{w-1}^{\mathrm{T}}
-        (\dots
-        (C_2^{\mathrm{T}}
-        (C_1^{\mathrm{T}}
-        A
-        C_1)
-        C_2)
-        \dots)
-        C_{w-1})
-        C_w)
+            (C_w^{\mathrm{T}}
+            (C_{w-1}^{\mathrm{T}}
+            (\dots
+            (C_2^{\mathrm{T}}
+            (C_1^{\mathrm{T}}
+            A
+            C_1)
+            C_2)
+            \dots)
+            C_{w-1})
+            C_w)
         }
         \\
         = {} &
         \operatorname{pf} {
-        (C_{w-1}^{\mathrm{T}}
-        (\dots
-        (C_2^{\mathrm{T}}
-        (C_1^{\mathrm{T}}
-        A
-        C_1)
-        C_2)
-        \dots)
-        C_{w-1})
+            (C_{w-1}^{\mathrm{T}}
+            (\dots
+            (C_2^{\mathrm{T}}
+            (C_1^{\mathrm{T}}
+            A
+            C_1)
+            C_2)
+            \dots)
+            C_{w-1})
         }
         \det {(C_w)}
         \\
@@ -4885,7 +4885,7 @@
         [A]_{1,1},
          & n = 1;    \\
         \sum_{i = 1}^{n}
-        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
+            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
          & n \geq 2.
     \end{dcases}
 \end{align*}
@@ -8760,55 +8760,55 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         = {} &
         \operatorname{pf}
         {(
-        E_{w-1}^{\mathrm{T}}
-        \dots
-        (E_2^{\mathrm{T}}
-        (E_1^{\mathrm{T}}
-        (P^{\mathrm{T}} A P)
-        E_1)
-        E_2)
-        \dots
-        E_{w-1}
-        )}
+            E_{w-1}^{\mathrm{T}}
+            \dots
+            (E_2^{\mathrm{T}}
+            (E_1^{\mathrm{T}}
+            (P^{\mathrm{T}} A P)
+            E_1)
+            E_2)
+            \dots
+            E_{w-1}
+            )}
         \det {(E_w)}
         \\
         = {} &
         \operatorname{pf}
         {(
-        E_w^{\mathrm{T}}
-        (E_{w-1}^{\mathrm{T}}
-        \dots
-        (E_2^{\mathrm{T}}
-        (E_1^{\mathrm{T}}
-        (P^{\mathrm{T}} A P)
-        E_1)
-        E_2)
-        \dots
-        E_{w-1})
-        E_w
-        )}
+            E_w^{\mathrm{T}}
+            (E_{w-1}^{\mathrm{T}}
+            \dots
+            (E_2^{\mathrm{T}}
+            (E_1^{\mathrm{T}}
+            (P^{\mathrm{T}} A P)
+            E_1)
+            E_2)
+            \dots
+            E_{w-1})
+            E_w
+            )}
         \\
         = {} &
         \operatorname{pf}
         {(
-        (
-        E_w^{\mathrm{T}}
-        E_{w-1}^{\mathrm{T}}
-        \dots
-        E_2^{\mathrm{T}}
-        E_1^{\mathrm{T}}
-        P^{\mathrm{T}}
-        )
-        A
-        (
-        P
-        E_1
-        E_2
-        \dots
-        E_{w-1}
-        E_w
-        )
-        )}
+            (
+            E_w^{\mathrm{T}}
+            E_{w-1}^{\mathrm{T}}
+            \dots
+            E_2^{\mathrm{T}}
+            E_1^{\mathrm{T}}
+            P^{\mathrm{T}}
+            )
+            A
+            (
+            P
+            E_1
+            E_2
+            \dots
+            E_{w-1}
+            E_w
+            )
+            )}
         \\
         = {} &
         \operatorname{pf}
@@ -8831,15 +8831,15 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         % \\
         = {} &
         \sum_{k = 1}^{n}
-        {
-        [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
-        }
+            {
+                [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
+            }
         \\
         = {} &
         \sum_{k = 1}^{n}
-        {
-        [M]_{k,i} [A M]_{k,j}
-        }
+            {
+                [M]_{k,i} [A M]_{k,j}
+            }
         \\
         = {} &
         [M]_{i,i} [A M]_{i,j}
@@ -8864,7 +8864,7 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         = {} &
         [M]_{i,i}
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [M]_{\ell,j}}
+            {[A]_{i,\ell} [M]_{\ell,j}}
         \\
         = {} &
         [M]_{i,i}
@@ -8892,32 +8892,32 @@ The section "Pfaffian 的性质 (续)" was rewritten.
     当 \(i \neq 1\), \(j \neq 1\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = 1\, [A]_{i,j}\, 1
             = [A]_{i,j};
     \end{align*}
     当 \(i = 1\), \(j \neq 1\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = \det {(P)}\, [A]_{i,j}\, 1
         = \det {(P)}\, [A]_{i,j};
     \end{align*}
     当 \(i \neq 1\), \(j = 1\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = 1\, [A]_{i,j} \det {(P)}
         = \det {(P)}\, [A]_{i,j};
     \end{align*}
     当 \(i = 1\), \(j = 1\) 时,
     \begin{align*}
         [M]_{i,i}
-        [A]_{i,j}
-        [M]_{j,j}
+            [A]_{i,j}
+            [M]_{j,j}
         = \det {(P)}\, 0 \det {(P)}
         = 0
         = \det {(P)}\, [A]_{i,j}.

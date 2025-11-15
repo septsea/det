@@ -254,18 +254,18 @@
              & \det {(I_m)}
         \\
         = {} & \sum_{i = 1}^{m}
-        {(-1)^{i+1} [I_m]_{i,1} \det {(I_m (i|1))}}
+            {(-1)^{i+1} [I_m]_{i,1} \det {(I_m (i|1))}}
         \\
         % = {} & \sum_{i = 1}^{m}
         % {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
         % \\
         = {} & (-1)^{1+1} \delta(1, 1) \det {(I_m (1|1))}
         + \sum_{i = 2}^{m}
-        {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
+            {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
         \\
         = {} & \det {(I_{m-1})}
         + \sum_{i = 2}^{m}
-        {(-1)^{i+1} 0 \det {(I_m (i|1))}}
+            {(-1)^{i+1} 0 \det {(I_m (i|1))}}
         \\
         = {} & \det {(I_{m-1})}
         \\
@@ -290,7 +290,7 @@
         则
         \begin{align*}
             \det {(A)} = \sum_{i = 1}^{n}
-            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+                {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
         \end{align*}
     \end{restatable}
 }{\TheoremExpansionAboutAnyColumn*}
@@ -358,31 +358,31 @@
         \\
         = {} &
         \sum_{i = 1}^{n} {
-        (-1)^{i+j} [C]_{i,j} \det {(C(i|j))}
-        }
+                (-1)^{i+j} [C]_{i,j} \det {(C(i|j))}
+            }
         \\
         = {} &
         \sum_{i = 1}^{n} {
-        (-1)^{i+j} (s[A]_{i,j} + t[B]_{i,j}) \det {(C(i|j))}
-        }
+                (-1)^{i+j} (s[A]_{i,j} + t[B]_{i,j}) \det {(C(i|j))}
+            }
         \\
         = {} &
         s\sum_{i = 1}^{n} {
-        (-1)^{i+j} [A]_{i,j} \det {(C(i|j))}
-        }
+                (-1)^{i+j} [A]_{i,j} \det {(C(i|j))}
+            }
         +
         t\sum_{i = 1}^{n} {
-        (-1)^{i+j} [B]_{i,j} \det {(C(i|j))}
-        }
+                (-1)^{i+j} [B]_{i,j} \det {(C(i|j))}
+            }
         \\
         = {} &
         s\sum_{i = 1}^{n} {
-        (-1)^{i+j} [A]_{i,j} \det {(A(i|j))}
-        }
+                (-1)^{i+j} [A]_{i,j} \det {(A(i|j))}
+            }
         +
         t\sum_{i = 1}^{n} {
-        (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}
-        }
+                (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}
+            }
         \\
         = {} &
         s \det{(A)} + t \det{(B)}.
@@ -411,10 +411,10 @@
     \\
     = {} &
     \sum_{k = 1}^{\ell}
-    {s_k
-    \det {[a_1, \dots, a_{j-1},
-                b_k,
-                a_{j+1}, \dots, a_n]}}.
+        {s_k
+            \det {[a_1, \dots, a_{j-1},
+                        b_k,
+                        a_{j+1}, \dots, a_n]}}.
 \end{align*}
 您可施数学归纳法于 \(\ell\) 以证此事
 (注意,
@@ -492,7 +492,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
     \begin{align*}
         \det {(A)}
         = \sum_{i = 1}^{m} {(-1)^{i + j} [A]_{i,j}
-        \det {(A(i|j))}}.
+                \det {(A(i|j))}}.
     \end{align*}
     注意, \(m-1\)~级阵 \(A(i|j)\) 仍有相同的二列.
     所以, 根据假定, \(\det {(A(i|j))} = 0\).
@@ -649,30 +649,30 @@ s_1 b_1 + \dots + s_\ell b_\ell
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
-        g([ e_{i_1}, a_2, \dots, a_n ])}
+                g([ e_{i_1}, a_2, \dots, a_n ])}
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
-        g\left(\left[ e_{i_1},
-            \sum_{i_2 = 1}^{n} [A]_{i_2,2} e_{i_2},
-        \dots, a_n
-        \right]\right)}
+                g\left(\left[ e_{i_1},
+                    \sum_{i_2 = 1}^{n} [A]_{i_2,2} e_{i_2},
+                \dots, a_n
+                \right]\right)}
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {
-        \sum_{i_2 = 1}^{n} {[A]_{i_1,1} [A]_{i_2,2}\,
-        g([ e_{i_1}, e_{i_2}, \dots, a_n ])}}
+                \sum_{i_2 = 1}^{n} {[A]_{i_1,1} [A]_{i_2,2}\,
+                        g([ e_{i_1}, e_{i_2}, \dots, a_n ])}}
         \\
         = {} &
         \dots
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {
-        \sum_{i_2 = 1}^{n} {
-        \dots
-        \sum_{i_n = 1}^{n} {
-        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n} \,
-        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}}}.
+                \sum_{i_2 = 1}^{n} {
+                        \dots
+                        \sum_{i_n = 1}^{n} {
+                                [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n} \,
+                                g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}}}.
     \end{align*}
 
     利用交错性, 不难看出,
@@ -791,7 +791,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
     则
     \begin{align*}
         \det {(A)} = \sum_{j = 1}^{n}
-        {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+            {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
     \end{align*}
 \end{restatable}
 
@@ -824,7 +824,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
         对任何 \(n\)~级阵 \(A\),
         \begin{align*}
             \det {(A)} = \sum_{j = 1}^{n}
-            {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+                {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
         \end{align*}
     \end{quotation}
     则, 我们的目标是,
@@ -845,84 +845,84 @@ s_1 b_1 + \dots + s_\ell b_\ell
              & \det {(A)} \\
         = {} &
         \sum_{i = 1}^{m} {
-        (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
-        }
+                (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+            }
         \tag*{(1)}
         \\
         = {} &
         f
         +
         \sum_{i = 2}^{m} {
-        (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
-        }
+                (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+            }
         \\
         = {} &
         f
         +
         \sum_{i = 2}^{m} {
-        (-1)^{i+1} [A]_{i,1}
-        \sum_{j = 2}^{m} {
-        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
-        }
-        }
+                (-1)^{i+1} [A]_{i,1}
+                \sum_{j = 2}^{m} {
+                        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
+                    }
+            }
         \tag*{(2)}
         \\
         = {} &
         f
         +
         \sum_{i = 2}^{m} {
-        \sum_{j = 2}^{m} {
-        (-1)^{i+1} [A]_{i,1}
-        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
-        }
-        }
+                \sum_{j = 2}^{m} {
+                        (-1)^{i+1} [A]_{i,1}
+                        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
+                    }
+            }
         \tag*{(3)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-        \sum_{i = 2}^{m} {
-        (-1)^{i+1} [A]_{i,1}
-        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
-        }
-        }
+                \sum_{i = 2}^{m} {
+                        (-1)^{i+1} [A]_{i,1}
+                        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
+                    }
+            }
         \tag*{(4)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-        \sum_{i = 2}^{m} {
-        (-1)^{1+j} [A]_{1,j}
-        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
-        }
-        }
+                \sum_{i = 2}^{m} {
+                        (-1)^{1+j} [A]_{1,j}
+                        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
+                    }
+            }
         \tag*{(5)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-        (-1)^{1+j} [A]_{1,j}
-        \sum_{i = 2}^{m} {
-        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
-        }
-        }
+                (-1)^{1+j} [A]_{1,j}
+                \sum_{i = 2}^{m} {
+                        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
+                    }
+            }
         \tag*{(6)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-        (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
-        }
+                (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+            }
         \tag*{(7)}
         \\
         = {} &
         \sum_{j = 1}^{m} {
-        (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
-        }.
+                (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+            }.
     \end{align*}%
     \endgroup
     所以, \(P(m)\) 是对的.
@@ -1132,19 +1132,19 @@ s_1 b_1 + \dots + s_\ell b_\ell
     \begin{align*}
         \det {(A^{\mathrm{T}})}
         = {} & \sum_{i = 1}^{m} {
-        (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
-        \det {(A^{\mathrm{T}}(1|i))}
-        }
+                (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
+                \det {(A^{\mathrm{T}}(1|i))}
+            }
         \\
         = {} & \sum_{i = 1}^{m} {
-        (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
-        \det {((A^{\mathrm{T}}(1|i))^{\mathrm{T}})}
-        }
+                (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
+                \det {((A^{\mathrm{T}}(1|i))^{\mathrm{T}})}
+            }
         \\
         = {} & \sum_{i = 1}^{m} {
-        (-1)^{i+1} [A]_{i,1}
-        \det {(A(i|1))}
-        }
+                (-1)^{i+1} [A]_{i,1}
+                \det {(A(i|1))}
+            }
         \\
         = {} & \det {(A)}.
     \end{align*}
@@ -1168,7 +1168,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
     则
     \begin{align*}
         \det {(A)} = \sum_{j = 1}^{n}
-        {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
     \end{align*}
 \end{restatable}
 
@@ -1187,19 +1187,19 @@ s_1 b_1 + \dots + s_\ell b_\ell
         = {} & \det {(A^{\mathrm{T}})}
         \\
         = {} & \sum_{j = 1}^{n}
-        {(-1)^{j+i} [A^{\mathrm{T}}]_{j,i}
-        \det {(A^{\mathrm{T}}(j|i))}
-        }
+            {(-1)^{j+i} [A^{\mathrm{T}}]_{j,i}
+                \det {(A^{\mathrm{T}}(j|i))}
+            }
         \\
         = {} & \sum_{j = 1}^{n}
-        {(-1)^{j+i} [A]_{i,j}
-        \det {((A(i|j))^{\mathrm{T}})}
-        }
+            {(-1)^{j+i} [A]_{i,j}
+                \det {((A(i|j))^{\mathrm{T}})}
+            }
         \\
         = {} & \sum_{j = 1}^{n}
-        {(-1)^{i+j} [A]_{i,j}
-        \det {(A(i|j))}
-        }.
+            {(-1)^{i+j} [A]_{i,j}
+                \det {(A(i|j))}
+            }.
         \qedhere
     \end{align*}
 \end{proof}

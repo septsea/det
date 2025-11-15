@@ -90,14 +90,14 @@
     \\
     = {} &
     \sum_{i = 1}^{s}
-    {\left( \sum_{j = 1}^{t} a_{i,j} \right)}.
+        {\left( \sum_{j = 1}^{t} a_{i,j} \right)}.
 \end{align*}
 为方便, 我们写
 \begin{align*}
     \sum_{i = 1}^{s}
-    {\left( \sum_{j = 1}^{t} a_{i,j} \right)}
+        {\left( \sum_{j = 1}^{t} a_{i,j} \right)}
     = \sum_{i = 1}^{s}
-    {\sum_{j = 1}^{t} {a_{i,j}}}.
+        {\sum_{j = 1}^{t} {a_{i,j}}}.
 \end{align*}
 这就是 \(2\)~重求和.
 
@@ -116,11 +116,11 @@
     \\
     = {} &
     \sum_{j = 1}^{t}
-    {\left( \sum_{i = 1}^{s} {a_{i,j}} \right)}
+        {\left( \sum_{i = 1}^{s} {a_{i,j}} \right)}
     \\
     = {} &
     \sum_{j = 1}^{t} {
-    \sum_{i = 1}^{s} {a_{i,j}}}.
+            \sum_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
 比较二次计算的结果, 我们有
 \begin{align*}
@@ -132,61 +132,61 @@
 类似地, 我们可引入 \(3\)~重求和
 \begin{align*}
     \sum_{i = 1}^{s} {
-    \sum_{j = 1}^{t} {
-    \sum_{k = 1}^{u} {
-    a_{i,j,k}}}}
+            \sum_{j = 1}^{t} {
+                    \sum_{k = 1}^{u} {
+                            a_{i,j,k}}}}
     =
     \sum_{i = 1}^{s}
-    {\left( \sum_{j = 1}^{t} {
-        \sum_{k = 1}^{u} {
-            a_{i,j,k} }} \right)}.
+        {\left( \sum_{j = 1}^{t} {
+                \sum_{k = 1}^{u} {
+                    a_{i,j,k} }} \right)}.
 \end{align*}
 在此基础上, 我们可引入 \(4\)~重求和
 \begin{align*}
     \sum_{i = 1}^{s} {
-    \sum_{j = 1}^{t} {
-    \sum_{k = 1}^{u} {
-    \sum_{\ell = 1}^{v} {
-    a_{i,j,k,\ell} }}}}
+            \sum_{j = 1}^{t} {
+                    \sum_{k = 1}^{u} {
+                            \sum_{\ell = 1}^{v} {
+                                    a_{i,j,k,\ell} }}}}
     =
     \sum_{i = 1}^{s}
-    {\left(
-    \sum_{j = 1}^{t} {
-        \sum_{k = 1}^{u} {
-            \sum_{\ell = 1}^{v} {
-                a_{i,j,k,\ell} }}}
-    \right)}.
+        {\left(
+            \sum_{j = 1}^{t} {
+                \sum_{k = 1}^{u} {
+                    \sum_{\ell = 1}^{v} {
+                        a_{i,j,k,\ell} }}}
+            \right)}.
 \end{align*}
 ……
 在此基础上, 我们可引入 \(p\)~重求和
 \begin{align*}
     \sum_{i_1 = 1}^{n_1} {
-    \sum_{i_2 = 1}^{n_2} {
-    \dots
-    \sum_{i_{p-1} = 1}^{n_{p-1}} {
-    \sum_{i_p = 1}^{n_p} {
-    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+            \sum_{i_2 = 1}^{n_2} {
+                    \dots
+                    \sum_{i_{p-1} = 1}^{n_{p-1}} {
+                            \sum_{i_p = 1}^{n_p} {
+                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     = \sum_{i_1 = 1}^{n_1}
-    {\left(
-    \sum_{i_2 = 1}^{n_2} {
-        \dots
-        \sum_{i_{p-1} = 1}^{n_{p-1}} {
-            \sum_{i_p = 1}^{n_p} {
-                a_{i_1,i_2,\dots,i_{p-1},i_p}}}}
-    \right)}.
+        {\left(
+            \sum_{i_2 = 1}^{n_2} {
+                \dots
+                \sum_{i_{p-1} = 1}^{n_{p-1}} {
+                    \sum_{i_p = 1}^{n_p} {
+                        a_{i_1,i_2,\dots,i_{p-1},i_p}}}}
+            \right)}.
 \end{align*}
 特别地, 若 \(n_1 = n_2 = \dots = n_p = n\),
 我们可简单地写
 \begin{align*}
     \sum_{i_1 = 1}^{n} {
-    \sum_{i_2 = 1}^{n} {
-    \dots
-    \sum_{i_{p-1} = 1}^{n} {
-    \sum_{i_p = 1}^{n} {
-    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+            \sum_{i_2 = 1}^{n} {
+                    \dots
+                    \sum_{i_{p-1} = 1}^{n} {
+                            \sum_{i_p = 1}^{n} {
+                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     =
     \sum_{i_1,i_2,\dots,i_p = 1}^{n}
-    {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
+        {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
 \end{align*}
 
 有时, 虽然被加的数用若干个指标编号,
@@ -366,14 +366,14 @@
     \\
     = {} &
     \prod_{i = 1}^{s}
-    {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}.
+        {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}.
 \end{align*}
 为方便, 我们写
 \begin{align*}
     \prod_{i = 1}^{s}
-    {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}
+        {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}
     = \prod_{i = 1}^{s}
-    {\prod_{j = 1}^{t} {a_{i,j}}}.
+        {\prod_{j = 1}^{t} {a_{i,j}}}.
 \end{align*}
 这就是 \(2\)~重求积.
 
@@ -392,11 +392,11 @@
     \\
     = {} &
     \prod_{j = 1}^{t}
-    {\left( \prod_{i = 1}^{s} {a_{i,j}} \right)}
+        {\left( \prod_{i = 1}^{s} {a_{i,j}} \right)}
     \\
     = {} &
     \prod_{j = 1}^{t}
-    {\prod_{i = 1}^{s} {a_{i,j}}}.
+        {\prod_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
 比较二次计算的结果, 我们有
 \begin{align*}
@@ -408,63 +408,63 @@
 类似地, 我们可引入 \(3\)~重求积
 \begin{align*}
     \prod_{i = 1}^{s} {
-    \prod_{j = 1}^{t} {
-    \prod_{k = 1}^{u} {
-    a_{i,j,k} }}}
+            \prod_{j = 1}^{t} {
+                    \prod_{k = 1}^{u} {
+                            a_{i,j,k} }}}
     =
     \prod_{i = 1}^{s}
-    {\left(
-    \prod_{j = 1}^{t} {
-        \prod_{k = 1}^{u} {
-            a_{i,j,k} }}
-    \right)}.
+        {\left(
+            \prod_{j = 1}^{t} {
+                \prod_{k = 1}^{u} {
+                    a_{i,j,k} }}
+            \right)}.
 \end{align*}
 在此基础上, 我们可引入 \(4\)~重求积
 \begin{align*}
     \prod_{i = 1}^{s} {
-    \prod_{j = 1}^{t} {
-    \prod_{k = 1}^{u} {
-    \prod_{\ell = 1}^{v} {
-    a_{i,j,k,\ell} }}}}
+            \prod_{j = 1}^{t} {
+                    \prod_{k = 1}^{u} {
+                            \prod_{\ell = 1}^{v} {
+                                    a_{i,j,k,\ell} }}}}
     =
     \prod_{i = 1}^{s}
-    {\left(
-    \prod_{j = 1}^{t} {
-        \prod_{k = 1}^{u} {
-            \prod_{\ell = 1}^{v} {
-                a_{i,j,k,\ell} }}}
-    \right)}.
+        {\left(
+            \prod_{j = 1}^{t} {
+                \prod_{k = 1}^{u} {
+                    \prod_{\ell = 1}^{v} {
+                        a_{i,j,k,\ell} }}}
+            \right)}.
 \end{align*}
 ……
 在此基础上, 我们可引入 \(p\)~重求积
 \begin{align*}
     \prod_{i_1 = 1}^{n_1} {
-    \prod_{i_2 = 1}^{n_2} {
-    \dots
-    \prod_{i_{p-1} = 1}^{n_{p-1}} {
-    \prod_{i_p = 1}^{n_p} {
-    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+            \prod_{i_2 = 1}^{n_2} {
+                    \dots
+                    \prod_{i_{p-1} = 1}^{n_{p-1}} {
+                            \prod_{i_p = 1}^{n_p} {
+                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     = \prod_{i_1 = 1}^{n_1}
-    {\left(
-    \prod_{i_2 = 1}^{n_2} {
-        \dots
-        \prod_{i_{p-1} = 1}^{n_{p-1}} {
-            \prod_{i_p = 1}^{n_p} {
-                a_{i_1,i_2,\dots,i_{p-1},i_p} }}}
-    \right)}.
+        {\left(
+            \prod_{i_2 = 1}^{n_2} {
+                \dots
+                \prod_{i_{p-1} = 1}^{n_{p-1}} {
+                    \prod_{i_p = 1}^{n_p} {
+                        a_{i_1,i_2,\dots,i_{p-1},i_p} }}}
+            \right)}.
 \end{align*}
 特别地, 若 \(n_1 = n_2 = \dots = n_p = n\),
 我们可简单地写
 \begin{align*}
     \prod_{i_1 = 1}^{n} {
-    \prod_{i_2 = 1}^{n} {
-    \dots
-    \prod_{i_{p-1} = 1}^{n} {
-    \prod_{i_p = 1}^{n} {
-    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+            \prod_{i_2 = 1}^{n} {
+                    \dots
+                    \prod_{i_{p-1} = 1}^{n} {
+                            \prod_{i_p = 1}^{n} {
+                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     =
     \prod_{i_1,i_2,\dots,i_p = 1}^{n}
-    {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
+        {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
 \end{align*}
 
 有时, 虽然被乘的数用若干个指标编号,
@@ -741,7 +741,7 @@
     \(1 + 3 + \dots + (2n-1) = n^2\),
     而 \(n^2\) 跟 \(n^2 + 1\) 不可能相等.
 
-    我在什么地方出了问题?
+    我在何地方出了问题?
     不难看出, 起始步不是对的:
     我错误地认为 \(P'(1)\) 是对的.
 
@@ -796,7 +796,7 @@
     可是, 这不合常识:
     \(0\) 与 \(1\) 就是不相同的二个数.
 
-    我在什么地方出了问题?
+    我在何地方出了问题?
     其实, \(Q(1)\) 是不能推出 \(Q(2)\) 的.
     不过, \(Q(2)\) 的确可推出 \(Q(3)\);
     进一步地, 不难看出, 对每个不低于 \(2\) 的整数 \(n\),
@@ -1615,7 +1615,7 @@
 (但不改元的前后次序),
 结果都是相等的.
 
-我们看结合律有什么用.
+我们看结合律有何用.
 
 设 \(S\) 是非空的集.
 设 \(\circ\) 是 \(S\) 的二元运算.

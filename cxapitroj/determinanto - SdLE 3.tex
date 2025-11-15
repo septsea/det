@@ -267,11 +267,11 @@
         [\underbar{A}C]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [C]_{\ell,1}}
+            {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} & [AC]_{i,1}
         \\
@@ -286,11 +286,11 @@
         [\underbar{A}C]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {0\,[C]_{\ell,1}}
+            {0\,[C]_{\ell,1}}
         \\
         = {} & 0
         \\
@@ -303,11 +303,11 @@
         [\underbar{A}C]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i-1,\ell} [C]_{\ell,1}}
+            {[A]_{i-1,\ell} [C]_{\ell,1}}
         \\
         = {} & [AC]_{i-1,1}
         \\
@@ -348,11 +348,11 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [C]_{\ell,1}}
+            {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} & [\underbar{A}C]_{i,1}
         \\
@@ -367,11 +367,11 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [C]_{\ell,1}}
+            {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[\underbar{A}]_{i+1,\ell} [C]_{\ell,1}}
+            {[\underbar{A}]_{i+1,\ell} [C]_{\ell,1}}
         \\
         = {} & [\underbar{A}C]_{i+1,1}
         \\
@@ -459,7 +459,7 @@
     以下, 我们假定 \(A \neq 0\);
     也就是, \(A\) 有一个元不是 \(0\)
     (同时, 这也要求 \(n > 1\):
-    回想 \(1\)~级阵的行列式是什么).
+    回想 \(1\)~级阵的行列式是何).
     从而 \(r \geq 1\).
 
     我们设 \(A\)~的 \(r\)~级子阵
@@ -528,7 +528,7 @@
         [AW]_{q,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{q,\ell} [W]_{\ell,1}}
+            {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\substack{
@@ -561,21 +561,21 @@
         \\
         = {} &
         \sum_{p=1}^{r+1}
-        {[A]_{q,j_p}
-            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
+            {[A]_{q,j_p}
+                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
     \end{align*}
     若 \(q\) 等于某个 \(i_t\), 则
     \begin{align*}
         [AW]_{i_t,1}
         = {} &
         \sum_{p=1}^{r+1}
-        {[A]_{i_t,j_p}
-            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+            {[A]_{i_t,j_p}
+                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-        {[E]_{f(i_t),g(j_p)}
-            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+            {[E]_{f(i_t),g(j_p)}
+                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         [E \operatorname{adj} {(E)}]_{f(i_t),f(i_{r+1})}
@@ -593,14 +593,14 @@
         [AW]_{q,1}
         = {} &
         \sum_{p=1}^{r+1}
-        {[A]_{q,j_p}
-            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+            {[A]_{q,j_p}
+                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-        {[A]_{q,j_p}
-        (-1)^{f(i_{r+1})+g(j_p)}
-        \det {(E(f(i_{r+1})|g(j_p)))}}.
+            {[A]_{q,j_p}
+                (-1)^{f(i_{r+1})+g(j_p)}
+                \det {(E(f(i_{r+1})|g(j_p)))}}.
     \end{align*}
     作一个 \(r+1\)~级阵 \(C_q\), 其中,
     \begin{align*}
@@ -619,15 +619,15 @@
         [AW]_{q,1}
         = {} &
         \sum_{p=1}^{r+1}
-        {[A]_{q,j_p}
-        (-1)^{f(i_{r+1})+g(j_p)}
-        \det {(E(f(i_{r+1})|g(j_p)))}}
+            {[A]_{q,j_p}
+                (-1)^{f(i_{r+1})+g(j_p)}
+                \det {(E(f(i_{r+1})|g(j_p)))}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-        {[C_q]_{f(i_{r+1}),g(j_p)}
-        (-1)^{f(i_{r+1})+g(j_p)}
-        \det {(C_q (f(i_{r+1})|g(j_p)))}}
+            {[C_q]_{f(i_{r+1}),g(j_p)}
+                (-1)^{f(i_{r+1})+g(j_p)}
+                \det {(C_q (f(i_{r+1})|g(j_p)))}}
         \\
         = {} &
         \det {(C_q)}.
@@ -765,7 +765,7 @@
 本节, 我们讨论线性方程组何时有解.
 一个好的想法是,
 我们先讨论 \(AX = B\) 有解时,
-\(A\), \(B\) 应适合什么条件;
+\(A\), \(B\) 应适合何条件;
 然后, 反过来,
 我们再讨论适合这些条件的 \(A\), \(B\)
 是否能使 \(AX = B\) 有解.
@@ -1276,7 +1276,7 @@
         [K_r]_{f(p),g(v)}
         = [A]_{p,v} -
         \sum_{s = 1}^{r}
-        {[A]_{i_s,v} d_{p,s}},
+            {[A]_{i_s,v} d_{p,s}},
     \end{align*}
     其中, \(v = j_1\), \(\dots\), \(j_r\), \(q\).
     所以, 当
@@ -1320,7 +1320,7 @@
     \begin{equation*}
         [A]_{p,q} -
         \sum_{s = 1}^{r}
-        {[A]_{i_s,q} d_{p,s}} = 0.
+            {[A]_{i_s,q} d_{p,s}} = 0.
         \qedhere
     \end{equation*}
 \end{proof}
@@ -1436,7 +1436,7 @@
     由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{align*}
         \sum_{\ell = 1}^{r}
-        {[A]_{p,j_\ell} y_\ell}
+            {[A]_{p,j_\ell} y_\ell}
         = [B]_{p,1}
         - \sum_{r < \ell \leq n}
         {[A]_{p,j_\ell} f_{j_\ell}}.
@@ -1501,11 +1501,11 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [C]_{\ell,1}}
+            {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} c_\ell}
+            {[A]_{i,\ell} c_\ell}
         \\
         = {} & [B]_{i,1}.
     \end{align*}
@@ -1514,74 +1514,74 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[A]_{i,\ell} [C]_{\ell,1}}
+            {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {[G]_{i,\ell} [C]_{\ell,1}}
+            {[G]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {
-        \left( \sum_{s = 1}^{r}
-        {
-            [G]_{i_s,\ell} d_{i,s}
-        } \right) [C]_{\ell,1}
-        }
+            {
+                \left( \sum_{s = 1}^{r}
+                {
+                    [G]_{i_s,\ell} d_{i,s}
+                } \right) [C]_{\ell,1}
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {
-        \sum_{s = 1}^{r}
-        {
-        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
-        }
-        }
+            {
+                \sum_{s = 1}^{r}
+                    {
+                        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
+                    }
+            }
         \\
         = {} &
         \sum_{s = 1}^{r}
-        {
-        \sum_{\ell = 1}^{n}
-        {
-        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
-        }
-        }
+            {
+                \sum_{\ell = 1}^{n}
+                    {
+                        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
+                    }
+            }
         \\
         = {} &
         \sum_{s = 1}^{r}
-        {
-        \sum_{\ell = 1}^{n}
-        {
-        [A]_{i_s,\ell} d_{i,s} c_\ell
-        }
-        }
+            {
+                \sum_{\ell = 1}^{n}
+                    {
+                        [A]_{i_s,\ell} d_{i,s} c_\ell
+                    }
+            }
         \\
         = {} &
         \sum_{s = 1}^{r}
-        {
-        \sum_{\ell = 1}^{n}
-        {
-        [A]_{i_s,\ell} c_\ell d_{i,s}
-        }
-        }
+            {
+                \sum_{\ell = 1}^{n}
+                    {
+                        [A]_{i_s,\ell} c_\ell d_{i,s}
+                    }
+            }
         \\
         = {} &
         \sum_{s = 1}^{r}
-        {
-        \left(\sum_{\ell = 1}^{n}
-        {
-            [A]_{i_s,\ell} c_\ell
-        }\right)
-        d_{i,s}
-        }
+            {
+                \left(\sum_{\ell = 1}^{n}
+                {
+                    [A]_{i_s,\ell} c_\ell
+                }\right)
+                d_{i,s}
+            }
         \\
         = {} &
         \sum_{s = 1}^{r}
-        {[B]_{i_s,1} d_{i,s}}
+            {[B]_{i_s,1} d_{i,s}}
         \\
         = {} &
         \sum_{s = 1}^{r}
-        {[G]_{i_s,n+1} d_{i,s}}
+            {[G]_{i_s,n+1} d_{i,s}}
         \\
         = {} &
         [G]_{i,n+1}
@@ -1761,7 +1761,7 @@
               \frac{\det {(T\{k,V\})}}{\det {(T)}}
               + \sum_{r < \ell \leq n}
               {c_{j_\ell}
-              \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
                & k \leq r; \\
               c_{j_k},
                & k > r.
@@ -1782,7 +1782,7 @@
               \frac{\det {(T\{k,V\})}}{\det {(T)}}
               + \sum_{r < \ell \leq n}
               {c_{j_\ell}
-              \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
                & k \leq r; \\
               c_{j_k},
                & k > r.
@@ -1808,7 +1808,7 @@
     由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{align*}
         \sum_{\ell = 1}^{r}
-        {[U]_{p,j_\ell} y_\ell}
+            {[U]_{p,j_\ell} y_\ell}
         = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} c_{j_\ell}}.
@@ -1862,7 +1862,7 @@
         -
         \sum_{r < \ell \leq n}
         {c_{j_\ell}
-        \det {(T\{k,u_{j_\ell}\})}
+            \det {(T\{k,u_{j_\ell}\})}
         }
         \right)
         \\
@@ -1870,7 +1870,7 @@
         \frac{\det {(T\{k,V\})}}{\det {(T)}}
         + \sum_{r < \ell \leq n}
         {c_{j_\ell}
-        \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
     \end{align*}
     从而
     \begin{align*}
@@ -1903,7 +1903,7 @@
     考虑方程组
     \begin{align*}
         \sum_{\ell = 1}^{r}
-        {[U]_{p,j_\ell} y_\ell}
+            {[U]_{p,j_\ell} y_\ell}
         = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} c_{j_\ell}}.
@@ -1914,7 +1914,7 @@
         \frac{\det {(T\{k,V\})}}{\det {(T)}}
         + \sum_{r < \ell \leq n}
         {c_{j_\ell}
-        \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}
     \end{align*}
     (其中, \(k = 1\), \(2\), \(\dots\), \(r\), 下同)
     是一个解;
@@ -1929,7 +1929,7 @@
         \frac{\det {(T\{k,V\})}}{\det {(T)}}
         + \sum_{r < \ell \leq n}
         {c_{j_\ell}
-        \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
         \qedhere
     \end{equation*}
 \end{proof}
@@ -1970,7 +1970,7 @@
               \frac{\det {(T\{k,V\})}}{\det {(T)}}
               + \sum_{r < \ell \leq n}
               {c_{j_\ell}
-              \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
                & k \leq r; \\
               c_{j_k},
                & k > r,
@@ -2075,7 +2075,7 @@
               \frac{\det {(T\{k,V\})}}{\det {(T)}}
               + \sum_{r < \ell \leq n}
               {c_{j_\ell}
-              \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
                & k \leq r; \\
               c_{j_k},
                & k > r,
@@ -2117,7 +2117,7 @@
 且有解时它的解为何.
 
 不过,
-计算一个方阵的行列式并不是什么简单的事情:
+计算一个方阵的行列式并不是简单的事情:
 \(3\)~级阵的行列式的具体的公式含 \(6\)~项,
 且 \(4\)~级阵的行列式的具体的公式含 \(24\)~项.
 

@@ -143,7 +143,7 @@ and go to the folder in which the file [`libro.tex`](../libro.tex) is.
 - 执行 `latexmk -xelatex -file-line-error -cd -synctex=1 -interaction=nonstopmode -halt-on-error -silent libro` .
 - 执行 `make lua` .
 - 执行 `latexmk -lualatex -file-line-error -cd -synctex=1 -interaction=nonstopmode -halt-on-error -silent libro` .
-- 用视觉工作室代码 (Visual Studio Code) 打开含 [`libro.tex`](../libro.tex) 的目录. 具体地, 在视工代里, 按一下 `F1` 或 `Ctrl+Shift+p` 或 `Command+Shift+p` , 输入 `File: Open Folder` , 再点一下含 "File: Open Folder..." 的项. 然后, 找到含 [`libro.tex`](../libro.tex) 的目录, 打开它. 假如您装了 James Yu 的 LaTeX Workshop, 那您就可以方便地编译本书. (假如您没有装它, 那为什么不装一个呢?)
+- 用视觉工作室代码 (Visual Studio Code) 打开含 [`libro.tex`](../libro.tex) 的目录. 具体地, 在视工代里, 按一下 `F1` 或 `Ctrl+Shift+p` 或 `Command+Shift+p` , 输入 `File: Open Folder` , 再点一下含 "File: Open Folder..." 的项. 然后, 找到含 [`libro.tex`](../libro.tex) 的目录, 打开它. 假如您装了 James Yu 的 LaTeX Workshop, 那您就可以方便地编译本书. (假如您没有装它, 那为何不装一个呢?)
 - 假如您不喜欢我给出的方法, 那您当然也可用自己喜欢的方法; 您编出来就行. 我只提一个硬要求: **用 XeLaTeX 或 LuaLaTeX**. (至少, 我能用 XeLaTeX 或 LuaLaTeX 无问题地编译本书.)
 
 Use any of the following methods to build the book.

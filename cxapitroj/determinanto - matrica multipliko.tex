@@ -175,25 +175,25 @@
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-        \left(\sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,\ell}} \right)
-        [C]_{\ell,j} }
+                \left(\sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,\ell}} \right)
+                [C]_{\ell,j} }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-        \sum_{k = 1}^{s} {
-        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j} }}
+                \sum_{k = 1}^{s} {
+                        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j} }}
         \\
         = {} &
         \sum_{k = 1}^{s} {
-        \sum_{\ell = 1}^{n} {
-        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}}}
+                \sum_{\ell = 1}^{n} {
+                        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}}}
         \\
         = {} &
         \sum_{k = 1}^{s} {
-        [A]_{i,k}
-        \left(
-        \sum_{\ell = 1}^{n} {[B]_{k,\ell} [C]_{\ell,j}}
-        \right) }
+                [A]_{i,k}
+                \left(
+                \sum_{\ell = 1}^{n} {[B]_{k,\ell} [C]_{\ell,j}}
+                \right) }
         \\
         = {} &
         \sum_{k = 1}^{s} {[A]_{i,k} [BC]_{k,j}}
@@ -351,7 +351,7 @@
         = {} & \sum_{k = 1}^{n} {[[X]_{k,1} a_k]_{i,1}}
         \\
         = {} & \left[ \sum_{k = 1}^{n} {[X]_{k,1}
-        a_k } \right]_{i,1}.
+                    a_k } \right]_{i,1}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -372,7 +372,7 @@
     \end{align*}
 \end{theorem}
 
-我用一个例助您理解, 此定理在说什么.
+我用一个例助您理解, 此定理在说何.
 
 \begin{example}
     设
@@ -495,7 +495,7 @@
         则
         \begin{align*}
             \det {(A)} = \sum_{i = 1}^{n}
-            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+                {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
         \end{align*}
     \end{restatable}
 }{\TheoremExpansionAboutAnyColumn*}
@@ -510,7 +510,7 @@
         则
         \begin{align*}
             \det {(A)} = \sum_{j = 1}^{n}
-            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+                {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
         \end{align*}
     \end{restatable}
 }{\TheoremExpansionAboutAnyRow*}
@@ -531,7 +531,7 @@
     则
     \begin{align*}
         \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
+            {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
         = 0.
     \end{align*}
     类似地, 若 \(i\), \(k\) 都是不超过 \(n\) 的正整数,
@@ -539,12 +539,12 @@
     则
     \begin{align*}
         \sum_{s = 1}^{n}
-        {(-1)^{k+s} [A]_{i,s} \det {(A(k|s))}}
+            {(-1)^{k+s} [A]_{i,s} \det {(A(k|s))}}
         = 0.
     \end{align*}
 \end{theorem}
 
-我用一个例助您理解, 此定理在说什么.
+我用一个例助您理解, 此定理在说何.
 
 \begin{example}
     设
@@ -609,10 +609,10 @@
     \begin{align*}
         \det {(B)}
         = {} & \sum_{\ell = 1}^{n}
-        {(-1)^{\ell + k} [B]_{\ell, k} \det {(B(\ell|k))}}
+            {(-1)^{\ell + k} [B]_{\ell, k} \det {(B(\ell|k))}}
         \\
         = {} & \sum_{\ell = 1}^{n}
-        {(-1)^{\ell + k} z_\ell \det {(A(\ell|k))}}.
+            {(-1)^{\ell + k} z_\ell \det {(A(\ell|k))}}.
     \end{align*}
     现在, 特别地, 我们取
     \(z_1\), \(z_2\), \(\dots\), \(z_n\)
@@ -625,7 +625,7 @@
     故
     \begin{equation*}
         \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
+            {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
         = 0.
         \qedhere
     \end{equation*}
@@ -639,14 +639,14 @@
     则
     \begin{align*}
         \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+k} \det {(A(\ell|k))}\, [A]_{\ell,j}}
+            {(-1)^{\ell+k} \det {(A(\ell|k))}\, [A]_{\ell,j}}
         = \det {(A)}\, \delta(k, j).
     \end{align*}
     类似地, 若 \(i\), \(k\) 都是不超过 \(n\) 的正整数,
     则
     \begin{align*}
         \sum_{s = 1}^{n}
-        {[A]_{i,s} (-1)^{k+s} \det {(A(k|s))}}
+            {[A]_{i,s} (-1)^{k+s} \det {(A(k|s))}}
         = \det{(A)}\, \delta(i, k).
     \end{align*}
 \end{theorem}
@@ -763,11 +763,11 @@
         [\operatorname{adj} {(A)}\, A]_{i,j}
         = {} &
         \sum_{\ell = 1}^{n}
-        {[\operatorname{adj} {(A)}]_{i,\ell} [A]_{\ell,j}}
+            {[\operatorname{adj} {(A)}]_{i,\ell} [A]_{\ell,j}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+i} \det {(A(\ell|i))}\, [A]_{\ell,j}}
+            {(-1)^{\ell+i} \det {(A(\ell|i))}\, [A]_{\ell,j}}
         \\
         = {} & \det {(A)}\, \delta(i, j)
         \\
@@ -780,11 +780,11 @@
         [A \operatorname{adj} {(A)}]_{i,j}
         = {} &
         \sum_{s = 1}^{n}
-        {[A]_{i,s} [\operatorname{adj} {(A)}]_{s,j}}
+            {[A]_{i,s} [\operatorname{adj} {(A)}]_{s,j}}
         \\
         = {} &
         \sum_{s = 1}^{n}
-        {[A]_{i,s} (-1)^{j+s} \det {(A(j|s))}}
+            {[A]_{i,s} (-1)^{j+s} \det {(A(j|s))}}
         \\
         = {} & \det {(A)}\, \delta(i, j)
         \\

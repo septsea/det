@@ -56,30 +56,30 @@
         \\
         = {} &
         \det {\left[
-        \sum_{c_1 = 0}^{1} b_1^{(c_1)},
-        \sum_{c_2 = 0}^{1} b_2^{(c_2)},
-        \dots,
-        \sum_{c_n = 0}^{1} b_n^{(c_n)}
-        \right]}
+                \sum_{c_1 = 0}^{1} b_1^{(c_1)},
+                \sum_{c_2 = 0}^{1} b_2^{(c_2)},
+                \dots,
+                \sum_{c_n = 0}^{1} b_n^{(c_n)}
+                \right]}
         \\
         = {} &
         \sum_{c_1 = 0}^{1}
         \det {\left[
-        b_1^{(c_1)},
-        \sum_{c_2 = 0}^{1} b_2^{(c_2)},
-        \dots,
-        \sum_{c_n = 0}^{1} b_n^{(c_n)}
-        \right]}
+                b_1^{(c_1)},
+                \sum_{c_2 = 0}^{1} b_2^{(c_2)},
+                \dots,
+                \sum_{c_n = 0}^{1} b_n^{(c_n)}
+                \right]}
         \\
         = {} &
         \sum_{c_1 = 0}^{1}
         \sum_{c_2 = 0}^{1}
         \det {\left[
-        b_1^{(c_1)},
-        b_2^{(c_2)},
-        \dots,
-        \sum_{c_n = 0}^{1} b_n^{(c_n)}
-        \right]}
+                b_1^{(c_1)},
+                b_2^{(c_2)},
+                \dots,
+                \sum_{c_n = 0}^{1} b_n^{(c_n)}
+                \right]}
         \\
         = {} &
         \dots
@@ -196,7 +196,7 @@
     \begin{align*}
         \det {(B_{c_1,\dots,c_n})}
         = {} & (-1)^{j_{k+1}+j_{k+1}}
-        [B_{c_1,\dots,c_n}]_{j_{k+1},j_{k+1}}
+            [B_{c_1,\dots,c_n}]_{j_{k+1},j_{k+1}}
         \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}
         \\
         = {} &
@@ -210,7 +210,7 @@
         \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}
         \\
         = {} & (-1)^{j_{k+2}-1+j_{k+2}-1}
-        [B_{c_1,\dots,c_n}]_{j_{k+2},j_{k+2}}
+            [B_{c_1,\dots,c_n}]_{j_{k+2},j_{k+2}}
         \det {(B_{c_1,\dots,c_n}
         ({j_{k+1},j_{k+2}}|{j_{k+1},j_{k+2}}))}
         \\
@@ -319,12 +319,12 @@
         % {} &
         x^n
         + \sum_{k = 1}^{n}
-        {x^{n-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }.
+            {x^{n-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq n}
+                \det {\left(
+                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }.
     \end{align*}
 
     注意,
@@ -363,14 +363,14 @@
         % \\
         %      &
         + \sum_{k = 1}^{n-1}
-        {
-        \sum_{1 \leq j_1 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        \,
-        x^{n-k}
-        }
+            {
+                \sum_{1 \leq j_1 < \dots < j_k \leq n}
+                \det {\left(
+                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+                \,
+                x^{n-k}
+            }
         \\
              &
         + \det {(A)}
@@ -381,13 +381,13 @@
         % \\
         %      &
         + \sum_{k = 1}^{n-1}
-        {
-        x^{n-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }
+            {
+                x^{n-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq n}
+                \det {\left(
+                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }
         \\
              &
         + x^{n-n}
@@ -399,12 +399,12 @@
         = {} &
         x^n
         + \sum_{k = 1}^{n}
-        {x^{n-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }.
+            {x^{n-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq n}
+                \det {\left(
+                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }.
     \end{align*}
 \end{example}
 
@@ -470,80 +470,80 @@
         = {} &
         x^m
         + \sum_{k = 1}^{m}
-        {x^{m-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq m}
-        \det {\left(
-            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }
+            {x^{m-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq m}
+                \det {\left(
+                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }
         \\
         = {} &
         \hphantom{{} + {}}
         x^m
         + \sum_{k = 1}^{n}
-        {x^{m-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq m}
-        \det {\left(
-            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }
+            {x^{m-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq m}
+                \det {\left(
+                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }
         \\
              &
         + \sum_{k = n+1}^{m}
-        {x^{m-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq m}
-        \det {\left(
-            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }
+            {x^{m-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq m}
+                \det {\left(
+                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }
         \\
         = {} &
         \hphantom{{} + {}}
         x^m
         + \sum_{k = 1}^{n}
-        {x^{m-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq m}
-        \det {\left(
-            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }
+            {x^{m-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq m}
+                \det {\left(
+                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }
         \\
              &
         + \sum_{k = n+1}^{m}
-        {x^{m-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq m}
-        0
-        }
+            {x^{m-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq m}
+                0
+            }
         \\
         = {} &
         x^m
         + \sum_{k = 1}^{n}
-        {x^{m-k}
-        \sum_{1 \leq j_1 < \dots < j_k \leq m}
-        \det {\left(
-            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        }
+            {x^{m-k}
+                \sum_{1 \leq j_1 < \dots < j_k \leq m}
+                \det {\left(
+                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+                    \right)}
+            }
         \\
         = {} &
         x^{m-n} x^n
         + \sum_{k = 1}^{n}
-        {x^{m-n} x^{n-k}
-        \sum_{1 \leq i_1 < \dots < i_k \leq n}
-        \det {\left(
-            (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
-            \right)}
-        }
+            {x^{m-n} x^{n-k}
+                \sum_{1 \leq i_1 < \dots < i_k \leq n}
+                \det {\left(
+                    (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+                    \right)}
+            }
         \\
         = {} &
         x^{m-n} x^n
         + x^{m-n} \sum_{k = 1}^{n}
-        {x^{n-k}
-        \sum_{1 \leq i_1 < \dots < i_k \leq n}
-        \det {\left(
-            (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
-            \right)}
-        }
+            {x^{n-k}
+                \sum_{1 \leq i_1 < \dots < i_k \leq n}
+                \det {\left(
+                    (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+                    \right)}
+            }
         \\
         = {} &
         x^{m-n}
@@ -2187,7 +2187,7 @@
     \end{align*}
 
     设 \(A\) 是 \(n\)~级阵,
-    我们研究, \(\mathrm{D} (\det {(A)})\) 会是什么.
+    我们研究, \(\mathrm{D} (\det {(A)})\) 会是何.
 
     设 \(n = 1\).
     则 \(\det {(A)} = [A]_{1,1}\).
@@ -2431,10 +2431,10 @@
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-        \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
+                \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
         +
         \sum_{i = 1}^{n} {(-1)^{i+1}
-            [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}.
+                    [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}.
     \end{align*}
     注意, 既然 \(A\) 与 \(\mathrm{D}_1 (A)\)
     的列~\(j\) 相同 (若 \(j \neq 1\)),
@@ -2443,11 +2443,11 @@
     \begin{align*}
              &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-        \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
+                \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-        \mathrm{D} ([A]_{i,1}) \det {((\mathrm{D}_1 (A))(i|1))}}
+                \mathrm{D} ([A]_{i,1}) \det {((\mathrm{D}_1 (A))(i|1))}}
         \\
         = {} &
         \det {(\mathrm{D}_1 (A))}.
@@ -2474,29 +2474,29 @@
     \begin{align*}
              &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-            [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}
+                    [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-            [\mathrm{D}_\ell (A)]_{i,1}
-        \sum_{\ell = 2}^{n} {\det {((\mathrm{D}_\ell (A)) (i|1))}}
-        }
+                    [\mathrm{D}_\ell (A)]_{i,1}
+                \sum_{\ell = 2}^{n} {\det {((\mathrm{D}_\ell (A)) (i|1))}}
+            }
         \\
         = {} &
         \sum_{i = 1}^{n} {
-        \sum_{\ell = 2}^{n} {
-        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
-        \det {((\mathrm{D}_\ell (A)) (i|1))}
-        }
-        }
+                \sum_{\ell = 2}^{n} {
+                        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
+                        \det {((\mathrm{D}_\ell (A)) (i|1))}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 2}^{n} {
-        \sum_{i = 1}^{n} {
-        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
-        \det {((\mathrm{D}_\ell (A)) (i|1))}
-        }
-        }
+                \sum_{i = 1}^{n} {
+                        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
+                        \det {((\mathrm{D}_\ell (A)) (i|1))}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 2}^{n} {\det {(\mathrm{D}_\ell (A))}}.
@@ -2524,36 +2524,36 @@
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-        \sum_{i = 1}^{n} {
-        (-1)^{i+\ell} [\mathrm{D}_\ell (A)]_{i,\ell}
-        \det {((\mathrm{D}_\ell (A))(i|\ell))}
-        }
-        }
+                \sum_{i = 1}^{n} {
+                        (-1)^{i+\ell} [\mathrm{D}_\ell (A)]_{i,\ell}
+                        \det {((\mathrm{D}_\ell (A))(i|\ell))}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-        \sum_{i = 1}^{n} {
-        (-1)^{i+\ell} \mathrm{D} ([A]_{i,\ell})
-        \det {(A(i|\ell))}
-        }
-        }
+                \sum_{i = 1}^{n} {
+                        (-1)^{i+\ell} \mathrm{D} ([A]_{i,\ell})
+                        \det {(A(i|\ell))}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-        \sum_{i = 1}^{n} {
-        (-1)^{i+\ell}
-        \det {(A(i|\ell))}\,
-        \mathrm{D} ([A]_{i,\ell})
-        }
-        }
+                \sum_{i = 1}^{n} {
+                        (-1)^{i+\ell}
+                        \det {(A(i|\ell))}\,
+                        \mathrm{D} ([A]_{i,\ell})
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-        \sum_{i = 1}^{n} {
-        [\operatorname{adj} {(A)}]_{\ell,i}\,
-        \mathrm{D} ([A]_{i,\ell})
-        }
-        }.
+                \sum_{i = 1}^{n} {
+                        [\operatorname{adj} {(A)}]_{\ell,i}\,
+                        \mathrm{D} ([A]_{i,\ell})
+                    }
+            }.
     \end{align*}
     为方便, 我们作这样的记号:
     若 \(B\) 是 \(m \times n\)~阵,
@@ -2564,8 +2564,8 @@
     \begin{align*}
         \mathrm{D} (\det {(A)})
         = \sum_{\ell = 1}^{n}
-        {[\operatorname{adj} {(A)}\,
-        \mathrm{D}_{\mathrm{c}} (A)]_{\ell,\ell}}.
+            {[\operatorname{adj} {(A)}\,
+                        \mathrm{D}_{\mathrm{c}} (A)]_{\ell,\ell}}.
     \end{align*}
 
     最后, 我们再引入方阵的 trace:
@@ -2578,7 +2578,7 @@
     \begin{align*}
         \mathrm{D} (\det {(A)})
         = \operatorname{tr} {(\operatorname{adj} {(A)}\,
-        \mathrm{D}_{\mathrm{c}} (A))}.
+            \mathrm{D}_{\mathrm{c}} (A))}.
     \end{align*}
 \end{example}
 
@@ -2901,24 +2901,24 @@
         \\
         = {} &
         \sum_{k = 1}^{n} {
-        \sum_{\ell = 1}^{m} {
-        [C]_{k,\ell} [D]_{\ell,k}
-        }
-        }
+                \sum_{\ell = 1}^{m} {
+                        [C]_{k,\ell} [D]_{\ell,k}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{m} {
-        \sum_{k = 1}^{n} {
-        [C]_{k,\ell} [D]_{\ell,k}
-        }
-        }
+                \sum_{k = 1}^{n} {
+                        [C]_{k,\ell} [D]_{\ell,k}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{m} {
-        \sum_{k = 1}^{n} {
-        [D]_{\ell,k} [C]_{k,\ell}
-        }
-        }
+                \sum_{k = 1}^{n} {
+                        [D]_{\ell,k} [C]_{k,\ell}
+                    }
+            }
         \\
         = {} &
         \sum_{\ell = 1}^{m} {[D C]_{\ell,\ell}}
