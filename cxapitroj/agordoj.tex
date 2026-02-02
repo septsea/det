@@ -240,6 +240,11 @@
 \providecommand*{\reqnomode}{\tagsleft@false\let\veqno\@@eqno}
 \makeatother
 
+% Commands for typesetting proper nouns: proper names and titles of books.
+% They are in effect if it is in XeLaTeX (with redefinitions later).
+\newcommand{\propername}[1]{#1}
+\newcommand{\booktitle}[1]{#1}
+
 % Some xeCJK settings.
 % However, they only work in XeLaTeX.
 % https://tex.stackexchange.com/questions/13172/detect-which-tex-engine-is-used
@@ -274,6 +279,9 @@
         CJKspace = true,%
         CheckSingle = true,%
     }
+    \usepackage{CJKfntef}
+    \renewcommand{\propername}[1]{\CJKunderline-{#1}}
+    \renewcommand{\booktitle}[1]{\CJKunderwave-{#1}}
 \fi
 
 % This packages allows one to check if LuaLaTeX is used.
