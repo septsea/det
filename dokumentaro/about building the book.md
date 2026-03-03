@@ -117,8 +117,8 @@ and download all files as a compressed file.
 有了书的代码, 您可能想试编译本书. 我有一些方法 (但本质只有一个) 使您编译它.  
 Given the source code of the book, you might want to build the book. Here are some ways to build it (which are essentially the same, though).
 
-我假定您可正常地用乳胶 (LaTeX). [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 或 2025 均可被用于编译本书.  
-It is assumed that LaTeX functions well on your computer. Any of [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 2025 can be used to build the book.
+我假定您可正常地用乳胶 (LaTeX). [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 2025, 或 2026 均可被用于编译本书.  
+It is assumed that LaTeX functions well on your computer. Any of [TeX Live](https://tug.org/texlive/) 2021, 2022, 2023, 2024, 2025, 2026 can be used to build the book.
 
 TeX Live 2020 也可被用于编译本书. 不过, 为使书可被成功地编译, 您要更新包. 执行  
 TeX Live 2020 can also be used to build the book, but the packages have to be updated so that the book can be built successfully. Execute either
@@ -231,7 +231,7 @@ You can certainly use `make` on Windows. Download it [here](https://sourceforge.
 
 ## About MiKTeX
 
-Some users do not use TeX Live; they use [MiKTeX](https://miktex.org/) instead. I was asked how to build this book using MiKTeX. Therefore I did an experiment on a Windows PC. The version of MiKTeX that I used for the experiment was 24.1 (on 2024-01-28).
+Some users do not use TeX Live; they use [MiKTeX](https://miktex.org/) instead. I was asked how to build this book using MiKTeX. Therefore I did an experiment on a Windows PC. The version of MiKTeX that I used for the experiment was 26.2. The experiment was done on 3 March 2026.
 
 If you want to use XeLaTeX, execute:  
 ```bash
@@ -241,7 +241,7 @@ xelatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 xelatex -synctex=1 -interaction=nonstopmode -file-line-error libro
 ```
 The following packages are needed if XeLaTeX is used:  
-> subfiles, import, ctex, xecjk, cjk, zhnumber, xits, fira, fontname, mathtools, unicode-math, amscls, thmtools, kvsetkeys, xpatch, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, ltxcmds, infwarerr, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark
+> subfiles, import, ctex, xecjk, cjk, zhnumber, xits, fira, mathtools, unicode-math, amscls, thmtools, kvsetkeys, xpatch, ulem, titlesec, fancyhdr, xurl, kvdefinekeys, pdfescape, ltxcmds, infwarerr, hycolor, refcount, gettitlestring, kvoptions, stringenc, intcalc, bitset, bigintcalc, rerunfilecheck, uniquecounter, logreq, biblatex-gb7714-2015, xstring, hologo, bookmark
 
 If you want to use LuaLaTeX, execute:  
 ```bash
