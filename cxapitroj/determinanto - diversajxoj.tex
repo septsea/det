@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \section{杂例}
 
@@ -24,14 +25,10 @@
         设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
         定义 \(A\) 的\emph{行列式}
         \begin{align*}
-            \det {(A)}
-            =
+            \det {(A)} =
             \begin{dcases}
-                [A]_{1,1},
-                 & n = 1;    \\
-                \sum_{i = 1}^{n}
-                    {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
-                 & n \geq 2.
+                [A]_{1,1},                                               & n = 1; \\
+                \sum_{i = 1}^{n} {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}, & n \geq 2.
             \end{dcases}
         \end{align*}
     \end{restatable}
@@ -61,14 +58,14 @@
     现在, 我们假定 \(P(m-1)\) 是对的.
     我们要证 \(P(m)\) 也是对的.
     任取 \(m\)~级阵 \(A\).
-    按 \(kA\)~的列~\(1\) 展开, 有
+    按 \(kA\)~的列~\(1\) 展开, 得
     \begin{align*}
         \det {(kA)}
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} [kA]_{i,1} \det {((kA) (i|1))}}
+        {(-1)^{i+1} [kA]_{i,1} \det {((kA) (i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} k [A]_{i,1} \det {((kA) (i|1))}}.
+        {(-1)^{i+1} k [A]_{i,1} \det {((kA) (i|1))}}.
     \end{align*}
     注意, 每个 \((kA)(i|1)\) 都是 \(m-1\)~级阵.
     并且, 不难验证, \((kA)(i|1) = k(A(i|1))\).
@@ -80,16 +77,16 @@
     \begin{align*}
         \det {(kA)}
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} k [A]_{i,1} k^{m-1} \det {(A(i|1))}}
+        {(-1)^{i+1} k [A]_{i,1} k^{m-1} \det {(A(i|1))}}
         \\
         = {} & k k^{m-1}
         \sum_{i = 1}^{m}
-            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
         \\
         = {} & k^m \det {(A)}.
     \end{align*}
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 当然, 本题也有别的解法.
@@ -116,49 +113,53 @@
     且对任何不超过 \(m + n\)~的正整数 \(i\)
     与不超过 \(s + t\)~的正整数 \(j\),
     \begin{align*}
-        [M]_{i,j}
-        = \begin{cases}
-              [A]_{i,j},
-               & \text{\(i \leq m\), 且 \(j \leq s\)}; \\
-              [B]_{i-m,j},
-               & \text{\(i > m\), 且 \(j \leq s\)};    \\
-              [C]_{i,j-s},
-               & \text{\(i \leq m\), 且 \(j > s\)};    \\
-              [D]_{i-m,j-s},
-               & \text{\(i > m\), 且 \(j > s\)}.
-          \end{cases}
+        [M]_{i,j} =
+        \begin{cases}
+            [A]_{i,j},
+            & \text{\(i \leq m\), 且 \(j \leq s\)}; \\
+            [B]_{i-m,j},
+            & \text{\(i > m\), 且 \(j \leq s\)};    \\
+            [C]_{i,j-s},
+            & \text{\(i \leq m\), 且 \(j > s\)};    \\
+            [D]_{i-m,j-s},
+            & \text{\(i > m\), 且 \(j > s\)}.
+        \end{cases}
     \end{align*}
 \end{definition}
 
 比如, 设
 \begin{align*}
-     &
-    A = \begin{bmatrix}
-            10 & 12 & 14 \\
-            11 & 13 & 15 \\
-        \end{bmatrix},
+    &
+    A =
+    \begin{bmatrix}
+        10 & 12 & 14 \\
+        11 & 13 & 15 \\
+    \end{bmatrix},
     \\
-     &
-    B = \begin{bmatrix}
-            16 & 20 & 24 \\
-            17 & 21 & 25 \\
-            18 & 22 & 26 \\
-            19 & 23 & 27 \\
-        \end{bmatrix},
+    &
+    B =
+    \begin{bmatrix}
+        16 & 20 & 24 \\
+        17 & 21 & 25 \\
+        18 & 22 & 26 \\
+        19 & 23 & 27 \\
+    \end{bmatrix},
     \\
-     &
-    C = \begin{bmatrix}
-            28 & 30 & 32 & 34 & 36 \\
-            29 & 31 & 33 & 35 & 37 \\
-        \end{bmatrix},
+    &
+    C =
+    \begin{bmatrix}
+        28 & 30 & 32 & 34 & 36 \\
+        29 & 31 & 33 & 35 & 37 \\
+    \end{bmatrix},
     \\
-     &
-    D = \begin{bmatrix}
-            38 & 42 & 46 & 50 & 54 \\
-            39 & 43 & 47 & 51 & 55 \\
-            40 & 44 & 48 & 52 & 56 \\
-            41 & 45 & 49 & 53 & 57 \\
-        \end{bmatrix}.
+    &
+    D =
+    \begin{bmatrix}
+        38 & 42 & 46 & 50 & 54 \\
+        39 & 43 & 47 & 51 & 55 \\
+        40 & 44 & 48 & 52 & 56 \\
+        41 & 45 & 49 & 53 & 57 \\
+    \end{bmatrix}.
 \end{align*}
 则
 \begin{align*}
@@ -182,10 +183,11 @@
 \(m \times t\), \(n \times t\)~阵.
 再设
 \begin{align*}
-    M = \begin{bmatrix}
-            A & C \\
-            B & D \\
-        \end{bmatrix}.
+    M =
+    \begin{bmatrix}
+        A & C \\
+        B & D \\
+    \end{bmatrix}.
 \end{align*}
 不难验证, 若 \(i \leq m\), 且 \(j \leq s\),
 则
@@ -262,25 +264,20 @@
     其中, 左下角的 \(0\) 指 \(t \times 1\)~零阵.
     则
     \begin{align*}
-             & \det {(J)}
+        & \det {(J)}
         \\
         = {} & \sum_{i = 1}^{1+t}
-            {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
+        {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
         \\
-        = {} &
-        (-1)^{1+1} [J]_{1,1} \det {(J(1|1))}
-        +
-        \sum_{i = 2}^{1+t}
-            {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
+        = {} & (-1)^{1+1} [J]_{1,1} \det {(J(1|1))}
+        + \sum_{i = 2}^{1+t}
+        {(-1)^{i+1} [J]_{i,1} \det {(J(i|1))}}
         \\
-        = {} &
-        1\, [A]_{1,1} \det {(D)}
-        +
-        \sum_{i = 2}^{1+t}
-            {(-1)^{i+1} 0 \det {(J(i|1))}}
+        = {} & 1\, [A]_{1,1} \det {(D)}
+        + \sum_{i = 2}^{1+t}
+        {(-1)^{i+1} 0 \det {(J(i|1))}}
         \\
-        = {} &
-        [A]_{1,1} \det {(D)}
+        = {} & [A]_{1,1} \det {(D)}
         \\
         = {} & \det {(A)} \det {(D)}.
     \end{align*}
@@ -290,41 +287,40 @@
     任取 \(m\)~级阵 \(A\).
     记
     \begin{align*}
-        M = \begin{bmatrix}
-                A & C \\
-                0 & D \\
-            \end{bmatrix},
+        M =
+        \begin{bmatrix}
+            A & C \\
+            0 & D \\
+        \end{bmatrix},
     \end{align*}
     其中, 左下角的 \(0\) 指 \(t \times m\)~零阵.
     则
     \begin{align*}
-             & \det {(M)}
+        & \det {(M)}
         \\
         = {} & \sum_{i = 1}^{m+t}
-            {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
+        {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
-        +
-        \sum_{i = m+1}^{m+t}
-            {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
+        {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
+        + \sum_{i = m+1}^{m+t}
+        {(-1)^{i+1} [M]_{i,1} \det {(M(i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} [A]_{i,1} \det {(M(i|1))}}
-        +
-        \sum_{i = m+1}^{m+t}
-            {(-1)^{i+1} 0 \det {(M(i|1))}}
+        {(-1)^{i+1} [A]_{i,1} \det {(M(i|1))}}
+        + \sum_{i = m+1}^{m+t}
+        {(-1)^{i+1} 0 \det {(M(i|1))}}
         \\
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} [A]_{i,1} \det {(M(i|1))}}.
+        {(-1)^{i+1} [A]_{i,1} \det {(M(i|1))}}.
     \end{align*}
     注意, \(1 \leq i \leq m\) 时,
     \begin{align*}
-        M(i|1)
-        = \begin{bmatrix}
-              A(i|1) & C(i|) \\
-              0      & D     \\
-          \end{bmatrix},
+        M(i|1) =
+        \begin{bmatrix}
+            A(i|1) & C(i|) \\
+            0      & D     \\
+        \end{bmatrix},
     \end{align*}
     其中, 左下角的 \(0\) 指 \(t \times (m-1)\)~零阵.
     根据假定,
@@ -335,17 +331,17 @@
     \begin{align*}
         \det {(M)}
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))} \det {(D)}}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))} \det {(D)}}
         \\
         = {} & \left(\sum_{i = 1}^{m}
-                {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}\right)
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}\right)
         \det {(D)}
         \\
         = {} & \det {(A)} \det {(D)}.
     \end{align*}
 
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 \end{document}

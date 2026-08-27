@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \section{线性方程组}
 
@@ -35,7 +36,7 @@
     a_1 x_1 + a_2 x_2 + \dots + a_n x_n + c = 0
 \end{align*}
 的方程是一个 \emph{\(n\)~元 \({\leq} 1\)~次方程}.
-不过, 习惯地, 我们移 \(0\)~次项 \(c\) 到等式的右侧;
+不过, 习惯地, 我们移 \(0\)~次项 \(c\) 到等式的右边;
 也就是, 形如
 \begin{align*}
     a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b
@@ -49,14 +50,14 @@
 \emph{由 \(m\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组},
 是形如
 \begin{equation*}
-    \left\{
+    \left\{ % tex-fmt: skip
     \begin{aligned}
         a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n & = b_1, \\
         a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n & = b_2, \\
-                                                        & \dots, \\
+        & \dots, \\
         a_{m,1} x_1 + a_{m,2} x_2 + \dots + a_{m,n} x_n & = b_m
     \end{aligned}
-    \right.
+    \right. % tex-fmt: skip
 \end{equation*}
 的方程组,
 其中,
@@ -80,7 +81,7 @@
 \begin{align*}
     a_{1,1} c_1 + a_{1,2} c_2 + \dots + a_{1,n} c_n & = b_1, \\
     a_{2,1} c_1 + a_{2,2} c_2 + \dots + a_{2,n} c_n & = b_2, \\
-                                                    & \dots, \\
+    & \dots, \\
     a_{m,1} c_1 + a_{m,2} c_2 + \dots + a_{m,n} c_n & = b_m,
 \end{align*}
 我们说, \((c_1, c_2, \dots, c_n)\)
@@ -113,16 +114,16 @@
     那么,
     这些鸡与兔%
     一共有 \(x_1 + x_2\)~个头与 \(2x_1 + 4x_2\)~只腿.
-    注意, 这二个式都是 \(2\)~元 \({\leq} 1\)~次式.
+    注意, 这 \(2\)~个式都是 \(2\)~元 \({\leq} 1\)~次式.
     我们可列出%
     由 \(2\)~个 \(2\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             x_1 + x_2   & = 35, \\
             2x_1 + 4x_2 & = 94.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     接下来的问题, 就是解这个方程组.
     不过,
@@ -149,12 +150,12 @@
     考虑%
     由 \(2\)~个 \(3\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             x_1 + 2x_2 + 3x_3  & = 0, \\
             4x_1 + 5x_2 + 6x_3 & = 0.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     可以验证, 对每个数~\(k\),
     \((k, -2k, k)\) 是此方程组的一个解:
@@ -227,19 +228,19 @@
 是此方程组的一个解,
 我们说, \(C\) 是此方程组的零解;
 若不等于 \(0\) 的 \(C\)
-(也就是, \(C\) 有一个元不是 \(0\))
+(也就是, \(C\) 的一个元不是 \(0\))
 是此方程组的一个解,
 我们说, \(C\) 是此方程组的一个非零解.
 
 \begin{example}
     我们可改写
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             x_1 + x_2   & = 35, \\
             2x_1 + 4x_2 & = 94.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     为
     \begin{align*}
@@ -259,10 +260,11 @@
     \end{align*}
     可以验证,
     \(
-    C = \begin{bmatrix}
-        23 \\
-        12 \\
-    \end{bmatrix}
+        C =
+        \begin{bmatrix}
+            23 \\
+            12 \\
+        \end{bmatrix}
     \)
     是此方程组的一个非零解:
     \(C \neq 0\), 且
@@ -289,13 +291,14 @@
 
     不过,
     \(
-    D = \begin{bmatrix}
-        12 \\
-        23 \\
-    \end{bmatrix}
+        D =
+        \begin{bmatrix}
+            12 \\
+            23 \\
+        \end{bmatrix}
     \)
     不是此方程组的一个解:
-    \begin{align*}
+    \begin{equation*}
         \begin{bmatrix}
             1 & 1 \\
             2 & 4 \\
@@ -319,18 +322,19 @@
             35 \\
             94 \\
         \end{bmatrix}.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
     我们可改写
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             x_1 + 2x_2 + 3x_3  & = 0, \\
             4x_1 + 5x_2 + 6x_3 & = 0.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     为
     \begin{align*}
@@ -351,11 +355,12 @@
     \end{align*}
     可以验证, 对每个数~\(k\),
     \(
-    C = k\begin{bmatrix}
-        1  \\
-        -2 \\
-        1  \\
-    \end{bmatrix}
+        C = k
+        \begin{bmatrix}
+            1  \\
+            -2 \\
+            1  \\
+        \end{bmatrix}
     \)
     是此方程组的一个解:
     \begin{align*}
@@ -364,20 +369,21 @@
             4 & 5 & 6 \\
         \end{bmatrix}
         \left(
-        k\begin{bmatrix}
-                 1  \\
-                 -2 \\
-                 1  \\
-             \end{bmatrix}
+            k
+            \begin{bmatrix}
+                1  \\
+                -2 \\
+                1  \\
+            \end{bmatrix}
         \right)
         = {} &
         k
         \left(
-        \begin{bmatrix}
+            \begin{bmatrix}
                 1 & 2 & 3 \\
                 4 & 5 & 6 \\
             \end{bmatrix}
-        \begin{bmatrix}
+            \begin{bmatrix}
                 1  \\
                 -2 \\
                 1  \\
@@ -440,19 +446,19 @@
 \end{align*}
 为
 \begin{equation*}
-    \left\{
+    \left\{ % tex-fmt: skip
     \begin{aligned}
         2x_1 + 3x_2 - 5x_3 + 7x_4         & = 7, \\
         x_2 + 11x_3 + 13x_4 - 17x_5       & = 8, \\
         4x_1 - 6x_2 + 8x_3 - 9x_4 + 12x_5 & = 9.
     \end{aligned}
-    \right.
+    \right. % tex-fmt: skip
 \end{equation*}
 (注意, 我们未写系数为 \(0\) 的项.)
 
 \section{\texorpdfstring{由 \(n\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (1)}%
-  {由 n 个 n 元 ≤1 次方程作成的方程组 (1)}}
+    \({\leq} 1\)~次方程作成的方程组 (1)}%
+{由 n 个 n 元 ≤1 次方程作成的方程组 (1)}}
 
 前面, 我们学习了线性方程组的一些基本的概念.
 我们知道, 可用阵等式简单地写一个线性方程组
@@ -470,7 +476,7 @@
 我们讨论一个特别的情形.
 这会是有用的.
 
-\begin{theorem}[Cramer \pinjino{kereimer} 公式, 1]
+\begin{theorem}[Cramer 公式, 1]
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
     设 \(B\) 是 \(n \times 1\)~阵.
     设 \(X\) 是未知的 \(n \times 1\)~阵.
@@ -520,7 +526,7 @@
         \operatorname{adj} {([a])}\,[b]
         = a^{-1}\, [1]\,[b]
         = a^{-1}\, [b]
-            = [ a^{-1} b ].
+        = [ a^{-1} b ].
     \end{align*}
     这跟我们已知的结论是一样的.
 \end{example}
@@ -569,10 +575,11 @@
     考虑线性方程组 \(AX = B\),
     其中,
     \begin{align*}
-        A = \begin{bmatrix}
-                1 & 1 \\
-                2 & 4 \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            1 & 1 \\
+            2 & 4 \\
+        \end{bmatrix},
         \quad
         B =
         \begin{bmatrix}
@@ -624,6 +631,7 @@
             23 \\
             12 \\
         \end{bmatrix}.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -634,35 +642,35 @@
     [\operatorname{adj} {(A)}\,B]_{i,1}
     = {} &
     \sum_{\ell = 1}^{n}
-        {[\operatorname{adj} {(A)}]_{i,\ell} [B]_{\ell,1}}
+    {[\operatorname{adj} {(A)}]_{i,\ell} [B]_{\ell,1}}
     \\
     = {} &
     \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}.
+    {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}.
 \end{align*}
 设 \(A \{i, B\}\) 是%
 以 \(B\) 代阵~\(A\) 的列~\(i\) 后得到的阵.
 则
 \begin{align*}
-    [A \{i, B\}]_{\ell,k}
-    = \begin{cases}
-          [A]_{\ell,k}, & k \neq i; \\
-          [B]_{\ell,1}, & k = i.
-      \end{cases}
+    [A \{i, B\}]_{\ell,k} =
+    \begin{cases}
+        [A]_{\ell,k}, & k \neq i; \\
+        [B]_{\ell,1}, & k = i.
+    \end{cases}
 \end{align*}
 由此可见,
 \(A(\ell|i) = (A \{i, B\})(\ell|i)\)
 (\(\ell = 1\), \(2\), \(\dots\), \(n\)).
 所以
 \begin{align*}
-         &
+    &
     \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}
+    {(-1)^{\ell+i} \det {(A(\ell|i))}\, [B]_{\ell,1}}
     \\
     = {} &
     \sum_{\ell = 1}^{n}
-        {(-1)^{\ell+i} \det {((A \{i, B\})(\ell|i))}\,
-            [A \{i, B\}]_{\ell,i}}
+    {(-1)^{\ell+i} \det {((A \{i, B\})(\ell|i))}\,
+    [A \{i, B\}]_{\ell,i}}
     \\
     = {} &
     \det {(A \{i, B\})}.
@@ -687,14 +695,14 @@
 \begin{theorem}[Cramer 公式, 2]
     设线性方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             a_{1,1} x_1 + a_{1,2} x_2 + \dots + a_{1,n} x_n & = b_1, \\
             a_{2,1} x_1 + a_{2,2} x_2 + \dots + a_{2,n} x_n & = b_2, \\
-                                                            & \dots, \\
+            & \dots, \\
             a_{n,1} x_1 + a_{n,2} x_2 + \dots + a_{n,n} x_n & = b_n.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     (注意, 方程数等于未知数数.)
     记
@@ -726,20 +734,20 @@
 \begin{example}
     考虑由 \(2\)~个 \(2\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             a_{1,1} x_1 + a_{1,2} x_2 & = b_1, \\
             a_{2,1} x_1 + a_{2,2} x_2 & = b_2.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     根据 Cramer 公式, 若
     \(\det {
-        \begin{bmatrix}
-            a_{1,1} & a_{1,2} \\
-            a_{2,1} & a_{2,2} \\
-        \end{bmatrix}
-    }
+            \begin{bmatrix}
+                a_{1,1} & a_{1,2} \\
+                a_{2,1} & a_{2,2} \\
+            \end{bmatrix}
+        }
     = a_{1,1} a_{2,2} - a_{2,1} a_{1,2} \neq 0\),
     则此方程组有唯一的解
     \begin{align*}
@@ -749,12 +757,12 @@
                     b_{1} & a_{1,2} \\
                     b_{2} & a_{2,2} \\
                 \end{bmatrix}
-            }}{\det {
+        }}{\det {
                 \begin{bmatrix}
                     a_{1,1} & a_{1,2} \\
                     a_{2,1} & a_{2,2} \\
                 \end{bmatrix}
-            }}
+        }}
         = \frac{b_1 a_{2,2} - b_2 a_{1,2}}
         {a_{1,1} a_{2,2} - a_{2,1} a_{1,2}},
         \\
@@ -764,33 +772,35 @@
                     a_{1,1} & b_{1} \\
                     a_{2,1} & b_{2} \\
                 \end{bmatrix}
-            }}{\det {
+        }}{\det {
                 \begin{bmatrix}
                     a_{1,1} & a_{1,2} \\
                     a_{2,1} & a_{2,2} \\
                 \end{bmatrix}
-            }}
+        }}
         = \frac{a_{1,1} b_2 - a_{2,1} b_1}
         {a_{1,1} a_{2,2} - a_{2,1} a_{1,2}}.
+        \qefhere
     \end{align*}
 \end{example}
 
 \begin{example}
     考虑线性方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             x_1 + x_2   & = 35, \\
             2x_1 + 4x_2 & = 94.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
-    因为 \(\det {
-        \begin{bmatrix}
-            1 & 1 \\
-            2 & 4 \\
-        \end{bmatrix}
-    }
+    因为
+    \(\det {
+            \begin{bmatrix}
+                1 & 1 \\
+                2 & 4 \\
+            \end{bmatrix}
+        }
     = 1 \cdot 4 - 2 \cdot 1 = 2 \neq 0\),
     故,
     % 由上个例,
@@ -802,12 +812,12 @@
                     35 & 1 \\
                     94 & 4 \\
                 \end{bmatrix}
-            }}{\det {
+        }}{\det {
                 \begin{bmatrix}
                     1 & 1 \\
                     2 & 4 \\
                 \end{bmatrix}
-            }}
+        }}
         = \frac{35 \cdot 4 - 94 \cdot 1}{2} = 23,
         \\
         x_2
@@ -816,42 +826,43 @@
                     1 & 35 \\
                     2 & 94 \\
                 \end{bmatrix}
-            }}{\det {
+        }}{\det {
                 \begin{bmatrix}
                     1 & 1 \\
                     2 & 4 \\
                 \end{bmatrix}
-            }}
+        }}
         = \frac{1 \cdot 94 - 2 \cdot 35}{2} = 12.
+        \qefhere
     \end{align*}
 \end{example}
 
 一般地, Cramer 公式只是一个理论的公式.
 这是因为, 一般地, 计算行列式是复杂的事
-(或许, 您还记得,
+(或许, 您还记得, % tex-fmt: skip
 \(3\)~级阵的行列式的具体的公式含 \(6\)~项,
-且 \(4\)~级阵的行列式的具体的公式含 \(24\)~项).
+且 \(4\)~级阵的行列式的具体的公式含 \(24\)~项). % tex-fmt: skip
 所以, 我们一般用别的方法
 (如代入消元法、加减消元法)
 解线性方程组.
 
 还是以
 \begin{equation*}
-    \left\{
+    \left\{ % tex-fmt: skip
     \begin{aligned}
         x_1 + x_2   & = 35, \\
         2x_1 + 4x_2 & = 94
     \end{aligned}
-    \right.
+    \right. % tex-fmt: skip
 \end{equation*}
 为例.
-由方程~\(1\), 有 \(x_1 = 35 - x_2\).
-代入它到方程~\(2\), 有
+由方程~\(1\), \(x_1 = 35 - x_2\).
+代入它到方程~\(2\), 得
 \(2(35 - x_2) + 4x_2 = 94\),
 即 \(2x_2 = 24\).
 由此可知 \(x_2 = 12\).
 代入它到 \(x_1 = 35 - x_2\),
-有 \(x_1 = 23\).
+得 \(x_1 = 23\).
 最后, 可验证, \((23, 12)\) 的确是此方程组的一个解.
 
 \end{document}

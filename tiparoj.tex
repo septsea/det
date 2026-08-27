@@ -1,10 +1,11 @@
 % This file is used to test whether
 % the following fonts exist:
-% - [Source Han Serif CN](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/)
+% - [Source Han Serif CN Light](https://mirrors.tuna.tsinghua.edu.cn/adobe-fonts/source-han-serif/SubsetOTF/CN/)
 % - [Sarasa Mono SC](https://mirrors.tuna.tsinghua.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)
 % - [XITS](https://ctan.org/pkg/xits)
 % - [Fira Sans](https://ctan.org/pkg/fira)
 % - [XITS Math](https://ctan.org/pkg/xits)
+% - [LXGW WenKai Mono Light](https://github.com/lxgw/LxgwWenKai)
 
 % One can build the document with:
 % latexmk -xelatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj
@@ -22,8 +23,8 @@
 % and to do something if it is the case.
 \usepackage{ifxetex}
 \ifxetex
-    % This line allows space (U+0020) between CJK characters.
-    \xeCJKsetup{CJKspace=true}
+% This line allows space (U+0020) between CJK characters.
+\xeCJKsetup{CJKspace=true}
 \fi
 
 % The following lines set the fonts used by the document.
@@ -152,6 +153,14 @@
     }{}
 }
 
+% This is different than the one used in agordoj.tex.
+\providecommand*{\regularscript}{}
+\IfFontExistsTF{LXGW WenKai Mono Light}{%
+    \renewcommand*{\regularscript}{\fontspec{LXGW WenKai Mono Light}\CJKfontspec{LXGW WenKai Mono Light}\selectfont}
+}{
+    \renewcommand*{\regularscript}{}
+}
+
 % These are packages that deal with mathematical formulae.
 \usepackage{amsmath}
 \usepackage{mathtools}
@@ -182,25 +191,25 @@
 \newcommand*{\TextN}{9,876; 543,210.}
 \newcommand*{\TextR}{Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства.}
 \newcommand*{\Text}{%
-\TextA{}
+    \TextA{}
 
-\TextC{}
+    \TextC{}
 
-\TextJ{}
+    \TextJ{}
 
-\TextK{}
+    \TextK{}
 
-\TextE{}
+    \TextE{}
 
-% \TextD{}
+    % \TextD{}
 
-\TextU{}
+    \TextU{}
 
-\TextG{}
+    \TextG{}
 
-\TextR{}
+    \TextR{}
 
-\TextN{}%
+    \TextN{}%
 }
 
 % I copied the magic from "memoir", a document class
@@ -227,7 +236,7 @@
     \hbadness 4000%
     \emergencystretch 1.5em%
     \hfuzz .1\p@%
-    \vfuzz\hfuzz}
+\vfuzz\hfuzz}
 \makeatother
 
 \begin{document}
@@ -240,17 +249,17 @@
 
 \vspace{2ex}
 
-\normalfont\rmfamily\bfseries\upshape\Text
+% \normalfont\rmfamily\bfseries\upshape\Text
 
-\vspace{2ex}
+% \vspace{2ex}
 
 \normalfont\rmfamily\mdseries\itshape\Text
 
 \vspace{2ex}
 
-\normalfont\rmfamily\bfseries\itshape\Text
+% \normalfont\rmfamily\bfseries\itshape\Text
 
-\vspace{2ex}
+% \vspace{2ex}
 
 \normalfont\sffamily\mdseries\upshape\Text
 
@@ -281,6 +290,22 @@
 \vspace{2ex}
 
 \normalfont\ttfamily\bfseries\itshape\Text
+
+\vspace{2ex}
+
+\normalfont\regularscript\mdseries\upshape\Text
+
+% \vspace{2ex}
+
+% \normalfont\regularscript\bfseries\upshape\Text
+
+% \vspace{2ex}
+
+% \normalfont\regularscript\mdseries\itshape\Text
+
+% \vspace{2ex}
+
+% \normalfont\regularscript\bfseries\itshape\Text
 
 \normalfont
 

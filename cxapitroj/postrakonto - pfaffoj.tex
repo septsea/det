@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\appendix\chapter{Afterstories}\clearpage}{}
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
 
 \section{转置的性质}
 
@@ -11,7 +12,7 @@
 设 \(A\) 是一个 \(m \times n\)~阵.
 则 \(A\)~的转置 \(A^{\mathrm{T}}\) 是一个 \(n \times m\)~阵,
 且对 \(i \leq n\) 与 \(j \leq m\),
-有 \([A^{\mathrm{T}}]_{i,j} = [A]_{j,i}\).
+\([A^{\mathrm{T}}]_{i,j} = [A]_{j,i}\).
 
 我们已知, 若 \(A\) 是一个 \(m \times n\)~阵,
 则 \((A^{\mathrm{T}})^{\mathrm{T}} = A\).
@@ -38,8 +39,8 @@
 \end{theorem}
 
 \begin{proof}
-    您验证, 等式 (1) 与 (2) 的二侧的阵的尺寸是一样的;
-    我验证, 等式 (3) 的二侧的阵的尺寸是一样的.
+    您验证, 等式 (1) 与 (2) 的 \(2\)~边的阵的尺寸是一样的;
+    我验证, 等式 (3) 的 \(2\)~边的阵的尺寸是一样的.
 
     (1)
     对 \(i \leq n\) 与 \(j \leq m\),
@@ -95,11 +96,11 @@
         \\
         = {} &
         \sum_{p=1}^{n}
-            {[A^{\mathrm{T}}]_{p,j} [C^{\mathrm{T}}]_{i,p}}
+        {[A^{\mathrm{T}}]_{p,j} [C^{\mathrm{T}}]_{i,p}}
         \\
         = {} &
         \sum_{p=1}^{n}
-            {[C^{\mathrm{T}}]_{i,p} [A^{\mathrm{T}}]_{p,j}}
+        {[C^{\mathrm{T}}]_{i,p} [A^{\mathrm{T}}]_{p,j}}
         \\
         = {} &
         [C^{\mathrm{T}} A^{\mathrm{T}}]_{i,j}.
@@ -129,7 +130,7 @@
     B^{\mathrm{T}}
     A^{\mathrm{T}}.
 \end{align*}
-一般地, 我们有
+一般地,
 
 \begin{theorem}
     设 \(A_1\), \(A_2\), \(\dots\), \(A_n\)
@@ -166,13 +167,13 @@
     [K_m]_{i,j} =
     \begin{cases}
         [0]_{i,j},
-         & \text{\(i \leq m\), 且 \(j \leq m\)}; \\
+        & \text{\(i \leq m\), 且 \(j \leq m\)}; \\
         [I_m]_{i,j-m},
-         & \text{\(i \leq m\), 且 \(j > m\)};    \\
+        & \text{\(i \leq m\), 且 \(j > m\)};    \\
         [-I_m]_{i-m,j},
-         & \text{\(i > m\), 且 \(j \leq m\)};    \\
+        & \text{\(i > m\), 且 \(j \leq m\)};    \\
         [0]_{i-m,j-m},
-         & \text{\(i > m\), 且 \(j > m\)}.
+        & \text{\(i > m\), 且 \(j > m\)}.
     \end{cases}
 \end{align*}
 更具体地,
@@ -187,7 +188,7 @@
 不难算出, \(K_m^{\mathrm{T}} = -K_m\),
 且 \(K_m K_m = -I_{2m}\).
 
-按列~\(1\) 展开 \(\det {(K_m)}\), 有
+按列~\(1\) 展开 \(\det {(K_m)}\), 得
 \begin{align*}
     \det {(K_m)}
     = {} &
@@ -202,7 +203,7 @@
     %     \end{bmatrix}
     % }.
 \end{align*}
-再按行~\(1\) 展开 \(\det {(K_m ({m+1}|1))}\), 有
+再按行~\(1\) 展开 \(\det {(K_m ({m+1}|1))}\), 得
 \begin{align*}
     \det {(K_m ({m+1}|1))}
     = {} &
@@ -341,7 +342,7 @@
     K_m.
 \end{align*}
 
-总结这些结果, 我们有
+总结这些结果, 我们得
 
 \begin{theorem}
     (1)
@@ -363,17 +364,18 @@
 于是, 一个自然的问题是, 辛阵的行列式是多少.
 我们知道, 辛阵的行列式的平方是 \(1\),
 故辛阵的行列式是 \(1\) 或 \(-1\).
-不过, 不平凡地, 辛阵的行列式必是 \(1\).
+不过, 不平凡地, 辛阵的行列式是 \(1\).
 我们现有的知识无法解决此事.
 我会在后面的几节, 介绍更多的知识, 以解决它.
 
 虽然如此, 我们还是能解决 \(2m = 2\) 的情形.
 设
 \begin{align*}
-    A = \begin{bmatrix}
-            a & b \\
-            c & d \\
-        \end{bmatrix}
+    A =
+    \begin{bmatrix}
+        a & b \\
+        c & d \\
+    \end{bmatrix}
 \end{align*}
 是一个 \(2\)~级辛阵.
 由 \(A^{\mathrm{T}} K_1 A = K_1\), 知
@@ -442,24 +444,25 @@
         \end{bmatrix};
     \end{align*}
     \(4\)~级反称阵形如
-    \begin{align*}
+    \begin{equation*}
         \begin{bmatrix}
             0  & a  & b  & c \\
             -a & 0  & d  & e \\
             -b & -d & 0  & f \\
             -c & -e & -f & 0 \\
         \end{bmatrix}.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
     不难验证, \(2m\)~级阵
     \(
-    K_m =
-    \begin{bmatrix}
-        0    & I_m \\
-        -I_m & 0   \\
-    \end{bmatrix}
+        K_m =
+        \begin{bmatrix}
+            0    & I_m \\
+            -I_m & 0   \\
+        \end{bmatrix}
     \)
     是反称阵.
 \end{example}
@@ -525,7 +528,7 @@
     \end{align*}
     由阵的积的定义,
     \begin{align*}
-             &
+        &
         [X^{\mathrm{T}} A X]_{i,i}
         \\
         = {} &
@@ -533,27 +536,27 @@
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[X^{\mathrm{T}}]_{i,\ell} [A X]_{\ell,i}}
+        {[X^{\mathrm{T}}]_{i,\ell} [A X]_{\ell,i}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[X]_{\ell,i} [A X]_{\ell,i}}
+        {[X]_{\ell,i} [A X]_{\ell,i}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {
-                [X]_{\ell,i}
-                \left(\sum_{k = 1}^{n} [A]_{\ell,k} [X]_{k,i}\right)
-            }
+        {
+            [X]_{\ell,i}
+            \left(\sum_{k = 1}^{n} [A]_{\ell,k} [X]_{k,i}\right)
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{n}
         \sum_{k = 1}^{n}
-            {[X]_{\ell,i} [A]_{\ell,k} [X]_{k,i}}
+        {[X]_{\ell,i} [A]_{\ell,k} [X]_{k,i}}
         \\
         = {} &
         \sum_{\ell, k = 1}^{n}
-            {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
+        {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
         \\
         = {} & \hphantom{{} + {}}
         \sum_{1 \leq \ell = k \leq n}
@@ -562,7 +565,7 @@
         \sum_{1 \leq \ell < k \leq n}
         {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
         \\
-             & +
+        & +
         \sum_{1 \leq k < \ell \leq n}
         {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
         \\
@@ -573,7 +576,7 @@
         \sum_{1 \leq \ell < k \leq n}
         {[X]_{\ell,i} [X]_{k,i} [A]_{\ell,k}}
         \\
-             & +
+        & +
         \sum_{1 \leq \ell < k \leq n}
         {[X]_{k,i} [X]_{\ell,i} [A]_{k,\ell}}
         \\
@@ -593,7 +596,7 @@
 \end{proof}
 
 \section{\texorpdfstring{奇数级反称阵的行列式为 \(0\)}%
-  {奇数级反称阵的行列式为 0}}
+{奇数级反称阵的行列式为 0}}
 
 我们讨论反称阵的行列式.
 
@@ -632,26 +635,30 @@
     \begin{align*}
         \det {(A)}
         = {} &
-        0
-        \det {\begin{bmatrix}
-                      0  & c \\
-                      -c & 0 \\
-                  \end{bmatrix}}
-        - (-a)
-        \det {\begin{bmatrix}
-                      a  & b \\
-                      -c & 0 \\
-                  \end{bmatrix}}
-        + (-b)
-        \det {\begin{bmatrix}
-                      a & b \\
-                      0 & c \\
-                  \end{bmatrix}}
+        0 \det {
+            \begin{bmatrix}
+                0  & c \\
+                -c & 0 \\
+            \end{bmatrix}
+        }
+        - (-a) \det {
+            \begin{bmatrix}
+                a  & b \\
+                -c & 0 \\
+            \end{bmatrix}
+        }
+        + (-b) \det {
+            \begin{bmatrix}
+                a & b \\
+                0 & c \\
+            \end{bmatrix}
+        }
         \\
         = {} &
         a(bc) + (-b)(ac)
         \\
         = {} & 0.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -668,36 +675,41 @@
     \end{align*}
     则
     \begin{align*}
-             & \det {(A)}
+        & \det {(A)}
         \\
         = {} &
         \hphantom{{} + {}}
-        0
-        \det {\begin{bmatrix}
-                      0  & d  & e \\
-                      -d & 0  & f \\
-                      -e & -f & 0 \\
-                  \end{bmatrix}}
+        0 \det {
+            \begin{bmatrix}
+                0  & d  & e \\
+                -d & 0  & f \\
+                -e & -f & 0 \\
+            \end{bmatrix}
+        }
         - (-a)
-        \det {\begin{bmatrix}
-                      a  & b  & c \\
-                      -d & 0  & f \\
-                      -e & -f & 0 \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                a  & b  & c \\
+                -d & 0  & f \\
+                -e & -f & 0 \\
+            \end{bmatrix}
+        }
         \\
-             &
-        + (-b)
-        \det {\begin{bmatrix}
-                      a  & b  & c \\
-                      0  & d  & e \\
-                      -e & -f & 0 \\
-                  \end{bmatrix}}
-        - (-c)
-        \det {\begin{bmatrix}
-                      a  & b & c \\
-                      0  & d & e \\
-                      -d & 0 & f \\
-                  \end{bmatrix}}
+        &
+        + (-b) \det {
+            \begin{bmatrix}
+                a  & b  & c \\
+                0  & d  & e \\
+                -e & -f & 0 \\
+            \end{bmatrix}
+        }
+        - (-c) \det {
+            \begin{bmatrix}
+                a  & b & c \\
+                0  & d & e \\
+                -d & 0 & f \\
+            \end{bmatrix}
+        }
         \\
         = {} &
         a (dfc - ebf + aff)
@@ -712,16 +724,17 @@
         = {} & (af - be + cd)^2,
     \end{align*}
     即
-    \begin{align*}
+    \begin{equation*}
         \det {(A)}
         = ([A]_{1,2} [A]_{3,4} - [A]_{1,3} [A]_{2,4}
         + [A]_{1,4} [A]_{2,3})^2.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 我们发现, \(1\)~级反称阵与 \(3\)~级反称阵%
 的行列式为 \(0\).
-一般地, 我们有
+一般地,
 
 \begin{theorem}
     设 \(A\) 是一个奇数级反称阵.
@@ -736,7 +749,7 @@
 \begin{align*}
     \det {(A)}
     = \sum_{i = 1}^{n}
-        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}.
+    {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}.
 \end{align*}
 这就是按列~\(1\) 展开行列式.
 
@@ -746,59 +759,59 @@
 \begin{align*}
     \det {(A)}
     = \sum_{j = 1}^{n}
-        {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+    {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
 \end{align*}
 这就是按行~\(1\) 展开行列式.
 
 (3)
 设 \(A\) 是一个 \(n\)~级阵 (\(n \geq 3\)).
 同时用 (1) (2),
-有
+得
 \begin{align*}
-         & \det {(A)}
+    & \det {(A)}
     \\
     = {} &
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{j = 2}^{n} {
-            (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+        (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+    }
+    \\
+    = {} &
+    [A]_{1,1} \det {(A(1|1))}
+    +
+    \sum_{j = 2}^{n} {
+        (-1)^{1+j} [A]_{1,j}
+        \sum_{i = 2}^{n} {
+            (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
         }
+    }
     \\
     = {} &
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{j = 2}^{n} {
+        \sum_{i = 2}^{n} {
             (-1)^{1+j} [A]_{1,j}
-            \sum_{i = 2}^{n} {
-                    (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
-                }
+            (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
         }
-    \\
-    = {} &
-    [A]_{1,1} \det {(A(1|1))}
-    +
-    \sum_{j = 2}^{n} {
-            \sum_{i = 2}^{n} {
-                    (-1)^{1+j} [A]_{1,j}
-                    (-1)^{i-1+1} [A]_{i,1} \det {(A(1,i|j,1))}
-                }
-        }
+    }
     \\
     = {} &
     [A]_{1,1} \det {(A(1|1))}
     +
     \sum_{i, j = 2}^{n} {
-            (-1)^{i+j-1}
-                [A]_{i,1} [A]_{1,j} \det {(A(1,i|1,j))}
-        }.
+        (-1)^{i+j-1}
+        [A]_{i,1} [A]_{1,j} \det {(A(1,i|1,j))}
+    }.
 \end{align*}
 特别地, 若 \(A\) 还是一个反称阵, 则
 \begin{align*}
     \det {(A)}
     = \sum_{i, j = 2}^{n} {
-            (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
-        }.
+        (-1)^{i+j}
+        [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+    }.
 \end{align*}
 
 (4)
@@ -816,7 +829,7 @@
 (6)
 设 \(A\) 是一个 \(n\)~级反称阵 (\(n \geq 3\)).
 设 \(r\) 是不超过 \(n\) 的正整数.
-设 \(s\), \(t\) 是二个不超过 \(n\) 的正整数,
+设 \(s\), \(t\) 是 \(2\)~个不超过 \(n\) 的正整数,
 \(s \neq r\), 且 \(t \neq r\).
 则
 \(A(r,t|r,s) = -(A(r,s|r,t))^{\mathrm{T}}\).
@@ -826,7 +839,7 @@
 (7)
 每个适合条件
 ``\(i\), \(j\) 都是不低于 \(p\), 且不高于 \(q\) 的整数''
-的有序对 \((i, j)\) 恰适合以下三个条件的一个:
+的有序对 \((i, j)\) 恰适合以下 \(3\)~个条件的一个:
 (a)
 \(p \leq i = j \leq q\);
 (b)
@@ -857,49 +870,49 @@
     设 \(A\) 是一个 \(n\)~级反称阵.
     那么
     \begin{align*}
-             & \det {(A)}     \\
+        & \det {(A)}     \\
         = {} &
         \sum_{i, j = 2}^{n} {
-                (-1)^{i+j}
-                    [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
-            }
+            (-1)^{i+j}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+        }
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{2 \leq i = j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq j < i \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{2 \leq i \leq n} {
             (-1)^{i+i}
-                [A]_{1,i} [A]_{1,i} \det {(A(1,i|1,i))}
+            [A]_{1,i} [A]_{1,i} \det {(A(1,i|1,i))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{j+i}
-                [A]_{1,j} [A]_{1,i} \det {(A(1,j|1,i))}
+            [A]_{1,j} [A]_{1,i} \det {(A(1,j|1,i))}
         }
         \\
         = {} &
@@ -908,16 +921,16 @@
             [A]_{1,i}^2 \det {(A(1,i|1,i))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j}
+            [A]_{1,i} [A]_{1,j}
             \det {(-(A(1,i|1,j))^{\mathrm{T}})}
         }
         \\
@@ -927,16 +940,16 @@
             [A]_{1,i}^2 \det {(A(1,i|1,i))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j}
+            [A]_{1,i} [A]_{1,j}
             (-1)^{n-2} \det {((A(1,i|1,j))^{\mathrm{T}})}
         }
         \\
@@ -946,16 +959,16 @@
             [A]_{1,i}^2 \det {(A(1,i|1,i))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j}
+            [A]_{1,i} [A]_{1,j}
             (-1)^{n} \det {(A(1,i|1,j))}
         }
         \\
@@ -965,10 +978,10 @@
             [A]_{1,i}^2 \det {(A(1,i|1,i))}
         }
         \\
-             & + (1 + (-1)^n)
+        & + (1 + (-1)^n)
         \sum_{2 \leq i < j \leq n} {
             (-1)^{i+j}
-                [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
+            [A]_{1,i} [A]_{1,j} \det {(A(1,i|1,j))}
         }.
     \end{align*}
     注意, \(A(1,i|1,i)\) 是 \(n - 2\)~级,
@@ -980,7 +993,7 @@
     所以, \(\det {(A)} = 0\).
 
     所以, \(P(k)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 我们还不了解偶数级反称阵的行列式.
@@ -995,26 +1008,26 @@
 % see:
 % postrakonto - ecoj de determinantoj.tex
 \ifSubfilesClassLoaded{%
-    \begin{restatable}[倍加]{definition}{DefinitionMultiplyAndAdd}
+    \begin{restatable}[倍加]{definition}{DefinitionMultipljad}
         设 \(A\) 是一个 \(m \times n\)~阵.
-        设 \(p\), \(q\) 是二个不超过 \(n\)~的正整数,
+        设 \(p\), \(q\) 是 \(2\)~个不超过 \(n\)~的正整数,
         且 \(p \neq q\).
         设 \(s\) 是一个数.
         作 \(m \times n\)~阵 \(B\), 其中,
         \begin{align*}
-            [B]_{i,j}
-            = \begin{cases}
-                  [A]_{i,j},              & j \neq q; \\
-                  [A]_{i,q} + s[A]_{i,p}, & j = q.
-              \end{cases}
+            [B]_{i,j} =
+            \begin{cases}
+                [A]_{i,j},              & j \neq q; \\
+                [A]_{i,q} + s[A]_{i,p}, & j = q.
+            \end{cases}
         \end{align*}
-        (通俗地,
+        (通俗地, % tex-fmt: skip
         加 \(A\)~的列~\(p\) 的 \(s\)~倍于列~\(q\),
         且不改变别的列,
-        得阵~\(B\).)
+        得阵~\(B\).) % tex-fmt: skip
         我们说, 变 \(A\) 为 \(B\) 的行为是一次 (列的) \emph{倍加}.
     \end{restatable}
-}{\DefinitionMultiplyAndAdd*}
+}{\DefinitionMultipljad*}
 
 我们说, 既有列的倍加, 也有行的倍加.
 具体地, 加 \(A\)~的一行的倍于另一行,
@@ -1047,7 +1060,7 @@
 故 \([Ae_j]_{i,1}
     = [A I_n]_{i,j}
     = [A]_{i,j}
-    = [a_j]_{i,1}\),
+= [a_j]_{i,1}\),
 对任何不超过 \(n\) 的正整数 \(j\),
 与任何不超过 \(m\) 的正整数 \(i\).
 故 \(Ae_j = a_j\),
@@ -1060,7 +1073,7 @@
 列~\(1\), \(2\), \(\dots\), \(n\) 分别是
 \(b_1\), \(b_2\), \(\dots\), \(b_n\).
 则 \(B = [b_1, b_2, \dots, b_n]\).
-则 \(j \neq q\) 时, 有 \(b_j = a_j\),
+则 \(j \neq q\) 时, \(b_j = a_j\),
 且 \(b_q = a_q + s a_p\).
 则 \(j \neq q\) 时,
 \begin{align*}
@@ -1074,11 +1087,11 @@
 \(E(n; p, q; s) = [f_1, f_2, \dots, f_n]\),
 其中,
 \begin{align*}
-    f_j
-    = \begin{cases}
-          e_j,         & j \neq q; \\
-          e_q + s e_p, & j = q.
-      \end{cases}
+    f_j =
+    \begin{cases}
+        e_j,         & j \neq q; \\
+        e_q + s e_p, & j = q.
+    \end{cases}
 \end{align*}
 则 \(B e_j = A f_j\),
 对任何不超过 \(n\) 的正整数 \(j\).
@@ -1090,13 +1103,13 @@
 \end{align*}
 不难写出
 \begin{align*}
-    [E(n; p, q; s)]_{i,j}
-    = \begin{cases}
-          s,           & \text{\(i = p\), 且 \(j = q\)}; \\
-          [I_n]_{i,j}, & \text{别的情形}.
-      \end{cases}
+    [E(n; p, q; s)]_{i,j} =
+    \begin{cases}
+        s,           & \text{\(i = p\), 且 \(j = q\)}; \\
+        [I_n]_{i,j}, & \text{别的情形}.
+    \end{cases}
 \end{align*}
-于是, 我们有
+于是, 我们得
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -1105,15 +1118,15 @@
     设 \(s\) 是数.
     作 \(n\)~级阵 \(E(n; p, q; s)\) 如下:
     \begin{align*}
-        [E(n; p, q; s)]_{i,j}
-        = \begin{cases}
-              s,           & \text{\(i = p\), 且 \(j = q\)}; \\
-              [I_n]_{i,j}, & \text{别的情形}.
-          \end{cases}
+        [E(n; p, q; s)]_{i,j} =
+        \begin{cases}
+            s,           & \text{\(i = p\), 且 \(j = q\)}; \\
+            [I_n]_{i,j}, & \text{别的情形}.
+        \end{cases}
     \end{align*}
-    (通俗地,
+    (通俗地, % tex-fmt: skip
     加 \(I_n\) 的列~\(p\) 的 \(s\)~倍于列~\(q\),
-    且不改变别的列, 得 \(n\)~级阵 \(E(n; p, q; s)\).)
+    且不改变别的列, 得 \(n\)~级阵 \(E(n; p, q; s)\).) % tex-fmt: skip
     那么,
     加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\),
     且不改变别的列, 得 \(m \times n\)~阵 \(A E(n; p, q; s)\).
@@ -1124,8 +1137,8 @@
     当然, 不考虑前面的说明, 我们也可直接用阵的积的定义验证它.
     我们的目标是,
     \begin{equation*}
-        [A E(n; p, q; s)]_{i,j}
-        = \begin{cases}
+        [A E(n; p, q; s)]_{i,j} =
+        \begin{cases}
             [A]_{i,j},              & j \neq q; \\
             [A]_{i,q} + s[A]_{i,p}, & j = q.
         \end{cases}
@@ -1144,15 +1157,15 @@
     设 \(s\) 是数.
     作 \(m\)~级阵 \(E(m; q, p; s)\) 如下:
     \begin{align*}
-        [E(m; q, p; s)]_{i,j}
-        = \begin{cases}
-              s,           & \text{\(i = q\), 且 \(j = p\)}; \\
-              [I_m]_{i,j}, & \text{别的情形}.
-          \end{cases}
+        [E(m; q, p; s)]_{i,j} =
+        \begin{cases}
+            s,           & \text{\(i = q\), 且 \(j = p\)}; \\
+            [I_m]_{i,j}, & \text{别的情形}.
+        \end{cases}
     \end{align*}
-    (通俗地,
+    (通俗地, % tex-fmt: skip
     加 \(I_m\) 的行~\(p\) 的 \(s\)~倍于行~\(q\),
-    且不改变别的行, 得 \(m\)~级阵 \(E(m; q, p; s)\).)
+    且不改变别的行, 得 \(m\)~级阵 \(E(m; q, p; s)\).) % tex-fmt: skip
     那么,
     加 \(A\) 的行~\(p\) 的 \(s\)~倍于行~\(q\),
     且不改变别的行, 得 \(m \times n\)~阵 \(E(m; q, p; s) A\).
@@ -1163,8 +1176,8 @@
     我想给您一个提示:
     证明此事的要点是验证
     \begin{equation*}
-        [E(m; q, p; s) A]_{i,j}
-        = \begin{cases}
+        [E(m; q, p; s) A]_{i,j} =
+        \begin{cases}
             [A]_{i,j},              & i \neq q; \\
             [A]_{q,j} + s[A]_{p,j}, & i = q.
         \end{cases}
@@ -1182,7 +1195,7 @@
 
 不难验证, \(E(n; p, q; s)\) 的转置是
 \(E(n; q, p; s)\);
-比较这二个阵的元即可.
+比较这 \(2\)~个阵的元即可.
 
 注意,
 当 \(n = 1\) 时, 不存在不超过 \(n\),
@@ -1195,8 +1208,8 @@
 表示且只表示 \(1\)~级单位阵 \(I_1 = [1]\).
 
 用阵的积表示倍加是好的.
-我们知道, 阵的积适合一些运算律,
-故我们或可用阵的运算律发现倍加的某些规律;
+我们知道, 阵的积适合一些律,
+故我们或可用阵的运算的律发现倍加的某些规律;
 反过来, 我们也或可用倍加发现阵的一些性质.
 
 \section{反称阵与倍加}
@@ -1220,7 +1233,7 @@
     通俗地,
     对反称阵先作一次列的倍加,
     再作一次对应的行的倍加,
-    则二次倍加后的阵仍是反称阵.
+    则 \(2\)~次倍加后的阵仍是反称阵.
 
     (2)
     在 (1) 中, 先行后列不影响结果.
@@ -1234,7 +1247,7 @@
 
 \begin{proof}
     % (1)
-    % 我用二个方法证明此事.
+    % 我用 \(2\)~个方法证明此事.
 
     % 法~1:
     % 设加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\),
@@ -1324,7 +1337,7 @@
     \end{align*}
     故 \(C\) 是一个反称阵.
 
-    % 注意, 法~2 利用了已有的阵的运算律:
+    % 注意, 法~2 利用了已有的阵的运算的律:
     % 法~1 较直接; 法~2 较聪明.
 
     (2)
@@ -1413,9 +1426,9 @@
 
     \(Q(2)\) 是对的,
     因为 \(P(1)\) 与 \(P(2)\) 是对的
-    (注意,
+    (注意, % tex-fmt: skip
     加一列 (行) 的 \(0\)~倍于另一列 (行)
-    不改变阵).
+    不改变阵). % tex-fmt: skip
 
     我们设 \(Q(n-1)\) 是对的 (\(n \geq 3\)).
     则 \(P(n-2)\) 与 \(P(n-1)\) 是对的.
@@ -1437,7 +1450,6 @@
     对任何高于 \(2\), 且不超过 \(n\) 的正整数 \(j\).
 
     若对任何高于 \(2\), 且不超过 \(n\) 的正整数 \(j\),
-    已有
     \([A]_{1,j} = [A]_{2,j} = 0\),
     且 \([A]_{j,1} = [A]_{j,2} = 0\),
     我们不变, 取 \(C = A\).
@@ -1580,19 +1592,19 @@
 
     所以, \(P(n)\) 是对的.
     则 \(Q(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
     % a manual line break
 
 \end{proof}
 
-由倍加与阵的积的关系, 我们有:
+由倍加与阵的积的关系, 我们得
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级反称阵.
     则存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_w\),
     使 \(V^{\mathrm{T}} AV\) 是%
@@ -1604,22 +1616,22 @@
 
 \begin{proof}
     由上个定理, 存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_w\),
     使
     \begin{align*}
         E_w^{\mathrm{T}}
         (E_{w-1}^{\mathrm{T}}
-        \dots
-        (E_2^{\mathrm{T}}
-        (E_1^{\mathrm{T}}
-        A
-        E_1)
-        E_2)
-        \dots
+            \dots
+            (E_2^{\mathrm{T}}
+                (E_1^{\mathrm{T}}
+                    A
+                E_1)
+            E_2)
+            \dots
         E_{w-1})
         E_w
     \end{align*}
@@ -1630,24 +1642,24 @@
     由结合律, 上式相当于
     \begin{align*}
         (E_w^{\mathrm{T}}
-        E_{w-1}^{\mathrm{T}}
-        \dots
-        E_2^{\mathrm{T}}
+            E_{w-1}^{\mathrm{T}}
+            \dots
+            E_2^{\mathrm{T}}
         E_1^{\mathrm{T}})
         A
         (E_1
-        E_2
-        \dots
-        E_{w-1}
+            E_2
+            \dots
+            E_{w-1}
         E_w).
     \end{align*}
     记 \(V = E_1 E_2 \dots E_{w-1} E_w\).
     由转置的性质,
     \(V^{\mathrm{T}}
-    = E_w^{\mathrm{T}}
-    E_{w-1}^{\mathrm{T}}
-    \dots
-    E_2^{\mathrm{T}}
+        = E_w^{\mathrm{T}}
+        E_{w-1}^{\mathrm{T}}
+        \dots
+        E_2^{\mathrm{T}}
     E_1^{\mathrm{T}}\).
     故上式相当于 \(V^{\mathrm{T}} A V\).
 \end{proof}
@@ -1666,7 +1678,7 @@
         0      & 0      & 0      & 0      & \cdots & -b_m   & 0      \\
     \end{bmatrix}.
 \end{align*}
-按列~\(2m\) 展开, 有
+按列~\(2m\) 展开, 得
 \begin{align*}
     \det {(B_m)}
     = {} &
@@ -1683,7 +1695,7 @@
     %     \end{bmatrix}
     % }.
 \end{align*}
-再按列~\(2m-1\) 展开 \(\det {(B_m ({2m-1}|{2m}))}\), 有
+再按列~\(2m-1\) 展开 \(\det {(B_m ({2m-1}|{2m}))}\), 得
 \begin{align*}
     \det {(B_m ({2m-1}|{2m}))}
     = {} &
@@ -1716,20 +1728,18 @@
 
 \begin{definition}
     设 \(A\) 是 \(n\)~级反称阵.
-    定义 \(A\)~的 \emph{pfaffian}
-    \pinjino{fafiyan}
-    为
+    定义 \(A\)~的 \emph{pfaffian} 为
     \begin{align*}
         \operatorname{pf} {(A)} =
         \begin{dcases}
             0,
-             & n = 1;    \\
+            & n = 1;    \\
             [A]_{1,2},
-             & n = 2;    \\
+            & n = 2;    \\
             \sum_{j = 2}^{n}
             {(-1)^{j} [A]_{1,j}
             \operatorname{pf} {(A({1,j}|{1,j}))}},
-             & n \geq 3.
+            & n \geq 3.
         \end{dcases}
     \end{align*}
 \end{definition}
@@ -1788,7 +1798,7 @@
         +
         (-1)^3 [A]_{1,3} \operatorname{pf} {(A({1,3}|{1,3}))}
         \\
-             &
+        &
         +
         (-1)^4 [A]_{1,4} \operatorname{pf} {(A({1,4}|{1,4}))}
         \\
@@ -1799,14 +1809,14 @@
     \end{align*}
 
     回想, \(\det {(A)} =
-    ([A]_{1,2} [A]_{3,4}
-    - [A]_{1,3} [A]_{2,4}
+        ([A]_{1,2} [A]_{3,4}
+            - [A]_{1,3} [A]_{2,4}
     + [A]_{1,4} [A]_{2,3})^2\);
     于是, \(\det {(A)} = (\operatorname{pf} {(A)})^2\).
 \end{example}
 
 看来, 对不高于 \(4\)~级的反称阵 \(A\),
-我们有 \(\det {(A)} = (\operatorname{pf} {(A)})^2\).
+\(\det {(A)} = (\operatorname{pf} {(A)})^2\).
 我们会说明, 这对任何级的反称阵 \(A\) 都是对的.
 为此, 我们会证明 pfaffian 的一些性质,
 再利用这些性质解决此事.
@@ -1834,7 +1844,7 @@
         = (-1)^2 [B]_{1,2} \operatorname{pf} {(B({1,2}|{1,2}))}
         = b_1 \operatorname{pf} {(B({1,2}|{1,2}))}
     \end{align*}
-    (注意, 对任何 \(j > 2\), 有 \([B]_{1,j} = 0\)).
+    (注意, 对任何 \(j > 2\), \([B]_{1,j} = 0\)).
     不难看出,
     \begin{align*}
         B({1,2}|{1,2}) =
@@ -1862,7 +1872,7 @@
         \operatorname{pf} {(B)}
         = b_1 b_2 \dots b_{m-1}
         \operatorname{pf} {(
-        B({1,2,\dots,2m-2}|{1,2,\dots,2m-2})
+                B({1,2,\dots,2m-2}|{1,2,\dots,2m-2})
         )}
         = b_1 b_2 \dots b_{m-1} b_m.
     \end{align*}
@@ -1912,10 +1922,10 @@
 
     然后, \(P(2)\) 是对的.
     记 \(J =
-    \begin{bmatrix}
-        A & 0 \\
-        0 & D \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            A & 0 \\
+            0 & D \\
+        \end{bmatrix}
     \),
     其中, \(A\) 是 \(2\)~级反称阵.
     由 pfaffian 的定义,
@@ -1940,14 +1950,14 @@
 
     任取一个 \(n\)~级反称阵 \(A\).
     记 \(M =
-    \begin{bmatrix}
-        A & 0 \\
-        0 & D \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            A & 0 \\
+            0 & D \\
+        \end{bmatrix}
     \).
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(M)}
         \\
         = {} &
@@ -1974,14 +1984,14 @@
     \end{align*}
     注意, \(2 \leq j \leq n\) 时,
     \begin{align*}
-        M({1,j}|{1,j})
-        = \begin{bmatrix}
-              A({1,j}|{1,j}) & 0 \\
-              0              & D \\
-          \end{bmatrix}.
+        M({1,j}|{1,j}) =
+        \begin{bmatrix}
+            A({1,j}|{1,j}) & 0 \\
+            0              & D \\
+        \end{bmatrix}.
     \end{align*}
     由假定, \(\operatorname{pf} {(M({1,j}|{1,j}))}
-    = \operatorname{pf} {(A({1,j}|{1,j}))}
+        = \operatorname{pf} {(A({1,j}|{1,j}))}
     \operatorname{pf} {(D)}\).
     从而
     \begin{align*}
@@ -1993,14 +2003,14 @@
         = {} &
         \sum_{2 \leq j \leq n}
         {(-1)^{j} [A]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))} \operatorname{pf} {(D)}
+            \operatorname{pf} {(A({1,j}|{1,j}))} \operatorname{pf} {(D)}
         }
         \\
         = {} &
         \left(
-        \sum_{2 \leq j \leq n}
-        {(-1)^{j} [A]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))}}
+            \sum_{2 \leq j \leq n}
+            {(-1)^{j} [A]_{1,j}
+            \operatorname{pf} {(A({1,j}|{1,j}))}}
         \right) \operatorname{pf} {(D)}
         \\
         = {} &
@@ -2009,7 +2019,7 @@
 
     所以, \(P(n)\) 是对的.
     则 \(Q(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 
     回想, 当 \(A\) 是 \(n\)~级阵,
     \(D\) 是 \(t\)~级阵,
@@ -2036,10 +2046,11 @@
 设 \(C\) 是 \(n \times t\)~阵.
 作 \(n + t\)~级阵
 \begin{align*}
-    P = \begin{bmatrix}
-            C & A \\
-            D & 0 \\
-        \end{bmatrix}.
+    P =
+    \begin{bmatrix}
+        C & A \\
+        D & 0 \\
+    \end{bmatrix}.
 \end{align*}
 我们计算 \(\det {(P)}\).
 为此, 我们可用反称性.
@@ -2114,10 +2125,11 @@
     设 \(A\) 是一个 \(m\)~级阵.
     为方便, 我们记
     \begin{align*}
-        S(A) = \begin{bmatrix}
-                   0               & A \\
-                   -A^{\mathrm{T}} & 0 \\
-               \end{bmatrix}.
+        S(A) =
+        \begin{bmatrix}
+            0               & A \\
+            -A^{\mathrm{T}} & 0 \\
+        \end{bmatrix}.
     \end{align*}
     不难看出, \(S(A)\) 是一个 \(2m\)~级反称阵.
     我们用数学归纳法证明,
@@ -2134,14 +2146,15 @@
 
     \(P(1)\) 是对的.
     设 \(A = [a]\).
-    则 \(S(A) = \begin{bmatrix}
-        0  & a \\
-        -a & 0 \\
+    则 \(S(A) =
+        \begin{bmatrix}
+            0  & a \\
+            -a & 0 \\
     \end{bmatrix}\).
     由定义, \(\det {(A)} = a\),
     且
     \(\operatorname{pf} {(S(A))}
-    = a
+        = a
     = (-1)^{1(1-1)/2} \det {(A)}\).
 
     我们设 \(P(m-1)\) 是对的.
@@ -2160,7 +2173,7 @@
         \sum_{2 \leq j \leq m}
         {(-1)^j [S(A)]_{1,j} \operatorname{pf} {((S(A))({1,j}|{1,j}))}}
         \\
-             & +
+        & +
         \sum_{m+1 \leq j \leq 2m}
         {(-1)^j [S(A)]_{1,j} \operatorname{pf} {((S(A))({1,j}|{1,j}))}}
         \\
@@ -2169,7 +2182,7 @@
         \sum_{2 \leq j \leq m}
         {(-1)^j 0 \operatorname{pf} {((S(A))({1,j}|{1,j}))}}
         \\
-             & +
+        & +
         \sum_{1 \leq k \leq m}
         {(-1)^{m+k} [S(A)]_{1,m+k}
         \operatorname{pf} {((S(A))({1,m+k}|{1,m+k}))}}
@@ -2177,17 +2190,17 @@
         = {} &
         \sum_{1 \leq k \leq m}
         {(-1)^{m+k} [A]_{1,k}
-            \operatorname{pf} {(S(A(1|k)))}}
+        \operatorname{pf} {(S(A(1|k)))}}
         \\
         = {} &
         \sum_{1 \leq k \leq m}
         {(-1)^{m-1} (-1)^{1+k} [A]_{1,k}
-            \operatorname{pf} {(S(A(1|k)))}}
+        \operatorname{pf} {(S(A(1|k)))}}
         \\
         = {} &
         \sum_{1 \leq k \leq m}
         {(-1)^{1+k} [A]_{1,k}
-            (-1)^{m-1} \operatorname{pf} {(S(A(1|k)))}}.
+        (-1)^{m-1} \operatorname{pf} {(S(A(1|k)))}}.
     \end{align*}
     注意, \(A(1|k)\) 是 \(m-1\)~级阵.
     由假定,
@@ -2201,30 +2214,30 @@
         = {} &
         \sum_{1 \leq k \leq m}
         {(-1)^{1+k} [A]_{1,k}
-            (-1)^{m-1} \operatorname{pf} {(S(A(1|k)))}}
+        (-1)^{m-1} \operatorname{pf} {(S(A(1|k)))}}
         \\
         = {} &
         \sum_{1 \leq k \leq m}
         {(-1)^{1+k} [A]_{1,k}
-            (-1)^{m-1} (-1)^{(m-1)(m-2)/2} \det {(A(1|k))}}
+        (-1)^{m-1} (-1)^{(m-1)(m-2)/2} \det {(A(1|k))}}
         \\
         = {} &
         \sum_{1 \leq k \leq m}
         {(-1)^{1+k} [A]_{1,k}
-            (-1)^{m(m-1)/2} \det {(A(1|k))}}
+        (-1)^{m(m-1)/2} \det {(A(1|k))}}
         \\
         = {} &
         (-1)^{m(m-1)/2}
         \sum_{1 \leq k \leq m}
         {(-1)^{1+k} [A]_{1,k}
-            \det {(A(1|k))}}
+        \det {(A(1|k))}}
         \\
         = {} &
         (-1)^{m(m-1)/2} \det {(A)}.
     \end{align*}
 
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 
     最后, 不难看出,
     \(\det {(S(A))} = (\det {(A)})^2
@@ -2259,9 +2272,10 @@
         } = (-1)^{m(m-1)/2} \det {(A)}.
     \end{align*}
     特别地, 取 \(A = I_m\), 即知
-    \(K_m = \begin{bmatrix}
-        0    & I_m \\
-        -I_m & 0   \\
+    \(K_m =
+        \begin{bmatrix}
+            0    & I_m \\
+            -I_m & 0   \\
     \end{bmatrix}\)
     的 pfaffian 是 \((-1)^{m(m-1)/2}\).
 
@@ -2295,7 +2309,7 @@
 \begin{proof}
     作命题 \(P(k)\):
     对任何 \(2k-1\)~级反称阵 \(A\),
-    必 \(\operatorname{pf} {(A)} = 0\).
+    \(\operatorname{pf} {(A)} = 0\).
     我们用数学归纳法证明,
     对任何正整数 \(k\), \(P(k)\) 是对的.
 
@@ -2315,14 +2329,14 @@
         \\
         = {} &
         \sum_{j = 2}^{2k-1}
-            {(-1)^{j} [A]_{1,j}\, 0}
+        {(-1)^{j} [A]_{1,j}\, 0}
         \\
         = {} &
         0.
     \end{align*}
 
     所以, \(P(k)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 \begin{theorem}
@@ -2338,7 +2352,7 @@
 \begin{proof}
     作命题 \(P(m)\):
     对任何 \(2m\)~级反称阵 \(A\),
-    必 \(\operatorname{pf} {(xA)}
+    \(\operatorname{pf} {(xA)}
     = x^m \operatorname{pf} {(A)}\).
     我们用数学归纳法证明,
     对任何正整数 \(m\), \(P(m)\) 是对的.
@@ -2393,11 +2407,11 @@
     \end{align*}
 
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 \begin{theorem}
-    设 \(A\), \(B\), \(C\) 是三个 \(n\)~级反称阵.
+    设 \(A\), \(B\), \(C\) 是 \(3\)~个 \(n\)~级反称阵.
     设 \(q\) 是不超过 \(n\) 的正整数.
     设 \(s\), \(t\) 是数.
     设 \([A]_{i,j} = [B]_{i,j} = [C]_{i,j}\),
@@ -2406,9 +2420,9 @@
     若 \(i = q\) 或 \(j = q\).
     则
     \(
-    \operatorname{pf} {(C)}
-    = s \operatorname{pf} {(A)}
-    + t \operatorname{pf} {(B)}
+        \operatorname{pf} {(C)}
+        = s \operatorname{pf} {(A)}
+        + t \operatorname{pf} {(B)}
     \).
 \end{theorem}
 
@@ -2419,12 +2433,11 @@
     \begin{quotation}
         对任何数 \(s\), \(t\),
         对任何不超过 \(n\) 的正整数 \(q\),
-        对任何适合如下条件的三个 \(n\)~级反称阵 \(A\), \(B\), \(C\),
-        必有
+        对任何适合如下条件的 \(3\)~个 \(n\)~级反称阵 \(A\), \(B\), \(C\),
         \(
-        \operatorname{pf} {(C)}
-        = s \operatorname{pf} {(A)}
-        + t \operatorname{pf} {(B)}
+            \operatorname{pf} {(C)}
+            = s \operatorname{pf} {(A)}
+            + t \operatorname{pf} {(B)}
         \):
 
         (1)
@@ -2443,10 +2456,10 @@
     \(P(1)\) 不证自明.
 
     \(P(2)\) 是简单的.
-    无论 \(q = 1\) 或 \(q = 2\),
-    我们有 \([C]_{1,2} = s[A]_{1,2} + t[B]_{1,2}\).
-    则 \(\operatorname{pf} {(C)}
-    = s \operatorname{pf} {(A)}
+    若 \(q = 1\) 或 \(q = 2\),
+    则 \([C]_{1,2} = s[A]_{1,2} + t[B]_{1,2}\).
+    故 \(\operatorname{pf} {(C)}
+        = s \operatorname{pf} {(A)}
     + t \operatorname{pf} {(B)}\).
 
     综上, \(Q(2)\) 是对的.
@@ -2461,7 +2474,7 @@
     证 \(P(n)\) 是对的,
     得 \(Q(n)\) 是对的.
 
-    设 \(A\), \(B\), \(C\) 是三个 \(n\)~级反称阵.
+    设 \(A\), \(B\), \(C\) 是 \(3\)~个 \(n\)~级反称阵.
     设 \(q\) 是不超过 \(n\) 的正整数.
     设 \(s\), \(t\) 是数.
     设 \([A]_{i,j} = [B]_{i,j} = [C]_{i,j}\),
@@ -2475,7 +2488,7 @@
     对 \(j > 1\).
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(C)}
         \\
         = {} &
@@ -2522,7 +2535,7 @@
 
     (1\('\))
     \([A({1,j}|{1,j})]_{u,v}
-    = [B({1,j}|{1,j})]_{u,v}
+        = [B({1,j}|{1,j})]_{u,v}
     = [C({1,j}|{1,j})]_{u,v}\),
     对任何不等于 \(q' = q - \rho(q, 1) - \rho(q, j)
     = q - 1 - \rho(q, j)\),
@@ -2530,7 +2543,7 @@
 
     (2\('\))
     \([C({1,j}|{1,j})]_{u,v}
-    = s [A({1,j}|{1,j})]_{u,v}
+        = s [A({1,j}|{1,j})]_{u,v}
     + t [B({1,j}|{1,j})]_{u,v}\),
     若 \(u = q'\) 或 \(v = q'\).
 
@@ -2545,9 +2558,9 @@
     \([C]_{1,j} = s[A]_{1,j} + t[B]_{1,j}\),
     且 \(C({1,j}|{1,j}) = A({1,j}|{1,j}) = B({1,j}|{1,j})\).
 
-    综上, 我们有
+    综上,
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(C)}
         \\
         = {} &
@@ -2559,7 +2572,7 @@
         (-1)^q [C]_{1,q}
         \operatorname{pf} {(C({1,q}|{1,q}))}
         +
-        \sum_{\substack{2 \leq j \leq n     \\j \neq q}}
+        \sum_{\substack{2 \leq j \leq n \\ j \neq q}}
         {(-1)^j [C]_{1,j}
         \operatorname{pf} {(C({1,j}|{1,j}))}}
         \\
@@ -2568,12 +2581,12 @@
         (-1)^q (s[A]_{1,q} + t[B]_{1,q})
         \operatorname{pf} {(C({1,q}|{1,q}))}
         \\
-             &
+        &
         +
-        \sum_{\substack{2 \leq j \leq n     \\j \neq q}}
+        \sum_{\substack{2 \leq j \leq n \\ j \neq q}}
         {(-1)^j [C]_{1,j}
-        (s \operatorname{pf} {(A({1,j}|{1,j}))}
-        + t \operatorname{pf} {(B({1,j}|{1,j}))})
+            (s \operatorname{pf} {(A({1,j}|{1,j}))}
+            + t \operatorname{pf} {(B({1,j}|{1,j}))})
         }
         \\
         = {} &
@@ -2583,15 +2596,15 @@
         + t (-1)^q [B]_{1,q}
         \operatorname{pf} {(C({1,q}|{1,q}))}
         \\
-             &
+        &
         +
-        s \sum_{\substack{2 \leq j \leq n   \\j \neq q}}
+        s \sum_{\substack{2 \leq j \leq n \\ j \neq q}}
         {(-1)^j [C]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))}
+            \operatorname{pf} {(A({1,j}|{1,j}))}
         }
-        + t \sum_{\substack{2 \leq j \leq n \\j \neq q}}
+        + t \sum_{\substack{2 \leq j \leq n \\ j \neq q}}
         {(-1)^j [C]_{1,j}
-        \operatorname{pf} {(B({1,j}|{1,j}))}
+            \operatorname{pf} {(B({1,j}|{1,j}))}
         }
         \\
         = {} &
@@ -2601,26 +2614,26 @@
         + t (-1)^q [B]_{1,q}
         \operatorname{pf} {(B({1,q}|{1,q}))}
         \\
-             &
+        &
         +
-        s \sum_{\substack{2 \leq j \leq n   \\j \neq q}}
+        s \sum_{\substack{2 \leq j \leq n \\ j \neq q}}
         {(-1)^j [A]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))}
+            \operatorname{pf} {(A({1,j}|{1,j}))}
         }
-        + t \sum_{\substack{2 \leq j \leq n \\j \neq q}}
+        + t \sum_{\substack{2 \leq j \leq n \\ j \neq q}}
         {(-1)^j [B]_{1,j}
-        \operatorname{pf} {(B({1,j}|{1,j}))}
+            \operatorname{pf} {(B({1,j}|{1,j}))}
         }
         \\
         = {} &
         s \sum_{j=2}^{n}
         {(-1)^j [A]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))}
+            \operatorname{pf} {(A({1,j}|{1,j}))}
         }
         +
         t \sum_{j=2}^{n}
         {(-1)^j [B]_{1,j}
-        \operatorname{pf} {(B({1,j}|{1,j}))}
+            \operatorname{pf} {(B({1,j}|{1,j}))}
         }
         \\
         = {} &
@@ -2630,26 +2643,24 @@
 
     所以, \(P(n)\) 是对的.
     则 \(Q(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
     % a manual line break
 
 \end{proof}
 
 特别地, 若我们取 \(A = B\), 且 \(t = 0\),
-我们有
+我们得
 
 % restatable
-\begin{restatable}{theorem}{TheoremPfaffianMulitply}
-    设 \(A\), \(C\) 是二个 \(n\)~级反称阵.
+\begin{restatable}{theorem}{TheoremPfaffianMultiply}
+    设 \(A\), \(C\) 是 \(2\)~个 \(n\)~级反称阵.
     设 \(q\) 是不超过 \(n\) 的正整数.
     设 \(s\) 是数.
     设 \([C]_{i,j} = [A]_{i,j}\),
     对任何不等于 \(q\), 且不超过 \(n\) 的正整数 \(i\), \(j\);
     设 \([C]_{i,j} = s[A]_{i,j}\),
     若 \(i = q\) 或 \(j = q\).
-    则
-    \(\operatorname{pf} {(C)}
-    = s \operatorname{pf} {(A)}\).
+    则 \(\operatorname{pf} {(C)} = s \operatorname{pf} {(A)}\).
 \end{restatable}
 
 \begin{theorem}
@@ -2659,7 +2670,7 @@
     设交换 \(B\) 的行~\(p\), \(q\), 且不改变别的行, 得阵~\(C\).
     则 \(C\) 是反称阵, 且
     \(
-    \operatorname{pf} {(C)} = -\operatorname{pf} {(A)}
+        \operatorname{pf} {(C)} = -\operatorname{pf} {(A)}
     \).
 \end{theorem}
 
@@ -2693,7 +2704,7 @@
     \([C]_{i,j} = [B]_{i,j} = [A]_{i,j}\).
     则
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{i,j} + [A]_{j,i} = 0\),
+    = [A]_{i,j} + [A]_{j,i} = 0\),
     且 \([C]_{i,i} = [A]_{i,i} = 0\).
 
     当 \(i = p\), \(j \neq p\), 且 \(j \neq q\) 时,
@@ -2703,10 +2714,10 @@
     则%
     当 \(i = p\), \(j \neq p\), 且 \(j \neq q\) 时,
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{q,j} + [A]_{j,q} = 0\);
+    = [A]_{q,j} + [A]_{j,q} = 0\);
     当 \(j = p\), \(i \neq p\), 且 \(i \neq q\) 时,
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{i,q} + [A]_{q,i} = 0\).
+    = [A]_{i,q} + [A]_{q,i} = 0\).
 
     当 \(i = q\), \(j \neq p\), 且 \(j \neq q\) 时,
     \([C]_{i,j} = [B]_{p,j} = [A]_{p,j}\);
@@ -2715,10 +2726,10 @@
     则%
     当 \(i = q\), \(j \neq p\), 且 \(j \neq q\) 时,
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{p,j} + [A]_{j,p} = 0\);
+    = [A]_{p,j} + [A]_{j,p} = 0\);
     当 \(j = q\), \(i \neq p\), 且 \(i \neq q\) 时,
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{i,p} + [A]_{p,i} = 0\).
+    = [A]_{i,p} + [A]_{p,i} = 0\).
 
     当 \(i = p\), 且 \(j = p\) 时,
     \([C]_{i,j} = [B]_{q,p} = [A]_{q,q} = 0\);
@@ -2732,14 +2743,14 @@
     则%
     当 \(i = p\), 且 \(j = q\) 时,
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{q,p} + [A]_{p,q} = 0\);
+    = [A]_{q,p} + [A]_{p,q} = 0\);
     当 \(i = q\), 且 \(j = p\) 时,
     \([C]_{i,j} + [C]_{j,i}
-        = [A]_{p,q} + [A]_{q,p} = 0\).
+    = [A]_{p,q} + [A]_{q,p} = 0\).
 
     我们再说明
     \(
-    \operatorname{pf} {(C)} = -\operatorname{pf} {(A)}
+        \operatorname{pf} {(C)} = -\operatorname{pf} {(A)}
     \).
     以下, 我们无妨设 \(p < q\).
 
@@ -2753,7 +2764,7 @@
         且不改变别的行得到的阵,
         则
         \(
-        \operatorname{pf} {(C)} = -\operatorname{pf} {(A)}
+            \operatorname{pf} {(C)} = -\operatorname{pf} {(A)}
         \).
     \end{quotation}
     再作命题 \(Q(n)\):
@@ -2762,25 +2773,25 @@
     对任何高于 \(1\) 的整数 \(n\), \(Q(n)\) 是对的.
 
     \(P(1)\) 不证自明.
-    既然没有二列或二行可交换,
+    既然没有 \(2\)~列或 \(2\)~行可交换,
     我们认为, 它是平凡地对的.
 
     \(P(2)\) 是简单的.
     既然 \(n = 2\), 且 \(1 \leq p < q \leq n\),
     则 \(p = 1\), 且 \(q = 2\).
     不难写出, 若 \(A =
-    \begin{bmatrix}
-        0  & a \\
-        -a & 0 \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            0  & a \\
+            -a & 0 \\
+        \end{bmatrix}
     \),
     则交换列~\(1\), \(2\),
     并交换行~\(1\), \(2\) 后,
-    我们有 \(C =
-    \begin{bmatrix}
-        0 & -a \\
-        a & 0  \\
-    \end{bmatrix}
+    我们得 \(C =
+        \begin{bmatrix}
+            0 & -a \\
+            a & 0  \\
+        \end{bmatrix}
     \).
     则
     \begin{align*}
@@ -2811,17 +2822,17 @@
     \(p = 1\), 且 \(q = 2\).
     当 \(d_1 > 2\), \(d_2 > 2\), 且 \(d_2 \neq d_1\) 时,
     \([A]_{2,d_2}\) 是 \(A({1,d_1}|{1,d_1})\)
-    的 \((1, d_2 - 1 - \rho (d_2, d_1))\)-元.
+    的 \((1, d_2 - 1 - \rho(d_2, d_1))\)-元.
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(A)}
         \\
         = {} &
         \sum_{2 \leq d_1 \leq n}
         {
-        (-1)^{d_1} [A]_{1,d_1}
-        \operatorname{pf} {(A({1,d_1}|{1,d_1}))}
+            (-1)^{d_1} [A]_{1,d_1}
+            \operatorname{pf} {(A({1,d_1}|{1,d_1}))}
         }
         \\
         = {} &
@@ -2830,8 +2841,8 @@
         +
         \sum_{3 \leq d_1 \leq n}
         {
-        (-1)^{d_1} [A]_{1,d_1}
-        \operatorname{pf} {(A({1,d_1}|{1,d_1}))}
+            (-1)^{d_1} [A]_{1,d_1}
+            \operatorname{pf} {(A({1,d_1}|{1,d_1}))}
         }
         \\
         = {} &
@@ -2839,18 +2850,18 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq d_1 \leq n}
         {
             (-1)^{d_1} [A]_{1,d_1}
-        \sum_{\substack{3 \leq d_2 \leq n      \\d_2 \neq d_1}}
+            \sum_{\substack{3 \leq d_2 \leq n \\ d_2 \neq d_1}}
             {
                 (-1)^{d_2 - 1 - \rho(d_2, d_1)}
             }
         }
         \\
-             &
+        &
         \qquad \qquad \qquad
         \qquad \qquad \qquad
         \cdot
@@ -2862,19 +2873,19 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq d_1 \leq n}
         {
-        \sum_{\substack{3 \leq d_2 \leq n      \\d_2 \neq d_1}}
+            \sum_{\substack{3 \leq d_2 \leq n \\ d_2 \neq d_1}}
             {
                 (-1)^{d_1}
-                    [A]_{1,d_1}
+                [A]_{1,d_1}
                 (-1)^{d_2 - 1 - \rho(d_2, d_1)}
             }
         }
         \\
-             &
+        &
         \qquad \qquad \qquad
         \qquad \qquad \qquad
         \cdot
@@ -2886,13 +2897,13 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
-        \sum_{\substack{3 \leq d_1, d_2 \leq n \\d_2 \neq d_1}}
+        \sum_{\substack{3 \leq d_1, d_2 \leq n \\ d_2 \neq d_1}}
         {
-        (-1)^{d_1 + d_2 - 1 - \rho(d_2, d_1)}
+            (-1)^{d_1 + d_2 - 1 - \rho(d_2, d_1)}
             [A]_{1,d_1} [A]_{2,d_2}
-        \operatorname{pf} {(A({1,2,d_1,d_2}|{1,2,d_1,d_2}))}
+            \operatorname{pf} {(A({1,2,d_1,d_2}|{1,2,d_1,d_2}))}
         }
         \\
         = {} &
@@ -2900,22 +2911,22 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq d_1 < d_2 \leq n}
         {
-        (-1)^{d_1 + d_2 - 1 - \rho(d_2, d_1)}
+            (-1)^{d_1 + d_2 - 1 - \rho(d_2, d_1)}
             [A]_{1,d_1} [A]_{2,d_2}
-        \operatorname{pf} {(A({1,2,d_1,d_2}|{1,2,d_1,d_2}))}
+            \operatorname{pf} {(A({1,2,d_1,d_2}|{1,2,d_1,d_2}))}
         }
         \\
-             &
+        &
         +
         \sum_{3 \leq d_2 < d_1 \leq n}
         {
-        (-1)^{d_1 + d_2 - 1 - \rho(d_2, d_1)}
+            (-1)^{d_1 + d_2 - 1 - \rho(d_2, d_1)}
             [A]_{1,d_1} [A]_{2,d_2}
-        \operatorname{pf} {(A({1,2,d_1,d_2}|{1,2,d_1,d_2}))}
+            \operatorname{pf} {(A({1,2,d_1,d_2}|{1,2,d_1,d_2}))}
         }
         \\
         = {} &
@@ -2923,22 +2934,22 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k - 1 - 1}
+            (-1)^{j + k - 1 - 1}
             [A]_{1,j} [A]_{2,k}
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{k + j - 1}
+            (-1)^{k + j - 1}
             [A]_{1,k} [A]_{2,j}
-        \operatorname{pf} {(A({1,2,k,j}|{1,2,k,j}))}
+            \operatorname{pf} {(A({1,2,k,j}|{1,2,k,j}))}
         }
         \\
         = {} &
@@ -2946,22 +2957,22 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
+            (-1)^{j + k}
             [A]_{1,j} [A]_{2,k}
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
-        (-1) [A]_{1,k} [A]_{2,j}
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}
+            (-1) [A]_{1,k} [A]_{2,j}
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }
         \\
         = {} &
@@ -2969,13 +2980,13 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}\,
-        ([A]_{1,j} [A]_{2,k} - [A]_{1,k} [A]_{2,j})
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}\,
+            ([A]_{1,j} [A]_{2,k} - [A]_{1,k} [A]_{2,j})
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }
         \\
         = {} &
@@ -2983,18 +2994,18 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
-        \det {
-            \begin{bmatrix}
-                [A]_{1,j} & [A]_{1,k} \\
-                [A]_{2,j} & [A]_{2,k} \\
-            \end{bmatrix}
-        }
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}
+            \det {
+                \begin{bmatrix}
+                    [A]_{1,j} & [A]_{1,k} \\
+                    [A]_{2,j} & [A]_{2,k} \\
+                \end{bmatrix}
+            }
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }.
     \end{align*}
     类似地,
@@ -3007,18 +3018,18 @@
         [C]_{1,2}
         \operatorname{pf} {(C({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
-        \det {
-            \begin{bmatrix}
-                [C]_{1,j} & [C]_{1,k} \\
-                [C]_{2,j} & [C]_{2,k} \\
-            \end{bmatrix}
-        }
-        \operatorname{pf} {(C({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}
+            \det {
+                \begin{bmatrix}
+                    [C]_{1,j} & [C]_{1,k} \\
+                    [C]_{2,j} & [C]_{2,k} \\
+                \end{bmatrix}
+            }
+            \operatorname{pf} {(C({1,2,j,k}|{1,2,j,k}))}
         }.
     \end{align*}
     注意, \([C]_{1,2} = -[A]_{1,2}\),
@@ -3039,18 +3050,18 @@
         {-} [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
-        \det {
-            \begin{bmatrix}
-                [A]_{2,j} & [A]_{2,k} \\
-                [A]_{1,j} & [A]_{1,k} \\
-            \end{bmatrix}
-        }
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}
+            \det {
+                \begin{bmatrix}
+                    [A]_{2,j} & [A]_{2,k} \\
+                    [A]_{1,j} & [A]_{1,k} \\
+                \end{bmatrix}
+            }
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }.
     \end{align*}
     由此可见, \(\operatorname{pf} {(C)}
@@ -3060,14 +3071,14 @@
     \(2 \leq p = q - 1 \leq n - 1\).
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(A)}
         \\
         = {} &
         \sum_{2 \leq j \leq n}
         {
-        (-1)^{j} [A]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))}
+            (-1)^{j} [A]_{1,j}
+            \operatorname{pf} {(A({1,j}|{1,j}))}
         }
         \\
         = {} &
@@ -3078,17 +3089,17 @@
         (-1)^{p+1} [A]_{1,p+1}
         \operatorname{pf} {(A({1,p+1}|{1,p+1}))}
         \\
-             &
+        &
         +
         \sum_{\substack{2 \leq j \leq n \\ j \neq p, p+1}}
         {
-        (-1)^{j} [A]_{1,j}
-        \operatorname{pf} {(A({1,j}|{1,j}))}
+            (-1)^{j} [A]_{1,j}
+            \operatorname{pf} {(A({1,j}|{1,j}))}
         }.
     \end{align*}
     类似地,
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(C)}
         \\
         = {} &
@@ -3099,12 +3110,12 @@
         (-1)^{p+1} [C]_{1,p+1}
         \operatorname{pf} {(C({1,p+1}|{1,p+1}))}
         \\
-             &
+        &
         +
         \sum_{\substack{2 \leq j \leq n \\ j \neq p, p+1}}
         {
-        (-1)^{j} [C]_{1,j}
-        \operatorname{pf} {(C({1,j}|{1,j}))}
+            (-1)^{j} [C]_{1,j}
+            \operatorname{pf} {(C({1,j}|{1,j}))}
         }.
     \end{align*}
     注意,
@@ -3118,16 +3129,16 @@
     可被认为是交换
     \(A({1,j}|{1,j})\) 的列~\(p'\), \(p'+1\),
     并交换行~\(p'\), \(p'+1\) 得到的反称阵
-    (其中, \(p' = p - \rho (p, 1) - \rho(p, j)
+    (其中, \(p' = p - \rho(p, 1) - \rho(p, j)
     = p - 1 - \rho(p, j)\)).
     由假定,
     \(
-    \operatorname{pf} {(C({1,j}|{1,j}))}
-    = (-1) \operatorname{pf} {(A({1,j}|{1,j}))}
+        \operatorname{pf} {(C({1,j}|{1,j}))}
+        = (-1) \operatorname{pf} {(A({1,j}|{1,j}))}
     \).
     故
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(C)}
         \\
         = {} &
@@ -3138,12 +3149,12 @@
         (-1)^{p+1} [A]_{1,p}
         \operatorname{pf} {(A({1,p}|{1,p}))}
         \\
-             &
+        &
         +
         \sum_{\substack{2 \leq j \leq n \\ j \neq p, p+1}}
         {
-        (-1)^{j} [A]_{1,j}
-        (-1) \operatorname{pf} {(A({1,j}|{1,j}))}
+            (-1)^{j} [A]_{1,j}
+            (-1) \operatorname{pf} {(A({1,j}|{1,j}))}
         }.
     \end{align*}
     由此可见, \(\operatorname{pf} {(C)}
@@ -3199,12 +3210,12 @@
     不难看出, \(C = G_{q-p-1}\).
     所以,
     \(\operatorname{pf} {(C)}
-    = (-1)^{2(q-p)-1} \operatorname{pf} {(A)}
+        = (-1)^{2(q-p)-1} \operatorname{pf} {(A)}
     = -\operatorname{pf} {(A)}\).
 
     所以, \(P(n)\) 是对的.
     则 \(Q(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
     % a manual line break
 
 \end{proof}
@@ -3233,18 +3244,18 @@
         [A]_{1,2}
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
-        \det {
-            \begin{bmatrix}
-                [A]_{1,j} & [A]_{1,k} \\
-                [A]_{2,j} & [A]_{2,k} \\
-            \end{bmatrix}
-        }
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}
+            \det {
+                \begin{bmatrix}
+                    [A]_{1,j} & [A]_{1,k} \\
+                    [A]_{2,j} & [A]_{2,k} \\
+                \end{bmatrix}
+            }
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }.
     \end{align*}
     因为 \(A\) 的列~\(1\), \(2\) 相等,
@@ -3261,14 +3272,14 @@
         0
         \operatorname{pf} {(A({1,2}|{1,2}))}
         \\
-             &
+        &
         +
         \sum_{3 \leq j < k \leq n}
         {
-        (-1)^{j + k}
-        \,
-        0
-        \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
+            (-1)^{j + k}
+            \,
+            0
+            \operatorname{pf} {(A({1,2,j,k}|{1,2,j,k}))}
         }
         \\
         = {} &
@@ -3287,7 +3298,7 @@
     设交换 \(A\) 的列~\(u\), \(v\), 且不改变别的列, 得阵~\(B\).
     设交换 \(B\) 的行~\(u\), \(v\), 且不改变别的行,
     得反称阵~\(C\).
-    则 \(C\) 仍有二列相同 (当然, 也有二行相同).
+    则 \(C\) 仍有 \(2\)~列相同 (当然, 也有 \(2\)~行相同).
 
     首先, 如上个定理的论证,
     我们可具体地写下 \(C\) 的元:
@@ -3295,40 +3306,40 @@
         [C]_{i,j} =
         \begin{cases}
             [A]_{i,j},
-             &
+            &
             \text{\(i \neq u\), \(i \neq v\), \(j \neq u\),
-                且 \(j \neq v\)};
+            且 \(j \neq v\)};
             \\
             [A]_{v,j},
-             &
+            &
             \text{\(i = u\), \(j \neq u\), 且 \(j \neq v\)};
             \\
             [A]_{i,v},
-             &
+            &
             \text{\(j = u\), \(i \neq u\), 且 \(i \neq v\)};
             \\
             [A]_{u,j},
-             &
+            &
             \text{\(i = v\), \(j \neq u\), 且 \(j \neq v\)};
             \\
             [A]_{i,u},
-             &
+            &
             \text{\(j = v\), \(i \neq u\), 且 \(i \neq v\)};
             \\
             [A]_{v,v},
-             &
+            &
             \text{\(i = j = u\)};
             \\
             [A]_{u,u},
-             &
+            &
             \text{\(i = j = v\)};
             \\
             [A]_{v,u},
-             &
+            &
             \text{\(i = u\), 且 \(j = v\)};
             \\
             [A]_{u,v},
-             &
+            &
             \text{\(i = v\), 且 \(j = u\)}.
         \end{cases}
     \end{align*}
@@ -3395,7 +3406,7 @@
 这是重要的.
 
 % restatable
-\begin{restatable}{theorem}{TheoremPfaffianMulitplyAndAdd}
+\begin{restatable}{theorem}{TheoremPfaffianMultipljad}
     设 \(A\) 是 \(n\)~级反称阵.
     加 \(A\) 的列~\(p\) 的 \(s\)~倍于列~\(q\)
     (\(p \neq q\)),
@@ -3410,32 +3421,32 @@
     且不改变别的列, 得 \(n\)~级阵 \(B\).
     则
     \begin{align*}
-        [B]_{i,j}
-        = \begin{cases}
-              [A]_{i,j},              & j \neq q; \\
-              [A]_{i,q} + s[A]_{i,p}, & j = q.
-          \end{cases}
+        [B]_{i,j} =
+        \begin{cases}
+            [A]_{i,j},              & j \neq q; \\
+            [A]_{i,q} + s[A]_{i,p}, & j = q.
+        \end{cases}
     \end{align*}
     加 \(B\) 的行~\(p\) 的 \(s\)~倍于行~\(q\),
     且不改变别的行, 得 \(n\)~级阵 \(C\).
     则 \(C\) 是反称阵, 且
     \begin{align*}
-        [C]_{i,j}
-        = \begin{cases}
-              [B]_{i,j},              & i \neq q; \\
-              [B]_{q,j} + s[B]_{p,j}, & i = q.
-          \end{cases}
+        [C]_{i,j} =
+        \begin{cases}
+            [B]_{i,j},              & i \neq q; \\
+            [B]_{q,j} + s[B]_{p,j}, & i = q.
+        \end{cases}
     \end{align*}
     当 \(i = q\), 且 \(j \neq q\) 时,
     \(
-    [C]_{i,j}
+        [C]_{i,j}
         = [B]_{q,j} + s[B]_{p,j}
-        = [A]_{q,j} + s[A]_{p,j}\);
+    = [A]_{q,j} + s[A]_{p,j}\);
     当 \(j = q\), 且 \(i \neq q\) 时,
     \(
-    [C]_{i,j}
+        [C]_{i,j}
         = [B]_{i,q}
-        = [A]_{i,q} + s[A]_{i,p}\);
+    = [A]_{i,q} + s[A]_{i,p}\);
     当 \(i \neq q\), 且 \(j \neq q\) 时,
     \([C]_{i,j} = [B]_{i,j} = [A]_{i,j}\);
     当 \(i = q = j\) 时,
@@ -3515,7 +3526,7 @@
 反称阵的行列式与 pfaffian 有如下关系.
 
 % restatable
-\begin{restatable}{theorem}{TheoremPfaffianSquareDet}
+\begin{restatable}{theorem}{TheoremPfaffianSquaredIsDet}
     设 \(A\) 是 \(n\)~级反称阵.
     则 \(\det {(A)}
     = (\operatorname{pf} {(A)})^2\).
@@ -3560,7 +3571,7 @@
     当 \(S\) 是 ``可比'' 时, \(S\)-数是可比数;
     当 \(S\) 是 ``实'' 时, \(S\)-数是实数;
     当 \(S\) 是 ``复'' 时, \(S\)-数是复数.
-    于是, 二个 \(S\)-数的和、差、积还是 \(S\)-数.
+    于是, \(2\)~个 \(S\)-数的和、差、积还是 \(S\)-数.
 
     若一个阵的元全为 \(S\)-数,
     我们说, 此阵是一个 \(S\)-阵.
@@ -3594,9 +3605,9 @@
     \begin{align*}
         \operatorname{pf} {(A)}
         =
-        \sum_{\substack{1 \leq j \leq n \\j \neq i}}
+        \sum_{\substack{1 \leq j \leq n \\ j \neq i}}
         {
-        (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
+            (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}.
     \end{align*}
 \end{theorem}
@@ -3611,20 +3622,20 @@
     并交换行~\(i-1\), \(i\),
     得反称阵~\(C_1\).
     则 \(\operatorname{pf} {(C_1)}
-    = -\operatorname{pf} {(A)}
+        = -\operatorname{pf} {(A)}
     = (-1)^1 \operatorname{pf} {(A)}\).
     交换 \(C_1\) 的列~\(i-2\), \(i-1\),
     并交换行~\(i-2\), \(i-1\),
     得反称阵~\(C_2\).
     则 \(\operatorname{pf} {(C_2)}
-    = -\operatorname{pf} {(C_1)}
+        = -\operatorname{pf} {(C_1)}
     = (-1)^2 \operatorname{pf} {(A)}\).
     ……
     交换 \(C_{i-2}\) 的列~\(1\), \(2\),
     并交换行~\(1\), \(2\),
     得反称阵~\(C_{i-1}\).
     则 \(\operatorname{pf} {(C_{i-1})}
-    = -\operatorname{pf} {(C_{i-2})}
+        = -\operatorname{pf} {(C_{i-2})}
     = (-1)^{i-1} \operatorname{pf} {(A)}\).
     记 \(C = C_{i-1}\).
     则 \(\operatorname{pf} {(A)}
@@ -3658,7 +3669,7 @@
 
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(C)}
         \\
         = {} &
@@ -3706,7 +3717,7 @@
         \operatorname{pf} {(A({i,j}|{i,j}))}}
         \\
         = {} &
-        \sum_{\substack{1 \leq j \leq n \\j \neq i}}
+        \sum_{\substack{1 \leq j \leq n \\ j \neq i}}
         {(-1)^{j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}.
     \end{align*}
@@ -3719,21 +3730,21 @@
         \\
         = {} &
         (-1)^{i-1}
-        \sum_{\substack{1 \leq j \leq n \\j \neq i}}
+        \sum_{\substack{1 \leq j \leq n \\ j \neq i}}
         {(-1)^{j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}
         \\
         = {} &
-        \sum_{\substack{1 \leq j \leq n \\j \neq i}}
+        \sum_{\substack{1 \leq j \leq n \\ j \neq i}}
         {
-        (-1)^{i-1}
-        (-1)^{j+\rho(i,j)}\, [A]_{i,j}
+            (-1)^{i-1}
+            (-1)^{j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}
         \\
         = {} &
-        \sum_{\substack{1 \leq j \leq n \\j \neq i}}
+        \sum_{\substack{1 \leq j \leq n \\ j \neq i}}
         {
-        (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
+            (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}.
         \qedhere
     \end{align*}
@@ -3743,25 +3754,25 @@
     设 \(A\) 是 \(n\)~级反称阵 (\(n > 2\)).
     注意, \([A]_{i,j} = -[A]_{j,i}\).
     于是, 若 \(j\) 是不超过 \(n\) 的正整数,
-    由按行~\(j\) 展开, 有
+    由按行~\(j\) 展开,
     \begin{align*}
         \operatorname{pf} {(A)}
         = {} &
-        \sum_{\substack{1 \leq i \leq n \\i \neq j}}
+        \sum_{\substack{1 \leq i \leq n \\ i \neq j}}
         {
-        (-1)^{j-1+i+\rho(j,i)}\, [A]_{j,i}
+            (-1)^{j-1+i+\rho(j,i)}\, [A]_{j,i}
         \operatorname{pf} {(A({j,i}|{j,i}))}}
         \\
         = {} &
-        \sum_{\substack{1 \leq i \leq n \\i \neq j}}
+        \sum_{\substack{1 \leq i \leq n \\ i \neq j}}
         {
-        (-1)^{i-1+j+1-\rho(i,j)}\, (-[A]_{i,j})
+            (-1)^{i-1+j+1-\rho(i,j)}\, (-[A]_{i,j})
         \operatorname{pf} {(A({i,j}|{i,j}))}}
         \\
         = {} &
-        \sum_{\substack{1 \leq i \leq n \\i \neq j}}
+        \sum_{\substack{1 \leq i \leq n \\ i \neq j}}
         {
-        (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
+            (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}.
     \end{align*}
     形式地, 这是按列~\(j\) 展开 pfaffian.
@@ -3773,20 +3784,20 @@
 本节, 我们进一步地讨论阵的积与倍加的关系.
 并且, 我们会讨论新的行为, 倍乘.
 
-回想, 我们有如下结论.
+回想,
 
 % subfile fix: repeat restatable
 % see:
 % postrakonto - ecoj de determinantoj.tex
 \ifSubfilesClassLoaded{%
-    \begin{restatable}{theorem}{TheoremMultiplyAndAdd}
+    \begin{restatable}{theorem}{TheoremMultipljad}
         设 \(A\) 是一个 \(m \times n\)~阵.
         利用若干次 (列的) 倍加,
         我们可变 \(A\) 为一个 \(m \times n\)~阵 \(B\),
         使当 \(i < j\) 时,
         \([B]_{i,j} = 0\).
     \end{restatable}
-}{\TheoremMultiplyAndAdd*}
+}{\TheoremMultipljad*}
 
 % 完全类似地, 或用转置, 我们可证
 
@@ -3841,7 +3852,7 @@
 通俗地, 对 \(m \times n\)~阵,
 我们总可作列的倍加, 以变一些元为 \(0\).
 
-若我们既作列的倍加, 且也作行的倍加, 则我们有
+若我们既作列的倍加, 且也作行的倍加, 则我们得
 
 \begin{theorem}
     设 \(A\) 是一个 \(m \times n\)~阵.
@@ -3962,7 +3973,7 @@
     所以, 当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
 
     所以, \(P(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 注意,
@@ -3994,15 +4005,15 @@
 \begin{theorem}
     设 \(A\) 是一个 \(m \times n\) 阵.
     则存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(G_1\), \(G_2\), \(\dots\), \(G_u\),
     与若干个形如 \(E(m; p', q'; s')\)
-    (\(s'\) 是一个数,
+    (\(s'\) 是一个数, % tex-fmt: skip
     \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
-    且 \(p' \neq q'\))
+    且 \(p' \neq q'\)) % tex-fmt: skip
     的阵
     \(H_1\), \(H_2\), \(\dots\), \(H_u\),
     使当 \(i \neq j\) 时,
@@ -4012,15 +4023,15 @@
 \begin{proof}
     由上个定理,
     存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(G_1\), \(G_2\), \(\dots\), \(G_u\),
     与若干个形如 \(E(m; p', q'; s')\)
-    (\(s'\) 是一个数,
+    (\(s'\) 是一个数, % tex-fmt: skip
     \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
-    且 \(p' \neq q'\))
+    且 \(p' \neq q'\)) % tex-fmt: skip
     的阵
     \(H_1\), \(H_2\), \(\dots\), \(H_u\),
     使
@@ -4071,21 +4082,21 @@
     则 \(E(n; p, q; -s) E(n; p, q; s) = I_n\).
 \end{proof}
 
-由此, 我们有
+由此,
 
 % restatable
-\begin{restatable}{theorem}{TheoremMultiplyMultiplyAddUnu}
+\begin{restatable}{theorem}{TheoremMultiplyAndMultipljadVersionOne}
     设 \(A\) 是一个 \(m \times n\) 阵.
     则存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_u\),
     与若干个形如 \(E(m; p', q'; s')\)
-    (\(s'\) 是一个数,
+    (\(s'\) 是一个数, % tex-fmt: skip
     \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
-    且 \(p' \neq q'\))
+    且 \(p' \neq q'\)) % tex-fmt: skip
     的阵
     \(F_1\), \(F_2\), \(\dots\), \(F_u\),
     与 \(m \times n\)~阵 \(D\),
@@ -4098,13 +4109,13 @@
     我们知道,
     存在若干个形如 \(E(n; p, q; s)\)
     (\(s\) 是一个数,
-    \(p\), \(q\) 是不超过 \(n\) 的正整数,
+    \(p\), \(q\) 是不超过 \(n\) 的正整数, % tex-fmt: skip
     且 \(p \neq q\))
     的阵
     \(G_1\), \(G_2\), \(\dots\), \(G_u\),
     与若干个形如 \(E(m; p', q'; s')\)
     (\(s'\) 是一个数,
-    \(p'\), \(q'\) 是不超过 \(m\) 的正整数,
+    \(p'\), \(q'\) 是不超过 \(m\) 的正整数, % tex-fmt: skip
     且 \(p' \neq q'\))
     的阵
     \(H_1\), \(H_2\), \(\dots\), \(H_u\),
@@ -4253,7 +4264,7 @@
     (列的) \emph{倍乘}.
 \end{definition}
 
-由上个定理, 我们有
+由上个定理,
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -4287,7 +4298,7 @@
     为 \(A\), \(M(n; q; s)\) 即可.
 \end{proof}
 
-由此, 我们有
+由此,
 
 \begin{theorem}
     设 \(D\) 是 \(n\)~级阵,
@@ -4328,20 +4339,17 @@
 \end{proof}
 
 % restatable
-\begin{restatable}{theorem}{TheoremMultiplyMultiplyAddDu}
+\begin{restatable}{theorem}{TheoremMultiplyAndMultipljadVersionTwo}
     设 \(A\) 是一个 \(n\)~级阵.
     则存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
-    \(E_1\),
-    \(F_1\),
-    \(E_2\),
-    \(F_2\),
+    \(E_1\), \(F_1\),
+    \(E_2\), \(F_2\),
     \(\dots\),
-    \(E_u\),
-    \(F_u\),
+    \(E_u\), \(F_u\),
     与若干个形如 \(M(n; q'; s')\) 的阵
     \(M_1\), \(M_2\), \(\dots\), \(M_n\),
     使
@@ -4356,15 +4364,15 @@
 \begin{proof}
     我们知道, 对 \(n\)~级阵 \(A\),
     存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_u\),
     与若干个形如 \(E(n; p', q'; s')\)
-    (\(s'\) 是一个数,
+    (\(s'\) 是一个数, % tex-fmt: skip
     \(p'\), \(q'\) 是不超过 \(n\) 的正整数,
-    且 \(p' \neq q'\))
+    且 \(p' \neq q'\)) % tex-fmt: skip
     的阵
     \(F_1\), \(F_2\), \(\dots\), \(F_u\),
     与 \(n\)~级阵 \(D\),
@@ -4402,7 +4410,7 @@
     且不等的正整数.
 
     对 \(A\),
-    加列~\(q\) 到列~\(p\),
+    加列~\(q\) 于列~\(p\),
     得 \(m \times n\)~阵 \(A_1\).
     则当 \(j \neq p\) 且 \(j \neq q\) 时,
     \(A_1\) 的列~\(j\) 是 \(A\) 的列~\(j\);
@@ -4413,7 +4421,7 @@
     \(A_1\) 的列~\(j\) 是 \(A\) 的列~\(q\).
 
     对 \(A_1\),
-    加列~\(p\) 的 \(-1\)~倍到列~\(q\),
+    加列~\(p\) 的 \(-1\)~倍于列~\(q\),
     得 \(m \times n\)~阵 \(A_2\).
     则当 \(j \neq p\) 且 \(j \neq q\) 时,
     \(A_2\) 的列~\(j\) 是 \(A_1\) 的列~\(j\),
@@ -4427,7 +4435,7 @@
     即 \(A\) 的列~\(p\) 的 \(-1\)~倍.
 
     对 \(A_2\),
-    加列~\(q\) 到列~\(p\),
+    加列~\(q\) 于列~\(p\),
     得 \(m \times n\)~阵 \(A_3\).
     则当 \(j \neq p\) 且 \(j \neq q\) 时,
     \(A_3\) 的列~\(j\) 是 \(A_2\) 的列~\(j\),
@@ -4443,15 +4451,15 @@
     即 \(A\) 的列~\(p\) 的 \(-1\)~倍.
 
     由此可见,
-    三次列的倍加 ``几乎'' 可交换阵的二列.
+    \(3\)~次列的倍加 ``几乎'' 可交换阵的 \(2\)~列.
     具体地,
     \begin{align*}
-        [A E(n; q, p; 1) E(n; p, q; -1) E(n; q, p; 1)]_{i,j}
-        = \begin{cases}
-              [A]_{i,q},  & \text{\(j = p\)}; \\
-              -[A]_{i,p}, & \text{\(j = q\)}; \\
-              [A]_{i,j},  & \text{别的情形}.
-          \end{cases}
+        [A E(n; q, p; 1) E(n; p, q; -1) E(n; q, p; 1)]_{i,j} =
+        \begin{cases}
+            [A]_{i,q},  & \text{\(j = p\)}; \\
+            -[A]_{i,p}, & \text{\(j = q\)}; \\
+            [A]_{i,j},  & \text{别的情形}.
+        \end{cases}
     \end{align*}
 
     进一步地, 对 \(A_3\), 若我们以 \(-1\) 乘列 \(q\),
@@ -4464,32 +4472,33 @@
     \(A_4\) 的列~\(j\) 是 \(A\) 的列~\(p\).
 
     由此可见,
-    三次列的倍加与一次列的倍乘可交换阵的二列.
+    \(3\)~次列的倍加与一次列的倍乘可交换阵的 \(2\)~列.
     具体地,
-    \begin{align*}
+    \begin{equation*}
         [A E(n; q, p; 1) E(n; p, q; -1) E(n; q, p; 1)
-            M(n; q; -1)]_{i,j}
-        = \begin{cases}
-              [A]_{i,q}, & \text{\(j = p\)}; \\
-              [A]_{i,p}, & \text{\(j = q\)}; \\
-              [A]_{i,j}, & \text{别的情形}.
-          \end{cases}
-    \end{align*}
+        M(n; q; -1)]_{i,j} =
+        \begin{cases}
+            [A]_{i,q}, & \text{\(j = p\)}; \\
+            [A]_{i,p}, & \text{\(j = q\)}; \\
+            [A]_{i,j}, & \text{别的情形}.
+        \end{cases}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \section{pfaffian 的性质 (续)}
 
 前面, 我们得到了 pfaffian 的多的性质.
-以下三条是重要的:
+以下 \(3\)~个是重要的:
 
-\TheoremPfaffianMulitply*
+\TheoremPfaffianMultiply*
 
-\TheoremPfaffianMulitplyAndAdd*
+\TheoremPfaffianMultipljad*
 
-\TheoremPfaffianSquareDet*
+\TheoremPfaffianSquaredIsDet*
 
 本节, 我们证明 pfaffian 的一个新的重要的性质.
-为此, 我们先改写第 1, 2 条性质.
+为此, 我们先改写第 1, 2 个性质.
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级反称阵.
@@ -4498,7 +4507,7 @@
     则
     \begin{align*}
         \operatorname{pf}{( (M(n; q; s))^{\mathrm{T}}
-            A M(n; q; s) )}
+        A M(n; q; s) )}
         = \operatorname{pf} {(A)} \det {(M(n; q; s))}.
     \end{align*}
 \end{theorem}
@@ -4509,21 +4518,19 @@
     \begin{align*}
         [M^{\mathrm{T}} A M]_{i,j}
         = {} &
-        \sum_{k = 1}^{n}
-            {
-                [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
-            }
+        \sum_{k = 1}^{n} {
+            [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
+        }
         \\
         = {} &
-        \sum_{k = 1}^{n}
-            {
-                [M]_{k,i} [A M]_{k,j}
-            }
+        \sum_{k = 1}^{n} {
+            [M]_{k,i} [A M]_{k,j}
+        }
         \\
         = {} &
         [M]_{i,i} [A M]_{i,j}
         +
-        \sum_{\substack{1 \leq k \leq n    \\k \neq i}}
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {
             [M]_{k,i} [A M]_{k,j}
         }
@@ -4531,72 +4538,72 @@
         = {} &
         [M]_{i,i} [A M]_{i,j}
         +
-        \sum_{\substack{1 \leq k \leq n    \\k \neq i}}
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {
             0\, [A M]_{k,j}
         }
         \\
         = {} &
         [M]_{i,i}
-            [A M]_{i,j}
+        [A M]_{i,j}
         \\
         = {} &
         [M]_{i,i}
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [M]_{\ell,j}}
-        \\
-        = {} &
-        [M]_{i,i}
-        \Bigg(
-        [A]_{i,j} [M]_{j,j}
-        +
-        \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
         {[A]_{i,\ell} [M]_{\ell,j}}
+        \\
+        = {} &
+        [M]_{i,i}
+        \Bigg(
+            [A]_{i,j} [M]_{j,j}
+            +
+            \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
+            {[A]_{i,\ell} [M]_{\ell,j}}
         \Bigg)
         \\
         = {} &
         [M]_{i,i}
         \Bigg(
-        [A]_{i,j} [M]_{j,j}
-        +
-        \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
-        {[A]_{i,\ell} \, 0}
+            [A]_{i,j} [M]_{j,j}
+            +
+            \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
+            {[A]_{i,\ell} \, 0}
         \Bigg)
         \\
         = {} &
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}.
+        [A]_{i,j}
+        [M]_{j,j}.
     \end{align*}
     当 \(i \neq q\), \(j \neq q\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = 1\, [A]_{i,j}\, 1
-            = [A]_{i,j};
+        = [A]_{i,j};
     \end{align*}
     当 \(i = q\), \(j \neq q\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = s\, [A]_{i,j}\, 1
         = s\, [A]_{i,j};
     \end{align*}
     当 \(i \neq q\), \(j = q\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = 1\, [A]_{i,j} s
         = s\, [A]_{i,j};
     \end{align*}
     当 \(i = q\), \(j = q\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = s\, 0\, s
         = 0
         = s\, [A]_{i,j}.
@@ -4604,7 +4611,7 @@
     则
     \begin{align*}
         \operatorname{pf}{( (M(n; q; s))^{\mathrm{T}}
-            A M(n; q; s) )}
+        A M(n; q; s) )}
         = s \operatorname{pf} {(A)}
         = \operatorname{pf} {(A)}\, s.
     \end{align*}
@@ -4615,7 +4622,7 @@
     从而
     \begin{equation*}
         \operatorname{pf}{( (M(n; q; s))^{\mathrm{T}}
-            A M(n; q; s) )}
+        A M(n; q; s) )}
         = \operatorname{pf} {(A)} \det {(M(n; q; s))}.
         \qedhere
     \end{equation*}
@@ -4629,7 +4636,7 @@
     则
     \begin{align*}
         \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
-            A E(n; p, q; s) )}
+        A E(n; p, q; s) )}
         = \operatorname{pf} {(A)} \det {(E(n; p, q; s))}.
     \end{align*}
 \end{theorem}
@@ -4646,13 +4653,13 @@
     故
     \begin{align*}
         \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
-            A E(n; p, q; s) )} = \operatorname{pf} {(A)}.
+        A E(n; p, q; s) )} = \operatorname{pf} {(A)}.
     \end{align*}
     再注意, \(\det {(E(n; p, q; s))} = 1\),
     故
     \begin{equation*}
         \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
-            A E(n; p, q; s) )}
+        A E(n; p, q; s) )}
         =
         \operatorname{pf} {(A)}
         \det {(E(n; p, q; s))}.
@@ -4690,42 +4697,42 @@
         \operatorname{pf} {(P^{\mathrm{T}} A P)}
         = {} &
         \operatorname{pf} {(
-            (C_1 C_2 \dots C_w)^{\mathrm{T}} A
-            (C_1 C_2 \dots C_w)
-            )}
+                (C_1 C_2 \dots C_w)^{\mathrm{T}} A
+                (C_1 C_2 \dots C_w)
+        )}
         \\
         = {} &
         \operatorname{pf} {(
-            C_w^{\mathrm{T}} \dots C_2^{\mathrm{T}}
-            C_1^{\mathrm{T}} A
-            C_1 C_2 \dots C_w
-            )}
+                C_w^{\mathrm{T}} \dots C_2^{\mathrm{T}}
+                C_1^{\mathrm{T}} A
+                C_1 C_2 \dots C_w
+        )}
         \\
         = {} &
         \operatorname{pf} {
             (C_w^{\mathrm{T}}
-            (C_{w-1}^{\mathrm{T}}
-            (\dots
-            (C_2^{\mathrm{T}}
-            (C_1^{\mathrm{T}}
-            A
-            C_1)
-            C_2)
-            \dots)
-            C_{w-1})
+                (C_{w-1}^{\mathrm{T}}
+                    (\dots
+                        (C_2^{\mathrm{T}}
+                            (C_1^{\mathrm{T}}
+                                A
+                            C_1)
+                        C_2)
+                    \dots)
+                C_{w-1})
             C_w)
         }
         \\
         = {} &
         \operatorname{pf} {
             (C_{w-1}^{\mathrm{T}}
-            (\dots
-            (C_2^{\mathrm{T}}
-            (C_1^{\mathrm{T}}
-            A
-            C_1)
-            C_2)
-            \dots)
+                (\dots
+                    (C_2^{\mathrm{T}}
+                        (C_1^{\mathrm{T}}
+                            A
+                        C_1)
+                    C_2)
+                \dots)
             C_{w-1})
         }
         \det {(C_w)}
@@ -4829,7 +4836,7 @@
 \end{proof}
 
 \section{\texorpdfstring{辛阵的行列式为 \(1\)}%
-  {辛阵的行列式为 1}}
+{辛阵的行列式为 1}}
 
 \begin{theorem}
     设 \(K_m\) 是形如
@@ -4883,10 +4890,10 @@
     =
     \begin{dcases}
         [A]_{1,1},
-         & n = 1;    \\
+        & n = 1;    \\
         \sum_{i = 1}^{n}
-            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
-         & n \geq 2.
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}},
+        & n \geq 2.
     \end{dcases}
 \end{align*}
 然后, 我们证明了, 具体地,
@@ -4896,9 +4903,9 @@
     \sum_{\substack{
             1 \leq i_1, i_2, \dots, i_n \leq n; \\
             i_1, i_2, \dots, i_n\,\text{互不相同}
-        }}
+    }}
     {s(i_1, i_2, \dots, i_n)\,
-        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}},
+    [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}},
     \label{eq:explicit-expression-of-determinant}
 \end{equation}
 其中,
@@ -4909,8 +4916,7 @@
 \end{align*}
 其中,
 \begin{align*}
-    \operatorname{sgn} {(x)}
-    =
+    \operatorname{sgn} {(x)} =
     \begin{cases}
         1,  & x > 0; \\
         0,  & x = 0; \\
@@ -4926,13 +4932,13 @@
     \operatorname{pf} {(A)} =
     \begin{dcases}
         0,
-         & n = 1;    \\
+        & n = 1;    \\
         [A]_{1,2},
-         & n = 2;    \\
+        & n = 2;    \\
         \sum_{j = 2}^{n}
         {(-1)^{j} [A]_{1,j}
         \operatorname{pf} {(A({1,j}|{1,j}))}},
-         & n \geq 3.
+        & n \geq 3.
     \end{dcases}
 \end{align*}
 当 \(n\) 是奇数时,
@@ -4946,17 +4952,16 @@
 \begin{definition}
     设 \(A\) 是 \(2m\)~级反称阵.
     定义 \(A\) 的 ``qfaffian''
-    \pinjino{kafiyan}
     \begin{align*}
         \operatorname{qf} {(A)}
         = \sum_{\substack{
-        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
-        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
-        i_1 < j_1, \dots, i_m < j_m;              \\
+                1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;   \\
+                i_1, j_1, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_1 < j_1, \dots, i_m < j_m;                \\
                 i_1 < \dots < i_m
-            }}
+        }}
         {s(i_1, j_1, \dots, i_m, j_m)\,
-            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
+        [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
     \end{align*}
 \end{definition}
 
@@ -4988,7 +4993,7 @@
     \((1, 2, 3, 4)\), \((1, 3, 2, 4)\), \((1, 4, 2, 3)\).
     则
     \begin{align*}
-             &
+        &
         \operatorname{qf} {(A)}
         \\
         = {} &
@@ -5020,41 +5025,39 @@
     则
     \begin{align*}
         \operatorname{qf} {\left(
-            A\binom{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}
-            \right)}
+                A\submat{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}
+        \right)}
         = \sum_{\substack{
-        i_1, j_1, \dots, i_k, j_k \text{是} \\
-        h_1, \dots h_{2k} \text{的排列};      \\
-        i_1 < j_1, \dots, i_k < j_k;       \\
+                i_1, j_1, \dots, i_k, j_k \text{是} \\
+                h_1, \dots h_{2k} \text{的排列};    \\
+                i_1 < j_1, \dots, i_k < j_k;        \\
                 i_1 < \dots < i_k
-            }}
+        }}
         {s(i_1, j_1, \dots, i_k, j_k)\,
-            [A]_{i_1,j_1} \dots [A]_{i_k,j_k}}.
+        [A]_{i_1,j_1} \dots [A]_{i_k,j_k}}.
     \end{align*}
 \end{theorem}
 
 \begin{proof}
     记
     \begin{align*}
-        B = A\binom{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}.
+        B = A\submat{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}.
     \end{align*}
     则 \(B\) 是 \(2k\)~级反称阵,
     且 \([B]_{u,v} = [A]_{h_u,h_v}\).
 
     记 \(f(h_t) = t\), \(t = 1\), \(\dots\), \(2k\).
-    则若 \(h_u < h_v\), 必 \(f(h_u) < f(h_v)\);
-    反过来, 若 \(f(h_u) < f(h_v)\), 必 \(h_u < h_v\).
+    若 \(h_u < h_v\), 则 \(f(h_u) < f(h_v)\);
+    反过来, 若 \(f(h_u) < f(h_v)\), 则 \(h_u < h_v\).
     那么:
 
     (1)
     对任何 \(h_1\), \(\dots\), \(h_{2k}\) 的排列
     \(i_1\), \(j_1\), \(\dots\), \(i_k\), \(j_k\),
-    我们有,
     \(f(i_1)\), \(f(j_1)\), \(\dots\), \(f(i_k)\), \(f(j_k)\)
     一定是 \(1\), \(\dots\), \(2k\) 的排列.
     反过来, 对任何 \(1\), \(\dots\), \(2k\) 的排列
     \(u_1\), \(v_1\), \(\dots\), \(u_k\), \(v_k\),
-    我们有,
     \(h_{u_1}\), \(h_{v_1}\), \(\dots\), \(h_{u_k}\), \(h_{v_k}\),
     一定是 \(h_1\), \(\dots\), \(h_{2k}\) 的排列.
 
@@ -5096,7 +5099,6 @@
 
     (4)
     既然 \(h_u < h_v\) 相当于 \(f(h_u) < f(h_v)\),
-    我们有,
     \(\operatorname{sgn} {(f(h_t) - f(h_s))}
     = \operatorname{sgn} {(h_t - h_s)}\).
     则
@@ -5105,33 +5107,33 @@
 
     综上,
     \begin{align*}
-             &
+        &
         \operatorname{qf} {\left(
-            A\binom{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}
-            \right)}
+                A\submat{h_1,\dots,h_{2k}}{h_1,\dots,h_{2k}}
+        \right)}
         \\
         = {} &
         \operatorname{qf} {(B)}
         \\
         = {} &
         \sum_{\substack{
-        i_1, j_1, \dots, i_k, j_k \text{是} \\
-        h_1, \dots h_{2k} \text{的排列};      \\
-        i_1 < j_1, \dots, i_k < j_k;       \\
+                i_1, j_1, \dots, i_k, j_k \text{是} \\
+                h_1, \dots h_{2k} \text{的排列};    \\
+                i_1 < j_1, \dots, i_k < j_k;        \\
                 i_1 < \dots < i_k
-            }}
+        }}
         {s(f(i_1), f(j_1), \dots, f(i_k), f(j_k))\,
-            [B]_{f(i_1),f(j_1)} \dots [B]_{f(i_k),f(j_k)}}
+        [B]_{f(i_1),f(j_1)} \dots [B]_{f(i_k),f(j_k)}}
         \\
         = {} &
         \sum_{\substack{
-        i_1, j_1, \dots, i_k, j_k \text{是} \\
-        h_1, \dots h_{2k} \text{的排列};      \\
-        i_1 < j_1, \dots, i_k < j_k;       \\
+                i_1, j_1, \dots, i_k, j_k \text{是} \\
+                h_1, \dots h_{2k} \text{的排列};    \\
+                i_1 < j_1, \dots, i_k < j_k;        \\
                 i_1 < \dots < i_k
-            }}
+        }}
         {s(i_1, j_1, \dots, i_k, j_k)\,
-            [A]_{i_1,j_1} \dots [A]_{i_k,j_k}}.
+        [A]_{i_1,j_1} \dots [A]_{i_k,j_k}}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -5151,7 +5153,7 @@
 \begin{proof}
     注意,
     \begin{align*}
-             &
+        &
         s(p_1, p_2, p_3, \dots, p_n)
         \\
         = {} &
@@ -5160,38 +5162,38 @@
         \\
         = {} &
         \left(
-        \prod_{\substack{1 \leq u < v \leq n \\
-                u = 1}}
-        {\operatorname{sgn} {(p_v - p_u)}}
+            \prod_{\substack{1 \leq u < v \leq n \\
+            u = 1}}
+            {\operatorname{sgn} {(p_v - p_u)}}
         \right)
         \cdot
         \left(
-        \prod_{\substack{1 \leq u < v \leq n \\
-                u = 2}}
-        {\operatorname{sgn} {(p_v - p_u)}}
+            \prod_{\substack{1 \leq u < v \leq n \\
+            u = 2}}
+            {\operatorname{sgn} {(p_v - p_u)}}
         \right)
         \cdot
         \left(
-        \prod_{\substack{1 \leq u < v \leq n \\
-                u \geq 3}}
-        {\operatorname{sgn} {(p_v - p_u)}}
+            \prod_{\substack{1 \leq u < v \leq n \\
+            u \geq 3}}
+            {\operatorname{sgn} {(p_v - p_u)}}
         \right)
         \\
         = {} &
         \left(
-        \prod_{2 \leq v \leq n}
-        {\operatorname{sgn} {(p_v - p_1)}}
+            \prod_{2 \leq v \leq n}
+            {\operatorname{sgn} {(p_v - p_1)}}
         \right)
         \cdot
         \left(
-        \prod_{3 \leq v \leq n}
-        {\operatorname{sgn} {(p_v - p_2)}}
+            \prod_{3 \leq v \leq n}
+            {\operatorname{sgn} {(p_v - p_2)}}
         \right)
         \cdot
         s(p_3, \dots, p_n).
     \end{align*}
     注意, 既然 \(p_1 = 1\),
-    则 \(v \neq 1\) 时, 必 \(p_v > 1\).
+    则当 \(v \neq 1\) 时, \(p_v > 1\).
     则
     \begin{align*}
         \prod_{2 \leq v \leq n}
@@ -5225,13 +5227,13 @@
     \begin{align*}
         \operatorname{pf} {(A)}
         = \sum_{\substack{
-        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
-        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
-        i_1 < j_1, \dots, i_m < j_m;              \\
+                1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;   \\
+                i_1, j_1, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_1 < j_1, \dots, i_m < j_m;                \\
                 i_1 < \dots < i_m
-            }}
+        }}
         {s(i_1, j_1, \dots, i_m, j_m)\,
-            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
+        [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
     \end{align*}
 \end{theorem}
 
@@ -5260,8 +5262,8 @@
         \\
         = {} &
         \sum_{\substack{
-        i_1 = 1; \\
-            i_1 < j_1 \leq 2m
+                i_1 = 1; \\
+                i_1 < j_1 \leq 2m
         }}
         {(-1)^{j_1} [A]_{i_1,j_1}
         \operatorname{pf} {(A({i_1,j_1}|{i_1,j_1}))}}.
@@ -5274,82 +5276,82 @@
         \\
         = {} &
         \sum_{\substack{
-        1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m; \\
-        i_2, j_2, \dots, i_m, j_m \neq i_1;       \\
-        i_2, j_2, \dots, i_m, j_m \neq j_1;       \\
-        i_2, j_2, \dots, i_m, j_m\,\text{互不相同};   \\
-        i_2 < j_2, \dots, i_m < j_m;              \\
+                1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;   \\
+                i_2, j_2, \dots, i_m, j_m \neq i_1;         \\
+                i_2, j_2, \dots, i_m, j_m \neq j_1;         \\
+                i_2, j_2, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_2 < j_2, \dots, i_m < j_m;                \\
                 i_2 < \dots < i_m
-            }}
+        }}
         {s(i_2, j_2, \dots, i_m, j_m)\,
-            [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}.
+        [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}.
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(A)}
         \\
         = {} &
         \sum_{\substack{
-        i_1 = 1;                                            \\
+                i_1 = 1; \\
                 i_1 < j_1 \leq 2m
-            }}
+        }}
         (-1)^{j_1} [A]_{i_1,j_1}
         \sum_{\substack{
-        1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;           \\
-        i_2, j_2, \dots, i_m, j_m \neq i_1;                 \\
-        i_2, j_2, \dots, i_m, j_m \neq j_1;                 \\
-        i_2, j_2, \dots, i_m, j_m\,\text{互不相同};             \\
-        i_2 < j_2, \dots, i_m < j_m;                        \\
+                1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;   \\
+                i_2, j_2, \dots, i_m, j_m \neq i_1;         \\
+                i_2, j_2, \dots, i_m, j_m \neq j_1;         \\
+                i_2, j_2, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_2 < j_2, \dots, i_m < j_m;                \\
                 i_2 < \dots < i_m
-            }}
+        }}
         {s(i_2, j_2, \dots, i_m, j_m)\,
-            [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
         \\
         = {} &
         \sum_{\substack{
-        i_1 = 1;                                            \\
+                i_1 = 1; \\
                 i_1 < j_1 \leq 2m
-            }}
+        }}
         \sum_{\substack{
-        1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;           \\
-        i_2, j_2, \dots, i_m, j_m \neq i_1;                 \\
-        i_2, j_2, \dots, i_m, j_m \neq j_1;                 \\
-        i_2, j_2, \dots, i_m, j_m\,\text{互不相同};             \\
-        i_2 < j_2, \dots, i_m < j_m;                        \\
+                1 \leq i_2, j_2, \dots, i_m, j_m \leq 2m;   \\
+                i_2, j_2, \dots, i_m, j_m \neq i_1;         \\
+                i_2, j_2, \dots, i_m, j_m \neq j_1;         \\
+                i_2, j_2, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_2 < j_2, \dots, i_m < j_m;                \\
                 i_2 < \dots < i_m
-            }}
+        }}
         { (-1)^{j_1} [A]_{i_1,j_1}
             s(i_2, j_2, \dots, i_m, j_m)\,
-            [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq i_1, j_1, i_2, j_2, \dots, i_m, j_m \leq 2m; \\
-        i_1, j_1, i_2, j_2, \dots, i_m, j_m\,\text{互不相同};   \\
-        i_1 < j_1, i_2 < j_2, \dots, i_m < j_m;             \\
+                1 \leq i_1, j_1, i_2, j_2, \dots, i_m, j_m \leq 2m;   \\
+                i_1, j_1, i_2, j_2, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_1 < j_1, i_2 < j_2, \dots, i_m < j_m;               \\
                 i_1 < i_2 < \dots < i_m
-            }}
+        }}
         { (-1)^{j_1-2}
             s(i_2, j_2, \dots, i_m, j_m)\,
-            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;           \\
-        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};             \\
-        i_1 < j_1, \dots, i_m < j_m;                        \\
+                1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;   \\
+                i_1, j_1, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_1 < j_1, \dots, i_m < j_m;                \\
                 i_1 < \dots < i_m
-            }}
+        }}
         {s(i_1, j_1, i_2, j_2, \dots, i_m, j_m)\,
-            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
+        [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_m,j_m}}
         \\
         = {} &
         \operatorname{qf} {(A)}.
     \end{align*}
 
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 既然我们有了 pfaffian 的完全展开,
@@ -5385,24 +5387,24 @@ pfaffian 的完全展开有如下变体:
     设 \(A\) 是 \(2m\)~级反称阵.
     则
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
+                1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
                 u_1, v_1, \dots, u_m, v_m\,\text{互不相同}
-            }}
+        }}
         {s(u_1, v_1, \dots, u_m, v_m)\,
-            [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}
+        [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}
         \\
         = {} &
         2^m m!
         \sum_{\substack{
-        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
-        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
-        i_1 < j_1, \dots, i_m < j_m;              \\
+                1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;   \\
+                i_1, j_1, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_1 < j_1, \dots, i_m < j_m;                \\
                 i_1 < \dots < i_m
-            }}
+        }}
         {s(i_1, j_1, \dots, i_m, j_m)\,
-            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}},
+        [A]_{i_1,j_1} \dots [A]_{i_m,j_m}},
     \end{align*}
     其中,
     \(m! = m \cdot (m-1) \cdot \dots \cdot 1\).
@@ -5411,11 +5413,11 @@ pfaffian 的完全展开有如下变体:
         \operatorname{pf} {(A)} =
         \frac{1}{2^m m!}
         \sum_{\substack{
-        1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
+                1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
                 u_1, v_1, \dots, u_m, v_m\,\text{互不相同}
-            }}
+        }}
         {s(u_1, v_1, \dots, u_m, v_m)\,
-            [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}.
+        [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}.
     \end{align*}
 \end{theorem}
 
@@ -5448,7 +5450,7 @@ pfaffian 的完全展开有如下变体:
         s(i_1, j_1, \dots, i_m, j_m)\, [A]_{i_1,j_1} \dots [A]_{i_m,j_m}.
     \end{align*}
 
-    回想, 交换排列的二个数, 则它的符号变为原符号的相反数
+    回想, 交换排列的 \(2\)~个数, 则它的符号变为原符号的相反数
     (见 ``排列'').
     那么,
     \begin{align*}
@@ -5465,7 +5467,7 @@ pfaffian 的完全展开有如下变体:
     这里, 未写的元是不变的, 下同.
     则
     \begin{align*}
-             &
+        &
         s(\dots, u_p, v_p, \dots, u_q, v_q, \dots)\,
         (\dots [A]_{u_p,v_p} \dots [A]_{u_q,v_q} \dots)
         \\
@@ -5499,7 +5501,7 @@ pfaffian 的完全展开有如下变体:
     \end{align*}
     前面的计算说明,
     交换这 \(m\) 个偶的次序不改变项的结果,
-    且交换一个偶的二个数的次序也不改变项的结果.
+    且交换一个偶的 \(2\)~个数的次序也不改变项的结果.
     故
     \begin{align*}
         s(u_1, v_1, \dots, u_m, v_m)\, [A]_{u_1,v_1} \dots [A]_{u_m,v_m}
@@ -5522,7 +5524,7 @@ pfaffian 的完全展开有如下变体:
     我们分它的 \(2m\) 个数为 \(m\) 个偶
     \((i_1, j_1)\), \(\dots\), \((i_m, j_m)\),
     并自由地交换偶的次序,
-    与一个偶的二个数的次序,
+    与一个偶的 \(2\)~个数的次序,
     可得
     \(1\), \(2\), \(\dots\), \(2m\) 的一个排列.
     我们有
@@ -5530,8 +5532,8 @@ pfaffian 的完全展开有如下变体:
     个交换偶的次序的方式.
     偶的次序被给定后,
     我们有
-    \(2 \cdot 2 \cdot \dots \cdot 2 \text{ (\(m\) 个 \(2\))}
-    = 2^m\) 个交换偶的二个数的次序的方式.
+    \(2 \cdot 2 \cdot \dots \cdot 2 \text{ (\(m\)~个 \(2\))}
+    = 2^m\) 个交换偶的 \(2\)~个数的次序的方式.
     所以, 一个
     \(i_1\), \(j_1\), \(\dots\), \(i_m\), \(j_m\)
     (\(i_1 < j_1\), \(\dots\), \(i_m < j_m\),
@@ -5541,30 +5543,30 @@ pfaffian 的完全展开有如下变体:
     且由这些排列确定的项是相等的.
     故
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
+                1 \leq u_1, v_1, \dots, u_m, v_m \leq 2m; \\
                 u_1, v_1, \dots, u_m, v_m\,\text{互不相同}
-            }}
+        }}
         {s(u_1, v_1, \dots, u_m, v_m)\,
-            [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}
+        [A]_{u_1,v_1} \dots [A]_{u_m,v_m}}
         \\
         = {} &
         2^m m!
         \sum_{\substack{
-        1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m; \\
-        i_1, j_1, \dots, i_m, j_m\,\text{互不相同};   \\
-        i_1 < j_1, \dots, i_m < j_m;              \\
+                1 \leq i_1, j_1, \dots, i_m, j_m \leq 2m;   \\
+                i_1, j_1, \dots, i_m, j_m\,\text{互不相同}; \\
+                i_1 < j_1, \dots, i_m < j_m;                \\
                 i_1 < \dots < i_m
-            }}
+        }}
         {s(i_1, j_1, \dots, i_m, j_m)\,
-            [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
+        [A]_{i_1,j_1} \dots [A]_{i_m,j_m}}.
     \end{align*}
 \end{proof}
 
 最后, 我们用 pfaffian 的完全展开证明 pfaffian 的性质.
 
-% a manual pagebreak
+% a manual page break
 \clearpage
 
 \begin{theorem}
@@ -5579,17 +5581,17 @@ pfaffian 的完全展开有如下变体:
     若 \(n \leq \ell\),
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(P A P^{\mathrm{T}})}
         \\
         = {} &
         \sum_{1 \leq j_1 < j_2 < \dots < j_{n} \leq \ell}
         {\det {\left(
-                P\binom{1,2,\dots,n}{j_1,j_2,\dots,j_{n}}
-                \right)}
+                    P\submat{1,2,\dots,n}{j_1,j_2,\dots,j_{n}}
+            \right)}
             \operatorname{pf} {\left(
-                A\binom{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}
-                \right)}}.
+                    A\submat{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}
+        \right)}}.
     \end{align*}
     特别地, 若 \(n = \ell\),
     则因适合条件
@@ -5602,11 +5604,11 @@ pfaffian 的完全展开有如下变体:
         \operatorname{pf} {(P A P^{\mathrm{T}})}
         = {} &
         \det {\left(
-            P\binom{1,2,\dots,n}{1,2,\dots,n}
-            \right)}
+                P\submat{1,2,\dots,n}{1,2,\dots,n}
+        \right)}
         \operatorname{pf} {\left(
-            A\binom{1,2,\dots,n}{1,2,\dots,n}
-            \right)}
+                A\submat{1,2,\dots,n}{1,2,\dots,n}
+        \right)}
         \\
         = {} &
         \det {(P)} \operatorname{pf} {(A)}.
@@ -5617,8 +5619,7 @@ pfaffian 的完全展开有如下变体:
     若 \(n\) 是奇数, 则
     \(P A P^{\mathrm{T}}\)
     与
-    \(\displaystyle
-    A\binom{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}\)
+    \(A\submat{j_1,j_2,\dots,j_{n}}{j_1,j_2,\dots,j_{n}}\)
     都是奇数级反称阵,
     故它们的 pfaffian 都是 \(0\).
     则这是显然的.
@@ -5636,8 +5637,8 @@ pfaffian 的完全展开有如下变体:
         \sum_{1 \leq t \leq \ell}
         {
             \left(
-            \sum_{1 \leq r \leq \ell}
-            {[P]_{i,r} [A]_{r,t}}
+                \sum_{1 \leq r \leq \ell}
+                {[P]_{i,r} [A]_{r,t}}
             \right)
             [P]_{j,t}
         }
@@ -5653,50 +5654,50 @@ pfaffian 的完全展开有如下变体:
     为 ``\(u, v \,\text{D}\)''.
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(P A P^{\mathrm{T}})}
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
-            }}
+        }}
         {s(u_1, v_1, \dots, u_m, v_m)\,
             [P A P^{\mathrm{T}}]_{u_1,v_1}
             \dots
-            [P A P^{\mathrm{T}}]_{u_m,v_m}}
+        [P A P^{\mathrm{T}}]_{u_m,v_m}}
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
-            }}
+        }}
         s(u_1, v_1, \dots, u_m, v_m)
         \left(
-        \sum_{1 \leq r_1, t_1 \leq \ell}
-        {[P]_{u_1,r_1} [P]_{v_1,t_1} [A]_{r_1,t_1}}
+            \sum_{1 \leq r_1, t_1 \leq \ell}
+            {[P]_{u_1,r_1} [P]_{v_1,t_1} [A]_{r_1,t_1}}
         \right)
         \\
-             &
+        &
         \quad \quad \quad \quad \quad \,
         {} \cdot
         \dots
         \cdot
         \left(
-        \sum_{1 \leq r_m, t_m \leq \ell}
-        {[P]_{u_m,r_m} [P]_{v_m,t_m} [A]_{r_m,t_m}}
+            \sum_{1 \leq r_m, t_m \leq \ell}
+            {[P]_{u_m,r_m} [P]_{v_m,t_m} [A]_{r_m,t_m}}
         \right)
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
-            }}
-        s(u_1, v_1, \dots, u_m, v_m)     \\
-             &
+        }}
+        s(u_1, v_1, \dots, u_m, v_m) \\
+        &
         \quad \quad \quad \quad \quad
         {} \cdot
         \sum_{r, t \text{:}\, m \text{:}\, \ell}
@@ -5706,15 +5707,15 @@ pfaffian 的完全展开有如下变体:
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
-            }}
+        }}
         \sum_{r, t \text{:}\, m \text{:}\, \ell}
         s(u_1, v_1, \dots, u_m, v_m)
         \,
         [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
         \\
-             &
+        &
         \quad \quad \quad \quad
         \quad \quad \quad \quad
         {} \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
@@ -5723,14 +5724,14 @@ pfaffian 的完全展开有如下变体:
         \frac{1}{2^m m!}
         \sum_{r, t \text{:}\, m \text{:}\, \ell}
         \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
-            }}
+        }}
         s(u_1, v_1, \dots, u_m, v_m)
         \,
         [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
         \\
-             &
+        &
         \quad \quad \quad \quad
         \quad \quad \quad \quad
         {} \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
@@ -5739,16 +5740,16 @@ pfaffian 的完全展开有如下变体:
         \frac{1}{2^m m!}
         \sum_{r, t \text{:}\, m \text{:}\, \ell}
         \left(
-        \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
-                u, v \,\text{D}
+            \sum_{\substack{
+                    u, v \text{:}\, m \text{:}\, 2m; \\
+                    u, v \,\text{D}
             }}
-        s(u_1, v_1, \dots, u_m, v_m)
-        \,
-        [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
+            s(u_1, v_1, \dots, u_m, v_m)
+            \,
+            [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
         \right)
         \\
-             &
+        &
         \quad \quad \quad \quad \quad
         {} \cdot [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
     \end{align*}
@@ -5759,11 +5760,11 @@ pfaffian 的完全展开有如下变体:
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        u, v \text{:}\, m \text{:}\, 2m; \\
+                u, v \text{:}\, m \text{:}\, 2m; \\
                 u, v \,\text{D}
-            }}
+        }}
         s(u_1, v_1, \dots, u_m, v_m)
         \,
         [P]_{u_1,r_1} [P]_{v_1,t_1} \dots [P]_{u_m,r_m} [P]_{v_m,t_m}
@@ -5782,14 +5783,14 @@ pfaffian 的完全展开有如下变体:
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
     \end{align*}
     若在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
-    有二个数相同,
-    则 \(Q(r_1, t_1, \dots, r_m, t_m)\) 有二列相同.
+    有 \(2\)~个数相同,
+    则 \(Q(r_1, t_1, \dots, r_m, t_m)\) 有 \(2\)~列相同.
     则 \(\det {(Q(r_1, t_1, \dots, r_m, t_m))} = 0\).
 
     (1)
     若 \(2m > \ell\),
     则在 \(r_1\), \(t_1\), \(\dots\), \(r_m\), \(t_m\),
-    总有二个数相同.
+    总有 \(2\)~个数相同.
     则和的每项都是 \(0\).
     故 \(\operatorname{pf} {(P A P^{\mathrm{T}})} = 0\).
 
@@ -5797,16 +5798,16 @@ pfaffian 的完全展开有如下变体:
     若 \(2m \leq \ell\),
     则 (见第~1~章, 节~\malneprasekcio{30})
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(P A P^{\mathrm{T}})}
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
         \sum_{\substack{
-        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                r_1, t_1, \dots, r_m, t_m\,\text{是} \\
                 j_1, \dots, j_{2m}\,\text{的排列}
-            }}
+        }}
         \det {(Q(r_1, t_1, \dots, r_m, t_m))}
         \,
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
@@ -5816,7 +5817,7 @@ pfaffian 的完全展开有如下变体:
     是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\) 的排列
     (见第~1~章, 节~\malneprasekcio{30})
     \begin{align*}
-             &
+        &
         \det {(Q(r_1, t_1, \dots, r_m, t_m))}
         \\
         = {} &
@@ -5825,28 +5826,28 @@ pfaffian 的完全展开有如下变体:
         \\
         = {} &
         \det {\left(
-            P\binom{1,2,\dots,2m}{j_1,j_2,\dots,j_{2m}}
-            \right)}\,
+                P\submat{1,2,\dots,2m}{j_1,j_2,\dots,j_{2m}}
+        \right)}\,
         s(r_1, t_1, \dots, r_m, t_m).
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \operatorname{pf} {(P A P^{\mathrm{T}})}
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
         \sum_{\substack{
-        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                r_1, t_1, \dots, r_m, t_m\,\text{是} \\
                 j_1, \dots, j_{2m}\,\text{的排列}
-            }}
+        }}
         \det {\left(
-            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
-            \right)}\,
+                P\submat{1,\dots,2m}{j_1,\dots,j_{2m}}
+        \right)}\,
         s(r_1, t_1, \dots, r_m, t_m)
         \\
-             &
+        &
         \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
         \cdot
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
@@ -5855,33 +5856,33 @@ pfaffian 的完全展开有如下变体:
         \frac{1}{2^m m!}
         \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
         \det {\left(
-            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
-            \right)}
+                P\submat{1,\dots,2m}{j_1,\dots,j_{2m}}
+        \right)}
         \\
-             &
+        &
         \quad \quad \quad \quad \quad \quad \quad \quad
         \cdot
         \sum_{\substack{
-        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                r_1, t_1, \dots, r_m, t_m\,\text{是} \\
                 j_1, \dots, j_{2m}\,\text{的排列}
-            }}
+        }}
         s(r_1, t_1, \dots, r_m, t_m)\,
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
         \\
         = {} &
         \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
         \det {\left(
-            P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
-            \right)}
+                P\submat{1,\dots,2m}{j_1,\dots,j_{2m}}
+        \right)}
         \\
-             &
+        &
         \quad \quad \quad \quad \quad
         \cdot
         \frac{1}{2^m m!}
         \sum_{\substack{
-        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                r_1, t_1, \dots, r_m, t_m\,\text{是} \\
                 j_1, \dots, j_{2m}\,\text{的排列}
-            }}
+        }}
         s(r_1, t_1, \dots, r_m, t_m)\,
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}.
     \end{align*}
@@ -5889,7 +5890,7 @@ pfaffian 的完全展开有如下变体:
     设
     \begin{align*}
         H(j_1, j_2, \dots, j_{2m}) =
-        A\binom{j_1,j_2,\dots,j_{2m}}{j_1,j_2,\dots,j_{2m}}.
+        A\submat{j_1,j_2,\dots,j_{2m}}{j_1,j_2,\dots,j_{2m}}.
     \end{align*}
     不难看出,
     \([H(j_1, j_2, \dots, j_{2m})]_{u,v} = [A]_{j_u,j_v}\).
@@ -5904,8 +5905,8 @@ pfaffian 的完全展开有如下变体:
     是 \(1\), \(2\), \(\dots\), \(2m\) 的一个排列,
     则 \(j_{w_1}\), \(j_{w_2}\), \(\dots\), \(j_{w_{2m}}\)
     是 \(j_1\), \(j_2\), \(\dots\), \(j_{2m}\) 的一个排列.
-    并且, 若 \(g_a < g_b\), 必有 \(f(g_a) < f(g_b)\).
-    反过来, 若 \(f(g_a) < f(g_b)\), 必有 \(g_a < g_b\).
+    并且, 若 \(g_a < g_b\), 则 \(f(g_a) < f(g_b)\).
+    反过来, 若 \(f(g_a) < f(g_b)\), 则 \(g_a < g_b\).
     从而
     \(\operatorname{sgn} {(g_b - g_a)}
     = \operatorname{sgn} {(f(g_b) - f(g_a))}\).
@@ -5914,24 +5915,24 @@ pfaffian 的完全展开有如下变体:
     = s(f(g_1), f(g_2), \dots, f(g_{2m}))\).
     故
     \begin{align*}
-             &
+        &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                r_1, t_1, \dots, r_m, t_m\,\text{是} \\
                 j_1, \dots, j_{2m}\,\text{的排列}
-            }}
+        }}
         s(r_1, t_1, \dots, r_m, t_m)\,
         [A]_{r_1,t_1} \dots [A]_{r_m,t_m}
         \\
         = {} &
         \frac{1}{2^m m!}
         \sum_{\substack{
-        r_1, t_1, \dots, r_m, t_m\,\text{是} \\
+                r_1, t_1, \dots, r_m, t_m\,\text{是} \\
                 j_1, \dots, j_{2m}\,\text{的排列}
-            }}
+        }}
         s(f(r_1), f(t_1), \dots, f(r_m), f(t_m))
         \\
-             &
+        &
         \quad \quad \quad \quad \quad \quad \quad \quad
         \cdot
         [H(j_1, \dots, j_{2m})]_{f(r_1),f(t_1)}
@@ -5943,8 +5944,8 @@ pfaffian 的完全展开有如下变体:
         \\
         = {} &
         \operatorname{pf} {\left(
-            A\binom{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
-            \right)}.
+                A\submat{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
+        \right)}.
     \end{align*}
     从而
     \begin{align*}
@@ -5952,15 +5953,15 @@ pfaffian 的完全展开有如下变体:
         = {} &
         \sum_{1 \leq j_1 < \dots < j_{2m} \leq \ell}
         {\det {\left(
-                P\binom{1,\dots,2m}{j_1,\dots,j_{2m}}
-                \right)}
+                    P\submat{1,\dots,2m}{j_1,\dots,j_{2m}}
+            \right)}
             \operatorname{pf} {\left(
-                A\binom{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
-                \right)}}.
+                    A\submat{j_1,\dots,j_{2m}}{j_1,\dots,j_{2m}}
+        \right)}}.
     \end{align*}
 \end{proof}
 
-% a manual pagebreak
+% a manual page break
 \clearpage
 
 % \begin{theorem}
@@ -5968,7 +5969,7 @@ pfaffian 的完全展开有如下变体:
 %     则 \(\det {(A)}
 %     = (\operatorname{pf} {(A)})^2\).
 % \end{theorem}
-\TheoremPfaffianSquareDet*
+\TheoremPfaffianSquaredIsDet*
 
 \begin{proof}
     设 \(n\) 是奇数.
@@ -5984,11 +5985,11 @@ pfaffian 的完全展开有如下变体:
     我们取 \(P\) 为 \(2m\)~级阵 \(E(2m; p, q; s)\),
     其中, \(p \neq q\), 且
     \begin{align*}
-        [E(2m; p, q; s)]_{i,j}
-        = \begin{cases}
-              s,              & \text{\(i = p\), 且 \(j = q\)}; \\
-              [I_{2m}]_{i,j}, & \text{别的情形},
-          \end{cases}
+        [E(2m; p, q; s)]_{i,j} =
+        \begin{cases}
+            s,              & \text{\(i = p\), 且 \(j = q\)}; \\
+            [I_{2m}]_{i,j}, & \text{别的情形},
+        \end{cases}
     \end{align*}
     则我们知道,
     作一次列的倍加与一次对应的行的倍加不改变 pfaffian,
@@ -6021,9 +6022,9 @@ pfaffian 的完全展开有如下变体:
 
 本节, 我们进一步地讨论阵的积与 (列的) 倍加的关系.
 
-回想, 我们有如下结论.
+回想,
 
-\TheoremMultiplyAndAdd*
+\TheoremMultipljad*
 
 在本节, 我们设 \(m \leq n\).
 于是, 通俗地, 对任何 \(m \times n\)~阵
@@ -6142,7 +6143,7 @@ pfaffian 的完全展开有如下变体:
     \end{cases}
 \end{align*}
 
-我们加列~\(m\) 的 \((1 - [B]_{m,m})/[B]_{m,m}\)~倍于列~\(m-1\), 有
+我们加列~\(m\) 的 \((1 - [B]_{m,m})/[B]_{m,m}\)~倍于列~\(m-1\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0             & 0             & 0         & {}         \\
@@ -6153,7 +6154,7 @@ pfaffian 的完全展开有如下变体:
         0         & 0         & \cdots & 0             & 1-[B]_{m,m}   & [B]_{m,m} & {}         \\
     \end{bmatrix}.
 \end{align*}
-我们加列~\(m-1\) 于列~\(m\), 有
+我们加列~\(m-1\) 于列~\(m\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0             & 0             & 0             & {}         \\
@@ -6164,7 +6165,7 @@ pfaffian 的完全展开有如下变体:
         0         & 0         & \cdots & 0             & 1-[B]_{m,m}   & 1             & {}         \\
     \end{bmatrix}.
 \end{align*}
-我们加列~\(m\) 的 \([B]_{m,m}-1\)~倍于列~\(m-1\), 有
+我们加列~\(m\) 的 \([B]_{m,m}-1\)~倍于列~\(m-1\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0             & 0                       & 0             & {}         \\
@@ -6175,7 +6176,7 @@ pfaffian 的完全展开有如下变体:
         0         & 0         & \cdots & 0             & 0                       & 1             & {}         \\
     \end{bmatrix}.
 \end{align*}
-我们加列~\(m-1\) 的 \(-1/[B]_{m,m}\)~倍于列~\(m\), 有
+我们加列~\(m-1\) 的 \(-1/[B]_{m,m}\)~倍于列~\(m\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0             & 0                       & 0      & {}         \\
@@ -6187,7 +6188,7 @@ pfaffian 的完全展开有如下变体:
     \end{bmatrix}.
 \end{align*}
 为方便, 记 \(d_2 = [B]_{m-1,m-1} [B]_{m,m}\).
-我们加列~\(m-1\) 的 \((1 - d_2)/d_2\)~倍于列~\(m-2\), 有
+我们加列~\(m-1\) 的 \((1 - d_2)/d_2\)~倍于列~\(m-2\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0             & 0      & 0      & {}         \\
@@ -6198,7 +6199,7 @@ pfaffian 的完全展开有如下变体:
         0         & 0         & \cdots & 0             & 0      & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-我们加列~\(m-2\) 于列~\(m-1\), 有
+我们加列~\(m-2\) 于列~\(m-1\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0             & 0             & 0      & {}         \\
@@ -6209,7 +6210,7 @@ pfaffian 的完全展开有如下变体:
         0         & 0         & \cdots & 0             & 0             & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-我们加列~\(m-1\) 的 \(d_2 - 1\)~倍于列~\(m-2\), 有
+我们加列~\(m-1\) 的 \(d_2 - 1\)~倍于列~\(m-2\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0                 & 0             & 0      & {}         \\
@@ -6220,7 +6221,7 @@ pfaffian 的完全展开有如下变体:
         0         & 0         & \cdots & 0                 & 0             & 1      & {}         \\
     \end{bmatrix}.
 \end{align*}
-我们加列~\(m-2\) 的 \(-1/d_2\)~倍于列~\(m-1\), 有
+我们加列~\(m-2\) 的 \(-1/d_2\)~倍于列~\(m-1\), 得
 \begin{align*}
     \begin{bmatrix}
         [B]_{1,1} & 0         & \cdots & 0                                     & 0      & 0      & {}         \\
@@ -6243,7 +6244,7 @@ pfaffian 的完全展开有如下变体:
     \end{bmatrix}.
 \end{align*}
 
-综上, 我们有
+综上,
 
 \begin{theorem}
     设 \(m \leq n\).
@@ -6374,7 +6375,7 @@ pfaffian 的完全展开有如下变体:
     设 \(m \times n\)~阵 \(A\)
     有一个行列式不为 \(0\) 的 \(m\)~级子阵
     \begin{align*}
-        K = A\binom{1,2,\dots,m}{j_1,j_2,\dots,j_m},
+        K = A\submat{1,2,\dots,m}{j_1,j_2,\dots,j_m},
     \end{align*}
     其中, \(1 \leq j_1 < j_2 < \dots < j_m \leq n\).
     则我们可用列的倍加,
@@ -6413,14 +6414,14 @@ pfaffian 的完全展开有如下变体:
     设 \(v > m\).
     考虑方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             [A]_{1,j_1} x_1 + [A]_{1,j_2} x_2 + \dots + [A]_{1,j_m} x_m & = [A]_{1,j_v}, \\
             [A]_{2,j_1} x_1 + [A]_{2,j_2} x_2 + \dots + [A]_{2,j_m} x_m & = [A]_{2,j_v}, \\
-                                                                        & \dots,         \\
+            & \dots, \\
             [A]_{m,j_1} x_1 + [A]_{m,j_2} x_2 + \dots + [A]_{m,j_m} x_m & = [A]_{m,j_v}.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     因为 \(\det {(K)} \neq 0\),
     由 Cramer 公式,
@@ -6431,7 +6432,7 @@ pfaffian 的完全展开有如下变体:
     \begin{align*}
         [A]_{1,j_1} c_{j_1,j_v} + [A]_{1,j_2} c_{j_2,j_v} + \dots + [A]_{1,j_m} c_{j_m,j_v} & = [A]_{1,j_v}, \\
         [A]_{2,j_1} c_{j_1,j_v} + [A]_{2,j_2} c_{j_2,j_v} + \dots + [A]_{2,j_m} c_{j_m,j_v} & = [A]_{2,j_v}, \\
-                                                                                            & \dots,         \\
+        & \dots, \\
         [A]_{m,j_1} c_{j_1,j_v} + [A]_{m,j_2} c_{j_2,j_v} + \dots + [A]_{m,j_m} c_{j_m,j_v} & = [A]_{m,j_v}.
     \end{align*}
     于是, 若我们%
@@ -6458,7 +6459,7 @@ pfaffian 的完全展开有如下变体:
     则 \(A_1\) 已形如 \(A_2\).
 
     以下, 我们设 \(j_m > m\).
-    回想, 三次列的倍加 ``几乎'' 可交换阵的二列:
+    回想, \(3\)~次列的倍加 ``几乎'' 可交换阵的 \(2\)~列:
     \begin{align*}
         (x, y)
         \to {} & (x + 1y, y) = (x + y, y)                \\
@@ -6479,7 +6480,7 @@ pfaffian 的完全展开有如下变体:
     若 \(j_1 = 1\), 我们不变, 取 \(P_1\) 为 \(A_1\).
 
     若 \(j_1 > 1\), 则 \(A_1\) 的列~\(1\) 一定是 \(0\).
-    那么, 我们用三次倍加, 变 \(A_1\) 为
+    那么, 我们用 \(3\)~次倍加, 变 \(A_1\) 为
     \(m \times n\)~阵 \(P_1\),
     其中,
     \begin{align*}
@@ -6515,7 +6516,7 @@ pfaffian 的完全展开有如下变体:
     则在列的交换后,
     \(P_1\) 的列~\(2\) 是 \(A_1\) 的列~\(1\),
     即 \(0\).
-    那么, 我们用三次倍加, 变 \(P_1\) 为
+    那么, 我们用 \(3\)~次倍加, 变 \(P_1\) 为
     \(m \times n\)~阵 \(P_2\),
     其中,
     \begin{align*}
@@ -6575,13 +6576,13 @@ pfaffian 的完全展开有如下变体:
         = {} &
         \begin{cases}
             [N]_{1,1} = \det {(K)},
-             & i = j = 1;
+            & i = j = 1;
             \\
             [N]_{i,j} = [I_m]_{i,j} = [I_n]_{i,j},
-             & \text{\(j \leq m\), 且 \((i, j) \neq (1, 1)\)};
+            & \text{\(j \leq m\), 且 \((i, j) \neq (1, 1)\)};
             \\
             0 = [I_n]_{i,j},
-             & j > m.
+            & j > m.
         \end{cases}
         \\
         = {} &
@@ -6609,10 +6610,10 @@ pfaffian 的完全展开有如下变体:
         [A]_{i,j} =
         \begin{cases}
             1,
-             & \text{\((i,j) = (1,2)\) 或 \((1,3)\)
-            或 \((2,1)\) 或 \((3,1)\)};              \\
+            & \text{\((i,j) = (1,2)\) 或 \((1,3)\)
+            或 \((2,1)\) 或 \((3,1)\)}; \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{cases}
     \end{align*}
     \(A\) 的列~\(2\) 与列~\(3\) 相同,
@@ -6627,9 +6628,9 @@ pfaffian 的完全展开有如下变体:
     使当 \(i \neq j\) 时, \([D]_{i,j} = 0\).
     那么, 存在若干个形如
     \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_u\),
     使
@@ -6682,33 +6683,34 @@ pfaffian 的完全展开有如下变体:
     使当 \(i \neq j\) 时, \([D'']_{i,j} = 0\).
     比如, 我们可验证,
     \begin{align*}
-        [E(n; 3, 2; -1) A E(n; 2, 3; -1)]_{i,j}
-        = \begin{cases}
-              1, & \text{\((i, j) = (1, 2)\) 或 \((2, 1)\)}; \\
-              0, & \text{别的情形}.
-          \end{cases}
+        [E(n; 3, 2; -1) A E(n; 2, 3; -1)]_{i,j} =
+        \begin{cases}
+            1, & \text{\((i, j) = (1, 2)\) 或 \((2, 1)\)}; \\
+            0, & \text{别的情形}.
+        \end{cases}
     \end{align*}
     记 \(A_1 = E(n; 3, 2; -1) A E(n; 2, 3; -1)\).
     则, 我们可验证,
     \begin{align*}
-        [E(n; 1, 2; 1/2) A_1 E(n; 2, 1; 1/2)]_{i,j}
-        = \begin{cases}
-              1, &
-              \text{\((i, j) = (1, 1)\) 或 \((1, 2)\) 或 \((2, 1)\)}; \\
-              0, &
-              \text{别的情形}.
-          \end{cases}
+        [E(n; 1, 2; 1/2) A_1 E(n; 2, 1; 1/2)]_{i,j} =
+        \begin{cases}
+            1, &
+            \text{\((i, j) = (1, 1)\) 或 \((1, 2)\) 或 \((2, 1)\)}; \\
+            0, &
+            \text{别的情形}.
+        \end{cases}
     \end{align*}
     再记 \(A_2 = E(n; 1, 2; 1/2) A_1 E(n; 2, 1; 1/2)\).
     则, 我们可验证,
-    \begin{align*}
-        [E(n; 2, 1; -1) A_2 E(n; 1, 2; -1)]_{i,j}
-        = \begin{cases}
-              1,  & \text{\((i, j) = (1, 1)\)}; \\
-              -1, & \text{\((i, j) = (2, 2)\)}; \\
-              0,  & \text{别的情形}.
-          \end{cases}
-    \end{align*}
+    \begin{equation*}
+        [E(n; 2, 1; -1) A_2 E(n; 1, 2; -1)]_{i,j} =
+        \begin{cases}
+            1,  & \text{\((i, j) = (1, 1)\)}; \\
+            -1, & \text{\((i, j) = (2, 2)\)}; \\
+            0,  & \text{别的情形}.
+        \end{cases}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \section{阵的积、倍加、合同}
@@ -6786,7 +6788,7 @@ pfaffian 的完全展开有如下变体:
     得 \(n\)~级对称阵 \(A_2\).
     则 \([A_2]_{1,2} = 0 = [A_2]_{2,1}\),
     且 \([A_2]_{1,j} = [A]_{1,j}
-        = [A]_{j,1} = [A_2]_{j,1}\)
+    = [A]_{j,1} = [A_2]_{j,1}\)
     (\(j \neq 2\)).
     然后, 对 \(A_2\),
     加列~\(1\) 的 \(-[A_2]_{1,3}/[A_2]_{1,1}\)~倍于列 \(3\),
@@ -6795,7 +6797,7 @@ pfaffian 的完全展开有如下变体:
     得 \(n\)~级对称阵 \(A_3\).
     则 \([A_3]_{1,3} = 0 = [A_3]_{3,1}\),
     且 \([A_3]_{1,j} = [A_2]_{1,j}
-        = [A_2]_{j,1} = [A_3]_{j,1}\)
+    = [A_2]_{j,1} = [A_3]_{j,1}\)
     (\(j \neq 3\)).
     ……
     然后, 对 \(A_{n-1}\),
@@ -6805,7 +6807,7 @@ pfaffian 的完全展开有如下变体:
     得 \(n\)~级对称阵 \(A_n\).
     则 \([A_n]_{1,n} = 0 = [A_n]_{n,1}\),
     且 \([A_n]_{1,j} = [A_{n-1}]_{1,j}
-        = [A_{n-1}]_{j,1} = [A_n]_{j,1}\)
+    = [A_{n-1}]_{j,1} = [A_n]_{j,1}\)
     (\(j \neq n\)).
     则当 \(i \neq 1\) 时,
     \([A_n]_{i,1} = 0 = [A_n]_{1,i}\).
@@ -6817,8 +6819,8 @@ pfaffian 的完全展开有如下变体:
     我们加列~\(k\) 于列~\(1\),
     且加行~\(k\) 于行~\(1\),
     得 \(n\)~级对称阵 \(D\).
-    则 \([D]_{1,1} = 0 + [A]_{1,k} + [A]_{k,1}
-        = 2 [A]_{1,k} \neq 0\).
+    则 \([D]_{1,1} =  + [A]_{1,k} + [A]_{k,1}
+    = 2 [A]_{1,k} \neq 0\).
     问题被变为前面讨论过的情形.
 
     综上, 作若干次列的倍加, 与对应的行的倍加,
@@ -6848,15 +6850,15 @@ pfaffian 的完全展开有如下变体:
     所以, 当 \(i \neq j\) 时, \([B]_{i,j} = 0\).
 
     所以, \(P(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级对称阵.
     则存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_u\),
     使当 \(i \neq j\) 时,
@@ -6868,9 +6870,9 @@ pfaffian 的完全展开有如下变体:
 \begin{proof}
     由上个定理,
     存在若干个形如 \(E(n; p, q; s)\)
-    (\(s\) 是一个数,
+    (\(s\) 是一个数, % tex-fmt: skip
     \(p\), \(q\) 是不超过 \(n\) 的正整数,
-    且 \(p \neq q\))
+    且 \(p \neq q\)) % tex-fmt: skip
     的阵
     \(E_1\), \(E_2\), \(\dots\), \(E_u\),
     使
@@ -6895,9 +6897,9 @@ pfaffian 的完全展开有如下变体:
 则 \(A\) 是反称阵.
 再回想, 若 \(A\) 是 \(n\)~级反称阵,
 则存在若干个形如 \(E(n; p, q; s)\)
-(\(s\) 是一个数,
+(\(s\) 是一个数, % tex-fmt: skip
 \(p\), \(q\) 是不超过 \(n\) 的正整数,
-且 \(p \neq q\))
+且 \(p \neq q\)) % tex-fmt: skip
 的阵
 \(E_1\), \(E_2\), \(\dots\), \(E_w\),
 使 \((E_1 E_2 \dots E_w)^{\mathrm{T}}
@@ -6954,66 +6956,131 @@ A (E_1 E_2 \dots E_w)\)
 且 \(\det {(I)} = 1 \neq 0\).
 
 (2)
-若 \(A\) 合同于 \(B\), 则 \(B\) 合同于 \(A\).
+若 \(A\) 合同于 \(C\), 且 \(B\) 合同于 \(C\),
+则 \(B\) 合同于 \(A\).
 
-既然 \(A\) 合同于 \(B\),
+因为 \(A\) 合同于 \(C\),
 则有 \(n\)~级阵 \(P\),
 使 \(\det {(P)} \neq 0\),
-且 \(B = P^{\mathrm{T}} A P\).
+且 \(C = P^{\mathrm{T}} A P\).
+因为 \(B\) 合同于 \(C\),
+则有 \(n\)~级阵 \(Q\),
+使 \(\det {(Q)} \neq 0\),
+且 \(C = Q^{\mathrm{T}} B Q\).
+则 \(P^{\mathrm{T}} A P = Q^{\mathrm{T}} B Q\).
 作 \(P_1 = (\det {(P)})^{-1} \operatorname{adj} {(P)}\).
 则 \(P P_1
-= (\det {(P)})^{-1} (P \operatorname{adj} {(P)})
-= (\det {(P)})^{-1} (\det {(P)}\, I)
-= ((\det {(P)})^{-1} \det {(P)}) I
-= 1 I
+    = (\det {(P)})^{-1} (P \operatorname{adj} {(P)})
+    = (\det {(P)})^{-1} (\det {(P)}\, I)
+    = ((\det {(P)})^{-1} \det {(P)}) I
+    = 1 I
 = I\).
 则 \(\det {(P)} \det {(P_1)}
 = \det {(P P_1)} = \det {(I)} = 1 \neq 0\).
 则 \(\det {(P_1)} \neq 0\).
 则
 \begin{align*}
-    P_1^{\mathrm{T}} B P_1
+    A
     = {} &
-    P_1^{\mathrm{T}} (P^{\mathrm{T}} A P) P_1
-    \\
-    = {} &
-    (P_1^{\mathrm{T}} P^{\mathrm{T}}) A (P P_1)
+    I^{\mathrm{T}} A I
     \\
     = {} &
     (P P_1)^{\mathrm{T}} A (P P_1)
     \\
     = {} &
-    I^{\mathrm{T}} A I
+    (P_1^{\mathrm{T}} P^{\mathrm{T}})
+    A
+    (P P_1)
     \\
     = {} &
-    A.
+    P_1^{\mathrm{T}}
+    (P^{\mathrm{T}} A P)
+    P_1
+    \\
+    = {} &
+    P_1^{\mathrm{T}}
+    (Q^{\mathrm{T}} B Q)
+    P_1
+    \\
+    = {} &
+    (P_1^{\mathrm{T}} Q^{\mathrm{T}})
+    B
+    (Q P_1)
+    \\
+    = {} &
+    (Q P_1)^{\mathrm{T}} B (Q P_1),
 \end{align*}
+且 \(\det {(Q P_1)} = \det {(Q)} \det {(P_1)} \neq 0\).
+故 \(B\) 合同于 \(A\).
 
-(3)
-若 \(A\) 合同于 \(B\), 且 \(B\) 合同于 \(C\),
-则 \(A\) 合同于 \(C\).
-
-既然 \(A\) 合同于 \(B\),
-则有 \(n\)~级阵 \(P\),
-使 \(\det {(P)} \neq 0\),
-且 \(B = P^{\mathrm{T}} A P\);
-既然 \(B\) 合同于 \(C\),
-则有 \(n\)~级阵 \(Q\),
-使 \(\det {(Q)} \neq 0\),
-且 \(C = Q^{\mathrm{T}} B Q\).
-则
-\begin{align*}
-    C
-    = Q^{\mathrm{T}} B Q
-    = Q^{\mathrm{T}} (P^{\mathrm{T}} A P) Q
-    = (Q^{\mathrm{T}} P^{\mathrm{T}}) A (P Q)
-    = (P Q)^{\mathrm{T}} A (P Q),
-\end{align*}
-且
-\(\det {(P Q)} = \det {(P)} \det {(Q)} \neq 0\).
-
-因为性质 (2), 有时, 我们也说 ``\(A\) 与 \(B\) 合同'',
+不难看出, 若 \(A\) 合同于 \(B\), 则 \(B\) 合同于 \(A\):
+注意, \(A\) 合同于 \(B\),
+且由性质~(1), \(B\) 合同于 \(B\),
+故由性质~(2), \(B\) 合同于 \(A\).
+所以, 我们也说 ``\(A\) 与 \(B\) 合同'',
 若 \(A\) 合同于 \(B\).
+
+% (2)
+% 若 \(A\) 合同于 \(B\), 则 \(B\) 合同于 \(A\).
+
+% 既然 \(A\) 合同于 \(B\),
+% 则有 \(n\)~级阵 \(P\),
+% 使 \(\det {(P)} \neq 0\),
+% 且 \(B = P^{\mathrm{T}} A P\).
+% 作 \(P_1 = (\det {(P)})^{-1} \operatorname{adj} {(P)}\).
+% 则 \(P P_1
+%     = (\det {(P)})^{-1} (P \operatorname{adj} {(P)})
+%     = (\det {(P)})^{-1} (\det {(P)}\, I)
+%     = ((\det {(P)})^{-1} \det {(P)}) I
+%     = 1 I
+% = I\).
+% 则 \(\det {(P)} \det {(P_1)}
+% = \det {(P P_1)} = \det {(I)} = 1 \neq 0\).
+% 则 \(\det {(P_1)} \neq 0\).
+% 则
+% \begin{align*}
+%     P_1^{\mathrm{T}} B P_1
+%     = {} &
+%     P_1^{\mathrm{T}} (P^{\mathrm{T}} A P) P_1
+%     \\
+%     = {} &
+%     (P_1^{\mathrm{T}} P^{\mathrm{T}}) A (P P_1)
+%     \\
+%     = {} &
+%     (P P_1)^{\mathrm{T}} A (P P_1)
+%     \\
+%     = {} &
+%     I^{\mathrm{T}} A I
+%     \\
+%     = {} &
+%     A.
+% \end{align*}
+
+% (3)
+% 若 \(A\) 合同于 \(B\), 且 \(B\) 合同于 \(C\),
+% 则 \(A\) 合同于 \(C\).
+
+% 既然 \(A\) 合同于 \(B\),
+% 则有 \(n\)~级阵 \(P\),
+% 使 \(\det {(P)} \neq 0\),
+% 且 \(B = P^{\mathrm{T}} A P\);
+% 既然 \(B\) 合同于 \(C\),
+% 则有 \(n\)~级阵 \(Q\),
+% 使 \(\det {(Q)} \neq 0\),
+% 且 \(C = Q^{\mathrm{T}} B Q\).
+% 则
+% \begin{align*}
+%     C
+%     = Q^{\mathrm{T}} B Q
+%     = Q^{\mathrm{T}} (P^{\mathrm{T}} A P) Q
+%     = (Q^{\mathrm{T}} P^{\mathrm{T}}) A (P Q)
+%     = (P Q)^{\mathrm{T}} A (P Q),
+% \end{align*}
+% 且
+% \(\det {(P Q)} = \det {(P)} \det {(Q)} \neq 0\).
+
+% 因为性质 (2), 有时, 我们也说 ``\(A\) 与 \(B\) 合同'',
+% 若 \(A\) 合同于 \(B\).
 
 变 \(A\) 为 \(P^{\mathrm{T}} A P\)
 (其中, \(\det {(P)} \neq 0\))
@@ -7043,8 +7110,8 @@ A (E_1 E_2 \dots E_w)\)
 \end{align*}
 注意, 特别地,
 \(\det {(M(n; q; s))}
-= \det {(I_n M(n; q; s))}
-= \det {(I_n)}\, s
+    = \det {(I_n M(n; q; s))}
+    = \det {(I_n)}\, s
 = s\).
 则
 \begin{equation}
@@ -7060,15 +7127,15 @@ A (E_1 E_2 \dots E_w)\)
 设 \(Y\) 是这样的 \(n\)~级阵:
 若 \(j \neq q\), 则 \(Y\) 的列~\(j\) 是 \(X\) 的列~\(j\),
 且 \(Y\) 的列~\(q\) 是 \(X\) 的列~\(p\).
-则 \(Y\) 有相同的二列.
+则 \(Y\) 有相同的 \(2\)~列.
 则 \(\det {(Y)} = 0\).
 另一方面,
 \begin{align*}
-    [X E(n; p, q; s)]_{i,j}
-    = \begin{cases}
-          [X]_{i,j},                 & j \neq q; \\
-          1 [X]_{i,j} + s [Y]_{i,j}, & j = q.
-      \end{cases}
+    [X E(n; p, q; s)]_{i,j} =
+    \begin{cases}
+        [X]_{i,j},                 & j \neq q; \\
+        1 [X]_{i,j} + s [Y]_{i,j}, & j = q.
+    \end{cases}
 \end{align*}
 则
 \begin{align*}
@@ -7078,7 +7145,7 @@ A (E_1 E_2 \dots E_w)\)
 \end{align*}
 注意, 特别地,
 \(\det {(E(n; p, q; s))}
-= \det {(I_n E(n; p, q; s))}
+    = \det {(I_n E(n; p, q; s))}
 = \det {(I_n)} = 1\).
 则
 \begin{equation}
@@ -7107,13 +7174,13 @@ A (E_1 E_2 \dots E_w)\)
 % 至式~\eqref{eq:det-multiply-add-row}
 % 在本节会被反复地用.
 
-回想, 我们有
+回想,
 
-\TheoremMultiplyMultiplyAddUnu*
+\TheoremMultiplyAndMultipljadVersionOne*
 
 特别地, 若 \(A\) 是方阵, 则
 
-\TheoremMultiplyMultiplyAddDu*
+\TheoremMultiplyAndMultipljadVersionTwo*
 
 好的.
 我们开始.
@@ -7190,7 +7257,7 @@ A (E_1 E_2 \dots E_w)\)
     则 \(f(B) = f(A)\, m(s)\).
     这里, 定义在数上的函数 \(m\) 是保乘的:
     \(m(1) = 1\),
-    且对任何数 \(s\), \(t\), 有 \(m(st) = m(s)\, m(t)\).
+    且对任何数 \(s\), \(t\), \(m(st) = m(s)\, m(t)\).
 
     那么, 对任何 \(n\)~级阵 \(A\),
     \(f(A) = f(I)\, m(\det {(A)})\).
@@ -7283,7 +7350,7 @@ A (E_1 E_2 \dots E_w)\)
     则 \(f(D) = m(\det {(D)})\).
     这里, 定义在数上的函数 \(m\) 是保乘的:
     \(m(1) = 1\),
-    且对任何数 \(s\), \(t\), 有 \(m(st) = m(s)\, m(t)\).
+    且对任何数 \(s\), \(t\), \(m(st) = m(s)\, m(t)\).
 
     那么, 对任何 \(n\)~级阵 \(A\),
     \(f(A) = m(\det {(A)})\).
@@ -7429,7 +7496,7 @@ A (E_1 E_2 \dots E_w)\)
     \end{align*}
 \end{proof}
 
-注意, 前面的三个证明几乎是一样的:
+注意, 前面的 \(3\)~个证明几乎是一样的:
 我们写 \(A\) 为一些阵
 \(C_1\), \(C_2\), \(\dots\), \(C_w\) 的积,
 分别地 ``提出''
@@ -7470,7 +7537,7 @@ A (E_1 E_2 \dots E_w)\)
         A^{\mathrm{T}}
         = {} &
         (F_1 F_2 \dots F_u
-        M_1 M_2 \dots M_n
+            M_1 M_2 \dots M_n
         E_u \dots E_2 E_1)^{\mathrm{T}}
         \\
         = {} &
@@ -7504,7 +7571,7 @@ A (E_1 E_2 \dots E_w)\)
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \det {(A)}
         \\
         = {} &
@@ -7520,7 +7587,7 @@ A (E_1 E_2 \dots E_w)\)
         \dots
         \det {(M_n)}
         \\
-             &
+        &
         \cdot
         \det {(E_u)}
         \dots
@@ -7541,7 +7608,7 @@ A (E_1 E_2 \dots E_w)\)
     \(E(n; q, p; s)\)).
     则
     \begin{align*}
-             &
+        &
         \det {(A^{\mathrm{T}})}
         \\
         = {} &
@@ -7557,7 +7624,7 @@ A (E_1 E_2 \dots E_w)\)
         \det {(M_2)}
         \det {(M_1)}
         \\
-             &
+        &
         \cdot
         \det {(F_u^{\mathrm{T}})}
         \dots
@@ -7678,18 +7745,18 @@ A (E_1 E_2 \dots E_w)\)
 与任何数 \(c\),
 \begin{align*}
     \operatorname{adj} {(A^{\mathrm{T}})}
-     & = (\operatorname{adj} {(A)})^{\mathrm{T}},           \\
+    & = (\operatorname{adj} {(A)})^{\mathrm{T}},           \\
     \operatorname{adj} {(c A)}
-     & = c^{n-1} \operatorname{adj} {(A)},                  \\
+    & = c^{n-1} \operatorname{adj} {(A)},                  \\
     \det {(\operatorname{adj} {(A)})}
-     & = (\det {(A)})^{n-1},                                \\
+    & = (\det {(A)})^{n-1},                                \\
     \operatorname{adj} {(\operatorname{adj} {(A)})}
-     & = (\det {(A)})^{n-2}\, A,                            \\
+    & = (\det {(A)})^{n-2}\, A,                            \\
     \operatorname{adj} {(B A)}
-     & = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
+    & = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
 \end{align*}
-前二个式的证明是简单的,
-但后三个式的证明是难的.
+前 \(2\)~个式的证明是简单的,
+但后 \(3\)~个式的证明是难的.
 证明式~3 与式~4 时, 我们要讨论
 \(\det {(A)} \neq 0\) 时的%
 与 \(\det {(A)} = 0\) 时的情形;
@@ -7739,7 +7806,7 @@ A (E_1 E_2 \dots E_w)\)
     记
     \begin{align*}
         V = U(s|t)
-        = U\binom{i_1,\dots,i_{n-1}}{j_1,\dots,j_{n-1}},
+        = U\submat{i_1,\dots,i_{n-1}}{j_1,\dots,j_{n-1}},
     \end{align*}
     其中,
     \(i_1 < \dots < i_{n-1}\),
@@ -7769,7 +7836,7 @@ A (E_1 E_2 \dots E_w)\)
     \end{align*}
     既然 \(s < t\),
     则对小于 \(n\) 的正整数 \(k\),
-    \(k\) 一定适合如下三条件的一个:
+    \(k\) 一定适合如下 \(3\)~个条件的一个:
     (i) \(k < s\);
     (ii) \(s \leq k < t\);
     (iii) \(t \leq k\).
@@ -7802,9 +7869,9 @@ A (E_1 E_2 \dots E_w)\)
             \det {(D(i|i))}
             = \prod_{\substack{1 \leq \ell \leq n \\ \ell \neq i}}
             {[D]_{\ell,\ell}},
-             & i = j;                             \\
+            & i = j;       \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{dcases}
     \end{align*}
 \end{theorem}
@@ -7823,7 +7890,7 @@ A (E_1 E_2 \dots E_w)\)
         \\
         = {} &
         [D(i|i)]_{1,1}
-            [D(i|i)]_{2,2}
+        [D(i|i)]_{2,2}
         \dots
         [D(i|i)]_{n-1,n-1}
         \\
@@ -7855,9 +7922,8 @@ A (E_1 E_2 \dots E_w)\)
     进一步地,
     \begin{align*}
         [\operatorname{adj} {(
-                \operatorname{adj} {(M(n; q; s))}
-                )}]_{i,j}
-        =
+                    \operatorname{adj} {(M(n; q; s))}
+        )}]_{i,j} =
         \begin{cases}
             s^{n-2}, & i = j \neq q; \\
             s^{n-1}, & i = j = q;    \\
@@ -7906,9 +7972,8 @@ A (E_1 E_2 \dots E_w)\)
     进一步地, 由前面的讨论,
     \begin{align*}
         [\operatorname{adj} {(
-                \operatorname{adj} {(M(n; q; s))}
-                )}]_{i,j}
-        =
+                    \operatorname{adj} {(M(n; q; s))}
+        )}]_{i,j} =
         \begin{cases}
             s^{n-2} 1, & i = j \neq q; \\
             s^{n-1},   & i = j = q;    \\
@@ -7951,11 +8016,11 @@ A (E_1 E_2 \dots E_w)\)
     的别的列相同;
     这里, 回想, 对任何整数 \(i\), \(j\),
     \begin{align*}
-        \rho(i, j)
-        = \begin{cases}
-              0, & i < j;    \\
-              1, & i \geq j.
-          \end{cases}
+        \rho(i, j) =
+        \begin{cases}
+            0, & i < j;    \\
+            1, & i \geq j.
+        \end{cases}
     \end{align*}
     则 \(\det {((A M(n; q; s))(j|i))}
     = s \det {(A(j|i))}\).
@@ -7973,7 +8038,7 @@ A (E_1 E_2 \dots E_w)\)
         \\
         = {} &
         [\operatorname{adj} {(M(n; q; s))}]_{i,i}
-            [\operatorname{adj} {(A)}]_{i,j}.
+        [\operatorname{adj} {(A)}]_{i,j}.
     \end{align*}
     当 \(i = q\) 时,
     \((A M(n; q; s))(j|i) = A(j|i)\).
@@ -7991,45 +8056,45 @@ A (E_1 E_2 \dots E_w)\)
         \\
         = {} &
         [\operatorname{adj} {(M(n; q; s))}]_{i,i}
-            [\operatorname{adj} {(A)}]_{i,j}.
+        [\operatorname{adj} {(A)}]_{i,j}.
     \end{align*}
     另一方面,
     \begin{align*}
-             &
+        &
         [\operatorname{adj} {(M(n; q; s))}
-                \operatorname{adj} {(A)}]_{i,j}
+        \operatorname{adj} {(A)}]_{i,j}
         \\
         = {} &
         \sum_{1 \leq k \leq n}
         {[\operatorname{adj} {(M(n; q; s))}]_{i,k}
-                [\operatorname{adj} {(A)}]_{k,j}}
+        [\operatorname{adj} {(A)}]_{k,j}}
         \\
         = {} &
         [\operatorname{adj} {(M(n; q; s))}]_{i,i}
-            [\operatorname{adj} {(A)}]_{i,j}
+        [\operatorname{adj} {(A)}]_{i,j}
         +
         \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {[\operatorname{adj} {(M(n; q; s))}]_{i,k}
-                [\operatorname{adj} {(A)}]_{k,j}}
+        [\operatorname{adj} {(A)}]_{k,j}}
         \\
         = {} &
         [\operatorname{adj} {(M(n; q; s))}]_{i,i}
-            [\operatorname{adj} {(A)}]_{i,j}
+        [\operatorname{adj} {(A)}]_{i,j}
         +
         \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {[\operatorname{adj} {(M(n; q; s))}]_{i,k}
-                [\operatorname{adj} {(A)}]_{k,j}}
+        [\operatorname{adj} {(A)}]_{k,j}}
         \\
         = {} &
         [\operatorname{adj} {(M(n; q; s))}]_{i,i}
-            [\operatorname{adj} {(A)}]_{i,j}
+        [\operatorname{adj} {(A)}]_{i,j}
         +
         \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {0\, [\operatorname{adj} {(A)}]_{k,j}}
         \\
         = {} &
         [\operatorname{adj} {(M(n; q; s))}]_{i,i}
-            [\operatorname{adj} {(A)}]_{i,j}.
+        [\operatorname{adj} {(A)}]_{i,j}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -8051,8 +8116,8 @@ A (E_1 E_2 \dots E_w)\)
     进一步地,
     \begin{align*}
         \operatorname{adj} {(
-            \operatorname{adj} {(E(n; p, q; s))}
-            )}
+                \operatorname{adj} {(E(n; p, q; s))}
+        )}
         = (\det {(E(n; p, q; s))})^{n-2} E(n; p, q; s).
     \end{align*}
 \end{theorem}
@@ -8092,8 +8157,8 @@ A (E_1 E_2 \dots E_w)\)
     进一步地,
     \begin{align*}
         \operatorname{adj} {(
-            \operatorname{adj} {(E(n; p, q; s))}
-            )}
+                \operatorname{adj} {(E(n; p, q; s))}
+        )}
         = {} &
         \operatorname{adj} {(E(n; p, q; -s))}
         \\
@@ -8147,7 +8212,7 @@ A (E_1 E_2 \dots E_w)\)
     则, 类似地,
     \begin{align*}
         [\operatorname{adj} {(A E(n; p, q; s))}]_{i,j}
-            = [\operatorname{adj} {(A)}]_{i,j}.
+        = [\operatorname{adj} {(A)}]_{i,j}.
     \end{align*}
 
     设 \(i = p\).
@@ -8158,12 +8223,12 @@ A (E_1 E_2 \dots E_w)\)
     (若 \(v \neq q\)),
     且 \([A E(n; p, q; s)]_{u,q}
         = [A]_{u,q} + s [A]_{u,p}
-        = 1 [A]_{u,q} + s [C]_{u,q}\).
+    = 1 [A]_{u,q} + s [C]_{u,q}\).
     然后, 考虑
     \((A E(n; p, q; s))(j|p)\),
     \(A(j|p)\), \(C(j|p)\).
     记 \(q' = q - \rho(q, p)\).
-    则 \(A E(n; p, q; s))(j|p)\) 的列~\(q'\)
+    则 \((A E(n; p, q; s))(j|p)\) 的列~\(q'\)
     仍是 \(A(j|p)\) 的列~\(q'\) 的 \(1\)~倍%
     加 \(C(j|p)\) 的列~\(q'\) 的 \(s\)~倍,
     且 \((A E(n; p, q; s))(j|p)\),
@@ -8197,9 +8262,9 @@ A (E_1 E_2 \dots E_w)\)
     得到的 \((n - 1) \times 1\)~阵.
     于是, 我们可如此得到
     \(A(j|q)\) 与 \(C(j|p)\):
-    在 \(A(j|{p,q})\) 的某列的左侧或右侧加入 \(L\),
+    在 \(A(j|{p,q})\) 的某列的左边或右边加入 \(L\),
     得 \(A(j|q)\);
-    在 \(A(j|{p,q})\) 的某列的左侧或右侧加入 \(L\),
+    在 \(A(j|{p,q})\) 的某列的左边或右边加入 \(L\),
     得 \(C(j|p)\).
     于是, 若我们对 \(C(j|p)\) 作若干次相邻的列的交换,
     我们可变它为 \(A(j|q)\).
@@ -8229,7 +8294,7 @@ A (E_1 E_2 \dots E_w)\)
     注意, 作 \(p' - q'\) 次相邻的列的交换后,
     我们得 \(C'_{p'-q'+1} = A(j|q)\).
     则 \(\det {(C(j|p))}
-    = (-1)^{p' - q'} \det {(A(j|q))}
+        = (-1)^{p' - q'} \det {(A(j|q))}
     = (-1)^{q' - p'} \det {(A(j|q))}\).
 
     综上,
@@ -8256,7 +8321,7 @@ A (E_1 E_2 \dots E_w)\)
     \end{align*}
     于是, 当 \(i = p\) 时,
     \begin{align*}
-             &
+        &
         [\operatorname{adj} {(A E(n; p, q; s))}]_{i,j}
         \\
         = {} &
@@ -8280,7 +8345,7 @@ A (E_1 E_2 \dots E_w)\)
         \\
         = {} &
         [\operatorname{adj} {(E(n; p, q; s))}
-                \operatorname{adj} {(A)}]_{i,j}.
+        \operatorname{adj} {(A)}]_{i,j}.
     \end{align*}
     最后, 回想, 当 \(i \neq p\) 时,
     \begin{align*}
@@ -8293,7 +8358,7 @@ A (E_1 E_2 \dots E_w)\)
         \\
         = {} &
         [\operatorname{adj} {(E(n; p, q; s))}
-                \operatorname{adj} {(A)}]_{i,j}.
+        \operatorname{adj} {(A)}]_{i,j}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -8305,7 +8370,7 @@ A (E_1 E_2 \dots E_w)\)
 % see:
 % postrakonto - klasikaj adjunktaj matricoj.tex
 \ifSubfilesClassLoaded{%
-    \begin{restatable}{theorem}{AdjOfProduct}
+    \begin{restatable}{theorem}{TheoremAdjOfProduct}
         设 \(A\), \(B\) 是 \(n\)~级阵.
         则
         \begin{align*}
@@ -8313,7 +8378,7 @@ A (E_1 E_2 \dots E_w)\)
             = \operatorname{adj} {(A)} \operatorname{adj} {(B)}.
         \end{align*}
     \end{restatable}
-}{\AdjOfProduct*}
+}{\TheoremAdjOfProduct*}
 
 \begin{proof}
     我们知道,
@@ -8378,12 +8443,12 @@ A (E_1 E_2 \dots E_w)\)
 % see:
 % postrakonto - klasikaj adjunktaj matricoj.tex
 \ifSubfilesClassLoaded{%
-    \begin{restatable}{theorem}{DetOfAdjugate}
+    \begin{restatable}{theorem}{TheoremDetOfAdjugate}
         设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
         则
         \(\det {(\operatorname{adj} {(A)})} = (\det {(A)})^{n-1}\).
     \end{restatable}
-}{\DetOfAdjugate*}
+}{\TheoremDetOfAdjugate*}
 
 \begin{proof}
     我们知道,
@@ -8427,15 +8492,15 @@ A (E_1 E_2 \dots E_w)\)
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \det {(\operatorname{adj} {(A)})}
         \\
         = {} &
         \det {(\operatorname{adj} {(C_w)}
-            \operatorname{adj} {(C_{w-1})}
-            \dots
-            \operatorname{adj} {(C_2)}
-            \operatorname{adj} {(C_1)})}
+                \operatorname{adj} {(C_{w-1})}
+                \dots
+                \operatorname{adj} {(C_2)}
+        \operatorname{adj} {(C_1)})}
         \\
         = {} &
         \det {(\operatorname{adj} {(C_w)})}
@@ -8477,13 +8542,13 @@ A (E_1 E_2 \dots E_w)\)
 % see:
 % postrakonto - klasikaj adjunktaj matricoj.tex
 \ifSubfilesClassLoaded{%
-    \begin{restatable}{theorem}{AdjOfAdjugate}
+    \begin{restatable}{theorem}{TheoremAdjOfAdjugate}
         设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
         则
         \(\operatorname{adj} {(\operatorname{adj} {(A)})}
         = (\det {(A)})^{n-2}\,A\).
     \end{restatable}
-}{\AdjOfAdjugate*}
+}{\TheoremAdjOfAdjugate*}
 
 \begin{proof}
     我们知道,
@@ -8526,28 +8591,29 @@ A (E_1 E_2 \dots E_w)\)
         \operatorname{adj} {(C_1)}.
     \end{align*}
     则
-    (注意, 对任何 \(n\)~级阵 \(X\), \(Y\),
-    \(\operatorname{adj} {(Y X)}
-    = \operatorname{adj} {(X)} \operatorname{adj} {(Y)}\))
+    (注意, 对任何 \(n\)~级阵 \(X\), \(Y\), \(
+            \operatorname{adj} {(Y X)}
+            = \operatorname{adj} {(X)} \operatorname{adj} {(Y)}
+    \))
     \begin{align*}
-             &
+        &
         \operatorname{adj} {(\operatorname{adj} {(A)})}
         \\
         = {} &
         \operatorname{adj}
         {(\operatorname{adj} {(C_w)}
-            \operatorname{adj} {(C_{w-1})}
-            \dots
-            \operatorname{adj} {(C_2)}
-            \operatorname{adj} {(C_1)})}
+                \operatorname{adj} {(C_{w-1})}
+                \dots
+                \operatorname{adj} {(C_2)}
+        \operatorname{adj} {(C_1)})}
         \\
         = {} &
         \operatorname{adj} {(\operatorname{adj} {(C_1)})}
         \operatorname{adj}
         {(\operatorname{adj} {(C_w)}
-            \operatorname{adj} {(C_{w-1})}
-            \dots
-            \operatorname{adj} {(C_2)})}
+                \operatorname{adj} {(C_{w-1})}
+                \dots
+        \operatorname{adj} {(C_2)})}
         \\
         = {} &
         \dots
@@ -8567,8 +8633,8 @@ A (E_1 E_2 \dots E_w)\)
         \\
         = {} &
         ((\det {(C_1)})^{n-2}
-        (\det {(C_2)})^{n-2}
-        \dots
+            (\det {(C_2)})^{n-2}
+            \dots
         (\det {(C_w)})^{n-2})
         (C_1 C_2 \dots C_w)
         \\
@@ -8591,6 +8657,8 @@ A (E_1 E_2 \dots E_w)\)
 \end{proof}
 
 \end{document}
+
+% tex-fmt: off
 
 This material discusses determinants of skew-symmetric matrices.
 
@@ -8640,19 +8708,20 @@ a row to another" and "multiplying a row by a scalar".
 
 The section "Pfaffian 的性质 (续)" was rewritten.
 
+\begin{comment}
 \section{Pfaffian 的性质 (续)}
 
 前面, 我们得到了 pfaffian 的多的性质.
-以下三条是重要的:
+以下 \(3\)~个是重要的:
 
-\TheoremPfaffianMulitply*
+\TheoremPfaffianMultiply*
 
-\TheoremPfaffianMulitplyAndAdd*
+\TheoremPfaffianMultipljad*
 
-\TheoremPfaffianSquareDet*
+\TheoremPfaffianSquaredIsDet*
 
 本节, 我们证明 pfaffian 的一个新的重要的性质.
-为此, 我们先改写第~2~条性质.
+为此, 我们先改写第~2~个性质.
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级反称阵.
@@ -8662,7 +8731,7 @@ The section "Pfaffian 的性质 (续)" was rewritten.
     则
     \begin{align*}
         \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
-            A E(n; p, q; s) )}
+        A E(n; p, q; s) )}
         = \operatorname{pf} {(A)} \det {(E(n; p, q; s))}.
     \end{align*}
 \end{theorem}
@@ -8679,13 +8748,13 @@ The section "Pfaffian 的性质 (续)" was rewritten.
     故
     \begin{align*}
         \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
-            A E(n; p, q; s) )} = \operatorname{pf} {(A)}.
+        A E(n; p, q; s) )} = \operatorname{pf} {(A)}.
     \end{align*}
     再注意, \(\det {(E(n; p, q; s))} = 1\),
     故
     \begin{equation*}
         \operatorname{pf}{( (E(n; p, q; s))^{\mathrm{T}}
-            A E(n; p, q; s) )}
+        A E(n; p, q; s) )}
         =
         \operatorname{pf} {(A)}
         \det {(E(n; p, q; s))}.
@@ -8709,7 +8778,7 @@ The section "Pfaffian 的性质 (续)" was rewritten.
 \begin{proof}
     若 \(\det {(P)} = 0\),
     则 \(\det {(P^{\mathrm{T}} A P)}
-    = \det {(P^{\mathrm{T}} A)} \det {(P)}
+        = \det {(P^{\mathrm{T}} A)} \det {(P)}
     = 0\).
     则 \(P^{\mathrm{T}} A P\) 的 pfaffian 为 \(0\).
     所以, 若 \(\det {(P)} = 0\),
@@ -8760,69 +8829,69 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         = {} &
         \operatorname{pf}
         {(
-            E_{w-1}^{\mathrm{T}}
-            \dots
-            (E_2^{\mathrm{T}}
-            (E_1^{\mathrm{T}}
-            (P^{\mathrm{T}} A P)
-            E_1)
-            E_2)
-            \dots
-            E_{w-1}
-            )}
+                E_{w-1}^{\mathrm{T}}
+                \dots
+                (E_2^{\mathrm{T}}
+                    (E_1^{\mathrm{T}}
+                        (P^{\mathrm{T}} A P)
+                    E_1)
+                E_2)
+                \dots
+                E_{w-1}
+        )}
         \det {(E_w)}
         \\
         = {} &
         \operatorname{pf}
         {(
-            E_w^{\mathrm{T}}
-            (E_{w-1}^{\mathrm{T}}
-            \dots
-            (E_2^{\mathrm{T}}
-            (E_1^{\mathrm{T}}
-            (P^{\mathrm{T}} A P)
-            E_1)
-            E_2)
-            \dots
-            E_{w-1})
-            E_w
-            )}
+                E_w^{\mathrm{T}}
+                (E_{w-1}^{\mathrm{T}}
+                    \dots
+                    (E_2^{\mathrm{T}}
+                        (E_1^{\mathrm{T}}
+                            (P^{\mathrm{T}} A P)
+                        E_1)
+                    E_2)
+                    \dots
+                E_{w-1})
+                E_w
+        )}
         \\
         = {} &
         \operatorname{pf}
         {(
-            (
-            E_w^{\mathrm{T}}
-            E_{w-1}^{\mathrm{T}}
-            \dots
-            E_2^{\mathrm{T}}
-            E_1^{\mathrm{T}}
-            P^{\mathrm{T}}
-            )
-            A
-            (
-            P
-            E_1
-            E_2
-            \dots
-            E_{w-1}
-            E_w
-            )
-            )}
+                (
+                    E_w^{\mathrm{T}}
+                    E_{w-1}^{\mathrm{T}}
+                    \dots
+                    E_2^{\mathrm{T}}
+                    E_1^{\mathrm{T}}
+                    P^{\mathrm{T}}
+                )
+                A
+                (
+                    P
+                    E_1
+                    E_2
+                    \dots
+                    E_{w-1}
+                    E_w
+                )
+        )}
         \\
         = {} &
         \operatorname{pf}
         {(
-            (P E_1 E_2 \dots E_{w-1} E_w)^{\mathrm{T}}
-            A
-            (P E_1 E_2 \dots E_{w-1} E_w)
-            )}
+                (P E_1 E_2 \dots E_{w-1} E_w)^{\mathrm{T}}
+                A
+                (P E_1 E_2 \dots E_{w-1} E_w)
+        )}
         \\
         = {} &
         \operatorname{pf}
         {(
-            M^{\mathrm{T}} A M
-            )}.
+                M^{\mathrm{T}} A M
+        )}.
     \end{align*}
     我们计算 \(M^{\mathrm{T}} A M\):
     \begin{align*}
@@ -8831,20 +8900,12 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         % \\
         = {} &
         \sum_{k = 1}^{n}
-            {
-                [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
-            }
+        {
+            [M^{\mathrm{T}}]_{i,k} [A M]_{k,j}
+        }
         \\
         = {} &
         \sum_{k = 1}^{n}
-            {
-                [M]_{k,i} [A M]_{k,j}
-            }
-        \\
-        = {} &
-        [M]_{i,i} [A M]_{i,j}
-        +
-        \sum_{\substack{1 \leq k \leq n    \\k \neq i}}
         {
             [M]_{k,i} [A M]_{k,j}
         }
@@ -8852,72 +8913,80 @@ The section "Pfaffian 的性质 (续)" was rewritten.
         = {} &
         [M]_{i,i} [A M]_{i,j}
         +
-        \sum_{\substack{1 \leq k \leq n    \\k \neq i}}
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
+        {
+            [M]_{k,i} [A M]_{k,j}
+        }
+        \\
+        = {} &
+        [M]_{i,i} [A M]_{i,j}
+        +
+        \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {
             0\, [A M]_{k,j}
         }
         \\
         = {} &
         [M]_{i,i}
-            [A M]_{i,j}
+        [A M]_{i,j}
         \\
         = {} &
         [M]_{i,i}
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [M]_{\ell,j}}
-        \\
-        = {} &
-        [M]_{i,i}
-        \Bigg(
-        [A]_{i,j} [M]_{j,j}
-        +
-        \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
         {[A]_{i,\ell} [M]_{\ell,j}}
+        \\
+        = {} &
+        [M]_{i,i}
+        \Bigg(
+            [A]_{i,j} [M]_{j,j}
+            +
+            \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
+            {[A]_{i,\ell} [M]_{\ell,j}}
         \Bigg)
         \\
         = {} &
         [M]_{i,i}
         \Bigg(
-        [A]_{i,j} [M]_{j,j}
-        +
-        \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
-        {[A]_{i,\ell} \, 0}
+            [A]_{i,j} [M]_{j,j}
+            +
+            \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq j}}
+            {[A]_{i,\ell} \, 0}
         \Bigg)
         \\
         = {} &
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}.
+        [A]_{i,j}
+        [M]_{j,j}.
     \end{align*}
     当 \(i \neq 1\), \(j \neq 1\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = 1\, [A]_{i,j}\, 1
-            = [A]_{i,j};
+        = [A]_{i,j};
     \end{align*}
     当 \(i = 1\), \(j \neq 1\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = \det {(P)}\, [A]_{i,j}\, 1
         = \det {(P)}\, [A]_{i,j};
     \end{align*}
     当 \(i \neq 1\), \(j = 1\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = 1\, [A]_{i,j} \det {(P)}
         = \det {(P)}\, [A]_{i,j};
     \end{align*}
     当 \(i = 1\), \(j = 1\) 时,
     \begin{align*}
         [M]_{i,i}
-            [A]_{i,j}
-            [M]_{j,j}
+        [A]_{i,j}
+        [M]_{j,j}
         = \det {(P)}\, 0 \det {(P)}
         = 0
         = \det {(P)}\, [A]_{i,j}.
@@ -8925,12 +8994,12 @@ The section "Pfaffian 的性质 (续)" was rewritten.
     则
     \begin{equation*}
         \operatorname{pf} {(
-            P^{\mathrm{T}} A P
-            )}
+                P^{\mathrm{T}} A P
+        )}
         =
         \operatorname{pf} {(
-            M^{\mathrm{T}} A M
-            )}
+                M^{\mathrm{T}} A M
+        )}
         =
         \det {(P)} \operatorname{pf} {(A)}
         =
@@ -8954,7 +9023,7 @@ The section "Pfaffian 的性质 (续)" was rewritten.
 %     则 \(f(D) = m(\det {(D)})\).
 %     这里, 定义在数上的函数 \(m\) 是保乘的:
 %     \(m(1) = 1\),
-%     且对任何数 \(s\), \(t\), 有 \(m(st) = m(s)\, m(t)\).
+%     且对任何数 \(s\), \(t\), \(m(st) = m(s)\, m(t)\).
 
 %     那么, 对任何 \(n\)~级阵 \(A\),
 %     \(f(A) = m(\det {(A)})\).
@@ -8987,12 +9056,12 @@ the field consisting of exactly two elements $0$ and $1$,
 with the following operations:
 $$
     \begin{aligned}
-         & 0 + 0 = 0 - 0 = 0;         \\
-         & 1 + 0 = 1 - 0 = 1;         \\
-         & 0 + 1 = 0 - 1 = 1;         \\
-         & 1 + 1 = 1 - 1 = 0;         \\
-         & 0 ⋅ 0 = 0 ⋅ 1 = 1 ⋅ 0 = 0; \\
-         & 1 ⋅ 1 = 1 / 1 = 1.
+    & 0 + 0 = 0 - 0 = 0;         \\
+    & 1 + 0 = 1 - 0 = 1;         \\
+    & 0 + 1 = 0 - 1 = 1;         \\
+    & 1 + 1 = 1 - 1 = 0;         \\
+    & 0 ⋅ 0 = 0 ⋅ 1 = 1 ⋅ 0 = 0; \\
+    & 1 ⋅ 1 = 1 / 1 = 1.
     \end{aligned}
 $$
 The reason is simply that there is
@@ -9001,7 +9070,7 @@ such that $t \neq 0$ and $t \neq 1$.
 However, this can be easily remedied,
 because that
 $1 = f(I) = f(E(n; p, q; s) E(n; p, q; -s))
-    = f(E(n; p, q; s)) f(E(n; p, q; -s))$
+= f(E(n; p, q; s)) f(E(n; p, q; -s))$
 forces that $f(E(n; p, q; s)) = 1$.)
 Define $g$: $F \to F$ by
 $g(s) = f(M(n; 1; s))$.
@@ -9016,40 +9085,42 @@ $E_2 = E(n; 1, q; -1)$,
 $E_3 = E(n; q, 1; 1)$
 turn $M(n; q; s)$ into $M'$, where
 $$
-    [M']_{i,j}
-    = \begin{cases}
-        [M(n; q; s)]_{i,q},  & j = 1;           \\
-        -[M(n; q; s)]_{i,1}, & j = q;           \\
-        [M(n; q; s)]_{i,j},  & \text{otherwise}
-    \end{cases}
-    = \begin{cases}
-        s,         & (i, j) = (q, 1);  \\
-        -1,        & (i, j) = (1, q);  \\
-        [I]_{i,j}, & \text{otherwise},
-    \end{cases}
+[M']_{i,j} =
+\begin{cases}
+    [M(n; q; s)]_{i,q},  & j = 1;           \\
+    -[M(n; q; s)]_{i,1}, & j = q;           \\
+    [M(n; q; s)]_{i,j},  & \text{otherwise}
+\end{cases}
+=
+\begin{cases}
+    s,         & (i, j) = (q, 1);  \\
+    -1,        & (i, j) = (1, q);  \\
+    [I]_{i,j}, & \text{otherwise},
+\end{cases}
 $$
 and furthermore that three row-additions
 $H_1$, $H_2$, $H_3$
 turn $M'$ into $M''$, where
 $$
-    [M'']_{i,j}
-    = \begin{cases}
-        [M']_{q,j},  & i = 1;           \\
-        -[M']_{1,j}, & i = q;           \\
-        [M']_{i,j},  & \text{otherwise}
-    \end{cases}
-    = \begin{cases}
-        s,         & (i, j) = (1, 1); \\
-        1,         & (i, j) = (q, q); \\
-        [I]_{i,j}, & \text{otherwise}
-    \end{cases}
-    = [M(n; 1; s)]_{i,j}.
+[M'']_{i,j} =
+\begin{cases}
+    [M']_{q,j},  & i = 1;           \\
+    -[M']_{1,j}, & i = q;           \\
+    [M']_{i,j},  & \text{otherwise}
+\end{cases}
+=
+\begin{cases}
+    s,         & (i, j) = (1, 1); \\
+    1,         & (i, j) = (q, q); \\
+    [I]_{i,j}, & \text{otherwise}
+\end{cases}
+= [M(n; 1; s)]_{i,j}.
 $$
 Hence
 $f(M(n; 1; s))
-    = f(H_3 H_2 H_1 M(n; q; s) E_1 E_2 E_3)
-    = f(H_3) f(H_2) f(H_1) f(M(n; q; s)) f(E_1) f(E_2) f(E_3)
-    = f(M(n; q; s))$.
+= f(H_3 H_2 H_1 M(n; q; s) E_1 E_2 E_3)
+= f(H_3) f(H_2) f(H_1) f(M(n; q; s)) f(E_1) f(E_2) f(E_3)
+= f(M(n; q; s))$.
 Hence
 $f(M(n; q; s)) = f(M(n; 1; s)) = g(s)$.
 Then the argument in the text gives that
@@ -9061,3 +9132,4 @@ Then $f(A) = f(A I) = f(A) f(I) = f(A)\, 0 = 0$
 for each $A \in \mathsf{Mat} (n, n; F)$.
 It is of course that
 $0 = f(M(n; 1; \det {(A)}))$.
+\end{comment}

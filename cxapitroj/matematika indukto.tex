@@ -30,9 +30,9 @@
 \end{equation}
 比如,
 \begin{align*}
-     & 6 + 5x + 4x^2 + 3x^3 + 2x^4 + x^5
+    & 6 + 5x + 4x^2 + 3x^3 + 2x^4 + x^5
     = \sum_{i = 0}^{5} {(6 - i)x^i};                       \\
-     & 1 + 2 + \dots + (n - 1) + n = \sum_{i = 1}^{n} {i}.
+    & 1 + 2 + \dots + (n - 1) + n = \sum_{i = 1}^{n} {i}.
 \end{align*}
 
 式~\eqref{eq:B0102} 的 \(i\) 是求和指标,
@@ -71,7 +71,7 @@
     a_{1,1} + a_{2,2} + \dots + a_{t,t}.
 \end{align*}
 
-有时, 被加的数用二个或多个指标编号.
+有时, 被加的数用 \(2\)~个或多个指标编号.
 比如, 我们计算矩形数表~\eqref{eq:B0103} 的 \(st\)~个数的和 \(S\).
 因为数的加法适合结合律与交换律,
 故我们可按任何的次序求和.
@@ -83,21 +83,22 @@
 再求每行的和的和, 得
 \begin{align*}
     S
-    = {} & \sum_{j = 1}^{t} {a_{1,j}}
+    = {} &
+    \sum_{j = 1}^{t} {a_{1,j}}
     + \sum_{j = 1}^{t} {a_{2,j}}
     + \dots
     + \sum_{j = 1}^{t} {a_{s,j}}
     \\
     = {} &
     \sum_{i = 1}^{s}
-        {\left( \sum_{j = 1}^{t} a_{i,j} \right)}.
+    {\left( \sum_{j = 1}^{t} a_{i,j} \right)}.
 \end{align*}
 为方便, 我们写
 \begin{align*}
     \sum_{i = 1}^{s}
-        {\left( \sum_{j = 1}^{t} a_{i,j} \right)}
+    {\left( \sum_{j = 1}^{t} a_{i,j} \right)}
     = \sum_{i = 1}^{s}
-        {\sum_{j = 1}^{t} {a_{i,j}}}.
+    {\sum_{j = 1}^{t} {a_{i,j}}}.
 \end{align*}
 这就是 \(2\)~重求和.
 
@@ -109,20 +110,21 @@
 再求每列的和的和, 得
 \begin{align*}
     S
-    = {} & \sum_{i = 1}^{s} {a_{i,1}}
+    = {} &
+    \sum_{i = 1}^{s} {a_{i,1}}
     + \sum_{i = 1}^{s} {a_{i,2}}
     + \dots
     + \sum_{i = 1}^{s} {a_{i,t}}
     \\
     = {} &
     \sum_{j = 1}^{t}
-        {\left( \sum_{i = 1}^{s} {a_{i,j}} \right)}
+    {\left( \sum_{i = 1}^{s} {a_{i,j}} \right)}
     \\
     = {} &
     \sum_{j = 1}^{t} {
-            \sum_{i = 1}^{s} {a_{i,j}}}.
+    \sum_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
-比较二次计算的结果, 我们有
+比较 \(2\)~次计算的结果, 我们得
 \begin{align*}
     \sum_{i = 1}^{s} {\sum_{j = 1}^{t} {a_{i,j}}}
     = \sum_{j = 1}^{t} {\sum_{i = 1}^{s} {a_{i,j}}}.
@@ -132,61 +134,61 @@
 类似地, 我们可引入 \(3\)~重求和
 \begin{align*}
     \sum_{i = 1}^{s} {
-            \sum_{j = 1}^{t} {
-                    \sum_{k = 1}^{u} {
-                            a_{i,j,k}}}}
+        \sum_{j = 1}^{t} {
+            \sum_{k = 1}^{u} {
+    a_{i,j,k}}}}
     =
     \sum_{i = 1}^{s}
-        {\left( \sum_{j = 1}^{t} {
+    {\left( \sum_{j = 1}^{t} {
                 \sum_{k = 1}^{u} {
-                    a_{i,j,k} }} \right)}.
+    a_{i,j,k} }} \right)}.
 \end{align*}
 在此基础上, 我们可引入 \(4\)~重求和
 \begin{align*}
     \sum_{i = 1}^{s} {
-            \sum_{j = 1}^{t} {
-                    \sum_{k = 1}^{u} {
-                            \sum_{\ell = 1}^{v} {
-                                    a_{i,j,k,\ell} }}}}
+        \sum_{j = 1}^{t} {
+            \sum_{k = 1}^{u} {
+                \sum_{\ell = 1}^{v} {
+    a_{i,j,k,\ell} }}}}
     =
     \sum_{i = 1}^{s}
-        {\left(
+    {\left(
             \sum_{j = 1}^{t} {
                 \sum_{k = 1}^{u} {
                     \sum_{\ell = 1}^{v} {
-                        a_{i,j,k,\ell} }}}
-            \right)}.
+            a_{i,j,k,\ell} }}}
+    \right)}.
 \end{align*}
 ……
 在此基础上, 我们可引入 \(p\)~重求和
 \begin{align*}
     \sum_{i_1 = 1}^{n_1} {
-            \sum_{i_2 = 1}^{n_2} {
-                    \dots
-                    \sum_{i_{p-1} = 1}^{n_{p-1}} {
-                            \sum_{i_p = 1}^{n_p} {
-                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+        \sum_{i_2 = 1}^{n_2} {
+            \dots
+            \sum_{i_{p-1} = 1}^{n_{p-1}} {
+                \sum_{i_p = 1}^{n_p} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     = \sum_{i_1 = 1}^{n_1}
-        {\left(
+    {\left(
             \sum_{i_2 = 1}^{n_2} {
                 \dots
                 \sum_{i_{p-1} = 1}^{n_{p-1}} {
                     \sum_{i_p = 1}^{n_p} {
-                        a_{i_1,i_2,\dots,i_{p-1},i_p}}}}
-            \right)}.
+            a_{i_1,i_2,\dots,i_{p-1},i_p}}}}
+    \right)}.
 \end{align*}
 特别地, 若 \(n_1 = n_2 = \dots = n_p = n\),
 我们可简单地写
 \begin{align*}
     \sum_{i_1 = 1}^{n} {
-            \sum_{i_2 = 1}^{n} {
-                    \dots
-                    \sum_{i_{p-1} = 1}^{n} {
-                            \sum_{i_p = 1}^{n} {
-                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+        \sum_{i_2 = 1}^{n} {
+            \dots
+            \sum_{i_{p-1} = 1}^{n} {
+                \sum_{i_p = 1}^{n} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     =
     \sum_{i_1,i_2,\dots,i_p = 1}^{n}
-        {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
+    {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
 \end{align*}
 
 有时, 虽然被加的数用若干个指标编号,
@@ -195,22 +197,22 @@
 这时, 我们在求和号下写出指标适合的条件.
 比如,
 \begin{align*}
-         & \sum_{1 \leq i < j \leq n} {a_{i,j}}
+    & \sum_{1 \leq i < j \leq n} {a_{i,j}}
     \\
     = {} & \hphantom{{} + {}} a_{1,2}
     \\
-         & + a_{1,3} + a_{2,3}
+    & + a_{1,3} + a_{2,3}
     \\
-         & + a_{1,4} + a_{2,4} + a_{3,4}
+    & + a_{1,4} + a_{2,4} + a_{3,4}
     \\
-         & +
+    & +
     \dots
     \\
-         & + a_{1,n} + a_{2,n} + \dots + a_{n-1,n}.
+    & + a_{1,n} + a_{2,n} + \dots + a_{n-1,n}.
 \end{align*}
 再比如, 若 \(\ell\) 是某个不超过 \(n\) 的正整数, 则
 \begin{align*}
-    \sum_{\substack{1 \leq i \leq n \\i \neq \ell}}
+    \sum_{\substack{1 \leq i \leq n \\ i \neq \ell}}
     {a_i}
     = a_1 + \dots + a_{\ell-1} + a_{\ell+1} + \dots + a_n.
 \end{align*}
@@ -223,11 +225,13 @@
 则, 根据加法的结合律与交换律,
 \begin{equation}
     \begin{aligned}
-             & \sum_{i_1,i_2,\dots,i_n
-            \,\text{适合}\,R_1\,\text{或}\,R_2}
+        &
+        \sum_{i_1,i_2,\dots,i_n
+        \,\text{适合}\,R_1\,\text{或}\,R_2}
         {a_{i_1, i_2, \dots, i_n}}
         \\
-        = {} & \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
+        = {} &
+        \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
         {a_{i_1, i_2, \dots, i_n}}
         + \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R_2}
         {a_{i_1, i_2, \dots, i_n}}.
@@ -236,11 +240,13 @@
 \end{equation}
 比如,
 \begin{align*}
-     & \sum_{1 \leq i \leq 10} {i}
+    &
+    \sum_{1 \leq i \leq 10} {i}
     = \sum_{1 \leq i \leq 4} {i}
     + \sum_{5 \leq i \leq 10} {i};
     \\
-     & \sum_{\substack{1 \leq i, j \leq n \\i \neq j}} {a_{i,j}}
+    &
+    \sum_{\substack{1 \leq i, j \leq n \\ i \neq j}} {a_{i,j}}
     = \sum_{1 \leq i < j \leq n} {a_{i,j}}
     + \sum_{1 \leq j < i \leq n} {a_{i,j}}.
 \end{align*}
@@ -269,7 +275,7 @@
 适合 \(R\)''.
 由式~\eqref{eq:B0104},
 \begin{align*}
-         &
+    &
     \sum_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
     {a_{i_1, i_2, \dots, i_n}}
     \\
@@ -305,9 +311,9 @@
 \end{equation}
 比如,
 \begin{align*}
-     & 6 \cdot 5x \cdot 4x^2 \cdot 3x^3 \cdot 2x^4 \cdot x^5
+    & 6 \cdot 5x \cdot 4x^2 \cdot 3x^3 \cdot 2x^4 \cdot x^5
     = \prod_{i = 0}^{5} {(6 - i)x^i};                        \\
-     & 1 \cdot 2 \cdot \dots \cdot (n - 1) \cdot n
+    & 1 \cdot 2 \cdot \dots \cdot (n - 1) \cdot n
     = \prod_{i = 1}^{n} {i}.
 \end{align*}
 
@@ -347,7 +353,7 @@
     a_{1,1} \cdot a_{2,2} \cdot \dots \cdot a_{t,t}.
 \end{align*}
 
-有时, 被乘的数用二个或多个指标编号.
+有时, 被乘的数用 \(2\)~个或多个指标编号.
 比如, 我们计算矩形数表~\eqref{eq:B0203} 的 \(st\)~个数的积 \(P\).
 因为数的乘法适合结合律与交换律,
 故我们可按任何的次序求积.
@@ -359,21 +365,22 @@
 再求每行的积的积, 得
 \begin{align*}
     P
-    = {} & \prod_{j = 1}^{t} {a_{1,j}}
+    = {} &
+    \prod_{j = 1}^{t} {a_{1,j}}
     \cdot \prod_{j = 1}^{t} {a_{2,j}}
     \cdot \dots
     \cdot \prod_{j = 1}^{t} {a_{s,j}}
     \\
     = {} &
     \prod_{i = 1}^{s}
-        {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}.
+    {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}.
 \end{align*}
 为方便, 我们写
 \begin{align*}
     \prod_{i = 1}^{s}
-        {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}
+    {\left( \prod_{j = 1}^{t} {a_{i,j}} \right)}
     = \prod_{i = 1}^{s}
-        {\prod_{j = 1}^{t} {a_{i,j}}}.
+    {\prod_{j = 1}^{t} {a_{i,j}}}.
 \end{align*}
 这就是 \(2\)~重求积.
 
@@ -385,20 +392,21 @@
 再求每列的积的积, 得
 \begin{align*}
     P
-    = {} & \prod_{i = 1}^{s} {a_{i,1}}
+    = {} &
+    \prod_{i = 1}^{s} {a_{i,1}}
     \cdot \prod_{i = 1}^{s} {a_{i,2}}
     \cdot \dots
     \cdot \prod_{i = 1}^{s} {a_{i,t}}
     \\
     = {} &
     \prod_{j = 1}^{t}
-        {\left( \prod_{i = 1}^{s} {a_{i,j}} \right)}
+    {\left( \prod_{i = 1}^{s} {a_{i,j}} \right)}
     \\
     = {} &
     \prod_{j = 1}^{t}
-        {\prod_{i = 1}^{s} {a_{i,j}}}.
+    {\prod_{i = 1}^{s} {a_{i,j}}}.
 \end{align*}
-比较二次计算的结果, 我们有
+比较 \(2\)~次计算的结果, 我们得
 \begin{align*}
     \prod_{i = 1}^{s} {\prod_{j = 1}^{t} {a_{i,j}}}
     = \prod_{j = 1}^{t} {\prod_{i = 1}^{s} {a_{i,j}}}.
@@ -408,63 +416,63 @@
 类似地, 我们可引入 \(3\)~重求积
 \begin{align*}
     \prod_{i = 1}^{s} {
-            \prod_{j = 1}^{t} {
-                    \prod_{k = 1}^{u} {
-                            a_{i,j,k} }}}
+        \prod_{j = 1}^{t} {
+            \prod_{k = 1}^{u} {
+    a_{i,j,k} }}}
     =
     \prod_{i = 1}^{s}
-        {\left(
+    {\left(
             \prod_{j = 1}^{t} {
                 \prod_{k = 1}^{u} {
-                    a_{i,j,k} }}
-            \right)}.
+            a_{i,j,k} }}
+    \right)}.
 \end{align*}
 在此基础上, 我们可引入 \(4\)~重求积
 \begin{align*}
     \prod_{i = 1}^{s} {
-            \prod_{j = 1}^{t} {
-                    \prod_{k = 1}^{u} {
-                            \prod_{\ell = 1}^{v} {
-                                    a_{i,j,k,\ell} }}}}
+        \prod_{j = 1}^{t} {
+            \prod_{k = 1}^{u} {
+                \prod_{\ell = 1}^{v} {
+    a_{i,j,k,\ell} }}}}
     =
     \prod_{i = 1}^{s}
-        {\left(
+    {\left(
             \prod_{j = 1}^{t} {
                 \prod_{k = 1}^{u} {
                     \prod_{\ell = 1}^{v} {
-                        a_{i,j,k,\ell} }}}
-            \right)}.
+            a_{i,j,k,\ell} }}}
+    \right)}.
 \end{align*}
 ……
 在此基础上, 我们可引入 \(p\)~重求积
 \begin{align*}
     \prod_{i_1 = 1}^{n_1} {
-            \prod_{i_2 = 1}^{n_2} {
-                    \dots
-                    \prod_{i_{p-1} = 1}^{n_{p-1}} {
-                            \prod_{i_p = 1}^{n_p} {
-                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+        \prod_{i_2 = 1}^{n_2} {
+            \dots
+            \prod_{i_{p-1} = 1}^{n_{p-1}} {
+                \prod_{i_p = 1}^{n_p} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     = \prod_{i_1 = 1}^{n_1}
-        {\left(
+    {\left(
             \prod_{i_2 = 1}^{n_2} {
                 \dots
                 \prod_{i_{p-1} = 1}^{n_{p-1}} {
                     \prod_{i_p = 1}^{n_p} {
-                        a_{i_1,i_2,\dots,i_{p-1},i_p} }}}
-            \right)}.
+            a_{i_1,i_2,\dots,i_{p-1},i_p} }}}
+    \right)}.
 \end{align*}
 特别地, 若 \(n_1 = n_2 = \dots = n_p = n\),
 我们可简单地写
 \begin{align*}
     \prod_{i_1 = 1}^{n} {
-            \prod_{i_2 = 1}^{n} {
-                    \dots
-                    \prod_{i_{p-1} = 1}^{n} {
-                            \prod_{i_p = 1}^{n} {
-                                    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
+        \prod_{i_2 = 1}^{n} {
+            \dots
+            \prod_{i_{p-1} = 1}^{n} {
+                \prod_{i_p = 1}^{n} {
+    a_{i_1,i_2,\dots,i_{p-1},i_p} }}}}
     =
     \prod_{i_1,i_2,\dots,i_p = 1}^{n}
-        {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
+    {a_{i_1,i_2,\dots,i_{p-1},i_p}}.
 \end{align*}
 
 有时, 虽然被乘的数用若干个指标编号,
@@ -473,23 +481,23 @@
 这时, 我们在求积号下写出指标适合的条件.
 比如,
 \begin{align*}
-         & \prod_{1 \leq i < j \leq n} {a_{i,j}}
+    & \prod_{1 \leq i < j \leq n} {a_{i,j}}
     \\
     = {} & \hphantom{{} \cdot {}} a_{1,2}
     \\
-         & \cdot a_{1,3} \cdot a_{2,3}
+    & \cdot a_{1,3} \cdot a_{2,3}
     \\
-         & \cdot a_{1,4} \cdot a_{2,4} \cdot a_{3,4}
+    & \cdot a_{1,4} \cdot a_{2,4} \cdot a_{3,4}
     \\
-         & \cdot
+    & \cdot
     \dots
     \\
-         & \cdot a_{1,n} \cdot a_{2,n}
+    & \cdot a_{1,n} \cdot a_{2,n}
     \cdot \dots \cdot a_{n-1,n}.
 \end{align*}
 再比如, 若 \(\ell\) 是某个不超过 \(n\) 的正整数, 则
 \begin{align*}
-    \prod_{\substack{1 \leq i \leq n \\i \neq \ell}}
+    \prod_{\substack{1 \leq i \leq n \\ i \neq \ell}}
     {a_i}
     = a_1 \cdot \dots \cdot a_{\ell-1}
     \cdot a_{\ell+1} \cdot \dots \cdot a_n.
@@ -503,11 +511,13 @@
 则, 根据乘法的结合律与交换律,
 \begin{equation}
     \begin{aligned}
-             & \prod_{i_1,i_2,\dots,i_n
-            \,\text{适合}\,R_1\,\text{或}\,R_2}
+        &
+        \prod_{i_1,i_2,\dots,i_n
+        \,\text{适合}\,R_1\,\text{或}\,R_2}
         {a_{i_1, i_2, \dots, i_n}}
         \\
-        = {} & \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
+        = {} &
+        \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_1}
         {a_{i_1, i_2, \dots, i_n}}
         \cdot \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R_2}
         {a_{i_1, i_2, \dots, i_n}}.
@@ -516,11 +526,11 @@
 \end{equation}
 比如,
 \begin{align*}
-     & \prod_{1 \leq i \leq 10} {i}
+    & \prod_{1 \leq i \leq 10} {i}
     = \prod_{1 \leq i \leq 4} {i}
     \cdot \prod_{5 \leq i \leq 10} {i};
     \\
-     & \prod_{\substack{1 \leq i, j \leq n \\i \neq j}} {a_{i,j}}
+    & \prod_{\substack{1 \leq i, j \leq n \\ i \neq j}} {a_{i,j}}
     = \prod_{1 \leq i < j \leq n} {a_{i,j}}
     \cdot \prod_{1 \leq j < i \leq n} {a_{i,j}}.
 \end{align*}
@@ -554,7 +564,7 @@
 适合 \(R\)''.
 由式~\eqref{eq:B0204},
 \begin{align*}
-         &
+    &
     \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
     {a_{i_1, i_2, \dots, i_n}}
     \\
@@ -568,11 +578,10 @@
     \cdot \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
     {a_{i_1, i_2, \dots, i_n}}.
 \end{align*}
-特别地, 代 \(R\) 以 \(N\), 有 \(x = x \cdot x\),
+特别地, 代 \(R\) 以 \(N\), 得 \(x = x \cdot x\),
 即 \(x = 0\) 或 \(x = 1\).
 若我们取 \(x = 0\),
 则对任何的约束~\(R\),
-必有
 \begin{align*}
     \prod_{i_1,i_2,\dots,i_n\,\text{适合}\,R}
     {a_{i_1, i_2, \dots, i_n}}
@@ -655,7 +664,7 @@
     我们假定 \(P(n)\) 是对的, 其中, \(n \geq n_0 = 1\).
     我们要由此证明 \(P(n+1)\) 也是对的:
     \begin{align*}
-             & 1 + 3 + \dots + (2n - 1) + (2(n+1) - 1)
+        & 1 + 3 + \dots + (2n - 1) + (2(n+1) - 1)
         \\
         = {} & (1 + 3 + \dots + (2n - 1)) + (2n + 1)
         \\
@@ -693,7 +702,7 @@
 % \vspace{2ex}
 
 注意, 数学归纳法的起始步与递推步是缺一不可的.
-我们看二个例.
+我们看 \(2\)~个例.
 
 \begin{example}[缺起始步]
     设 \(n\)~是正整数.
@@ -721,7 +730,7 @@
     我们假定 \(P'(n)\) 是对的, 其中, \(n \geq n_0 = 1\).
     我们要由此证明 \(P'(n+1)\) 也是对的:
     \begin{align*}
-             & 1 + 3 + \dots + (2n - 1) + (2(n+1) - 1)
+        & 1 + 3 + \dots + (2n - 1) + (2(n+1) - 1)
         \\
         = {} & (1 + 3 + \dots + (2n - 1)) + (2n + 1)
         \\
@@ -794,7 +803,7 @@
     所以, 由数学归纳法,
     对每个正整数 \(n\), \(Q(n)\) 是对的.
     可是, 这不合常识:
-    \(0\) 与 \(1\) 就是不相同的二个数.
+    \(0\) 与 \(1\) 就是不相同的 \(2\)~个数.
 
     我在何地方出了问题?
     其实, \(Q(1)\) 是不能推出 \(Q(2)\) 的.
@@ -811,7 +820,7 @@
     由此可见, 数学归纳法的递推步也是不可少的.
 \end{example}
 
-最后, 我用二个难的例%
+最后, 我用 \(2\)~个难的例%
 助您更好地理解与运用数学归纳法.
 
 \begin{example}
@@ -929,7 +938,7 @@
     注意, 对任何正整数 \(a\),
     \(a = 1a = a1\).
     则每个正整数 \(a\) 都有因子 \(1\), \(a\)
-    (注意, \(1\) 与 \(a\) 不一定是二个互不相同的数,
+    (注意, \(1\) 与 \(a\) 不一定是 \(2\)~个互不相同的数,
     除非 \(a > 1\)).
     我们说, \(1\) 与 \(a\) 是 \(a\) 的\emph{平凡的因子}.
     若 \(b\) 是 \(a\) 的因子,
@@ -972,9 +981,10 @@
     \(P(n)\) 推出 \(P(n+1)\),
     因为, \(n\) 跟 \(n+1\) 的因子%
     似乎没有有意思的关系.
-    (因子的定义跟乘法有关, 而跟加法的关系不那么大.
+    (因子的定义跟乘法有关, % tex-fmt: skip
+    而跟加法的关系不那么大.
     比如, 即使知道 \(2\) 是 \(n\) 的因子,
-    但知道 \(n+1\) 的不平凡的因子或许是难的.)
+    但知道 \(n+1\) 的不平凡的因子或许是难的.) % tex-fmt: skip
 
     我们试作辅助命题 \(Q(n)\):
     \(P(n)\) 与 \(P(n+1)\) 是对的.
@@ -1054,7 +1064,9 @@
     \end{align*}
 \end{definition}
 
-不难看出, \(x^1 = x^0 x = 1 x = x\).
+回想, 对任何数 \(x\), \(1 x = x = x 1\).
+
+不难看出, 对任何数 \(x\), \(x^1 = x^0 x = 1 x = x\).
 
 \begin{example}
     设 \(m\) 是非负整数.
@@ -1071,10 +1083,43 @@
 
     假定 \(P(m)\) 是对的.
     我们由此证明, \(P(m+1)\) 也是对的.
-    注意, \(1^{m+1} = 1^m \cdot 1 = 1 \cdot 1 = 1\).
-
+    注意,
+    \begin{align*}
+        1^{m+1} = 1^m \cdot 1 = 1 \cdot 1 = 1.
+    \end{align*}
     所以, \(P(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
+\end{example}
+
+\begin{example}
+    设 \(x\), \(y\) 是数.
+    设 \(x y = y x\).
+    设 \(m\) 是非负整数.
+    我们用数学归纳法证明,
+    \(y^m x = x y^m\).
+
+    作命题 \(P(m)\): \(y^m x = x y^m\).
+    我们的目标是,
+    对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为
+    \(y^0 x = 1 x = x 1 = x y^0\).
+
+    假定 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        y^{m+1} x
+        = (y^m y) x
+        = y^m (y x)
+        = y^m (x y)
+        = (y^m x) y
+        = (x y^m) y
+        = x (y^m y)
+        = x y^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
 \end{example}
 
 \begin{theorem}
@@ -1089,7 +1134,7 @@
     \((x^{\ell})^{m} = x^{\ell m}\);
 
     (3)
-    \((x y)^{m} = x^m y^m\).
+    \((x y)^{m} = x^m y^m\), 若 \(x y = y x\).
 \end{theorem}
 
 \begin{proof}
@@ -1116,7 +1161,7 @@
         = x^{\ell} x^{m+1}.
     \end{align*}
     所以, \(P(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 
     (2)
     作命题 \(Q(m)\):
@@ -1138,9 +1183,10 @@
         = x^{\ell (m+1)}.
     \end{align*}
     所以, \(Q(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 
     (3)
+    设 \(x y = y x\).
     作命题 \(R(m)\):
     \((x y)^{m} = x^{m} y^{m}\).
     我们的目标是,
@@ -1167,15 +1213,43 @@
         = x^{m+1} y^{m+1}.
     \end{align*}
     所以, \(R(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 以上, 我们讨论了数的非负整数次方.
-若一个数不是 \(0\), 我们还能讨论它的负整数次方,
+
+若一个数有倒数, 我们还能讨论这个数的负整数次方,
 故我们能讨论它的整数次方.
 
+回想, 对任何不是 \(0\) 的数 \(x\),
+存在数 \(u\), 使 \(u x = 1 = x u\).
+
+\begin{theorem}
+    设 \(x\), \(u\), \(v\) 是数,
+    % 且 \(u x = 1 = x u\),
+    % 且 \(v x = 1 = x v\).
+    且 \(u x = 1 = x v\).
+    则 \(u = v\).
+\end{theorem}
+
+\begin{proof}
+    \begin{equation*}
+        u = u 1 = u (x v) = (u x) v = 1 v = v.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+于是,
+适合 \(u x = 1 = x u\) 的数 \(u\) 是唯一的.
+我们说, \(u\) 是 \(x\) 的\emph{倒数}.
+% 我们常记 \(u\) 为 \(x^{-1}\);
+% 不过, 既然我们在讨论数的负整数次方,
+% 我们别地记它:
+我们记 \(u\) 为 \(\operatorname{rec} {(x)}\).
+\(\operatorname{rec}\) 来自 \angla{reciprocal} (英语).
+
 \begin{definition}
-    设 \(x\) 是数, 且 \(x \neq 0\).
+    设 \(x\) 是数, 且 \(x\) 有倒数.
     设 \(m\) 是整数.
 
     (1)
@@ -1184,34 +1258,198 @@
 
     (2)
     设 \(m < 0\).
-    因为 \(x \neq 0\),
-    故有 (唯一的) 数 \(u\) 使 \(ux = 1 = xu\).
     我们定义 \(x\) 的 \(m\)~次方 \(x^m\)
-    为 \(u\) 的 \(-m\)~次方 \(u^{-m}\).
+    为 \(x\) 的倒数 \(\operatorname{rec} {(x)}\)
+    的 \(-m\)~次方 \((\operatorname{rec} {(x)})^{-m}\).
 \end{definition}
 
 \begin{example}
     设 \(m\) 是负整数.
     设 \(x\) 是 \(1\) 或 \(-1\).
-    我们计算 \(x^m\).
+    注意, \(x\) 适合 \(x x = 1 = x x\).
+    则 \(\operatorname{rec} {(x)} = x\).
+    故 \(x^m = x^{-m}\).
 
-    因为 \(x\) 适合 \(x x = 1 = x x\),
-    故, 由定义, \(x^m = x^{-m}\).
-
-    若 \(x = 1\), 则 \(1^m = 1^{-m} = 1\).
-    由此可见, 对任何整数 \(n\), 有 \(1^n = 1\).
+    特别地, \(1^m = 1^{-m} = 1\).
+    由此可见, 对任何整数 \(n\), \(1^n = 1\).
 \end{example}
 
-不难看出, 若 \(x \neq 0\),
-则 \(x^{-1} = u^{-(-1)} = u\).
+不难看出, 若 \(x\) 有倒数,
+则 \(x^{-1} = (\operatorname{rec} {(x)})^{-(-1)}
+    = (\operatorname{rec} {(x)})^{1}
+= \operatorname{rec} {(x)}\).
 则 \(x^{-1} x = 1 = x x^{-1}\).
 
-不是 \(0\) 的数的整数次方也有%
+有倒数的数的整数次方也有%
 跟数的非负整数次方的性质类似的性质.
 不过, 它们的证明是较复杂的.
+为此, 我们先研究倒数的性质.
 
 \begin{theorem}
-    设 \(x\), \(y\) 是数, 且都不是 \(0\).
+    设 \(x\), \(y\) 是数, 且都有倒数.
+    设 \(z\) 是数.
+    设 \(m\) 是非负整数.
+    则
+
+    (1)
+    \(\operatorname{rec} {(x)}\) 有倒数, 且
+    \(\operatorname{rec} {(\operatorname{rec} {(x)})} = x\);
+
+    (2)
+    \(x^m\) 有倒数, 且
+    \(\operatorname{rec} {(x^m)} = (\operatorname{rec} {(x)})^m\);
+
+    (3)
+    \(x y\) 有倒数, 且
+    \(\operatorname{rec} {(x y)}
+    = \operatorname{rec} {(y)} \operatorname{rec} {(x)}\);
+
+    (4)
+    \(\operatorname{rec} {(y)}\, z
+    = z \operatorname{rec} {(y)}\),
+    若 \(z y = y z\);
+
+    (5)
+    \(\operatorname{rec} {(x)} \operatorname{rec} {(y)}
+    = \operatorname{rec} {(y)} \operatorname{rec} {(x)}\),
+    若 \(x y = y x\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    注意, 既然
+    \(\operatorname{rec} {(x)}\, x
+    = 1 = x \operatorname{rec} {(x)}\),
+    则当然
+    \(x \operatorname{rec} {(x)} = 1
+    = \operatorname{rec} {(x)}\, x\).
+    倒数是唯一的, 故
+    \(\operatorname{rec} {(\operatorname{rec} {(x)})} = x\).
+
+    (2)
+    注意,
+    \(\operatorname{rec} {(x)}\, x
+    = 1 = x \operatorname{rec} {(x)}\),
+    故
+    \begin{align*}
+        &
+        (\operatorname{rec} {(x)})^m x^m
+        = (\operatorname{rec} {(x)} x)^m
+        = 1^m
+        = 1,
+        \\
+        &
+        x^m (\operatorname{rec} {(x)})^m
+        = (x \operatorname{rec} {(x)})^m
+        = 1^m
+        = 1.
+    \end{align*}
+    倒数是唯一的, 故
+    \(\operatorname{rec} {(x^m)} = (\operatorname{rec} {(x)})^m\).
+
+    (3)
+    注意,
+    \begin{align*}
+        (\operatorname{rec} {(y)} \operatorname{rec} {(x)})
+        (x y)
+        = {} &
+        ((\operatorname{rec} {(y)} \operatorname{rec} {(x)}) x)
+        y
+        \\
+        = {} &
+        (\operatorname{rec} {(y)} (\operatorname{rec} {(x)}\, x))
+        y
+        \\
+        = {} &
+        (\operatorname{rec} {(y)}\, 1) y
+        \\
+        = {} &
+        \operatorname{rec} {(y)}\, y
+        \\
+        = {} &
+        1,
+    \end{align*}
+    且
+    \begin{align*}
+        (x y)
+        (\operatorname{rec} {(y)} \operatorname{rec} {(x)})
+        = {} &
+        x
+        (y (\operatorname{rec} {(y)} \operatorname{rec} {(x)}))
+        \\
+        = {} &
+        x
+        ((y \operatorname{rec} {(y)}) \operatorname{rec} {(x)})
+        \\
+        = {} &
+        x (1 \operatorname{rec} {(x)})
+        \\
+        = {} &
+        x \operatorname{rec} {(x)}
+        \\
+        = {} &
+        1.
+    \end{align*}
+    倒数是唯一的, 故
+    \(\operatorname{rec} {(x y)}
+    = \operatorname{rec} {(y)} \operatorname{rec} {(x)}\).
+
+    (4)
+    设 \(z y = y z\).
+    则
+    \begin{align*}
+        \operatorname{rec} {(y)}\, z
+        = {} &
+        \operatorname{rec} {(y)}\,
+        (z 1)
+        \\
+        = {} &
+        \operatorname{rec} {(y)}\,
+        (z (y \operatorname{rec} {(y)}))
+        \\
+        = {} &
+        \operatorname{rec} {(y)}\,
+        ((z y) \operatorname{rec} {(y)})
+        \\
+        = {} &
+        \operatorname{rec} {(y)}\,
+        ((y z) \operatorname{rec} {(y)})
+        \\
+        = {} &
+        (\operatorname{rec} {(y)}\, (y z))
+        \operatorname{rec} {(y)}
+        \\
+        = {} &
+        ((\operatorname{rec} {(y)}\, y) z)
+        \operatorname{rec} {(y)}
+        \\
+        = {} &
+        (1 z) \operatorname{rec} {(y)}
+        \\
+        = {} &
+        z \operatorname{rec} {(y)}.
+    \end{align*}
+
+    (5)
+    设 \(x y = y x\).
+    则由 (4),
+    \(\operatorname{rec} {(y)}\, x
+    = x \operatorname{rec} {(y)}\).
+    视 \(\operatorname{rec} {(y)}\) 为 \(w\).
+    则 \(w x = x w\).
+    则再由 (4),
+    \(\operatorname{rec} {(x)}\, w
+    = w \operatorname{rec} {(x)}\).
+    故
+    \(\operatorname{rec} {(x)} \operatorname{rec} {(y)}
+    = \operatorname{rec} {(y)} \operatorname{rec} {(x)}\).
+\end{proof}
+
+% a manual page break
+\clearpage
+
+\begin{theorem}
+    设 \(x\), \(y\) 是数, 且都有倒数.
     设 \(m\), \(\ell\) 是整数.
     则
 
@@ -1222,16 +1460,101 @@
     \((x^{\ell})^{m} = x^{\ell m}\);
 
     (3)
-    \((x y)^{m} = x^m y^m\).
+    \((x y)^{m} = x^m y^m\), 若 \(x y = y x\).
 \end{theorem}
 
 \begin{proof}
-    以下,
-    设 (唯一的) 数 \(u\) 适合 \(ux = 1 = xu\),
-    且设 (唯一的) 数 \(v\) 适合 \(vy = 1 = yv\).
-    我们先证 (2);
-    我们再证 (3);
-    我们最后证 (1).
+    (1)
+    分类讨论.
+    设 \(\ell \geq 0\), 且 \(m \geq 0\).
+    则我们已证此情形.
+
+    设 \(\ell \geq 0\), \(m < 0\), 且 \(\ell + m \geq 0\).
+    则 \(-m > 0\).
+    注意,
+    \(x \operatorname{rec} {(x)}
+    = 1 = \operatorname{rec} {(x)}\, x\).
+    则
+    \(1 = 1^{-m}
+        = (x \operatorname{rec} {(x)})^{-m}
+        = x^{-m} (\operatorname{rec} {(x)})^{-m}
+        = x^{-m} x^{-(-m)}
+    = x^{-m} x^m\).
+    则
+    \begin{align*}
+        x^{\ell + m}
+        = x^{\ell + m} 1
+        = x^{\ell + m} (x^{-m} x^m)
+        = (x^{\ell + m} x^{-m}) x^m
+        = x^{(\ell + m) + (-m)} x^m
+        = x^\ell x^m.
+    \end{align*}
+
+    设 \(\ell \geq 0\), \(m < 0\), 且 \(\ell + m < 0\).
+    则 \(-m > 0\), 且
+    \((-\ell) + (-m) = -(\ell + m) > 0\).
+    注意,
+    \(x \operatorname{rec} {(x)}
+    = 1 = \operatorname{rec} {(x)}\, x\).
+    则
+    \(1 = 1^\ell = (x \operatorname{rec} {(x)})^\ell
+    = x^\ell (\operatorname{rec} {(x)})^\ell\).
+    则
+    \begin{align*}
+        x^{\ell + m}
+        = {} &
+        (\operatorname{rec} {(x)})^{-(\ell + m)}
+        \\
+        = {} &
+        (\operatorname{rec} {(x)})^{(-\ell) + (-m)}
+        \\
+        = {} &
+        1 (\operatorname{rec} {(x)})^{(-\ell) + (-m)}
+        \\
+        = {} &
+        (x^\ell (\operatorname{rec} {(x)})^\ell) (\operatorname{rec} {(x)})^{(-\ell) + (-m)}
+        \\
+        = {} &
+        x^\ell ((\operatorname{rec} {(x)})^\ell (\operatorname{rec} {(x)})^{(-\ell) + (-m)})
+        \\
+        = {} &
+        x^\ell (\operatorname{rec} {(x)})^{\ell + ((-\ell) + (-m))}
+        \\
+        = {} &
+        x^\ell (\operatorname{rec} {(x)})^{-m}
+        \\
+        = {} &
+        x^\ell x^m.
+    \end{align*}
+
+    设 \(\ell < 0\), 且 \(m \geq 0\).
+    则 \(-\ell > 0\).
+    则
+    \(x^{\ell + m} = x^{m + \ell} = x^m x^\ell\).
+    注意,
+    \(x \operatorname{rec} {(x)}
+    = 1 = \operatorname{rec} {(x)}\, x\).
+    则
+    \((\operatorname{rec} {(x)})^{-\ell} x
+    = x (\operatorname{rec} {(x)})^{-\ell}\).
+    则
+    \(x^\ell x = x x^\ell\).
+    则
+    \(x^m x^\ell = x^\ell x^m\).
+    则
+    \(x^{\ell + m} = x^m x^\ell = x^\ell x^m\).
+
+    设 \(\ell < 0\), 且 \(m < 0\).
+    则 \(-\ell > 0\), \(-m > 0\).
+    则
+    \begin{align*}
+        x^{\ell + m}
+        = (\operatorname{rec} {(x)})^{-(\ell + m)}
+        = (\operatorname{rec} {(x)})^{(-\ell) + (-m)}
+        = (\operatorname{rec} {(x)})^{-\ell}
+        (\operatorname{rec} {(x)})^{-m}
+        = x^\ell x^m.
+    \end{align*}
 
     (2)
     分类讨论.
@@ -1239,102 +1562,91 @@
     则我们已证此情形.
 
     设 \(\ell \geq 0\), 且 \(m < 0\).
-    则 \(\ell \geq 0\), 且 \(-m > 0\).
-    因为 \(x \neq 0\), 故 \(x^\ell \neq 0\).
-    则有 (唯一的) 数 \(U\) 使 \(U x^\ell = 1 = x^\ell U\).
-    注意,
-    \(u^\ell x^\ell = (u x)^\ell = 1^\ell = 1\),
-    且
-    \(x^\ell u^\ell = (x u)^\ell = 1^\ell = 1\),
-    故 \(U = u^\ell\).
-    则 \((x^\ell)^m = U^{-m} = (u^\ell)^{-m}
-    = u^{\ell (-m)}\).
-    另一方面, 因为 \(\ell m \leq 0\),
-    故 \(x^{\ell m} = u^{-(\ell m)} = u^{\ell (-m)}\).
-    故 \((x^\ell)^m = u^{\ell (-m)} = x^{\ell m}\).
+    则 \(-m > 0\), 且 \(-(\ell m) = \ell (-m) \geq 0\).
+    则
+    \begin{align*}
+        (x^\ell)^m
+        = (\operatorname{rec} {(x^\ell)})^{-m}
+        = ((\operatorname{rec} {(x)})^{\ell})^{-m}
+        = (\operatorname{rec} {(x)})^{\ell (-m)}
+        = (\operatorname{rec} {(x)})^{-(\ell m)}
+        = x^{\ell m}.
+    \end{align*}
 
     设 \(\ell < 0\), 且 \(m \geq 0\).
-    则 \(-\ell > 0\), 且 \(m \geq 0\).
-    则 \(x^\ell = u^{-\ell}\).
-    则 \((x^\ell)^m = (u^{-\ell})^m = u^{(-\ell) m}\).
-    另一方面, 因为 \(\ell m \leq 0\),
-    故 \(x^{\ell m} = u^{-(\ell m)} = u^{(-\ell) m}\).
-    故 \((x^\ell)^m = u^{(-\ell) m} = x^{\ell m}\).
+    则 \(-\ell > 0\), 且 \(-(\ell m) = (-\ell) m \geq 0\).
+    则
+    \begin{align*}
+        (x^\ell)^m
+        = ((\operatorname{rec} {(x)})^{-\ell})^m
+        = (\operatorname{rec} {(x)})^{(-\ell) m}
+        = (\operatorname{rec} {(x)})^{-(\ell m)}
+        = x^{\ell m}.
+    \end{align*}
 
     设 \(\ell < 0\), 且 \(m < 0\).
-    则 \(-\ell > 0\), 且 \(-m > 0\).
-    则 \(x^\ell = u^{-\ell}\).
-    因为 \(u \neq 0\), 故 \(u^{-\ell} \neq 0\).
-    则有 (唯一的) 数 \(X\) 使
-    \(X u^{-\ell} = 1 = u^{-\ell} X\).
-    注意,
-    \(x^{-\ell} u^{-\ell} = (x u)^{-\ell} = 1^{-\ell} = 1\),
-    且
-    \(u^{-\ell} x^{-\ell} = (u x)^{-\ell} = 1^{-\ell} = 1\),
-    故 \(X = x^{-\ell}\).
-    则 \((x^\ell)^m = (u^{-\ell})^m
-    = X^{-m} = (x^{-\ell})^{-m}
-    = x^{(-\ell) (-m)} = x^{\ell m}\).
+    则 \(-\ell > 0\), 且 \(-m > 0\),
+    且 \(\ell m = (-\ell) (-m) > 0\).
+    则
+    \begin{align*}
+        (x^\ell)^m
+        = {} &
+        ((\operatorname{rec} {(x)})^{-\ell})^m
+        \\
+        = {} &
+        (\operatorname{rec} {(x^{-\ell})})^m
+        \\
+        = {} &
+        (\operatorname{rec} {(\operatorname{rec} {(x^{-\ell})})})^{-m}
+        \\
+        = {} &
+        (x^{-\ell})^{-m}
+        \\
+        = {} &
+        x^{(-\ell) (-m)}
+        \\
+        = {} &
+        x^{\ell m}.
+    \end{align*}
 
     (3)
+    设 \(x y = y x\).
     分类讨论.
     设 \(m \geq 0\).
     则我们已证此情形.
 
     设 \(m < 0\).
     则 \(-m > 0\).
-    因为 \(x \neq 0\), 且 \(y \neq 0\),
-    故 \(x y \neq 0\).
-    则有 (唯一的) 数 \(W\) 使 \(W (x y) = 1 = (x y) W\).
     注意,
-    \((v u) (x y) = v (u x) y = v y = 1\),
-    且
-    \((x y) (v u) = x (y v) u = x u = 1\),
-    故 \(W = v u\).
-    则 \((x y)^m = W^{-m} = (v u)^{-m}
-    = v^{-m} u^{-m} = y^m x^m = x^m y^m\).
-
-    (1)
-    分类讨论.
-    设 \(\ell \geq 0\), 且 \(m \geq 0\).
-    则我们已证此情形.
-
-    设 \(\ell \geq 0\), \(m < 0\), 且 \(\ell + m \geq 0\).
-    则 \(x^{\ell + m}
-    = x^{\ell + m} 1^m
-    = x^{\ell + m} (x^{-1} x)^m
-    = x^{\ell + m} (x^{-1})^m x^m
-    = x^{\ell + m} x^{-m} x^m
-    = x^{\ell + m + (-m)} x^m
-    = x^\ell x^m\).
-
-    设 \(\ell \geq 0\), \(m < 0\), 且 \(\ell + m < 0\).
-    则 \(\ell \geq 0\), \(-m > 0\), 且 \(-\ell + (-m) > 0\).
-    则 \(x^{\ell + m}
-    = u^{-(\ell + m)}
-    = u^{-\ell + (-m)}
-    = 1^\ell u^{-\ell + (-m)}
-    = (x u)^\ell u^{-\ell + (-m)}
-    = x^\ell u^\ell u^{-\ell + (-m)}
-    = x^\ell u^{\ell + (-\ell) + (-m)}
-    = x^\ell u^{-m}
-    = x^\ell x^m\).
-
-    设 \(\ell < 0\), 且 \(m \geq 0\).
-    则 \(m \geq 0\), 且 \(\ell < 0\).
-    则 \(x^{\ell + m}
-    = x^{m + \ell}
-    = x^m x^\ell
-    = x^\ell x^m\).
-
-    设 \(\ell < 0\), 且 \(m < 0\).
-    则 \(-\ell > 0\), \(-m > 0\), 且 \(-\ell + (-m) > 0\).
-    则 \(x^{\ell + m}
-    = u^{-(\ell + m)}
-    = u^{-\ell + (-m)}
-    = u^{-\ell} u^{-m}
-    = x^\ell x^m\).
+    \(\operatorname{rec} {(x)} \operatorname{rec} {(y)}
+    = \operatorname{rec} {(y)} \operatorname{rec} {(x)}\).
+    则
+    \begin{align*}
+        (x y)^m
+        = {} &
+        (y x)^m
+        \\
+        = {} &
+        (\operatorname{rec} {(y x)})^{-m}
+        \\
+        = {} &
+        (\operatorname{rec} {(x)} \operatorname{rec} {(y)})^{-m}
+        \\
+        = {} &
+        (\operatorname{rec} {(x)})^{-m} (\operatorname{rec} {(y)})^{-m}
+        \\
+        = {} &
+        x^m y^m.
+        \qedhere
+    \end{align*}
 \end{proof}
+
+最后, 有一件事, 其值得提.
+注意, 若 \(x\) 有倒数, 则它的倒数
+\(\operatorname{rec} {(x)} = x^{-1}\).
+所以, 若 \(x\) 有倒数,
+我们也记 \(x\) 的倒数为 \(x^{-1}\).
+这是常用的记号.
 
 \section{结合律、交换律、分配律}
 
@@ -1343,7 +1655,7 @@
 我们知道, 数的加法适合结合律与交换律;
 数的乘法也适合结合律与交换律;
 并且, 乘法与加法适合分配律.
-具体地, 我们设 \(a\), \(b\), \(c\) 是任何三数.
+具体地, 我们设 \(a\), \(b\), \(c\) 是任何 \(3\)~个数.
 那么, 加法的结合律就是 \((a + b) + c = a + (b + c)\);
 乘法的结合律就是 \((a \cdot b) \cdot c = a \cdot (b \cdot c)\);
 加法的交换律就是 \(a + b = b + a\);
@@ -1357,13 +1669,13 @@
 \((a \cdot b) + (c \cdot d)\)
 (我们通常先算乘法, 再算加法).
 
-% 这些运算律看上去抽象,
+% 这些律看上去抽象,
 % 但我们一直在用它们作计算.
 
 % \begin{example}
 %     在小学, 我们学过乘法表.
-%     利用乘法表与数的运算律,
-%     我们可以作二个数的乘法.
+%     利用乘法表与运算的律,
+%     我们可以作 \(2\)~个数的乘法.
 %     比如,
 %     \begin{align*}
 %         %  & 23 \cdot 57                                    \\
@@ -1421,19 +1733,19 @@
     = {} & 100 + 100             \\
     = {} & 200.
 \end{align*}
-不过, 小学教材没有证明此事,
-初中教材似乎也没有证明此事,
-且高中教材似乎也没有证明此事.
+不过, 小学教材未证明此事,
+初中教材似乎也未证明此事,
+且高中教材似乎也未证明此事.
 
 现在, 我接受这个挑战.
 不过, 为方便, 我要一些新的概念.
 
 \begin{definition}
-    设 \(a\), \(b\) 是二个文字.
+    设 \(a\), \(b\) 是 \(2\)~个文字.
     我们叫形如 \((a, b)\) 的文字为\emph{有序对}.
 
-    再设 \(c\), \(d\) 也是二个文字.
-    说二个有序对 \((a, b)\), \((c, d)\) 相等,
+    再设 \(c\), \(d\) 也是 \(2\)~个文字.
+    说 \(2\)~个有序对 \((a, b)\), \((c, d)\) 相等,
     就是说, \(a = c\) 且 \(b = d\).
 \end{definition}
 
@@ -1484,15 +1796,16 @@
         \mathbb{Z} = \{ 0, 1, -1, 2, -2, \dots \}.
     \end{align*}
     我们也可写
-    \begin{align*}
+    \begin{equation*}
         \mathbb{Z} =
         \{ x \mid \text{\(x \in \mathbb{N}\)
-            或 \(-x \in \mathbb{N}\)} \}.
-    \end{align*}
+        或 \(-x \in \mathbb{N}\)} \}.
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{definition}
-    设 \(S\), \(T\) 是二个非空的集.
+    设 \(S\), \(T\) 是 \(2\)~个非空的集.
     定义
     \begin{align*}
         S \times T
@@ -1515,7 +1828,7 @@
     \end{align*}
     可以看到, 虽然 \(A \times B\) 与 \(B \times A\)
     的元的数目是相同的,
-    但二者的元是不一样的.
+    但它们的元是不一样的.
 \end{example}
 
 抽象地, \(a + b\) 的 \(+\),
@@ -1532,12 +1845,12 @@
     设 \(S\) 是非空的集.
     设对应法则~\(\circ\) 适合:
     对 \(S \times S\) 的任何一个有序对 \((a, b)\),
-    必存在 \(S\) 里的唯一的一个元 \(r\),
+    存在 \(S\) 里的唯一的一个元 \(r\),
     使在对应法则~\(\circ\) 下,
     \((a, b)\) 跟 \(r\) 对应.
-    (也就是:
+    (也就是: % tex-fmt: skip
     (a)
-    对 \(S\) 的任何二元 \(a\), \(b\)
+    对 \(S\) 的任何 \(2\)~个元 \(a\), \(b\)
     (不必互不相同),
     存在 \(S\) 的元 \(r\),
     使在对应法则~\(\circ\) 下,
@@ -1546,9 +1859,9 @@
     若在对应法则~\(\circ\) 下,
     \((a, b)\) 跟 \(r\) 对应,
     且 \((a, b)\) 跟 \(t\) 对应,
-    则 \(r = t\).)
+    则 \(r = t\).) % tex-fmt: skip
     那么, 我们说, \(\circ\) 是 \(S\) 的%
-    一个\emph{二元运算}.
+    一个\emph{\(2\)~元运算}.
 
     设在对应法则~\(\circ\) 下,
     \((a, b)\) 跟 \(r\) 对应.
@@ -1556,39 +1869,39 @@
 \end{definition}
 
 \begin{example}
-    加法与乘法都是 \(\mathbb{N}\)~的二元运算:
-    二个给定的非负整数 \(a\), \(b\)
+    加法与乘法都是 \(\mathbb{N}\)~的 \(2\)~元运算:
+    \(2\)~个给定的非负整数 \(a\), \(b\)
     的和 (或积) 是被唯一确定的非负整数
     \(a + b\)
     (或 \(ab\)).
     不过, 减法不是:
-    二个非负整数的差不一定是非负整数.
+    \(2\)~个非负整数的差不一定是非负整数.
 
-    不过, 减法是 \(\mathbb{Z}\)~的二元运算.
+    不过, 减法是 \(\mathbb{Z}\)~的 \(2\)~元运算.
     当然, 加法与乘法也是.
 \end{example}
 
-我们考虑运算律.
+我们考虑运算的律.
 
 我们先看结合律.
 
 设 \(S\) 为非空的集.
-设 \(\circ\) 是 \(S\) 的二元运算.
+设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
 文字 \(a \circ b \circ c\) 是否有意义?
-显然, 我们并没有定义它的含义:
-二元运算每次只对二个元作运算.
-不过, 我们总可以先挑二个元作运算,
+显然, 我们并未定义它的含义:
+\(2\)~元运算每次只对 \(2\)~个元作运算.
+不过, 我们总可以先挑 \(2\)~个元作运算,
 然后再作一次运算.
 比如, 先施 \(\circ\) 于 \(a\), \(b\),
 可得 \((a \circ b) \circ c\);
 先施 \(\circ\) 于 \(b\), \(c\),
 可得 \(a \circ (b \circ c)\).
-二者不一定相同,
-因为二元运算是相当自由的.
+它们不一定相同,
+因为 \(2\)~元运算是相当自由的.
 
 \begin{example}
     \(
-    (11 - 5) - 2 \neq 11 - (5 - 2).
+        (11 - 5) - 2 \neq 11 - (5 - 2).
     \)
 \end{example}
 
@@ -1598,10 +1911,9 @@
 
 \begin{definition}
     设 \(S\) 是非空的集.
-    设 \(\circ\) 是 \(S\) 的二元运算.
-    若对 \(S\) 的任何三元 \(a\), \(b\), \(c\)
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
+    若对 \(S\) 的任何 \(3\)~个元 \(a\), \(b\), \(c\)
     (不一定是互不相同的, 下同),
-    必有
     \begin{align*}
         (a \circ b) \circ c = a \circ (b \circ c),
     \end{align*}
@@ -1609,8 +1921,8 @@
 \end{definition}
 
 通俗地, 结合律说,
-若非空的集 \(S\) 的二元运算 \(\circ\) 适合结合律,
-且 \(a\), \(b\), \(c\) 为 \(S\) 的任何 \(3\)~元,
+若非空的集 \(S\) 的 \(2\)~元运算 \(\circ\) 适合结合律,
+且 \(a\), \(b\), \(c\) 为 \(S\) 的任何 \(3\)~个元,
 则无论如何加括号
 (但不改元的前后次序),
 结果都是相等的.
@@ -1618,23 +1930,23 @@
 我们看结合律有何用.
 
 设 \(S\) 是非空的集.
-设 \(\circ\) 是 \(S\) 的二元运算.
+设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
 设 \(\circ\) 适合结合律.
 设 \(a\), \(b\), \(c\), \(d\) 是 \(S\) 的 \(4\)~个元.
 考虑文字 \(a \circ b \circ c \circ d\).
 显然, 它并没有含义
-(二元运算每次只对二个元作运算).
-不过, 我们总可以二个二个地作运算.
-% 我们总可以选二个元 ``结合'',
-% 然后, 连同上步的结果, 再选二个元结合,
+(\(2\)~元运算每次只对 \(2\)~个元作运算).
+不过, 我们总可以 \(2\)~个 \(2\)~个地作运算.
+% 我们总可以选 \(2\)~个元 ``结合'',
+% 然后, 连同上步的结果, 再选 \(2\)~个元结合,
 % 直到剩一个元为止.
 具体地, 我们有如下 \(5\)~个结合 (加括号) 方式:
 \begin{align*}
-     & r_{4,1} = ((a \circ b) \circ c) \circ d, \\
-     & r_{4,2} = (a \circ (b \circ c)) \circ d, \\
-     & r_{4,3} = a \circ ((b \circ c) \circ d), \\
-     & r_{4,4} = a \circ (b \circ (c \circ d)), \\
-     & r_{4,5} = (a \circ b) \circ (c \circ d).
+    & r_{4,1} = ((a \circ b) \circ c) \circ d, \\
+    & r_{4,2} = (a \circ (b \circ c)) \circ d, \\
+    & r_{4,3} = a \circ ((b \circ c) \circ d), \\
+    & r_{4,4} = a \circ (b \circ (c \circ d)), \\
+    & r_{4,5} = (a \circ b) \circ (c \circ d).
 \end{align*}
 不难用结合律验证,
 \(r_{4,2}\), \(r_{4,3}\), \(r_{4,4}\), \(r_{4,5}\)
@@ -1656,16 +1968,16 @@
 \end{align*}
 \endgroup
 所以, 通俗地,
-若非空的集 \(S\) 的二元运算 \(\circ\) 适合结合律,
+若非空的集 \(S\) 的 \(2\)~元运算 \(\circ\) 适合结合律,
 且 \(a\), \(b\), \(c\), \(d\) 为 \(S\) 的任何 \(4\)~元,
 则无论如何加括号
 (但不改元的前后次序),
 结果都是相等的.
 
-一般地, 我们有
+一般地,
 
 \begin{theorem}
-    设非空的集 \(S\) 的二元运算 \(\circ\) 适合结合律,
+    设非空的集 \(S\) 的 \(2\)~元运算 \(\circ\) 适合结合律,
     且 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 为
     \(S\) 的任何 \(n\)~元.
     则无论如何加括号
@@ -1678,24 +1990,23 @@
 我们证明此事后, 就不再用这个记号.
 
 \begin{definition}
-    设 \(\circ\) 是 \(S\) 的二元运算.
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
     设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是
     \(S\)~的 \(n\)~个元.
     定义
     \begin{align*}
-        [a_1, a_2, \dots, a_n]
-        =
+        [a_1, a_2, \dots, a_n] =
         \begin{cases}
             a_1,
-             & n = 1;    \\
+            & n = 1;    \\
             a_1 \circ a_2,
-             & n = 2;    \\
+            & n = 2;    \\
             [a_1, a_2, \dots, a_{n-1}] \circ a_n,
-             & n \geq 3.
+            & n \geq 3.
         \end{cases}
     \end{align*}
     由此可见, \([a_1, a_2, \dots, a_n]\)
-    就是从前向后地, 二个二个地%
+    就是从前向后地, \(2\)~个 \(2\)~个地%
     施 \(\circ\) 于
     \(a_1\), \(a_2\), \(\dots\), \(a_n\)
     得到的结果.
@@ -1715,10 +2026,12 @@
     我们证明,
     它们都等于
     \([a_1, a_2, \dots, a_n]\)
-    (注意, 这也是一个加括号的方式,
-    故它必跟 \(r_{n,1}\), \(r_{n,2}\), \(\dots\),
+    (注意, 这也是一个加括号的方式, % tex-fmt: skip
+    即
+    \((((a_1 \circ a_2) \circ \dots) \circ a_{n-1}) \circ a_n\),
+    故它跟 \(r_{n,1}\), \(r_{n,2}\), \(\dots\),
     \(r_{n,s_n}\) 中的一个%
-    有相同的计算式).
+    有相同的计算式). % tex-fmt: skip
     具体地, 设命题 \(P(n)\) 为
     \begin{quotation}
         对 \(S\) 的任何 \(n\)~元
@@ -1751,7 +2064,7 @@
     \(a_1\), \(a_2\), \(\dots\), \(a_m\).
     任取一个 \(r_{m,i}\).
     注意, 无论如何加括号作计算,
-    最后的那一步总是二个元的计算
+    最后的那一步总是 \(2\)~个元的计算
     (可回想 \(4\)~个元时的情形).
     我们设 \(r_{m,i} = b_1 \circ b_2\),
     其中, \(b_1\) 是结合 \(a_1\), \(a_2\), \(\dots\), \(a_m\)
@@ -1771,7 +2084,7 @@
     故
     \begin{align*}
         r_{m,i}
-            = [a_1, a_2, \dots, a_{m-1}] \circ a_m
+        = [a_1, a_2, \dots, a_{m-1}] \circ a_m
         = [a_1, a_2, \dots, a_m].
     \end{align*}
     若 \(m - k > 1\), 则
@@ -1806,7 +2119,7 @@
     进而, \(P(n)\) 对任何正整数~\(n\) 是成立的.
 \end{proof}
 
-设 \(\circ\) 是非空的集 \(S\) 的适合结合律的二元运算.
+设 \(\circ\) 是非空的集 \(S\) 的适合结合律的 \(2\)~元运算.
 设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 为 \(S\) 的任何 \(n\)~元.
 我们简单地写
 \begin{align*}
@@ -1820,15 +2133,15 @@
 然后, 我们看交换律.
 
 设 \(S\) 为非空的集.
-设 \(\circ\) 是 \(S\) 的二元运算.
+设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
 设 \(a\), \(b \in S\).
 自然地, \(a \circ b\) 与 \(b \circ a\) 都有意义.
-因为二元运算是相当自由的,
-故二者不一定相等.
+因为 \(2\)~元运算是相当自由的,
+故它们不一定相等.
 
 \begin{example}
     \(
-    7 - 3 \neq 3 - 7.
+        7 - 3 \neq 3 - 7.
     \)
 \end{example}
 
@@ -1838,9 +2151,8 @@
 
 \begin{definition}
     设 \(S\) 是非空的集.
-    设 \(\circ\) 是 \(S\) 的二元运算.
-    若对 \(S\) 的任何二元 \(a\), \(b\),
-    必有
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
+    若对 \(S\) 的任何 \(2\)~个元 \(a\), \(b\),
     \begin{align*}
         a \circ b = b \circ a,
     \end{align*}
@@ -1853,7 +2165,7 @@
 且可以任何方式作加法 (乘法).
 
 \begin{theorem}
-    设非空的集 \(S\) 的二元运算 \(\circ\) 适合%
+    设非空的集 \(S\) 的 \(2\)~元运算 \(\circ\) 适合%
     结合律与交换律,
     且 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
     为 \(S\) 的任何 \(n\)~元.
@@ -1900,7 +2212,7 @@
     且互不相同.
     故
     \begin{align*}
-             & a_{i_1} \circ a_{i_2} \circ
+        & a_{i_1} \circ a_{i_2} \circ
         \dots \circ a_{i_{m-1}} \circ a_{i_m}               \\
         = {} &
         (a_{i_1} \circ a_{i_2} \circ
@@ -1915,10 +2227,9 @@
     我们设 \(i_j = m\).
     则
     (若 \(i_1 = m\),
-    则 \(a_{i_1} \circ \dots \circ a_{i_{j-1}}\)
-    不出现)
+    则 \(a_{i_1} \circ \dots \circ a_{i_{j-1}}\) 不出现)
     \begin{align*}
-             & a_{i_1} \circ a_{i_2} \circ
+        & a_{i_1} \circ a_{i_2} \circ
         \dots \circ a_{i_m}                                 \\
         = {} & (a_{i_1} \circ \dots \circ a_{i_{j-1}})
         \circ (a_{i_j}
@@ -1936,27 +2247,28 @@
     \end{align*}
 
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
-注意, 只有交换律而没有结合律的二元运算%
+注意, 只有交换律而没有结合律的 \(2\)~元运算%
 是没有这个好性质的.
 
 \begin{example}
-    定义 \(\mathbb{Z}\) 上的二元运算
+    定义 \(\mathbb{Z}\) 上的 \(2\)~元运算
     \(a \circ b = ab - (a + b)\).
     不难验证, \(\circ\) 适合交换律.
     我们取 \(a\), \(b\), \(c\), \(d\)
     为 \(2\), \(3\), \(5\), \(7\).
     则
     \begin{align*}
-         & (2 \circ 3) \circ (5 \circ 7) = 1 \circ 23 = -1; \\
-         & (2 \circ 5) \circ (3 \circ 7) = 3 \circ 11 = 19.
+        & (2 \circ 3) \circ (5 \circ 7) = 1 \circ 23 = -1; \\
+        & (2 \circ 5) \circ (3 \circ 7) = 3 \circ 11 = 19.
     \end{align*}
     不难发现, \(\circ\) 不适合结合律:
     \begin{align*}
-         & (1 \circ 0) \circ 0 = -1 \circ 0 = 1; \\
-         & 1 \circ (0 \circ 0) = 1 \circ 0 = -1.
+        & (1 \circ 0) \circ 0 = -1 \circ 0 = 1; \\
+        & 1 \circ (0 \circ 0) = 1 \circ 0 = -1.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -1964,19 +2276,17 @@
 
 \begin{definition}
     设 \(S\) 是非空的集.
-    设 \(\circ\) 是 \(S\) 的二元运算.
-    设 \(\oplus\) 也是 \(S\) 的二元运算.
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
+    设 \(\oplus\) 也是 \(S\) 的 \(2\)~元运算.
 
-    若对 \(S\) 的任何三元 \(a\), \(b\), \(c\),
-    必有
+    若对 \(S\) 的任何 \(3\)~个元 \(a\), \(b\), \(c\),
     \begin{align*}
         a \circ (b \oplus c)
         = (a \circ b) \oplus (a \circ c),
     \end{align*}
     我们说, \(\circ\) 与 \(\oplus\) 适合\emph{左分配律}.
 
-    若对 \(S\) 的任何三元 \(a\), \(b\), \(c\),
-    必有
+    若对 \(S\) 的任何 \(3\)~个元 \(a\), \(b\), \(c\),
     \begin{align*}
         (a \oplus b) \circ c
         = (a \circ c) \oplus (b \circ c),
@@ -1990,12 +2300,12 @@
 \end{definition}
 
 若 \(\oplus\) 适合结合律,
-我们可得如下三个结果.
+我们可得如下 \(3\)~个结果.
 
 \begin{theorem}
     设 \(S\) 是非空的集.
-    设 \(\circ\) 是 \(S\) 的二元运算.
-    设 \(\oplus\) 是 \(S\) 的二元运算,
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
+    设 \(\oplus\) 是 \(S\) 的 \(2\)~元运算,
     且适合结合律.
     再设 \(\circ\) 与 \(\oplus\) 适合左分配律.
     则对 \(S\) 的任何 \(n + 1\)~元
@@ -2034,7 +2344,7 @@
     \(b\), \(a_1\), \(a_2\), \(\dots\), \(a_m\).
     则
     \begin{align*}
-             &
+        &
         b \circ (a_1 \oplus a_2 \oplus \dots \oplus a_m)
         \\
         = {} &
@@ -2055,16 +2365,16 @@
         \dots \oplus (b \circ a_m).
     \end{align*}
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
-您可用完全类似的方法, 证明如下二个事实.
+您可用完全类似的方法, 证明如下 \(2\)~个事实.
 我就不证它们了.
 
 \begin{theorem}
     设 \(S\) 是非空的集.
-    设 \(\circ\) 是 \(S\) 的二元运算.
-    设 \(\oplus\) 是 \(S\) 的二元运算,
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
+    设 \(\oplus\) 是 \(S\) 的 \(2\)~元运算,
     且适合结合律.
     再设 \(\circ\) 与 \(\oplus\) 适合右分配律.
     则对 \(S\) 的任何 \(n + 1\)~元
@@ -2079,20 +2389,20 @@
 
 \begin{theorem}
     设 \(S\) 是非空的集.
-    设 \(\circ\) 是 \(S\) 的二元运算.
-    设 \(\oplus\) 是 \(S\) 的二元运算,
+    设 \(\circ\) 是 \(S\) 的 \(2\)~元运算.
+    设 \(\oplus\) 是 \(S\) 的 \(2\)~元运算,
     且适合结合律.
     再设 \(\circ\) 与 \(\oplus\) 适合分配律.
     则对 \(S\) 的任何 \(n + 1\)~元
     \(b\), \(a_1\), \(a_2\) \(\dots\), \(a_n\),
     \begin{align*}
-         &
+        &
         b \circ (a_1 \oplus a_2 \oplus \dots \oplus a_n)
         =
         (b \circ a_1) \oplus (b \circ a_2) \oplus
         \dots \oplus (b \circ a_n),
         \\
-         &
+        &
         (a_1 \oplus a_2 \oplus \dots \oplus a_n) \circ b
         =
         (a_1 \circ b) \oplus (a_2 \circ b) \oplus

@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \section{缺项定位}
 
@@ -70,17 +71,17 @@
     \(x\) 前缺几项, 它的位置就减几.
 
     若我们想进一步地使公式简单,
-    那我们可作一个新记号.
-    设 \(i\), \(j\) 为二个整数.
+    我们可作一个新记号.
+    设 \(i\), \(j\) 为 \(2\)~个整数.
     定义
     \begin{align*}
-        \rho(i, j)
-        = \begin{cases}
-              0, & i < j;    \\
-              1, & i \geq j.
-          \end{cases}
+        \rho(i, j) =
+        \begin{cases}
+            0, & i < j;    \\
+            1, & i \geq j.
+        \end{cases}
     \end{align*}
-    注意, 对不相等的二个整数 \(i\), \(j\),
+    注意, 对不相等的 \(2\)~个整数 \(i\), \(j\),
     \(\rho(i, j) = 0\) 相当于 \(i < j\),
     而 \(\rho(i, j) = 1\) 相当于 \(i > j\).
     利用这个 \(\rho\)-记号, 我们可方便地写出,
@@ -113,20 +114,21 @@
         = {} & x - (\rho(x, 6) + \rho(x, 2) + \rho(x, 8))  \\
         = {} & x - (\rho(x, 2) + \rho(x, 8) + \rho(x, 6))  \\
         = {} & x - (\rho(x, 8) + \rho(x, 6) + \rho(x, 2)).
+        \qefhere
     \end{align*}
 \end{example}
 
 为方便, 我再介绍一次 \(\rho\)-记号.
 
 \begin{definition}[\(\rho\)-记号]
-    设 \(i\), \(j\) 为二个整数.
+    设 \(i\), \(j\) 为 \(2\)~个整数.
     定义
     \begin{align*}
-        \rho(i, j)
-        = \begin{cases}
-              0, & i < j;    \\
-              1, & i \geq j.
-          \end{cases}
+        \rho(i, j) =
+        \begin{cases}
+            0, & i < j;    \\
+            1, & i \geq j.
+        \end{cases}
     \end{align*}
 \end{definition}
 
@@ -134,10 +136,6 @@
 \(\rho(i, j) + \rho(j, i) = 1\);
 我们在后面会用到它.
 (当然, \(i = j\) 时, \(\rho(i, j) + \rho(j, i) = 2\).)
-
-\vspace{2ex}
-
-一般地, 我们有
 
 \begin{theorem}[缺项定位]
     设 \(n\) 为高于 \(1\) 的正整数.
@@ -171,7 +169,7 @@
     且 \(i_{k+1}' > n \geq i_k'\).
 
     文字列~II 的文字恰为%
-    所有不等于
+    所有的不等于
     \(i_1'\), \(i_2'\), \(\dots\), \(i_k'\)
     的, 且不超过 \(n\) 的正整数.
     任取文字列~II 的一个文字 \(x\).
@@ -244,11 +242,11 @@
 得文字列~II: \(i_n\)
 (恰剩一个文字).
 显然, \(i_n\) 的位置 \(f(i_n) = 1\).
-另一方面, 利用缺项定位公式, 有
+另一方面, 由缺项定位公式,
 \begin{align*}
     f(i_n) = i_n - (\rho(i_n, i_1) + \dots + \rho(i_n, i_{n-1})).
 \end{align*}
-于是, 我们有
+于是, 我们得
 
 \begin{theorem}
     设
@@ -272,7 +270,7 @@
 \end{theorem}
 
 \section{\texorpdfstring{\(-1\)~的整数次方}%
-  {-1 的整数次方}}
+{-1 的整数次方}}
 
 我想讲 \(-1\) 的整数次方.
 在证明行列式的公式时,
@@ -369,12 +367,12 @@
 \(c_1\), \(c_2\), \(\dots\), \(c_n\)
 的一个逆序,
 相当于说 \(\rho(c_i, c_j) = 1\).
-(注意, 因为
+(注意, 因为 % tex-fmt: skip
 \(c_1\), \(c_2\), \(\dots\), \(c_n\)
 是互不相同的整数,
 故不可能出现
 \(i < j\),
-但 \(c_i = c_j\) 的情形.)
+但 \(c_i = c_j\) 的情形.) % tex-fmt: skip
 
 我们说, 一个排列的所有的逆序的数目为它的\emph{逆序数}.
 比如, 排列 \(1\), \(2\), \(3\), \(4\), \(5\) 的逆序数为 \(0\),
@@ -387,19 +385,16 @@
     \tau(c_1, c_2, \dots, c_n)
     = {} & \hphantom{{} + {}} \rho(c_1, c_2)
     \\
-         & + \rho(c_1, c_3) + \rho(c_2, c_3)
+    & + \rho(c_1, c_3) + \rho(c_2, c_3)
     \\
-         & + \rho(c_1, c_4) + \rho(c_2, c_4)
-    + \rho(c_3, c_4)
+    & + \rho(c_1, c_4) + \rho(c_2, c_4) + \rho(c_3, c_4)
     \\
-         & +
-    \dots
+    & + \dots
     \\
-         & + \rho(c_1, c_n) + \rho(c_2, c_n) + \dots
-    + \rho(c_{n-1}, c_n)
+    & + \rho(c_1, c_n) + \rho(c_2, c_n) + \dots + \rho(c_{n-1}, c_n)
     \\
-    = {} & \sum_{j = 2}^{n} {
-            \sum_{i = 1}^{j - 1} {\rho(c_i, c_j)} }
+    = {} &
+    \sum_{j = 2}^{n} {\sum_{i = 1}^{j - 1} {\rho(c_i, c_j)}}
     \\
     = {} & \sum_{1 \leq i < j \leq n} {\rho(c_i, c_j)}.
 \end{align*}
@@ -428,7 +423,7 @@
 从而它的逆序数为 \(0\).
 这跟前面的公式是一样的:
 既然没有整数对 \((i, j)\) 适合 \(1 \leq i < j \leq 1\),
-那这个和就是 \(0\).
+这个和就是 \(0\).
 
 \vspace{2ex}
 
@@ -439,8 +434,7 @@
     设 \(x\) 为整数.
     定义
     \begin{align*}
-        \operatorname{sgn} {(x)}
-        =
+        \operatorname{sgn} {(x)} =
         \begin{cases}
             1,  & x > 0; \\
             0,  & x = 0; \\
@@ -472,22 +466,22 @@
         = {} & \hphantom{\cdot\,\,}
         \operatorname{sgn} {(c_2 - c_1)}
         \\
-             & \cdot \operatorname{sgn} {(c_3 - c_1)}
+        & \cdot \operatorname{sgn} {(c_3 - c_1)}
         \cdot \operatorname{sgn} {(c_3 - c_2)}
         \\
-             & \cdot \operatorname{sgn} {(c_4 - c_1)}
+        & \cdot \operatorname{sgn} {(c_4 - c_1)}
         \cdot \operatorname{sgn} {(c_4 - c_2)}
         \cdot \operatorname{sgn} {(c_4 - c_3)}
         \\
-             & \cdot
+        & \cdot
         \dots
         \\
-             & \cdot \operatorname{sgn} {(c_n - c_1)}
+        & \cdot \operatorname{sgn} {(c_n - c_1)}
         \cdot \operatorname{sgn} {(c_n - c_2)} \cdot \dots
         \cdot \operatorname{sgn} {(c_n - c_{n-1})}
         \\
         = {} & \prod_{j = 2}^{n} {
-                \prod_{i = 1}^{j - 1} {\operatorname{sgn} {(c_j - c_i)}} }
+        \prod_{i = 1}^{j - 1} {\operatorname{sgn} {(c_j - c_i)}} }
         \\
         = {} & \prod_{1 \leq i < j \leq n}
         {\operatorname{sgn} {(c_j - c_i)}}.
@@ -498,21 +492,21 @@
 \angla{sign} (或 \angla{signum}) (英语).
 
 显然, 若 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 里%
-有二个相同的文字
+有 \(2\)~个相同的文字
 (也就是, 存在整数 \(i\), \(j\),
-使 \(1 \leq i < j \leq n\),
+使 \(1 \leq i < j \leq n\), % tex-fmt: skip
 且 \(c_i = c_j\)),
 则此文字列的符号为 \(0\).
 反过来, 因为非零的整数的积不是 \(0\),
 故符号为 \(0\) 的文字列%
-有二个相同的文字.
+有 \(2\)~个相同的文字.
 
 值得提,
 若一个文字列恰含一个文字,
 我们说, 它 (作为文字列) 的符号是 \(1\).
 这跟前面的公式是一样的:
 既然没有整数对 \((i, j)\) 适合 \(1 \leq i < j \leq 1\),
-那这个积就是 \(1\).
+这个积就是 \(1\).
 
 不要混淆 \(\operatorname{sgn}\) 跟 \(s\):
 比如, \(s(0) = 1\), 但 \(\operatorname{sgn} {(0)} = 0\);

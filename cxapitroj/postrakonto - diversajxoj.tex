@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\appendix\chapter{Afterstories}\clearpage}{}
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
 
 \section{杂例}
 
@@ -10,34 +11,35 @@
     设 \(A\) 是 \(n\)~级阵.
     设 \(n\)~级阵 \(D\) 适合
     \begin{align*}
-        [D]_{i,j}
-        = \begin{cases}
-              d_i, & i = j;       \\
-              0,   & \text{别的情形}.
-          \end{cases}
+        [D]_{i,j} =
+        \begin{cases}
+            d_i, & i = j;       \\
+            0,   & \text{别的情形}.
+        \end{cases}
     \end{align*}
-    则
-    \begin{align*}
-             &
-        \det {(A + D)}
-        \\
-        = {} &
-        \hphantom{{} + {}}
-        \det {(D)}
-        \\
-             &
-        + \sum_{k = 1}^{n-1}
-        {
-        \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
-        \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
-        }
-        \\
-             &
-        + \det {(A)}.
-    \end{align*}
+    我们计算 \(\det {(A + D)}\).
+    % 则
+    % \begin{align*}
+    %     &
+    %     \det {(A + D)}
+    %     \\
+    %     = {} &
+    %     \hphantom{{} + {}}
+    %     \det {(D)}
+    %     \\
+    %     &
+    %     + \sum_{k = 1}^{n-1}
+    %     {
+    %         \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
+    %         \det {\left(
+    %                 A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+    %         \right)}
+    %         \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
+    %     }
+    %     \\
+    %     &
+    %     + \det {(A)}.
+    % \end{align*}
 
     设 \(A\) 的列~\(1\), \(2\), \(\dots\), \(n\)
     分别是 \(b_1^{(1)}\), \(b_2^{(1)}\), \(\dots\), \(b_n^{(1)}\).
@@ -51,16 +53,16 @@
     \end{align*}
     则, 由多线性,
     \begin{align*}
-             &
+        % &
         \det {(A + D)}
-        \\
+        % \\
         = {} &
         \det {\left[
                 \sum_{c_1 = 0}^{1} b_1^{(c_1)},
                 \sum_{c_2 = 0}^{1} b_2^{(c_2)},
                 \dots,
                 \sum_{c_n = 0}^{1} b_n^{(c_n)}
-                \right]}
+        \right]}
         \\
         = {} &
         \sum_{c_1 = 0}^{1}
@@ -69,7 +71,7 @@
                 \sum_{c_2 = 0}^{1} b_2^{(c_2)},
                 \dots,
                 \sum_{c_n = 0}^{1} b_n^{(c_n)}
-                \right]}
+        \right]}
         \\
         = {} &
         \sum_{c_1 = 0}^{1}
@@ -79,7 +81,7 @@
                 b_2^{(c_2)},
                 \dots,
                 \sum_{c_n = 0}^{1} b_n^{(c_n)}
-                \right]}
+        \right]}
         \\
         = {} &
         \dots
@@ -114,12 +116,12 @@
     适合 \(c_1 + c_2 + \dots + c_n = n\) 的项在一组.
     不难看出,
     每项在某一组里,
-    且每项不能在二个不同的组里.
+    且每项不能在 \(2\)~个不同的组里.
     则
     \begin{align*}
-             &
+        % &
         \det {(A + D)}
-        \\
+        % \\
         = {} &
         \sum_{0 \leq c_1, c_2, \dots, c_n \leq 1}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
@@ -127,26 +129,26 @@
         = {} &
         \sum_{k = 0}^{n}\,
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = k}}
+        c_1 + c_2 + \dots + c_n = k}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = 0}}
+        c_1 + c_2 + \dots + c_n = 0}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
-             &
+        &
         +
         \sum_{k = 1}^{n-1}\,
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = k}}
+        c_1 + c_2 + \dots + c_n = k}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
-             &
+        &
         +
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = n}}
+        c_1 + c_2 + \dots + c_n = n}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}.
     \end{align*}
 
@@ -192,11 +194,11 @@
     \([B_{c_1,\dots,c_n}]_{i,j_\ell} = 0\),
     且 \([B_{c_1,\dots,c_n}]_{j_\ell,j_\ell} = d_{j_\ell}\),
     按列~\(j_{k+1}\) 展开 \(\det {(B_{c_1,\dots,c_n})}\),
-    有
+    得
     \begin{align*}
         \det {(B_{c_1,\dots,c_n})}
         = {} & (-1)^{j_{k+1}+j_{k+1}}
-            [B_{c_1,\dots,c_n}]_{j_{k+1},j_{k+1}}
+        [B_{c_1,\dots,c_n}]_{j_{k+1},j_{k+1}}
         \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}
         \\
         = {} &
@@ -204,13 +206,13 @@
     \end{align*}
     按列~\(j_{k+2}-1\) 展开
     \(\det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}\),
-    有
+    得
     \begin{align*}
-             &
+        &
         \det {(B_{c_1,\dots,c_n}(j_{k+1}|j_{k+1}))}
         \\
         = {} & (-1)^{j_{k+2}-1+j_{k+2}-1}
-            [B_{c_1,\dots,c_n}]_{j_{k+2},j_{k+2}}
+        [B_{c_1,\dots,c_n}]_{j_{k+2},j_{k+2}}
         \det {(B_{c_1,\dots,c_n}
         ({j_{k+1},j_{k+2}}|{j_{k+1},j_{k+2}}))}
         \\
@@ -229,9 +231,9 @@
     ……
     最后, 我们算出
     \begin{align*}
-             &
+        % &
         \det {(B_{c_1,\dots,c_n})}
-        \\
+        % \\
         = {} &
         d_{j_{k+1}} d_{j_{k+2}} \dots d_{j_n}
         \det {(B_{c_1,\dots,c_n}
@@ -245,65 +247,66 @@
         \\
         = {} &
         \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
+                A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)}
         \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}.
     \end{align*}
     于是
     \begin{align*}
-             &
+        &
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = k}}
+        c_1 + c_2 + \dots + c_n = k}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
         = {} &
         \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
         \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
+                A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)}
         \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}.
     \end{align*}
 
     综上,
     \begin{align*}
-             &
+        &
         \det {(A + D)}
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = 0}}
+        c_1 + c_2 + \dots + c_n = 0}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
-             &
+        &
         +
         \sum_{k = 1}^{n-1}\,
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = k}}
+        c_1 + c_2 + \dots + c_n = k}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
-             &
+        &
         +
         \sum_{\substack{0 \leq c_1, c_2, \dots, c_n \leq 1 \\
-                c_1 + c_2 + \dots + c_n = n}}
+        c_1 + c_2 + \dots + c_n = n}}
         \det {[b_1^{(c_1)}, b_2^{(c_2)}, \dots, b_n^{(c_n)}]}
         \\
         = {} &
         \hphantom{{} + {}}
         \det {(D)}
         \\
-             &
+        &
         + \sum_{k = 1}^{n-1}
         {
-        \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
+            \det {\left(
+                    A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
             \right)}
-        \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
+            \det {(D({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
         }
         \\
-             &
+        &
         + \det {(A)}.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -319,42 +322,42 @@
         % {} &
         x^n
         + \sum_{k = 1}^{n}
-            {x^{n-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq n}
-                \det {\left(
-                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }.
+        {x^{n-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq n}
+            \det {\left(
+                    A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }.
     \end{align*}
 
     注意,
     \begin{align*}
-        [xI_n]_{i,j}
-        = \begin{cases}
-              x, & i = j;       \\
-              0, & \text{别的情形}.
-          \end{cases}
+        [xI_n]_{i,j} =
+        \begin{cases}
+            x, & i = j;       \\
+            0, & \text{别的情形}.
+        \end{cases}
     \end{align*}
     故, 由上个例,
     \begin{align*}
-             &
+        &
         \det {(xI_n + A)}
         \\
         = {} &
         \hphantom{{} + {}}
         \det {(xI_n)}
         \\
-             &
+        &
         + \sum_{k = 1}^{n-1}
         {
-        \sum_{1 \leq j_1 < \dots < j_k \leq n}
-        \det {\left(
-            A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq n}
+            \det {\left(
+                    A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
             \right)}
-        \det {((xI_n)({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
+            \det {((xI_n)({j_1,\dots,j_k}|{j_1,\dots,j_k}))}
         }
         \\
-             &
+        &
         + \det {(A)}
         \\
         = {} &
@@ -363,16 +366,16 @@
         % \\
         %      &
         + \sum_{k = 1}^{n-1}
-            {
-                \sum_{1 \leq j_1 < \dots < j_k \leq n}
-                \det {\left(
-                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-                \,
-                x^{n-k}
-            }
+        {
+            \sum_{1 \leq j_1 < \dots < j_k \leq n}
+            \det {\left(
+                    A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+            \,
+            x^{n-k}
+        }
         \\
-             &
+        &
         + \det {(A)}
         \\
         = {} &
@@ -381,30 +384,31 @@
         % \\
         %      &
         + \sum_{k = 1}^{n-1}
-            {
-                x^{n-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq n}
-                \det {\left(
-                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }
+        {
+            x^{n-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq n}
+            \det {\left(
+                    A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
         \\
-             &
+        &
         + x^{n-n}
         \sum_{1 \leq j_1 < \dots < j_n \leq n}
         \det {\left(
-            A\binom{j_1,\dots,j_n}{j_1,\dots,j_n}
-            \right)}
+                A\submat{j_1,\dots,j_n}{j_1,\dots,j_n}
+        \right)}
         \\
         = {} &
         x^n
         + \sum_{k = 1}^{n}
-            {x^{n-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq n}
-                \det {\left(
-                    A\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }.
+        {x^{n-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq n}
+            \det {\left(
+                    A\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -414,47 +418,48 @@
     设正整数 \(k \leq n\).
     由 Binet--Cauchy 公式的推广,
     \begin{align*}
-             &
+        &
         \sum_{1 \leq j_1 < \dots < j_k \leq m}
         \det {\left(
-            (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
+                (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)}
         \\
         = {} &
         \sum_{1 \leq j_1 < \dots < j_k \leq m}
         \sum_{1 \leq i_1 < \dots < i_k \leq n}
         \det {\left(
-            A\binom{j_1,\dots,j_k}{i_1,\dots,i_k}
-            \right)}
+                A\submat{j_1,\dots,j_k}{i_1,\dots,i_k}
+        \right)}
         \det {\left(
-            B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-            \right)}
+                B\submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)}
         \\
         = {} &
         \sum_{1 \leq j_1 < \dots < j_k \leq m}
         \sum_{1 \leq i_1 < \dots < i_k \leq n}
         \det {\left(
-            B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-            \right)}
+                B\submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)}
         \det {\left(
-            A\binom{j_1,\dots,j_k}{i_1,\dots,i_k}
-            \right)}
+                A\submat{j_1,\dots,j_k}{i_1,\dots,i_k}
+        \right)}
         \\
         = {} &
         \sum_{1 \leq i_1 < \dots < i_k \leq n}
         \sum_{1 \leq j_1 < \dots < j_k \leq m}
         \det {\left(
-            B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-            \right)}
+                B\submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+        \right)}
         \det {\left(
-            A\binom{j_1,\dots,j_k}{i_1,\dots,i_k}
-            \right)}
+                A\submat{j_1,\dots,j_k}{i_1,\dots,i_k}
+        \right)}
         \\
         = {} &
         \sum_{1 \leq i_1 < \dots < i_k \leq n}
         \det {\left(
-            (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
-            \right)}.
+                (BA)\submat{i_1,\dots,i_k}{i_1,\dots,i_k}
+        \right)}.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -464,107 +469,108 @@
     设 \(x\) 是数.
     则
     \begin{align*}
-             &
+        &
         \det {(xI_m + AB)}
         \\
         = {} &
         x^m
         + \sum_{k = 1}^{m}
-            {x^{m-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq m}
-                \det {\left(
-                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }
+        {x^{m-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq m}
+            \det {\left(
+                    (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
         \\
         = {} &
         \hphantom{{} + {}}
         x^m
         + \sum_{k = 1}^{n}
-            {x^{m-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq m}
-                \det {\left(
-                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }
+        {x^{m-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq m}
+            \det {\left(
+                    (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
         \\
-             &
+        &
         + \sum_{k = n+1}^{m}
-            {x^{m-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq m}
-                \det {\left(
-                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }
+        {x^{m-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq m}
+            \det {\left(
+                    (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
         \\
         = {} &
         \hphantom{{} + {}}
         x^m
         + \sum_{k = 1}^{n}
-            {x^{m-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq m}
-                \det {\left(
-                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }
+        {x^{m-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq m}
+            \det {\left(
+                    (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
         \\
-             &
+        &
         + \sum_{k = n+1}^{m}
-            {x^{m-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq m}
-                0
-            }
+        {x^{m-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq m}
+            0
+        }
         \\
         = {} &
         x^m
         + \sum_{k = 1}^{n}
-            {x^{m-k}
-                \sum_{1 \leq j_1 < \dots < j_k \leq m}
-                \det {\left(
-                    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-                    \right)}
-            }
+        {x^{m-k}
+            \sum_{1 \leq j_1 < \dots < j_k \leq m}
+            \det {\left(
+                    (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+            \right)}
+        }
         \\
         = {} &
         x^{m-n} x^n
         + \sum_{k = 1}^{n}
-            {x^{m-n} x^{n-k}
-                \sum_{1 \leq i_1 < \dots < i_k \leq n}
-                \det {\left(
-                    (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
-                    \right)}
-            }
+        {x^{m-n} x^{n-k}
+            \sum_{1 \leq i_1 < \dots < i_k \leq n}
+            \det {\left(
+                    (BA)\submat{i_1,\dots,i_k}{i_1,\dots,i_k}
+            \right)}
+        }
         \\
         = {} &
         x^{m-n} x^n
         + x^{m-n} \sum_{k = 1}^{n}
-            {x^{n-k}
-                \sum_{1 \leq i_1 < \dots < i_k \leq n}
-                \det {\left(
-                    (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
-                    \right)}
-            }
+        {x^{n-k}
+            \sum_{1 \leq i_1 < \dots < i_k \leq n}
+            \det {\left(
+                    (BA)\submat{i_1,\dots,i_k}{i_1,\dots,i_k}
+            \right)}
+        }
         \\
         = {} &
         x^{m-n}
         \left(
-        x^n
-        + \sum_{k = 1}^{n}
-        {x^{n-k}
-            \sum_{1 \leq i_1 < \dots < i_k \leq n}
-            \det {\left(
-                (BA)\binom{i_1,\dots,i_k}{i_1,\dots,i_k}
+            x^n
+            + \sum_{k = 1}^{n}
+            {x^{n-k}
+                \sum_{1 \leq i_1 < \dots < i_k \leq n}
+                \det {\left(
+                        (BA)\submat{i_1,\dots,i_k}{i_1,\dots,i_k}
                 \right)}
-        }
+            }
         \right)
         \\
         = {} &
         x^{m-n} \det {(xI_n + BA)}.
     \end{align*}
-    特别地, 代 \(x\) 以数 \(1\), 有
-    \begin{align*}
+    特别地, 代 \(x\) 以数 \(1\), 得
+    \begin{equation*}
         \det {(I_m + AB)} = \det {(I_n + BA)}.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
@@ -620,7 +626,7 @@
             0           & 0           & \cdots & 0                   & 0           & 1        \\
         \end{bmatrix}.
     \end{align*}
-    一方面, 按行~\(m+1\) 展开, 有
+    一方面, 按行~\(m+1\) 展开, 得
     \begin{align*}
         \det {(G)}
         = (-1)^{m+1+m+1}\,1\,\det {(G(1|1))}
@@ -665,20 +671,203 @@
     \end{align*}
     则 \(\det {(J)} = \det {(H)}\).
     故
-    \begin{align*}
-        \det {(C)} = \det {(J)}
+    \begin{equation*}
+        \det {(C)}
+        = \det {(J)}
         = 1 + b_1 a_1 + b_2 a_2 + \dots + b_m a_m.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
+% \begin{example}
+%     设 \(A\) 是 \(n\)~级阵.
+%     则 \(AA\) 是有意义的, 且也是方阵.
+%     我们写 \(A^2 = AA\).
+%     类似地, \(A^2 A\) 也是有意义的, 且也是方阵.
+%     我们写 \(A^3 = A^2 A\).
+%     一般地, 对任何非负整数 \(m\),
+%     我们如下定义方阵 \(A\) 的 \(m\)~次方:
+%     \begin{align*}
+%         A^m =
+%         \begin{cases}
+%             I,         & m = 0;    \\
+%             A^{m-1} A, & m \geq 1.
+%         \end{cases}
+%     \end{align*}
+%     不难看出, \(A^1 = A^0 A = I A = A\).
+
+%     类似数的非负整数次方, 方阵的非负整数次方适合,
+%     对任何方阵 \(A\), 任何非负整数 \(\ell\), \(m\),
+
+%     (1)
+%     \(A^{\ell+m} = A^{\ell} A^{m}\);
+
+%     (2)
+%     \((A^{\ell})^{m} = A^{\ell m}\).
+
+%     我们用数学归纳法证明 (1) 与 (2).
+
+%     (1)
+%     作命题 \(P(m)\):
+%     \(A^{\ell+m} = A^{\ell} A^{m}\).
+%     我们的目标是,
+%     对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+%     \(P(0)\) 是对的, 因为
+%     \(A^{\ell+0} = A^{\ell} = A^{\ell} I = A^{\ell} A^{0}\).
+
+%     假定 \(P(m)\) 是对的.
+%     我们由此证明, \(P(m+1)\) 也是对的.
+%     注意,
+%     \begin{align*}
+%         A^{\ell+(m+1)}
+%         = A^{(\ell+m)+1}
+%         = A^{\ell+m} A
+%         = (A^{\ell} A^{m}) A
+%         = A^{\ell} (A^{m} A)
+%         = A^{\ell} A^{m+1}.
+%     \end{align*}
+%     所以, \(P(m+1)\) 是对的.
+%     由数学归纳法, 待证的命题成立.
+
+%     (2)
+%     作命题 \(Q(m)\):
+%     \((A^{\ell})^{m} = A^{\ell m}\).
+%     我们的目标是,
+%     对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+%     \(Q(0)\) 是对的, 因为
+%     \((A^{\ell})^{0} = I = A^{0} = A^{\ell 0}\).
+
+%     假定 \(Q(m)\) 是对的.
+%     我们由此证明, \(Q(m+1)\) 也是对的.
+%     注意,
+%     \begin{align*}
+%         (A^{\ell})^{m+1}
+%         = (A^{\ell})^{m} A^{\ell}
+%         = A^{\ell m} A^{\ell}
+%         = A^{\ell m + \ell}
+%         = A^{\ell (m+1)}.
+%     \end{align*}
+%     所以, \(Q(m+1)\) 是对的.
+%     由数学归纳法, 待证的命题成立.
+% \end{example}
+
+% \begin{example}
+%     我们知道, 对任何数 \(x\), \(y\), 任何非负整数 \(m\),
+%     \((xy)^m = x^m y^m\).
+%     可是, 存在 \(2\)~个同级的方阵 \(A\), \(B\), 存在非负整数 \(m\),
+%     使 \((AB)^m \neq A^m B^m\):
+%     取 \(m = 2\),
+%     \begin{align*}
+%         A =
+%         \begin{bmatrix}
+%             1 & 1 \\ 0 & 1 \\
+%         \end{bmatrix},
+%         \quad
+%         B =
+%         \begin{bmatrix}
+%             1 & 0 \\ 1 & 1 \\
+%         \end{bmatrix}.
+%     \end{align*}
+%     不难算出
+%     \begin{align*}
+%         AB =
+%         \begin{bmatrix}
+%             2 & 1 \\ 1 & 1 \\
+%         \end{bmatrix},
+%         \quad
+%         A^2 =
+%         \begin{bmatrix}
+%             1 & 2 \\ 0 & 1 \\
+%         \end{bmatrix},
+%         \quad
+%         B^2 =
+%         \begin{bmatrix}
+%             1 & 0 \\ 2 & 1 \\
+%         \end{bmatrix}.
+%     \end{align*}
+%     则
+%     \begin{align*}
+%         (AB)^2 =
+%         \begin{bmatrix}
+%             5 & 3 \\ 3 & 2 \\
+%         \end{bmatrix},
+%         \quad
+%         A^2 B^2 =
+%         \begin{bmatrix}
+%             5 & 2 \\ 2 & 1 \\
+%         \end{bmatrix}.
+%     \end{align*}
+
+%     不过, 若 \(AB = BA\),
+%     则对任何非负整数 \(m\), \((AB)^m = A^m B^m\).
+%     为证明此事, 我们要作准备.
+
+%     作命题 \(P(m)\): \(B^{m} A = A B^{m}\).
+%     (注意, \(A B^{m}\) 是 \(A (B^{m})\), % tex-fmt: skip
+%     而不是 \((AB)^m\);
+%     这就像 \(x y^{m}\) 是 \(x (y^m)\),
+%     而不是 \((x y)^m\).) % tex-fmt: skip
+%     我们用数学归纳法证明 \(P(m)\).
+
+%     \(P(0)\) 是对的, 因为
+%     \(B^{0} A = I A = A I = A B^{0}\).
+
+%     假定 \(P(m)\) 是对的.
+%     我们由此证明, \(P(m+1)\) 也是对的.
+%     注意,
+%     \begin{align*}
+%         B^{m+1} A
+%         = {} &
+%         (B^{m} B) A
+%         = B^{m} (B A)
+%         = B^{m} (A B)
+%         \\
+%         = {} &
+%         (B^{m} A) B
+%         = (A B^{m}) B
+%         = A (B^{m} B)
+%         = A B^{m+1}.
+%     \end{align*}
+%     所以, \(P(m+1)\) 是对的.
+%     由数学归纳法, 待证的命题成立.
+
+%     好的.
+%     我们已好地准备.
+
+%     作命题 \(Q(m)\):
+%     \((AB)^{m} = A^{m} B^{m}\).
+%     我们的目标是,
+%     对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+%     \(Q(0)\) 是对的, 因为
+%     \((AB)^0 = I = I I = A^0 B^0\).
+
+%     假定 \(Q(m)\) 是对的.
+%     我们由此证明, \(Q(m+1)\) 也是对的.
+%     注意,
+%     \begin{align*}
+%         (AB)^{m+1}
+%         = {} &
+%         (AB)^{m} (AB)
+%         = (A^{m} B^{m}) (A B)
+%         = ((A^{m} B^{m}) A) B
+%         = (A^{m} (B^{m} A)) B
+%         \\
+%         = {} &
+%         (A^{m} (A B^{m})) B
+%         = ((A^{m} A) B^{m}) B
+%         = A^{m+1} (B^{m} B)
+%         = A^{m+1} B^{m+1}.
+%     \end{align*}
+%     所以, \(Q(m+1)\) 是对的.
+%     由数学归纳法, 待证的命题成立.
+% \end{example}
+
 \begin{example}
-    设 \(A\) 是 \(n\)~级阵.
-    则 \(AA\) 是有意义的, 且也是方阵.
-    我们写 \(A^2 = AA\).
-    类似地, \(A^2 A\) 也是有意义的, 且也是方阵.
-    我们写 \(A^3 = A^2 A\).
-    一般地, 对任何非负整数 \(m\),
-    我们如下定义方阵 \(A\) 的 \(m\)~次方:
+    回想, 若 \(A\) 是方阵, 且 \(m\) 是非负整数,
+    则
     \begin{align*}
         A^m =
         \begin{cases}
@@ -686,171 +875,13 @@
             A^{m-1} A, & m \geq 1.
         \end{cases}
     \end{align*}
-    不难看出, \(A^1 = A^0 A = I A = A\).
 
-    类似数的非负整数次方, 方阵的非负整数次方适合,
-    对任何方阵 \(A\), 任何非负整数 \(\ell\), \(m\),
+    回想, \(A^1 = A\).
 
-    (1)
-    \(A^{\ell+m} = A^{\ell} A^{m}\);
+    回想, 对任何非负整数 \(\ell\), \(m\),
+    \(A^{\ell + m} = A^{\ell} A^m\),
+    且 \((A^{\ell})^m = A^{\ell m}\).
 
-    (2)
-    \((A^{\ell})^{m} = A^{\ell m}\).
-
-    我们用数学归纳法证明 (1) 与 (2).
-
-    (1)
-    作命题 \(P(m)\):
-    \(A^{\ell+m} = A^{\ell} A^{m}\).
-    我们的目标是,
-    对任何非负整数 \(m\), \(P(m)\) 是对的.
-
-    \(P(0)\) 是对的, 因为
-    \(A^{\ell+0} = A^{\ell} = A^{\ell} I = A^{\ell} A^{0}\).
-
-    假定 \(P(m)\) 是对的.
-    我们由此证明, \(P(m+1)\) 也是对的.
-    注意,
-    \begin{align*}
-        A^{\ell+(m+1)}
-        = A^{(\ell+m)+1}
-        = A^{\ell+m} A
-        = (A^{\ell} A^{m}) A
-        = A^{\ell} (A^{m} A)
-        = A^{\ell} A^{m+1}.
-    \end{align*}
-    所以, \(P(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
-
-    (2)
-    作命题 \(Q(m)\):
-    \((A^{\ell})^{m} = A^{\ell m}\).
-    我们的目标是,
-    对任何非负整数 \(m\), \(Q(m)\) 是对的.
-
-    \(Q(0)\) 是对的, 因为
-    \((A^{\ell})^{0} = I = A^{0} = A^{\ell 0}\).
-
-    假定 \(Q(m)\) 是对的.
-    我们由此证明, \(Q(m+1)\) 也是对的.
-    注意,
-    \begin{align*}
-        (A^{\ell})^{m+1}
-        = (A^{\ell})^{m} A^{\ell}
-        = A^{\ell m} A^{\ell}
-        = A^{\ell m + \ell}
-        = A^{\ell (m+1)}.
-    \end{align*}
-    所以, \(Q(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
-\end{example}
-
-\begin{example}
-    我们知道, 对任何数 \(x\), \(y\), 任何非负整数 \(m\),
-    必 \((xy)^m = x^m y^m\).
-    可是, 存在二个同级的方阵 \(A\), \(B\), 存在非负整数 \(m\),
-    使 \((AB)^m \neq A^m B^m\):
-    取 \(m = 2\),
-    \begin{align*}
-        A = \begin{bmatrix}
-                1 & 1 \\ 0 & 1 \\
-            \end{bmatrix},
-        \quad
-        B = \begin{bmatrix}
-                1 & 0 \\ 1 & 1 \\
-            \end{bmatrix}.
-    \end{align*}
-    不难算出
-    \begin{align*}
-        AB = \begin{bmatrix}
-                 2 & 1 \\ 1 & 1 \\
-             \end{bmatrix},
-        \quad
-        A^2 = \begin{bmatrix}
-                  1 & 2 \\ 0 & 1 \\
-              \end{bmatrix},
-        \quad
-        B^2 = \begin{bmatrix}
-                  1 & 0 \\ 2 & 1 \\
-              \end{bmatrix}.
-    \end{align*}
-    则
-    \begin{align*}
-        (AB)^2 = \begin{bmatrix}
-                     5 & 3 \\ 3 & 2 \\
-                 \end{bmatrix},
-        \quad
-        A^2 B^2 = \begin{bmatrix}
-                      5 & 2 \\ 2 & 1 \\
-                  \end{bmatrix}.
-    \end{align*}
-
-    不过, 若 \(AB = BA\), 则我们仍有,
-    对任何非负整数 \(m\), 必 \((AB)^m = A^m B^m\).
-    为证明此事, 我们要作准备.
-
-    作命题 \(P(m)\): \(B^{m} A = A B^{m}\).
-    (注意, \(A B^{m}\) 是 \(A (B^{m})\),
-    而不是 \((AB)^m\);
-    这就像 \(x y^{m}\) 是 \(x (y^m)\),
-    而不是 \((x y)^m\).)
-    我们用数学归纳法证明 \(P(m)\).
-
-    \(P(0)\) 是对的, 因为
-    \(B^{0} A = I A = A I = A B^{0}\).
-
-    假定 \(P(m)\) 是对的.
-    我们由此证明, \(P(m+1)\) 也是对的.
-    注意,
-    \begin{align*}
-        B^{m+1} A
-        = {} &
-        (B^{m} B) A
-        = B^{m} (B A)
-        = B^{m} (A B)
-        \\
-        = {} &
-        (B^{m} A) B
-        = (A B^{m}) B
-        = A (B^{m} B)
-        = A B^{m+1}.
-    \end{align*}
-    所以, \(P(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
-
-    好的.
-    我们已好地准备.
-
-    作命题 \(Q(m)\):
-    \((AB)^{m} = A^{m} B^{m}\).
-    我们的目标是,
-    对任何非负整数 \(m\), \(Q(m)\) 是对的.
-
-    \(Q(0)\) 是对的, 因为
-    \((AB)^0 = I = I I = A^0 B^0\).
-
-    假定 \(Q(m)\) 是对的.
-    我们由此证明, \(Q(m+1)\) 也是对的.
-    注意,
-    \begin{align*}
-        (AB)^{m+1}
-        = {} &
-        (AB)^{m} (AB)
-        = (A^{m} B^{m}) (A B)
-        = ((A^{m} B^{m}) A) B
-        = (A^{m} (B^{m} A)) B
-        \\
-        = {} &
-        (A^{m} (A B^{m})) B
-        = ((A^{m} A) B^{m}) B
-        = A^{m+1} (B^{m} B)
-        = A^{m+1} B^{m+1}.
-    \end{align*}
-    所以, \(Q(m+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
-\end{example}
-
-\begin{example}
     设 \(A\) 是方阵.
     设 \(k\) 是数.
     设 \(m\) 是非负整数.
@@ -858,9 +889,9 @@
 
     (1)
     \((kA)^m = k^m A^m\).
-    (用 \((k A) (\ell B) = (k \ell) (A B)\),
+    (用 \((k A) (\ell B) = (k \ell) (A B)\), % tex-fmt: skip
     若 \(A\), \(B\) 都是 \(n\)~级阵,
-    且 \(k\), \(\ell\) 是数.)
+    且 \(k\), \(\ell\) 是数.) % tex-fmt: skip
 
     (2)
     \(\det {(A^m)} = (\det {(A)})^m\).
@@ -869,26 +900,47 @@
 
     (3)
     \((A^m)^{\mathrm{T}} = (A^{\mathrm{T}})^m\).
-    (用 \((BA)^{\mathrm{T}} = A^{\mathrm{T}} B^{\mathrm{T}}\),
+    (用 \((BA)^{\mathrm{T}} = A^{\mathrm{T}} B^{\mathrm{T}}\), % tex-fmt: skip
     若 \(A\), \(B\) 都是 \(n\)~级阵;
-    见 ``转置的性质''.)
+    见 ``转置的性质''.) % tex-fmt: skip
 
     (4)
     \(\operatorname{adj} {(A^m)}
     = (\operatorname{adj} {(A)})^m\).
-    (用 \(\operatorname{adj} {(BA)}
-    = \operatorname{adj} {(A)} \operatorname{adj} {(B)}\),
+    (用 \(\operatorname{adj} {(BA)} % tex-fmt: skip
+    = \operatorname{adj} {(A)} \operatorname{adj} {(B)}\), % tex-fmt: skip
     若 \(A\), \(B\) 都是 \(n\)~级阵;
-    见 ``古伴的性质 (3)''.)
+    见 ``古伴的性质 (3)''.) % tex-fmt: skip
 
-    请允许我留它们为您的习题.
+    我在此证明 (3), 并留 (1) (2) (4) 为您的习题.
+
+    作命题 \(P(m)\):
+    对任何 \(n\)~级阵 \(A\),
+    \((A^m)^{\mathrm{T}} = (A^{\mathrm{T}})^m\).
+
+    \(P(0)\) 是对的, 因为左边与右边都是 \(I\)
+    (注意, \(I\) 的转置也是 \(I\)).
+
+    设 \(P(m)\) 是对的.
+    我们由此证, \(P(m+1)\) 是对的.
+    注意,
+    \begin{align*}
+        (A^{m+1})^{\mathrm{T}}
+        = (A^m A)^{\mathrm{T}}
+        = A^{\mathrm{T}} (A^m)^{\mathrm{T}}
+        = (A^{\mathrm{T}})^1 (A^{\mathrm{T}})^m
+        = (A^{\mathrm{T}})^{1+m}
+        = (A^{\mathrm{T}})^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
 \end{example}
 
 \begin{example}
     设 \(A\), \(B\) 是 \(n\)~级阵.
     则存在跟 \(A\), \(B\) 的元有关的数
     \(d_0\), \(d_1\), \(\dots\), \(d_n\),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         \det {(xA + B)}
         = \sum_{k = 0}^{n} {d_k x^{n-k}}
@@ -906,7 +958,7 @@
     对任何 \(m\)~级阵 \(A\), \(B\),
     存在跟 \(A\), \(B\) 的元有关的数
     \(d_0\), \(d_1\), \(\dots\), \(d_m\),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         \det {(xA + B)}
         = \sum_{k = 0}^{m} {d_k x^{m-k}}
@@ -945,7 +997,7 @@
     由假定, 存在跟 \(A(i|1)\), \(B(i|1)\) 的元有关的数
     (从而也是跟 \(A\), \(B\) 的元有关的数)
     \(c_{i,0}\), \(c_{i,1}\), \(\dots\), \(c_{i,m-1}\),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         \det {(x A(i|1) + B(i|1))}
         = \sum_{\ell = 0}^{m-1}
@@ -958,7 +1010,7 @@
     则 \(a_i\), \(b_i\) 跟 \(A\), \(B\) 的元有关.
     则
     \begin{align*}
-             &
+        &
         \det {(xA + B)}
         \\
         = {} &
@@ -1002,7 +1054,7 @@
         \sum_{i = 1}^{m}
         a_i c_{i,\ell} x^{m-\ell}
         \\
-             &
+        &
         +
         \sum_{\ell = 0}^{m-2}
         \sum_{i = 1}^{m}
@@ -1019,7 +1071,7 @@
         \sum_{i = 1}^{m}
         a_i c_{i,\ell} x^{m-\ell}
         \\
-             &
+        &
         +
         \sum_{\ell = 0}^{m-2}
         \sum_{i = 1}^{m}
@@ -1036,7 +1088,7 @@
         \sum_{i = 1}^{m}
         a_i c_{i,\ell} x^{m-\ell}
         \\
-             &
+        &
         +
         \sum_{\ell = 1}^{m-1}
         \sum_{i = 1}^{m}
@@ -1061,16 +1113,16 @@
         d_k =
         \begin{dcases}
             \sum_{i = 1}^{m} a_i c_{i,0},
-             & k = 0;     \\
+            & k = 0;     \\
             \sum_{i = 1}^{m}
             (a_i c_{i,k} + b_i c_{i,k-1}),
-             & 0 < k < m; \\
+            & 0 < k < m; \\
             \sum_{i = 1}^{m} b_i c_{i,m-1},
-             & k = m.
+            & k = m.
         \end{dcases}
     \end{align*}
     则 \(d_k\) 跟 \(A\), \(B\) 的元有关,
-    且对任何数 \(x\), 有
+    且对任何数 \(x\),
     \begin{align*}
         \det {(xA + B)}
         = \sum_{k = 0}^{m} {d_k x^{m-k}}
@@ -1078,7 +1130,7 @@
     \end{align*}
     最后, 不难算出
     \begin{align*}
-         &
+        &
         d_0
         =
         \sum_{i = 1}^{m}
@@ -1089,7 +1141,7 @@
         =
         \det {(A)},
         \\
-         &
+        &
         d_m
         =
         \sum_{i = 1}^{m}
@@ -1101,14 +1153,14 @@
         \det {(B)}.
     \end{align*}
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{example}
 
 \begin{example}
     设 \(A\) 是 \(n\)~级阵.
     则存在跟 \(A\) 的元有关的数
     \(c_0\), \(c_1\), \(\dots\), \(c_n\),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         \det {(xI - A)}
         = \det {(xI + (-A))}
@@ -1133,7 +1185,7 @@
     \end{align*}
     则有跟 \(A\) 的元有关的数 \(d_{i,j,k}\)
     (\(k = 0\), \(1\), \(\dots\), \(n-1\)),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         \det {(x I(j|i) + (-A)(j|i))}
         = d_{i,j,0} x^{n-1}
@@ -1146,7 +1198,7 @@
     为方便, 记 \(b_{i,j,k} = (-1)^{j+i} d_{i,j,k}\).
     则有跟 \(A\) 的元有关的数 \(b_{i,j,k}\)
     (\(k = 0\), \(1\), \(\dots\), \(n-1\)),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         [\operatorname{adj} {(xI - A)}]_{i,j}
         = b_{i,j,0} x^{n-1}
@@ -1158,17 +1210,17 @@
     (\(k = 0\), \(1\), \(\dots\), \(n-1\)).
     则 \(B_0\), \(B_1\), \(\dots\), \(B_{n-1}\)
     的元全跟 \(A\) 的元有关,
-    且对任何数 \(x\), 有
+    且对任何数 \(x\),
     \begin{align*}
         \operatorname{adj} {(xI - A)}
         = x^{n-1} B_0 + x^{n-2} B_1 + \dots + B_{n-1}.
     \end{align*}
     因为
     \([B_{n-1}]_{i,j}
-    = b_{i,j,n-1}
-    = (-1)^{j+i} d_{i,j,n-1}
+        = b_{i,j,n-1}
+        = (-1)^{j+i} d_{i,j,n-1}
     = (-1)^{j+i} \det {((-A)(j|i))}\),
-    我们有 \(B_{n-1} = \operatorname{adj} {(-A)}\).
+    \(B_{n-1} = \operatorname{adj} {(-A)}\).
 
     因为
     \begin{align*}
@@ -1182,22 +1234,22 @@
         = {} &
         x^n (c_0 I) + x^{n-1} (c_1 I) + \dots + (c_n I),
     \end{align*}
-    我们有
+    我们得
     \begin{align*}
-             &
+        &
         (x^{n-1} B_0 + x^{n-2} B_1 + \dots + x B_{n-2} + B_{n-1})
         (xI - A)
         \\
         = {} &
         x^n (c_0 I) + x^{n-1} (c_1 I) + \dots + x (c_{n-1} I) + (c_n I).
     \end{align*}
-    上式的左侧是
+    上式的左边是
     \begin{align*}
-             &
+        &
         (x^{n-1} B_0 + x^{n-2} B_1 + \dots + x B_{n-2} + B_{n-1})
         (xI)
         \\
-             & \hphantom{(x^{n-1} B_0}
+        & \hphantom{(x^{n-1} B_0} % tex-fmt: skip
         +
         (x^{n-1} B_0 + x^{n-2} B_1 + \dots + x B_{n-2} + B_{n-1})
         (-A)
@@ -1205,7 +1257,7 @@
         = {} &
         x^n B_0 + x^{n-1} B_1 + \dots + x^2 B_{n-2} + x B_{n-1}
         \\
-             &
+        &
         \hphantom{x^n B_0}
         - x^{n-1} (B_0 A) - x^{n-2} (B_1 A) - \dots
         - x (B_{n-2} A) - B_{n-1} A
@@ -1214,18 +1266,18 @@
         x^n B_0 + x^{n-1} (B_1 - B_0 A)
         + x^{n-2} (B_2 - B_1 A)
         \\
-             &
+        &
         \qquad \qquad
         + \dots
         + x (B_{n-1} - B_{n-2} A)
         + (- B_{n-1} A).
     \end{align*}
-    比较左侧与右侧, 有
+    比较左边与右边, 得
     \begin{align*}
         B_0                 & = c_0 I,     \\
         B_1 - B_0 A         & = c_1 I,     \\
         B_2 - B_1 A         & = c_2 I,     \\
-                            & \dots,       \\
+        & \dots, \\
         B_{n-1} - B_{n-2} A & = c_{n-1} I, \\
         - B_{n-1} A         & = c_n I.
     \end{align*}
@@ -1234,7 +1286,7 @@
         B_0 A^{n-1}               & = (c_0 I) A^{n-1}, \\
         (B_1 - B_0 A) A^{n-2}     & = (c_1 I) A^{n-2}, \\
         (B_2 - B_1 A) A^{n-3}     & = (c_2 I) A^{n-3}, \\
-                                  & \dots,             \\
+        & \dots, \\
         (B_{n-1} - B_{n-2} A) A^0 & = (c_{n-1} I) A^0.
     \end{align*}
     则
@@ -1242,7 +1294,7 @@
         B_0 A^{n-1}               & = c_0 A^{n-1}, \\
         B_1 A^{n-2} - B_0 A^{n-1} & = c_1 A^{n-2}, \\
         B_2 A^{n-3} - B_1 A^{n-2} & = c_2 A^{n-3}, \\
-                                  & \dots,         \\
+        & \dots, \\
         B_{n-1} - B_{n-2} A       & = c_{n-1} I.
     \end{align*}
     则
@@ -1301,27 +1353,27 @@
         = {} &
         \sum_{1 \leq j_1 < \dots < j_k \leq n}
         \det {\left(
-            (-A) \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
+                (-A) \submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)}
         \\
         = {} &
         \sum_{1 \leq j_1 < \dots < j_k \leq n}
         (-1)^k
         \det {\left(
-            A \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}
+                A \submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)}
         \\
         = {} &
         (-1)^k
         \sum_{1 \leq j_1 < \dots < j_k \leq n}
         \det {\left(
-            A \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)};
+                A \submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)};
     \end{align*}
     特别地, \(c_n = (-1)^n \det {(A)}\).
 \end{example}
 
-综上, 我们有:
+% 综上,
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级阵.
@@ -1329,7 +1381,7 @@
     (1)
     存在跟 \(A\) 的元有关的数
     \(c_0\), \(c_1\), \(\dots\), \(c_n\),
-    使对任何数 \(x\), 有
+    使对任何数 \(x\),
     \begin{align*}
         \det {(xI - A)} = c_0 x^n + c_1 x^{n-1} + \dots + c_n,
     \end{align*}
@@ -1343,8 +1395,8 @@
         (-1)^k
         \sum_{1 \leq j_1 < \dots < j_k \leq n}
         \det {\left(
-            A \binom{j_1,\dots,j_k}{j_1,\dots,j_k}
-            \right)}.
+                A \submat{j_1,\dots,j_k}{j_1,\dots,j_k}
+        \right)}.
     \end{align*}
 
     (2)
@@ -1362,7 +1414,7 @@
     \end{align*}
 
     (3)
-    (Cayley--Hamilton \pinjino{keili--hamerten} 定理)
+    (Cayley--Hamilton 定理)
     \begin{align*}
         c_0 A^{n} + c_1 A^{n-1} + \dots + c_{n} I = 0.
     \end{align*}
@@ -1372,17 +1424,17 @@
     我们验证 \(n = 2\) 时的情形.
     为方便, 设
     \(A =
-    \begin{bmatrix}
-        a & b \\
-        c & d \\
+        \begin{bmatrix}
+            a & b \\
+            c & d \\
     \end{bmatrix}\).
     则
     \(xI - A =
-    \begin{bmatrix}
-        x - a & -b    \\
-        -c    & x - d \\
+        \begin{bmatrix}
+            x - a & -b    \\
+            -c    & x - d \\
     \end{bmatrix}\).
-    直接计算, 有
+    直接计算, 得
     \begin{align*}
         \det {(xI - A)}
         = (x - a)(x - d) - (-c)(-b)
@@ -1394,16 +1446,16 @@
         (-1)^1
         \sum_{1 \leq j_1 \leq 2}
         \det {\left(
-            A \binom{j_1}{j_1}
-            \right)}
+                A \submat{j_1}{j_1}
+        \right)}
         = {} &
         (-1) \left(
-        \det {\left(
-            A \binom{1}{1}
+            \det {\left(
+                    A \submat{1}{1}
             \right)}
-        +
-        \det {\left(
-            A \binom{2}{2}
+            +
+            \det {\left(
+                    A \submat{2}{2}
             \right)}
         \right)
         \\
@@ -1414,11 +1466,10 @@
 
     因为
     \(-A =
-    \begin{bmatrix}
-        -a & -b \\
-        -c & -d \\
+        \begin{bmatrix}
+            -a & -b \\
+            -c & -d \\
     \end{bmatrix}\),
-    我们有
     \begin{align*}
         \operatorname{adj} {(-A)}
         =
@@ -1436,14 +1487,14 @@
     \end{align*}
     类似地, 可验证
     \(\operatorname{adj} {(A)}
-    = (-1)^{2-1} \operatorname{adj} {(-A)}
+        = (-1)^{2-1} \operatorname{adj} {(-A)}
     = -(1A + (-(a+d))I)\);
     请允许我留它为您的习题.
     则 (2) 被验证.
 
     最后,
     \begin{align*}
-             &
+        &
         1 A^2 + (-(a + d)) A + (ad - cb) I
         \\
         = {} &
@@ -1523,7 +1574,7 @@
 %         0
 %         = \det {\left(
 %             (\operatorname{adj} {(A)})
-%             \binom{i,j}{i,j}
+%             \submat{i,j}{i,j}
 %             \right)}
 %         = \det {
 %             \begin{bmatrix}
@@ -1541,7 +1592,7 @@
 \begin{example}
     设 \(A\) 是 \(n\)~级阵.
     设 \(i\) 是不超过 \(n\) 的正整数.
-    按行~\(i\) 展开, 有
+    按行~\(i\) 展开, 得
     \begin{align*}
         \det {(A)}
         = [A]_{i,i} \det {(A(i|i))}
@@ -1558,16 +1609,16 @@
         [A]_{k,i} \det {(A({i,k}|{\ell,i}))}}.
     \end{align*}
     所以 (注意, 对整数 \(p\), \(q\),
-    有 \((-1)^{p+q} = (-1)^{p-q}\))
+    \((-1)^{p+q} = (-1)^{p-q}\))
     \begin{align*}
-             &
+        &
         \det {(A)}
         \\
         = {} &
         [A]_{i,i} \det {(A(i|i))}
         + \sum_{\substack{
-        1 \leq k, \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k, \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell-\rho(k,i)+\rho(i,\ell)}\,
         [A]_{k,i} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}.
     \end{align*}
@@ -1581,8 +1632,8 @@
         \det {(A)}
         =
         \sum_{\substack{
-        1 \leq k, \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k, \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}.
     \end{align*}
@@ -1594,88 +1645,88 @@
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{
-        1 \leq k, \ell \leq n  \\
-        k, \ell \neq i         \\
-            k = \ell}}
+                1 \leq k, \ell \leq n \\
+                k, \ell \neq i        \\
+        k = \ell}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
-             &
+        &
         +
         \sum_{\substack{
-        1 \leq k, \ell \leq n  \\
-        k, \ell \neq i         \\
-            k < \ell}}
+                1 \leq k, \ell \leq n \\
+                k, \ell \neq i        \\
+        k < \ell}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
-             &
+        &
         +
         \sum_{\substack{
-        1 \leq k, \ell \leq n  \\
-        k, \ell \neq i         \\
-            k > \ell}}
+                1 \leq k, \ell \leq n \\
+                k, \ell \neq i        \\
+        k > \ell}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{
-        1 \leq k \leq n        \\
-            k \neq i}}
+                1 \leq k \leq n \\
+        k \neq i}}
         { [A]_{i,k}^2 \det {(A({i,k}|{i,k}))}}
         \\
-             &
+        &
         +
         \sum_{\substack{
-        1 \leq k, \ell \leq n  \\
-        k, \ell \neq i         \\
-            k < \ell}}
+                1 \leq k, \ell \leq n \\
+                k, \ell \neq i        \\
+        k < \ell}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
-             &
+        &
         +
         \sum_{\substack{
-        1 \leq k, \ell \leq n  \\
-        k, \ell \neq i         \\
-            k < \ell}}
+                1 \leq k, \ell \leq n \\
+                k, \ell \neq i        \\
+        k < \ell}}
         {(-1)^{\ell+k+\rho(i,\ell)+\rho(i,k)}\,
         [A]_{i,\ell} [A]_{i,k} \det {(A({i,\ell}|{i,k}))}}
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{
-        1 \leq k \leq n        \\
-            k \neq i}}
+                1 \leq k \leq n \\
+        k \neq i}}
         { [A]_{i,k}^2 \det {(A({i,k}|{i,k}))}}
         \\
-             &
+        &
         +
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
-             &
+        &
         +
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
-        [A]_{i,k} [A]_{i,\ell}
+            [A]_{i,k} [A]_{i,\ell}
         \det {(A({i,\ell}|{i,k}))}}.
     \end{align*}
     注意, \((A({i,\ell}|{i,k}))^{\mathrm{T}}
-    = (A^{\mathrm{T}}) ({i,k}|{i,\ell})
-    = (-A) ({i,k}|{i,\ell})
+        = (A^{\mathrm{T}}) ({i,k}|{i,\ell})
+        = (-A) ({i,k}|{i,\ell})
     = - (A({i,k}|{i,\ell}))\).
     则
     \begin{align*}
         \det {(A({i,\ell}|{i,k}))}
         = {} &
-        \det {(A({i,\ell}|{i,k}))^{\mathrm{T}})}
+        \det {((A({i,\ell}|{i,k}))^{\mathrm{T}})}
         \\
         = {} &
         (-1)^{n-2} \det {(A({i,k}|{i,\ell}))}
@@ -1685,34 +1736,34 @@
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \det {(A)}
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{
-        1 \leq k \leq n        \\
-            k \neq i}}
+                1 \leq k \leq n \\
+        k \neq i}}
         { [A]_{i,k}^2 \det {(A({i,k}|{i,k}))}}
         \\
-             &
+        &
         +
         (1 + (-1)^n)
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}.
     \end{align*}
-    回想, 对反称阵 \(A\), 有
+    回想, 对反称阵 \(A\),
     \(\det {(A)} = (\operatorname{pf} {(A)})^2\).
     回想,
     \begin{align*}
         \operatorname{pf} {(A)}
         =
-        \sum_{\substack{1 \leq j \leq n \\j \neq i}}
+        \sum_{\substack{1 \leq j \leq n \\ j \neq i}}
         {
-        (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
+            (-1)^{i-1+j+\rho(i,j)}\, [A]_{i,j}
         \operatorname{pf} {(A({i,j}|{i,j}))}}.
     \end{align*}
     回想,
@@ -1723,74 +1774,74 @@
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         (\operatorname{pf} {(A)})^2
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{\substack{
-        1 \leq k \leq n        \\
-            k \neq i}}
+                1 \leq k \leq n \\
+        k \neq i}}
         {[A]_{i,k}^2
         (\operatorname{pf} {(A({i,k}|{i,k}))})^2}
         \\
-             &
+        &
         +
         2
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {
-        (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
-        [A]_{i,k} [A]_{i,\ell}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
-        \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
+            (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
+            [A]_{i,k} [A]_{i,\ell}
+            \operatorname{pf} {(A({i,k}|{i,k}))}
+            \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
         }.
     \end{align*}
     注意, \(\det {(A({i,k}|{i,k}))}
     = (\operatorname{pf} {(A({i,k}|{i,k}))})^2\).
     则
     \begin{align*}
-             &
+        &
         (1 + (-1)^n)
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
         = {} &
         2
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {
-        (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
-        [A]_{i,k} [A]_{i,\ell}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
-        \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
+            (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
+            [A]_{i,k} [A]_{i,\ell}
+            \operatorname{pf} {(A({i,k}|{i,k}))}
+            \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
         }.
     \end{align*}
 
     以下, 设 \(n\) 是偶数.
     则
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [A]_{i,k} [A]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {
-        (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
-        [A]_{i,k} [A]_{i,\ell}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
-        \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
+            (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
+            [A]_{i,k} [A]_{i,\ell}
+            \operatorname{pf} {(A({i,k}|{i,k}))}
+            \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
         }.
     \end{align*}
 
@@ -1799,20 +1850,20 @@
     作 \(n\) 级反称阵 \(B\),
     其中,
     \begin{align*}
-        [B]_{p,q}
-        = \begin{cases}
-              1,
-               & \text{\(p = i\), 且 \(q = u\),
-              或 \(p = i\), 且 \(q = v\)};             \\
-              -1,
-               & \text{\(p = u\), 且 \(q = i\),
-              或 \(p = v\), 且 \(q = i\)};             \\
-              0,
-               & \text{\(p = i\), 且 \(q \neq u, v\),
-              或 \(q = i\), 且 \(p \neq u, v\)};       \\
-              [A]_{p,q},
-               & \text{别的情形}.
-          \end{cases}
+        [B]_{p,q} =
+        \begin{cases}
+            1,
+            & \text{\(p = i\), 且 \(q = u\),
+            或 \(p = i\), 且 \(q = v\)};       \\
+            -1,
+            & \text{\(p = u\), 且 \(q = i\),
+            或 \(p = v\), 且 \(q = i\)};       \\
+            0,
+            & \text{\(p = i\), 且 \(q \neq u, v\),
+            或 \(q = i\), 且 \(p \neq u, v\)}; \\
+            [A]_{p,q},
+            & \text{别的情形}.
+        \end{cases}
     \end{align*}
     注意, \(A(i|i) = B(i|i)\).
     则
@@ -1822,42 +1873,42 @@
     \(A({i,k}|{i,\ell}) = B({i,k}|{i,\ell})\).
     则, 由
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [B]_{i,k} [B]_{i,\ell} \det {(B({i,k}|{i,\ell}))}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {
-        (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
-        [B]_{i,k} [B]_{i,\ell}
-        \operatorname{pf} {(B({i,k}|{i,k}))}
-        \operatorname{pf} {(B({i,\ell}|{i,\ell}))}
+            (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
+            [B]_{i,k} [B]_{i,\ell}
+            \operatorname{pf} {(B({i,k}|{i,k}))}
+            \operatorname{pf} {(B({i,\ell}|{i,\ell}))}
         },
     \end{align*}
-    我们有
+    我们得
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {(-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
         [B]_{i,k} [B]_{i,\ell} \det {(A({i,k}|{i,\ell}))}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq k < \ell \leq n \\
-            k, \ell \neq i}}
+                1 \leq k < \ell \leq n \\
+        k, \ell \neq i}}
         {
-        (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
-        [B]_{i,k} [B]_{i,\ell}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
-        \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
+            (-1)^{k+\ell+\rho(i,k)+\rho(i,\ell)}\,
+            [B]_{i,k} [B]_{i,\ell}
+            \operatorname{pf} {(A({i,k}|{i,k}))}
+            \operatorname{pf} {(A({i,\ell}|{i,\ell}))}
         }.
     \end{align*}
     注意, 若 \(k \neq u\), 或 \(k \neq v\),
@@ -1865,7 +1916,7 @@
     则 \([B]_{i,k} [B]_{i,\ell} = 0\).
     所以
     \begin{align*}
-             &
+        &
         (-1)^{u+v+\rho(i,u)+\rho(i,v)}\,
         1 \cdot 1 \cdot
         \det {(A({i,u}|{i,v}))}
@@ -1923,7 +1974,7 @@
     %     \operatorname{pf} {(B({i,\ell}|{i,\ell}))}
     %     },
     % \end{align*}
-    % 我们有
+    % 我们得
     % \begin{align*}
     %          &
     %     \sum_{\substack{
@@ -1946,10 +1997,10 @@
     % 这是关于 \(x\) 的 \({\leq} 2\)~次式的等式,
     % 因为可能含 \(x\) 的 \([B]_{i,k} [B]_{i,\ell}\)
     % 的次不超过 \(2\).
-    % 左侧的 \({\leq} 2\)~次式的 \(x^2\)~项的系数是
+    % 左边的 \({\leq} 2\)~次式的 \(x^2\)~项的系数是
     % \((-1)^{u+v+\rho(i,u)+\rho(i,v)}\,
     % \det {(A({i,u}|{i,v}))}\);
-    % 右侧的 \({\leq} 2\)~次式的 \(x^2\)~项的系数是
+    % 右边的 \({\leq} 2\)~次式的 \(x^2\)~项的系数是
     % \((-1)^{u+v+\rho(i,u)+\rho(i,v)}\,
     % \operatorname{pf} {(A({i,u}|{i,u}))}
     % \operatorname{pf} {(A({i,v}|{i,v}))}\).
@@ -1994,7 +2045,7 @@
     \end{align*}
     所以, 若 \(j \neq i\),
     \begin{align*}
-             &
+        &
         \det {(A(i|j))}
         \\
         = {} &
@@ -2005,15 +2056,15 @@
         = {} &
         \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {(-1)^{k - \rho(k, i) + i - \rho(i, j)}\,
-        [A]_{k,i}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
+            [A]_{k,i}
+            \operatorname{pf} {(A({i,k}|{i,k}))}
         \operatorname{pf} {(A({i,j}|{i,j}))}}
         \\
         = {} &
         \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {(-1)^{i + k + 1 - \rho(i, k)} (-1)^{1 - \rho(i, j)}\,
-        [A]_{i,k}
-        \operatorname{pf} {(A({i,k}|{i,k}))}
+            [A]_{i,k}
+            \operatorname{pf} {(A({i,k}|{i,k}))}
         \operatorname{pf} {(A({i,j}|{i,j}))}}
         \\
         = {} &
@@ -2021,17 +2072,18 @@
         \operatorname{pf} {(A({i,j}|{i,j}))}
         \sum_{\substack{1 \leq k \leq n \\ k \neq i}}
         {(-1)^{i - 1 + k + \rho(i, k)}\,
-        [A]_{i,k}
+            [A]_{i,k}
         \operatorname{pf} {(A({i,k}|{i,k}))}}
         \\
         = {} &
         (-1)^{\rho(j, i)}
         \operatorname{pf} {(A({i,j}|{i,j}))}
         \operatorname{pf} {(A)}.
+        \qefhere
     \end{align*}
 \end{example}
 
-综上, 我们有:
+综上, 我们得
 
 \begin{theorem}
     设 \(A\) 是 \(2m\)~级反称阵.
@@ -2062,9 +2114,9 @@
             (-1)^{i+j}
             \operatorname{pf} {(A({i,j}|{i,j}))}
             \operatorname{pf} {(A)},
-             & i \neq j; \\
+            & i \neq j; \\
             0,
-             & i = j.
+            & i = j.
         \end{cases}
     \end{align*}
 \end{theorem}
@@ -2146,42 +2198,44 @@
 \end{example}
 
 \begin{example}
-    设一元运算 \(\mathrm{D}\) 适合,
-    对任何 \(a\), \(b\), 必
+    设运算 \(\mathrm{D}\) 适合,
+    对任何 \(a\), \(b\),
     \begin{align*}
         \mathrm{D} (a + b)     & =
         \mathrm{D} (a) + \mathrm{D} (b), \\
         \mathrm{D} (a \cdot b) & =
         \mathrm{D} (a) \cdot b + a \cdot \mathrm{D} (b).
     \end{align*}
+    (回想, 整式 \(f(x)\) 的 derivative \(\mathrm{D} f(x)\)
+    的 \(\mathrm{D}\) 适合这些性质.)
 
     由此, \(\mathrm{D} (1)
-    = \mathrm{D} (1 \cdot 1)
-    = \mathrm{D} (1) \cdot 1 + 1 \cdot \mathrm{D} (1)
+        = \mathrm{D} (1 \cdot 1)
+        = \mathrm{D} (1) \cdot 1 + 1 \cdot \mathrm{D} (1)
     = \mathrm{D} (1) + \mathrm{D} (1)\).
     则 \(\mathrm{D} (1) = 0\).
 
     注意, \(\mathrm{D} (0)
-    = \mathrm{D} (0 + 0)
+        = \mathrm{D} (0 + 0)
     = \mathrm{D} (0) + \mathrm{D} (0)\).
     则 \(\mathrm{D} (0) = 0\).
     则 \(\mathrm{D} (0 \cdot x)
     = \mathrm{D} (0) = 0 = 0 \cdot \mathrm{D} (x)\).
 
     注意, \(\mathrm{D} (0)
-    = \mathrm{D} (x + (-x))
+        = \mathrm{D} (x + (-x))
     = \mathrm{D} (x) + \mathrm{D} (-x)\).
     则 \(\mathrm{D} (-x) = -\mathrm{D} (x)\).
     则 \(\mathrm{D} (\pm x) = \pm \mathrm{D} (x)\).
     则 \(\mathrm{D} (x \pm y)
-    = \mathrm{D} (x) + \mathrm{D} (\pm y)
+        = \mathrm{D} (x) + \mathrm{D} (\pm y)
     = \mathrm{D} (x) \pm \mathrm{D} (y)\).
     于是, 若 \(s_1\), \(s_2\), \(\dots\), \(s_n\)
     是 \(1\), \(0\), 或 \(-1\),
     则
     \begin{align*}
         \mathrm{D} \left(
-        \sum_{\ell = 1}^{n} {s_\ell x_\ell}
+            \sum_{\ell = 1}^{n} {s_\ell x_\ell}
         \right)
         = \sum_{\ell = 1}^{n} {s_\ell \mathrm{D} (x_\ell)}.
     \end{align*}
@@ -2192,14 +2246,14 @@
     设 \(n = 1\).
     则 \(\det {(A)} = [A]_{1,1}\).
     则 \(\mathrm{D} (\det {(A)})
-    = \mathrm{D} ([A]_{1,1})
+        = \mathrm{D} ([A]_{1,1})
     = \det {[\mathrm{D} ([A]_{1,1})]}\).
 
     设 \(n = 2\).
     则 \(\det {(A)} = [A]_{1,1} [A]_{2,2} - [A]_{2,1} [A]_{1,2}\).
     则
     \begin{align*}
-             &
+        &
         \mathrm{D} (\det {(A)})
         \\
         = {} &
@@ -2220,15 +2274,17 @@
         ([A]_{1,1} \mathrm{D} ([A]_{2,2}) - \mathrm{D} ([A]_{2,1}) [A]_{1,2})
         \\
         = {} &
-        \det {\begin{bmatrix}
-                      \mathrm{D} ([A]_{1,1}) & [A]_{1,2} \\
-                      \mathrm{D} ([A]_{2,1}) & [A]_{2,2} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                \mathrm{D} ([A]_{1,1}) & [A]_{1,2} \\
+                \mathrm{D} ([A]_{2,1}) & [A]_{2,2} \\
+        \end{bmatrix}}
         +
-        \det {\begin{bmatrix}
-                      [A]_{1,1} & \mathrm{D} ([A]_{1,2}) \\
-                      [A]_{2,1} & \mathrm{D} ([A]_{2,2}) \\
-                  \end{bmatrix}}.
+        \det {
+            \begin{bmatrix}
+                [A]_{1,1} & \mathrm{D} ([A]_{1,2}) \\
+                [A]_{2,1} & \mathrm{D} ([A]_{2,2}) \\
+        \end{bmatrix}}.
     \end{align*}
 
     设 \(n = 3\).
@@ -2238,149 +2294,169 @@
         = {} &
         \hphantom{{} + {}}
         [A]_{1,1}
-        \det {\begin{bmatrix}
-                      [A]_{2,2} & [A]_{2,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{2,2} & [A]_{2,3} \\
+                [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
         - [A]_{2,1}
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & [A]_{1,3} \\
+                [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
         \\
-             &
+        &
         + [A]_{3,1}
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{2,2} & [A]_{2,3} \\
-                  \end{bmatrix}}.
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & [A]_{1,3} \\
+                [A]_{2,2} & [A]_{2,3} \\
+        \end{bmatrix}}.
     \end{align*}
     则
     \begin{align*}
-             &
+        &
         \mathrm{D} (\det {(A)})
         \\
         = {} &
         \hphantom{{} + {}}
         \mathrm{D} ([A]_{1,1})
-        \det {\begin{bmatrix}
-                      [A]_{2,2} & [A]_{2,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{2,2} & [A]_{2,3} \\
+                [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
         + [A]_{1,1}
         \mathrm{D} \left(
-        \det {\begin{bmatrix}
-                      [A]_{2,2} & [A]_{2,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+            \det {
+                \begin{bmatrix}
+                    [A]_{2,2} & [A]_{2,3} \\
+                    [A]_{3,2} & [A]_{3,3} \\
+            \end{bmatrix}}
         \right)
         \\
-             &
+        &
         - \mathrm{D} ([A]_{2,1})
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & [A]_{1,3} \\
+                [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
         - [A]_{2,1}
         \mathrm{D} \left(
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+            \det {
+                \begin{bmatrix}
+                    [A]_{1,2} & [A]_{1,3} \\
+                    [A]_{3,2} & [A]_{3,3} \\
+            \end{bmatrix}}
         \right)
         \\
-             &
+        &
         + \mathrm{D} ([A]_{3,1})
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{2,2} & [A]_{2,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & [A]_{1,3} \\
+                [A]_{2,2} & [A]_{2,3} \\
+        \end{bmatrix}}
         + [A]_{3,1}
         \mathrm{D} \left(
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{2,2} & [A]_{2,3} \\
-                  \end{bmatrix}}
+            \det {
+                \begin{bmatrix}
+                    [A]_{1,2} & [A]_{1,3} \\
+                    [A]_{2,2} & [A]_{2,3} \\
+            \end{bmatrix}}
         \right)
         \\
         = {} &
         \hphantom{{} + {}}
         \mathrm{D} ([A]_{1,1})
-        \det {\begin{bmatrix}
-                      [A]_{2,2} & [A]_{2,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{2,2} & [A]_{2,3} \\
+                [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
         + [A]_{1,1}
-        \det {\begin{bmatrix}
-                      \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
-                      \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
+                \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
+        \end{bmatrix}}
         \\
-             &
+        &
         + [A]_{1,1}
-        \det {\begin{bmatrix}
-                      [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
-                      [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
+                [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
+        \end{bmatrix}}
         \\
-             &
+        &
         - \mathrm{D} ([A]_{2,1})
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & [A]_{1,3} \\
+                [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
         - [A]_{2,1}
-        \det {\begin{bmatrix}
-                      \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
-                      \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
+                \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
+        \end{bmatrix}}
         \\
-             &
+        &
         - [A]_{2,1}
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
-                      [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
+                [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
+        \end{bmatrix}}
         \\
-             &
+        &
         + \mathrm{D} ([A]_{3,1})
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & [A]_{1,3} \\
-                      [A]_{2,2} & [A]_{2,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & [A]_{1,3} \\
+                [A]_{2,2} & [A]_{2,3} \\
+        \end{bmatrix}}
         + [A]_{3,1}
-        \det {\begin{bmatrix}
-                      \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
-                      \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
+                \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
+        \end{bmatrix}}
         \\
-             &
+        &
         + [A]_{3,1}
-        \det {\begin{bmatrix}
-                      [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
-                      [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
-                  \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
+                [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
+        \end{bmatrix}}
         \\
         = {} &
         \hphantom{{} + {}}
-        \det {\begin{bmatrix}
-                      \mathrm{D} ([A]_{1,1}) & [A]_{1,2} & [A]_{1,3} \\
-                      \mathrm{D} ([A]_{2,1}) & [A]_{2,2} & [A]_{2,3} \\
-                      \mathrm{D} ([A]_{3,1}) & [A]_{3,2} & [A]_{3,3} \\
-                  \end{bmatrix}}
-        + \det {\begin{bmatrix}
-                        [A]_{1,1} & \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
-                        [A]_{2,1} & \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
-                        [A]_{3,1} & \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
-                    \end{bmatrix}}
+        \det {
+            \begin{bmatrix}
+                \mathrm{D} ([A]_{1,1}) & [A]_{1,2} & [A]_{1,3} \\
+                \mathrm{D} ([A]_{2,1}) & [A]_{2,2} & [A]_{2,3} \\
+                \mathrm{D} ([A]_{3,1}) & [A]_{3,2} & [A]_{3,3} \\
+        \end{bmatrix}}
+        + \det {
+            \begin{bmatrix}
+                [A]_{1,1} & \mathrm{D} ([A]_{1,2}) & [A]_{1,3} \\
+                [A]_{2,1} & \mathrm{D} ([A]_{2,2}) & [A]_{2,3} \\
+                [A]_{3,1} & \mathrm{D} ([A]_{3,2}) & [A]_{3,3} \\
+        \end{bmatrix}}
         \\
-             &
-        + \det {\begin{bmatrix}
-                        [A]_{1,1} & [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
-                        [A]_{2,1} & [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
-                        [A]_{3,1} & [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
-                    \end{bmatrix}}
-        \,.
+        &
+        + \det {
+            \begin{bmatrix}
+                [A]_{1,1} & [A]_{1,2} & \mathrm{D} ([A]_{1,3}) \\
+                [A]_{2,1} & [A]_{2,2} & \mathrm{D} ([A]_{2,3}) \\
+                [A]_{3,1} & [A]_{3,2} & \mathrm{D} ([A]_{3,3}) \\
+        \end{bmatrix}}.
     \end{align*}
 
     我们想, 我们或许知道 \(\mathrm{D} (\det {(A)})\) 了.
@@ -2413,12 +2489,12 @@
 
     注意,
     \begin{align*}
-             &
+        &
         \mathrm{D} (\det {(A)})
         \\
         = {} &
         \mathrm{D} \left(
-        \sum_{i = 1}^{n} {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+            \sum_{i = 1}^{n} {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
         \right)
         \\
         = {} &
@@ -2426,28 +2502,28 @@
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-        (\mathrm{D} ([A]_{i,1}) \det {(A(i|1))}
+            (\mathrm{D} ([A]_{i,1}) \det {(A(i|1))}
         + [A]_{i,1} \mathrm{D} (\det {(A(i|1))}))}
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-                \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
+        \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
         +
         \sum_{i = 1}^{n} {(-1)^{i+1}
-                    [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}.
+        [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}.
     \end{align*}
     注意, 既然 \(A\) 与 \(\mathrm{D}_1 (A)\)
     的列~\(j\) 相同 (若 \(j \neq 1\)),
     则 \(A(i|1) = (\mathrm{D}_1 (A))(i|1)\).
     则
     \begin{align*}
-             &
+        &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-                \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
+        \mathrm{D} ([A]_{i,1}) \det {(A(i|1))}}
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-                \mathrm{D} ([A]_{i,1}) \det {((\mathrm{D}_1 (A))(i|1))}}
+        \mathrm{D} ([A]_{i,1}) \det {((\mathrm{D}_1 (A))(i|1))}}
         \\
         = {} &
         \det {(\mathrm{D}_1 (A))}.
@@ -2472,31 +2548,31 @@
     \([\mathrm{D}_\ell (A)]_{i,1} = [A]_{i,1}\).
     则
     \begin{align*}
-             &
+        &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-                    [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}
+        [A]_{i,1} \mathrm{D} (\det {(A(i|1))})}
         \\
         = {} &
         \sum_{i = 1}^{n} {(-1)^{i+1}
-                    [\mathrm{D}_\ell (A)]_{i,1}
-                \sum_{\ell = 2}^{n} {\det {((\mathrm{D}_\ell (A)) (i|1))}}
-            }
+            [\mathrm{D}_\ell (A)]_{i,1}
+            \sum_{\ell = 2}^{n} {\det {((\mathrm{D}_\ell (A)) (i|1))}}
+        }
         \\
         = {} &
         \sum_{i = 1}^{n} {
-                \sum_{\ell = 2}^{n} {
-                        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
-                        \det {((\mathrm{D}_\ell (A)) (i|1))}
-                    }
+            \sum_{\ell = 2}^{n} {
+                (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
+                \det {((\mathrm{D}_\ell (A)) (i|1))}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 2}^{n} {
-                \sum_{i = 1}^{n} {
-                        (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
-                        \det {((\mathrm{D}_\ell (A)) (i|1))}
-                    }
+            \sum_{i = 1}^{n} {
+                (-1)^{i+1} [\mathrm{D}_\ell (A)]_{i,1}
+                \det {((\mathrm{D}_\ell (A)) (i|1))}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 2}^{n} {\det {(\mathrm{D}_\ell (A))}}.
@@ -2509,7 +2585,7 @@
         = \sum_{\ell = 1}^{n} {\det {(\mathrm{D}_\ell (A))}}.
     \end{align*}
     所以, \(P(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 
     注意, 既然 \(A\) 与 \(\mathrm{D}_\ell (A)\)
     的列~\(j\) 相同 (若 \(j \neq \ell\)),
@@ -2524,36 +2600,36 @@
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-                \sum_{i = 1}^{n} {
-                        (-1)^{i+\ell} [\mathrm{D}_\ell (A)]_{i,\ell}
-                        \det {((\mathrm{D}_\ell (A))(i|\ell))}
-                    }
+            \sum_{i = 1}^{n} {
+                (-1)^{i+\ell} [\mathrm{D}_\ell (A)]_{i,\ell}
+                \det {((\mathrm{D}_\ell (A))(i|\ell))}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-                \sum_{i = 1}^{n} {
-                        (-1)^{i+\ell} \mathrm{D} ([A]_{i,\ell})
-                        \det {(A(i|\ell))}
-                    }
+            \sum_{i = 1}^{n} {
+                (-1)^{i+\ell} \mathrm{D} ([A]_{i,\ell})
+                \det {(A(i|\ell))}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-                \sum_{i = 1}^{n} {
-                        (-1)^{i+\ell}
-                        \det {(A(i|\ell))}\,
-                        \mathrm{D} ([A]_{i,\ell})
-                    }
+            \sum_{i = 1}^{n} {
+                (-1)^{i+\ell}
+                \det {(A(i|\ell))}\,
+                \mathrm{D} ([A]_{i,\ell})
             }
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-                \sum_{i = 1}^{n} {
-                        [\operatorname{adj} {(A)}]_{\ell,i}\,
-                        \mathrm{D} ([A]_{i,\ell})
-                    }
-            }.
+            \sum_{i = 1}^{n} {
+                [\operatorname{adj} {(A)}]_{\ell,i}\,
+                \mathrm{D} ([A]_{i,\ell})
+            }
+        }.
     \end{align*}
     为方便, 我们作这样的记号:
     若 \(B\) 是 \(m \times n\)~阵,
@@ -2564,22 +2640,22 @@
     \begin{align*}
         \mathrm{D} (\det {(A)})
         = \sum_{\ell = 1}^{n}
-            {[\operatorname{adj} {(A)}\,
-                        \mathrm{D}_{\mathrm{c}} (A)]_{\ell,\ell}}.
+        {[\operatorname{adj} {(A)}\,
+        \mathrm{D}_{\mathrm{c}} (A)]_{\ell,\ell}}.
     \end{align*}
 
     最后, 我们再引入方阵的 trace:
-    若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的
-    \emph{trace} \pinjino{chuisi}
+    若 \(A\) 是 \(n\)~级阵, 则 \(A\) 的 \emph{trace}
     \begin{align*}
         \operatorname{tr} {(A)} = \sum_{k = 1}^{n} {[A]_{k,k}}.
     \end{align*}
     则
-    \begin{align*}
+    \begin{equation*}
         \mathrm{D} (\det {(A)})
         = \operatorname{tr} {(\operatorname{adj} {(A)}\,
-            \mathrm{D}_{\mathrm{c}} (A))}.
-    \end{align*}
+        \mathrm{D}_{\mathrm{c}} (A))}.
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
@@ -2604,7 +2680,7 @@
     = [A]_{1,2} [A]_{3,4} - [A]_{1,3} [A]_{2,4} + [A]_{1,4} [A]_{2,3}\).
     则
     \begin{align*}
-             &
+        &
         \mathrm{D} (\operatorname{pf} {(A)})
         \\
         = {} &
@@ -2614,7 +2690,7 @@
         - \mathrm{D} ([A]_{1,3})\, [A]_{2,4}
         - [A]_{1,3}\, \mathrm{D} ([A]_{2,4})
         \\
-             &
+        &
         + \mathrm{D} ([A]_{1,4})\, [A]_{2,3}
         + [A]_{1,4}\, \mathrm{D} ([A]_{2,3})
         \\
@@ -2624,7 +2700,7 @@
         - \mathrm{D} ([A]_{1,3})\, [A]_{2,4}
         + \mathrm{D} ([A]_{1,4})\, [A]_{2,3}
         \\
-             &
+        &
         + \mathrm{D} ([A]_{2,3})\, [A]_{1,4}
         - \mathrm{D} ([A]_{2,4})\, [A]_{1,3}
         + \mathrm{D} ([A]_{3,4})\, [A]_{1,2}.
@@ -2658,90 +2734,90 @@
     设 \(n > 4\).
     则
     \begin{align*}
-             &
+        &
         \mathrm{D} (\operatorname{pf} {(A)})
         \\
         = {} &
         \mathrm{D} \left(
-        \sum_{2 \leq \ell \leq n}
-        {(-1)^{\ell} [A]_{1,\ell}
-        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}}
+            \sum_{2 \leq \ell \leq n}
+            {(-1)^{\ell} [A]_{1,\ell}
+            \operatorname{pf} {(A({1,\ell}|{1,\ell}))}}
         \right)
         \\
         = {} &
         \sum_{2 \leq \ell \leq n}
         {(-1)^{\ell}
-        \mathrm{D} (
-        [A]_{1,\ell}
-        \operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+            \mathrm{D} (
+                [A]_{1,\ell}
+            \operatorname{pf} {(A({1,\ell}|{1,\ell}))})
         }
         \\
         = {} &
         \sum_{2 \leq \ell \leq n}
         {(-1)^{\ell}
-        (
-        \mathrm{D} ([A]_{1,\ell})
-        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
-        +
-        [A]_{1,\ell}
-        \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
-        )
+            (
+                \mathrm{D} ([A]_{1,\ell})
+                \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
+                +
+                [A]_{1,\ell}
+                \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+            )
         }
         \\
         = {} &
         \hphantom{{} + {}}
         \sum_{2 \leq \ell \leq n}
         {(-1)^{\ell}
-        \mathrm{D} ([A]_{1,\ell})
-        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
+            \mathrm{D} ([A]_{1,\ell})
+            \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
         }
         \\
-             & +
+        & +
         \sum_{2 \leq \ell \leq n}
         {(-1)^{\ell} [A]_{1,\ell}
-        \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
+            \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
         }.
     \end{align*}
     注意, \([A]_{i,j}\) 在 \(A({1,\ell}|{1,\ell})\)
     的位置是行~\(i - \rho(i, 1) - \rho(i, \ell)\),
     列~\(j - \rho(j, 1) - \rho(j, \ell)\).
-    (回想,
+    (回想, % tex-fmt: skip
     若 \(i \geq j\), 则 \(\rho(i, j) = 1\),
-    且若 \(i < j\), 则 \(\rho(i, j) = 0\).)
+    且若 \(i < j\), 则 \(\rho(i, j) = 0\).) % tex-fmt: skip
     由假定,
     \begin{align*}
-             &
+        &
         \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
         \\
         = {} &
         \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
         {(-1)^{i-1-\rho(i, \ell)+j-1-\rho(j, \ell)-1}
-        \mathrm{D} ([A]_{i,j})
+            \mathrm{D} ([A]_{i,j})
         \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}
         \\
         = {} &
         \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
         {(-1)^{i-1+(\rho(\ell, i)-1)+j-1+(\rho(\ell, j)-1)-1}
-        \mathrm{D} ([A]_{i,j})
+            \mathrm{D} ([A]_{i,j})
         \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}
         \\
         = {} &
         \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
         {(-1)^{(i+j-1)-1-\rho(\ell, i)+1-1-\rho(\ell, j)+1}
-        \mathrm{D} ([A]_{i,j})
+            \mathrm{D} ([A]_{i,j})
         \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}
         \\
         = {} &
         \sum_{\substack{2 \leq i < j \leq n \\ i, j \neq \ell}}
         {(-1)^{(i+j-1)-\rho(\ell, i)-\rho(\ell, j)}
-        \mathrm{D} ([A]_{i,j})
+            \mathrm{D} ([A]_{i,j})
         \operatorname{pf} {(A({1,\ell,i,j}|{1,\ell,i,j}))}}.
     \end{align*}
     为方便, 我们简单地写 \(A({1,\ell,i,j}|{1,\ell,i,j})\)
     为 \(A_{1,\ell,i,j}\).
     则
     \begin{align*}
-             &
+        &
         \sum_{2 \leq \ell \leq n}
         (-1)^{\ell} [A]_{1,\ell}
         \mathrm{D} (\operatorname{pf} {(A({1,\ell}|{1,\ell}))})
@@ -2771,7 +2847,7 @@
         \\
         = {} &
         \sum_{2 \leq i < j \leq n}
-        \sum_{\substack{2 \leq \ell \leq n  \\ \ell \neq i, j}}
+        \sum_{\substack{2 \leq \ell \leq n \\ \ell \neq i, j}}
         (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
         (-1)^{\ell-\rho(\ell, i)-\rho(\ell, j)} [A]_{1,\ell}
         \operatorname{pf} {(A_{1,\ell,i,j})}
@@ -2779,31 +2855,31 @@
         = {} &
         \sum_{2 \leq i < j \leq n}
         (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
-        \sum_{\substack{2 \leq \ell \leq n  \\ \ell \neq i, j}}
+        \sum_{\substack{2 \leq \ell \leq n \\ \ell \neq i, j}}
         (-1)^{\ell-\rho(\ell, i)-\rho(\ell, j)} [A]_{1,\ell}
         \operatorname{pf} {(A_{1,\ell,i,j})}
         \\
         = {} &
         \sum_{\substack{1 \leq i < j \leq n \\ i \geq 2}}
         {
-        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
-        \operatorname{pf} {(A({i,j}|{i,j}))}
+            (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+            \operatorname{pf} {(A({i,j}|{i,j}))}
         }.
     \end{align*}
     注意,
     \begin{align*}
-             &
+        &
         \sum_{2 \leq \ell \leq n}
         {(-1)^{\ell}
-        \mathrm{D} ([A]_{1,\ell})
-        \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
+            \mathrm{D} ([A]_{1,\ell})
+            \operatorname{pf} {(A({1,\ell}|{1,\ell}))}
         }
         \\
         = {} &
         \sum_{\substack{1 \leq i < j \leq n \\ i = 1}}
         {
-        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
-        \operatorname{pf} {(A({i,j}|{i,j}))}
+            (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+            \operatorname{pf} {(A({i,j}|{i,j}))}
         }.
     \end{align*}
     综上,
@@ -2813,16 +2889,16 @@
         \hphantom{{} + {}}
         \sum_{\substack{1 \leq i < j \leq n \\ i = 1}}
         {
-        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
-        \operatorname{pf} {(A({i,j}|{i,j}))}
+            (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+            \operatorname{pf} {(A({i,j}|{i,j}))}
         }
         \\
-             &
+        &
         +
         \sum_{\substack{1 \leq i < j \leq n \\ i \geq 2}}
         {
-        (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
-        \operatorname{pf} {(A({i,j}|{i,j}))}
+            (-1)^{i+j-1} \mathrm{D} ([A]_{i,j})
+            \operatorname{pf} {(A({i,j}|{i,j}))}
         }
         \\
         = {} &
@@ -2832,7 +2908,7 @@
     \end{align*}
     所以, \(P(n)\) 是对的.
     则 \(Q(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{example}
 
 \begin{example}
@@ -2901,24 +2977,24 @@
         \\
         = {} &
         \sum_{k = 1}^{n} {
-                \sum_{\ell = 1}^{m} {
-                        [C]_{k,\ell} [D]_{\ell,k}
-                    }
+            \sum_{\ell = 1}^{m} {
+                [C]_{k,\ell} [D]_{\ell,k}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{m} {
-                \sum_{k = 1}^{n} {
-                        [C]_{k,\ell} [D]_{\ell,k}
-                    }
+            \sum_{k = 1}^{n} {
+                [C]_{k,\ell} [D]_{\ell,k}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{m} {
-                \sum_{k = 1}^{n} {
-                        [D]_{\ell,k} [C]_{k,\ell}
-                    }
+            \sum_{k = 1}^{n} {
+                [D]_{\ell,k} [C]_{k,\ell}
             }
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{m} {[D C]_{\ell,\ell}}
@@ -2958,7 +3034,7 @@
     使 \(AB = \det {(A)}\, I_n = BA\).
 
     我们知道, \(A \operatorname{adj} {(A)}
-    = \det {(A)}\, I_n
+        = \det {(A)}\, I_n
     = \operatorname{adj} {(A)}\, A\).
     若 \(\operatorname{adj} {(A)} \neq 0\),
     我们取 \(B\) 为 \(\operatorname{adj} {(A)}\).
@@ -2981,11 +3057,10 @@
     使 \(A\) 有行列式非零的 \(r\)~级子阵,
     且 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
     设
-    \(\displaystyle
-    C = A\binom{i_1,i_2,\dots,i_{r+1}}{j_1,j_2,\dots,j_{r+1}}\)
-    (其中, \(i_1 < i_2 < \dots < i_{r+1}\),
+    \(C = A\submat{i_1,i_2,\dots,i_{r+1}}{j_1,j_2,\dots,j_{r+1}}\)
+    (其中, \(i_1 < i_2 < \dots < i_{r+1}\), % tex-fmt: skip
     且 \(j_1 < j_2 < \dots < j_{r+1}\);
-    则 \([C]_{s,t} = [A]_{i_s,j_t}\))
+    则 \([C]_{s,t} = [A]_{i_s,j_t}\)) % tex-fmt: skip
     是 \(A\) 的一个 \(r+1\)~级子阵,
     且 \(C\) 有行列式非零的 \(r\)~级子阵
     (此 \(r\)~级子阵当然是 \(A\) 的行列式非零的 \(r\)~级子阵).
@@ -2998,10 +3073,10 @@
         [B]_{i,j} =
         \begin{cases}
             [\operatorname{adj} {(C)}]_{t,s},
-             & \text{若 \(i\) 等于某 \(j_t\), 且 \(j\) 等于某 \(i_s\)};
+            & \text{若 \(i\) 等于某 \(j_t\), 且 \(j\) 等于某 \(i_s\)};
             \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{cases}
     \end{align*}
     则 \(B \neq 0\)
@@ -3017,7 +3092,7 @@
         \sum_{1 \leq \ell \leq n} {[A]_{i,\ell} [B]_{\ell,j}}
         \\
         = {} &
-        \sum_{\substack{1 \leq \ell \leq n   \\ \ell\,\text{等于某}\,j_t}}
+        \sum_{\substack{1 \leq \ell \leq n \\ \ell\,\text{等于某}\,j_t}}
         {[A]_{i,\ell} [B]_{\ell,j}}
         + \sum_{\substack{1 \leq \ell \leq n \\ \ell\,\text{不等于任何}\,j_t}}
         {[A]_{i,\ell} [B]_{\ell,j}}
@@ -3093,8 +3168,7 @@
     \(i_1\), \(\dots\), \(i_{s-1}\), \(i\), \(i_{s+1}\), \(\dots\), \(i_{r+1}\)
     中是第 \(z\) 小的数.
     若 \(z = s\), 则 \(D\) 就是 \(A\) 的 \(r+1\)~级子阵
-    \(\displaystyle
-    F = A\binom{i_1,\dots,i_{s-1},i,i_{s+1},\dots,i_{r+1}}
+    \(F = A\submat{i_1,\dots,i_{s-1},i,i_{s+1},\dots,i_{r+1}}
     {j_1,j_2,\dots,j_{r+1}}\).
     注意, \(\det {(F)} = 0\).
     则 \(\det {(D)} = 0\).
@@ -3122,10 +3196,9 @@
     注意, \(A^{\mathrm{T}}\) 也有行列式非零的 \(r\)~级子阵,
     且 \(A^{\mathrm{T}}\) 也没有行列式非零的 \(r+1\)~级子阵.
     注意,
-    \(\displaystyle
-    C^{\mathrm{T}}
-    = A^{\mathrm{T}}
-    \binom{j_1,j_2,\dots,j_{r+1}}{i_1,i_2,\dots,i_{r+1}}\)
+    \(C^{\mathrm{T}}
+        = A^{\mathrm{T}}
+    \submat{j_1,j_2,\dots,j_{r+1}}{i_1,i_2,\dots,i_{r+1}}\)
     是 \(A^{\mathrm{T}}\) 的一个 \(r+1\)~级子阵,
     且 \(C^{\mathrm{T}}\) 有行列式非零的 \(r\)~级子阵
     (此 \(r\)~级子阵当然是 \(A^{\mathrm{T}}\) 的行列式非零的 \(r\)~级子阵).
@@ -3138,19 +3211,1110 @@
         [G]_{i,j} =
         \begin{cases}
             [\operatorname{adj} {(C^{\mathrm{T}})}]_{s,t},
-             & \text{若 \(i\) 等于某 \(i_s\), 且 \(j\) 等于某 \(j_t\)};
+            & \text{若 \(i\) 等于某 \(i_s\), 且 \(j\) 等于某 \(j_t\)};
             \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{cases}
     \end{align*}
     则 \(G = B^{\mathrm{T}}\).
     (注意, \([\operatorname{adj} {(C^{\mathrm{T}})}]_{s,t}
         = [\operatorname{adj} {(C)}]_{t,s}\),
-    故 \([G]_{i_s,j_t} = [B]_{j_t,i_s}\).
+        故 \([G]_{i_s,j_t} = [B]_{j_t,i_s}\).
     在别的情形, \([G]_{i,j} = 0 = [B]_{j,i}\).)
     并且, 当然, \(G \neq 0\).
     那么, 由前面的讨论, \(A^{\mathrm{T}} B^{\mathrm{T}} = 0\).
+\end{example}
+
+\begin{example}
+    设 \(n \geq 2\).
+    设 \(n\)~级复阵 \(A\) 适合
+    \begin{align*}
+        [A]_{k,\ell} =
+        \begin{cases}
+            0,                   & 1 \leq k = \ell \leq n; \\
+            k + \mathrm{i} \ell, & 1 \leq k < \ell \leq n; \\
+            \ell + \mathrm{i} k, & 1 \leq \ell < k \leq n.
+        \end{cases}
+    \end{align*}
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            0                & 1 + \mathrm{i} 2 & 1 + \mathrm{i} 3 & 1 + \mathrm{i} 4 & 1 + \mathrm{i} 5 & 1 + \mathrm{i} 6 \\
+            1 + \mathrm{i} 2 & 0                & 2 + \mathrm{i} 3 & 2 + \mathrm{i} 4 & 2 + \mathrm{i} 5 & 2 + \mathrm{i} 6 \\
+            1 + \mathrm{i} 3 & 2 + \mathrm{i} 3 & 0                & 3 + \mathrm{i} 4 & 3 + \mathrm{i} 5 & 3 + \mathrm{i} 6 \\
+            1 + \mathrm{i} 4 & 2 + \mathrm{i} 4 & 3 + \mathrm{i} 4 & 0                & 4 + \mathrm{i} 5 & 4 + \mathrm{i} 6 \\
+            1 + \mathrm{i} 5 & 2 + \mathrm{i} 5 & 3 + \mathrm{i} 5 & 4 + \mathrm{i} 5 & 0                & 5 + \mathrm{i} 6 \\
+            1 + \mathrm{i} 6 & 2 + \mathrm{i} 6 & 3 + \mathrm{i} 6 & 4 + \mathrm{i} 6 & 5 + \mathrm{i} 6 & 0                \\
+        \end{bmatrix}.
+    \end{align*}
+
+    当 \(n = 2\) 或 \(n = 3\) 时, 我们可算出
+    \begin{align*}
+        \det
+        \begin{bmatrix}
+            0                & 1 + \mathrm{i} 2 \\
+            1 + \mathrm{i} 2 & 0                \\
+        \end{bmatrix}
+        &
+        = -(1 + \mathrm{i} 2)^2
+        = 3 - \mathrm{i} 4,
+        \\
+        \det
+        \begin{bmatrix}
+            0                & 1 + \mathrm{i} 2 & 1 + \mathrm{i} 3 \\
+            1 + \mathrm{i} 2 & 0                & 2 + \mathrm{i} 3 \\
+            1 + \mathrm{i} 3 & 2 + \mathrm{i} 3 & 0                \\
+        \end{bmatrix}
+        &
+        = 2 (1 + \mathrm{i} 2) (1 + \mathrm{i} 3) (2 + \mathrm{i} 3)
+        = -50 - \mathrm{i} 10.
+    \end{align*}
+    当 \(n > 3\) 时,
+    具体地计算 \(\det {(A)}\) 是难的,
+    但我们仍可判断 \(\det {(A)}\) 是否非零.
+    回想, 对 \(n\)~级阵 \(M\),
+    若对任何不超过 \(n\) 的正整数 \(k\),
+    \begin{align*}
+        |[M]_{k,k}| >
+        \sum_{\substack{1 \leq \ell \leq n \\
+        \ell \neq k}} {|[M]_{k,\ell}|},
+    \end{align*}
+    则 \(\det {(M)} \neq 0\).
+    不过, 注意, \([A]_{i,i} = 0\),
+    故我们不能直接地用它.
+    为此, 我们考虑作新的阵, 其的行列式是
+    \(\det {(A)}\) 与非零的数的积.
+    若新的阵的行列式非零, 则 \(\det {(A)} \neq 0\).
+
+    注意, \([A]_{k,\ell} = [A]_{\ell,k}\).
+    则 \(A = A^{\mathrm{T}}\).
+    注意, 若 \(1 \leq \ell < n\),
+    \begin{align*}
+        [A]_{k,\ell} - [A]_{k,\ell+1} =
+        \begin{cases}
+            -\mathrm{i},                   & k < \ell;     \\
+            -\ell - \mathrm{i} (\ell + 1), & k = \ell;     \\
+            \ell + \mathrm{i} (\ell + 1),  & k = \ell + 1; \\
+            -1,                            & k > \ell + 1.
+        \end{cases}
+    \end{align*}
+    于是, 对 \(A\), 我们加列~\(2\) 的 \(-1\)~倍于列~\(1\),
+    加列~\(3\) 的 \(-1\)~倍于列~\(2\),
+    ……
+    加列~\(n\) 的 \(-1\)~倍于列~\(n-1\),
+    得 \(n\)~级阵 \(B\),
+    其中,
+    \begin{align*}
+        [B]_{k,\ell}
+        = {} &
+        \begin{cases}
+            [A]_{k,\ell} - [A]_{k,\ell+1}, & \ell < n; \\
+            [A]_{k,n},                     & \ell = n
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            -\mathrm{i},                   & 1 \leq k < \ell < n;         \\
+            -\ell - \mathrm{i} (\ell + 1), & 1 \leq k = \ell < n;         \\
+            \ell + \mathrm{i} (\ell + 1),  & 1 \leq k = \ell + 1 < n + 1; \\
+            -1,                            & 2 \leq \ell + 1 < k \leq n;  \\
+            k + \mathrm{i} n,              & 1 \leq k < \ell = n;         \\
+            0,                             & (k, \ell) = (n, n).
+        \end{cases}
+    \end{align*}
+    注意, \(\det {(B)} = \det {(A)}\).
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        B =
+        \begin{bmatrix}
+            -1-\mathrm{i}2 & -\mathrm{i}    & -\mathrm{i}    & -\mathrm{i}    & -\mathrm{i}    & 1+\mathrm{i}6 \\
+            1+\mathrm{i}2  & -2-\mathrm{i}3 & -\mathrm{i}    & -\mathrm{i}    & -\mathrm{i}    & 2+\mathrm{i}6 \\
+            -1             & 2+\mathrm{i}3  & -3-\mathrm{i}4 & -\mathrm{i}    & -\mathrm{i}    & 3+\mathrm{i}6 \\
+            -1             & -1             & 3+\mathrm{i}4  & -4-\mathrm{i}5 & -\mathrm{i}    & 4+\mathrm{i}6 \\
+            -1             & -1             & -1             & 4+\mathrm{i}5  & -5-\mathrm{i}6 & 5+\mathrm{i}6 \\
+            -1             & -1             & -1             & -1             & 5+\mathrm{i}6  & 0             \\
+        \end{bmatrix}
+    \end{align*}
+
+    对 \(B\), 我们加行~\(2\) 的 \(-1\)~倍于行~\(1\),
+    加行~\(3\) 的 \(-1\)~倍于行~\(2\),
+    ……
+    加行~\(n\) 的 \(-1\)~倍于行~\(n-1\),
+    得 \(n\)~级阵 \(C\),
+    其中,
+    \begin{align*}
+        [C]_{k,\ell}
+        = {} &
+        \begin{cases}
+            [B]_{k,\ell} - [B]_{k+1,\ell}, & k < n; \\
+            [B]_{n,\ell},                  & k = n
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            -2k - \mathrm{i} (2k+2), & 1 \leq k = \ell < n;                                \\
+            \ell + \mathrm{i} \ell,  & 2 \leq k + 1 = \ell < n;                            \\
+            k + \mathrm{i} k,        & 2 \leq \ell = k + 1 < n;                            \\
+            -1,                      & 1 \leq k < \ell - 1 = n - 1;                        \\
+            -1,                      & 1 \leq \ell < k - 1 = n - 1;                        \\
+            (n-1) + \mathrm{i} n,    & \text{\((k, \ell) = (n - 1, n)\) 或 \((n, n - 1)\)}; \\
+            0,                       & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    注意, \([C]_{k,\ell} = [C]_{\ell,k}\).
+    则 \(C = C^{\mathrm{T}}\).
+    注意, \(\det {(C)} = \det {(B)} = \det {(A)}\).
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        C =
+        \begin{bmatrix}
+            -2-\mathrm{i}4 & 2+\mathrm{i}2  & 0              & 0               & 0                & -1            \\
+            2+\mathrm{i}2  & -4-\mathrm{i}6 & 3+\mathrm{i}3  & 0               & 0                & -1            \\
+            0              & 3+\mathrm{i}3  & -6-\mathrm{i}8 & 4+\mathrm{i}4   & 0                & -1            \\
+            0              & 0              & 4+\mathrm{i}4  & -8-\mathrm{i}10 & 5+\mathrm{i}5    & -1            \\
+            0              & 0              & 0              & 5+\mathrm{i}5   & -10-\mathrm{i}12 & 5+\mathrm{i}6 \\
+            -1             & -1             & -1             & -1              & 5+\mathrm{i}6    & 0             \\
+        \end{bmatrix}.
+    \end{align*}
+
+    注意, 当 \(k = 1\) 时,
+    \begin{align*}
+        \sum_{1 \leq \ell < n} [C]_{k,\ell}
+        = {} &
+        [C]_{1,1} + [C]_{1,2}
+        + \sum_{2 < \ell < n} [C]_{1,\ell}
+        \\
+        = {} &
+        (-2 - \mathrm{i} 4) + (2 + \mathrm{i} 2) + 0
+        \\
+        = {} &
+        {-} \mathrm{i} 2;
+    \end{align*}
+    当 \(1 < k < n-1\) 时,
+    \begin{align*}
+        \sum_{1 \leq \ell < n} [C]_{k,\ell}
+        = {} &
+        \sum_{\ell < k-1} [C]_{k,\ell}
+        + [C]_{k,k-1} + [C]_{k,k} + [C]_{k,k+1}
+        + \sum_{k+1 < \ell < n} [C]_{k,\ell}
+        \\
+        = {} &
+        0
+        + (k + \mathrm{i} k)
+        + (-2k - \mathrm{i} (2k + 2))
+        + ((k+1) + \mathrm{i} (k+1))
+        + 0
+        \\
+        = {} &
+        1 - \mathrm{i};
+    \end{align*}
+    当 \(k = n-1\) 时,
+    \begin{align*}
+        \sum_{1 \leq \ell < n} [C]_{k,\ell}
+        = {} &
+        \sum_{\ell < n-2} [C]_{n-1,\ell}
+        + [C]_{n-1,n-2} + [C]_{n-1,n-1}
+        \\
+        = {} &
+        0 + ((n-1) + \mathrm{i} (n-1))
+        + (-2(n-1) - \mathrm{i} (2n))
+        \\
+        = {} &
+        {-(n-1) - \mathrm{i} (n+1)};
+    \end{align*}
+    当 \(k = n\) 时,
+    \begin{align*}
+        \sum_{1 \leq \ell < n} [C]_{k,\ell}
+        = {} &
+        \sum_{1 \leq \ell < n-1} [C]_{n,\ell}
+        + [C]_{n,n-1}
+        \\
+        = {} &
+        {-(n-2)} + ((n-1) + \mathrm{i} n)
+        \\
+        = {} &
+        1 + \mathrm{i} n.
+    \end{align*}
+    类似地,
+    \begin{align*}
+        \sum_{1 \leq k < n} [C]_{k,\ell} =
+        \begin{cases}
+            -\mathrm{i} 2,             & \ell = 1;         \\
+            1 - \mathrm{i},            & 1 < \ell < n - 1; \\
+            -(n-1) - \mathrm{i} (n+1), & \ell = n - 1;     \\
+            1 + \mathrm{i} n,          & \ell = n.
+        \end{cases}
+    \end{align*}
+    为此, 对 \(C\),
+    我们以 \(1 - \mathrm{i}\) 乘列~\(n\),
+    且以 \(1 - \mathrm{i}\) 乘行~\(n\),
+    得阵 \(D\),
+    其中,
+    \begin{align*}
+        [D]_{k,\ell}
+        = {} &
+        \begin{cases}
+            [C]_{k,\ell},                    & \text{\(1 \leq k < n\), 且 \(1 \leq \ell < n\)}; \\
+            (1 - \mathrm{i})^2\, [C]_{n,n},  & (k, \ell) = (n, n);                             \\
+            (1 - \mathrm{i})\, [C]_{k,\ell}, & \text{别的情形}
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            [C]_{k,\ell},          & \text{\(1 \leq k < n\), 且 \(1 \leq \ell < n\)};     \\
+            -(1 - \mathrm{i}),     & 1 \leq k < \ell - 1 = n - 1;                        \\
+            -(1 - \mathrm{i}),     & 1 \leq \ell < k - 1 = n - 1;                        \\
+            (2n - 1) + \mathrm{i}, & \text{\((k, \ell) = (n - 1, n)\) 或 \((n, n - 1)\)}; \\
+            0,                     & (k, \ell) = (n, n).
+        \end{cases}
+    \end{align*}
+    注意, \([D]_{k,\ell} = [D]_{\ell,k}\).
+    则 \(D = D^{\mathrm{T}}\).
+    注意, \(\det {(D)} = (1 - \mathrm{i})^2 \det {(C)}
+    = -\mathrm{i} 2 \det {(A)}\).
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        D =
+        \begin{bmatrix}
+            -2-\mathrm{i}4 & 2+\mathrm{i}2  & 0              & 0               & 0                & -1+\mathrm{i} \\
+            2+\mathrm{i}2  & -4-\mathrm{i}6 & 3+\mathrm{i}3  & 0               & 0                & -1+\mathrm{i} \\
+            0              & 3+\mathrm{i}3  & -6-\mathrm{i}8 & 4+\mathrm{i}4   & 0                & -1+\mathrm{i} \\
+            0              & 0              & 4+\mathrm{i}4  & -8-\mathrm{i}10 & 5+\mathrm{i}5    & -1+\mathrm{i} \\
+            0              & 0              & 0              & 5+\mathrm{i}5   & -10-\mathrm{i}12 & 11+\mathrm{i} \\
+            -1+\mathrm{i}  & -1+\mathrm{i}  & -1+\mathrm{i}  & -1+\mathrm{i}   & 11+\mathrm{i}    & 0             \\
+        \end{bmatrix}.
+    \end{align*}
+
+    注意, 既然当 \(1 \leq k < n\), 且 \(1 \leq \ell < n\) 时,
+    \([D]_{k,\ell} = [C]_{k,\ell}\),
+    且 \([D]_{n,\ell} = (1 - \mathrm{i})\, [C]_{n,\ell}\),
+    且 \([D]_{k,n} = (1 - \mathrm{i})\, [C]_{k,n}\),
+    则
+    \begin{align*}
+        \sum_{1 \leq \ell < n} [D]_{k,\ell}
+        = {} &
+        \begin{dcases}
+            -\mathrm{i} 2,                       & k = 1;         \\
+            1 - \mathrm{i},                      & 1 < k < n - 1; \\
+            -(n-1) - \mathrm{i} (n+1),           & k = n - 1;     \\
+            (1 - \mathrm{i})
+            \sum_{1 \leq \ell < n} [C]_{k,\ell}, & k = n
+        \end{dcases}
+        \\
+        = {} &
+        \begin{dcases}
+            -\mathrm{i} 2,             & k = 1;         \\
+            1 - \mathrm{i},            & 1 < k < n - 1; \\
+            -(n-1) - \mathrm{i} (n+1), & k = n - 1;     \\
+            (n+1) + \mathrm{i} (n-1),  & k = n.
+        \end{dcases}
+    \end{align*}
+    类似地,
+    \begin{align*}
+        \sum_{1 \leq k < n} [D]_{k,\ell} =
+        \begin{cases}
+            -\mathrm{i} 2,             & \ell = 1;         \\
+            1 - \mathrm{i},            & 1 < \ell < n - 1; \\
+            -(n-1) - \mathrm{i} (n+1), & \ell = n - 1;     \\
+            (n+1) + \mathrm{i} (n-1),  & \ell = n.
+        \end{cases}
+    \end{align*}
+    于是, 对 \(D\),
+    我们加列~\(1\) 于列~\(n\),
+    加列~\(2\) 于列~\(n\),
+    ……
+    加列~\(n-1\) 于列~\(n\),
+    得阵 \(F\),
+    其中, 若 \(\ell < n\), 则 \([F]_{k,\ell} = [D]_{k,\ell}\),
+    且
+    \begin{align*}
+        [F]_{k,n}
+        = {} &
+        [D]_{k,n} + \sum_{1 \leq \ell < n} [D]_{k,\ell}
+        \\
+        = {} &
+        \begin{cases}
+            -(1 - \mathrm{i}) + (-\mathrm{i} 2),                 & k = 1;         \\
+            -(1 - \mathrm{i}) + (1 - \mathrm{i}),                & 1 < k < n - 1; \\
+            ((2n-1) + \mathrm{i}) + (-(n-1) - \mathrm{i} (n+1)), & k = n - 1;     \\
+            0 + ((n+1) + \mathrm{i} (n-1)),                      & k = n
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            -1 - \mathrm{i},          & k = 1;         \\
+            0,                        & 1 < k < n - 1; \\
+            n - \mathrm{i} n,         & k = n - 1;     \\
+            (n+1) + \mathrm{i} (n-1), & k = n.
+        \end{cases}
+    \end{align*}
+    注意, \(\det {(F)} = \det {(D)} = -\mathrm{i} 2 \det {(A)}\).
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        F =
+        \begin{bmatrix}
+            -2-\mathrm{i}4 & 2+\mathrm{i}2  & 0              & 0               & 0                & -1-\mathrm{i} \\
+            2+\mathrm{i}2  & -4-\mathrm{i}6 & 3+\mathrm{i}3  & 0               & 0                & 0             \\
+            0              & 3+\mathrm{i}3  & -6-\mathrm{i}8 & 4+\mathrm{i}4   & 0                & 0             \\
+            0              & 0              & 4+\mathrm{i}4  & -8-\mathrm{i}10 & 5+\mathrm{i}5    & 0             \\
+            0              & 0              & 0              & 5+\mathrm{i}5   & -10-\mathrm{i}12 & 6-\mathrm{i}6 \\
+            -1+\mathrm{i}  & -1+\mathrm{i}  & -1+\mathrm{i}  & -1+\mathrm{i}   & 11+\mathrm{i}    & 7+\mathrm{i}5 \\
+        \end{bmatrix}.
+    \end{align*}
+
+    对 \(F\),
+    我们加行~\(1\) 于行~\(n\),
+    加行~\(2\) 于行~\(n\),
+    ……
+    加行~\(n-1\) 于行~\(n\),
+    得阵 \(G\),
+    其中, 若 \(k < n\), 则 \([G]_{k,\ell} = [F]_{k,\ell}\),
+    且
+    \begin{align*}
+        [G]_{n,\ell}
+        = {} &
+        [F]_{n,\ell} + \sum_{1 \leq k < n} [F]_{k,\ell}
+        \\
+        = {} &
+        \begin{dcases}
+            [D]_{n,\ell} + \sum_{1 \leq k < n} [D]_{k,\ell}, & \ell < n; \\
+            [F]_{n,n} + \sum_{1 \leq k < n} [F]_{k,n},       & \ell = n
+        \end{dcases}
+        \\
+        = {} &
+        \begin{cases}
+            -(1 - \mathrm{i}) + (-\mathrm{i} 2),                               & \ell = 1;         \\
+            -(1 - \mathrm{i}) + (1 - \mathrm{i}),                              & 1 < \ell < n - 1; \\
+            ((2n-1) + \mathrm{i}) + (-(n-1) - \mathrm{i} (n+1)),               & \ell = n - 1;     \\
+            ((n+1) + \mathrm{i} (n-1)) + (-1 - \mathrm{i} + n - \mathrm{i} n), & \ell = n
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            -1 - \mathrm{i},   & \ell = 1;         \\
+            0,                 & 1 < \ell < n - 1; \\
+            n - \mathrm{i} n,  & \ell = n - 1;     \\
+            2n - \mathrm{i} 2, & \ell = n
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            [F]_{\ell,n},      & \ell < n; \\
+            2n - \mathrm{i} 2, & \ell = n.
+        \end{cases}
+    \end{align*}
+    于是, 具体地,
+    \begin{align*}
+        [G]_{k,\ell} =
+        \begin{cases}
+            -2k - \mathrm{i} (2k+2), & 1 \leq k = \ell < n;                            \\
+            \ell + \mathrm{i} \ell,  & 2 \leq k + 1 = \ell < n;                        \\
+            k + \mathrm{i} k,        & 2 \leq \ell = k + 1 < n;                        \\
+            -1 - \mathrm{i},         & \text{\((k, \ell) = (1, n)\) 或 \((n, 1)\)};     \\
+            n - \mathrm{i} n,        & \text{\((k, \ell) = (n-1, n)\) 或 \((n, n-1)\)}; \\
+            2n - \mathrm{i} 2,       & (k, \ell) = (n, n);                             \\
+            0,                       & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    注意, \([G]_{k,\ell} = [G]_{\ell,k}\).
+    则 \(G = G^{\mathrm{T}}\).
+    注意, \(\det {(G)} = \det {(F)} = -\mathrm{i} 2 \det {(A)}\).
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        G =
+        \begin{bmatrix}
+            -2-\mathrm{i}4 & 2+\mathrm{i}2  & 0              & 0               & 0                & -1-\mathrm{i}  \\
+            2+\mathrm{i}2  & -4-\mathrm{i}6 & 3+\mathrm{i}3  & 0               & 0                & 0              \\
+            0              & 3+\mathrm{i}3  & -6-\mathrm{i}8 & 4+\mathrm{i}4   & 0                & 0              \\
+            0              & 0              & 4+\mathrm{i}4  & -8-\mathrm{i}10 & 5+\mathrm{i}5    & 0              \\
+            0              & 0              & 0              & 5+\mathrm{i}5   & -10-\mathrm{i}12 & 6-\mathrm{i}6  \\
+            -1-\mathrm{i}  & 0              & 0              & 0               & 6-\mathrm{i}6    & 12-\mathrm{i}2 \\
+        \end{bmatrix}.
+    \end{align*}
+
+    注意, \([G]_{n-1,n} = n - \mathrm{i} n\),
+    但当 \(2 \leq \ell < n\) 时, \([G]_{\ell-1,\ell} = \ell + \mathrm{i} \ell\).
+    注意, \(\mathrm{i} (n - \mathrm{i} n) = n + \mathrm{i} n\).
+    于是, 对 \(G\), 我们以 \(\mathrm{i}\) 乘列~\(n\),
+    且以 \(\mathrm{i}\) 乘行~\(n\),
+    得阵~\(H\),
+    其中,
+    \begin{align*}
+        [H]_{k,\ell}
+        = {} &
+        \begin{cases}
+            [G]_{k,\ell},              & \text{\(1 \leq k < n\), 且 \(1 \leq \ell < n\)}; \\
+            \mathrm{i}^2\, [G]_{n,n},  & (k, \ell) = (n, n);                             \\
+            \mathrm{i}\, [G]_{k,\ell}, & \text{别的情形}
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            -2k - \mathrm{i} (2k+2), & 1 \leq k = \ell < n;                        \\
+            \ell + \mathrm{i} \ell,  & 2 \leq k + 1 = \ell \leq n;                 \\
+            k + \mathrm{i} k,        & 2 \leq \ell = k + 1 \leq n;                 \\
+            1 - \mathrm{i},          & \text{\((k, \ell) = (1, n)\) 或 \((n, 1)\)}; \\
+            -2n + \mathrm{i} 2,      & (k, \ell) = (n, n);                         \\
+            0,                       & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    注意, \([H]_{k,\ell} = [H]_{\ell,k}\).
+    则 \(H = H^{\mathrm{T}}\).
+    注意, \(\det {(H)} = \mathrm{i}^2 \det {(G)} = \mathrm{i} 2 \det {(A)}\).
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        H =
+        \begin{bmatrix}
+            -2-\mathrm{i}4 & 2+\mathrm{i}2  & 0              & 0               & 0                & 1-\mathrm{i}    \\
+            2+\mathrm{i}2  & -4-\mathrm{i}6 & 3+\mathrm{i}3  & 0               & 0                & 0               \\
+            0              & 3+\mathrm{i}3  & -6-\mathrm{i}8 & 4+\mathrm{i}4   & 0                & 0               \\
+            0              & 0              & 4+\mathrm{i}4  & -8-\mathrm{i}10 & 5+\mathrm{i}5    & 0               \\
+            0              & 0              & 0              & 5+\mathrm{i}5   & -10-\mathrm{i}12 & 6+\mathrm{i}6   \\
+            1-\mathrm{i}   & 0              & 0              & 0               & 6+\mathrm{i}6    & -12+\mathrm{i}2 \\
+        \end{bmatrix}.
+    \end{align*}
+
+    注意,
+    \begin{align*}
+        |[H]_{k,\ell}|
+        = {} &
+        \begin{cases}
+            \sqrt{8k^2 + 8k + 4}, & 1 \leq k = \ell < n;                        \\
+            \ell \sqrt{2},        & 2 \leq k + 1 = \ell \leq n;                 \\
+            k \sqrt{2},           & 2 \leq \ell = k + 1 \leq n;                 \\
+            \sqrt{2},             & \text{\((k, \ell) = (1, n)\) 或 \((n, 1)\)}; \\
+            \sqrt{4n^2 + 4},      & (k, \ell) = (n, n);                         \\
+            0,                    & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        \sum_{\substack{1 \leq \ell \leq n \\
+        \ell \neq k}} {|[H]_{k,\ell}|}
+        = {} &
+        \begin{cases}
+            (2k + 1) \sqrt{2}, & k < n; \\
+            (n + 1) \sqrt{2},  & k = n.
+        \end{cases}
+    \end{align*}
+    注意,
+    \begin{align*}
+        (\sqrt{8k^2 + 8k + 4})^2 - ((2k + 1) \sqrt{2})^2 & = 2 > 0,         \\
+        (\sqrt{4n^2 + 4})^2 - ((n + 1) \sqrt{2})^2       & = 2 (n-1)^2 > 0.
+    \end{align*}
+    所以, 对任何不超过 \(n\) 的正整数 \(k\),
+    \begin{align*}
+        |[H]_{k,k}| >
+        \sum_{\substack{1 \leq \ell \leq n \\
+        \ell \neq k}} {|[H]_{k,\ell}|}.
+    \end{align*}
+    则 \(\det {(H)} \neq 0\).
+    则 \(\det {(A)} \neq 0\).
+
+    值得提, 若我们记
+    \(P_j = E(n; \allowbreak
+            j+1, \allowbreak
+            j; \allowbreak
+    -1)\)
+    (\(j = 1\), \(\dots\), \(n-1\)),
+    \(P_n = M(n; \allowbreak
+            n; \allowbreak
+    1 - \mathrm{i})\),
+    \(P_{n+v} = E(n; \allowbreak
+            v, \allowbreak
+            n; \allowbreak
+    1)\)
+    (\(v = 1\), \(\dots\), \(n-1\)),
+    与 \(P_{2n} = M(n; \allowbreak
+            n; \allowbreak
+    \mathrm{i})\),
+    且记 \(Q = P_1 P_2 \dots P_{2n}\),
+    则
+    \begin{align*}
+        H
+        = {} &
+        P_{2n}^{\mathrm{T}}
+        ((P_{2n-1}^{\mathrm{T}} \dots P_{n+2}^{\mathrm{T}} P_{n+1}^{\mathrm{T}})
+            (P_n^{\mathrm{T}}
+                ((P_{n-1}^{\mathrm{T}} \dots P_2^{\mathrm{T}} P_1^{\mathrm{T}})
+                    A
+                    \\
+                    &
+                    \quad \quad
+                    \cdot
+                (P_1 P_2 \dots P_{n-1}))
+            P_n)
+        (P_{n+1} P_{n+2} \dots P_{2n-1}))
+        P_{2n}
+        \\
+        = {} &
+        (P_{2n}^{\mathrm{T}} \dots P_2^{\mathrm{T}} P_1^{\mathrm{T}})
+        A
+        (P_1 P_2 \dots P_{2n})
+        \\
+        = {} &
+        (P_1 P_2 \dots P_{2n})^{\mathrm{T}}
+        A
+        (P_1 P_2 \dots P_{2n})
+        \\
+        = {} &
+        Q^{\mathrm{T}} A Q,
+    \end{align*}
+    且
+    \begin{align*}
+        \det {(Q)}
+        % = \det {(P_1 P_2 \dots P_{2n})}
+        = \det {(P_1)} \det {(P_2)} \dots \det {(P_{2n})}
+        = 1^{n-1} \, (1 - \mathrm{i}) \, 1^{n-1} \, \mathrm{i}
+        = 1 + \mathrm{i}
+        \neq 0.
+    \end{align*}
+    则 \(A\) 与 \(H\) 合同.
+    注意,
+    \begin{align*}
+        [P_1 P_2 \dots P_{n-1}]_{k,\ell} =
+        \begin{cases}
+            -1,             & 2 \leq k = \ell + 1 \leq n; \\
+            [I_n]_{k,\ell}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        [(P_1 P_2 \dots P_{n-1}) P_n]_{k,\ell} =
+        \begin{cases}
+            -1,             & 2 \leq k = \ell + 1 \leq n; \\
+            1 - \mathrm{i}, & (k, \ell) = (n, n);         \\
+            [I_n]_{k,\ell}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    注意,
+    \begin{align*}
+        [P_{n+1} P_{n+2} \dots P_{2n-1}]_{k,\ell} =
+        \begin{cases}
+            1,              & 1 \leq k < n = \ell; \\
+            [I_n]_{k,\ell}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        [(P_1 P_2 \dots P_{n-1}) P_n
+        (P_{n+1} P_{n+2} \dots P_{2n-1})]_{k,\ell} =
+        \begin{cases}
+            -1,             & 2 \leq k = \ell + 1 \leq n; \\
+            1,              & (k, \ell) = (1, n);         \\
+            -\mathrm{i},    & (k, \ell) = (n, n);         \\
+            [I_n]_{k,\ell}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        [Q]_{k,\ell}
+        = {} &
+        [(P_1 P_2 \dots P_{n-1}) P_n
+        (P_{n+1} P_{n+2} \dots P_{2n-1}) P_{2n}]_{k,\ell}
+        \\
+        = {} &
+        \begin{cases}
+            -1,             & 2 \leq k = \ell + 1 \leq n; \\
+            \mathrm{i},     & (k, \ell) = (1, n);         \\
+            [I_n]_{k,\ell}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    通俗地, 比如, 当 \(n = 6\) 时,
+    \begin{align*}
+        Q =
+        \begin{bmatrix}
+            1  & 0  & 0  & 0  & 0  & \mathrm{i} \\
+            -1 & 1  & 0  & 0  & 0  & 0          \\
+            0  & -1 & 1  & 0  & 0  & 0          \\
+            0  & 0  & -1 & 1  & 0  & 0          \\
+            0  & 0  & 0  & -1 & 1  & 0          \\
+            0  & 0  & 0  & 0  & -1 & 1          \\
+        \end{bmatrix}.
+    \end{align*}
+    值得提, 不难直接地按行~\(1\) 展开算出
+    (注意, 若 \(1 < \ell < n\), % tex-fmt: skip
+    则 \([Q]_{1,\ell} = 0\),
+    且若 \(i < j\),
+    则 \(Q(1|1)\) 与 \(Q(1|n)\) 的
+    \((i, j)\)-元为 \(0\)) % tex-fmt: skip
+    \begin{align*}
+        \det {(Q)}
+        = {} &
+        (-1)^{1+1} [Q]_{1,1} \det {(Q(1|1))}
+        + (-1)^{1+n} [Q]_{1,n} \det {(Q(1|1))}
+        \\
+        = {} &
+        1 \cdot 1^{n-1} + (-1)^{n+1}\, \mathrm{i}\, (-1)^{n-1}
+        \\
+        = {} &
+        1 + \mathrm{i}.
+        \qefhere
+    \end{align*}
+\end{example}
+
+\begin{example}
+    回想, 若整式
+    \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    (\(n \geq 1\), 且 \(a_0 \neq 0\)),
+    则 \(f(x)\) 的判别式是
+    \((-1)^{n(n-1)/2} \det {(T(f; n))}\),
+    其中, \(2n-1\)~级阵 \(T(f; n)\) 的元
+    \begin{align*}
+        [T(f; n)]_{i,j} =
+        \begin{cases}
+            1,
+            & \text{\(i = 1\), 且 \(j = 1\)}; \\
+            n,
+            & \text{\(i = 1\), 且 \(j = n\)}; \\
+            0,
+            & \text{\(i = 1\), \(j \neq 1\), 且 \(j \neq n\)}; \\
+            a_{i-j},
+            & \text{\(i \neq 1\), 且 \(j \leq n-1\)}; \\
+            (1 - (i - j)) a_{i-j+n-1},
+            & \text{\(i \neq 1\), 且 \(j \geq n\)}.
+        \end{cases}
+    \end{align*}
+    现在, 我们考虑关于 \(a_0\), \(a_1\), \(\dots\), \(a_n\)
+    的整式
+    \begin{align*}
+        \Delta (a_0, a_1, \dots, a_n)
+        = (-1)^{n(n-1)/2} \det {(T(f; n))},
+    \end{align*}
+    其中, \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\).
+    注意, 在 \(\Delta (a_0, a_1, \dots, a_n)\),
+    \(a_0\) 可以是 \(0\),
+    但这不再表示 \(a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    的判别式.
+
+    设 \(n \geq 2\).
+    我们研究 \(\Delta (0, a_1, \dots, a_n)\)
+    与 \(\Delta (a_1, \dots, a_n)\) 的关系.
+
+    为方便, 我们约定, 若 \(k < 0\) 或 \(k > n\),
+    则 \(a_k = 0\).
+    设 \(a_0 = 0\).
+    记 \(c_k = a_{k+1}\).
+    记 \(h(x) = c_0 x^{n-1} + c_1 x^{n-2} + \dots + c_{n-1}\).
+    则 \(f(x) = h(x)\),
+    且若 \(k < 0\) 或 \(k > n - 1\),
+    则 \(c_k = 0\).
+    则 \(T(f; n)\) 的元
+    \begin{align*}
+        [T(f; n)]_{i,j} =
+        \begin{cases}
+            1,
+            & \text{\(i = 1\), \(j = 1\)}; \\
+            n,
+            & \text{\(i = 1\), \(j = n\)}; \\
+            0,
+            & \text{\(i = 1\), \(j \neq 1\), \(j \neq n\)}; \\
+            c_{(i-1)-j},
+            & \text{\(i \neq 1\), \(j \leq n-1\)}; \\
+            (1 - ((i-1) - (j-1))) c_{(i-1)-(j-1)+n-1-1},
+            & \text{\(i \neq 1\), \(j \geq n\)}.
+        \end{cases}
+    \end{align*}
+    注意, 当 \(i = 2\) 时,
+    \([T(f; n)]_{2,1} = a_1\),
+    \([T(f; n)]_{2,n} = (n-1) a_1\),
+    且若 \(j \neq 1\), \(n\),
+    则 \([T(f; n)]_{2,j} = 0\).
+    则 \(\det {(T(f; n))} = a_1 \det {(U)}\),
+    且
+    \begin{align*}
+        [U]_{i,j} =
+        \begin{cases}
+            1,
+            & \text{\(i = 1\), \(j = 1\)}; \\
+            n,
+            & \text{\(i = 1\), \(j = n\)}; \\
+            0,
+            & \text{\(i = 1\), \(j \neq 1\), \(j \neq n\)}; \\
+            1,
+            & \text{\(i = 2\), \(j = 1\)}; \\
+            n-1,
+            & \text{\(i = 2\), \(j = n\)}; \\
+            0,
+            & \text{\(i = 2\), \(j \neq 1\), \(j \neq n\)}; \\
+            c_{(i-1)-j},
+            & \text{\(i \geq 3\), \(j \leq n-1\)}; \\
+            (1 - ((i-1) - (j-1))) c_{(i-1)-(j-1)+n-1-1},
+            & \text{\(i \geq 3\), \(j \geq n\)}.
+        \end{cases}
+    \end{align*}
+    (注意, \(T(f; n)\) 的行~\(2\) 是 % tex-fmt: skip
+    \(U\)~的行~\(2\) 的 \(a_1\)~倍,
+    且它们的别的行相同.) % tex-fmt: skip
+    对 \(U\), 加行~\(2\) 的 \(-1\) 倍于行~\(1\),
+    得阵 \(V\).
+    则 \(\det {(U)} = \det {(V)}\),
+    且
+    \begin{align*}
+        [V]_{i,j} =
+        \begin{cases}
+            1,
+            & \text{\(i = 1\), \(j = n\)}; \\
+            0,
+            & \text{\(i = 1\), \(j \neq n\)}; \\
+            1,
+            & \text{\(i = 2\), \(j = 1\)}; \\
+            n-1,
+            & \text{\(i = 2\), \(j = n\)}; \\
+            0,
+            & \text{\(i = 2\), \(j \neq 1\), \(j \neq n\)}; \\
+            c_{(i-1)-j},
+            & \text{\(i \geq 3\), \(j \leq n-1\)}; \\
+            (1 - ((i-1) - (j-1))) c_{(i-1)-(j-1)+n-1-1},
+            & \text{\(i \geq 3\), \(j \geq n\)}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(V)}
+        = (-1)^{1+n} \, [V]_{1,n} \det {(V(1|n))}
+        = (-1)^{1+n} \det {(V(1|n))}.
+    \end{align*}
+    注意, \([V(1|n)]_{1,1} = 1\),
+    且若 \(j \neq 1\),
+    则 \([V(1|n)]_{1,j} = 0\).
+    注意, \((V(1|n))(1|1) = S(h, h'; n-1, n-2)\).
+    回想, \(S(h, h'; n-1, n-2)\) 的行~\(1\)
+    是 \(T(h; n-1)\) 的行~\(1\) 的 \(a_1\)~倍,
+    且它们的别的行相同.
+    则
+    \begin{align*}
+        \det {(V(1|n))}
+        = (-1)^{1+1} \, [V(1|n)]_{1,1}
+        \det {((V(1|n))(1|1))}
+        = a_1 \det {(T(h; n-1))}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(T(f; n))}
+        = (-1)^{1+n} a_1^2 \det {(T(h; n-1))}.
+    \end{align*}
+    则
+    \begin{align*}
+        &
+        (-1)^{n(n-1)/2} \det {(T(f; n))}
+        \\
+        = {} &
+        (-1)^{n(n-1)/2} (-1)^{-(n-1)(n-2)/2} (-1)^{1+n}
+        a_1^2\, (-1)^{(n-1)(n-2)/2} \det {(T(h; n-1))}.
+    \end{align*}
+    注意, \(n(n-1)/2 - (n-1)(n-2)/2 = n-1\),
+    且 \((-1)^{1+n} = (-1)^{n-1}\),
+    故
+    \begin{align*}
+        (-1)^{n(n-1)/2} \det {(T(f; n))}
+        = a_1^2\, (-1)^{(n-1)(n-2)/2} \det {(T(h; n-1))},
+    \end{align*}
+    即
+    \begin{align*}
+        \Delta (0, a_1, \dots, a_n)
+        = a_1^2 \Delta (a_1, \dots, a_n).
+    \end{align*}
+
+    回想, \(a x^2 + b x + c\) (\(a \neq 0\))
+    的判别式是 \(b^2 - 4 a c\)
+    (见 ``结式的应用'').
+    则整式 \(\Delta (a, b, c) = b^2 - 4 a c\).
+    回想, \(b x + c\) (\(b \neq 0\))
+    的判别式是 \(1\)
+    (见 ``结式的应用'').
+    则整式 \(\Delta (b, c) = 1\).
+    则
+    \begin{align*}
+        \Delta (0, b, c)
+        = b^2 = b^2 \cdot 1 = b^2 \Delta (b, c).
+    \end{align*}
+    故此关系对 \(n = 2\) 是对的.
+\end{example}
+
+\begin{example}
+    设
+    \begin{align*}
+        f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n
+        = a_0 (x - x_1) (x - x_2) \dots (x - x_n),
+    \end{align*}
+    且 \(a_0 \neq 0\), \(n \geq 1\).
+    设 \(g_1 (x)
+    = b_0 x^{\ell} + b_1 x^{\ell-1} + \dots + b_{\ell}\),
+    且 \(g_2 (x) = c_0 x^m + c_1 x^{m-1} + \dots + c_m\).
+    为方便, 约定:
+    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
+    若 \(k < 0\) 或 \(k > \ell\), 则 \(b_k = 0\);
+    若 \(k < 0\) 或 \(k > m\), 则 \(c_k = 0\).
+    则
+    \begin{align*}
+        g(x) = g_1 (x) g_2 (x)
+        = d_0 x^{\ell+m} + d_1 x^{\ell+m-1} + \dots + d_{\ell+m},
+    \end{align*}
+    其中,
+    \begin{align*}
+        d_k =
+        \begin{dcases}
+            \sum_{i = 0}^{k} {b_{k-i} c_i},
+            & 0 \leq k \leq \ell + m;
+            \\
+            0,
+            & \text{别的情形}.
+        \end{dcases}
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(S(f, g_1; n, \ell))}
+        & = a_0^{\ell} g_1 (x_1) g_1 (x_2) \dots g_1 (x_n),
+        \\
+        \det {(S(f, g_2; n, \ell))}
+        & = a_0^m g_2 (x_1) g_2 (x_2) \dots g_2 (x_n),
+        \\
+        \det {(S(f, g; n, \ell + m))}
+        & = a_0^{\ell+m} g (x_1) g (x_2) \dots g (x_n).
+    \end{align*}
+    注意, \(g(x_i) = g_1 (x_i) g_2 (x_i)\).
+    不难看出,
+    \begin{equation}
+        \det {(S(f, g_1 g_2; n, \ell + m))}
+        = \det {(S(f, g_1; n, \ell))} \det {(S(f, g_2; n, m))}.
+        \label{eq:resultant-of-product}
+    \end{equation}
+    于是, 若 \(f\) 是 \(n\)~次整式, 且 \(n \geq 1\),
+    则式~\eqref{eq:resultant-of-product} 是对的.
+
+    设 \(f(x) = c\), 且 \(n = 0\),
+    且 \(\ell\), \(m \geq 1\).
+    回想 (见 ``Sylvester 阵与结式''),
+    \begin{align*}
+        \det {(S(f, g_1; 0, \ell))} & = c^{\ell}, \\
+        \det {(S(f, g_2; 0, m))} & = c^m, \\
+        \det {(S(f, g_1 g_2; 0, \ell + m))} & = c^{\ell + m}.
+    \end{align*}
+    则式~\eqref{eq:resultant-of-product} 仍是对的.
+
+    设 \(f\) 是 \(k\)~次整式, 且 \(1 \leq k \leq n\).
+    仍设 \(\ell\), \(m\) 是非负整数.
+    回想 (见 ``Sylvester 阵与结式''),
+    \begin{align*}
+        \det {(S(f, g_1; n, \ell))}
+        & = (-1)^{\ell (n-k)} b_0^{n-k}
+        \det {(S(f, g_1; k, \ell))},
+        \\
+        \det {(S(f, g_2; n, m))}
+        & = (-1)^{m (n-k)} c_0^{n-k}
+        \det {(S(f, g_2; k, m))},
+        \\
+        \det {(S(f, g_1 g_2; n, \ell + m))}
+        & = (-1)^{(\ell+m) (n-k)} d_0^{n-k}
+        \det {(S(f, g_1 g_2; k, \ell + m))}.
+    \end{align*}
+    注意, \(d_0 = b_0 c_0\),
+    且
+    \begin{align*}
+        \det {(S(f, g_1 g_2; k, \ell + m))}
+        = \det {(S(f, g_1; k, \ell))} \det {(S(f, g_2; k, m))},
+    \end{align*}
+    则式~\eqref{eq:resultant-of-product} 仍是对的.
+
+    综上, 若 \(f\), \(g_1\), \(g_2\)
+    分别是次不高于 \(n\), \(\ell\), \(m\) 的整式,
+    且 \(n + \ell \geq 1\), \(n + m \geq 1\),
+    则
+    \begin{align*}
+        \det {(S(f, g_1 g_2; n, \ell + m))}
+        = \det {(S(f, g_1; n, \ell))} \det {(S(f, g_2; n, m))}.
+    \end{align*}
+
+    类似地, 我们可以证明,
+    若 \(f_1\), \(f_2\), \(g\)
+    分别是次不高于 \(p\), \(q\), \(r\) 的整式,
+    且 \(p + r \geq 1\), \(q + r \geq 1\),
+    则
+    \begin{equation*}
+        \det {(S(f_1 f_2, g; p + q, r))}
+        = \det {(S(f_1, g; p, r))} \det {(S(f_2, g; q, r))}.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    设 \(f(x) = a_0 (x - x_1) \dots (x - x_n)\),
+    \(g(x) = b_0 (x - y_1) \dots (x - y_m)\),
+    \(a_0\), \(b_0 \neq 0\),
+    且 \(n\), \(m \geq 1\).
+    回想 (见 ``Sylvester 阵与结式'')
+    \begin{align*}
+        &
+        \det {(S(f g, \mathrm{D} (f g); m + n, m + n - 1))}
+        \\
+        = {} &
+        \det {(S(f, \mathrm{D} (f g); n, m + n - 1))}
+        \det {(S(g, \mathrm{D} (f g); m, m + n - 1))}
+        \\
+        = {} &
+        \hphantom{\cdot\,\,}
+        \det {(S(f, (\mathrm{D} f) g + f \mathrm{D} g; n, m + n - 1))}
+        \\
+        &
+        \cdot
+        \det {(S(g, (\mathrm{D} f) g + f \mathrm{D} g; m, m + n - 1))}
+        \\
+        = {} &
+        \hphantom{\cdot\,\,}
+        \det {(S(f, (\mathrm{D} f) g + f \mathrm{D} g
+        + (-\mathrm{D} g) f; n, m + n - 1))}
+        \\
+        &
+        \cdot
+        \det {(S(g, (\mathrm{D} f) g + f \mathrm{D} g
+        + (-\mathrm{D} f) g; m, m + n - 1))}
+        \\
+        = {} &
+        \det {(S(f, g \mathrm{D} f; n, m + n - 1))}
+        \det {(S(g, f \mathrm{D} g; m, m + n - 1))}
+        \\
+        = {} &
+        \hphantom{\cdot\,\,}
+        \det {(S(f, g; n, m))}
+        \det {(S(f, \mathrm{D} f; n, n-1))}
+        \\
+        &
+        \cdot
+        \det {(S(g, f; m, n))}
+        \det {(S(g, \mathrm{D} g; m, m-1))}
+        \\
+        = {} &
+        (-1)^{m n} (\det {(S(f, g; n, m))})^2
+        \det {(S(f, \mathrm{D} f; n, n-1))}
+        \det {(S(g, \mathrm{D} g; m, m-1))}.
+    \end{align*}
+    注意,
+    \begin{align*}
+        \frac{(m+n) (m+n-1)}{2}
+        = {} &
+        \frac{m (m-1+n) + n (n-1+m)}{2}
+        \\
+        = {} &
+        \frac{m(m-1) + n(n-1) + 2mn}{2}
+        \\
+        = {} &
+        \frac{m(m-1)}{2} + \frac{n(n-1)}{2} + m n,
+    \end{align*}
+    则
+    \begin{align*}
+        &
+        (-1)^{(m+n) (m+n-1)/2} \det {(T(f g; m + n))}
+        \\
+        = {} &
+        (-1)^{m(m-1)/2} (-1)^{n(n-1)/2} (-1)^{m n}
+        (a_0 b_0)^{-1}
+        \det {(S(f g, \mathrm{D} (f g); m + n, m + n - 1))}
+        \\
+        = {} &
+        \hphantom{\cdot\,\,}
+        (-1)^{m n} (-1)^{m n} (\det {(S(f, g; n, m))})^2
+        \\
+        &
+        \cdot
+        (-1)^{n(n-1)/2} a_0^{-1}
+        \det {(S(f, \mathrm{D} f; n, n-1))}
+        \\
+        &
+        \cdot
+        (-1)^{m(m-1)/2} b_0^{-1}
+        \det {(S(g, \mathrm{D} g; m, m-1))}
+        \\
+        = {} &
+        (\det {(S(f, g; n, m))})^2
+        \cdot
+        (-1)^{n(n-1)/2} \det {(T(f; n))}
+        \cdot
+        (-1)^{m(m-1)/2} \det {(T(g; m))}.
+        \qefhere
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设 \(g(x)
+    = b_0 x^m + b_1 x^{m-1} + \dots + b_{m-1} x + b_m\).
+    设 \(f(x)\) 是整式.
+    则
+    \begin{align*}
+        b_0 (f(x))^m + b_1 (f(x))^{m-1} + \dots
+        + b_{m-1} f(x) + b_m
+    \end{align*}
+    也是整式.
+    我们记它为 \(g \circ f (x)\)
+    (\(f\) 与 \(g\) 的\emph{复合}).
+    则
+    \begin{align*}
+        &
+        \mathrm{D} (g \circ f) (x)
+        \\
+        = {} &
+        b_0 \mathrm{D} ((f(x))^m)
+        + b_1 \mathrm{D} ((f(x))^{m-1})
+        + \dots
+        + b_{m-1} \mathrm{D} (f(x))
+        + 0
+        \\
+        = {} &
+        b_0 (m (f(x))^{m-1} \mathrm{D} f(x))
+        + b_1 ((m-1) (f(x))^{m-2} \mathrm{D} f(x))
+        + \dots
+        + b_{m-1} \mathrm{D} f(x)
+        \\
+        = {} &
+        (m b_0 (f(x))^{m-1}) \mathrm{D} f(x)
+        + ((m-1) b_1 (f(x))^{m-2}) \mathrm{D} f(x)
+        + \dots
+        + b_{m-1} \mathrm{D} f(x)
+        \\
+        = {} &
+        (m b_0 (f(x))^{m-1} + (m-1) b_1 (f(x))^{m-2}
+        + \dots + b_{m-1})\,
+        \mathrm{D} f(x)
+        \\
+        = {} &
+        (\mathrm{D}g \circ f) (x)\,
+        \mathrm{D} f(x).
+    \end{align*}
+
+    比如, 设 \(g(x) = x^2 + x - 1\),
+    且 \(f(x) = x^3 + 1\).
+    则, 一方面,
+    \begin{align*}
+        g \circ f (x)
+        = {} &
+        (x^3 + 1)^2 + (x^3 + 1) - 1
+        \\
+        = {} &
+        (x^6 + 2 x^3 + 1) + (x^3 + 1) - 1
+        \\
+        = {} &
+        x^6 + 3 x^3 + 1,
+    \end{align*}
+    所以
+    \(\mathrm{D} (g \circ f) (x) = 6 x^5 + 9 x^2\);
+    另一方面,
+    因为 \(\mathrm{D} g(x) = 2 x + 1\),
+    且 \(\mathrm{D} f(x) = 3 x^2\),
+    \begin{align*}
+        (\mathrm{D}g \circ f) (x)\,
+        \mathrm{D} f(x)
+        = {} &
+        (2 (x^3 + 1) + 1) \cdot 3 x^2
+        \\
+        = {} &
+        (2 x^3 + 3) \cdot 3 x^2
+        \\
+        = {} &
+        6 x^5 + 9 x^2.
+        \qefhere
+    \end{align*}
 \end{example}
 
 \end{document}
@@ -3171,6 +4335,7 @@ about determinants
 \end{itemize}
 This material consists of one very long section.
 
+\begin{comment}
 This example was rewritten, and it was moved to another place:
 
 \begin{example}
@@ -3259,11 +4424,11 @@ This example was rewritten, and it was moved to another place:
     且不改变别的列, 得 \(A E(n; p, q; s)\),
     其中, \(n\)~级阵 \(E(n; p, q; s)\) 的元
     \begin{align*}
-        [E(n; p, q; s)]_{i,j}
-        = \begin{cases}
-              s,           & \text{\(i = p\), 且 \(j = q\)}; \\
-              [I_n]_{i,j}, & \text{别的情形}.
-          \end{cases}
+        [E(n; p, q; s)]_{i,j} =
+        \begin{cases}
+            s,           & \text{\(i = p\), 且 \(j = q\)}; \\
+            [I_n]_{i,j}, & \text{别的情形}.
+        \end{cases}
     \end{align*}
     % (类似地,
     % 加 \(A\) 的行~\(q\) 的 \(s\)~倍于行~\(p\),
@@ -3361,13 +4526,13 @@ This example was rewritten, and it was moved to another place:
     % + s [M(n; p; t)]_{q,q} = s\),
     % 且 \([L]_{i,j} = [M(n; p; t)]_{i,j}\),
     % 当 \(i \neq p\) 或 \(j \neq q\).
-    % 我们用二个方式算 \(f(L)\).
+    % 我们用 \(2\)~个方式算 \(f(L)\).
 
     % 一方面,
     % \(f(L) = f(E(n; p, q; s)) f(M(n; p; t))
     % = f(E(n; p, q; s))\, t\).
 
-    % 另一方面, 我们可倍加二次,
+    % 另一方面, 我们可倍加 \(2\)~次,
     % 变 \(L\) 为某个阵 \(D\),
     % 使 \(f(L) = f(D)\),
     % 且 \(i \neq j\) 时, \([D]_{i,j} = 0\).
@@ -3377,7 +4542,7 @@ This example was rewritten, and it was moved to another place:
     %     = [L]_{p,q} + [L]_{p,p} s/(1-t) = s/(1-t)\),
     % 且 \([LU]_{i,j} = [L]_{i,j}\),
     % 当 \(i \neq p\) 或 \(j \neq q\).
-    % 进一步, \([VLU]_{p,q} = [V(LU)]_{p,q}
+    % 进一步地, \([VLU]_{p,q} = [V(LU)]_{p,q}
     %     = [LU]_{p,q} + [LU]_{q,q} (-s/(1-t)) = 0\),
     % 且 \([VLU]_{i,j} = [LU]_{i,j} = [L]_{i,j}\),
     % 当 \(i \neq p\) 或 \(j \neq q\).
@@ -3400,7 +4565,7 @@ This example was rewritten, and it was moved to another place:
     % 故 \(UV = I_n\).
     % 则 \(t = f(VLU) = f(L(UV)) = f(L I_n) = f(L)\).
 
-    % 比较二次计算的结果, 我们有
+    % 比较 \(2\)~次计算的结果, 我们得
     % \(t = f(L) = f(E(n; p, q; s))\, t\).
     % 因为 \(t \neq 0\),
     % 由消去律, \(f(E(n; p, q; s)) = 1\).
@@ -3408,3 +4573,4 @@ This example was rewritten, and it was moved to another place:
 
     % 综上, 我们有了新的用行列式的性质确定行列式的方式.
 \end{example}
+\end{comment}

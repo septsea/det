@@ -2,17 +2,19 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\appendix\chapter{Afterstories}\clearpage}{}
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
 
 \section{绝对值的性质 (1)}
 
 设 \(a\) 是实数.
 则 \(a\) 的绝对值
 \begin{align*}
-    |a| = \begin{cases}
-              a,  & a \geq 0; \\
-              -a, & a < 0.
-          \end{cases}
+    |a| =
+    \begin{cases}
+        a,  & a \geq 0; \\
+        -a, & a < 0.
+    \end{cases}
 \end{align*}
 
 如下命题是对的.
@@ -30,13 +32,13 @@
 且不能是负数, 故 \(a = 0\).
 
 (2)
-对任何实数 \(a\), 必 \(|a| \geq 0\).
+对任何实数 \(a\), \(|a| \geq 0\).
 
 我们已知, 若 \(a > 0\) 或 \(a < 0\), 则 \(|a| > 0\).
 另外, \(|0| = 0\).
 
 (3)
-对任何实数 \(a\), 必 \(|a| \geq a \geq -|a|\).
+对任何实数 \(a\), \(|a| \geq a \geq -|a|\).
 
 若 \(a \geq 0\), 则 \(|a| = a\).
 故 \(|a| = a \geq -a = -|a|\);
@@ -56,8 +58,8 @@
 无法推出 \(a^2 \geq b^2\), 故必 \(a \geq b\).
 
 (5)
-对任何实数 \(a\), 必 \(|a|^2 = a^2\).
-所以, 对任何实数 \(a\), 必 \(\sqrt{a^2} = |a|\).
+对任何实数 \(a\), \(|a|^2 = a^2\).
+所以, 对任何实数 \(a\), \(\sqrt{a^2} = |a|\).
 
 若 \(a \geq 0\), 则 \(|a|^2 = a^2\);
 若 \(a < 0\), 则 \(|a|^2 = (-a)^2 = a^2\).
@@ -65,7 +67,7 @@
 故由 \(\surd\) 的定义, \(\sqrt{a^2} = |a|\).
 
 (6)
-对任何实数 \(a\), \(b\), 必 \(|ab| = |a|\, |b|\).
+对任何实数 \(a\), \(b\), \(|ab| = |a|\, |b|\).
 
 若 \(a \geq 0\), 且 \(b \geq 0\),
 则 \(ab \geq 0\),
@@ -81,7 +83,7 @@
 故 \(|ab| = ab = (-a)(-b) = |a|\, |b|\).
 
 (7)
-对任何实数 \(a\), \(b\), 必 \(|{a + b}| \leq |a| + |b|\).
+对任何实数 \(a\), \(b\), \(|{a + b}| \leq |a| + |b|\).
 
 若 \(a + b \geq 0\), 则 \(|{a + b}| = a + b \leq |a| + |b|\);
 若 \(a + b < 0\), 则 \(|{a + b}| = -(a + b)
@@ -94,7 +96,7 @@
 可用数学归纳法证它.
 
 (8)
-对任何实数 \(a\), \(b\), 必 \(|{a - b}| \geq |a| - |b|\).
+对任何实数 \(a\), \(b\), \(|{a - b}| \geq |a| - |b|\).
 
 因为 \(|{a - b}| + |b| \geq |{(a - b) + b}| = |a|\).
 
@@ -126,12 +128,12 @@
 则 \(z = 0\).
 
 (2)
-对任何复数 \(z\), 必 \(|z| \geq 0\).
+对任何复数 \(z\), \(|z| \geq 0\).
 
 由 \(\surd\) 的定义, 这是显然的.
 
 (3)
-对任何复数 \(z\), \(w\), 必 \(|zw| = |z|\, |w|\).
+对任何复数 \(z\), \(w\), \(|zw| = |z|\, |w|\).
 
 设 \(z = a + \mathrm{i} b\), 且 \(w = c + \mathrm{i} d\)
 (其中, \(c\), \(d\) 是实数, 下同).
@@ -149,7 +151,6 @@
 故 \(|zw| = |z|\, |w|\).
 
 注意, 对任何实数 \(a\), \(b\), \(c\), \(d\),
-有
 \begin{align*}
     (a^2 + b^2) (c^2 + d^2)
     = {}    & (a^2 + (-b)^2) (c^2 + d^2)      \\
@@ -158,7 +159,7 @@
 \end{align*}
 
 (4)
-对任何复数 \(z\), \(w\), 必 \(|{z + w}| \leq |z| + |w|\).
+对任何复数 \(z\), \(w\), \(|{z + w}| \leq |z| + |w|\).
 
 设 \(z = a + \mathrm{i} b\), 且 \(w = c + \mathrm{i} d\).
 则
@@ -186,7 +187,7 @@
 可用数学归纳法证它.
 
 (5)
-对任何复数 \(z\), \(w\), 必 \(|{z - w}| \geq |z| - |w|\).
+对任何复数 \(z\), \(w\), \(|{z - w}| \geq |z| - |w|\).
 
 因为 \(|{z - w}| + |w| \geq |{(z - w) + w}| = |z|\).
 
@@ -201,7 +202,7 @@
 则:
 \begin{itemize}
     \item \(|0| = 0\);
-          若数 \(z\) 适合 \(|z| = 0\), 则 \(z = 0\).
+        若数 \(z\) 适合 \(|z| = 0\), 则 \(z = 0\).
     \item \(|z| \geq 0\).
     \item \(|zw| = |z|\, |w|\).
     \item \(|{z + w}| \leq |z| + |w|\).
@@ -227,7 +228,7 @@
     设 \(y_1\), \(y_2\), \(\dots\), \(y_n\) 是若干个实数.
     则存在不超过 \(n\) 的正整数 \(i\),
     使对任何不超过 \(n\) 的正整数 \(k\),
-    必 \(y_i \geq y_k\).
+    \(y_i \geq y_k\).
 \end{theorem}
 
 \begin{theorem}
@@ -237,15 +238,15 @@
     (1)
     存在不超过 \(n\), 且不等的正整数 \(i\), \(j\),
     使对任何不超过 \(n\), 且不等于 \(i\) 的正整数 \(k\),
-    必 \(y_i \geq y_j \geq y_k\).
+    \(y_i \geq y_j \geq y_k\).
 
     (2)
     对任何不超过 \(n\), 且不等于 \(i\) 的正整数 \(k\),
-    必 \(y_j \geq y_k\).
+    \(y_j \geq y_k\).
 
     (3)
     对任何不超过 \(n\) 的正整数 \(k\),
-    必 \(y_i \geq y_k\).
+    \(y_i \geq y_k\).
 \end{theorem}
 
 设 \(y_1\), \(y_2\), \(\dots\), \(y_n\) 是若干个非负实数,
@@ -253,7 +254,7 @@
 从而有某不超过 \(n\) 的正整数 \(p\), 使 \(y_p > 0\).
 再设某不超过 \(n\) 的正整数 \(i\) 适合,
 对任何不超过 \(n\) 的正整数 \(k\),
-必 \(y_i \geq y_k\).
+\(y_i \geq y_k\).
 则 \(y_i \geq y_p > 0\).
 所以
 
@@ -262,7 +263,7 @@
     且不全为 \(0\).
     则存在不超过 \(n\) 的正整数 \(i\),
     使对任何不超过 \(n\) 的正整数 \(k\),
-    必 \(y_i \geq y_k\),
+    \(y_i \geq y_k\),
     且 \(y_i > 0\).
 \end{theorem}
 
@@ -273,29 +274,29 @@
     (1)
     存在不超过 \(n\), 且不等的正整数 \(i\), \(j\),
     使对任何不超过 \(n\), 且不等于 \(i\) 的正整数 \(k\),
-    必 \(y_i \geq y_j \geq y_k\),
+    \(y_i \geq y_j \geq y_k\),
     且 \(y_i > 0\).
 
     (2)
     对任何不超过 \(n\), 且不等于 \(i\) 的正整数 \(k\),
-    必 \(y_j \geq y_k\).
+    \(y_j \geq y_k\).
 
     (3)
     对任何不超过 \(n\) 的正整数 \(k\),
-    必 \(y_i \geq y_k\).
+    \(y_i \geq y_k\).
 
     % (4)
     % 有一个特别的情形, 其值得提.
     % 设 \(y_j = 0\).
     % 由 (2) 知,
     % 对任何不超过 \(n\), 且不等于 \(i\) 的正整数 \(k\),
-    % 必 \(0 = y_j \geq y_k \geq 0\).
+    % \(0 = y_j \geq y_k \geq 0\).
     % 故对任何不超过 \(n\), 且不等于 \(i\) 的正整数 \(k\),
-    % 必 \(y_k = 0\).
+    % \(y_k = 0\).
 \end{theorem}
 
 \section{\texorpdfstring{行列式为 \(0\) 的阵的性质}%
-  {行列式为 0 的阵的性质}}
+{行列式为 0 的阵的性质}}
 
 本节, 我们讨论行列式为 \(0\) 的阵的几个性质.
 
@@ -306,7 +307,7 @@
     \begin{equation}
         |[A]_{i,i}| \leq
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{i,u}|}.
+        u \neq i}} {|[A]_{i,u}|}.
         \label{eq:NonzeroDet1}
     \end{equation}
 \end{theorem}
@@ -315,15 +316,15 @@
     因为 \(\det {(A)} = 0\),
     故有非零的 \(n \times 1\)~阵 \(X\),
     使 \(A X = 0\)
-    (见第~1~章, 节~\malneprasekcio{23},
+    (见第~1~章, 节~\malneprasekcio{23}, % tex-fmt: skip
     或第~1~章, 节~\malneprasekcio{25},
-    或 ``REF 阵、线性方程组、秩'').
+    或 ``REF 阵、线性方程组、秩''). % tex-fmt: skip
 
     考虑不全为 \(0\) 的非负实数
     \(|[X]_{1,1}|\), \(|[X]_{2,1}|\), \(\dots\), \(|[X]_{n,1}|\).
     则有不超过 \(n\) 的正整数 \(i\),
     使对任何不超过 \(n\) 的正整数 \(u\),
-    有 \(|[X]_{i,1}| \geq |[X]_{u,1}|\),
+    \(|[X]_{i,1}| \geq |[X]_{u,1}|\),
     且 \(|[X]_{i,1}| > 0\).
     则
     \begin{align*}
@@ -346,13 +347,13 @@
     则
     \begin{align*}
         |[A]_{i,i}|\,|[X]_{i,1}|
-        = {}    &
+        = {} &
         |{[A]_{i,i} [X]_{i,1}}|
         \\
-        = {}    &
+        = {} &
         |{-[A]_{i,i} [X]_{i,1}}|
         \\
-        = {}    &
+        = {} &
         \Bigg|
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {[A]_{i,u} [X]_{u,1}}
@@ -362,7 +363,7 @@
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|{[A]_{i,u} [X]_{u,1}}|}
         \\
-        = {}    &
+        = {} &
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A]_{i,u}|\, |[X]_{u,1}|}
         \\
@@ -370,10 +371,10 @@
         \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A]_{i,u}|\, |[X]_{i,1}|}
         \\
-        = {}    &
+        = {} &
         \Bigg(
-        \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
-        {|[A]_{i,u}|}
+            \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
+            {|[A]_{i,u}|}
         \Bigg) |[X]_{i,1}|.
     \end{align*}
     因为 \(|[X]_{i,1}| > 0\),
@@ -384,17 +385,17 @@
 
 \begin{example}
     设 \(A =
-    \begin{bmatrix}
-        0  & 1 \\
-        -1 & 0 \\
+        \begin{bmatrix}
+            0  & 1 \\
+            -1 & 0 \\
     \end{bmatrix}\)
     是一个 \(2\)~级阵.
-    取 \(i = 1\) 或 \(i = 2\), 即有
+    取 \(i = 1\) 或 \(i = 2\), 得
     \begin{align*}
         |[A]_{i,i}|
         = 0
         \leq 1
-        = \sum_{\substack{1 \leq u \leq 2 \\u \neq i}} {|[A]_{i,u}|}.
+        = \sum_{\substack{1 \leq u \leq 2 \\ u \neq i}} {|[A]_{i,u}|}.
     \end{align*}
     可是, \(\det {(A)} = 1 \neq 0\).
 \end{example}
@@ -406,12 +407,12 @@
     \begin{equation}
         |[A]_{j,j}|\,|[A]_{k,k}| \leq
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg).
         \label{eq:NonzeroDet2}
     \end{equation}
@@ -421,18 +422,18 @@
     因为 \(\det {(A)} = 0\),
     故有非零的 \(n \times 1\)~阵 \(X\),
     使 \(A X = 0\)
-    (见第~1~章, 节~\malneprasekcio{23},
+    (见第~1~章, 节~\malneprasekcio{23}, % tex-fmt: skip
     或第~1~章, 节~\malneprasekcio{25},
-    或 ``REF 阵、线性方程组、秩'').
+    或 ``REF 阵、线性方程组、秩''). % tex-fmt: skip
 
     考虑不全为 \(0\) 的非负实数
     \(|[X]_{1,1}|\), \(|[X]_{2,1}|\), \(\dots\), \(|[X]_{n,1}|\).
     则有不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     使对任何不超过 \(n\), 且不等于 \(j\) 的正整数 \(p\),
-    有 \(|[X]_{j,1}| \geq |[X]_{k,1}| \geq |[X]_{p,1}|\),
+    \(|[X]_{j,1}| \geq |[X]_{k,1}| \geq |[X]_{p,1}|\),
     且 \(|[X]_{j,1}| > 0\).
 
-    注意, 对任何不超过 \(n\) 的正整数 \(u\), 有
+    注意, 对任何不超过 \(n\) 的正整数 \(u\),
     \begin{align*}
         0
         = {} &
@@ -459,13 +460,13 @@
     则
     \begin{align*}
         |[A]_{u,u}|\, |[X]_{u,1}|
-        = {}    &
+        = {} &
         |{[A]_{u,u} [X]_{u,1}}|
         \\
-        = {}    &
+        = {} &
         |{-[A]_{u,u} [X]_{u,1}}|
         \\
-        = {}    &
+        = {} &
         \Bigg|
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
         {[A]_{u,v} [X]_{v,1}}
@@ -475,14 +476,14 @@
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
         {|{[A]_{u,v} [X]_{v,1}}|}
         \\
-        = {}    &
+        = {} &
         \sum_{\substack{1 \leq v \leq n \\ v \neq u}}
         {|{[A]_{u,v}|\, |[X]_{v,1}}|}.
     \end{align*}
     则
-    (取 \(u = j\),
+    (取 \(u = j\), % tex-fmt: skip
     并注意, 对任何不超过 \(n\), 且不等于 \(j\) 的正整数 \(p\),
-    有 \(|[X]_{p,1}| \leq |[X]_{k,1}|\))
+    \(|[X]_{p,1}| \leq |[X]_{k,1}|\)) % tex-fmt: skip
     \begin{align*}
         |[A]_{j,j}|\, |[X]_{j,1}|
         \leq {} &
@@ -493,10 +494,10 @@
         \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
         {|{[A]_{j,p}|\, |[X]_{k,1}}|}
         \\
-        = {}    &
+        = {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-        {|{[A]_{j,p}|}}
+            \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
+            {|{[A]_{j,p}|}}
         \Bigg)
         |[X]_{k,1}|.
     \end{align*}
@@ -505,15 +506,15 @@
         |[A]_{j,j}|
         \leq
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-        {|{[A]_{j,p}|}}
+            \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
+            {|{[A]_{j,p}|}}
         \Bigg)
         |[X]_{k,1}|\, |[X]_{j,1}|^{-1}.
     \end{align*}
     另一方面
-    (取 \(u = k\),
+    (取 \(u = k\), % tex-fmt: skip
     并注意, 对任何不超过 \(n\) 的正整数 \(q\),
-    有 \(|[X]_{q,1}| \leq |[X]_{j,1}|\)),
+    \(|[X]_{q,1}| \leq |[X]_{j,1}|\)), % tex-fmt: skip
     \begin{align*}
         |[A]_{k,k}|\, |[X]_{k,1}|
         \leq {} &
@@ -524,10 +525,10 @@
         \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
         {|{[A]_{k,q}|\, |[X]_{j,1}}|}
         \\
-        = {}    &
+        = {} &
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
-        {|{[A]_{k,q}|}}
+            \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
+            {|{[A]_{k,q}|}}
         \Bigg)
         |[X]_{j,1}|.
     \end{align*}
@@ -540,12 +541,12 @@
         % \leq {} &
         \leq
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-        {|{[A]_{j,p}|}}
+            \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
+            {|{[A]_{j,p}|}}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
-        {|{[A]_{k,q}|}}
+            \sum_{\substack{1 \leq q \leq n \\ q \neq k}}
+            {|{[A]_{k,q}|}}
         \Bigg)
         |[X]_{k,1}|.
     \end{align*}
@@ -558,13 +559,13 @@
         0 \leq
         |[A]_{j,j}| \leq
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
-        {|{[A]_{j,p}|}}
+            \sum_{\substack{1 \leq p \leq n \\ p \neq j}}
+            {|{[A]_{j,p}|}}
         \Bigg)\,
         0\, |[X]_{j,1}|^{-1} = 0.
     \end{align*}
     故 \(|[A]_{j,j}| = 0\).
-    则式~\eqref{eq:NonzeroDet2} 的左侧是 \(0\).
+    则式~\eqref{eq:NonzeroDet2} 的左边是 \(0\).
 \end{proof}
 
 此事反过来不一定是对的:
@@ -579,26 +580,26 @@
 \begin{align*}
     |[A]_{j,j}| >
     \sum_{\substack{1 \leq p \leq n \\
-        p \neq j}} {|[A]_{j,p}|}
+    p \neq j}} {|[A]_{j,p}|}
 \end{align*}
 与
 \begin{align*}
     |[A]_{k,k}| >
     \sum_{\substack{1 \leq q \leq n \\
-        q \neq k}} {|[A]_{k,q}|}
+    q \neq k}} {|[A]_{k,q}|}
 \end{align*}
 不能全是对的.
 故
 \begin{align*}
     |[A]_{j,j}| \leq
     \sum_{\substack{1 \leq p \leq n \\
-        p \neq j}} {|[A]_{j,p}|}
+    p \neq j}} {|[A]_{j,p}|}
 \end{align*}
 与
 \begin{align*}
     |[A]_{k,k}| \leq
     \sum_{\substack{1 \leq q \leq n \\
-        q \neq k}} {|[A]_{k,q}|}
+    q \neq k}} {|[A]_{k,q}|}
 \end{align*}
 的至少一个是对的.
 取 \(i\) 为 \(j\) 或 \(k\) 即可.
@@ -612,21 +613,21 @@
     则存在不超过 \(n\),
     且互不相同的正整数 \(j\), \(k\), \(\ell\), 使
     \begin{align*}
-                &
+        &
         |[A]_{j,j}|\,|[A]_{k,k}|\, |[A]_{\ell,\ell}|
         \\
         \leq {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq r \leq n \\
-                r \neq \ell}} {|[A]_{\ell,r}|}
+            \sum_{\substack{1 \leq r \leq n \\
+            r \neq \ell}} {|[A]_{\ell,r}|}
         \Bigg).
     \end{align*}
 \end{quotation}
@@ -634,18 +635,22 @@
 
 \begin{example}
     设 \(A =
-    \begin{bmatrix}
-        1 & 1 & 1 \\
-        1 & 1 & 1 \\
-        1 & 1 & 9 \\
+        \begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 1 & 1 \\
+            1 & 1 & 9 \\
     \end{bmatrix}\)
     是一个 \(3\)~级阵.
     不难算出, \(\det {(A)} = 0\).
-    可是
-    (其中, \(j\), \(k\), \(\ell\) 分别是 \(1\), \(2\), \(3\))
+    可是,
+    对任何不超过 \(3\),
+    且互不相同的正整数 \(j\), \(k\), \(\ell\),
     \begin{align*}
-             &
+        %  &
         |[A]_{j,j}|\,|[A]_{k,k}|\, |[A]_{\ell,\ell}|
+        % \\
+        = {} &
+        |[A]_{1,1}|\,|[A]_{2,2}|\, |[A]_{3,3}|
         \\
         = {} &
         1 \cdot 1 \cdot 9
@@ -655,26 +660,39 @@
         \\
         = {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq 3 \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq 3 \\
+            p \neq 1}} {|[A]_{1,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq 3 \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq 3 \\
+            q \neq 2}} {|[A]_{2,q}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq r \leq 3 \\
-                r \neq \ell}} {|[A]_{\ell,r}|}
+            \sum_{\substack{1 \leq r \leq 3 \\
+            r \neq 3}} {|[A]_{3,r}|}
+        \Bigg)
+        \\
+        = {} &
+        \Bigg(
+            \sum_{\substack{1 \leq p \leq 3 \\
+            p \neq j}} {|[A]_{j,p}|}
+        \Bigg)
+        \Bigg(
+            \sum_{\substack{1 \leq q \leq 3 \\
+            q \neq k}} {|[A]_{k,q}|}
+        \Bigg)
+        \Bigg(
+            \sum_{\substack{1 \leq r \leq 3 \\
+            r \neq \ell}} {|[A]_{\ell,r}|}
         \Bigg).
+        \qefhere
     \end{align*}
-    \(j\), \(k\), \(\ell\) 取别的数时,
-    也有类似的结果.
 \end{example}
 
 最后, 注意, 一个方阵与它的转置的行列式相等:
 若 \(\det {(A)} = 0\),
 则 \(\det {(A^{\mathrm{T}})} = \det {(A)} = 0\).
-应用前二个定理于 \(A^{\mathrm{T}}\), 立得
+应用前 \(2\)~个定理于 \(A^{\mathrm{T}}\), 立得
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级阵.
@@ -683,7 +701,7 @@
     \begin{align*}
         |[A]_{i,i}| \leq
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{u,i}|}.
+        u \neq i}} {|[A]_{u,i}|}.
     \end{align*}
 \end{theorem}
 
@@ -694,46 +712,46 @@
     \begin{align*}
         |[A]_{j,j}|\,|[A]_{k,k}| \leq
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{p,j}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{p,j}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{q,k}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{q,k}|}
         \Bigg).
     \end{align*}
 \end{theorem}
 
 \section{\texorpdfstring{判断阵的行列式不是 \(0\) 的方法}%
-  {判断阵的行列式不是 0 的方法}}
+{判断阵的行列式不是 0 的方法}}
 
 我们知道, 若一个阵的行列式是 \(0\),
-则有形如式~\eqref{eq:NonzeroDet1}, \eqref{eq:NonzeroDet2} 的不等式成立.
+则形如式~\eqref{eq:NonzeroDet1}, \eqref{eq:NonzeroDet2} 的不等式成立.
 利用反证法, 我们立得判断阵的行列式不是 \(0\) 的方法:
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级阵.
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \begin{align*}
         |[A]_{i,i}| >
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{i,u}|}.
+        u \neq i}} {|[A]_{i,u}|}.
     \end{align*}
     则 \(\det {(A)} \neq 0\).
 \end{theorem}
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级阵 (\(n \geq 2\)).
-    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     \begin{align*}
         |[A]_{j,j}|\,|[A]_{k,k}| >
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg).
     \end{align*}
     则 \(\det {(A)} \neq 0\).
@@ -743,27 +761,27 @@
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级阵.
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \begin{align*}
         |[A]_{i,i}| >
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{u,i}|}.
+        u \neq i}} {|[A]_{u,i}|}.
     \end{align*}
     则 \(\det {(A)} \neq 0\).
 \end{theorem}
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级阵 (\(n \geq 2\)).
-    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     \begin{align*}
         |[A]_{j,j}|\,|[A]_{k,k}| >
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{p,j}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{p,j}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{q,k}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{q,k}|}
         \Bigg).
     \end{align*}
     则 \(\det {(A)} \neq 0\).
@@ -777,10 +795,10 @@
 
 \begin{example}\label{emp:NonzeroDet1}
     设 \(A =
-    \begin{bmatrix}
-        9 & 6 & 2 \\
-        3 & 8 & 4 \\
-        5 & 1 & 7 \\
+        \begin{bmatrix}
+            9 & 6 & 2 \\
+            3 & 8 & 4 \\
+            5 & 1 & 7 \\
     \end{bmatrix}\)
     是一个 \(3\)~级阵.
     不难算出, \(|9| > |6| + |2|\),
@@ -792,18 +810,18 @@
 
 有时, 一个方阵 \(A\) 可能不适合定理的条件, 故我们无法直接地用定理.
 不过, 既然我们研究是否 \(\det {(A)} \neq 0\),
-我们可找二个跟 \(A\) 同尺寸的阵 \(B\), \(C\),
+我们可找 \(2\)~个跟 \(A\) 同尺寸的阵 \(B\), \(C\),
 使 \(BAC\) 适合定理的条件.
 则 \(\det {(BAC)} \neq 0\).
 因为 \(0 \neq \det {(BAC)} = \det {(B)} \det {(A)} \det {(C)}\),
-必 \(\det {(A)} \neq 0\).
+\(\det {(A)} \neq 0\).
 
 \begin{example}\label{emp:NonzeroDet2}
     设 \(A =
-    \begin{bmatrix}
-        20 & 11 & 1 \\
-        4  & 15 & 1 \\
-        13 & 15 & 3 \\
+        \begin{bmatrix}
+            20 & 11 & 1 \\
+            4  & 15 & 1 \\
+            13 & 15 & 3 \\
     \end{bmatrix}\)
     是一个 \(3\)~级阵.
     不难验算, 我们无法直接地用前 4~个定理的任何一个%
@@ -811,45 +829,48 @@
 
     取
     \begin{align*}
-        B = \begin{bmatrix}
-                1 & 0 & 0 \\
-                0 & 2 & 0 \\
-                0 & 0 & 1 \\
-            \end{bmatrix},
+        B =
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & 1 \\
+        \end{bmatrix},
         \quad
-        C = \begin{bmatrix}
-                1 & 0 & 0  \\
-                0 & 1 & 0  \\
-                0 & 0 & 10 \\
-            \end{bmatrix}.
+        C =
+        \begin{bmatrix}
+            1 & 0 & 0  \\
+            0 & 1 & 0  \\
+            0 & 0 & 10 \\
+        \end{bmatrix}.
     \end{align*}
     则
     \begin{align*}
-        BAC = \begin{bmatrix}
-                  20 & 11 & 10 \\
-                  8  & 30 & 20 \\
-                  13 & 15 & 30 \\
-              \end{bmatrix}.
+        BAC =
+        \begin{bmatrix}
+            20 & 11 & 10 \\
+            8  & 30 & 20 \\
+            13 & 15 & 30 \\
+        \end{bmatrix}.
     \end{align*}
     不难算出
     \begin{align*}
-         & R_1 = \sum_{\substack{1 \leq u \leq 3 \\u \neq 1}}
-        {|[BAC]_{1,u}|} = |11| + |10| = 21,      \\
-         & R_2 = \sum_{\substack{1 \leq u \leq 3 \\u \neq 2}}
-        {|[BAC]_{2,u}|} = |8| + |20| = 28,       \\
-         & R_3 = \sum_{\substack{1 \leq u \leq 3 \\u \neq 3}}
+        & R_1 = \sum_{\substack{1 \leq u \leq 3 \\ u \neq 1}}
+        {|[BAC]_{1,u}|} = |11| + |10| = 21, \\
+        & R_2 = \sum_{\substack{1 \leq u \leq 3 \\ u \neq 2}}
+        {|[BAC]_{2,u}|} = |8| + |20| = 28, \\
+        & R_3 = \sum_{\substack{1 \leq u \leq 3 \\ u \neq 3}}
         {|[BAC]_{3,u}|} = |13| + |15| = 28,
     \end{align*}
     且
     \begin{align*}
-         & |[BAC]_{1,1}|\,|[BAC]_{2,2}|
-        = 600 > 588 = R_1 R_2,          \\
-         & |[BAC]_{1,1}|\,|[BAC]_{3,3}|
-        = 600 > 588 = R_1 R_3,          \\
-         & |[BAC]_{2,2}|\,|[BAC]_{3,3}|
+        & |[BAC]_{1,1}|\,|[BAC]_{2,2}|
+        = 600 > 588 = R_1 R_2, \\
+        & |[BAC]_{1,1}|\,|[BAC]_{3,3}|
+        = 600 > 588 = R_1 R_3, \\
+        & |[BAC]_{2,2}|\,|[BAC]_{3,3}|
         = 30^2 > 28^2 = R_2 R_3.
     \end{align*}
-    (注意, 既然我们已算出,
+    (注意, 既然我们已算出, % tex-fmt: skip
     每个 \(|[BAC]_{j,j}|\,|[BAC]_{k,k}|\)
     都大于 \(R_j R_k\)
     (\(j < k\)),
@@ -857,7 +878,7 @@
     我们不必再判断%
     每个 \(|[BAC]_{j,j}|\,|[BAC]_{k,k}|\)
     是否都大于 \(R_j R_k\)
-    (\(j > k\)).)
+    (\(j > k\)).) % tex-fmt: skip
     故 \(\det {(BAC)} \neq 0\).
     则 \(\det {(A)} \neq 0\).
     (其实, 不难算出, \(\det {(A)} = 476.\))
@@ -870,13 +891,13 @@
         [A]_{i,j} =
         \begin{cases}
             2,
-             & 1 \leq i = j \leq n;         \\
+            & 1 \leq i = j \leq n;         \\
             \text{\(1\) 或 \(-1\)},
-             & 1 \leq i = j - 1 \leq n - 1; \\
+            & 1 \leq i = j - 1 \leq n - 1; \\
             \text{\(1\) 或 \(-1\)},
-             & 2 \leq i = j + 1 \leq n;     \\
+            & 2 \leq i = j + 1 \leq n;     \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{cases}
     \end{align*}
     通俗地, 当 \(n = 4\) 时, \(A\) 形如
@@ -890,13 +911,13 @@
     \end{align*}
     (这里, 正负号可自由地组合.)
 
-    不难算出, 对 \(i = 1\) 或 \(i = n\), 有
+    不难算出, 对 \(i = 1\) 或 \(i = n\),
     \begin{align*}
         |[A]_{i,i}| = 2 > 1
         = \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A]_{i,u}|};
     \end{align*}
-    对 \(1 < i < n\), 有
+    对 \(1 < i < n\),
     \begin{align*}
         |[A]_{i,i}| = 2 = 2
         = \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
@@ -910,7 +931,7 @@
 
     我们试找一个 \(n\)~级阵 \(C\),
     使 \(AC\) 适合某个定理的条件,
-    从而有 \(\det {(A)} \neq 0\).
+    从而得 \(\det {(A)} \neq 0\).
     无妨设
     \begin{align*}
         C =
@@ -921,14 +942,14 @@
             0      & 0      & \cdots & c_n    \\
         \end{bmatrix},
     \end{align*}
-    其中, \(c_1\), \(c_2\), \(\dots\), \(c_n\) 是待定的非零数.
+    其中, \(c_1\), \(c_2\), \(\dots\), \(c_n\) 是待定的非零的数.
     具体地,
     \begin{align*}
-        [C]_{i,j}
-        = \begin{cases}
-              c_i, & 1 \leq i = j \leq n; \\
-              0,   & \text{别的情形}.
-          \end{cases}
+        [C]_{i,j} =
+        \begin{cases}
+            c_i, & 1 \leq i = j \leq n; \\
+            0,   & \text{别的情形}.
+        \end{cases}
     \end{align*}
     注意, 在后面的计算中, \(c_i\) 会常被取绝对值.
     既然如此, 为方便, 我们无妨要求 \(c_i > 0\).
@@ -954,7 +975,7 @@
         2c_1     & > c_2,           \\
         2c_2     & > c_1 + c_3,     \\
         2c_3     & > c_2 + c_4,     \\
-                 & \dots,           \\
+        & \dots, \\
         2c_{n-1} & > c_{n-2} + c_n, \\
         2c_n     & > c_{n-1}.
     \end{align*}
@@ -963,26 +984,26 @@
         c_1               & > c_2 - c_1,     \\
         c_2 - c_1         & > c_3 - c_2,     \\
         c_3 - c_2         & > c_4 - c_3,     \\
-                          & \dots,           \\
+        & \dots, \\
         c_{n-1} - c_{n-2} & > c_n - c_{n-1}, \\
         c_n - c_{n-1}     & > -c_n.
     \end{align*}
     我们可试取
     \begin{align*}
-        c_1               &
+        c_1 &
         = \frac{1}{1 \cdot 2}
-        = 1 - \frac{1}{2},             \\
-        c_2 - c_1         &
+        = 1 - \frac{1}{2}, \\
+        c_2 - c_1 &
         = \frac{1}{2 \cdot 3}
-        = \frac{1}{2} - \frac{1}{3},   \\
-        c_3 - c_2         &
+        = \frac{1}{2} - \frac{1}{3}, \\
+        c_3 - c_2 &
         = \frac{1}{3 \cdot 4}
-        = \frac{1}{3} - \frac{1}{4},   \\
-                          & \dots,     \\
+        = \frac{1}{3} - \frac{1}{4}, \\
+        & \dots, \\
         c_{n-1} - c_{n-2} &
         = \frac{1}{(n-1)n}
         = \frac{1}{n-1} - \frac{1}{n}, \\
-        c_n - c_{n-1}     &
+        c_n - c_{n-1} &
         = \frac{1}{n(n+1)}
         = \frac{1}{n} - \frac{1}{n+1}.
     \end{align*}
@@ -995,13 +1016,13 @@
     不难验证, \(c_k\) 是正数, 且
     \begin{align*}
         |[AC]_{1,1}| - R_1
-         & = 2c_1 - c_2
-        = 1 - \frac{2}{3} > 0,                 \\
+        & = 2c_1 - c_2
+        = 1 - \frac{2}{3} > 0, \\
         |[AC]_{n,n}| - R_n
-         & = 2c_n - c_{n-1}
-        = \frac{n-1}{n+1} + \frac{1}{n} > 0,   \\
+        & = 2c_n - c_{n-1}
+        = \frac{n-1}{n+1} + \frac{1}{n} > 0, \\
         |[AC]_{i,i}| - R_i
-         & = (c_i - c_{i-1}) - (c_{i+1} - c_i)
+        & = (c_i - c_{i-1}) - (c_{i+1} - c_i)
         = \frac{1}{i(i+1)} - \frac{1}{(i+1)(i+2)} > 0.
     \end{align*}
     故 \(AC\) 适合第~1~个定理的条件.
@@ -1010,7 +1031,7 @@
 \end{example}
 
 \section{\texorpdfstring{判断实阵的行列式大于 \(0\) 的方法}%
-  {判断实阵的行列式大于 0 的方法}}
+{判断实阵的行列式大于 0 的方法}}
 
 本节, 我介绍判断实阵的行列式大于 \(0\) 的方法.
 
@@ -1021,7 +1042,7 @@
 \begin{theorem}
     设 \(m\), \(b\) 是实数.
     设 \(b > 0\), 且对任何不超过 \(1\) 的正数 \(t\),
-    有 \(mt + b \neq 0\).
+    \(mt + b \neq 0\).
     则 \(m + b > 0\).
 \end{theorem}
 
@@ -1037,11 +1058,11 @@
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级实阵.
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \begin{align*}
         [A]_{i,i} >
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{i,u}|}.
+        u \neq i}} {|[A]_{i,u}|}.
     \end{align*}
     则 \(\det {(A)} > 0\).
 \end{theorem}
@@ -1051,14 +1072,13 @@
     作命题 \(P(n)\):
     \begin{quotation}
         对任何适合如下条件的 \(n\)~级实阵 \(A\),
-        必 \(\det {(A)} > 0\):
+        \(\det {(A)} > 0\):
         \begin{quotation}
             对任何不超过 \(n\)~的正整数 \(i\),
-            必
             \begin{align*}
                 [A]_{i,i} >
                 \sum_{\substack{1 \leq u \leq n \\
-                    u \neq i}} {|[A]_{i,u}|}.
+                u \neq i}} {|[A]_{i,u}|}.
             \end{align*}
         \end{quotation}
     \end{quotation}
@@ -1072,11 +1092,11 @@
     我们要由此证 \(P(n)\) 是对的.
 
     设 \(A\) 是一个 \(n\)~级实阵,
-    且对任何不超过 \(n\) 的正整数 \(i\), 必
+    且对任何不超过 \(n\) 的正整数 \(i\),
     \begin{align*}
         [A]_{i,i} >
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{i,u}|}.
+        u \neq i}} {|[A]_{i,u}|}.
     \end{align*}
     因为 \([A]_{i,i}\) 大于一个非负数,
     故 \(0 < [A]_{i,i} = |[A]_{i,i}|\).
@@ -1091,7 +1111,7 @@
         \end{cases}
     \end{align*}
     我们考虑 \(A_t\)~的行列式.
-    按行~\(1\) 展开, 有
+    按行~\(1\) 展开, 得
     \begin{align*}
         \det {(A_t)}
         = {} &
@@ -1138,27 +1158,27 @@
     且对 \(w < n\),
     \begin{align*}
         [C]_{w,w}
-        = {}    &
+        = {} &
         [A]_{w+1,w+1}
         \\
-        > {}    &
-        \sum_{\substack{1 \leq u \leq n   \\u \neq w+1}}
+        > {} &
+        \sum_{\substack{1 \leq u \leq n \\ u \neq w+1}}
         {|[A]_{w+1,u}|}
         \\
         \geq {} &
-        \sum_{\substack{1 \leq u \leq n   \\u \neq 1, w+1}}
+        \sum_{\substack{1 \leq u \leq n \\ u \neq 1, w+1}}
         {|[A]_{w+1,u}|}
         \\
-        = {}    &
-        \sum_{\substack{1 \leq y \leq n-1 \\y \neq w}}
+        = {} &
+        \sum_{\substack{1 \leq y \leq n-1 \\ y \neq w}}
         {|[A]_{w+1,y+1}|}
         \\
-        = {}    &
-        \sum_{\substack{1 \leq y \leq n-1 \\y \neq w}}
+        = {} &
+        \sum_{\substack{1 \leq y \leq n-1 \\ y \neq w}}
         {|[C]_{w,y}|}.
     \end{align*}
     所以, 由假定, \(\det {(A(1|1))} = \det {(C)} > 0\).
-    因为 \([A]_{1,1} > 0\), 我们有 \(b > 0\).
+    因为 \([A]_{1,1} > 0\), \(b > 0\).
 
     设 \(t\) 是不超过 \(1\)~的正数.
     则 \(0 \leq |t| = t \leq 1\).
@@ -1183,45 +1203,45 @@
     若 \(i = 1\), 则
     \begin{align*}
         |[A_t]_{i,i}|
-        = {}    &
+        = {} &
         |[A]_{i,i}|
         \\
-        = {}    &
+        = {} &
         [A]_{i,i}
         \\
-        > {}    &
-        \sum_{\substack{1 \leq u \leq n     \\u \neq i}}
+        > {} &
+        \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A]_{i,u}|}
         \\
         \geq {} &
-        |t| \sum_{\substack{1 \leq u \leq n \\u \neq i}}
+        |t| \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A]_{i,u}|}
         \\
-        = {}    &
-        \sum_{\substack{1 \leq u \leq n     \\u \neq i}}
+        = {} &
+        \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|t|\, |[A]_{i,u}|}
         \\
-        = {}    &
-        \sum_{\substack{1 \leq u \leq n     \\u \neq i}}
+        = {} &
+        \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|t\, [A]_{i,u}|}
         \\
-        = {}    &
-        \sum_{\substack{1 \leq u \leq n     \\u \neq i}}
+        = {} &
+        \sum_{\substack{1 \leq u \leq n \\ u \neq i}}
         {|[A_t]_{i,u}|}.
     \end{align*}
     则 \(\det {(A_t)} \neq 0\).
     从而,
     对任何不超过 \(1\) 的正数 \(t\),
-    有 \(mt + b \neq 0\).
+    \(mt + b \neq 0\).
 
     既然 \(b > 0\),
     且对任何不超过 \(1\) 的正数 \(t\),
-    有 \(mt + b \neq 0\),
+    \(mt + b \neq 0\),
     我们能推出 \(m + b > 0\).
     故 \(\det {(A)} = \det {(A_1)} = m + b > 0\).
 
     所以, \(P(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 % 若我们巧用微积分, 此事是简单的.
@@ -1248,30 +1268,30 @@
 %     与任何不超过 \(n\) 的正整数 \(i\),
 %     \begin{align*}
 %         |[A_t]_{i,i}|
-%         = {}    &
+%         = {} &
 %         |[A]_{i,i}|
 %         \\
-%         = {}    &
+%         = {} &
 %         [A]_{i,i}
 %         \\
-%         > {}    &
-%         \sum_{\substack{1 \leq u \leq n   \\
+%         > {} &
+%         \sum_{\substack{1 \leq u \leq n \\
 %             u \neq i}} {|[A]_{i,u}|}
 %         \\
 %         \geq {} &
 %         t \sum_{\substack{1 \leq u \leq n \\
 %             u \neq i}} {|[A]_{i,u}|}.
 %         \\
-%         = {}    &
-%         \sum_{\substack{1 \leq u \leq n   \\
+%         = {} &
+%         \sum_{\substack{1 \leq u \leq n \\
 %             u \neq i}} {t |[A]_{i,u}|}.
 %         \\
-%         = {}    &
-%         \sum_{\substack{1 \leq u \leq n   \\
+%         = {} &
+%         \sum_{\substack{1 \leq u \leq n \\
 %             u \neq i}} {|t|\, |[A]_{i,u}|}.
 %         \\
-%         = {}    &
-%         \sum_{\substack{1 \leq u \leq n   \\
+%         = {} &
+%         \sum_{\substack{1 \leq u \leq n \\
 %             u \neq i}} {|[A_t]_{i,u}|}.
 %     \end{align*}
 %     故 \(f(t) = \det {(A_t)} \neq 0\),
@@ -1286,7 +1306,7 @@
 %     反设 \(f(1) \leq 0\).
 %     若 \(f(1) = 0\), 这是矛盾.
 %     若 \(f(1) < 0\), 则因 \(f(1) > 0\),
-%     必有某 \(0 < s < 1\) 使 \(f(s) = 0\);
+%     有某 \(0 < s < 1\) 使 \(f(s) = 0\);
 %     这是矛盾.
 
 %     故 \(f(1) > 0\).
@@ -1294,17 +1314,16 @@
 
 % 不过, 若我们不用微积分, 此事是复杂的.
 
-% 我想给二个证明.
+% 我想给 \(2\)~个证明.
 % 第~1~个证明的计算较多, 但它较直接.
 
 % \begin{proof}[证~1]
 %     作命题 \(P(n)\):
 %     \begin{quotation}
 %         对任何适合如下条件的 \(n\)~级实阵 \(A\),
-%         必 \(\det {(A)} > 0\):
+%         \(\det {(A)} > 0\):
 %         \begin{quotation}
 %             对任何不超过 \(n\)~的正整数 \(i\),
-%             必
 %             \begin{align*}
 %                 [A]_{i,i} >
 %                 \sum_{\substack{1 \leq u \leq n \\
@@ -1337,7 +1356,7 @@
 %     我们要由此证 \(P(n)\) 是对的.
 
 %     设 \(A\) 是一个 \(n\)~级实阵,
-%     且对任何不超过 \(n\) 的正整数 \(i\), 必
+%     且对任何不超过 \(n\) 的正整数 \(i\),
 %     \begin{align*}
 %         [A]_{i,i} >
 %         \sum_{\substack{1 \leq u \leq n \\
@@ -1419,18 +1438,18 @@
 %     故
 %     \begin{align*}
 %         [C]_{i,i}
-%         = {}    &
+%         = {} &
 %         [A]_{i+1,i+1} - \frac{[A]_{i+1,1}}{[A]_{1,1}} [A]_{1,i+1}
 %         \\
-%         = {}    &
+%         = {} &
 %         \frac{[A]_{i+1,i+1} [A]_{1,1} - [A]_{1,i+1} [A]_{i+1,1}}
 %         {[A]_{1,1}}
 %         \\
-%         > {}    &
+%         > {} &
 %         \frac{|[A]_{1,i+1}|\, |[A]_{i+1,1}| - [A]_{1,i+1} [A]_{i+1,1}}
 %         {[A]_{1,1}}
 %         \\
-%         = {}    &
+%         = {} &
 %         \frac{|{[A]_{1,i+1} [A]_{i+1,1}}| - [A]_{1,i+1} [A]_{i+1,1}}
 %         {[A]_{1,1}}
 %         \\
@@ -1442,7 +1461,7 @@
 %     注意,
 %     \begin{align*}
 %         |[C]_{i,i}|
-%         = {}    &
+%         = {} &
 %         \Bigg|
 %         [A]_{i+1,i+1} - \frac{[A]_{i+1,1}}{[A]_{1,1}} [A]_{1,i+1}
 %         \Bigg|
@@ -1453,21 +1472,21 @@
 %         \frac{[A]_{i+1,1}}{[A]_{1,1}} [A]_{1,i+1}
 %         \Bigg|
 %         \\
-%         = {}    &
+%         = {} &
 %         |[A]_{i+1,i+1}| -
 %         \frac{|[A]_{i+1,1}|}{|[A]_{1,1}|} |[A]_{1,i+1}|,
 %     \end{align*}
 %     且
 %     \begin{align*}
 %                 &
-%         \sum_{\substack{1 \leq v \leq n-1  \\ v \neq i}}
+%         \sum_{\substack{1 \leq v \leq n-1 \\ v \neq i}}
 %         {|[C]_{i,v}|}
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{2 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {|[C]_{i,\ell-1}|}
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{2 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {\Bigg|
 %         [A]_{i+1,\ell} - \frac{[A]_{i+1,1}}{[A]_{1,1}} [A]_{1,\ell}
@@ -1482,14 +1501,14 @@
 %             \Bigg|
 %             \Bigg)}
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{2 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {\Bigg(
 %             |[A]_{i+1,\ell}| +
 %             \frac{|[A]_{i+1,1}|}{|[A]_{1,1}|} |[A]_{1,\ell}|
 %             \Bigg)}
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{2 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {
 %         |[A]_{i+1,\ell}|
@@ -1501,7 +1520,7 @@
 %         |[A]_{1,\ell}|
 %         }
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {
 %         |[A]_{i+1,\ell}|
@@ -1520,7 +1539,7 @@
 %         \frac{|[A]_{i+1,1}|}{|[A]_{1,1}|}
 %         |[A]_{1,i+1}|
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {
 %         |[A]_{i+1,\ell}|
@@ -1539,7 +1558,7 @@
 %         \frac{|[A]_{i+1,1}|}{|[A]_{1,1}|}
 %         |[A]_{1,i+1}|
 %         \\
-%         = {}    &
+%         = {} &
 %         \sum_{\substack{1 \leq \ell \leq n \\ \ell \neq i+1}}
 %         {
 %         |[A]_{i+1,\ell}|
@@ -1572,7 +1591,7 @@
 %     故
 %     \begin{align*}
 %         |[C]_{i,i}| -
-%         \sum_{\substack{1 \leq v \leq n-1  \\ v \neq i}}
+%         \sum_{\substack{1 \leq v \leq n-1 \\ v \neq i}}
 %         {|[C]_{i,v}|}
 %         \geq
 %         |[A]_{i+1,i+1}| -
@@ -1590,18 +1609,18 @@
 %     故 \(\det {(A)} = [A]_{1,1} \det {(C)} > 0\).
 
 %     所以, \(P(n)\) 是对的.
-%     由数学归纳法, 待证命题成立.
+%     由数学归纳法, 待证的命题成立.
 % \end{proof}
 
 当然, 如下命题也是对的 (利用转置):
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级实阵.
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \begin{align*}
         [A]_{i,i} >
         \sum_{\substack{1 \leq u \leq n \\
-            u \neq i}} {|[A]_{u,i}|}.
+        u \neq i}} {|[A]_{u,i}|}.
     \end{align*}
     则 \(\det {(A)} > 0\).
 \end{theorem}
@@ -1614,10 +1633,10 @@
 
 \begin{example}[continues=emp:NonzeroDet1]
     设 \(A =
-    \begin{bmatrix}
-        9 & 6 & 2 \\
-        3 & 8 & 4 \\
-        5 & 1 & 7 \\
+        \begin{bmatrix}
+            9 & 6 & 2 \\
+            3 & 8 & 4 \\
+            5 & 1 & 7 \\
     \end{bmatrix}\)
     是一个 \(3\)~级实阵.
     不难算出, \(9 > |6| + |2|\),
@@ -1629,7 +1648,7 @@
 
 有时, 一个实方阵 \(A\) 可能不适合定理的条件, 故我们无法直接地用定理.
 不过, 既然我们研究是否 \(\det {(A)} > 0\),
-我们可找二个跟 \(A\) 同尺寸的实阵 \(B\), \(C\),
+我们可找 \(2\)~个跟 \(A\) 同尺寸的实阵 \(B\), \(C\),
 使 \(\det {(B)} \det {(C)} > 0\),
 且 \(BAC\) 适合定理的条件.
 则 \(\det {(BAC)} > 0\).
@@ -1644,13 +1663,13 @@
         [A]_{i,j} =
         \begin{cases}
             2,
-             & 1 \leq i = j \leq n;         \\
+            & 1 \leq i = j \leq n;         \\
             \text{\(1\) 或 \(-1\)},
-             & 1 \leq i = j - 1 \leq n - 1; \\
+            & 1 \leq i = j - 1 \leq n - 1; \\
             \text{\(1\) 或 \(-1\)},
-             & 2 \leq i = j + 1 \leq n;     \\
+            & 2 \leq i = j + 1 \leq n;     \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{cases}
     \end{align*}
     我们无法直接地用定理说明 \(\det {(A)} > 0\).
@@ -1669,11 +1688,11 @@
     \end{align*}
     具体地,
     \begin{align*}
-        [C]_{i,j}
-        = \begin{cases}
-              c_i, & 1 \leq i = j \leq n; \\
-              0,   & \text{别的情形}.
-          \end{cases}
+        [C]_{i,j} =
+        \begin{cases}
+            c_i, & 1 \leq i = j \leq n; \\
+            0,   & \text{别的情形}.
+        \end{cases}
     \end{align*}
     不难算出, \(\det {(C)} > 0\)
     (其实, \(\det {(C)} = 1/(n+1)\)).
@@ -1700,13 +1719,13 @@
     不难验证,
     \begin{align*}
         [AC]_{1,1} - R_1
-         & = 2c_1 - c_2
-        = 1 - \frac{2}{3} > 0,                 \\
+        & = 2c_1 - c_2
+        = 1 - \frac{2}{3} > 0, \\
         [AC]_{n,n} - R_n
-         & = 2c_n - c_{n-1}
-        = \frac{n-1}{n+1} + \frac{1}{n} > 0,   \\
+        & = 2c_n - c_{n-1}
+        = \frac{n-1}{n+1} + \frac{1}{n} > 0, \\
         [AC]_{i,i} - R_i
-         & = (c_i - c_{i-1}) - (c_{i+1} - c_i)
+        & = (c_i - c_{i-1}) - (c_{i+1} - c_i)
         = \frac{1}{i(i+1)} - \frac{1}{(i+1)(i+2)} > 0.
     \end{align*}
     于是, \(\det {(AC)} > 0\).
@@ -1720,18 +1739,18 @@
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级实阵 (\(n \geq 2\)).
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \([A]_{i,i} > 0\).
-    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     \begin{align*}
         [A]_{j,j}\,[A]_{k,k} >
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg).
     \end{align*}
     则 \(\det {(A)} > 0\).
@@ -1741,23 +1760,23 @@
     作命题 \(P(n)\):
     \begin{quotation}
         对任何适合如下条件的 \(n\)~级实阵 \(A\),
-        必 \(\det {(A)} > 0\):
+        \(\det {(A)} > 0\):
         \begin{quotation}
             (1)
             对任何不超过 \(n\)~的正整数 \(i\),
-            必 \([A]_{i,i} > 0\);
+            \([A]_{i,i} > 0\);
 
             (2)
-            对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+            对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
             \begin{align*}
                 [A]_{j,j}\,[A]_{k,k} >
                 \Bigg(
-                \sum_{\substack{1 \leq p \leq n \\
-                        p \neq j}} {|[A]_{j,p}|}
+                    \sum_{\substack{1 \leq p \leq n \\
+                    p \neq j}} {|[A]_{j,p}|}
                 \Bigg)
                 \Bigg(
-                \sum_{\substack{1 \leq q \leq n \\
-                        q \neq k}} {|[A]_{k,q}|}
+                    \sum_{\substack{1 \leq q \leq n \\
+                    q \neq k}} {|[A]_{k,q}|}
                 \Bigg).
             \end{align*}
         \end{quotation}
@@ -1769,10 +1788,11 @@
     \(P(2)\) 是对的.
     任取 \(2\)~级实阵
     \begin{align*}
-        A = \begin{bmatrix}
-                a & b \\
-                c & d \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            a & b \\
+            c & d \\
+        \end{bmatrix},
     \end{align*}
     其中, \(a > 0\), \(d > 0\),
     且 \(a d > |b|\,|c|\).
@@ -1786,18 +1806,18 @@
     我们要由此证 \(P(n)\) 是对的.
 
     设 \(A\) 是一个 \(n\)~级实阵.
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \([A]_{i,i} > 0\).
-    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     \begin{align*}
         [A]_{j,j}\,[A]_{k,k} >
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg).
     \end{align*}
 
@@ -1811,7 +1831,7 @@
         \end{cases}
     \end{align*}
     我们考虑 \(A_t\)~的行列式.
-    按行~\(1\) 展开, 有
+    按行~\(1\) 展开, 得
     \begin{align*}
         \det {(A_t)}
         = {} &
@@ -1860,51 +1880,51 @@
     且 \(v \neq w\),
     \begin{align*}
         [C]_{v,v}\, [C]_{w,w}
-        = {}    &
+        = {} &
         [A]_{v+1,v+1}\, [A]_{w+1,w+1}
         \\
-        > {}    &
+        > {} &
         \Bigg(
-        \sum_{\substack{1 \leq u \leq n   \\u \neq v+1}}
-        {|[A]_{v+1,u}|}
+            \sum_{\substack{1 \leq u \leq n \\ u \neq v+1}}
+            {|[A]_{v+1,u}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq u \leq n   \\u \neq w+1}}
-        {|[A]_{w+1,u}|}
+            \sum_{\substack{1 \leq u \leq n \\ u \neq w+1}}
+            {|[A]_{w+1,u}|}
         \Bigg)
         \\
         \geq {} &
         \Bigg(
-        \sum_{\substack{1 \leq u \leq n   \\u \neq 1, v+1}}
-        {|[A]_{v+1,u}|}
+            \sum_{\substack{1 \leq u \leq n \\ u \neq 1, v+1}}
+            {|[A]_{v+1,u}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq u \leq n   \\u \neq 1, w+1}}
-        {|[A]_{w+1,u}|}
-        \Bigg)
-        \\
-        = {}    &
-        \Bigg(
-        \sum_{\substack{1 \leq y \leq n-1 \\y \neq v}}
-        {|[A]_{v+1,y+1}|}
-        \Bigg)
-        \Bigg(
-        \sum_{\substack{1 \leq y \leq n-1 \\y \neq w}}
-        {|[A]_{w+1,y+1}|}
+            \sum_{\substack{1 \leq u \leq n \\ u \neq 1, w+1}}
+            {|[A]_{w+1,u}|}
         \Bigg)
         \\
-        = {}    &
+        = {} &
         \Bigg(
-        \sum_{\substack{1 \leq y \leq n-1 \\y \neq v}}
-        {|[C]_{v,y}|}
+            \sum_{\substack{1 \leq y \leq n-1 \\ y \neq v}}
+            {|[A]_{v+1,y+1}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq y \leq n-1 \\y \neq w}}
-        {|[C]_{w,y}|}
+            \sum_{\substack{1 \leq y \leq n-1 \\ y \neq w}}
+            {|[A]_{w+1,y+1}|}
+        \Bigg)
+        \\
+        = {} &
+        \Bigg(
+            \sum_{\substack{1 \leq y \leq n-1 \\ y \neq v}}
+            {|[C]_{v,y}|}
+        \Bigg)
+        \Bigg(
+            \sum_{\substack{1 \leq y \leq n-1 \\ y \neq w}}
+            {|[C]_{w,y}|}
         \Bigg).
     \end{align*}
     所以, 由假定, \(\det {(A(1|1))} = \det {(C)} > 0\).
-    因为 \([A]_{1,1} > 0\), 我们有 \(b > 0\).
+    因为 \([A]_{1,1} > 0\), \(b > 0\).
 
     设 \(t\) 是不超过 \(1\)~的正数.
     则 \(0 \leq |t| = t \leq 1\).
@@ -1921,118 +1941,118 @@
         \\
         > {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg)
         \\
         = {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A_t]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A_t]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A_t]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A_t]_{k,q}|}
         \Bigg).
     \end{align*}
     若 \(j = 1\) 且 \(k \neq j\), 则
     \begin{align*}
         |[A_t]_{j,j}|\,|[A_t]_{k,k}|
-        = {}    &
+        = {} &
         |[A]_{j,j}|\,|[A]_{k,k}|
         \\
-        = {}    &
+        = {} &
         [A]_{j,j}\,[A]_{k,k}
         \\
-        > {}    &
+        > {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg)
         \\
         \geq {} &
         |t|\,\Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
-        \Bigg)
-        \\
-        = {}    &
-        \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|t|\,|[A]_{j,p}|}
-        \Bigg)
-        \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg)
         \\
-        = {}    &
+        = {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|t\, [A]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|t|\,|[A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
         \Bigg)
         \\
-        = {}    &
+        = {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A_t]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|t\, [A]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A_t]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{k,q}|}
+        \Bigg)
+        \\
+        = {} &
+        \Bigg(
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A_t]_{j,p}|}
+        \Bigg)
+        \Bigg(
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A_t]_{k,q}|}
         \Bigg).
     \end{align*}
     若 \(k = 1\) 且 \(j \neq k\),
-    类似地, 我们也有
+    类似地,
     \begin{align*}
         |[A_t]_{j,j}|\,|[A_t]_{k,k}|
         > {} &
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A_t]_{j,p}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A_t]_{j,p}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A_t]_{k,q}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A_t]_{k,q}|}
         \Bigg).
     \end{align*}
     则 \(\det {(A_t)} \neq 0\).
     从而,
     对任何不超过 \(1\) 的正数 \(t\),
-    有 \(mt + b \neq 0\).
+    \(mt + b \neq 0\).
 
     既然 \(b > 0\),
     且对任何不超过 \(1\) 的正数 \(t\),
-    有 \(mt + b \neq 0\),
+    \(mt + b \neq 0\),
     我们能推出 \(m + b > 0\).
     故 \(\det {(A)} = \det {(A_1)} = m + b > 0\).
 
     所以, \(P(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 % the old proof, which works but is not so good
 % \begin{proof}
 %     设 \(A\) 是一个 \(n\)~级实阵 (\(n \geq 2\)).
-%     设对任何不超过 \(n\) 的正整数 \(i\), 必
+%     设对任何不超过 \(n\) 的正整数 \(i\),
 %     \([A]_{i,i} > 0\).
-%     设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+%     设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
 %     \begin{align*}
 %         [A]_{j,j}\,[A]_{k,k} >
 %         \Bigg(
@@ -2048,7 +2068,6 @@
 %     \(n-1\)~个互不相同的, 且不超过 \(n\) 的正整数
 %     \(i_1\), \(i_2\), \(\dots\), \(i_{n-1}\),
 %     使对任何不超过 \(n-1\) 的正整数 \(w\),
-%     有
 %     \begin{align*}
 %         [A]_{i_w,i_w} >
 %         \sum_{\substack{1 \leq u \leq n \\
@@ -2073,7 +2092,7 @@
 %         \end{cases}
 %     \end{align*}
 %     我们考虑 \(A_t\)~的行列式.
-%     按行~\(i_n\) 展开, 有
+%     按行~\(i_n\) 展开, 得
 %     \begin{align*}
 %         \det {(A_t)}
 %         = {} &
@@ -2085,20 +2104,20 @@
 %         {(-1)^{i_n + j} [A_t]_{i_n,j} \det {(A (i_n | j))}}
 %         \\
 %         = {} &
-%         \sum_{\substack{1 \leq j \leq n \\j \neq i_n}}
+%         \sum_{\substack{1 \leq j \leq n \\ j \neq i_n}}
 %         {(-1)^{i_n + j} [A_t]_{i_n,j} \det {(A (i_n | j))}}
 %         +
 %         (-1)^{i_n + i_n} [A_t]_{i_n,i_n} \det {(A (i_n | i_n))}
 %         \\
 %         = {} &
-%         \sum_{\substack{1 \leq j \leq n \\j \neq i_n}}
+%         \sum_{\substack{1 \leq j \leq n \\ j \neq i_n}}
 %         {(-1)^{i_n + j} t\, [A]_{i_n,j} \det {(A (i_n | j))}}
 %         +
 %         [A]_{i_n,i_n} \det {(A (i_n | i_n))}
 %         \\
 %         = {} &
 %         t
-%         \sum_{\substack{1 \leq j \leq n \\j \neq i_n}}
+%         \sum_{\substack{1 \leq j \leq n \\ j \neq i_n}}
 %         {(-1)^{i_n + j} [A]_{i_n,j} \det {(A (i_n | j))}}
 %         +
 %         [A]_{i_n,i_n} \det {(A (i_n | i_n))}.
@@ -2106,7 +2125,7 @@
 %     记
 %     \begin{align*}
 %         m & =
-%         \sum_{\substack{1 \leq j \leq n \\j \neq i_n}}
+%         \sum_{\substack{1 \leq j \leq n \\ j \neq i_n}}
 %         {(-1)^{i_n + j} [A]_{i_n,j} \det {(A (i_n | j))}},
 %         \\
 %         b & =
@@ -2121,23 +2140,23 @@
 %     且对 \(w < n\),
 %     \begin{align*}
 %         [C]_{w,w}
-%         = {}    &
+%         = {} &
 %         [A]_{i_w,i_w}
 %         \\
-%         > {}    &
-%         \sum_{\substack{1 \leq u \leq n   \\u \neq i_w}}
+%         > {} &
+%         \sum_{\substack{1 \leq u \leq n \\ u \neq i_w}}
 %         {|[A]_{i_w,u}|}
 %         \\
 %         \geq {} &
-%         \sum_{\substack{1 \leq u \leq n   \\u \neq i_w, i_n}}
+%         \sum_{\substack{1 \leq u \leq n \\ u \neq i_w, i_n}}
 %         {|[A]_{i_w,u}|}
 %         \\
-%         = {}    &
-%         \sum_{\substack{1 \leq y \leq n-1 \\y \neq w}}
+%         = {} &
+%         \sum_{\substack{1 \leq y \leq n-1 \\ y \neq w}}
 %         {|[A]_{i_w,i_y}|}
 %         \\
-%         = {}    &
-%         \sum_{\substack{1 \leq y \leq n-1 \\y \neq w}}
+%         = {} &
+%         \sum_{\substack{1 \leq y \leq n-1 \\ y \neq w}}
 %         {|[C]_{w,y}|}.
 %     \end{align*}
 %     故 \(\det {(A(i_n | i_n))} = \det {(C)} > 0\),
@@ -2176,10 +2195,10 @@
 %     若 \(j = i_n\), 且 \(k \neq j\), 则
 %     \begin{align*}
 %         [A_t]_{j,j}\,[A_t]_{k,k}
-%         = {}    &
+%         = {} &
 %         [A]_{j,j}\,[A]_{k,k}
 %         \\
-%         > {}    &
+%         > {} &
 %         \Bigg(
 %         \sum_{\substack{1 \leq p \leq n \\
 %                 p \neq j}} {|[A]_{j,p}|}
@@ -2199,7 +2218,7 @@
 %                 q \neq k}} {|[A]_{k,q}|}
 %         \Bigg)
 %         \\
-%         = {}    &
+%         = {} &
 %         \Bigg(
 %         \sum_{\substack{1 \leq p \leq n \\
 %                 p \neq j}} {|t|\,|[A]_{j,p}|}
@@ -2209,7 +2228,7 @@
 %                 q \neq k}} {|[A]_{k,q}|}
 %         \Bigg)
 %         \\
-%         = {}    &
+%         = {} &
 %         \Bigg(
 %         \sum_{\substack{1 \leq p \leq n \\
 %                 p \neq j}} {|[A_t]_{j,p}|}
@@ -2220,7 +2239,7 @@
 %         \Bigg).
 %     \end{align*}
 %     若 \(k = i_n\), 且 \(j \neq k\),
-%     类似地, 我们也有
+%     类似地,
 %     \begin{align*}
 %         [A_t]_{j,j}\,[A_t]_{k,k}
 %         > {} &
@@ -2237,11 +2256,11 @@
 %     故 \(|[A_t]_{i,i}| = [A_t]_{i,i}\).
 %     则 \(\det {(A_t)} \neq 0\);
 %     故对任何不超过 \(1\) 的正数 \(t\),
-%     有 \(mt + b \neq 0\).
+%     \(mt + b \neq 0\).
 
 %     既然 \(b > 0\),
 %     且对任何不超过 \(1\) 的正数 \(t\),
-%     有 \(mt + b \neq 0\),
+%     \(mt + b \neq 0\),
 %     我们能推出 \(m + b > 0\).
 %     故 \(\det {(A)} = \det {(A_1)} = m + b > 0\).
 % \end{proof}
@@ -2261,18 +2280,18 @@
 
 \begin{theorem}
     设 \(A\) 是一个 \(n\)~级实阵 (\(n \geq 2\)).
-    设对任何不超过 \(n\) 的正整数 \(i\), 必
+    设对任何不超过 \(n\) 的正整数 \(i\),
     \([A]_{i,i} > 0\).
-    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\), 必
+    设对任何不超过 \(n\), 且不等的正整数 \(j\), \(k\),
     \begin{align*}
         [A]_{j,j}\,[A]_{k,k} >
         \Bigg(
-        \sum_{\substack{1 \leq p \leq n \\
-                p \neq j}} {|[A]_{p,j}|}
+            \sum_{\substack{1 \leq p \leq n \\
+            p \neq j}} {|[A]_{p,j}|}
         \Bigg)
         \Bigg(
-        \sum_{\substack{1 \leq q \leq n \\
-                q \neq k}} {|[A]_{q,k}|}
+            \sum_{\substack{1 \leq q \leq n \\
+            q \neq k}} {|[A]_{q,k}|}
         \Bigg).
     \end{align*}
     则 \(\det {(A)} > 0\).
@@ -2280,59 +2299,62 @@
 
 \begin{example}[continues=emp:NonzeroDet2]
     设 \(A =
-    \begin{bmatrix}
-        20 & 11 & 1 \\
-        4  & 15 & 1 \\
-        13 & 15 & 3 \\
+        \begin{bmatrix}
+            20 & 11 & 1 \\
+            4  & 15 & 1 \\
+            13 & 15 & 3 \\
     \end{bmatrix}\)
     是一个 \(3\)~级实阵.
 
     取实阵
     \begin{align*}
-        B = \begin{bmatrix}
-                1 & 0 & 0 \\
-                0 & 2 & 0 \\
-                0 & 0 & 1 \\
-            \end{bmatrix},
+        B =
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & 1 \\
+        \end{bmatrix},
         \quad
-        C = \begin{bmatrix}
-                1 & 0 & 0  \\
-                0 & 1 & 0  \\
-                0 & 0 & 10 \\
-            \end{bmatrix}.
+        C =
+        \begin{bmatrix}
+            1 & 0 & 0  \\
+            0 & 1 & 0  \\
+            0 & 0 & 10 \\
+        \end{bmatrix}.
     \end{align*}
     不难算出, \(\det {(B)} > 0\),
     且 \(\det {(C)} > 0\).
 
     不难算出
     \begin{align*}
-        BAC = \begin{bmatrix}
-                  20 & 11 & 10 \\
-                  8  & 30 & 20 \\
-                  13 & 15 & 30 \\
-              \end{bmatrix}.
+        BAC =
+        \begin{bmatrix}
+            20 & 11 & 10 \\
+            8  & 30 & 20 \\
+            13 & 15 & 30 \\
+        \end{bmatrix}.
     \end{align*}
     由此可见, \(BAC\) 是实阵, 且 \([BAC]_{i,i} > 0\).
 
     不难算出
     \begin{align*}
-         & R_1 = \sum_{\substack{1 \leq u \leq 3 \\u \neq 1}}
-        {|[BAC]_{1,u}|} = |11| + |10| = 21,      \\
-         & R_2 = \sum_{\substack{1 \leq u \leq 3 \\u \neq 2}}
-        {|[BAC]_{2,u}|} = |8| + |20| = 28,       \\
-         & R_3 = \sum_{\substack{1 \leq u \leq 3 \\u \neq 3}}
+        & R_1 = \sum_{\substack{1 \leq u \leq 3 \\ u \neq 1}}
+        {|[BAC]_{1,u}|} = |11| + |10| = 21, \\
+        & R_2 = \sum_{\substack{1 \leq u \leq 3 \\ u \neq 2}}
+        {|[BAC]_{2,u}|} = |8| + |20| = 28, \\
+        & R_3 = \sum_{\substack{1 \leq u \leq 3 \\ u \neq 3}}
         {|[BAC]_{3,u}|} = |13| + |15| = 28,
     \end{align*}
     且
     \begin{align*}
-         & [BAC]_{1,1}\,[BAC]_{2,2}
-        = 600 > 588 = R_1 R_2,      \\
-         & [BAC]_{1,1}\,[BAC]_{3,3}
-        = 600 > 588 = R_1 R_3,      \\
-         & [BAC]_{2,2}\,[BAC]_{3,3}
+        & [BAC]_{1,1}\,[BAC]_{2,2}
+        = 600 > 588 = R_1 R_2, \\
+        & [BAC]_{1,1}\,[BAC]_{3,3}
+        = 600 > 588 = R_1 R_3, \\
+        & [BAC]_{2,2}\,[BAC]_{3,3}
         = 30^2 > 28^2 = R_2 R_3.
     \end{align*}
-    (注意, 既然我们已算出,
+    (注意, 既然我们已算出, % tex-fmt: skip
     每个 \([BAC]_{j,j}\,[BAC]_{k,k}\)
     都大于 \(R_j R_k\)
     (\(j < k\)),
@@ -2340,7 +2362,7 @@
     我们不必再判断%
     每个 \([BAC]_{j,j}\,[BAC]_{k,k}\)
     是否都大于 \(R_j R_k\)
-    (\(j > k\)).)
+    (\(j > k\)).) % tex-fmt: skip
     故 \(\det {(BAC)} > 0\).
 
     既然 \(0 < \det {(BAC)} = \det {(B)} \det {(A)} \det {(C)}\),

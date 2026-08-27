@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \KunAsteriskoEnEnhavtabelo
 \section{Binet--Cauchy 公式}
@@ -20,7 +21,10 @@
 \(BA\) 是一个 \(n\)~级阵,
 故它有行列式.
 
-\begin{theorem}[Binet--Cauchy 公式]
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - ecoj kaj permutajxoj kaj BC.tex
+\begin{restatable}[Binet--Cauchy 公式]{theorem}{TheoremBC}
     设 \(A\), \(B\) 分别是 \(m \times n\), \(n \times m\)~阵.
 
     (1)
@@ -30,16 +34,16 @@
     若 \(n \leq m\),
     则
     \begin{align*}
-             & \det {(BA)}
+        & \det {(BA)}
         \\
         = {} & \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
         {
             \det {\left(
-                B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
-                \right)}
+                    B\submat{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
+            \right)}
             \det {\left(
-                A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
-                \right)}
+                    A\submat{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+            \right)}
         }.
     \end{align*}
     特别地, 若 \(n = m\), 则因适合条件
@@ -52,17 +56,17 @@
         \det {(BA)}
         = {} &
         \det {\left(
-            B\binom{1, 2, \dots, n}{1, 2, \dots, n}
-            \right)}
+                B\submat{1, 2, \dots, n}{1, 2, \dots, n}
+        \right)}
         \det {\left(
-            A\binom{1, 2, \dots, n}{1, 2, \dots, n}
-            \right)}
+                A\submat{1, 2, \dots, n}{1, 2, \dots, n}
+        \right)}
         \\
         = {} & \det {(B)} \det {(A)}.
     \end{align*}
-\end{theorem}
+\end{restatable}
 
-我用二个例助您理解, 此定理在说何.
+我用 \(2\)~个例助您理解, 此定理在说何.
 
 \begin{example}
     设
@@ -107,7 +111,7 @@
         + 30 \cdot 75 \cdot 95
         + 33 \cdot 61 \cdot 106
         \\
-             &
+        &
         - 27 \cdot 75 \cdot 106
         - 30 \cdot 61 \cdot 117
         - 33 \cdot 68 \cdot 95
@@ -125,84 +129,99 @@
 
     因为 \(2 \leq 3\), 故, 根据 (2),
     \begin{align*}
-             & \det {(AB)}
+        & \det {(AB)}
         \\
         = {} &
         \hphantom{{} + {}}
-        \det {\left(A\binom{1,2}{1,2}\right)}
-        \det {\left(B\binom{1,2}{1,2}\right)}
-        + \det {\left(A\binom{1,2}{1,3}\right)}
-        \det {\left(B\binom{1,3}{1,2}\right)}
+        \det {\left(A\submat{1,2}{1,2}\right)}
+        \det {\left(B\submat{1,2}{1,2}\right)}
+        + \det {\left(A\submat{1,2}{1,3}\right)}
+        \det {\left(B\submat{1,3}{1,2}\right)}
         \\
-             &
-        + \det {\left(A\binom{1,2}{2,3}\right)}
-        \det {\left(B\binom{2,3}{1,2}\right)}.
+        &
+        + \det {\left(A\submat{1,2}{2,3}\right)}
+        \det {\left(B\submat{2,3}{1,2}\right)}.
     \end{align*}
     这里, 注意, 适合条件
     ``\(1 \leq j_1 < j_2 \leq 3\)''
     的 \((j_1, j_2)\)
-    恰有三个:
+    恰有 \(3\)~个:
     \((1, 2)\), \((1, 3)\), \((2, 3)\).
     不难写出
     \begin{align*}
-         & A\binom{1,2}{1,2}
-        = \begin{bmatrix} 1&3\\2&4\\ \end{bmatrix},
+        & A\submat{1,2}{1,2} =
+        \begin{bmatrix}
+            1&3\\2&4\\
+        \end{bmatrix},
         \quad
-        B\binom{1,2}{1,2}
-        = \begin{bmatrix} 7&10\\8&11\\ \end{bmatrix}; \\
-         & A\binom{1,2}{1,3}
-        = \begin{bmatrix} 1&5\\2&6\\ \end{bmatrix},
+        B\submat{1,2}{1,2} =
+        \begin{bmatrix}
+            7&10\\8&11\\
+        \end{bmatrix}; \\
+        & A\submat{1,2}{1,3} =
+        \begin{bmatrix}
+            1&5\\2&6\\
+        \end{bmatrix},
         \quad
-        B\binom{1,3}{1,2}
-        = \begin{bmatrix} 7&10\\9&12\\ \end{bmatrix}; \\
-         & A\binom{1,2}{2,3}
-        = \begin{bmatrix} 3&5\\4&6\\ \end{bmatrix},
+        B\submat{1,3}{1,2} =
+        \begin{bmatrix}
+            7&10\\9&12\\
+        \end{bmatrix}; \\
+        & A\submat{1,2}{2,3} =
+        \begin{bmatrix}
+            3&5\\4&6\\
+        \end{bmatrix},
         \quad
-        B\binom{2,3}{1,2}
-        = \begin{bmatrix} 8&11\\9&12\\ \end{bmatrix}.
+        B\submat{2,3}{1,2} =
+        \begin{bmatrix}
+            8&11\\9&12\\
+        \end{bmatrix}.
     \end{align*}
     从而
-    \begin{align*}
+    \begin{equation*}
         \det {(AB)}
         = (-2) \cdot (-3) + (-4) \cdot (-6) + (-2) \cdot (-3)
         = 36.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                3  & 2 \\
-                10 & 7 \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            3  & 2 \\
+            10 & 7 \\
+        \end{bmatrix},
         \quad
-        B = \begin{bmatrix}
-                5  & 4 \\
-                11 & 9 \\
-            \end{bmatrix}.
+        B =
+        \begin{bmatrix}
+            5  & 4 \\
+            11 & 9 \\
+        \end{bmatrix}.
     \end{align*}
     不难算出
     \begin{align*}
-        AB
-        = \begin{bmatrix}
-              37  & 30  \\
-              127 & 103 \\
-          \end{bmatrix},
+        AB =
+        \begin{bmatrix}
+            37  & 30  \\
+            127 & 103 \\
+        \end{bmatrix},
         \quad
-        BA
-        = \begin{bmatrix}
-              55  & 38 \\
-              123 & 85 \\
-          \end{bmatrix}.
+        BA =
+        \begin{bmatrix}
+            55  & 38 \\
+            123 & 85 \\
+        \end{bmatrix}.
     \end{align*}
     可以看到, \(AB \neq BA\).
 
     不过, \(\det {(AB)} = \det {(BA)}\).
     一方面, 我们可直接验证:
     \begin{align*}
-         & \det {(AB)} = 37 \cdot 103 - 127 \cdot 30 = 1; \\
-         & \det {(BA)} = 55 \cdot 85 - 123 \cdot 38 = 1.
+        & \det {(AB)} = 37 \cdot 103 - 127 \cdot 30 = 1; \\
+        & \det {(BA)} = 55 \cdot 85 - 123 \cdot 38 = 1.
     \end{align*}
     另一方面, Binet--Cauchy 公式指出,
     \begin{align*}
@@ -215,8 +234,8 @@
 \end{example}
 
 为简单地论证公式,
-我们要三个新事实;
-为证明这三个新事实的前二个,
+我们要 \(3\)~个新事实;
+为证明这 \(3\)~个新事实的前 \(2\)~个,
 我们要一些老的公式.
 
 % subfile fix: repeat restatable
@@ -230,16 +249,16 @@
         且互不相同.
         则
         \begin{align*}
-                 & \det {(A)}
+            & \det {(A)}
             \\
             = {} &
             \sum_{\substack{
-            1 \leq i_1, i_2, \dots, i_n \leq n \\
+                    1 \leq i_1, i_2, \dots, i_n \leq n \\
                     i_1, i_2, \dots, i_n\,\text{互不相同}
-                }}
+            }}
             {s(i_1, i_2, \dots, i_n)\,
                 s(j_1, j_2, \dots, j_n)\,
-                [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
+            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
         \end{align*}
         特别地, 取 \(j_1\), \(j_2\), \(\dots\), \(j_n\)
         为 \(1\), \(2\), \(\dots\), \(n\),
@@ -249,11 +268,11 @@
             \det {(A)}
             = {} &
             \sum_{\substack{
-            1 \leq i_1, i_2, \dots, i_n \leq n \\
+                    1 \leq i_1, i_2, \dots, i_n \leq n \\
                     i_1, i_2, \dots, i_n\,\text{互不相同}
-                }}
+            }}
             {s(i_1, i_2, \dots, i_n)\,
-                [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
+            [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
         \end{align*}
     \end{restatable}
 }{\TheoremFullExpansion*}
@@ -276,7 +295,7 @@
     \end{restatable}
 }{\TheoremColumnSwapAndSign*}
 
-现在, 我要开始展现三个新事实了.
+现在, 我要开始展现 \(3\)~个新事实了.
 
 \begin{theorem}
     设 \(C\) 为 \(n \times m\)~阵,
@@ -303,9 +322,9 @@
     里的位置为 \(f(k_t)\)
     (\(t = 1\), \(2\), \(\dots\), \(n\)).
     注意, \(f(j_t) = t\).
-    并且, 若 \(k_t < k_v\), 必有 \(f(k_t) < f(k_v)\).
-    反过来, 若 \(f(k_t) < f(k_v)\), 必有 \(k_t < k_v\).
-    (我用一个简单的例助您理解.
+    并且, 若 \(k_t < k_v\), 则 \(f(k_t) < f(k_v)\).
+    反过来, 若 \(f(k_t) < f(k_v)\), 则 \(k_t < k_v\).
+    (我用一个简单的例助您理解. % tex-fmt: skip
     设 \(m = 9\), \(n = 3\).
     设 \(k_1\), \(k_2\), \(k_3\) 分别为 \(8\), \(9\), \(6\).
     那么, \(k_1\), \(k_2\), \(k_3\) 的自然排列
@@ -314,7 +333,7 @@
     \(6\), \(8\), \(9\).
     故 \(f(k_1) = f(j_2) = f(8) = 2\),
     \(f(k_2) = f(j_3) = f(9) = 3\),
-    且 \(f(k_3) = f(j_1) = f(6) = 1\).)
+    且 \(f(k_3) = f(j_1) = f(6) = 1\).) % tex-fmt: skip
     从而
     \(\operatorname{sgn} {(k_v - k_t)}
     = \operatorname{sgn} {(f(k_v) - f(k_t))}\).
@@ -353,26 +372,25 @@
     且 \(i_1 < i_2 < \dots < i_n\).
     则
     \begin{align*}
-             &
+        &
         \det {\left(
-            D\binom{i_1, i_2, \dots, i_n}{1, 2, \dots, n}
-            \right)}
+                D\submat{i_1, i_2, \dots, i_n}{1, 2, \dots, n}
+        \right)}
         \\
         = {} &
         \sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是} \\
+                k_1, k_2, \dots, k_n\,\text{是} \\
                 i_1, i_2, \dots, i_n\,\text{的排列}
-            }}
+        }}
         {s(k_1, k_2, \dots, k_n)\,
-            [D]_{k_1,1} [D]_{k_2,2} \dots [D]_{k_n,n}}.
+        [D]_{k_1,1} [D]_{k_2,2} \dots [D]_{k_n,n}}.
     \end{align*}
 \end{theorem}
 
 \begin{proof}
     设
     \begin{align*}
-        H =
-        D\binom{i_1, i_2, \dots, i_n}{1, 2, \dots, n}.
+        H = D\submat{i_1, i_2, \dots, i_n}{1, 2, \dots, n}.
     \end{align*}
     不难看出,
     \([H]_{u,v} = [D]_{i_u,v}\).
@@ -388,36 +406,36 @@
     \(1\), \(2\), \(\dots\), \(n\) 的一个排列,
     则 \(i_{v_1}\), \(i_{v_2}\), \(\dots\), \(i_{v_n}\)
     是 \(i_1\), \(i_2\), \(\dots\), \(i_n\) 的一个排列.
-    并且, 若 \(k_t < k_v\), 必有 \(f(k_t) < f(k_v)\).
-    反过来, 若 \(f(k_t) < f(k_v)\), 必有 \(k_t < k_v\).
+    并且, 若 \(k_t < k_v\), 则 \(f(k_t) < f(k_v)\).
+    反过来, 若 \(f(k_t) < f(k_v)\), 则 \(k_t < k_v\).
     从而
     \(\operatorname{sgn} {(k_v - k_t)}
     = \operatorname{sgn} {(f(k_v) - f(k_t))}\).
     故
     \begin{align*}
-             &
+        &
         \det {\left(
-            D\binom{i_1, i_2, \dots, i_n}{1, 2, \dots, n}
-            \right)}
+                D\submat{i_1, i_2, \dots, i_n}{1, 2, \dots, n}
+        \right)}
         \\
         = {} &
         \det {(H)}
         \\
         = {} &
         \sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是} \\
+                k_1, k_2, \dots, k_n\,\text{是} \\
                 i_1, i_2, \dots, i_n\,\text{的排列}
-            }}
+        }}
         {s(f(k_1), f(k_2), \dots, f(k_n))\,
-            [H]_{f(k_1),1} [H]_{f(k_2),2} \dots [H]_{f(k_n),n}}
+        [H]_{f(k_1),1} [H]_{f(k_2),2} \dots [H]_{f(k_n),n}}
         \\
         = {} &
         \sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是} \\
+                k_1, k_2, \dots, k_n\,\text{是} \\
                 i_1, i_2, \dots, i_n\,\text{的排列}
-            }}
+        }}
         {s(k_1, k_2, \dots, k_n)\,
-            [D]_{k_1,1} [D]_{k_2,2} \dots [D]_{k_n,n}}.
+        [D]_{k_1,1} [D]_{k_2,2} \dots [D]_{k_n,n}}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -425,32 +443,32 @@
 \begin{theorem}
     设 \(n \leq m\).
     设数 \(f(k_1, k_2, \dots, k_n)\)
-    (其中,
+    (其中, % tex-fmt: skip
     \(k_1\), \(k_2\), \(\dots\), \(k_n\) 过
-    \(1\), \(2\), \(\dots\), \(m\))
+    \(1\), \(2\), \(\dots\), \(m\)) % tex-fmt: skip
     适合,
     若 \(k_p = k_q\) (\(1 \leq p < q \leq n\)),
     则 \(f(k_1, k_2, \dots, k_n) = 0\).
     那么
     \begin{align*}
-             &
+        &
         \sum_{1 \leq k_1, k_2, \dots, k_n \leq m}
         {f(k_1, k_2, \dots, k_n)}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq k_1, k_2, \dots, k_n \leq m \\
+                1 \leq k_1, k_2, \dots, k_n \leq m \\
                 k_1, k_2, \dots, k_n\,\text{互不相同}
-            }}
+        }}
         {f(k_1, k_2, \dots, k_n)}
         \\
         = {} &
         \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
         {\sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是}     \\
+                    k_1, k_2, \dots, k_n\,\text{是} \\
                     j_1, j_2, \dots, j_n\,\text{的排列}
-                }}
-            {f(k_1, k_2, \dots, k_n)}}.
+            }}
+        {f(k_1, k_2, \dots, k_n)}}.
     \end{align*}
 \end{theorem}
 
@@ -489,11 +507,11 @@
             \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
             \dots,
             \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
-            \right].
+        \right].
     \end{align*}
-    利用行列式的多线性, 有
+    由行列式的多线性,
     \begin{align*}
-             & \det {(BA)}
+        & \det {(BA)}
         \\
         = {} &
         \det {\left[
@@ -501,27 +519,27 @@
                 \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
                 \dots,
                 \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
-                \right]}
+        \right]}
         \\
         = {} &
         \sum_{k_1 = 1}^{m} {[A]_{k_1,1}
-                \det {\left[
-                        b_{k_1},
-                        \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
-                        \dots,
-                        \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
-                        \right]}}
+            \det {\left[
+                    b_{k_1},
+                    \sum_{k_2 = 1}^{m} {[A]_{k_2,2} b_{k_2}},
+                    \dots,
+                    \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
+        \right]}}
         \\
         = {} &
         \sum_{k_1 = 1}^{m} {
-                \sum_{k_2 = 1}^{m} {
-                        [A]_{k_1,1} [A]_{k_2,2}
-                        \det {\left[
-                                b_{k_1},
-                                b_{k_2},
-                                \dots,
-                                \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
-                                \right]}}}
+            \sum_{k_2 = 1}^{m} {
+                [A]_{k_1,1} [A]_{k_2,2}
+                \det {\left[
+                        b_{k_1},
+                        b_{k_2},
+                        \dots,
+                        \sum_{k_n = 1}^{m} {[A]_{k_n,n} b_{k_n}}
+        \right]}}}
         \\
         = {} &
         \dots
@@ -529,23 +547,23 @@
         = {} &
         \sum_{1 \leq k_1, k_2, \dots, k_n \leq m}
         {[A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
-            \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}.
+        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}.
     \end{align*}
 
     记
     \(
-    f(k_1, k_2, \dots, k_n)
-    = [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
-    \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
+        f(k_1, k_2, \dots, k_n)
+        = [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
+        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}.
     \)
     根据行列式的交错性,
-    当 \(k_1\), \(k_2\), \(\dots\), \(k_n\) 中有二个数相同时,
+    当 \(k_1\), \(k_2\), \(\dots\), \(k_n\) 中有 \(2\)~个数相同时,
     \(f(k_1, k_2, \dots, k_n) = 0\).
 
     (1)
     若 \(n > m\),
     则在 \(k_1\), \(k_2\), \(\dots\), \(k_n\),
-    总有二个数相同.
+    总有 \(2\)~个数相同.
     % (抽屉原理; pigeonhole-principle)
     所以, 每项都是 \(0\).
     故 \(\det {(BA)} = 0\).
@@ -556,11 +574,11 @@
     \begin{align*}
         \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
         {\sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是} \\
+                    k_1, k_2, \dots, k_n\,\text{是} \\
                     j_1, j_2, \dots, j_n\,\text{的排列}
-                }}
+            }}
             {[A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}
-                \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}}.
+        \det {[b_{k_1}, b_{k_2}, \dots, b_{k_n}]}}}.
     \end{align*}
     因为
     \(1 \leq j_1 < j_2 < \dots < j_n \leq m\),
@@ -577,33 +595,33 @@
     \end{align*}
     从而 \(\det {(BA)}\) 等于
     \begin{align*}
-         &
+        &
         \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
         {\det {[b_{j_1}, b_{j_2}, \dots, b_{j_n}]}}
         \\
-         & \qquad \qquad \qquad
+        & \qquad \qquad \qquad
         \cdot
         \sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是} \\
+                k_1, k_2, \dots, k_n\,\text{是} \\
                 j_1, j_2, \dots, j_n\,\text{的排列}
-            }}
+        }}
         {s(k_1, k_2, \dots, k_n)\,
-            [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}.
+        [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}.
     \end{align*}
     注意,
     \begin{align*}
-             &
+        &
         \sum_{\substack{
-        k_1, k_2, \dots, k_n\,\text{是} \\
+                k_1, k_2, \dots, k_n\,\text{是} \\
                 j_1, j_2, \dots, j_n\,\text{的排列}
-            }}
+        }}
         {s(k_1, k_2, \dots, k_n)\,
-            [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}
+        [A]_{k_1,1} [A]_{k_2,2} \dots [A]_{k_n,n}}
         \\
         = {} &
         \det {\left(
-            A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
-            \right)}.
+                A\submat{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+        \right)}.
     \end{align*}
     再注意,
     因为
@@ -612,20 +630,20 @@
     由子阵的记号的定义,
     \begin{align*}
         [b_{j_1}, b_{j_2}, \dots, b_{j_n}]
-        = B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}.
+        = B\submat{1, 2, \dots, n}{j_1, j_2, \dots, j_n}.
     \end{align*}
     从而
     \begin{align*}
-             & \det {(BA)}
+        & \det {(BA)}
         \\
         = {} & \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
         {
             \det {\left(
-                B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
-                \right)}
+                    B\submat{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
+            \right)}
             \det {\left(
-                A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
-                \right)}
+                    A\submat{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+            \right)}
         }.
     \end{align*}
 \end{proof}
@@ -646,9 +664,9 @@ which uses the generalised Laplace expansion
 and two important properties of determinants:
 \begin{itemize}
     \item replacing one column by
-          the sum of that column
-          and a multiple of another column
-          keeps the determinant unchanged;
+        the sum of that column
+        and a multiple of another column
+        keeps the determinant unchanged;
     \item the determinant of a square matrix with a zero row
-          is zero.
+        is zero.
 \end{itemize}

@@ -18,12 +18,12 @@
 \providecommand*{\typesettingengine}{whatever}
 \providecommand*{\authoroftypesettingengine}{whomever}
 \ifxetex
-    \renewcommand*{\typesettingengine}{\hologo{XeLaTeX}}
-    \renewcommand*{\authoroftypesettingengine}{Jonathan Kew}
+\renewcommand*{\typesettingengine}{\hologo{XeLaTeX}}
+\renewcommand*{\authoroftypesettingengine}{Jonathan Kew}
 \fi
 \ifluatex
-    \renewcommand*{\typesettingengine}{\hologo{LuaLaTeX}}
-    \renewcommand*{\authoroftypesettingengine}{Taco Hoekwater}
+\renewcommand*{\typesettingengine}{\hologo{LuaLaTeX}}
+\renewcommand*{\authoroftypesettingengine}{Taco Hoekwater}
 \fi
 
 This book was typeset in \typesettingengine{},
@@ -39,9 +39,13 @@ which forms the base for \hologo{LaTeX},
 was written by Donald Knuth.
 
 The main text fonts in this book are
-the OpenType format versions of
-XITS (designed by Khaled Hosny)
-and Source Han Serif (designed by Adobe and Google).
+the OpenType format version of
+XITS (designed by Khaled Hosny),
+the OpenType format version of
+Source Han Serif (designed by Adobe and Google),
+and the TrueType format version of
+LXGW WenKai Mono (designed by
+\href{https://github.com/lxgw/LxgwWenKai}{LXGW}).
 The sans serif fonts in this book are
 the OpenType format version of
 Fira Sans (designed by Carrois Apostrophe)
@@ -49,7 +53,7 @@ and the TrueType format version of
 Sarasa Mono (designed by Belleve).
 The monospaced font in this book is
 the TrueType format version of
-Sarasa Mono (designed by Belleve).
+Sarasa Mono.
 % The mathematical fonts in this book are
 % the OpenType format versions of
 % XITS Math (designed by Khaled Hosny),
@@ -94,9 +98,9 @@ hosted at
     \multicolumn{6}{c}{\textbf{The Greek alphabet}}
     \\[2ex]
     \multicolumn{2}{c}{letter}
-          &
+    &
     \multicolumn{2}{c}{name}
-          &
+    &
     \multicolumn{2}{c}{pronunciation}
     \\ \hline
     \endfirsthead
@@ -104,9 +108,9 @@ hosted at
     \multicolumn{6}{r}{(continued from the previous page)}
     \\[2ex]
     \multicolumn{2}{c}{letter}
-          &
+    &
     \multicolumn{2}{c}{name}
-          &
+    &
     \multicolumn{2}{c}{pronunciation}
     \\ \hline
     \endhead

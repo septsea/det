@@ -2,27 +2,28 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \section{单位阵}
 
 本节, 我要介绍一类特别的方阵, 单位阵.
 
 \begin{definition}[\(\delta\)-记号]
-    设 \(i\), \(j\) 是二个文字.
+    设 \(i\), \(j\) 是 \(2\)~个文字.
     定义
     \begin{align*}
-        \delta(i, j)
-        = \begin{cases}
-              0, & i \neq j; \\
-              1, & i = j.
-          \end{cases}
+        \delta(i, j) =
+        \begin{cases}
+            0, & i \neq j; \\
+            1, & i = j.
+        \end{cases}
     \end{align*}
 \end{definition}
 
-显然, \(\delta\)-记号是表示二个文字是否相等的一个量.
+显然, \(\delta\)-记号是表示 \(2\)~个文字是否相等的一个量.
 \(\delta(i, j) = 1\), 说明 \(i\), \(j\) 是同一个文字;
-\(\delta(i, j) = 0\), 说明 \(i\), \(j\) 是不同的二个文字.
+\(\delta(i, j) = 0\), 说明 \(i\), \(j\) 是不同的 \(2\)~个文字.
 
 \begin{definition}[单位阵]
     设 \(n\) 为正整数.
@@ -41,18 +42,18 @@
     \(1\)~级单位阵是 \([1]\).
     \(2\)~级单位阵是
     \(
-    \begin{bmatrix}
-        1 & 0 \\
-        0 & 1 \\
-    \end{bmatrix}.
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1 \\
+        \end{bmatrix}.
     \)
     \(3\)~级单位阵是
     \(
-    \begin{bmatrix}
-        1 & 0 & 0 \\
-        0 & 1 & 0 \\
-        0 & 0 & 1 \\
-    \end{bmatrix}.
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+        \end{bmatrix}.
     \)
 
     一般地, \(n\)~级单位阵含 \(n\)~个 \(1\)
@@ -65,9 +66,9 @@
 为 \(n\)~级单位阵 \(I_n\)~的列的数乘的和.
 具体地, 我们设 \(x\) 是一个 \(n \times 1\)~阵,
 且设 \(I_n = [e_1, e_2, \dots, e_n]\)
-(也就是,
+(也就是, % tex-fmt: skip
 设 \(e_1\), \(e_2\), \(\dots\), \(e_n\) 是
-\(I_n\) 的列 \(1\), \(2\), \(\dots\), \(n\)).
+\(I_n\) 的列 \(1\), \(2\), \(\dots\), \(n\)). % tex-fmt: skip
 记 \(k_i = [x]_{i,1}\).
 则
 \begin{align*}
@@ -82,7 +83,7 @@
 \end{align*}
 为证明此式, 我们要用%
 单位阵的定义、加法的定义、数乘的定义
-(不难看出, 等式二侧的尺寸都是 \(n \times 1\)):
+(不难看出, 等式的 \(2\)~边的尺寸都是 \(n \times 1\)):
 \begin{align*}
     \left[ \sum_{\ell = 1}^{n} {k_\ell e_\ell} \right]_{i,1}
     = {} &
@@ -122,18 +123,18 @@
 \end{align*}
 不难算出
 \begin{align*}
-     & \sum_{\ell = 1}^{n} {k_\ell e_\ell}
-    = \begin{bmatrix}
-          k_1    \\
-          \vdots \\
-          k_n
-      \end{bmatrix},                       \\
-     & \sum_{\ell = 1}^{n} {p_\ell e_\ell}
-    = \begin{bmatrix}
-          p_1    \\
-          \vdots \\
-          p_n
-      \end{bmatrix}.
+    & \sum_{\ell = 1}^{n} {k_\ell e_\ell} =
+    \begin{bmatrix}
+        k_1    \\
+        \vdots \\
+        k_n
+    \end{bmatrix}, \\
+    & \sum_{\ell = 1}^{n} {p_\ell e_\ell} =
+    \begin{bmatrix}
+        p_1    \\
+        \vdots \\
+        p_n
+    \end{bmatrix}.
 \end{align*}
 从而
 \begin{align*}
@@ -142,15 +143,16 @@
         \vdots \\
         k_n
     \end{bmatrix}
-    = \begin{bmatrix}
-          p_1    \\
-          \vdots \\
-          p_n
-      \end{bmatrix}.
+    =
+    \begin{bmatrix}
+        p_1    \\
+        \vdots \\
+        p_n
+    \end{bmatrix}.
 \end{align*}
 由此可知, \(k_i = p_i\).
 
-综上, 我们有
+综上, 我们得
 
 \begin{theorem}
     可以, 且只能以一个方式写一个
@@ -161,36 +163,43 @@
 \begin{example}
     设
     \(
-    x = \begin{bmatrix}
-        6 \\ 2 \\ 8 \\
-    \end{bmatrix}.
+        x =
+        \begin{bmatrix}
+            6 \\ 2 \\ 8 \\
+        \end{bmatrix}.
     \)
     于是, 一方面,
     \begin{align*}
         x =
-        6\begin{bmatrix}
-             1 \\ 0 \\ 0 \\
-         \end{bmatrix}
-        + 2\begin{bmatrix}
-               0 \\ 1 \\ 0 \\
-           \end{bmatrix}
-        + 8\begin{bmatrix}
-               0 \\ 0 \\ 1 \\
-           \end{bmatrix}.
+        6
+        \begin{bmatrix}
+            1 \\ 0 \\ 0 \\
+        \end{bmatrix}
+        + 2
+        \begin{bmatrix}
+            0 \\ 1 \\ 0 \\
+        \end{bmatrix}
+        + 8
+        \begin{bmatrix}
+            0 \\ 0 \\ 1 \\
+        \end{bmatrix}.
     \end{align*}
 
     另一方面, 我们设
     \begin{align*}
         x =
-        k_1 \begin{bmatrix}
-                1 \\ 0 \\ 0 \\
-            \end{bmatrix}
-        + k_2 \begin{bmatrix}
-                  0 \\ 1 \\ 0 \\
-              \end{bmatrix}
-        + k_3 \begin{bmatrix}
-                  0 \\ 0 \\ 1 \\
-              \end{bmatrix}.
+        k_1
+        \begin{bmatrix}
+            1 \\ 0 \\ 0 \\
+        \end{bmatrix}
+        + k_2
+        \begin{bmatrix}
+            0 \\ 1 \\ 0 \\
+        \end{bmatrix}
+        + k_3
+        \begin{bmatrix}
+            0 \\ 0 \\ 1 \\
+        \end{bmatrix}.
     \end{align*}
     则
     \begin{align*}
@@ -201,15 +210,18 @@
         \begin{bmatrix}
             k_1 \\ 0 \\ 0 \\
         \end{bmatrix}
-        + \begin{bmatrix}
-              0 \\ k_2 \\ 0 \\
-          \end{bmatrix}
-        + \begin{bmatrix}
-              0 \\ 0 \\ k_3 \\
-          \end{bmatrix}
-        = \begin{bmatrix}
-              k_1 \\ k_2 \\ k_3 \\
-          \end{bmatrix}.
+        +
+        \begin{bmatrix}
+            0 \\ k_2 \\ 0 \\
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0 \\ 0 \\ k_3 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            k_1 \\ k_2 \\ k_3 \\
+        \end{bmatrix}.
     \end{align*}
     由此可知,
     \(k_1\), \(k_2\), \(k_3\)
@@ -228,7 +240,7 @@
 
 \section{行列式的性质}
 
-本节, 我们学习行列式的几条重要的性质.
+本节, 我们学习行列式的几个重要的性质.
 
 \begin{theorem}[规范性]
     单位阵的行列式为 \(1\).
@@ -249,33 +261,32 @@
     现在, 我们假定 \(P(m-1)\) 是对的.
     我们要证 \(P(m)\) 也是对的;
     也就是, \(\det {(I_m)} = 1\).
-    按列~\(1\) 展开, 有
+    按列~\(1\) 展开, 得
     \begin{align*}
-             & \det {(I_m)}
+        & \det {(I_m)}
         \\
         = {} & \sum_{i = 1}^{m}
-            {(-1)^{i+1} [I_m]_{i,1} \det {(I_m (i|1))}}
+        {(-1)^{i+1} [I_m]_{i,1} \det {(I_m (i|1))}}
         \\
         % = {} & \sum_{i = 1}^{m}
         % {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
         % \\
         = {} & (-1)^{1+1} \delta(1, 1) \det {(I_m (1|1))}
         + \sum_{i = 2}^{m}
-            {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
+        {(-1)^{i+1} \delta(i, 1) \det {(I_m (i|1))}}
         \\
         = {} & \det {(I_{m-1})}
-        + \sum_{i = 2}^{m}
-            {(-1)^{i+1} 0 \det {(I_m (i|1))}}
+        + \sum_{i = 2}^{m} {(-1)^{i+1} 0 \det {(I_m (i|1))}}
         \\
         = {} & \det {(I_{m-1})}
         \\
         = {} & 1.
     \end{align*}
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
-我接下来要讲的二个性质的论证利用%
+我接下来要讲的 \(2\)~个性质的论证利用%
 按 (任何) 一列展开行列式%
 的公式.
 请允许我引用此公式:
@@ -289,8 +300,8 @@
         设 \(j\) 为整数, 且 \(1 \leq j \leq n\).
         则
         \begin{align*}
-            \det {(A)} = \sum_{i = 1}^{n}
-                {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+            \det {(A)}
+            = \sum_{i = 1}^{n} {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
         \end{align*}
     \end{restatable}
 }{\TheoremExpansionAboutAnyColumn*}
@@ -301,88 +312,84 @@
     任何 \(n-1\)~个 \(n \times 1\)~阵
     \(a_1\), \(\dots\), \(a_{j-1}\),
     \(a_{j+1}\), \(\dots\), \(a_n\),
-    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
-             & \det
-        {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}
+        &
+        \det {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}
         \\
         = {} &
-        s
-        \det {[a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n]}
-        +
-        t
-        \det {[a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]}.
+        s \det {[a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n]}
+        + t \det {[a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]}.
     \end{align*}
-    (若 \(j = 1\), 则 \(a_1\) 不出现;
+    (若 \(j = 1\), 则 \(a_1\) 不出现; % tex-fmt: skip
     若 \(j = n\), 则 \(a_n\) 不出现.
-    下同.)
+    下同.) % tex-fmt: skip
 \end{theorem}
 
 \begin{proof}
-    作三个 \(n\)~级阵 \(A\), \(B\), \(C\):
+    作 \(3\)~个 \(n\)~级阵 \(A\), \(B\), \(C\):
     \(A\), \(B\), \(C\)~的列~\(k\) 为 \(a_k\) (\(k \neq j\));
     \(A\)~的列~\(j\) 为 \(x\);
     \(B\)~的列~\(j\) 为 \(y\);
     \(C\)~的列~\(j\) 为 \(sx + ty\).
     则
     \begin{align*}
-         & \det {(A)}
+        & \det {(A)}
         = \det
         {[a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n]};
         \\
-         & \det {(B)}
+        & \det {(B)}
         = \det
         {[a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]};
         \\
-         & \det {(C)}
+        & \det {(C)}
         = \det
         {[a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n]}.
     \end{align*}
     不难发现, 若 \(k \neq j\), 则
     \(
-    [A]_{i,k} = [B]_{i,k} = [C]_{i,k},
+        [A]_{i,k} = [B]_{i,k} = [C]_{i,k},
     \)
     故
     \(
-    A(i|j) = B(i|j) = C(i|j).
+        A(i|j) = B(i|j) = C(i|j).
     \)
     再注意,
     \(
-    [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j},
+        [C]_{i,j} = s[A]_{i,j} + t[B]_{i,j},
     \)
     得
     \begin{align*}
-             & \det {(C)}
+        & \det {(C)}
         \\
         = {} &
         \sum_{i = 1}^{n} {
-                (-1)^{i+j} [C]_{i,j} \det {(C(i|j))}
-            }
+            (-1)^{i+j} [C]_{i,j} \det {(C(i|j))}
+        }
         \\
         = {} &
         \sum_{i = 1}^{n} {
-                (-1)^{i+j} (s[A]_{i,j} + t[B]_{i,j}) \det {(C(i|j))}
-            }
+            (-1)^{i+j} (s[A]_{i,j} + t[B]_{i,j}) \det {(C(i|j))}
+        }
         \\
         = {} &
         s\sum_{i = 1}^{n} {
-                (-1)^{i+j} [A]_{i,j} \det {(C(i|j))}
-            }
+            (-1)^{i+j} [A]_{i,j} \det {(C(i|j))}
+        }
         +
         t\sum_{i = 1}^{n} {
-                (-1)^{i+j} [B]_{i,j} \det {(C(i|j))}
-            }
+            (-1)^{i+j} [B]_{i,j} \det {(C(i|j))}
+        }
         \\
         = {} &
         s\sum_{i = 1}^{n} {
-                (-1)^{i+j} [A]_{i,j} \det {(A(i|j))}
-            }
+            (-1)^{i+j} [A]_{i,j} \det {(A(i|j))}
+        }
         +
         t\sum_{i = 1}^{n} {
-                (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}
-            }
+            (-1)^{i+j} [B]_{i,j} \det {(B(i|j))}
+        }
         \\
         = {} &
         s \det{(A)} + t \det{(B)}.
@@ -400,63 +407,62 @@
 \(b_1\), \(b_2\), \(\dots\), \(b_\ell\),
 任何 \(\ell\)~个数
 \(s_1\), \(s_2\), \(\dots\), \(s_\ell\),
-有
 \begin{align*}
-         & \det
+    & \det
     {\left[
             a_1, \dots, a_{j-1},
             \sum_{k = 1}^{\ell} {s_k b_k},
             a_{j+1}, \dots, a_n
-            \right]}
+    \right]}
     \\
     = {} &
     \sum_{k = 1}^{\ell}
-        {s_k
-            \det {[a_1, \dots, a_{j-1},
-                        b_k,
-                        a_{j+1}, \dots, a_n]}}.
+    {s_k
+        \det {[a_1, \dots, a_{j-1},
+                b_k,
+    a_{j+1}, \dots, a_n]}}.
 \end{align*}
 您可施数学归纳法于 \(\ell\) 以证此事
-(注意,
+(注意, % tex-fmt: skip
 \(
-s_1 b_1 + \dots + s_\ell b_\ell
-= 1 (s_1 b_1 + \dots + s_{\ell-1} b_{\ell-1}) + s_\ell b_\ell
+    s_1 b_1 + \dots + s_\ell b_\ell
+    = 1 (s_1 b_1 + \dots + s_{\ell-1} b_{\ell-1}) + s_\ell b_\ell
 \)%
-);
+); % tex-fmt: skip
 其实, 这就是多次用多线性的结果.
 
 \begin{theorem}[交错性]
     行列式 (关于列) 是交错性的.
     具体地,
-    若 \(n\)~级阵 \(A\) 有二列相同,
+    若 \(n\)~级阵 \(A\) 有 \(2\)~列相同,
     则 \(\det {(A)} = 0\).
 \end{theorem}
 
 有一件事, 其值得提.
-明显地, \(1\)~级阵不可能有二列相同.
+明显地, \(1\)~级阵不可能有 \(2\)~列相同.
 不过,
 根据
 ``若 \(p\) 是错的, 则 `若 \(p\), 则 \(q\)' 是对的''
 原则,
 我们仍认为 \(1\)~级阵的行列式有交错性.
-(``若 \(p\), 则 \(q\)''
+(``若 \(p\), 则 \(q\)'' % tex-fmt: skip
 相当于
 ``对适合条件 \(p\) 的任何对象~\(o\),
 \(o\) 也适合条件 \(q\)''.
-形如 ``对任何 A, 必 B'' 的话%
+形如 ``对任何 A, B'' 的话%
 的反面就是 ``存在某个 A, 使它非 B''.
 所以, 若我们找不到 ``非 B'' 的 A,
-我们应认为, ``对任何 A, 必 B'' 是对的.
+我们应认为, ``对任何 A, B'' 是对的.
 特别地, 当 A 不存在时, 自然没有非 B 的 A.
 故, 我们认为, 即使 A 不存在,
-``对任何 A, 必 B'' 是对的.)
+``对任何 A, B'' 是对的.) % tex-fmt: skip
 
 \begin{proof}
     我们用数学归纳法证明此事.
     具体地, 设 \(P(n)\) 为命题
     \begin{quotation}
-        对每个有相同的二列的 \(n\)~级阵 \(A\),
-        它的行列式必为 \(0\).
+        对每个有相同的 \(2\)~列的 \(n\)~级阵 \(A\),
+        它的行列式为 \(0\).
     \end{quotation}
     则, 我们的目标是,
     对任何正整数 \(n\), \(P(n)\) 是对的.
@@ -464,12 +470,13 @@ s_1 b_1 + \dots + s_\ell b_\ell
     前面解释过, 我们认为, \(P(1)\) 是对的.
 
     现在考虑 \(P(2)\).
-    为此, 任取有相同的二列的 \(2\)~级阵
+    为此, 任取有相同的 \(2\)~列的 \(2\)~级阵
     \begin{align*}
-        A = \begin{bmatrix}
-                a & a \\
-                b & b \\
-            \end{bmatrix}.
+        A =
+        \begin{bmatrix}
+            a & a \\
+            b & b \\
+        \end{bmatrix}.
     \end{align*}
     则
     \begin{align*}
@@ -482,24 +489,24 @@ s_1 b_1 + \dots + s_\ell b_\ell
     现在, 我们假定 \(P(m-1)\) 是对的
     (其中, \(m \geq 3\)).
     我们要证 \(P(m)\) 也是对的.
-    任取一个有相同的二列的 \(m\)~级阵 \(A\).
+    任取一个有相同的 \(2\)~列的 \(m\)~级阵 \(A\).
     我们设 \(A\)~的列~\(p\) 等于列~\(q\),
     其中, \(1 \leq p < q \leq m\).
     在 \(1\), \(2\), \(\dots\), \(m\) 这 \(m\)~个数里,
-    我们必定能找到一个数 \(j\),
+    我们能找到一个数 \(j\),
     它既不等于 \(p\), 也不等于 \(q\).
-    按列~\(j\) 展开行列式, 有
+    按列~\(j\) 展开行列式, 得
     \begin{align*}
         \det {(A)}
         = \sum_{i = 1}^{m} {(-1)^{i + j} [A]_{i,j}
-                \det {(A(i|j))}}.
+        \det {(A(i|j))}}.
     \end{align*}
-    注意, \(m-1\)~级阵 \(A(i|j)\) 仍有相同的二列.
+    注意, \(m-1\)~级阵 \(A(i|j)\) 仍有相同的 \(2\)~列.
     所以, 根据假定, \(\det {(A(i|j))} = 0\).
     故 \(\det {(A)} = 0\).
 
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 行列式的一些性质是多线性与交错性的推论,
@@ -512,7 +519,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
     设交换 \(A\)~的列~\(p\) 与列~\(q\) 后得到的阵为 \(B\)
     (\(p < q\)).
     则 \(\det {(B)} = -\det {(A)}\).
-    (通俗地, 交换方阵的二列, 则行列式变号.)
+    (通俗地, 交换方阵的 \(2\)~列, 则行列式变号.)
 \end{theorem}
 
 \begin{proof}
@@ -521,7 +528,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
     \begin{align*}
         f(x, y)
         = \det {[a_1, \dots, a_{p-1}, x, a_{p+1}, \dots,
-                    a_{q-1}, y, a_{q+1}, \dots, a_n]}.
+        a_{q-1}, y, a_{q+1}, \dots, a_n]}.
     \end{align*}
     则
     \begin{align*}
@@ -570,7 +577,11 @@ s_1 b_1 + \dots + s_\ell b_\ell
 不过, 若我们联合行列式的几个特征,
 则它们可确定行列式.
 
-\begin{theorem}
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - ecoj de determinantoj.tex
+% postrakonto - ecoj kaj permutajxoj kaj BC.tex
+\begin{restatable}{theorem}{TheoremDetIsUniquelyDeterminedByItsProperties}
     设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
 
     (1)
@@ -579,42 +590,37 @@ s_1 b_1 + \dots + s_\ell b_\ell
     任何 \(n-1\)~个 \(n \times 1\)~阵
     \(a_1\), \(\dots\), \(a_{j-1}\),
     \(a_{j+1}\), \(\dots\), \(a_n\),
-    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
-             & f
-            {([a_1, \dots, a_{j-1}, sx + ty,
-                        a_{j+1}, \dots, a_n])}
+        &
+        f([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])
         \\
         = {} &
-        s
-        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
-        +
-        t
-        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+        s f([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])
+        + t f([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]).
     \end{align*}
 
     (2)
     (交错性)
-    若 \(n\)~级阵 \(A\) 有二列相同,
-    则 \(f {(A)} = 0\).
+    若 \(n\)~级阵 \(A\) 有 \(2\)~列相同,
+    则 \(f(A) = 0\).
 
     那么, 对任何 \(n\)~级阵 \(A\),
     \(f(A) = f(I) \det {(A)}\).
 
     特别地, 若 \(f(I) = 1\) (规范性),
     则 \(f\) 就是行列式.
-\end{theorem}
+\end{restatable}
 
 \begin{proof}
     我们设 \(g(A) = f(A) - f(I) \det {(A)}\).
     不难验证, \(g\) 也有多线性、交错性、反称性.
-    (具体地, 设交换 \(n\)~级阵 \(A\)~的%
+    (具体地, 设交换 \(n\)~级阵 \(A\)~的% % tex-fmt: skip
     列~\(p\) 与列~\(q\) 后得到的阵为 \(B\),
     且 \(p < q\),
     则 \(g(B) = -g(A)\);
-    这是前二个性质的推论.)
+    这是前 \(2\)~个性质的推论.) % tex-fmt: skip
     不难看出, \(g(I) = 0\).
     我们的目标是, 证 \(g\) 是零函数 (即, 恒为 \(0\)).
 
@@ -626,14 +632,8 @@ s_1 b_1 + \dots + s_\ell b_\ell
     于是
     \begin{align*}
         a_{k}
-        % = {} &
-            =
-            [A]_{1,k} e_{1} + [A]_{2,k} e_{2}
-        + \dots + [A]_{n,k} e_{n}
-        % \\
-        % = {} &
-        =
-        \sum_{i_k = 1}^{n} {[A]_{i_k,k} e_{i_k}}.
+        = [A]_{1,k} e_{1} + [A]_{2,k} e_{2} + \dots + [A]_{n,k} e_{n}
+        = \sum_{i_k = 1}^{n} {[A]_{i_k,k} e_{i_k}}.
     \end{align*}
     % (注意, 这里, 我用了 \(n\)~个求和指标
     % \(i_1\), \(i_2\), \(\dots\), \(i_n\).)
@@ -649,30 +649,30 @@ s_1 b_1 + \dots + s_\ell b_\ell
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
-                g([ e_{i_1}, a_2, \dots, a_n ])}
+        g([ e_{i_1}, a_2, \dots, a_n ])}
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {[A]_{i_1,1}\,
-                g\left(\left[ e_{i_1},
+            g\left(\left[ e_{i_1},
                     \sum_{i_2 = 1}^{n} [A]_{i_2,2} e_{i_2},
-                \dots, a_n
-                \right]\right)}
+                    \dots, a_n
+        \right]\right)}
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {
-                \sum_{i_2 = 1}^{n} {[A]_{i_1,1} [A]_{i_2,2}\,
-                        g([ e_{i_1}, e_{i_2}, \dots, a_n ])}}
+            \sum_{i_2 = 1}^{n} {[A]_{i_1,1} [A]_{i_2,2}\,
+        g([ e_{i_1}, e_{i_2}, \dots, a_n ])}}
         \\
         = {} &
         \dots
         \\
         = {} &
         \sum_{i_1 = 1}^{n} {
-                \sum_{i_2 = 1}^{n} {
-                        \dots
-                        \sum_{i_n = 1}^{n} {
-                                [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n} \,
-                                g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}}}.
+            \sum_{i_2 = 1}^{n} {
+                \dots
+                \sum_{i_n = 1}^{n} {
+                    [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n} \,
+        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}}}.
     \end{align*}
 
     利用交错性, 不难看出,
@@ -680,17 +680,17 @@ s_1 b_1 + \dots + s_\ell b_\ell
     使 \(1 \leq p < q \leq n\),
     且 \(i_p = i_q\),
     则 \([e_{i_1}, e_{i_2}, \dots, e_{i_n}]\)
-    有二列相同,
+    有 \(2\)~列相同,
     故 \(g([e_{i_1}, e_{i_2}, \dots, e_{i_n}]) = 0\).
     所以,
     \begin{align*}
         g(A)
         = \sum_{\substack{
-        1 \leq i_1, i_2, \dots, i_n \leq n \\
+                1 \leq i_1, i_2, \dots, i_n \leq n \\
                 i_1, i_2, \dots, i_n\,\text{互不相同}
-            }}
+        }}
         {[A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}\,
-            g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}.
+        g([e_{i_1}, e_{i_2}, \dots, e_{i_n}])}.
     \end{align*}
 
     我们用反称性证明每个
@@ -710,9 +710,9 @@ s_1 b_1 + \dots + s_\ell b_\ell
 
     所以 \(g(A) = 0\).
     故 \(f(A) = f(I) \det {(A)}\).
-    (反过来, 不难验证, 若我们定义
+    (反过来, 不难验证, 若我们定义 % tex-fmt: skip
     \(f(A) = f(I) \det {(A)}\),
-    则 \(f\) 适合多线性与交错性.)
+    则 \(f\) 适合多线性与交错性.) % tex-fmt: skip
 \end{proof}
 
 \begin{theorem}
@@ -722,12 +722,12 @@ s_1 b_1 + \dots + s_\ell b_\ell
 \end{theorem}
 
 由此, 理论地, 我们可用%
-行列式的这三条性质%
+行列式的这 \(3\)~个性质%
 定义行列式:
 
 \begin{definition}
     设 \(f\) 是定义在全体 \(n\)~级阵上的函数.
-    若 \(f\) 适合如下三条, 则说
+    若 \(f\) 适合如下 \(3\)~个性质, 则说
     \(f\) 是 (\(n\)~级阵的) 一个行列式函数
     (自然地, 若 \(A\) 是 \(n\)~级阵,
     则 \(f(A)\) 是 \(A\) 的一个行列式):
@@ -743,35 +743,30 @@ s_1 b_1 + \dots + s_\ell b_\ell
     任何 \(n-1\)~个 \(n \times 1\)~阵
     \(a_1\), \(\dots\), \(a_{j-1}\),
     \(a_{j+1}\), \(\dots\), \(a_n\),
-    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
-             & f
-            {([a_1, \dots, a_{j-1}, sx + ty,
-                        a_{j+1}, \dots, a_n])}
+        &
+        f([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])
         \\
         = {} &
-        s
-        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
-        +
-        t
-        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+        s f([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])
+        + t f([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]).
     \end{align*}
 
     (3)
     (交错性)
-    若 \(n\)~级阵 \(A\) 有二列相同,
-    则 \(f {(A)} = 0\).
+    若 \(n\)~级阵 \(A\) 有 \(2\)~列相同,
+    则 \(f(A) = 0\).
 \end{definition}
 
-不过, 我没有这么作,
+不过, 我未这么作,
 因为, 若我们如此定义行列式,
 则我们要证明 (\(n\)~级阵的) 行列式函数存在且唯一,
 而这可能是难的.
 
 \section{\texorpdfstring{``行'' 列式}%
-  {"行" 列式}}
+{"行" 列式}}
 
 前面, 我们学习了行列式的一些公式与性质.
 它们至少有一个共同点:
@@ -790,8 +785,8 @@ s_1 b_1 + \dots + s_\ell b_\ell
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
     则
     \begin{align*}
-        \det {(A)} = \sum_{j = 1}^{n}
-            {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+        \det {(A)}
+        = \sum_{j = 1}^{n} {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
     \end{align*}
 \end{restatable}
 
@@ -823,8 +818,8 @@ s_1 b_1 + \dots + s_\ell b_\ell
     \begin{quotation}
         对任何 \(n\)~级阵 \(A\),
         \begin{align*}
-            \det {(A)} = \sum_{j = 1}^{n}
-                {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
+            \det {(A)} =
+            \sum_{j = 1}^{n} {(-1)^{1+j} [A]_{1,j} \det {(A(1|j))}}.
         \end{align*}
     \end{quotation}
     则, 我们的目标是,
@@ -842,93 +837,93 @@ s_1 b_1 + \dots + s_\ell b_\ell
     \begingroup
     \reqnomode
     \begin{align*}
-             & \det {(A)} \\
+        & \det {(A)} \\
         = {} &
         \sum_{i = 1}^{m} {
-                (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
-            }
+            (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+        }
         \tag*{(1)}
         \\
         = {} &
         f
         +
         \sum_{i = 2}^{m} {
-                (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
-            }
+            (-1)^{i+1} [A]_{i,1} \det {(A(i|1))}
+        }
         \\
         = {} &
         f
         +
         \sum_{i = 2}^{m} {
-                (-1)^{i+1} [A]_{i,1}
-                \sum_{j = 2}^{m} {
-                        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
-                    }
+            (-1)^{i+1} [A]_{i,1}
+            \sum_{j = 2}^{m} {
+                (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
             }
+        }
         \tag*{(2)}
         \\
         = {} &
         f
         +
         \sum_{i = 2}^{m} {
-                \sum_{j = 2}^{m} {
-                        (-1)^{i+1} [A]_{i,1}
-                        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
-                    }
+            \sum_{j = 2}^{m} {
+                (-1)^{i+1} [A]_{i,1}
+                (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
             }
+        }
         \tag*{(3)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-                \sum_{i = 2}^{m} {
-                        (-1)^{i+1} [A]_{i,1}
-                        (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
-                    }
+            \sum_{i = 2}^{m} {
+                (-1)^{i+1} [A]_{i,1}
+                (-1)^{1+j-1} [A]_{1,j} \det {(A(i,1|1,j))}
             }
+        }
         \tag*{(4)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-                \sum_{i = 2}^{m} {
-                        (-1)^{1+j} [A]_{1,j}
-                        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
-                    }
+            \sum_{i = 2}^{m} {
+                (-1)^{1+j} [A]_{1,j}
+                (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
             }
+        }
         \tag*{(5)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-                (-1)^{1+j} [A]_{1,j}
-                \sum_{i = 2}^{m} {
-                        (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
-                    }
+            (-1)^{1+j} [A]_{1,j}
+            \sum_{i = 2}^{m} {
+                (-1)^{i-1+1} [A]_{i,1} \det {(A(i,1|1,j))}
             }
+        }
         \tag*{(6)}
         \\
         = {} &
         f
         +
         \sum_{j = 2}^{m} {
-                (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
-            }
+            (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+        }
         \tag*{(7)}
         \\
         = {} &
         \sum_{j = 1}^{m} {
-                (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
-            }.
+            (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
+        }.
     \end{align*}%
     \endgroup
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 
-    我想, 您看到了公式右侧的序号.
+    我想, 您看到了公式右边的序号.
     这是方便我说话用的.
     我想, 适当地解释这几步是好的.
 
@@ -1018,7 +1013,8 @@ s_1 b_1 + \dots + s_\ell b_\ell
 % \begingroup
 % \reqnomode
 % \begin{align*}
-%          & \det {(A)}                  \\
+%     & \det {(A)}
+%     \\
 %     = {} &
 %     \sum_{j = 1}^{m} {
 %     (-1)^{1+j} [A]_{1,j} \det {(A(1|j))}
@@ -1047,7 +1043,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
 %     \\
 %     = {} &
 %     \sum_{\ell = 1}^{m} {
-%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     \sum_{\substack{1 \leq j \leq m \\ j \neq \ell}} {
 %     (-1)^{(i - 1) + (\ell - \rho(\ell, j))}
 %     (-1)^{1+j}
 %         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
@@ -1057,7 +1053,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
 %     \\
 %     = {} &
 %     \sum_{\ell = 1}^{m} {
-%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     \sum_{\substack{1 \leq j \leq m \\ j \neq \ell}} {
 %     (-1)^{i} (-1)^{\ell} (-1)^{\rho(\ell, j)} (-1)^{j}
 %         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
 %     }
@@ -1066,7 +1062,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
 %     \\
 %     = {} &
 %     \sum_{\ell = 1}^{m} {
-%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     \sum_{\substack{1 \leq j \leq m \\ j \neq \ell}} {
 %     (-1)^{i + \ell} (-1)^{1 + j - \rho(j, \ell)}
 %         [A]_{1,j} [A]_{i,\ell} \det {(A({1,i}|{j,\ell}))}
 %     }
@@ -1075,7 +1071,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
 %     \\
 %     = {} &
 %     \sum_{\ell = 1}^{m} {(-1)^{i + \ell} [A]_{i,\ell}
-%     \sum_{\substack{1 \leq j \leq m    \\ j \neq \ell}} {
+%     \sum_{\substack{1 \leq j \leq m \\ j \neq \ell}} {
 %     (-1)^{1 + j - \rho(j, \ell)}
 %         [A]_{1,j} \det {(A({1,i}|{j,\ell}))}
 %     }
@@ -1132,29 +1128,29 @@ s_1 b_1 + \dots + s_\ell b_\ell
     \begin{align*}
         \det {(A^{\mathrm{T}})}
         = {} & \sum_{i = 1}^{m} {
-                (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
-                \det {(A^{\mathrm{T}}(1|i))}
-            }
+            (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
+            \det {(A^{\mathrm{T}}(1|i))}
+        }
         \\
         = {} & \sum_{i = 1}^{m} {
-                (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
-                \det {((A^{\mathrm{T}}(1|i))^{\mathrm{T}})}
-            }
+            (-1)^{1+i} [A^{\mathrm{T}}]_{1,i}
+            \det {((A^{\mathrm{T}}(1|i))^{\mathrm{T}})}
+        }
         \\
         = {} & \sum_{i = 1}^{m} {
-                (-1)^{i+1} [A]_{i,1}
-                \det {(A(i|1))}
-            }
+            (-1)^{i+1} [A]_{i,1}
+            \det {(A(i|1))}
+        }
         \\
         = {} & \det {(A)}.
     \end{align*}
     所以, \(P(m)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 此性质是重要的:
 利用它,
-我们可译行列式的关于列的命题%
+我们可变行列式的关于列的命题%
 为关于行的命题.
 我用一个例助您理解;
 它是按行~\(i\) 展开行列式的公式.
@@ -1162,13 +1158,14 @@ s_1 b_1 + \dots + s_\ell b_\ell
 % restatable that one has manually to repeat
 % in at least one other file:
 % determinanto - matrica multipliko.tex
+% postrakonto - ecoj de determinantoj.tex
 \begin{restatable}{theorem}{TheoremExpansionAboutAnyRow}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
     设 \(i\) 为整数, 且 \(1 \leq i \leq n\).
     则
     \begin{align*}
-        \det {(A)} = \sum_{j = 1}^{n}
-            {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+        \det {(A)}
+        = \sum_{j = 1}^{n} {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
     \end{align*}
 \end{restatable}
 
@@ -1187,25 +1184,25 @@ s_1 b_1 + \dots + s_\ell b_\ell
         = {} & \det {(A^{\mathrm{T}})}
         \\
         = {} & \sum_{j = 1}^{n}
-            {(-1)^{j+i} [A^{\mathrm{T}}]_{j,i}
-                \det {(A^{\mathrm{T}}(j|i))}
-            }
+        {(-1)^{j+i} [A^{\mathrm{T}}]_{j,i}
+            \det {(A^{\mathrm{T}}(j|i))}
+        }
         \\
         = {} & \sum_{j = 1}^{n}
-            {(-1)^{j+i} [A]_{i,j}
-                \det {((A(i|j))^{\mathrm{T}})}
-            }
+        {(-1)^{j+i} [A]_{i,j}
+            \det {((A(i|j))^{\mathrm{T}})}
+        }
         \\
         = {} & \sum_{j = 1}^{n}
-            {(-1)^{i+j} [A]_{i,j}
-                \det {(A(i|j))}
-            }.
+        {(-1)^{i+j} [A]_{i,j}
+            \det {(A(i|j))}
+        }.
         \qedhere
     \end{align*}
 \end{proof}
 
 为方便,
-我译前面的行列式的关于列的性质%
+我变前面的行列式的关于列的性质%
 为关于行的性质.
 不过, 我不证它们.
 我留它们为您的习题.
@@ -1216,54 +1213,54 @@ s_1 b_1 + \dots + s_\ell b_\ell
     任何 \(n-1\)~个 \(1 \times n\)~阵
     \(a_1\), \(\dots\), \(a_{i-1}\),
     \(a_{i+1}\), \(\dots\), \(a_n\),
-    任何二个 \(1 \times n\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(1 \times n\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
         \det
-        {\begin{bmatrix}
-                 a_1     \\
-                 \vdots  \\
-                 a_{i-1} \\
-                 sx + ty \\
-                 a_{i+1} \\
-                 \vdots  \\
-                 a_{n}   \\
-             \end{bmatrix}}
+        {
+            \begin{bmatrix}
+                a_1     \\
+                \vdots  \\
+                a_{i-1} \\
+                sx + ty \\
+                a_{i+1} \\
+                \vdots  \\
+                a_{n}   \\
+        \end{bmatrix}}
         =
-        s
-        \det
-        {\begin{bmatrix}
-                 a_1     \\
-                 \vdots  \\
-                 a_{i-1} \\
-                 x       \\
-                 a_{i+1} \\
-                 \vdots  \\
-                 a_{n}   \\
-             \end{bmatrix}}
+        s \det
+        {
+            \begin{bmatrix}
+                a_1     \\
+                \vdots  \\
+                a_{i-1} \\
+                x       \\
+                a_{i+1} \\
+                \vdots  \\
+                a_{n}   \\
+        \end{bmatrix}}
         +
-        t
-        \det
-        {\begin{bmatrix}
-                 a_1     \\
-                 \vdots  \\
-                 a_{i-1} \\
-                 y       \\
-                 a_{i+1} \\
-                 \vdots  \\
-                 a_{n}   \\
-             \end{bmatrix}}.
+        t \det
+        {
+            \begin{bmatrix}
+                a_1     \\
+                \vdots  \\
+                a_{i-1} \\
+                y       \\
+                a_{i+1} \\
+                \vdots  \\
+                a_{n}   \\
+        \end{bmatrix}}.
     \end{align*}
-    (若 \(i = 1\), 则 \(a_1\) 不出现;
+    (若 \(i = 1\), 则 \(a_1\) 不出现; % tex-fmt: skip
     若 \(i = n\), 则 \(a_n\) 不出现.
-    下同.)
+    下同.) % tex-fmt: skip
 \end{theorem}
 
 \begin{theorem}[交错性]
     行列式 (关于行) 是交错性的.
     具体地,
-    若 \(n\)~级阵 \(A\) 有二行相同,
+    若 \(n\)~级阵 \(A\) 有 \(2\)~行相同,
     则 \(\det {(A)} = 0\).
 \end{theorem}
 
@@ -1274,7 +1271,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
     设交换 \(A\)~的行~\(p\) 与行~\(q\) 后得到的阵为 \(B\)
     (\(p < q\)).
     则 \(\det {(B)} = -\det {(A)}\).
-    (通俗地, 交换方阵的二行, 则行列式变号.)
+    (通俗地, 交换方阵的 \(2\)~行, 则行列式变号.)
 \end{theorem}
 
 \begin{theorem}
@@ -1286,50 +1283,52 @@ s_1 b_1 + \dots + s_\ell b_\ell
     任何 \(n-1\)~个 \(1 \times n\)~阵
     \(a_1\), \(\dots\), \(a_{i-1}\),
     \(a_{i+1}\), \(\dots\), \(a_n\),
-    任何二个 \(1 \times n\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(1 \times n\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
         f
-        {\left(\begin{bmatrix}
-                       a_1     \\
-                       \vdots  \\
-                       a_{i-1} \\
-                       sx + ty \\
-                       a_{i+1} \\
-                       \vdots  \\
-                       a_{n}   \\
-                   \end{bmatrix}\right)}
+        {\left(
+                \begin{bmatrix}
+                    a_1     \\
+                    \vdots  \\
+                    a_{i-1} \\
+                    sx + ty \\
+                    a_{i+1} \\
+                    \vdots  \\
+                    a_{n}   \\
+        \end{bmatrix}\right)}
         =
         s
         f
-            {\left(\begin{bmatrix}
-                               a_1     \\
-                               \vdots  \\
-                               a_{i-1} \\
-                               x       \\
-                               a_{i+1} \\
-                               \vdots  \\
-                               a_{n}   \\
-                           \end{bmatrix}\right)}
+        {\left(
+                \begin{bmatrix}
+                    a_1     \\
+                    \vdots  \\
+                    a_{i-1} \\
+                    x       \\
+                    a_{i+1} \\
+                    \vdots  \\
+                    a_{n}   \\
+        \end{bmatrix}\right)}
         +
         t
         f
-            {\left(\begin{bmatrix}
-                               a_1     \\
-                               \vdots  \\
-                               a_{i-1} \\
-                               y       \\
-                               a_{i+1} \\
-                               \vdots  \\
-                               a_{n}   \\
-                           \end{bmatrix}\right)}.
+        {\left(
+                \begin{bmatrix}
+                    a_1     \\
+                    \vdots  \\
+                    a_{i-1} \\
+                    y       \\
+                    a_{i+1} \\
+                    \vdots  \\
+                    a_{n}   \\
+        \end{bmatrix}\right)}.
     \end{align*}
 
     (2)
     (交错性)
-    若 \(n\)~级阵 \(A\) 有二行相同,
-    则 \(f {(A)} = 0\).
+    若 \(n\)~级阵 \(A\) 有 \(2\)~行相同,
+    则 \(f(A) = 0\).
 
     那么, 对任何 \(n\)~级阵 \(A\),
     \(f(A) = f(I) \det {(A)}\).
@@ -1349,7 +1348,7 @@ s_1 b_1 + \dots + s_\ell b_\ell
 
 \begin{definition}
     设 \(f\) 是定义在全体 \(n\)~级阵上的函数.
-    若 \(f\) 适合如下三条, 则说
+    若 \(f\) 适合如下 \(3\)~个性质, 则说
     \(f\) 是 (\(n\)~级阵的) 一个行列式函数
     (自然地, 若 \(A\) 是 \(n\)~级阵,
     则 \(f(A)\) 是 \(A\) 的一个行列式):
@@ -1365,71 +1364,74 @@ s_1 b_1 + \dots + s_\ell b_\ell
     任何 \(n-1\)~个 \(1 \times n\)~阵
     \(a_1\), \(\dots\), \(a_{i-1}\),
     \(a_{i+1}\), \(\dots\), \(a_n\),
-    任何二个 \(1 \times n\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(1 \times n\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
         f
-        {\left(\begin{bmatrix}
-                       a_1     \\
-                       \vdots  \\
-                       a_{i-1} \\
-                       sx + ty \\
-                       a_{i+1} \\
-                       \vdots  \\
-                       a_{n}   \\
-                   \end{bmatrix}\right)}
+        {\left(
+                \begin{bmatrix}
+                    a_1     \\
+                    \vdots  \\
+                    a_{i-1} \\
+                    sx + ty \\
+                    a_{i+1} \\
+                    \vdots  \\
+                    a_{n}   \\
+        \end{bmatrix}\right)}
         =
         s
         f
-            {\left(\begin{bmatrix}
-                               a_1     \\
-                               \vdots  \\
-                               a_{i-1} \\
-                               x       \\
-                               a_{i+1} \\
-                               \vdots  \\
-                               a_{n}   \\
-                           \end{bmatrix}\right)}
+        {\left(
+                \begin{bmatrix}
+                    a_1     \\
+                    \vdots  \\
+                    a_{i-1} \\
+                    x       \\
+                    a_{i+1} \\
+                    \vdots  \\
+                    a_{n}   \\
+        \end{bmatrix}\right)}
         +
         t
         f
-            {\left(\begin{bmatrix}
-                               a_1     \\
-                               \vdots  \\
-                               a_{i-1} \\
-                               y       \\
-                               a_{i+1} \\
-                               \vdots  \\
-                               a_{n}   \\
-                           \end{bmatrix}\right)}.
+        {\left(
+                \begin{bmatrix}
+                    a_1     \\
+                    \vdots  \\
+                    a_{i-1} \\
+                    y       \\
+                    a_{i+1} \\
+                    \vdots  \\
+                    a_{n}   \\
+        \end{bmatrix}\right)}.
     \end{align*}
 
     (3)
     (交错性)
-    若 \(n\)~级阵 \(A\) 有二行相同,
-    则 \(f {(A)} = 0\).
+    若 \(n\)~级阵 \(A\) 有 \(2\)~行相同,
+    则 \(f(A) = 0\).
 \end{definition}
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{``行'' 列式 (续)}%
-  {"行" 列式 (续)}}
+{"行" 列式 (续)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
 
 本节, 为方便,
-我译前面的行列式的关于列的公式%
+我变前面的行列式的关于列的公式%
 为关于行的公式.
-我先引用我们见过的二个公式.
+我先引用我们见过的 \(2\)~个公式.
 
 \TheoremExpansionAboutRowOne*
 
 \TheoremExpansionAboutAnyRow*
 
 现在, 我给出新的公式.
-您用转置译已有的公式即可.
-我就不证它们了.
+% 您用转置变已有的公式即可.
+证明几乎是用转置变已有的关于列的公式,
+故在此我就不证它们了.
 % 当然, 您可以用老方法, 几乎完全一样地论证它们.
 
 \begin{theorem}
@@ -1440,18 +1442,18 @@ s_1 b_1 + \dots + s_\ell b_\ell
     且 \(i_1 < i_2 < \dots < i_k\).
     则
     \begin{align*}
-         &
+        &
         \det {(A)}
         = \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n}
         {\det {\left(
-                A\binom{i_1, i_2, \dots, i_k}
-                {j_1, j_2, \dots, j_k}
-                \right)}}
+                    A\submat{i_1, i_2, \dots, i_k}
+                    {j_1, j_2, \dots, j_k}
+        \right)}}
         \\
-         &
+        &
         \qquad \qquad \qquad
         \cdot (-1)^{i_1 + i_2 + \dots + i_k
-            + j_1 + j_2 + \dots + j_k}
+        + j_1 + j_2 + \dots + j_k}
         \det {(A({i_1,i_2,\dots,i_k}|{j_1,j_2,\dots,j_k}))}.
     \end{align*}
 \end{theorem}
@@ -1463,15 +1465,15 @@ s_1 b_1 + \dots + s_\ell b_\ell
     且互不相同.
     则
     \begin{align*}
-             & \det {(A)}                  \\
+        & \det {(A)} \\
         = {} &
         \sum_{\substack{
-        1 \leq j_1, j_2, \dots, j_n \leq n \\
+                1 \leq j_1, j_2, \dots, j_n \leq n \\
                 j_1, j_2, \dots, j_n\,\text{互不相同}
-            }}
+        }}
         {s(i_1, i_2, \dots, i_n)\,
             s(j_1, j_2, \dots, j_n)\,
-            [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
+        [A]_{i_1,j_1} [A]_{i_2,j_2} \dots [A]_{i_n,j_n}}.
     \end{align*}
     特别地, 取 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
     为 \(1\), \(2\), \(\dots\), \(n\),
@@ -1481,11 +1483,11 @@ s_1 b_1 + \dots + s_\ell b_\ell
         \det {(A)}
         = {} &
         \sum_{\substack{
-        1 \leq j_1, j_2, \dots, j_n \leq n \\
+                1 \leq j_1, j_2, \dots, j_n \leq n \\
                 j_1, j_2, \dots, j_n\,\text{互不相同}
-            }}
+        }}
         { s(j_1, j_2, \dots, j_n)\,
-            [A]_{1,j_1} [A]_{2,j_2} \dots [A]_{n,j_n}}.
+        [A]_{1,j_1} [A]_{2,j_2} \dots [A]_{n,j_n}}.
     \end{align*}
 \end{theorem}
 
@@ -1497,12 +1499,13 @@ s_1 b_1 + \dots + s_\ell b_\ell
     且互不相同.
     则
     \begin{align*}
-        \det {\begin{bmatrix}
-                      a_{\ell_1} \\
-                      a_{\ell_2} \\
-                      \vdots     \\
-                      a_{\ell_n} \\
-                  \end{bmatrix}
+        \det {
+            \begin{bmatrix}
+                a_{\ell_1} \\
+                a_{\ell_2} \\
+                \vdots     \\
+                a_{\ell_n} \\
+            \end{bmatrix}
         }
         = s(\ell_1, \ell_2, \dots, \ell_n) \det {(A)}.
     \end{align*}

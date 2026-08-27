@@ -2,12 +2,13 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(m\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (1)}%
-  {由 m 个 n 元 ≤1 次方程作成的方程组 (1)}}
+    \({\leq} 1\)~次方程作成的方程组 (1)}%
+{由 m 个 n 元 ≤1 次方程作成的方程组 (1)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
@@ -30,9 +31,9 @@
 我们先看一个简单的事实.
 注意, 对任何 \(m \times n\)~阵 \(A\),
 \(A 0 = 0\),
-其中, 左侧的 \(0\) 是 \(n \times 1\)~零阵,
-而右侧的 \(0\) 是 \(m \times 1\)~零阵.
-故 \(A X = 0\) 必有零解.
+其中, 左边的 \(0\) 是 \(n \times 1\)~零阵,
+而右边的 \(0\) 是 \(m \times 1\)~零阵.
+故 \(A X = 0\) 有零解.
 
 \begin{theorem}
     设 \(A\) 是 \(m \times n\)~阵.
@@ -78,7 +79,7 @@
     %     AC_j = A(C + jD) = AC + A(jD) = B + j(AD) = B + j0 = B.
     % \end{align*}
     % 然后, 我们证,
-    % 若 \(p\), \(q\) 是二个不相等的%
+    % 若 \(p\), \(q\) 是 \(2\)~个不相等的%
     % 且不超过 \(\ell\) 的正整数,
     % 则 \(C_p \neq C_q\).
     % 用反证法.
@@ -153,7 +154,7 @@
     \(A\) 没有行列式非零的 \(t+1\)~级子阵.
 
     所以, \(P(t+1)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{proof}
 
 \begin{theorem}
@@ -209,24 +210,24 @@
     作一个 \((m + 1) \times n\)~阵 \(\underbar{A}\),
     其中,
     \begin{align*}
-        [\underbar{A}]_{i,j}
-        = \begin{cases}
-              [A]_{i,j},   & i \leq k;  \\
-              0,           & i = k + 1; \\
-              [A]_{i-1,j}, & i > k + 1.
-          \end{cases}
+        [\underbar{A}]_{i,j} =
+        \begin{cases}
+            [A]_{i,j},   & i \leq k;  \\
+            0,           & i = k + 1; \\
+            [A]_{i-1,j}, & i > k + 1.
+        \end{cases}
     \end{align*}
     (通俗地, \(\underbar{A}\)
     是在 \(A\)~的行~\(k\) 下写一行 \(0\) 作成的阵.)
     再作一个 \((m + 1) \times 1\)~阵 \(\underbar{B}\),
     其中,
     \begin{align*}
-        [\underbar{B}]_{i,1}
-        = \begin{cases}
-              [B]_{i,1},   & i \leq k;  \\
-              0,           & i = k + 1; \\
-              [B]_{i-1,1}, & i > k + 1.
-          \end{cases}
+        [\underbar{B}]_{i,1} =
+        \begin{cases}
+            [B]_{i,1},   & i \leq k;  \\
+            0,           & i = k + 1; \\
+            [B]_{i-1,1}, & i > k + 1.
+        \end{cases}
     \end{align*}
     (通俗地, \(\underbar{B}\)
     是在 \(B\)~的行~\(k\) 下写 \(0\) 作成的阵.)
@@ -267,11 +268,11 @@
         [\underbar{A}C]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [C]_{\ell,1}}
+        {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} & [AC]_{i,1}
         \\
@@ -286,11 +287,11 @@
         [\underbar{A}C]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {0\,[C]_{\ell,1}}
+        {0\,[C]_{\ell,1}}
         \\
         = {} & 0
         \\
@@ -303,11 +304,11 @@
         [\underbar{A}C]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i-1,\ell} [C]_{\ell,1}}
+        {[A]_{i-1,\ell} [C]_{\ell,1}}
         \\
         = {} & [AC]_{i-1,1}
         \\
@@ -328,19 +329,19 @@
 
     其次, 注意,
     \begin{align*}
-        [A]_{i,j}
-        = \begin{cases}
-              [\underbar{A}]_{i,j},   & i \leq k; \\
-              [\underbar{A}]_{i+1,j}, & i > k.
-          \end{cases}
+        [A]_{i,j} =
+        \begin{cases}
+            [\underbar{A}]_{i,j},   & i \leq k; \\
+            [\underbar{A}]_{i+1,j}, & i > k.
+        \end{cases}
     \end{align*}
     类似地,
     \begin{align*}
-        [B]_{i,1}
-        = \begin{cases}
-              [\underbar{B}]_{i,1},   & i \leq k; \\
-              [\underbar{B}]_{i+1,1}, & i > k.
-          \end{cases}
+        [B]_{i,1} =
+        \begin{cases}
+            [\underbar{B}]_{i,1},   & i \leq k; \\
+            [\underbar{B}]_{i+1,1}, & i > k.
+        \end{cases}
     \end{align*}
 
     若 \(i \leq k\), 则
@@ -348,11 +349,11 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [C]_{\ell,1}}
+        {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
+        {[\underbar{A}]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} & [\underbar{A}C]_{i,1}
         \\
@@ -367,11 +368,11 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [C]_{\ell,1}}
+        {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[\underbar{A}]_{i+1,\ell} [C]_{\ell,1}}
+        {[\underbar{A}]_{i+1,\ell} [C]_{\ell,1}}
         \\
         = {} & [\underbar{A}C]_{i+1,1}
         \\
@@ -432,11 +433,11 @@
     若 \(m < n\), 我们作一个 \(n\)~级阵 \(\underbar{A}\),
     其中,
     \begin{align*}
-        [\underbar{A}]_{i,j}
-        = \begin{cases}
-              [A]_{i,j}, & i \leq m; \\
-              0,         & i > m.
-          \end{cases}
+        [\underbar{A}]_{i,j} =
+        \begin{cases}
+            [A]_{i,j}, & i \leq m; \\
+            0,         & i > m.
+        \end{cases}
     \end{align*}
     (通俗地, \(\underbar{A}\)
     是在 \(A\)~的行~\(m\) 下写 \(n-m\)~行 \(0\) 作成的阵.)
@@ -463,10 +464,7 @@
     从而 \(r \geq 1\).
 
     我们设 \(A\)~的 \(r\)~级子阵
-    \(
-    \displaystyle
-    A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
-    \)
+    \(A_r = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}\)
     的行列式非零,
     其中, \(i_1 < i_2 < \dots < i_r\),
     且 \(j_1 < j_2 < \dots < j_r\).
@@ -483,10 +481,9 @@
     我们从中选一个为 \(j_{r+1}\).
     作 \(r+1\)~级阵
     \(
-    \displaystyle
-    E =
-    A\binom{i_1,\dots,i_r,i_{r+1}}
-    {j_1,\dots,j_r,j_{r+1}}
+        E =
+        A\submat{i_1,\dots,i_r,i_{r+1}}
+        {j_1,\dots,j_r,j_{r+1}}
     \).
     我们设 \(i_p\) 在
     \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
@@ -506,18 +503,18 @@
     的一个非零解.
     我们作一个 \(n \times 1\)~阵 \(W\), 其中,
     \begin{align*}
-        [W]_{\ell,1}
-        = \begin{cases}
-              [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
-                 & \text{\(\ell = j_p\),
-              \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
-              0, & \text{别的情形}.
-          \end{cases}
+        [W]_{\ell,1} =
+        \begin{cases}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
+            & \text{\(\ell = j_p\),
+            \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
+            0, & \text{别的情形}.
+        \end{cases}
     \end{align*}
-    (通俗地, 我们在适当的位置写 \(0\),
+    (通俗地, 我们在适当的位置写 \(0\), % tex-fmt: skip
     变 \(\operatorname{adj} {(E)}\)
     的列~\(f(i_{r+1})\)
-    为一个 \(n \times 1\)~阵 \(W\).)
+    为一个 \(n \times 1\)~阵 \(W\).) % tex-fmt: skip
     因为 \([W]_{j_{r+1},1} \neq 0\),
     故 \(W \neq 0\).
     我们证明 \(AW = 0\).
@@ -528,54 +525,54 @@
         [AW]_{q,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{q,\ell} [W]_{\ell,1}}
+        {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq \ell \leq n \\
-        \ell = j_p         \\
+                1 \leq \ell \leq n \\
+                \ell = j_p         \\
                 1 \leq p \leq r+1
-            }}
+        }}
         {[A]_{q,\ell} [W]_{\ell,1}}
         +
         \sum_{\substack{
-        1 \leq \ell \leq n \\
+                1 \leq \ell \leq n \\
                 \text{别的情形}
-            }}
+        }}
         {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq \ell \leq n \\
-        \ell = j_p         \\
+                1 \leq \ell \leq n \\
+                \ell = j_p         \\
                 1 \leq p \leq r+1
-            }}
+        }}
         {[A]_{q,j_p}
-                [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         +
         \sum_{\substack{
-        1 \leq \ell \leq n \\
+                1 \leq \ell \leq n \\
                 \text{别的情形}
-            }}
+        }}
         {[A]_{q,\ell}\, 0}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
+        {[A]_{q,j_p}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
     \end{align*}
     若 \(q\) 等于某个 \(i_t\), 则
     \begin{align*}
         [AW]_{i_t,1}
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{i_t,j_p}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        {[A]_{i_t,j_p}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[E]_{f(i_t),g(j_p)}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        {[E]_{f(i_t),g(j_p)}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         [E \operatorname{adj} {(E)}]_{f(i_t),f(i_{r+1})}
@@ -593,24 +590,24 @@
         [AW]_{q,1}
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        {[A]_{q,j_p}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                (-1)^{f(i_{r+1})+g(j_p)}
-                \det {(E(f(i_{r+1})|g(j_p)))}}.
+        {[A]_{q,j_p}
+            (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}.
     \end{align*}
     作一个 \(r+1\)~级阵 \(C_q\), 其中,
     \begin{align*}
-        [C_q]_{h,g(j_p)}
-        = \begin{cases}
-              [E]_{h,g(j_p)},
-               & h \neq f(i_{r+1}); \\
-              [A]_{q,j_p},
-               & h = f(i_{r+1}).
-          \end{cases}
+        [C_q]_{h,g(j_p)} =
+        \begin{cases}
+            [E]_{h,g(j_p)},
+            & h \neq f(i_{r+1}); \\
+            [A]_{q,j_p},
+            & h = f(i_{r+1}).
+        \end{cases}
     \end{align*}
     于是, \(C_q(f(i_{r+1})|g(j_p))
     = E(f(i_{r+1})|g(j_p))\).
@@ -619,15 +616,15 @@
         [AW]_{q,1}
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                (-1)^{f(i_{r+1})+g(j_p)}
-                \det {(E(f(i_{r+1})|g(j_p)))}}
+        {[A]_{q,j_p}
+            (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[C_q]_{f(i_{r+1}),g(j_p)}
-                (-1)^{f(i_{r+1})+g(j_p)}
-                \det {(C_q (f(i_{r+1})|g(j_p)))}}
+        {[C_q]_{f(i_{r+1}),g(j_p)}
+            (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(C_q (f(i_{r+1})|g(j_p)))}}
         \\
         = {} &
         \det {(C_q)}.
@@ -635,16 +632,15 @@
 
     再作一个 \(r+1\)~级阵
     \(
-    \displaystyle
-    D_q =
-    A\binom{i_1,\dots,i_r,q}
-    {j_1,\dots,j_r,j_{r+1}}
+        D_q =
+        A\submat{i_1,\dots,i_r,q}
+        {j_1,\dots,j_r,j_{r+1}}
     \).
     不难看出, 适当地交换 \(C_q\) 的行的次序,
     即可变 \(C_q\) 为 \(D_q\).
     根据反称性,
     \(\det {(C_q)} = \pm \det {(D_q)}\).
-    (具体地, 设 \(q\) 在
+    (具体地, 设 \(q\) 在 % tex-fmt: skip
     \(i_1\), \(\dots\), \(i_r\), \(q\)
     中是第~\(u\) 小的数.
     那么, 当 \(f(i_{r+1}) = u\) 时, \(C_q = D_q\).
@@ -661,7 +657,7 @@
     ……
     且再交换行~\(u+1\) 与 \(u\);
     作 \(f(i_{r+1}) - u\)~次相邻行的交换,
-    即可变 \(C_q\) 为 \(D_q\).)
+    即可变 \(C_q\) 为 \(D_q\).) % tex-fmt: skip
     因为 \(D_q\) 是 \(A\) 的一个 \(r+1\)~级子阵,
     故它的行列式为 \(0\).
     从而
@@ -687,7 +683,7 @@
     设 \(n \times 1\)~阵 \(C\) 适合 \(AC = 0\).
     设 \(A\)~的 \(n\)~级子阵
     \begin{align*}
-        K = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
+        K = A\submat{i_1,i_2,\dots,i_n}{1,2,\dots,n}
     \end{align*}
     的行列式非零,
     其中,
@@ -696,20 +692,20 @@
     \begin{align*}
         [A]_{1,1} [C]_{1,1} + [A]_{1,2} [C]_{2,1} + \dots + [A]_{1,n} [C]_{n,1} & = 0,   \\
         [A]_{2,1} [C]_{1,1} + [A]_{2,2} [C]_{2,1} + \dots + [A]_{2,n} [C]_{n,1} & = 0,   \\
-                                                                                & \dots, \\
+        & \dots, \\
         [A]_{m,1} [C]_{1,1} + [A]_{m,2} [C]_{2,1} + \dots + [A]_{m,n} [C]_{n,1} & = 0,
     \end{align*}
     故 \(C\) 当然也适合
     \begin{align*}
         [A]_{i_1,1} [C]_{1,1} + [A]_{i_1,2} [C]_{2,1} + \dots + [A]_{i_1,n} [C]_{n,1} & = 0,   \\
         [A]_{i_2,1} [C]_{1,1} + [A]_{i_2,2} [C]_{2,1} + \dots + [A]_{i_2,n} [C]_{n,1} & = 0,   \\
-                                                                                      & \dots, \\
+        & \dots, \\
         [A]_{i_n,1} [C]_{1,1} + [A]_{i_n,2} [C]_{2,1} + \dots + [A]_{i_n,n} [C]_{n,1} & = 0,
     \end{align*}
     即 \(KC = 0\).
     因为 \(\det {(K)} \neq 0\),
     故, 由 Cramer 公式,
-    有 \(C = 0\).
+    \(C = 0\).
 \end{proof}
 
 现在, 我们作一个小结.
@@ -747,8 +743,8 @@
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(m\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (2)}%
-  {由 m 个 n 元 ≤1 次方程作成的方程组 (2)}}
+    \({\leq} 1\)~次方程作成的方程组 (2)}%
+{由 m 个 n 元 ≤1 次方程作成的方程组 (2)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
@@ -779,13 +775,13 @@
     作一个 \(m \times (n+1)\)~阵 \(G\),
     其中,
     \begin{align*}
-        [G]_{i,j}
-        = \begin{cases}
-              [A]_{i,j}, & j \leq n;  \\
-              [B]_{i,1}, & j = n + 1.
-          \end{cases}
+        [G]_{i,j} =
+        \begin{cases}
+            [A]_{i,j}, & j \leq n;  \\
+            [B]_{i,1}, & j = n + 1.
+        \end{cases}
     \end{align*}
-    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    (通俗地, 在 \(A\)~的最后一列的右边加入一列 \(B\),
     得到尺寸较大的阵 \(G\).)
     则存在一个非负整数 \(r\), 使
     \(A\) 有一个行列式非零的 \(r\)~级子阵
@@ -823,7 +819,7 @@
     对任何不超过 \(m\) 的正整数 \(i\),
     \begin{align*}
         [B]_{i,1}
-            = [A]_{i,1} [C]_{1,1} + [A]_{i,2} [C]_{2,1}
+        = [A]_{i,1} [C]_{1,1} + [A]_{i,2} [C]_{2,1}
         + \dots + [A]_{i,n} [C]_{n,1},
     \end{align*}
     即
@@ -834,14 +830,14 @@
     \end{align*}
     设这个子阵为
     \begin{align*}
-        D = G\binom{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,n+1},
+        D = G\submat{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,n+1},
     \end{align*}
     其中,
     \(1 \leq i_1 < \dots < i_r < i_{r+1} \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\).
     记 \((r+1) \times n\)~阵
     \begin{align*}
-        A\binom{i_1,\dots,i_r,i_{r+1}}{1,2,\dots,n}
+        A\submat{i_1,\dots,i_r,i_{r+1}}{1,2,\dots,n}
     \end{align*}
     的列~\(1\), \(2\), \(\dots\), \(n\) 为
     \(h_1\), \(h_2\), \(\dots\), \(h_n\).
@@ -861,7 +857,7 @@
                 h_{j_1}, \dots, h_{j_r},
                 \sum_{1 \leq t \leq n}
                 {[C]_{t,1} h_t}
-                \right]
+            \right]
         }
         \\
         = {} &
@@ -871,18 +867,18 @@
         }.
     \end{align*}
     若 \(t\) 等于 \(j_1\), \(j_2\), \(\dots\), \(j_r\) 的一个,
-    则 \([h_{j_1}, \dots, h_{j_r}, h_t]\) 有二列相同.
+    则 \([h_{j_1}, \dots, h_{j_r}, h_t]\) 有 \(2\)~列相同.
     由交错性, \(\det {[h_{j_1}, \dots, h_{j_r}, h_t]} = 0\).
     若 \(t\) 不等于 \(j_1\), \(j_2\), \(\dots\), \(j_r\) 的任何一个,
     我们适当地交换 \([h_{j_1}, \dots, h_{j_r}, h_t]\) 的列的次序,
     以变它为 \(A\) 的一个 \(r+1\)~级子阵.
-    由反称性, 有
+    由反称性,
     \begin{align*}
         \det {[h_{j_1}, \dots, h_{j_r}, h_t]}
         = \pm
         \det {\left(
-            A\binom{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,t}
-            \right)}
+                A\submat{i_1,\dots,i_r,i_{r+1}}{j_1,\dots,j_r,t}
+        \right)}
         = 0.
     \end{align*}
     于是, \(\det {[h_{j_1}, \dots, h_{j_r}, h_t]}\) 总是 \(0\).
@@ -891,8 +887,8 @@
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(m\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (3)}%
-  {由 m 个 n 元 ≤1 次方程作成的方程组 (3)}}
+    \({\leq} 1\)~次方程作成的方程组 (3)}%
+{由 m 个 n 元 ≤1 次方程作成的方程组 (3)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
@@ -913,21 +909,21 @@
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级阵.
-    设 \(p\), \(q\) 是二个不超过 \(n\)~的正整数,
+    设 \(p\), \(q\) 是 \(2\)~个不超过 \(n\)~的正整数,
     且 \(p \neq q\).
     设 \(x\) 是一个数.
     作 \(n\)~级阵 \(L\), 其中,
     \begin{align*}
-        [L]_{i,j}
-        = \begin{cases}
-              [A]_{i,j},              & j \neq q; \\
-              [A]_{i,q} + x[A]_{i,p}, & j = q.
-          \end{cases}
+        [L]_{i,j} =
+        \begin{cases}
+            [A]_{i,j},              & j \neq q; \\
+            [A]_{i,q} + x[A]_{i,p}, & j = q.
+        \end{cases}
     \end{align*}
-    (通俗地,
+    (通俗地, % tex-fmt: skip
     加 \(A\)~的列~\(p\) 的 \(x\)~倍于列~\(q\),
     且不改变别的列,
-    得阵~\(L\).)
+    得阵~\(L\).) % tex-fmt: skip
     则 \(\det {(L)} = \det {(A)}\).
 
     类似地,
@@ -1015,11 +1011,11 @@
     且 \(A \neq 0\).
     设 \(A\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
-        A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+        A_r = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中,
+    (其中, % tex-fmt: skip
     \(1 \leq i_1 < \dots < i_r \leq m\),
-    且 \(1 \leq j_1 < \dots < j_r \leq n\)),
+    且 \(1 \leq j_1 < \dots < j_r \leq n\)), % tex-fmt: skip
     但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
     那么, 对任何不超过 \(m\) 的正整数 \(p\),
     存在 \(r\)~个数
@@ -1028,8 +1024,7 @@
     \begin{align*}
         [A]_{p,q}
         % = {} &
-            =
-            [A]_{i_1,q} d_{p,1}
+        = [A]_{i_1,q} d_{p,1}
         + [A]_{i_2,q} d_{p,2}
         + \dots
         + [A]_{i_r,q} d_{p,r}
@@ -1042,16 +1037,19 @@
 
 我们也可如此说前面的结论:
 
-\begin{theorem}
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - ecoj de determinantoj.tex
+\begin{restatable}{theorem}{TheoremLinearCombinationOfRows}
     设 \(A\) 是 \(m \times n\)~阵,
     且 \(A \neq 0\).
     设 \(A\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
-        A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+        A_r = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中,
+    (其中, % tex-fmt: skip
     \(1 \leq i_1 < \dots < i_r \leq m\),
-    且 \(1 \leq j_1 < \dots < j_r \leq n\)),
+    且 \(1 \leq j_1 < \dots < j_r \leq n\)), % tex-fmt: skip
     但 \(A\) 没有行列式非零的 \(r+1\)~级子阵.
     设 \(A\)~的%
     行~\(1\), \(2\), \(\dots\), \(m\)
@@ -1062,21 +1060,16 @@
     使
     \begin{align*}
         a_p
-        % = {} &
-        =
-        d_{p,1} a_{i_1}
+        = d_{p,1} a_{i_1}
         + d_{p,2} a_{i_2}
         + \dots
         + d_{p,r} a_{i_r}
-        % \\
-        % = {} &
-        =
-        \sum_{s = 1}^{r} {d_{p,s} a_{i_s}}.
+        = \sum_{s = 1}^{r} {d_{p,s} a_{i_s}}.
     \end{align*}
-\end{theorem}
+\end{restatable}
 
 通俗地, 这个定理说,
-任给一个非零阵 \(A\),
+任给一个非零的阵 \(A\),
 我们总能找出它的某 \(r\)~行
 \(a_{i_1}\), \(a_{i_2}\), \(\dots\), \(a_{i_r}\),
 使 \(A\)~的每行都可被写为%
@@ -1098,8 +1091,8 @@
     不难看出, \(A\) 有一个 \(3\)~级子阵, 其的行列式非零:
     \begin{align*}
         \det {\left(
-            A\binom{1,2,3}{1,2,3}
-            \right)} = 1.
+                A\submat{1,2,3}{1,2,3}
+        \right)} = 1.
     \end{align*}
     不过, \(A\) 没有行列式非零的 \(4\)~级子阵.
     我们考虑 \(A\) 的列~\(4\), \(5\).
@@ -1109,13 +1102,13 @@
     若 \(A\) 的列~\(4\) 与列~\(5\) 都不被选中,
     则这个子阵是
     \begin{align*}
-        A\binom{1,2,3,4}{1,2,3,6}
-        = \begin{bmatrix}
-              1 & 0 & 0 & -1 \\
-              0 & 1 & 0 & 1  \\
-              0 & 0 & 1 & 0  \\
-              0 & 1 & 1 & 1  \\
-          \end{bmatrix}.
+        A\submat{1,2,3,4}{1,2,3,6} =
+        \begin{bmatrix}
+            1 & 0 & 0 & -1 \\
+            0 & 1 & 0 & 1  \\
+            0 & 0 & 1 & 0  \\
+            0 & 1 & 1 & 1  \\
+        \end{bmatrix}.
     \end{align*}
     不难算出, 它的行列式为 \(0\).
 
@@ -1155,11 +1148,11 @@
     (\(s = 1\), \(2\), \(\dots\), \(r\)),
     我们取
     \begin{align*}
-        d_{p,v}
-        = \begin{cases}
-              1, & v = s;    \\
-              0, & v \neq s.
-          \end{cases}
+        d_{p,v} =
+        \begin{cases}
+            1, & v = s;    \\
+            0, & v \neq s.
+        \end{cases}
     \end{align*}
     于是, 对任何不超过 \(n\) 的正整数 \(q\),
     \begin{align*}
@@ -1167,8 +1160,8 @@
         + [A]_{i_2,q} d_{p,2}
         + \dots
         + [A]_{i_r,q} d_{p,r}
-            = [A]_{i_s,q} 1
-            = [A]_{p,q}.
+        = [A]_{i_s,q} 1
+        = [A]_{p,q}.
     \end{align*}
 
     下设 \(p\) 不等于任何 \(i_s\).
@@ -1176,14 +1169,14 @@
     考虑%
     由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             [A]_{i_1,j_1} x_1 + [A]_{i_2,j_1} x_2 + \dots + [A]_{i_r,j_1} x_r & = [A]_{p,j_1}, \\
             [A]_{i_1,j_2} x_1 + [A]_{i_2,j_2} x_2 + \dots + [A]_{i_r,j_2} x_r & = [A]_{p,j_2}, \\
-                                                                              & \dots,         \\
+            & \dots, \\
             [A]_{i_1,j_r} x_1 + [A]_{i_2,j_r} x_2 + \dots + [A]_{i_r,j_r} x_r & = [A]_{p,j_r},
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     即
     \begin{align*}
@@ -1212,14 +1205,13 @@
     \begin{align*}
         [A]_{i_1,j_1} d_{p,1} + [A]_{i_2,j_1} d_{p,2} + \dots + [A]_{i_r,j_1} d_{p,r} & = [A]_{p,j_1}, \\
         [A]_{i_1,j_2} d_{p,1} + [A]_{i_2,j_2} d_{p,2} + \dots + [A]_{i_r,j_2} d_{p,r} & = [A]_{p,j_2}, \\
-                                                                                      & \dots,         \\
+        & \dots, \\
         [A]_{i_1,j_r} d_{p,1} + [A]_{i_2,j_r} d_{p,2} + \dots + [A]_{i_r,j_r} d_{p,r} & = [A]_{p,j_r}.
     \end{align*}
     我们由此证明, 对任何不超过 \(n\) 的正整数 \(q\),
     \begin{align*}
-        [A]_{p,q}
-            =
-            [A]_{i_1,q} d_{p,1}
+        [A]_{p,q} =
+        [A]_{i_1,q} d_{p,1}
         + [A]_{i_2,q} d_{p,2}
         + \dots
         + [A]_{i_r,q} d_{p,r}.
@@ -1231,9 +1223,9 @@
     考虑 \(A\) 的 \(r+1\)~级子阵
     \begin{align*}
         K =
-        A\binom{i_1,\dots,i_r,p}{j_1,\dots,j_r,q}.
+        A\submat{i_1,\dots,i_r,p}{j_1,\dots,j_r,q}.
     \end{align*}
-    我们用重要思想, 算二次,
+    我们用重要思想, 算 \(2\)~次,
     证我们想要的等式.
 
     一方面, 我们知道, 既然
@@ -1276,7 +1268,7 @@
         [K_r]_{f(p),g(v)}
         = [A]_{p,v} -
         \sum_{s = 1}^{r}
-            {[A]_{i_s,v} d_{p,s}},
+        {[A]_{i_s,v} d_{p,s}},
     \end{align*}
     其中, \(v = j_1\), \(\dots\), \(j_r\), \(q\).
     所以, 当
@@ -1286,7 +1278,7 @@
     % \([K_r]_{f(p),g(j_t)} = 0\).
     \([K_r]_{f(p),g(v)} = 0\).
     我们按行~\(f(p)\) 展开 \(K_r\) 的行列式,
-    有
+    得
     \begin{align*}
         \det {(K_r)}
         = {} &
@@ -1296,22 +1288,22 @@
         = {} &
         (-1)^{f(p)+g(q)} \det {(A_r)}
         \left(
-        [A]_{p,q} -
-        \sum_{s = 1}^{r}
-        {[A]_{i_s,q} d_{p,s}}
+            [A]_{p,q} -
+            \sum_{s = 1}^{r}
+            {[A]_{i_s,q} d_{p,s}}
         \right).
     \end{align*}
 
     回想, \(0 = \det {(K)}\),
     且 \(\det {(K)} = \det {(K_r)}\).
-    比较二次计算的结果, 我们应有
+    比较 \(2\)~次计算的结果, 我们得
     \begin{align*}
         0 =
         (-1)^{f(p)+g(q)} \det {(A_r)}
         \left(
-        [A]_{p,q} -
-        \sum_{s = 1}^{r}
-        {[A]_{i_s,q} d_{p,s}}
+            [A]_{p,q} -
+            \sum_{s = 1}^{r}
+            {[A]_{i_s,q} d_{p,s}}
         \right).
     \end{align*}
     注意,
@@ -1320,7 +1312,7 @@
     \begin{equation*}
         [A]_{p,q} -
         \sum_{s = 1}^{r}
-            {[A]_{i_s,q} d_{p,s}} = 0.
+        {[A]_{i_s,q} d_{p,s}} = 0.
         \qedhere
     \end{equation*}
 \end{proof}
@@ -1333,13 +1325,13 @@
     作一个 \(m \times (n+1)\)~阵 \(G\),
     其中,
     \begin{align*}
-        [G]_{i,j}
-        = \begin{cases}
-              [A]_{i,j}, & j \leq n;  \\
-              [B]_{i,1}, & j = n + 1.
-          \end{cases}
+        [G]_{i,j} =
+        \begin{cases}
+            [A]_{i,j}, & j \leq n;  \\
+            [B]_{i,1}, & j = n + 1.
+        \end{cases}
     \end{align*}
-    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    (通俗地, 在 \(A\)~的最后一列的右边加入一列 \(B\),
     得到尺寸较大的阵 \(G\).)
     设
     \(A\) 有一个行列式非零的 \(r\)~级子阵
@@ -1362,17 +1354,17 @@
     下设 \(A \neq 0\).
     设 \(A\) 的 \(r\)~级子阵
     \begin{align*}
-        A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+        A_r = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
-    (其中,
+    (其中, % tex-fmt: skip
     \(1 \leq i_1 < \dots < i_r \leq m\),
-    且 \(1 \leq j_1 < \dots < j_r \leq n\))
+    且 \(1 \leq j_1 < \dots < j_r \leq n\)) % tex-fmt: skip
     的行列式非零.
     \(A_r\) 当然也是 \(G\)~的子阵, 且
     \begin{align*}
-        A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+        A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}
         =
-        G\binom{i_1,\dots,i_r}{j_1,\dots,j_r}.
+        G\submat{i_1,\dots,i_r}{j_1,\dots,j_r}.
     \end{align*}
     所以, 对任何不超过 \(m\) 的正整数 \(p\),
     存在 \(r\)~个数
@@ -1381,8 +1373,7 @@
     \begin{align*}
         [G]_{p,q}
         % = {} &
-            =
-            [G]_{i_1,q} d_{p,1}
+        = [G]_{i_1,q} d_{p,1}
         + [G]_{i_2,q} d_{p,2}
         + \dots
         + [G]_{i_r,q} d_{p,r}
@@ -1395,14 +1386,14 @@
     考虑%
     由 \(r\)~个 \(n\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{equation*}
-        \left\{
+        \left\{ % tex-fmt: skip
         \begin{aligned}
             [A]_{i_1,1} x_1 + [A]_{i_1,2} x_2 + \dots + [A]_{i_1,n} x_n & = [B]_{i_1,1}, \\
             [A]_{i_2,1} x_1 + [A]_{i_2,2} x_2 + \dots + [A]_{i_2,n} x_n & = [B]_{i_2,1}, \\
-                                                                        & \dots,         \\
+            & \dots, \\
             [A]_{i_r,1} x_1 + [A]_{i_r,2} x_2 + \dots + [A]_{i_r,n} x_n & = [B]_{i_r,1}.
         \end{aligned}
-        \right.
+        \right. % tex-fmt: skip
     \end{equation*}
     我们说, 这个方程组有解.
 
@@ -1422,7 +1413,7 @@
     \begin{align*}
         \sum_{\ell = 1}^{r}
         {[A]_{p,j_\ell} x_{j_\ell}}
-            = [B]_{p,1}
+        = [B]_{p,1}
         - \sum_{r < \ell \leq n}
         {[A]_{p,j_\ell} x_{j_\ell}},
     \end{align*}
@@ -1436,7 +1427,7 @@
     由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{align*}
         \sum_{\ell = 1}^{r}
-            {[A]_{p,j_\ell} y_\ell}
+        {[A]_{p,j_\ell} y_\ell}
         = [B]_{p,1}
         - \sum_{r < \ell \leq n}
         {[A]_{p,j_\ell} f_{j_\ell}}.
@@ -1472,7 +1463,7 @@
     \begin{align*}
         \sum_{\ell = 1}^{r}
         {[A]_{p,j_\ell} f_{j_\ell}}
-            = [B]_{p,1}
+        = [B]_{p,1}
         - \sum_{r < \ell \leq n}
         {[A]_{p,j_\ell} f_{j_\ell}}.
     \end{align*}
@@ -1480,7 +1471,7 @@
     \begin{align*}
         \sum_{\ell = 1}^{n}
         {[A]_{p,j_\ell} f_{j_\ell}}
-            = [B]_{p,1}.
+        = [B]_{p,1}.
     \end{align*}
 
     设 \(n\) 个数
@@ -1489,7 +1480,7 @@
     \begin{align*}
         [A]_{i_1,1} c_1 + [A]_{i_1,2} c_2 + \dots + [A]_{i_1,n} c_n & = [B]_{i_1,1}, \\
         [A]_{i_2,1} c_1 + [A]_{i_2,2} c_2 + \dots + [A]_{i_2,n} c_n & = [B]_{i_2,1}, \\
-                                                                    & \dots,         \\
+        & \dots, \\
         [A]_{i_r,1} c_1 + [A]_{i_r,2} c_2 + \dots + [A]_{i_r,n} c_n & = [B]_{i_r,1}.
     \end{align*}
     作 \(n \times 1\)~阵 \(C\),
@@ -1501,11 +1492,11 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [C]_{\ell,1}}
+        {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} c_\ell}
+        {[A]_{i,\ell} c_\ell}
         \\
         = {} & [B]_{i,1}.
     \end{align*}
@@ -1514,74 +1505,74 @@
         [AC]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [C]_{\ell,1}}
+        {[A]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[G]_{i,\ell} [C]_{\ell,1}}
+        {[G]_{i,\ell} [C]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {
-                \left( \sum_{s = 1}^{r}
+        {
+            \left( \sum_{s = 1}^{r}
                 {
                     [G]_{i_s,\ell} d_{i,s}
-                } \right) [C]_{\ell,1}
-            }
+            } \right) [C]_{\ell,1}
+        }
         \\
         = {} &
         \sum_{\ell = 1}^{n}
+        {
+            \sum_{s = 1}^{r}
             {
-                \sum_{s = 1}^{r}
-                    {
-                        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
-                    }
+                [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
             }
+        }
         \\
         = {} &
         \sum_{s = 1}^{r}
+        {
+            \sum_{\ell = 1}^{n}
             {
-                \sum_{\ell = 1}^{n}
-                    {
-                        [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
-                    }
+                [G]_{i_s,\ell} d_{i,s} [C]_{\ell,1}
             }
+        }
         \\
         = {} &
         \sum_{s = 1}^{r}
+        {
+            \sum_{\ell = 1}^{n}
             {
-                \sum_{\ell = 1}^{n}
-                    {
-                        [A]_{i_s,\ell} d_{i,s} c_\ell
-                    }
+                [A]_{i_s,\ell} d_{i,s} c_\ell
             }
+        }
         \\
         = {} &
         \sum_{s = 1}^{r}
+        {
+            \sum_{\ell = 1}^{n}
             {
-                \sum_{\ell = 1}^{n}
-                    {
-                        [A]_{i_s,\ell} c_\ell d_{i,s}
-                    }
+                [A]_{i_s,\ell} c_\ell d_{i,s}
             }
+        }
         \\
         = {} &
         \sum_{s = 1}^{r}
-            {
-                \left(\sum_{\ell = 1}^{n}
+        {
+            \left(\sum_{\ell = 1}^{n}
                 {
                     [A]_{i_s,\ell} c_\ell
-                }\right)
-                d_{i,s}
-            }
+            }\right)
+            d_{i,s}
+        }
         \\
         = {} &
         \sum_{s = 1}^{r}
-            {[B]_{i_s,1} d_{i,s}}
+        {[B]_{i_s,1} d_{i,s}}
         \\
         = {} &
         \sum_{s = 1}^{r}
-            {[G]_{i_s,n+1} d_{i,s}}
+        {[G]_{i_s,n+1} d_{i,s}}
         \\
         = {} &
         [G]_{i,n+1}
@@ -1597,21 +1588,22 @@
 与有解时它的解是否唯一的方法
 (定性的理论):
 
-% restatable
-\begin{restatable}{theorem}%
-    {TheoremQualitativeTheoryOfLinearSystemOfEquations}
+% restatable that one has manually to repeat
+% in at least one other file:
+% postrakonto - ecoj de determinantoj.tex
+\begin{restatable}{theorem}{TheoremQualitativeTheoryOfLinearSystemOfEquations}
     设 \(A\) 是 \(m \times n\)~阵.
     设 \(B\) 是 \(m \times 1\)~阵.
     作一个 \(m \times (n+1)\)~阵 \(G\),
     其中,
     \begin{align*}
-        [G]_{i,j}
-        = \begin{cases}
-              [A]_{i,j}, & j \leq n;  \\
-              [B]_{i,1}, & j = n + 1.
-          \end{cases}
+        [G]_{i,j} =
+        \begin{cases}
+            [A]_{i,j}, & j \leq n;  \\
+            [B]_{i,1}, & j = n + 1.
+        \end{cases}
     \end{align*}
-    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    (通俗地, 在 \(A\)~的最后一列的右边加入一列 \(B\),
     得到尺寸较大的阵 \(G\).)
     设
     \(A\) 有一个行列式非零的 \(r\)~级子阵,
@@ -1632,8 +1624,8 @@
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(m\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (4)}%
-  {由 m 个 n 元 ≤1 次方程作成的方程组 (4)}}
+    \({\leq} 1\)~次方程作成的方程组 (4)}%
+{由 m 个 n 元 ≤1 次方程作成的方程组 (4)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
@@ -1652,24 +1644,24 @@
 
 若 \(A = 0\),
 则因 \(AX = B\) 有解,
-必有 \(B = 0\).
+\(B = 0\).
 此时, 显然, 每个 \(n \times 1\)~阵都是解.
 下设 \(A \neq 0\).
 设 \(A\) 有一个行列式非零的 \(r\)~级子阵
 \begin{align*}
-    T = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+    T = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}
 \end{align*}
-(其中,
+(其中, % tex-fmt: skip
 \(1 \leq i_1 < \dots < i_r \leq m\),
-且 \(1 \leq j_1 < \dots < j_r \leq n\)),
+且 \(1 \leq j_1 < \dots < j_r \leq n\)), % tex-fmt: skip
 但没有行列式非零的 \(r+1\)~级子阵.
 为方便, 我们作一个 \(r \times n\)~阵
 \begin{align*}
-    U = A\binom{i_1,\dots,i_r}{1,\dots,n},
+    U = A\submat{i_1,\dots,i_r}{1,\dots,n},
 \end{align*}
 与一个 \(r \times 1\)~阵
 \begin{align*}
-    V = B\binom{i_1,\dots,i_r}{1}
+    V = B\submat{i_1,\dots,i_r}{1}
     % =
     % \begin{bmatrix}
     %     [B]_{i_1,1} \\
@@ -1684,27 +1676,27 @@
 我们回想上节的讨论.
 为解方程组 \(AX = B\), 即
 \begin{equation*}
-    \left\{
+    \left\{ % tex-fmt: skip
     \begin{aligned}
         [A]_{1,1} x_1 + [A]_{1,2} x_2 + \dots + [A]_{1,n} x_n & = [B]_{1,1}, \\
         [A]_{2,1} x_1 + [A]_{2,2} x_2 + \dots + [A]_{2,n} x_n & = [B]_{2,1}, \\
-                                                              & \dots,       \\
+        & \dots, \\
         [A]_{m,1} x_1 + [A]_{m,2} x_2 + \dots + [A]_{m,n} x_n & = [B]_{m,1},
     \end{aligned}
-    \right.
+    \right. % tex-fmt: skip
 \end{equation*}
 我们考虑了由这 \(m\)~个方程的%
 第~\(i_1\), \(i_2\), \(\dots\), \(i_r\)~个方程%
 作成的方程组
 \begin{equation*}
-    \left\{
+    \left\{ % tex-fmt: skip
     \begin{aligned}
         [A]_{i_1,1} x_1 + [A]_{i_1,2} x_2 + \dots + [A]_{i_1,n} x_n & = [B]_{i_1,1}, \\
         [A]_{i_2,1} x_1 + [A]_{i_2,2} x_2 + \dots + [A]_{i_2,n} x_n & = [B]_{i_2,1}, \\
-                                                                    & \dots,         \\
+        & \dots, \\
         [A]_{i_r,1} x_1 + [A]_{i_r,2} x_2 + \dots + [A]_{i_r,n} x_n & = [B]_{i_r,1},
     \end{aligned}
-    \right.
+    \right. % tex-fmt: skip
 \end{equation*}
 即 \(UX = V\).
 当时, 我们已证明,
@@ -1739,7 +1731,7 @@
     其中, \(r < n\),
     且 \(U\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
-        T = U\binom{1,\dots,r}{j_1,\dots,j_r},
+        T = U\submat{1,\dots,r}{j_1,\dots,j_r},
     \end{align*}
     其中, \(1 \leq j_1 < \dots < j_r \leq n\).
     从 \(1\), \(2\), \(\dots\), \(n\)
@@ -1756,16 +1748,16 @@
     是 \(n-r\)~个常数.
     作 \(n \times 1\)~阵 \(C\), 其中,
     \begin{align*}
-        [C]_{j_k,1}
-        = \begin{dcases}
-              \frac{\det {(T\{k,V\})}}{\det {(T)}}
-              + \sum_{r < \ell \leq n}
-              {c_{j_\ell}
-                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
-               & k \leq r; \\
-              c_{j_k},
-               & k > r.
-          \end{dcases}
+        [C]_{j_k,1} =
+        \begin{dcases}
+            \frac{\det {(T\{k,V\})}}{\det {(T)}}
+            + \sum_{r < \ell \leq n}
+            {c_{j_\ell}
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+            & k \leq r; \\
+            c_{j_k},
+            & k > r.
+        \end{dcases}
     \end{align*}
     其中, \(T\{k,Y\}\) 是以 \(r \times 1\)~阵 \(Y\)
     代 \(T\) 的列~\(k\) 后得到的阵.
@@ -1777,16 +1769,16 @@
     \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\),
     使
     \begin{align*}
-        [D]_{j_k,1}
-        = \begin{dcases}
-              \frac{\det {(T\{k,V\})}}{\det {(T)}}
-              + \sum_{r < \ell \leq n}
-              {c_{j_\ell}
-                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
-               & k \leq r; \\
-              c_{j_k},
-               & k > r.
-          \end{dcases}
+        [D]_{j_k,1} =
+        \begin{dcases}
+            \frac{\det {(T\{k,V\})}}{\det {(T)}}
+            + \sum_{r < \ell \leq n}
+            {c_{j_\ell}
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+            & k \leq r; \\
+            c_{j_k},
+            & k > r.
+        \end{dcases}
     \end{align*}
     或者, \(UX = V\) 的每个解%
     都可被 (1) 中的公式表示.
@@ -1798,7 +1790,7 @@
     \begin{align*}
         \sum_{\ell = 1}^{r}
         {[U]_{p,j_\ell} x_{j_\ell}}
-            = [V]_{p,1}
+        = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} x_{j_\ell}},
     \end{align*}
@@ -1808,7 +1800,7 @@
     由 \(r\)~个 \(r\)~元 \({\leq} 1\)~次方程作成的方程组
     \begin{align*}
         \sum_{\ell = 1}^{r}
-            {[U]_{p,j_\ell} y_\ell}
+        {[U]_{p,j_\ell} y_\ell}
         = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} c_{j_\ell}}.
@@ -1835,7 +1827,7 @@
     \begin{align*}
         \sum_{\ell = 1}^{r}
         {[U]_{p,j_\ell} c_{j_\ell}}
-            = [V]_{p,1}
+        = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} c_{j_\ell}},
     \end{align*}
@@ -1846,37 +1838,37 @@
         (\det {(T)})^{-1}
         \det {
             \left(
-            T\left\{
-            k,
-            V -
-            \sum_{r < \ell \leq n}
-            {c_{j_\ell} u_{j_\ell}}
-            \right\}
+                T\left\{
+                    k,
+                    V -
+                    \sum_{r < \ell \leq n}
+                    {c_{j_\ell} u_{j_\ell}}
+                \right\}
             \right)
         }
         \\
         = {} &
         (\det {(T)})^{-1}
         \left(
-        \det {(T\{k,V\})}
-        -
-        \sum_{r < \ell \leq n}
-        {c_{j_\ell}
-            \det {(T\{k,u_{j_\ell}\})}
-        }
+            \det {(T\{k,V\})}
+            -
+            \sum_{r < \ell \leq n}
+            {c_{j_\ell}
+                \det {(T\{k,u_{j_\ell}\})}
+            }
         \right)
         \\
         = {} &
         \frac{\det {(T\{k,V\})}}{\det {(T)}}
         + \sum_{r < \ell \leq n}
         {c_{j_\ell}
-            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
+        \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
     \end{align*}
     从而
     \begin{align*}
         \sum_{\ell = 1}^{n}
         {[U]_{p,j_\ell} c_{j_\ell}}
-            = [V]_{p,1}.
+        = [V]_{p,1}.
     \end{align*}
     注意, \([C]_{j_k,1} = c_{j_k}\).
     所以, \(UC = V\).
@@ -1887,13 +1879,13 @@
     \begin{align*}
         \sum_{\ell = 1}^{n}
         {[U]_{p,j_\ell} [D]_{j_\ell,1}}
-            = [V]_{p,1}.
+        = [V]_{p,1}.
     \end{align*}
     从而
     \begin{align*}
         \sum_{\ell = 1}^{r}
         {[U]_{p,j_\ell} [D]_{j_\ell,1}}
-            = [V]_{p,1}
+        = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} [D]_{j_\ell,1}}.
     \end{align*}
@@ -1903,7 +1895,7 @@
     考虑方程组
     \begin{align*}
         \sum_{\ell = 1}^{r}
-            {[U]_{p,j_\ell} y_\ell}
+        {[U]_{p,j_\ell} y_\ell}
         = [V]_{p,1}
         - \sum_{r < \ell \leq n}
         {[U]_{p,j_\ell} c_{j_\ell}}.
@@ -1914,7 +1906,7 @@
         \frac{\det {(T\{k,V\})}}{\det {(T)}}
         + \sum_{r < \ell \leq n}
         {c_{j_\ell}
-            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}
+        \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}
     \end{align*}
     (其中, \(k = 1\), \(2\), \(\dots\), \(r\), 下同)
     是一个解;
@@ -1922,14 +1914,14 @@
     \(y_k = [D]_{j_k,1}\) 也是一个解.
     因为 \(\det {(T)} \neq 0\),
     故, 由 Cramer 公式,
-    这二个解应是相同的,
+    这 \(2\)~个解应是相同的,
     即
     \begin{equation*}
         [D]_{j_k,1} =
         \frac{\det {(T\{k,V\})}}{\det {(T)}}
         + \sum_{r < \ell \leq n}
         {c_{j_\ell}
-            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
+        \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}}.
         \qedhere
     \end{equation*}
 \end{proof}
@@ -1943,7 +1935,7 @@
 的式是 \(0\).
 用这个约定,
 我们可统一地写%
-在 \(r = n\) 与 \(r < n\) 这二个情形下%
+在 \(r = n\) 与 \(r < n\) 这 \(2\)~个情形下%
 解的公式.
 
 \begin{theorem}
@@ -1952,7 +1944,7 @@
     其中, \(r \leq n\),
     且 \(U\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
-        T = U\binom{1,\dots,r}{j_1,\dots,j_r},
+        T = U\submat{1,\dots,r}{j_1,\dots,j_r},
     \end{align*}
     其中, \(1 \leq j_1 < \dots < j_r \leq n\).
     从 \(1\), \(2\), \(\dots\), \(n\)
@@ -1965,16 +1957,16 @@
     分别是 \(u_1\), \(u_2\), \(\dots\), \(u_n\).
     那么, \(UX = V\) 的解恰为
     \begin{align*}
-        x_{j_k}
-        = \begin{dcases}
-              \frac{\det {(T\{k,V\})}}{\det {(T)}}
-              + \sum_{r < \ell \leq n}
-              {c_{j_\ell}
-                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
-               & k \leq r; \\
-              c_{j_k},
-               & k > r,
-          \end{dcases}
+        x_{j_k} =
+        \begin{dcases}
+            \frac{\det {(T\{k,V\})}}{\det {(T)}}
+            + \sum_{r < \ell \leq n}
+            {c_{j_\ell}
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+            & k \leq r; \\
+            c_{j_k},
+            & k > r,
+        \end{dcases}
     \end{align*}
     其中, \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
     是任何 \(n-r\) 个数.
@@ -1988,13 +1980,13 @@
     作一个 \(m \times (n+1)\)~阵 \(G\),
     其中,
     \begin{align*}
-        [G]_{i,j}
-        = \begin{cases}
-              [A]_{i,j}, & j \leq n;  \\
-              [B]_{i,1}, & j = n + 1.
-          \end{cases}
+        [G]_{i,j} =
+        \begin{cases}
+            [A]_{i,j}, & j \leq n;  \\
+            [B]_{i,1}, & j = n + 1.
+        \end{cases}
     \end{align*}
-    (通俗地, 在 \(A\)~的最后一列的右侧加入一列 \(B\),
+    (通俗地, 在 \(A\)~的最后一列的右边加入一列 \(B\),
     得到尺寸较大的阵 \(G\).)
     设 \(A\) 有一个行列式非零的 \(r\)~级子阵,
     但 \(A\) 没有行列式非零的 \(r+1\)~级子阵;
@@ -2014,11 +2006,11 @@
 
     (2)
     若 \(s > r\), 则 \(AX = B\) 无解;
-    也就是, 若 \(AX = B\) 有解, 必 \(s = r\).
+    也就是, 若 \(AX = B\) 有解, 则 \(s = r\).
 
     (3)
     若 \(s = r\), 则 \(AX = B\) 有解;
-    也就是, 若 \(AX = B\) 无解, 必 \(s > r\).
+    也就是, 若 \(AX = B\) 无解, 则 \(s > r\).
 
     (4)
     设 \(s = r\).
@@ -2030,7 +2022,7 @@
     设 \(A \neq 0\).
     设 \(A\) 有一个行列式非零的 \(r\)~级子阵
     \begin{align*}
-        T = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
+        T = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}
     \end{align*}
     (其中, \(1 \leq i_1 < \dots < i_r \leq m\),
     且 \(1 \leq j_1 < \dots < j_r \leq n\)),
@@ -2040,13 +2032,13 @@
 
     记 \(r \times n\)~阵
     \begin{align*}
-        U = A\binom{i_1,\dots,i_r}{1,\dots,n}.
+        U = A\submat{i_1,\dots,i_r}{1,\dots,n}.
     \end{align*}
     于是, 可视 \(T\) 为 \(U\) 的一个%
     行列式非零的 \(r\)~级子阵.
     再记 \(r \times 1\)~阵
     \begin{align*}
-        V = B\binom{i_1,\dots,i_r}{1}
+        V = B\submat{i_1,\dots,i_r}{1}
         % =
         % \begin{bmatrix}
         %     [B]_{i_1,1} \\
@@ -2070,16 +2062,16 @@
     分别是 \(u_1\), \(u_2\), \(\dots\), \(u_n\).
     那么, \(UX = V\) 的解 (即 \(AX = B\) 的解) 恰为
     \begin{align*}
-        x_{j_k}
-        = \begin{dcases}
-              \frac{\det {(T\{k,V\})}}{\det {(T)}}
-              + \sum_{r < \ell \leq n}
-              {c_{j_\ell}
-                  \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
-               & k \leq r; \\
-              c_{j_k},
-               & k > r,
-          \end{dcases}
+        x_{j_k} =
+        \begin{dcases}
+            \frac{\det {(T\{k,V\})}}{\det {(T)}}
+            + \sum_{r < \ell \leq n}
+            {c_{j_\ell}
+            \frac{-\det {(T\{k,u_{j_\ell}\})}}{\det {(T)}}},
+            & k \leq r; \\
+            c_{j_k},
+            & k > r,
+        \end{dcases}
     \end{align*}
     其中,
     \(c_{j_{r+1}}\), \(\dots\), \(c_{j_n}\)
@@ -2092,14 +2084,14 @@
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(m\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (5)}%
-  {由 m 个 n 元 ≤1 次方程作成的方程组 (5)}}
+    \({\leq} 1\)~次方程作成的方程组 (5)}%
+{由 m 个 n 元 ≤1 次方程作成的方程组 (5)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
 
 线性方程组的故事要结束了.
-我们已解决线性方程组的三个重要的问题:
+我们已解决线性方程组的 \(3\)~个重要的问题:
 
 (1)
 一个线性方程组何时有解?
@@ -2110,7 +2102,7 @@
 (3)
 一个线性方程组有解时, 我们如何找到它的全部的解?
 
-我们用行列式回答了这三个问题,
+我们用行列式回答了这 \(3\)~个问题,
 作了线性方程组的一个理论.
 所以, 理论地, 给了一个线性方程组,
 我们可以计算一些行列式以确定它是否有解,
@@ -2124,7 +2116,7 @@
 不过, 此理论仍然是重要的.
 或许, 您还记得,
 任给一个阵~\(A\),
-必存在唯一的非负整数 \(r\),
+存在唯一的非负整数 \(r\),
 使 \(A\)~有一个行列式非零的 \(r\)~级子阵,
 但 \(A\)~没有行列式非零的 \(r+1\)~级子阵.
 聪明的数学人意识到,

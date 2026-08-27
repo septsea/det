@@ -2,12 +2,13 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(n\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (2)}%
-  {由 n 个 n 元 ≤1 次方程作成的方程组 (2)}}
+    \({\leq} 1\)~次方程作成的方程组 (2)}%
+{由 n 个 n 元 ≤1 次方程作成的方程组 (2)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
@@ -29,10 +30,11 @@
 \begin{example}
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                1  & 1  \\
-                -1 & -1 \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            1  & 1  \\
+            -1 & -1 \\
+        \end{bmatrix},
         \quad
         B =
         \begin{bmatrix}
@@ -113,26 +115,27 @@
     \end{align*}
     且
     \(
-    \begin{bmatrix}
-        0 \\
-        1 \\
-    \end{bmatrix}
-    \neq
-    \begin{bmatrix}
-        1 \\
-        0 \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            0 \\
+            1 \\
+        \end{bmatrix}
+        \neq
+        \begin{bmatrix}
+            1 \\
+            0 \\
+        \end{bmatrix}
     \).
 
     当 \(b = 0\) 时, 此方程组无解.
     用反证法.
     反设
     \(
-    A \begin{bmatrix}
-        y_1 \\
-        y_2 \\
-    \end{bmatrix}
-    = B
+        A
+        \begin{bmatrix}
+            y_1 \\
+            y_2 \\
+        \end{bmatrix}
+        = B
     \),
     即
     \begin{align*}
@@ -142,7 +145,7 @@
     从而
     \begin{align*}
         1 + 0
-        = {} & (y_1 + y_2) + (-y_1 - y_2)     \\
+        = {} & (y_1 + y_2) + (-y_1 - y_2) \\
         = {} & (y_1 - y_1) + (y_2 - y_2) = 0.
     \end{align*}
     这是矛盾.
@@ -162,11 +165,11 @@
     那么, 对任何的 \(n \times 1\)~阵 \(B\),
     存在一个 \(n \times 1\)~阵 \(C\),
     使 \(AC = B\).
-    (或者,
+    (或者, % tex-fmt: skip
     若存在某 \(n \times 1\)~阵 \(B\),
     使对任何的 \(n \times 1\)~阵 \(C\),
-    必 \(AC \neq B\),
-    则 \(\det {(A)} = 0\).)
+    \(AC \neq B\),
+    则 \(\det {(A)} = 0\).) % tex-fmt: skip
 \end{theorem}
 
 重要地, 此事反过来也对.
@@ -177,11 +180,11 @@
     存在一个 \(n \times 1\)~阵 \(C\),
     使 \(AC = B\).
     则 \(\det {(A)} \neq 0\).
-    (或者,
+    (或者, % tex-fmt: skip
     若 \(\det {(A)} = 0\),
     则存在某 \(n \times 1\)~阵 \(B\),
     使对任何的 \(n \times 1\)~阵 \(C\),
-    必 \(AC \neq B\).)
+    \(AC \neq B\).) % tex-fmt: skip
 \end{theorem}
 
 \begin{proof}
@@ -202,8 +205,8 @@
         = {} & [e_1, e_2, \dots, e_n]     \\
         = {} & I.
     \end{align*}
-    因为二个同级的方阵的积的行列式%
-    等于这二个阵的行列式的积,
+    因为 \(2\)~个同级的方阵的积的行列式%
+    等于这 \(2\)~个阵的行列式的积,
     \begin{align*}
         1 = \det {(I)} = \det {(A)} \det {(F)}.
     \end{align*}
@@ -212,8 +215,8 @@
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(n\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (3)}%
-  {由 n 个 n 元 ≤1 次方程作成的方程组 (3)}}
+    \({\leq} 1\)~次方程作成的方程组 (3)}%
+{由 n 个 n 元 ≤1 次方程作成的方程组 (3)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
@@ -276,7 +279,7 @@
     %     AC_j = A(C + jD) = AC + A(jD) = B + j(AD) = B + j0 = B.
     % \end{align*}
     % 然后, 我们证,
-    % 若 \(p\), \(q\) 是二个不相等的%
+    % 若 \(p\), \(q\) 是 \(2\)~个不相等的%
     % 且不超过 \(m\) 的正整数,
     % 则 \(C_p \neq C_q\).
     % 用反证法.
@@ -317,9 +320,9 @@
     设 \(A\) 是 \(n\)~级阵.
     设 \(AX = 0\) 有非零解.
     则 \(\det {(A)} = 0\).
-    (或者,
+    (或者, % tex-fmt: skip
     若 \(\det {(A)} \neq 0\),
-    则 \(AX = 0\) 只有零解.)
+    则 \(AX = 0\) 只有零解.) % tex-fmt: skip
 \end{theorem}
 
 重要地, 此事反过来也对.
@@ -328,9 +331,9 @@
     设 \(A\) 是 \(n\)~级阵.
     设 \(\det {(A)} = 0\).
     则 \(AX = 0\) 有非零解.
-    (或者,
+    (或者, % tex-fmt: skip
     若 \(AX = 0\) 只有零解,
-    则 \(\det {(A)} \neq 0\).)
+    则 \(\det {(A)} \neq 0\).) % tex-fmt: skip
 \end{theorem}
 
 为方便, 我要引入一个小概念.
@@ -339,14 +342,14 @@
 (见本章, 节~\sekcio{5}),
 且 \(Z\) 是一个 \(p\)~级阵.
 
-在论证此事前, 我想用三个例%
+在论证此事前, 我想用 \(3\)~个例%
 助您理解此事为何是对的.
 
 \begin{example}
     设 \(A\) 是一个 \(5\)~级阵,
     且 \(A = 0\).
     那么, 对任何非零的 \(5 \times 1\)~阵 \(S\),
-    必有 \(AS = 0\).
+    \(AS = 0\).
 \end{example}
 
 \begin{example}
@@ -368,18 +371,18 @@
     我们设 \(\operatorname{adj} {(A)}\) 的%
     列~\(v\) 是 \(Y\).
     那么, \([Y]_{k,1}
-        = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
+    = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
     从而 \(Y \neq 0\).
     我们证明 \(AY = 0\):
     \begin{align*}
         [AY]_{i,1}
         = {} &
         \sum_{\ell = 1}^{5}
-            {[A]_{i,\ell} [Y]_{\ell,1}}
+        {[A]_{i,\ell} [Y]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{5}
-            {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
+        {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
         \\
         = {} &
         [A \operatorname{adj} {(A)}]_{i,v}
@@ -389,6 +392,7 @@
         \\
         = {} &
         0.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -400,17 +404,18 @@
     在上个例里, 我们假定
     \(\operatorname{adj} {(A)} \neq 0\).
     可是, 它也有可能为 \(0\), 即使 \(A \neq 0\)
-    (比如, 可以验证
+    (比如, 可以验证 % tex-fmt: skip
     \begin{align*}
-        M = \begin{bmatrix}
-                1  & 1 & -1 & -1 & 1 \\
-                1  & 2 & 0  & 0  & 2 \\
-                2  & 1 & -3 & -3 & 1 \\
-                -1 & 0 & 2  & 2  & 0 \\
-                -1 & 1 & 3  & 3  & 1 \\
-            \end{bmatrix}
+        M =
+        \begin{bmatrix}
+            1  & 1 & -1 & -1 & 1 \\
+            1  & 2 & 0  & 0  & 2 \\
+            2  & 1 & -3 & -3 & 1 \\
+            -1 & 0 & 2  & 2  & 0 \\
+            -1 & 1 & 3  & 3  & 1 \\
+        \end{bmatrix}
     \end{align*}
-    的古伴就是 \(0\)).
+    的古伴就是 \(0\)). % tex-fmt: skip
 
     现在, 我们假定
     \(\operatorname{adj} {(A)} = 0\).
@@ -426,7 +431,7 @@
     适合性质:
     \(A\) 有一个 \(r\)~级子阵, 其的行列式非零,
     且 \(A\) 的每个 \(r+1\)~级子阵的行列式都是 \(0\).
-    (我们已知 \(A\) 的每个 \(4\)~级子阵的行列式都是 \(0\).
+    (我们已知 \(A\) 的每个 \(4\)~级子阵的行列式都是 \(0\). % tex-fmt: skip
     我们考虑 \(A\) 的 \(3\)~级子阵.
     若有一个 \(3\)~级子阵的行列式不是 \(0\),
     我们就取 \(r = 3\).
@@ -438,29 +443,23 @@
     我们考虑 \(A\) 的 \(1\)~级子阵.
     因为 \(A \neq 0\),
     故 \(A\) 有 \(1\)~级子阵的行列式不是 \(0\).
-    此时, 取 \(r = 1\) 即可.)
+    此时, 取 \(r = 1\) 即可.) % tex-fmt: skip
 
     我以 \(r = 2\) 为例%
     说明找 \(AX = 0\) 的非零解的方法
-    (可以验证,
+    (可以验证, % tex-fmt: skip
     前面的 \(M\) 的行~\(1\), \(2\)
     与列~\(1\), \(2\) 作成的
     \(2\)~级子阵的行列式不是 \(0\),
-    但 \(M\) 的每个 \(3\)~级子阵的行列式都是 \(0\));
+    但 \(M\) 的每个 \(3\)~级子阵的行列式都是 \(0\)); % tex-fmt: skip
     \(r = 3\) 或 \(r = 1\) 时的情形是类似的.
 
     我们设
-    \(\displaystyle
-    A_2 =
-    A\binom{1,2}{1,2}
-    \)
+    \(A_2 = A\submat{1,2}{1,2}\)
     的行列式不是 \(0\),
     且 \(A\) 的每个 \(3\)~级子阵的行列式都是 \(0\).
     再设
-    \(\displaystyle
-    E =
-    A\binom{1,2,3}{1,2,3}
-    \).
+    \(E = A\submat{1,2,3}{1,2,3}\).
     因为 \(E\) 是 \(A\) 的一个 \(3\)~级子阵,
     故 \(\det {(E)} = 0\).
     从而
@@ -478,16 +477,16 @@
     的非零解.
     我们作一个 \(5 \times 1\)~阵 \(W\), 其中,
     \begin{align*}
-        [W]_{\ell,1}
-        = \begin{cases}
-              [\operatorname{adj} {(E)}]_{\ell,3},
-                 & \ell \leq 3; \\
-              0, & \ell > 3.
-          \end{cases}
+        [W]_{\ell,1} =
+        \begin{cases}
+            [\operatorname{adj} {(E)}]_{\ell,3},
+            & \ell \leq 3; \\
+            0, & \ell > 3.
+        \end{cases}
     \end{align*}
-    (通俗地, 我们在 \(T\) 的最后一个元后加 \(2\)~个 \(0\),
+    (通俗地, 我们在 \(T\) 的最后一个元后加 \(2\)~个 \(0\), % tex-fmt: skip
     变 \(3 \times 1\)~阵 \(T\)
-    为一个 \(5 \times 1\)~阵 \(W\).)
+    为一个 \(5 \times 1\)~阵 \(W\).) % tex-fmt: skip
     因为 \([W]_{3,1} \neq 0\),
     故 \(W \neq 0\).
     我们证明 \(AW = 0\).
@@ -498,38 +497,38 @@
         [AW]_{q,1}
         = {} &
         \sum_{\ell = 1}^{5}
-            {[A]_{q,\ell} [W]_{\ell,1}}
+        {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{3}
-            {[A]_{q,\ell} [W]_{\ell,1}}
+        {[A]_{q,\ell} [W]_{\ell,1}}
         +
         \sum_{\ell = 4}^{5}
-            {[A]_{q,\ell} [W]_{\ell,1}}
+        {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{3}
-            {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}
+        {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}
         +
         \sum_{\ell = 4}^{5}
-            {[A]_{q,\ell}\, 0}
+        {[A]_{q,\ell}\, 0}
         \\
         = {} &
         \sum_{\ell = 1}^{3}
-            {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}.
+        {[A]_{q,\ell} [\operatorname{adj} {(E)}]_{\ell,3}}.
     \end{align*}
     若 \(q \leq 3\), 则
     \begin{align*}
         [AW]_{q,1}
         = {} &
         \sum_{\ell=1}^{3}
-            {[A]_{q,\ell}
-                    [\operatorname{adj} {(E)}]_{\ell,3}}
+        {[A]_{q,\ell}
+        [\operatorname{adj} {(E)}]_{\ell,3}}
         \\
         = {} &
         \sum_{p=1}^{3}
-            {[E]_{q,\ell}
-                    [\operatorname{adj} {(E)}]_{\ell,3}}
+        {[E]_{q,\ell}
+        [\operatorname{adj} {(E)}]_{\ell,3}}
         \\
         = {} &
         [E \operatorname{adj} {(E)}]_{q,3}
@@ -545,21 +544,21 @@
         [AW]_{q,1}
         = {} &
         \sum_{\ell=1}^{3}
-            {[A]_{q,\ell}
-                    [\operatorname{adj} {(E)}]_{\ell,3}}
+        {[A]_{q,\ell}
+        [\operatorname{adj} {(E)}]_{\ell,3}}
         \\
         = {} &
         \sum_{\ell=1}^{3}
-            {[A]_{q,\ell}
-                (-1)^{3+\ell} \det {(E(3|\ell))}}.
+        {[A]_{q,\ell}
+        (-1)^{3+\ell} \det {(E(3|\ell))}}.
     \end{align*}
     作一个 \(3\)~级阵 \(C_q\), 其中,
     \begin{align*}
-        [C_q]_{h,\ell}
-        = \begin{cases}
-              [E]_{h,\ell}, & h \neq 3; \\
-              [A]_{q,\ell}, & h = 3.
-          \end{cases}
+        [C_q]_{h,\ell} =
+        \begin{cases}
+            [E]_{h,\ell}, & h \neq 3; \\
+            [A]_{q,\ell}, & h = 3.
+        \end{cases}
     \end{align*}
     于是, \(C_q(3|\ell) = E(3|\ell)\).
     从而
@@ -567,22 +566,19 @@
         [AW]_{q,1}
         = {} &
         \sum_{\ell=1}^{3}
-            {[A]_{q,\ell}
-                (-1)^{3+\ell} \det {(E(3|\ell))}}
+        {[A]_{q,\ell}
+        (-1)^{3+\ell} \det {(E(3|\ell))}}
         \\
         = {} &
         \sum_{\ell=1}^{3}
-            {[C_q]_{3,\ell}
-                (-1)^{3+\ell} \det {(C_q (3|\ell))}}
+        {[C_q]_{3,\ell}
+        (-1)^{3+\ell} \det {(C_q (3|\ell))}}
         \\
         = {} &
         \det {(C_q)}.
     \end{align*}
     注意,
-    \(
-    \displaystyle
-    C_q = A\binom{1,2,q}{1,2,3}
-    \)
+    \(C_q = A\submat{1,2,q}{1,2,3}\)
     是 \(A\)~的一个 \(3\)~级子阵,
     故
     \begin{align*}
@@ -593,7 +589,7 @@
 \end{example}
 
 下面, 我给出此事的论证.
-证明分三个情形:
+证明分 \(3\)~个情形:
 (a)
 \(A = 0\);
 (b)
@@ -644,18 +640,18 @@
     我们设 \(\operatorname{adj} {(A)}\) 的%
     列~\(v\) 是 \(Y\).
     那么, \([Y]_{k,1}
-        = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
+    = [\operatorname{adj} {(A)}]_{k,v} \neq 0\),
     从而 \(Y \neq 0\).
     我们证明 \(AY = 0\):
     \begin{align*}
         [AY]_{i,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [Y]_{\ell,1}}
+        {[A]_{i,\ell} [Y]_{\ell,1}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
+        {[A]_{i,\ell} [\operatorname{adj} {(A)}]_{\ell,v}}
         \\
         = {} &
         [A \operatorname{adj} {(A)}]_{i,v}
@@ -669,15 +665,15 @@
 
     若 \(\operatorname{adj} {(A)} = 0\),
     则 \(A\) 的每个 \(n-1\)~级子阵的行列式都是 \(0\)
-    (同时, 这也要求 \(n > 2\):
+    (同时, 这也要求 \(n > 2\): % tex-fmt: skip
     回想 \(2\)~级阵的古伴是何;
-    再回想前面作过的假定 \(A \neq 0\)).
+    再回想前面作过的假定 \(A \neq 0\)). % tex-fmt: skip
     从而, 存在一个%
     低于 \(n-1\) 的正整数 \(r\)
     适合性质:
     \(A\) 有一个 \(r\)~级子阵, 其的行列式非零,
     且 \(A\) 的每个 \(r+1\)~级子阵的行列式都是 \(0\).
-    (我们已知 \(A\) 的每个 \(n-1\)~级子阵的行列式都是 \(0\).
+    (我们已知 \(A\) 的每个 \(n-1\)~级子阵的行列式都是 \(0\). % tex-fmt: skip
     我们考虑 \(A\) 的 \(n-2\)~级子阵.
     若有一个 \(n-2\)~级子阵的行列式不是 \(0\),
     我们就取 \(r = n-2\).
@@ -690,13 +686,10 @@
     我们考虑 \(A\) 的 \(1\)~级子阵.
     因为 \(A \neq 0\),
     故 \(A\) 有 \(1\)~级子阵的行列式不是 \(0\).
-    此时, 取 \(r = 1\) 即可.)
+    此时, 取 \(r = 1\) 即可.) % tex-fmt: skip
 
     我们设 \(A\)~的 \(r\)~级子阵
-    \(
-    \displaystyle
-    A_r = A\binom{i_1,\dots,i_r}{j_1,\dots,j_r}
-    \)
+    \(A_r = A\submat{i_1,\dots,i_r}{j_1,\dots,j_r}\)
     的行列式非零,
     其中, \(i_1 < i_2 < \dots < i_r\),
     且 \(j_1 < j_2 < \dots < j_r\).
@@ -713,10 +706,9 @@
     我们从中选一个为 \(j_{r+1}\).
     作 \(r+1\)~级阵
     \(
-    \displaystyle
-    E =
-    A\binom{i_1,\dots,i_r,i_{r+1}}
-    {j_1,\dots,j_r,j_{r+1}}
+        E =
+        A\submat{i_1,\dots,i_r,i_{r+1}}
+        {j_1,\dots,j_r,j_{r+1}}
     \).
     我们设 \(i_p\) 在
     \(i_1\), \(\dots\), \(i_r\), \(i_{r+1}\)
@@ -741,17 +733,17 @@
     的非零解.
     我们作一个 \(n \times 1\)~阵 \(W\), 其中,
     \begin{align*}
-        [W]_{\ell,1}
-        = \begin{cases}
-              [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
-                 & \text{\(\ell = j_p\),
-              \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
-              0, & \text{别的情形}.
-          \end{cases}
+        [W]_{\ell,1} =
+        \begin{cases}
+            [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})},
+            & \text{\(\ell = j_p\),
+            \(p = 1\), \(\dots\), \(r\), \(r+1\)}; \\
+            0, & \text{别的情形}.
+        \end{cases}
     \end{align*}
-    (通俗地, 我们在适当的位置写 \(0\),
+    (通俗地, 我们在适当的位置写 \(0\), % tex-fmt: skip
     变 \((r+1) \times 1\)~阵 \(T\)
-    为一个 \(n \times 1\)~阵 \(W\).)
+    为一个 \(n \times 1\)~阵 \(W\).) % tex-fmt: skip
     因为 \([W]_{j_{r+1},1} \neq 0\),
     故 \(W \neq 0\).
     我们证明 \(AW = 0\).
@@ -762,54 +754,54 @@
         [AW]_{q,1}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[A]_{q,\ell} [W]_{\ell,1}}
+        {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq \ell \leq n \\
-        \ell = j_p         \\
+                1 \leq \ell \leq n \\
+                \ell = j_p         \\
                 1 \leq p \leq r+1
-            }}
+        }}
         {[A]_{q,\ell} [W]_{\ell,1}}
         +
         \sum_{\substack{
-        1 \leq \ell \leq n \\
+                1 \leq \ell \leq n \\
                 \text{别的情形}
-            }}
+        }}
         {[A]_{q,\ell} [W]_{\ell,1}}
         \\
         = {} &
         \sum_{\substack{
-        1 \leq \ell \leq n \\
-        \ell = j_p         \\
+                1 \leq \ell \leq n \\
+                \ell = j_p         \\
                 1 \leq p \leq r+1
-            }}
+        }}
         {[A]_{q,j_p}
-                [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         +
         \sum_{\substack{
-        1 \leq \ell \leq n \\
+                1 \leq \ell \leq n \\
                 \text{别的情形}
-            }}
+        }}
         {[A]_{q,\ell}\, 0}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
+        {[A]_{q,j_p}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}.
     \end{align*}
     若 \(q\) 等于某个 \(i_t\), 则
     \begin{align*}
         [AW]_{i_t,1}
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{i_t,j_p}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        {[A]_{i_t,j_p}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[E]_{f(i_t),g(j_p)}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        {[E]_{f(i_t),g(j_p)}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         [E \operatorname{adj} {(E)}]_{f(i_t),f(i_{r+1})}
@@ -827,24 +819,24 @@
         [AW]_{q,1}
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                    [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
+        {[A]_{q,j_p}
+        [\operatorname{adj} {(E)}]_{g(j_p),f(i_{r+1})}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                (-1)^{f(i_{r+1})+g(j_p)}
-                \det {(E(f(i_{r+1})|g(j_p)))}}.
+        {[A]_{q,j_p}
+            (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}.
     \end{align*}
     作一个 \(r+1\)~级阵 \(C_q\), 其中,
     \begin{align*}
-        [C_q]_{h,g(j_p)}
-        = \begin{cases}
-              [E]_{h,g(j_p)},
-               & h \neq f(i_{r+1}); \\
-              [A]_{q,j_p},
-               & h = f(i_{r+1}).
-          \end{cases}
+        [C_q]_{h,g(j_p)} =
+        \begin{cases}
+            [E]_{h,g(j_p)},
+            & h \neq f(i_{r+1}); \\
+            [A]_{q,j_p},
+            & h = f(i_{r+1}).
+        \end{cases}
     \end{align*}
     于是, \(C_q(f(i_{r+1})|g(j_p))
     = E(f(i_{r+1})|g(j_p))\).
@@ -853,32 +845,29 @@
         [AW]_{q,1}
         = {} &
         \sum_{p=1}^{r+1}
-            {[A]_{q,j_p}
-                (-1)^{f(i_{r+1})+g(j_p)}
-                \det {(E(f(i_{r+1})|g(j_p)))}}
+        {[A]_{q,j_p}
+            (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(E(f(i_{r+1})|g(j_p)))}}
         \\
         = {} &
         \sum_{p=1}^{r+1}
-            {[C_q]_{f(i_{r+1}),g(j_p)}
-                (-1)^{f(i_{r+1})+g(j_p)}
-                \det {(C_q (f(i_{r+1})|g(j_p)))}}
+        {[C_q]_{f(i_{r+1}),g(j_p)}
+            (-1)^{f(i_{r+1})+g(j_p)}
+        \det {(C_q (f(i_{r+1})|g(j_p)))}}
         \\
         = {} &
         \det {(C_q)}.
     \end{align*}
 
     再作一个 \(r+1\)~级阵
-    \(
-    \displaystyle
-    D_q =
-    A\binom{i_1,\dots,i_r,q}
-    {j_1,\dots,j_r,j_{r+1}}
-    \).
+    \(D_q =
+        A\submat{i_1,\dots,i_r,q}
+    {j_1,\dots,j_r,j_{r+1}}\).
     不难看出, 适当地交换 \(C_q\) 的行的次序,
     即可变 \(C_q\) 为 \(D_q\).
     根据反称性,
     \(\det {(C_q)} = \pm \det {(D_q)}\).
-    (具体地, 设 \(q\) 在
+    (具体地, 设 \(q\) 在 % tex-fmt: skip
     \(i_1\), \(\dots\), \(i_r\), \(q\)
     中是第~\(u\) 小的数.
     那么, 当 \(f(i_{r+1}) = u\) 时, \(C_q = D_q\).
@@ -895,7 +884,7 @@
     ……
     且再交换行~\(u+1\) 与 \(u\);
     作 \(f(i_{r+1}) - u\)~次相邻行的交换,
-    即可变 \(C_q\) 为 \(D_q\).)
+    即可变 \(C_q\) 为 \(D_q\).) % tex-fmt: skip
     因为 \(D_q\) 是 \(A\) 的一个 \(r+1\)~级子阵,
     故它的行列式为 \(0\).
     从而
@@ -912,13 +901,13 @@
 
 \KunAsteriskoEnEnhavtabelo
 \section{\texorpdfstring{由 \(n\)~个 \(n\)~元
-      \({\leq} 1\)~次方程作成的方程组 (4)}%
-  {由 n 个 n 元 ≤1 次方程作成的方程组 (4)}}
+    \({\leq} 1\)~次方程作成的方程组 (4)}%
+{由 n 个 n 元 ≤1 次方程作成的方程组 (4)}}
 \SenAsteriskoEnEnhavtabelo
 
 \maldevigalegajxo
 
-综合前几节的讨论, 我们有如下定理.
+综合前几节的讨论, 我们得
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级阵,

@@ -20,9 +20,9 @@
         }
     ],
     "settings": {
-        "cSpell.enableFiletypes": [
-            "bibtex"
-        ],
+        "cSpell.enabledFileTypes": {
+            "bibtex": true
+        },
         "files.exclude": {
             "**/*-blx.aux": true,
             "**/*-blx.bib": true,
@@ -193,7 +193,6 @@
         "git.postCommitCommand": "sync",
         "latex-workshop.bibtex-fields.sort.enabled": true,
         "latex-workshop.bibtex-format.tab": "4 spaces",
-        "latex-workshop.formatting.latex": "latexindent",
         "latex-workshop.intellisense.file.base": "both",
         "latex-workshop.latex.recipe.default": "lastUsed",
         "latex-workshop.latex.recipes": [

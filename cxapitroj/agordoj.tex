@@ -126,6 +126,25 @@
     }{}
 }
 
+\providecommand*{\regularscript}{}
+\IfFontExistsTF{LXGW WenKai Mono Light}{%
+    \IfFontExistsTF{Sarasa Mono SC SemiBold}{%
+        \IfFontExistsTF{Sarasa Mono SC Light Italic}{%
+            \IfFontExistsTF{Sarasa Mono SC SemiBold Italic}{%
+                \setCJKfamilyfont{lxgwwk}[
+                    UprightFont = LXGW WenKai Mono Light,
+                    BoldFont = * SemiBold,
+                    ItalicFont = * Light Italic,
+                    BoldItalicFont = * SemiBold Italic
+                ]{Sarasa Mono SC}
+                \renewcommand*{\regularscript}{\CJKfamily{lxgwwk}}
+            }{}
+        }{}
+    }{}
+}{
+    \renewcommand*{\regularscript}{}
+}
+
 % I redefine the emphasis style.
 \let\emph\relax
 \DeclareTextFontCommand{\emph}{\bfseries}
@@ -142,6 +161,23 @@
     warnings-off={mathtools-colon,mathtools-overbracket}
 ]{unicode-math}
 \allowdisplaybreaks[3]
+\providecommand{\iddots}{⋰}
+
+% % These are commands for typesetting Stirling numbers.
+% \newcommand{\genstirlingI}[3]{%
+%     \genfrac{[}{]}{0pt}{#1}{#2}{#3}%
+% }
+% \newcommand{\genstirlingII}[3]{%
+%     \genfrac{\{}{\}}{0pt}{#1}{#2}{#3}%
+% }
+% \newcommand{\stirlingI}[2]{\genstirlingI{}{#1}{#2}}
+% \newcommand{\dstirlingI}[2]{\genstirlingI{0}{#1}{#2}}
+% \newcommand{\tstirlingI}[2]{\genstirlingI{1}{#1}{#2}}
+% \newcommand{\stirlingII}[2]{\genstirlingII{}{#1}{#2}}
+% \newcommand{\dstirlingII}[2]{\genstirlingII{0}{#1}{#2}}
+% \newcommand{\tstirlingII}[2]{\genstirlingII{1}{#1}{#2}}
+
+\newcommand{\submat}[2]{\genfrac{\{}{\}}{0pt}{0}{#1}{#2}}
 
 % I specify the mathematical font(s) used by the document.
 \IfFontExistsTF{XITSMath-Regular.otf}{%
@@ -164,37 +200,51 @@
 \usepackage{thmtools}
 \usepackage{thm-restate}
 
+% A temporary fix for the incompatibility in
+% https://github.com/muzimuzhi/thmtools/issues/75
+\makeatletter
+\@ifundefined{newcounteralias}{}{%
+    \renewcommand\thmt@autorefsetup{\@xa\def\csname\thmt@envname autorefname\@xa\endcsname\@xa{\thmt@thmname}}%
+}
+\makeatother
+
 \declaretheoremstyle[%
     spaceabove=2ex,%
     spacebelow=2ex,%
-    headfont=\normalfont\bfseries,%
+    headfont=\normalfont\sffamily\bfseries,%
     notefont=\normalfont,%
     notebraces={(}{)},%
     bodyfont=\normalfont,%
     headindent=\parindent,%
     headpunct={},%
     postheadspace=1em%
-]{TheoremStyle}
+]{Theoremoid}
+
 \declaretheoremstyle[%
     spaceabove=2ex,%
     spacebelow=2ex,%
-    headfont=\normalfont\bfseries,%
+    headfont=\normalfont\sffamily\bfseries,%
     notefont=\normalfont,%
     notebraces={(}{)},%
-    bodyfont=\normalfont,%
+    bodyfont=\normalfont\regularscript,%
     headindent=\parindent,%
     headpunct={},%
-    postheadspace=1em,%
-    qed=\qedsymbol%
-]{ProofStyle}
+    postheadspace=1em%
+]{TheoremoidWithKai}
 
 \numberwithin{equation}{chapter}
-\declaretheorem[style=TheoremStyle,name=定理,sibling=equation]{theorem}
-\declaretheorem[style=TheoremStyle,name=原理,sibling=theorem]{principle}
-\declaretheorem[style=TheoremStyle,name=假定,sibling=theorem]{assumption}
-\declaretheorem[style=TheoremStyle,name=定义,sibling=theorem]{definition}
-\declaretheorem[style=TheoremStyle,name=例,sibling=theorem]{example}
-\declaretheorem[style=TheoremStyle,name=注,numbered=no]{remark*}
+\declaretheorem[style=TheoremoidWithKai,name=定理,sibling=equation]{theorem}
+\declaretheorem[style=TheoremoidWithKai,name=原理,sibling=theorem]{principle}
+\declaretheorem[style=TheoremoidWithKai,name=假定,sibling=theorem]{assumption}
+\declaretheorem[style=TheoremoidWithKai,name=定义,sibling=theorem]{definition}
+\declaretheorem[style=TheoremoidWithKai,name=注,numbered=no]{remark*}
+\declaretheorem[style=Theoremoid,name=例,sibling=theorem,qed=\diamond]{example}
+
+% quod erat faciendum
+\newcommand{\qefhere}{\qedhere}
+
+% quod erat notandum
+\newcommand{\qenhere}{\qedhere}
 
 % I redefine the proof environment,
 % so that I can use thmtools to typeset a proof,
@@ -204,9 +254,10 @@
 % \let\endproof\relax
 \renewcommand{\proofname}{证}
 \newcommand{\nomodepruvo}{证}
-\renewcommand*{\qedsymbol}{证完.}
-\declaretheorem[style=ProofStyle,name=\protect\nomodepruvo,numbered=no]{pruvo}
-\renewenvironment{proof}[1][\proofname]{\renewcommand{\nomodepruvo}{#1}\begin{pruvo}}{\end{pruvo}}
+\declaretheorem[style=Theoremoid,name=\protect\nomodepruvo,numbered=no,qed={证完.}]{pruvo}
+\renewenvironment{proof}[1][\proofname]{\renewcommand{\nomodepruvo}{#1}%
+\begin{pruvo}}{%
+\end{pruvo}}
 
 % I copied the magic from "memoir", a document class
 % for typesetting poetry, fiction, non-fiction,
@@ -232,7 +283,7 @@
     \hbadness 4000%
     \emergencystretch 1.5em%
     \hfuzz .1\p@%
-    \vfuzz\hfuzz}
+\vfuzz\hfuzz}
 \makeatother
 
 \makeatletter
@@ -252,36 +303,40 @@
 % and to do something if it is the case.
 \usepackage{ifxetex}
 \ifxetex
-    \usepackage{xpatch}
-    \ExplSyntaxOn
-    % https://github.com/CTeX-org/ctex-kit/issues/636
-    % The following lines apply the patch
-    % (described in the link above)
-    % only if the package date is after 2022-08-05
-    % _and_ before 2022-08-31.
-    % The bug was introduced in v3.9.1 (on 2022-08-05)
-    % and fixed in dev (on 2022-08-31).
-    % More information is available at:
-    % https://github.com/CTeX-org/ctex-kit/commit/a841dabaac7c2dccacd1858ba96f6eb38adfb335
-    % https://github.com/CTeX-org/ctex-kit/commit/aa5f00db05f12034845f8e5c4119971b5aae33ff
-    \IfPackageAtLeastTF{xeCJK}{2022-08-05}{
-        \IfPackageAtLeastTF{xeCJK}{2022-08-31}{}{
-            \xpatchcmd \__xeCJK_check_for_xglue:
-            {\__xeCJK_if_last_glue:TF}
-            {\__xeCJK_if_last_glue:T}
-            {}{\PatchFailed}
-        }
-    }{}
-    \ExplSyntaxOff
-    \xeCJKsetup{%
-        % https://github.com/CTeX-org/ctex-kit/issues/636
-        xCJKecglue = true,%
-        CJKspace = true,%
-        CheckSingle = true,%
+\usepackage{xpatch}
+\ExplSyntaxOn
+% https://github.com/CTeX-org/ctex-kit/issues/636
+% The following lines apply the patch
+% (described in the link above)
+% only if the package date is after 2022-08-05
+% _and_ before 2022-08-31.
+% The bug was introduced in v3.9.1 (on 2022-08-05)
+% and fixed in dev (on 2022-08-31).
+% More information is available at:
+% https://github.com/CTeX-org/ctex-kit/commit/a841dabaac7c2dccacd1858ba96f6eb38adfb335
+% https://github.com/CTeX-org/ctex-kit/commit/aa5f00db05f12034845f8e5c4119971b5aae33ff
+\IfPackageAtLeastTF{xeCJK}{2022-08-05}{
+    \IfPackageAtLeastTF{xeCJK}{2022-08-31}{}{
+        \xpatchcmd \__xeCJK_check_for_xglue:
+        {\__xeCJK_if_last_glue:TF}
+        {\__xeCJK_if_last_glue:T}
+        {}{\PatchFailed}
     }
-    \usepackage{xeCJKfntef}
-    \renewcommand{\propername}[1]{\CJKunderline-{#1}}
-    \renewcommand{\booktitle}[1]{\CJKunderwave-{#1}}
+}{}
+\ExplSyntaxOff
+\xeCJKsetup{%
+    % https://github.com/CTeX-org/ctex-kit/issues/636
+    xCJKecglue = true,%
+    CJKspace = true,%
+    CheckSingle = true,%
+}
+\usepackage{xeCJKfntef}
+\renewcommand{\propername}[1]{\CJKunderline-{#1}}
+\renewcommand{\booktitle}[1]{\CJKunderwave-{#1}}
+\else
+\usepackage[normalem]{ulem}
+\renewcommand{\propername}[1]{\uline{#1}}
+\renewcommand{\booktitle}[1]{\uwave{#1}}
 \fi
 
 % This packages allows one to check if LuaLaTeX is used.
@@ -323,16 +378,16 @@
         \itemindent\listparindent
         % \rightmargin\leftmargin
         \leftmargin\rightmargin
-        \parsep\z@ \@plus\p@}%
-    \item\relax}
+    \parsep\z@ \@plus\p@}%
+\item\relax}
 {\endlist}
 \makeatother
 
 \ctexset{
     chapter={
-      name={第~,~章},
-      number=\arabic{chapter}
-     }
+        name={第~,~章},
+        number=\arabic{chapter}
+    }
 }
 
 % The following lines start a new page with each section.
@@ -343,22 +398,22 @@
 
 \makeatletter
 \if@twoside % if the document is two-sided
-    % https://latex.org/forum/viewtopic.php?t=6965
-    \raggedbottom
+% https://latex.org/forum/viewtopic.php?t=6965
+\raggedbottom
 
-    % One uses "\usepackage[pass]{geometry}"
-    % to see the information of page margins
-    % in the log file
-    % (One had better do it in a separate file,
-    % because the current file is so big
-    % that it will take unnecessarily longer time.)
-    \setlength\oddsidemargin{31pt}
-    \setlength\evensidemargin{31pt}
-    \setlength\marginparwidth{38pt}
+% One uses "\usepackage[pass]{geometry}"
+% to see the information of page margins
+% in the log file
+% (One had better do it in a separate file,
+% because the current file is so big
+% that it will take unnecessarily longer time.)
+\setlength\oddsidemargin{31pt}
+\setlength\evensidemargin{31pt}
+\setlength\marginparwidth{38pt}
 \else % if the document is one-sided
-    % I redefine \cleardoublepage.
-    \def\cleardoublepage{\clearpage\ifodd\c@page\else
-            \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+% I redefine \cleardoublepage.
+\def\cleardoublepage{\clearpage\ifodd\c@page\else%
+\hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
 \fi
 \makeatother
 
@@ -387,8 +442,8 @@
 % (but I do not mark every use of English).
 \providecommand{\angla}[1]{#1}
 
-% This command marks the use of Pinyin.
-\providecommand{\pinjino}[1]{\textsf{(#1)}}
+% % This command marks the use of Pinyin.
+% \providecommand{\pinjino}[1]{\textsf{(#1)}}
 
 % This package deals with headers and footers.
 \usepackage{fancyhdr}
@@ -408,8 +463,8 @@
 % if it is imported.
 \renewcommand*{\chaptermark}[1]{%
     \markboth{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
-        }#1}{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
-        }#1}%
+    }#1}{\CTEXifname{\CTEXthechapter\hspace{\ccwd}}{%
+    }#1}%
 }
 
 % This package allows one to check whether it is a draft
@@ -425,12 +480,12 @@
     % of the PDF document,
     % so complication is probably faster.
     \ifxetex
-        \special{dvipdfmx:config z 0}
-        \special{dvipdfmx:config C 0x40}
+    \special{dvipdfmx:config z 0}
+    \special{dvipdfmx:config C 0x40}
     \fi
     \ifluatex
-        \pdfvariable compresslevel 0
-        \pdfvariable objcompresslevel 0
+    \pdfvariable compresslevel 0
+    \pdfvariable objcompresslevel 0
     \fi
 }%
 {% final case
@@ -505,7 +560,8 @@
     % [l], [c], [r] stand for
     % left, centre, right,
     % respectively.
-    \hfill\begin{minipage}[r]{\maxlen}
+    \hfill%
+    \begin{minipage}[r]{\maxlen}
         \makebox[\maxlen][r]{#1} \\
         \makebox[\maxlen][r]{#2}
     \end{minipage}

@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter\chapter{行列式}\clearpage}{}
+\ifSubfilesClassLoaded{\mainmatter%
+\chapter{行列式}\clearpage}{}
 
 \section{阵的积}
 
@@ -30,14 +31,14 @@
         = {} &
         \sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,j}}.
     \end{align*}
-    (通俗地, \(AB\) 是 \(m \times n\)~阵,
+    (通俗地, \(AB\) 是 \(m \times n\)~阵, % tex-fmt: skip
     其的 \((i, j)\)-元是
     \(A\)~的行~\(i\) 跟 \(B\)~的列~\(j\)~的%
-    相应位置的元的积的和.)
+    相应位置的元的积的和.) % tex-fmt: skip
 \end{definition}
 
 可以看到, 阵的乘法跟阵的加法比, 有大的区别.
-首先, 加法要求二个阵的尺寸相同, 而乘法要求%
+首先, 加法要求 \(2\)~个阵的尺寸相同, 而乘法要求%
 第~1~个阵的列数等于第~2~个阵的行数.
 其次, 阵的加法的定义用到的只不过是数的加法,
 而阵的乘法的定义要同时用到数的加法与乘法.
@@ -57,45 +58,51 @@
 \begin{example}
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                3  & 2 \\
-                10 & 7 \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            3  & 2 \\
+            10 & 7 \\
+        \end{bmatrix},
         \quad
-        B = \begin{bmatrix}
-                5  & 4 \\
-                11 & 9 \\
-            \end{bmatrix}.
+        B =
+        \begin{bmatrix}
+            5  & 4 \\
+            11 & 9 \\
+        \end{bmatrix}.
     \end{align*}
     根据定义,
     \begin{align*}
-         &
-        AB = \begin{bmatrix}
-                 3 \cdot 5 + 2 \cdot 11  & 3 \cdot 4 + 2 \cdot 9  \\
-                 10 \cdot 5 + 7 \cdot 11 & 10 \cdot 4 + 7 \cdot 9 \\
-             \end{bmatrix}
-        = \begin{bmatrix}
-              37  & 30  \\
-              127 & 103 \\
-          \end{bmatrix},
+        &
+        AB =
+        \begin{bmatrix}
+            3 \cdot 5 + 2 \cdot 11  & 3 \cdot 4 + 2 \cdot 9  \\
+            10 \cdot 5 + 7 \cdot 11 & 10 \cdot 4 + 7 \cdot 9 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            37  & 30  \\
+            127 & 103 \\
+        \end{bmatrix},
         \\
-         &
-        BA = \begin{bmatrix}
-                 5 \cdot 3 + 4 \cdot 10  & 5 \cdot 2 + 4 \cdot 7  \\
-                 11 \cdot 3 + 9 \cdot 10 & 11 \cdot 2 + 9 \cdot 7 \\
-             \end{bmatrix}
-        = \begin{bmatrix}
-              55  & 38 \\
-              123 & 85 \\
-          \end{bmatrix}.
+        &
+        BA =
+        \begin{bmatrix}
+            5 \cdot 3 + 4 \cdot 10  & 5 \cdot 2 + 4 \cdot 7  \\
+            11 \cdot 3 + 9 \cdot 10 & 11 \cdot 2 + 9 \cdot 7 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            55  & 38 \\
+            123 & 85 \\
+        \end{bmatrix}.
     \end{align*}
     所以, 即使 \(AB\), \(BA\) 都是 \(2\)~级阵,
     它们也不相等.
 \end{example}
 
-我们知道, 若 \(a\), \(b\) 是二个非零的数,
+我们知道, 若 \(a\), \(b\) 是 \(2\)~个非零的数,
 那么 \(ab \neq 0\).
-不过, 对二个阵 \(A\), \(B\),
+不过, 对 \(2\)~个阵 \(A\), \(B\),
 即使 \(A \neq 0\), 且 \(B \neq 0\),
 仍有可能 \(AB = 0\)
 (其中, \(0\) 是零阵,
@@ -104,28 +111,32 @@
 \begin{example}
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                0 & 0 \\
-                1 & 0 \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            0 & 0 \\
+            1 & 0 \\
+        \end{bmatrix},
         \quad
-        B = \begin{bmatrix}
-                0 & 0 \\
-                0 & 1 \\
-            \end{bmatrix}.
+        B =
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & 1 \\
+        \end{bmatrix}.
     \end{align*}
     根据定义,
-    \begin{align*}
-         &
-        AB = \begin{bmatrix}
-                 0 \cdot 0 + 0 \cdot 0 & 0 \cdot 0 + 0 \cdot 1 \\
-                 1 \cdot 0 + 0 \cdot 0 & 1 \cdot 0 + 0 \cdot 1 \\
-             \end{bmatrix}
-        = \begin{bmatrix}
-              0 & 0 \\
-              0 & 0 \\
-          \end{bmatrix}.
-    \end{align*}
+    \begin{equation*}
+        AB =
+        \begin{bmatrix}
+            0 \cdot 0 + 0 \cdot 0 & 0 \cdot 0 + 0 \cdot 1 \\
+            1 \cdot 0 + 0 \cdot 0 & 1 \cdot 0 + 0 \cdot 1 \\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & 0 \\
+        \end{bmatrix}.
+        \qefhere
+    \end{equation*}
 \end{example}
 
 阵的乘法跟数的乘法虽有不同的地方,
@@ -175,25 +186,25 @@
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-                \left(\sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,\ell}} \right)
-                [C]_{\ell,j} }
+            \left(\sum_{k = 1}^{s} {[A]_{i,k} [B]_{k,\ell}} \right)
+        [C]_{\ell,j} }
         \\
         = {} &
         \sum_{\ell = 1}^{n} {
-                \sum_{k = 1}^{s} {
-                        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j} }}
+            \sum_{k = 1}^{s} {
+        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j} }}
         \\
         = {} &
         \sum_{k = 1}^{s} {
-                \sum_{\ell = 1}^{n} {
-                        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}}}
+            \sum_{\ell = 1}^{n} {
+        [A]_{i,k} [B]_{k,\ell} [C]_{\ell,j}}}
         \\
         = {} &
         \sum_{k = 1}^{s} {
-                [A]_{i,k}
-                \left(
+            [A]_{i,k}
+            \left(
                 \sum_{\ell = 1}^{n} {[B]_{k,\ell} [C]_{\ell,j}}
-                \right) }
+        \right) }
         \\
         = {} &
         \sum_{k = 1}^{s} {[A]_{i,k} [BC]_{k,j}}
@@ -203,7 +214,7 @@
     \end{align*}
 
     (2)
-    您还是要先说明, 等式二侧的阵的尺寸都是 \(m \times n\)
+    您还是要先说明, 等式的 \(2\)~边的阵的尺寸都是 \(m \times n\)
     (我留它为您的习题).
     根据阵的和与积的定义,
     \begin{align*}
@@ -236,7 +247,7 @@
 
     (4)
     先证 \(I_m A = A\).
-    您还是要先说明, 等式二侧的阵的尺寸都是 \(m \times s\)
+    您还是要先说明, 等式的 \(2\)~边的阵的尺寸都是 \(m \times s\)
     (我留它为您的习题).
     回想, 单位阵 \(I\) 的 \((i, j)\)-元是
     \(\delta(i, j)\);
@@ -267,7 +278,7 @@
 
     (5)
     先证 \((xA)B = x(AB)\).
-    您还是要先说明, 等式二侧的阵的尺寸都是 \(m \times n\)
+    您还是要先说明, 等式的 \(2\)~边的阵的尺寸都是 \(m \times n\)
     (我留它为您的习题).
     根据阵的数乘与阵的积的定义,
     \begin{align*}
@@ -340,7 +351,7 @@
 
 \begin{proof}
     \(AX\) 自然是一个 \(m \times 1\)~阵.
-    不难看出, 待证等式的右侧也是 \(m \times 1\)~阵.
+    不难看出, 待证的等式的右边也是 \(m \times 1\)~阵.
     根据阵的积、和、数乘的定义,
     \begin{align*}
         [AX]_{i,1}
@@ -351,7 +362,7 @@
         = {} & \sum_{k = 1}^{n} {[[X]_{k,1} a_k]_{i,1}}
         \\
         = {} & \left[ \sum_{k = 1}^{n} {[X]_{k,1}
-                    a_k } \right]_{i,1}.
+        a_k } \right]_{i,1}.
         \qedhere
     \end{align*}
 \end{proof}
@@ -362,9 +373,9 @@
 那么, \(BA\) 当然也是 \(n\)~级阵.
 \(A\), \(B\), \(BA\) 都是 \(n\)~级阵,
 故, 它们都有行列式.
-本节, 我们学习三者的行列式的关系.
+本节, 我们学习它们的行列式的关系.
 
-\begin{theorem}[Binet--Cauchy \pinjino{binei--koxi} 公式, 青春版]
+\begin{theorem}[Binet--Cauchy 公式, 青春版]
     设 \(A\), \(B\) 都是 \(n\)~级阵.
     则
     \begin{align*}
@@ -377,37 +388,39 @@
 \begin{example}
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                3  & 2 \\
-                10 & 7 \\
-            \end{bmatrix},
+        A =
+        \begin{bmatrix}
+            3  & 2 \\
+            10 & 7 \\
+        \end{bmatrix},
         \quad
-        B = \begin{bmatrix}
-                5  & 4 \\
-                11 & 9 \\
-            \end{bmatrix}.
+        B =
+        \begin{bmatrix}
+            5  & 4 \\
+            11 & 9 \\
+        \end{bmatrix}.
     \end{align*}
     不难算出
     \begin{align*}
-        AB
-        = \begin{bmatrix}
-              37  & 30  \\
-              127 & 103 \\
-          \end{bmatrix},
+        AB =
+        \begin{bmatrix}
+            37  & 30  \\
+            127 & 103 \\
+        \end{bmatrix},
         \quad
-        BA
-        = \begin{bmatrix}
-              55  & 38 \\
-              123 & 85 \\
-          \end{bmatrix}.
+        BA =
+        \begin{bmatrix}
+            55  & 38 \\
+            123 & 85 \\
+        \end{bmatrix}.
     \end{align*}
     可以看到, \(AB \neq BA\).
 
     不过, \(\det {(AB)} = \det {(BA)}\).
     一方面, 我们可直接验证:
     \begin{align*}
-         & \det {(AB)} = 37 \cdot 103 - 127 \cdot 30 = 1; \\
-         & \det {(BA)} = 55 \cdot 85 - 123 \cdot 38 = 1.
+        & \det {(AB)} = 37 \cdot 103 - 127 \cdot 30 = 1; \\
+        & \det {(BA)} = 55 \cdot 85 - 123 \cdot 38 = 1.
     \end{align*}
     另一方面, Binet--Cauchy 公式 (青春版) 指出,
     \begin{align*}
@@ -430,11 +443,10 @@
     任何 \(n-1\)~个 \(n \times 1\)~阵
     \(c_1\), \(\dots\), \(c_{j-1}\),
     \(c_{j+1}\), \(\dots\), \(c_n\),
-    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
-             &
+        &
         f([\dots, c_{j-1}, sx + ty, c_{j+1}, \dots])
         \\
         = {} &
@@ -445,20 +457,18 @@
         \\
         = {} &
         s\det {[\dots, Bc_{j-1}, Bx, Bc_{j+1}, \dots]}
-        +
-        t\det {[\dots, Bc_{j-1}, By, Bc_{j+1}, \dots]}
+        + t\det {[\dots, Bc_{j-1}, By, Bc_{j+1}, \dots]}
         \\
         = {} &
         s f([\dots, c_{j-1}, x, c_{j+1}, \dots])
-        +
-        t f([\dots, c_{j-1}, y, c_{j+1}, \dots]).
+        + t f([\dots, c_{j-1}, y, c_{j+1}, \dots]).
     \end{align*}
-    我们用到了阵的运算律与行列式的多线性.
+    我们用到了阵的运算的律与行列式的多线性.
 
     (2)
     \(f\) 是交错性的.
-    因为若 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 中有二个相等,
-    则 \(Bc_1\), \(Bc_2\), \(\dots\), \(Bc_n\) 中也有二个相等.
+    因为若 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 中有 \(2\)~个相等,
+    则 \(Bc_1\), \(Bc_2\), \(\dots\), \(Bc_n\) 中也有 \(2\)~个相等.
     再利用行列式的交错性,
     \(f(C) = \det {(BC)} = 0\).
 
@@ -476,8 +486,8 @@
 或许, (方) 阵的行列式与阵的积的定义是较复杂的,
 跟阵的转置、加、减、数乘比.
 不过, Binet--Cauchy 公式 (的青春版) 给出了一个关系:
-二个同级的方阵的积的行列式%
-等于这二个阵的行列式的积.
+\(2\)~个同级的方阵的积的行列式%
+等于这 \(2\)~个阵的行列式的积.
 
 \section{按一列 (行) 展开行列式的公式的变体}
 
@@ -494,8 +504,8 @@
         设 \(j\) 为整数, 且 \(1 \leq j \leq n\).
         则
         \begin{align*}
-            \det {(A)} = \sum_{i = 1}^{n}
-                {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+            \det {(A)}
+            = \sum_{i = 1}^{n} {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
         \end{align*}
     \end{restatable}
 }{\TheoremExpansionAboutAnyColumn*}
@@ -509,8 +519,8 @@
         设 \(i\) 为整数, 且 \(1 \leq i \leq n\).
         则
         \begin{align*}
-            \det {(A)} = \sum_{j = 1}^{n}
-                {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+            \det {(A)}
+            = \sum_{j = 1}^{n} {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
         \end{align*}
     \end{restatable}
 }{\TheoremExpansionAboutAnyRow*}
@@ -531,7 +541,7 @@
     则
     \begin{align*}
         \sum_{\ell = 1}^{n}
-            {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
+        {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
         = 0.
     \end{align*}
     类似地, 若 \(i\), \(k\) 都是不超过 \(n\) 的正整数,
@@ -539,7 +549,7 @@
     则
     \begin{align*}
         \sum_{s = 1}^{n}
-            {(-1)^{k+s} [A]_{i,s} \det {(A(k|s))}}
+        {(-1)^{k+s} [A]_{i,s} \det {(A(k|s))}}
         = 0.
     \end{align*}
 \end{theorem}
@@ -558,17 +568,17 @@
     \end{align*}
     不难算出
     \begin{align*}
-         & \det {(A(1|1))} = 6 \cdot 7 - 9 \cdot 5 = -3;  \\
-         & \det {(A(2|1))} = 4 \cdot 7 - 9 \cdot 8 = -44; \\
-         & \det {(A(3|1))} = 4 \cdot 5 - 6 \cdot 8 = -28.
+        & \det {(A(1|1))} = 6 \cdot 7 - 9 \cdot 5 = -3;  \\
+        & \det {(A(2|1))} = 4 \cdot 7 - 9 \cdot 8 = -44; \\
+        & \det {(A(3|1))} = 4 \cdot 5 - 6 \cdot 8 = -28.
     \end{align*}
     那么, 这个定理说, 当 \(j = 2\) 或 \(j = 3\) 时,
     \begin{align*}
-         & \hphantom{{} + {}}
+        & \hphantom{{} + {}}
         (-1)^{1+1} [A]_{1,j} \det {(A(1|1))}
         + (-1)^{2+1} [A]_{2,j} \det {(A(2|1))}
         \\
-         &
+        &
         + (-1)^{3+1} [A]_{3,j} \det {(A(3|1))} = 0,
     \end{align*}
     即
@@ -577,14 +587,15 @@
     \end{align*}
 
     我们直接地验证此事.
-    取 \(j = 2\), 有
+    取 \(j = 2\), 得
     \begin{align*}
         (-3) \cdot 4 + 44 \cdot 6 - 28 \cdot 9 = -12 + 264 - 252 = 0.
     \end{align*}
-    取 \(j = 3\), 有
-    \begin{align*}
+    取 \(j = 3\), 得
+    \begin{equation*}
         (-3) \cdot 8 + 44 \cdot 5 - 28 \cdot 7 = -24 + 220 - 196 = 0.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{proof}
@@ -599,39 +610,39 @@
             z_\ell,        & v = k.
         \end{cases}
     \end{align*}
-    (通俗地, \(B\)~的列~\(v\) 等于 \(A\)~的列~\(v\)
+    (通俗地, \(B\)~的列~\(v\) 等于 \(A\)~的列~\(v\) % tex-fmt: skip
     (\(v \neq k\)),
     而 \(B\)~的列~\(k\) 的元分别是
-    \(z_1\), \(z_2\), \(\dots\), \(z_n\).)
+    \(z_1\), \(z_2\), \(\dots\), \(z_n\).) % tex-fmt: skip
     由此可见, \(B(\ell|k) = A(\ell|k)\)
     (\(\ell = 1\), \(2\), \(\dots\), \(n\)).
     所以
     \begin{align*}
         \det {(B)}
         = {} & \sum_{\ell = 1}^{n}
-            {(-1)^{\ell + k} [B]_{\ell, k} \det {(B(\ell|k))}}
+        {(-1)^{\ell + k} [B]_{\ell, k} \det {(B(\ell|k))}}
         \\
         = {} & \sum_{\ell = 1}^{n}
-            {(-1)^{\ell + k} z_\ell \det {(A(\ell|k))}}.
+        {(-1)^{\ell + k} z_\ell \det {(A(\ell|k))}}.
     \end{align*}
     现在, 特别地, 我们取
     \(z_1\), \(z_2\), \(\dots\), \(z_n\)
     为
     \([A]_{1,j}\), \([A]_{2,j}\), \(\dots\), \([A]_{n,j}\).
-    此时, \(B\) 有相同的二列
+    此时, \(B\) 有相同的 \(2\)~列
     (\(B\)~的列~\(j\) 即为 \(B\)~的列~\(k\),
     并注意, \(k \neq j\)).
     所以 \(\det {(B)} = 0\).
     故
     \begin{equation*}
         \sum_{\ell = 1}^{n}
-            {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
+        {(-1)^{\ell+k} [A]_{\ell,j} \det {(A(\ell|k))}}
         = 0.
         \qedhere
     \end{equation*}
 \end{proof}
 
-用 \(\delta\)-记号, 有
+用 \(\delta\)-记号, 我们得
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
@@ -639,14 +650,14 @@
     则
     \begin{align*}
         \sum_{\ell = 1}^{n}
-            {(-1)^{\ell+k} \det {(A(\ell|k))}\, [A]_{\ell,j}}
+        {(-1)^{\ell+k} \det {(A(\ell|k))}\, [A]_{\ell,j}}
         = \det {(A)}\, \delta(k, j).
     \end{align*}
     类似地, 若 \(i\), \(k\) 都是不超过 \(n\) 的正整数,
     则
     \begin{align*}
         \sum_{s = 1}^{n}
-            {[A]_{i,s} (-1)^{k+s} \det {(A(k|s))}}
+        {[A]_{i,s} (-1)^{k+s} \det {(A(k|s))}}
         = \det{(A)}\, \delta(i, k).
     \end{align*}
 \end{theorem}
@@ -654,10 +665,10 @@
 \begin{proof}
     请允许我留它为您的习题.
     分类讨论即可
-    (\(k = j\);
+    (\(k = j\); % tex-fmt: skip
     \(k \neq j\);
     \(i = k\);
-    \(i \neq k\)).
+    \(i \neq k\)). % tex-fmt: skip
 \end{proof}
 
 \begin{definition}[古伴]
@@ -670,7 +681,7 @@
         [\operatorname{adj} {(A)}]_{i,j}
         = (-1)^{j+i} \det {(A(j|i))}.
     \end{align*}
-    (注意等式右侧的 \(i\), \(j\) 的次序.)
+    (注意等式右边的 \(i\), \(j\) 的次序.)
 \end{definition}
 
 \(\operatorname{adj}\) 来自 \angla{adjugate} (英语).
@@ -679,7 +690,7 @@
 根据约定,
 一个 \(1\)~级阵 \(A = [a]\) 的古伴
 \(\operatorname{adj} {(A)} =
-[(-1)^{1+1} \det {(A(1|1))}] = [1]\),
+[(-1)^{1+1} \allowbreak \cdot \det {(A(1|1))}] = [1]\),
 即 \(1\)~级单位阵.
 
 \begin{example}
@@ -695,44 +706,44 @@
     我们计算 \(A\)~的古伴 \(\operatorname{adj} {(A)}\).
     根据定义, 我们要计算 \(9\)~个 \(2\)~级阵的行列式:
     \begin{align*}
-         & \det {(A(1|1))} = 6 \cdot 7 - 9 \cdot 5 = -3;  \\
-         & \det {(A(1|2))} = 2 \cdot 7 - 3 \cdot 5 = -1;  \\
-         & \det {(A(1|3))} = 2 \cdot 9 - 3 \cdot 6 = 0;   \\
-         & \det {(A(2|1))} = 4 \cdot 7 - 9 \cdot 8 = -44; \\
-         & \det {(A(2|2))} = 1 \cdot 7 - 3 \cdot 8 = -17; \\
-         & \det {(A(2|3))} = 1 \cdot 9 - 3 \cdot 4 = -3;  \\
-         & \det {(A(3|1))} = 4 \cdot 5 - 6 \cdot 8 = -28; \\
-         & \det {(A(3|2))} = 1 \cdot 5 - 2 \cdot 8 = -11; \\
-         & \det {(A(3|3))} = 1 \cdot 6 - 2 \cdot 4 = -2.
+        & \det {(A(1|1))} = 6 \cdot 7 - 9 \cdot 5 = -3;  \\
+        & \det {(A(1|2))} = 2 \cdot 7 - 3 \cdot 5 = -1;  \\
+        & \det {(A(1|3))} = 2 \cdot 9 - 3 \cdot 6 = 0;   \\
+        & \det {(A(2|1))} = 4 \cdot 7 - 9 \cdot 8 = -44; \\
+        & \det {(A(2|2))} = 1 \cdot 7 - 3 \cdot 8 = -17; \\
+        & \det {(A(2|3))} = 1 \cdot 9 - 3 \cdot 4 = -3;  \\
+        & \det {(A(3|1))} = 4 \cdot 5 - 6 \cdot 8 = -28; \\
+        & \det {(A(3|2))} = 1 \cdot 5 - 2 \cdot 8 = -11; \\
+        & \det {(A(3|3))} = 1 \cdot 6 - 2 \cdot 4 = -2.
     \end{align*}
     所以
     \begin{align*}
-             & \operatorname{adj} {(A)}
+        & \operatorname{adj} {(A)}
         \\
         = {} &
         \begin{bmatrix}
             (-1)^{1+1} \det {(A(1|1))}
-             & (-1)^{2+1} \det {(A(2|1))}
-             & (-1)^{3+1} \det {(A(3|1))} \\
+            & (-1)^{2+1} \det {(A(2|1))}
+            & (-1)^{3+1} \det {(A(3|1))} \\
             (-1)^{1+2} \det {(A(1|2))}
-             & (-1)^{2+2} \det {(A(2|2))}
-             & (-1)^{3+2} \det {(A(3|2))} \\
+            & (-1)^{2+2} \det {(A(2|2))}
+            & (-1)^{3+2} \det {(A(3|2))} \\
             (-1)^{1+3} \det {(A(1|3))}
-             & (-1)^{2+3} \det {(A(2|3))}
-             & (-1)^{3+3} \det {(A(3|3))} \\
+            & (-1)^{2+3} \det {(A(2|3))}
+            & (-1)^{3+3} \det {(A(3|3))} \\
         \end{bmatrix}
         \\
         = {} &
         \begin{bmatrix}
             +\det {(A(1|1))}
-             & -\det {(A(2|1))}
-             & +\det {(A(3|1))} \\
+            & -\det {(A(2|1))}
+            & +\det {(A(3|1))} \\
             -\det {(A(1|2))}
-             & +\det {(A(2|2))}
-             & -\det {(A(3|2))} \\
+            & +\det {(A(2|2))}
+            & -\det {(A(3|2))} \\
             +\det {(A(1|3))}
-             & -\det {(A(2|3))}
-             & +\det {(A(3|3))} \\
+            & -\det {(A(2|3))}
+            & +\det {(A(3|3))} \\
         \end{bmatrix}
         \\
         = {} &
@@ -741,6 +752,7 @@
             1  & -17 & 11  \\
             0  & 3   & -2  \\
         \end{bmatrix}.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -756,18 +768,18 @@
 \end{theorem}
 
 \begin{proof}
-    首先, 二个等式的左右二侧都是 \(n\)~级阵.
+    首先, \(2\)~个等式的左右 \(2\)~边都是 \(n\)~级阵.
 
     由上个定理 (的前一部分),
     \begin{align*}
         [\operatorname{adj} {(A)}\, A]_{i,j}
         = {} &
         \sum_{\ell = 1}^{n}
-            {[\operatorname{adj} {(A)}]_{i,\ell} [A]_{\ell,j}}
+        {[\operatorname{adj} {(A)}]_{i,\ell} [A]_{\ell,j}}
         \\
         = {} &
         \sum_{\ell = 1}^{n}
-            {(-1)^{\ell+i} \det {(A(\ell|i))}\, [A]_{\ell,j}}
+        {(-1)^{\ell+i} \det {(A(\ell|i))}\, [A]_{\ell,j}}
         \\
         = {} & \det {(A)}\, \delta(i, j)
         \\
@@ -780,11 +792,11 @@
         [A \operatorname{adj} {(A)}]_{i,j}
         = {} &
         \sum_{s = 1}^{n}
-            {[A]_{i,s} [\operatorname{adj} {(A)}]_{s,j}}
+        {[A]_{i,s} [\operatorname{adj} {(A)}]_{s,j}}
         \\
         = {} &
         \sum_{s = 1}^{n}
-            {[A]_{i,s} (-1)^{j+s} \det {(A(j|s))}}
+        {[A]_{i,s} (-1)^{j+s} \det {(A(j|s))}}
         \\
         = {} & \det {(A)}\, \delta(i, j)
         \\
@@ -816,11 +828,12 @@
         \end{bmatrix}.
     \end{align*}
     可以验证
-    \begin{align*}
+    \begin{equation*}
         \operatorname{adj} {(A)}\, A
         = 1I
         = A\operatorname{adj} {(A)}.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 设 \(A\) 是 \(n\)~级阵,
@@ -843,7 +856,7 @@
     = {} & I.
 \end{align*}
 类似地, 可知 \(AB = I\).
-所以, 我们有
+所以, 我们得
 
 \begin{theorem}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
@@ -859,8 +872,8 @@
 反过来, 设 \(A\) 是 \(n\)~级阵,
 且有 \(n\)~级阵 \(C\) (或 \(D\))
 使 \(CA = I\) (或 \(AD = I\)).
-因为二个同级的方阵的积的行列式%
-等于这二个阵的行列式的积,
+因为 \(2\)~个同级的方阵的积的行列式%
+等于这 \(2\)~个阵的行列式的积,
 \(1 = \det {(I)} = \det {(CA)} = \det {(C)} \det {(A)}\)
 (或 \(1 = \det {(I)} = \det {(AD)} = \det {(A)} \det {(D)}\)).
 从而 \(\det {(A)} \neq 0\).
@@ -873,7 +886,7 @@
 = (\det {(A)})^{-1} \operatorname{adj} {(A)}\)).
 
 我们知道, 对任何不等于 \(0\) 的数 \(a\),
-必有一个数 \(b = a^{-1}\) 使 \(ba = 1 = ab\);
+有一个数 \(b = a^{-1}\) 使 \(ba = 1 = ab\);
 反过来, 若有数 \(c\) (或 \(d\))
 使 \(ca = 1\) (或 \(ad = 1\)),
 则 \(a \neq 0\),

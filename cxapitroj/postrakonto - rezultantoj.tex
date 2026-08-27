@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\appendix\chapter{Afterstories}\clearpage}{}
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
 
 \section{Sylvester 阵与结式}
 
@@ -11,7 +12,8 @@
 为方便, 我们作一个有名的 (有名字的) 假定.
 我们会反复地说它.
 
-\begin{assumption}\label{standing-assumption}
+\begin{restatable}{assumption}{AssumptionResultant}%
+    \label{standing-assumption-of-resultant}
     设 \(n\), \(m\) 是非负整数,
     且 \(m + n \geq 1\).
     设
@@ -27,22 +29,20 @@
     为方便, 我们约定:
     若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
     若 \(k < 0\) 或 \(k > m\), 则 \(b_k = 0\).
-\end{assumption}
+\end{restatable}
 
 \begin{definition}
-    设假定~\ref{standing-assumption} 成立.
-    定义 \(f\), \(g\) 的
-    \emph{Sylvester} \pinjino{sirvisite}
-    \emph{阵}%
+    设假定~\ref{standing-assumption-of-resultant} 成立.
+    定义 \(f\), \(g\) 的 \emph{Sylvester 阵}%
     为 \(m + n\)~级阵
     \(S(f, g; n, m)\),
     其中,
     \begin{align*}
-        [S(f, g; n, m)]_{i,j}
-        = \begin{cases}
-              a_{i-j},     & j \leq m; \\
-              b_{i-(j-m)}, & j > m.
-          \end{cases}
+        [S(f, g; n, m)]_{i,j} =
+        \begin{cases}
+            a_{i-j},     & j \leq m; \\
+            b_{i-(j-m)}, & j > m.
+        \end{cases}
     \end{align*}
     \(f\), \(g\) 的 Sylvester 阵的行列式
     \(\det {(S(f, g; n, m))}\)
@@ -52,11 +52,11 @@
 我们看几个例.
 
 \begin{example}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设 \(n = 2\), 且 \(m = 5\).
     则 \(f\), \(g\) 的 Sylvester 阵
     \(S(f, g; 2, 5)\) 是
-    \begin{align*}
+    \begin{equation*}
         \begin{bmatrix}
             a_{0} & a_{-1} & a_{-2} & a_{-3} & a_{-4} & b_{0} & b_{-1} \\
             a_{1} & a_{0}  & a_{-1} & a_{-2} & a_{-3} & b_{1} & b_{0}  \\
@@ -76,38 +76,42 @@
             0   & 0   & 0   & a_2 & a_1 & b_5 & b_4 \\
             0   & 0   & 0   & 0   & a_2 & 0   & b_5 \\
         \end{bmatrix}.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设 \(m = n = 1\).
     则 \(f(x) = a_0 x + a_1\),
     且 \(g(x) = b_0 x + b_1\).
     则 \(f\), \(g\) 的 Sylvester 阵
     \begin{align*}
-        S(f, g; 1, 1) = \begin{bmatrix}
-                            a_0 & b_0 \\
-                            a_1 & b_1 \\
-                        \end{bmatrix},
+        S(f, g; 1, 1) =
+        \begin{bmatrix}
+            a_0 & b_0 \\
+            a_1 & b_1 \\
+        \end{bmatrix},
     \end{align*}
     且
-    \begin{align*}
+    \begin{equation*}
         \det {(S(f, g; 1, 1))} = a_0 b_1 - b_0 a_1.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}\label{emp:morniszero}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设 \(n = 0\).
     则 \(f(x) = a_0\).
-    则 \(m\)~级阵 \(S(f, g; 0, m)\) 适合,
+    则 \(m\)~级阵 \(S(f, g; \allowbreak
+    0, m)\) 适合,
     \begin{align*}
-        [S(f, g; 0, m)]_{i,j} = a_{i-j}
-        = \begin{cases}
-              a_0, & i = j;       \\
-              0,   & \text{别的情形}.
-          \end{cases}
+        [S(f, g; 0, m)]_{i,j} = a_{i-j} =
+        \begin{cases}
+            a_0, & i = j;       \\
+            0,   & \text{别的情形}.
+        \end{cases}
     \end{align*}
     则 \(S(f, g; 0, m) = a_0 I_m\),
     且 \(\det {(S(f, g; 0, m))} = a_0^m\).
@@ -118,23 +122,27 @@
 \end{example}
 
 \begin{example}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设 \(a_0 = 0 = b_0\).
     则 \(k \leq 0\) 时, \(a_k = 0 = b_k\).
     注意, 当 \(j \leq m\) 时,
-    \([S(f, g; n, m)]_{1,j} = a_{1-j}\),
+    \([S(f, g; n, m)]_{1,j} \allowbreak
+    = a_{1-j}\),
     而 \(1 - j \leq 0\),
-    则 \([S(f, g; n, m)]_{1,j} = 0\).
+    则 \([S(f, g; n, m)]_{1,j} \allowbreak
+    = 0\).
     当 \(j > m\) 时,
-    \([S(f, g; n, m)]_{1,j} = b_{1 - (j - m)}\),
+    \([S(f, g; n, m)]_{1,j} \allowbreak
+    = b_{1 - (j - m)}\),
     而 \(1 - (j - m) \leq 0\),
-    则 \([S(f, g; n, m)]_{1,j} = 0\).
+    则 \([S(f, g; n, m)]_{1,j} \allowbreak
+    = 0\).
     则 \(S(f, g; n, m)\) 的行~\(1\) 的元全是 \(0\).
     则 \(\det {(S(f, g; n, m))} = 0\).
 \end{example}
 
 我们给一个研究 Sylvester 阵的可能的原因.
-设假定~\ref{standing-assumption} 成立.
+设假定~\ref{standing-assumption-of-resultant} 成立.
 设数 \(c\) 适合, \(f(c) = 0 = g(c)\).
 则
 \begin{align*}
@@ -143,15 +151,15 @@
 \end{align*}
 若我们分别以 \(c^{m-1}\), \(c^{m-2}\), \(\dots\), \(1\) 乘等式~1,
 且分别以 \(c^{n-1}\), \(c^{n-2}\), \(\dots\), \(1\) 乘等式~2,
-我们有
+我们得
 \begin{align*}
     a_0 c^{m+n-1} + a_1 c^{m+n-2} + \dots + a_{n-1} c^{m} + a_n c^{m-1}   & = 0,   \\
     a_0 c^{m+n-2} + a_1 c^{m+n-3} + \dots + a_{n-1} c^{m-1} + a_n c^{m-2} & = 0,   \\
-                                                                          & \dots, \\
+    & \dots, \\
     a_0 c^{n} + a_1 c^{n-1} + \dots + a_{n-1} c + a_n 1                   & = 0,   \\
     b_0 c^{m+n-1} + b_1 c^{m+n-2} + \dots + b_{m-1} c^{n} + b_m c^{n-1}   & = 0,   \\
     b_0 c^{m+n-2} + b_1 c^{m+n-3} + \dots + b_{m-1} c^{n-1} + b_m c^{n-2} & = 0,   \\
-                                                                          & \dots, \\
+    & \dots, \\
     b_0 c^{m} + b_1 c^{m-1} + \dots + b_{m-1} c + b_m 1                   & = 0.
 \end{align*}
 回想, 当 \(k < 0\) 或 \(k > n\) 时, \(a_k = 0\),
@@ -160,11 +168,11 @@
 \begin{align*}
     a_{0} c^{m+n-1} + a_{1} c^{m+n-2} + \dots + a_{m+n-2} c + a_{m+n-1} 1  & = 0,   \\
     a_{-1} c^{m+n-1} + a_{0} c^{m+n-2} + \dots + a_{m+n-3} c + a_{m+n-2} 1 & = 0,   \\
-                                                                           & \dots, \\
+    & \dots, \\
     a_{1-m} c^{m+n-1} + a_{2-m} c^{m+n-2} + \dots + a_{n-1} c + a_{n} 1    & = 0,   \\
     b_{0} c^{m+n-1} + b_{1} c^{m+n-2} + \dots + b_{m+n-2} c + b_{m+n-1} 1  & = 0,   \\
     b_{-1} c^{m+n-1} + b_{0} c^{m+n-2} + \dots + b_{m+n-3} c + b_{m+n-2} 1 & = 0,   \\
-                                                                           & \dots, \\
+    & \dots, \\
     b_{1-n} c^{m+n-1} + b_{2-n} c^{m+n-2} + \dots + b_{m-1} c + b_{m} 1    & = 0.
 \end{align*}
 作 \(1 \times (m + n)\)~阵
@@ -182,7 +190,7 @@
 故 \(\det {(S(f, g; n, m))} = 0\).
 
 \begin{theorem}\label{thm:necessary-condition-for-the-existence-of-a-common-root}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设存在数 \(c\), 使 \(f(c) = 0 = g(c)\).
     则
     \begin{align*}
@@ -193,7 +201,7 @@
 我们进一步地研究 Sylvester 阵.
 
 \begin{theorem}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     作 \(1 \times (m+n)\)~阵 \(C_{m+n}\),
     其中, \([C_{m+n}]_{1,j} = x^{m+n-j}\).
     设 \(Y\) 是 \((m+n) \times 1\)~阵.
@@ -208,11 +216,11 @@
     \(C_{m+n}\, S(f, g; n, m)\) 是 \(1 \times (m + n)\)~阵,
     且
     \begin{align*}
-        [C_{m+n}\, S(f, g; n, m)]_{1,j}
-        = \begin{cases}
-              f(x)\, x^{m-j},     & j \leq m; \\
-              g(x)\, x^{n-(j-m)}, & j > m.
-          \end{cases}
+        [C_{m+n}\, S(f, g; n, m)]_{1,j} =
+        \begin{cases}
+            f(x)\, x^{m-j},     & j \leq m; \\
+            g(x)\, x^{n-(j-m)}, & j > m.
+        \end{cases}
     \end{align*}
 
     (2)
@@ -239,16 +247,17 @@
         [C_{m+n}\, S(f, g; n, m)]_{1,j}
         = {} &
         \sum_{\ell = 1}^{m+n}
-            {[C_{m+n}]_{1,\ell} [S(f, g; n, m)]_{\ell,j}}
+        {[C_{m+n}]_{1,\ell} [S(f, g; n, m)]_{\ell,j}}
         \\
         = {} &
         \sum_{1 \leq \ell \leq m+n}
         {[S(f, g; n, m)]_{\ell,j} x^{m+n-\ell}}.
     \end{align*}
-    若 \(j \leq m\), 则 \([S(f, g; n, m)]_{\ell,j} = a_{\ell-j}\).
+    若 \(j \leq m\), 则
+    \([S(f, g; n, m)]_{\ell,j} = a_{\ell-j}\).
     则
     \begin{align*}
-             &
+        &
         [C_{m+n}\, S(f, g; n, m)]_{1,j}
         \\
         = {} &
@@ -257,74 +266,79 @@
         \\
         = {} &
         \sum_{1-j \leq \ell-j \leq m+n-j}
-        {a_{\ell-j} x^{n-(\ell-j)+(m-j)}}
+        {a_{\ell-j} x^{n-(\ell-j)+m-j}}
         \\
         = {} &
-        \sum_{1-j \leq h \leq n+(m-j)}
-        {a_h x^{n-h}\, x^{m-j}}
+        \sum_{1-j \leq k \leq m+n-j}
+        {a_k x^{n-k+m-j}}
         \\
         = {} &
-        \sum_{0 \leq h \leq n}
-        {a_h x^{n-h}\, x^{m-j}}
+        \sum_{\substack{
+                1-j \leq k \leq m+n-j \\
+                0 \leq k \leq n
+        }}
+        {a_k x^{n-k+m-j}}
         +
         \sum_{\substack{
-        1-j \leq h < 0 \\
-                \text{或}\, n < h \leq n+(m-j)
-            }}
-        {a_h x^{n-h}\, x^{m-j}}
+                1-j \leq k \leq m+n-j \\
+                k < 0 \,\text{或}\, k > n
+        }}
+        {a_k x^{n-k+m-j}}
         \\
         = {} &
-        \Bigg( \sum_{0 \leq h \leq n}
-        {a_h x^{n-h}} \Bigg) x^{m-j}
+        \sum_{0 \leq k \leq n}
+        {a_k x^{n-k} x^{m-j}}
         +
         \sum_{\substack{
-        1-j \leq h < 0 \\
-                \text{或}\, n < h \leq n+(m-j)
-            }}
-        {0\, x^{n-h}\, x^{m-j}}
+                1-j \leq k < 0 \\
+                \text{或}\, n < k \leq m+n-j
+        }}
+        {0\, x^{n-k+m-j}}
         \\
         = {} &
         f(x)\, x^{m-j}.
     \end{align*}
     若 \(j > m\), 则
     \([S(f, g; n, m)]_{\ell,j} = b_{\ell-(j-m)}\).
-    为方便, 记 \(k = j - m\).
     则
     \begin{align*}
-             &
+        &
         [C_{m+n}\, S(f, g; n, m)]_{1,j}
         \\
         = {} &
         \sum_{1 \leq \ell \leq m+n}
-        {b_{\ell-k} x^{m+n-\ell}}
+        {b_{\ell-(j-m)} x^{m+n-\ell}}
         \\
         = {} &
-        \sum_{1-k \leq \ell-k \leq m+n-k}
-        {b_{\ell-k} x^{m-(\ell-k)+(n-k)}}
+        \sum_{1-(j-m) \leq \ell-(j-m) \leq m+n-(j-m)}
+        {b_{\ell-(j-m)} x^{m-(\ell-(j-m))+n-(j-m)}}
         \\
         = {} &
-        \sum_{1-k \leq h \leq m+(n-k)}
-        {b_h x^{m-h}\, x^{n-k}}
+        \sum_{1-(j-m) \leq k \leq m+n-(j-m)}
+        {b_k x^{m-k+n-(j-m)}}
         \\
         = {} &
-        \sum_{0 \leq h \leq m}
-        {b_h x^{m-h}\, x^{n-k}}
+        \sum_{\substack{
+                1-(j-m) \leq k \leq m+n-(j-m) \\
+                0 \leq k \leq m
+        }}
+        {b_k x^{m-k+n-(j-m)}}
         +
         \sum_{\substack{
-        1-k \leq h < 0 \\
-                \text{或}\, m < h \leq m+(n-k)
-            }}
-        {b_h x^{m-h}\, x^{n-k}}
+                1-(j-m) \leq k \leq m+n-(j-m) \\
+                k < 0 \,\text{或}\, k > m
+        }}
+        {b_k x^{m-k+n-(j-m)}}
         \\
         = {} &
-        \Bigg( \sum_{0 \leq h \leq m}
-        {b_h x^{m-h}} \Bigg) x^{n-(j-m)}
+        \sum_{0 \leq k \leq m}
+        {b_k x^{m-k} x^{n-(j-m)}}
         +
         \sum_{\substack{
-        1-k \leq h < 0 \\
-                \text{或}\, m < h \leq m+(n-k)
-            }}
-        {0\, x^{m-h}\, x^{n-k}}
+                1-(j-m) \leq k < 0 \\
+                \text{或}\, m < k \leq m+n-(j-m)
+        }}
+        {0\, x^{m-k+n-(j-m)}}
         \\
         = {} &
         g(x)\, x^{n-(j-m)}.
@@ -333,7 +347,7 @@
     (2)
     注意,
     \begin{align*}
-             &
+        &
         [C_{m+n}\, S(f, g; n, m)\, Y]_{1,1}
         \\
         = {} &
@@ -341,48 +355,48 @@
         \\
         = {} &
         \sum_{j = 1}^{m+n}
-            {[C_{m+n}\, S(f, g; n, m)]_{1,j} [Y]_{j,1}}
+        {[C_{m+n}\, S(f, g; n, m)]_{1,j} [Y]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m}
-            {[C_{m+n}\, S(f, g; n, m)]_{1,j} [Y]_{j,1}}
+        {[C_{m+n}\, S(f, g; n, m)]_{1,j} [Y]_{j,1}}
         +
         \sum_{j = m+1}^{m+n}
-            {[C_{m+n}\, S(f, g; n, m)]_{1,j} [Y]_{j,1}}
+        {[C_{m+n}\, S(f, g; n, m)]_{1,j} [Y]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m}
-            {f(x)\, x^{m-j}\, [Y]_{j,1}}
+        {f(x)\, x^{m-j}\, [Y]_{j,1}}
         +
         \sum_{j = m+1}^{m+n}
-            {g(x)\, x^{n-(j-m)}\, [Y]_{j,1}}
-        \\
-        = {} &
-        f(x)
-        \sum_{j = 1}^{m}
-            {x^{m-j}\, [Y]_{j,1}}
-        +
-        g(x)
-        \sum_{j = m+1}^{m+n}
-            {x^{n-(j-m)}\, [Y]_{j,1}}
+        {g(x)\, x^{n-(j-m)}\, [Y]_{j,1}}
         \\
         = {} &
         f(x)
         \sum_{j = 1}^{m}
-            {x^{m-1-(j-1)}\, [Y]_{(j-1)+1,1}}
+        {x^{m-j}\, [Y]_{j,1}}
         +
         g(x)
         \sum_{j = m+1}^{m+n}
-            {x^{n-1-(j-m-1)}\, [Y]_{m+1+(j-m-1),1}}
+        {x^{n-(j-m)}\, [Y]_{j,1}}
+        \\
+        = {} &
+        f(x)
+        \sum_{j = 1}^{m}
+        {x^{m-1-(j-1)}\, [Y]_{(j-1)+1,1}}
+        +
+        g(x)
+        \sum_{j = m+1}^{m+n}
+        {x^{n-1-(j-m-1)}\, [Y]_{m+1+(j-m-1),1}}
         \\
         = {} &
         f(x)
         \sum_{k = 0}^{m-1}
-            {[Y]_{k+1,1} x^{m-1-k}}
+        {[Y]_{k+1,1} x^{m-1-k}}
         +
         g(x)
         \sum_{k = 0}^{n-1}
-            {[Y]_{m+1+k,1} x^{n-1-k}}
+        {[Y]_{m+1+k,1} x^{n-1-k}}
         \\
         = {} &
         f(x)\, u(x) + g(x)\, v(x).
@@ -397,19 +411,19 @@
         \\
         = {} &
         \sum_{j = 1}^{m+n}
-            {[C_{m+n}]_{1,j} [S(f, g; n, m)\, Y]_{j,1}}
+        {[C_{m+n}]_{1,j} [S(f, g; n, m)\, Y]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m+n}
-            {x^{m+n-j} [S(f, g; n, m)\, Y]_{j,1}}
+        {x^{m+n-j} [S(f, g; n, m)\, Y]_{j,1}}
         \\
         = {} &
         \sum_{j = 1}^{m+n}
-            {[S(f, g; n, m)\, Y]_{(j-1)+1,1} x^{m+n-1-(j-1)}}
+        {[S(f, g; n, m)\, Y]_{(j-1)+1,1} x^{m+n-1-(j-1)}}
         \\
         = {} &
         \sum_{k = 0}^{m+n-1}
-            {[S(f, g; n, m)\, Y]_{k+1,1} x^{m+n-1-k}}.
+        {[S(f, g; n, m)\, Y]_{k+1,1} x^{m+n-1-k}}.
     \end{align*}
     故, 对不超过 \(m+n-1\) 的非负整数 \(k\),
     \begin{equation*}
@@ -466,15 +480,16 @@
     取 \(P\) 为 \(Q\) 即可.
 \end{proof}
 
-\begin{theorem}
-    设假定~\ref{standing-assumption} 成立.
+\begin{theorem}\label{thm:resultant-Bézout}
+    设假定~\ref{standing-assumption-of-resultant} 成立.
 
     (1)
     存在整式 \(u\), \(v\), 使
     \begin{align*}
         f(x)\, u(x) + g(x)\, v(x) = \det {(S(f, g; n, m))}.
     \end{align*}
-    注意, 上式的右侧不含 \(x\).
+    注意, 上式的右边不含 \(x\)
+    (因为 \(S(f, g; n, m)\) 不含 \(x\)).
 
     (2)
     设存在数 \(c\), 使 \(f(c) = 0 = g(c)\).
@@ -507,15 +522,17 @@
     \end{align*}
     其中,
     \begin{align*}
-        c_k = [S(f, g; n, m)\, P]_{k+1,1}
-        = \begin{cases}
-              \det {(S(f, g; n, m))}, & k = m + n - 1; \\
-              0,                      & \text{别的情形}.
-          \end{cases}
+        c_k = [S(f, g; n, m)\, P]_{k+1,1} =
+        \begin{cases}
+            \det {(S(f, g; n, m))}, & k = m + n - 1; \\
+            0,                      & \text{别的情形}.
+        \end{cases}
     \end{align*}
 
     (2)
-    我们其实已证它, 但我们现在别地证它.
+    我们其实已证它
+    (定理~\ref{thm:necessary-condition-for-the-existence-of-a-common-root}),
+    但我们现在别地证它.
     注意, 代 \(x\) 以 \(c\), 得
     \begin{equation*}
         \det {(S(f, g; n, m))}
@@ -525,8 +542,131 @@
     \end{equation*}
 \end{proof}
 
+有一件事, 其值得提.
+设假定~\ref{standing-assumption-of-resultant} 成立.
+对 \(m + n\)~级阵 \(S(f, g; n, m)\),
+我们加行~\(i\) 的 \(x^{m+n-i}\)~倍于行~\(m + n\),
+\(i = 1\), \(\dots\), \(m + n - 1\),
+得阵 \(S^* (f, g; n, m)\).
+那么, 一方面,
+\(\det {(S^* (f, g; n, m))} = \det {(S(f, g; n, m))}\).
+另一方面, 若 \(j \leq m\), 则
+\begin{align*}
+    &
+    [S^* (f, g; n, m)]_{m+n,j}
+    \\
+    = {} &
+    [S(f, g; n, m)]_{m+n,j}
+    + \sum_{1 \leq \ell \leq m+n-1}
+    {x^{m+n-\ell} [S(f, g; n, m)]_{\ell,j}}
+    \\
+    = {} &
+    a_{m+n-j} x^0
+    + \sum_{1 \leq \ell \leq m+n-1}
+    {a_{\ell-j} x^{m+n-\ell}}
+    \\
+    = {} &
+    \sum_{1 \leq \ell \leq m+n}
+    {a_{\ell-j} x^{m+n-\ell}}
+    \\
+    = {} &
+    \sum_{1-j \leq \ell-j \leq m+n-j}
+    {a_{\ell-j} x^{n-(\ell-j)+m-j}}
+    \\
+    = {} &
+    \sum_{1-j \leq k \leq m+n-j}
+    {a_k x^{n-k+m-j}}
+    \\
+    = {} &
+    \sum_{\substack{
+            1-j \leq k \leq m+n-j \\
+            0 \leq k \leq n
+    }}
+    {a_k x^{n-k+m-j}}
+    +
+    \sum_{\substack{
+            1-j \leq k \leq m+n-j \\
+            k < 0 \,\text{或}\, k > n
+    }}
+    {a_k x^{n-k+m-j}}
+    \\
+    = {} &
+    \sum_{0 \leq k \leq n}
+    {a_k x^{n-k} x^{m-j}}
+    +
+    \sum_{\substack{
+            1-j \leq k < 0 \\
+            \text{或}\, n < k \leq m+n-j
+    }}
+    {0\, x^{n-k+m-j}}
+    \\
+    = {} &
+    f(x)\, x^{m-j};
+\end{align*}
+若 \(j > m\), 则
+\begin{align*}
+    &
+    [S^* (f, g; n, m)]_{m+n,j}
+    \\
+    = {} &
+    [S(f, g; n, m)]_{m+n,j}
+    + \sum_{1 \leq \ell \leq m+n-1}
+    {x^{m+n-\ell} [S(f, g; n, m)]_{\ell,j}}
+    \\
+    = {} &
+    b_{m+n-(j-m)} x^0
+    + \sum_{1 \leq \ell \leq m+n-1}
+    {b_{\ell-(j-m)} x^{m+n-\ell}}
+    \\
+    = {} &
+    \sum_{1 \leq \ell \leq m+n}
+    {b_{\ell-(j-m)} x^{m+n-\ell}}
+    \\
+    = {} &
+    \sum_{1-(j-m) \leq \ell-(j-m) \leq m+n-(j-m)}
+    {b_{\ell-(j-m)} x^{m-(\ell-(j-m))+n-(j-m)}}
+    \\
+    = {} &
+    \sum_{1-(j-m) \leq k \leq m+n-(j-m)}
+    {b_k x^{m-k+n-(j-m)}}
+    \\
+    = {} &
+    \sum_{\substack{
+            1-(j-m) \leq k \leq m+n-(j-m) \\
+            0 \leq k \leq m
+    }}
+    {b_k x^{m-k+n-(j-m)}}
+    +
+    \sum_{\substack{
+            1-(j-m) \leq k \leq m+n-(j-m) \\
+            k < 0 \,\text{或}\, k > m
+    }}
+    {b_k x^{m-k+n-(j-m)}}
+    \\
+    = {} &
+    \sum_{0 \leq k \leq m}
+    {b_k x^{m-k} x^{n-(j-m)}}
+    +
+    \sum_{\substack{
+            1-(j-m) \leq k < 0 \\
+            \text{或}\, m < k \leq m+n-(j-m)
+    }}
+    {0\, x^{m-k+n-(j-m)}}
+    \\
+    = {} &
+    g(x)\, x^{n-(j-m)}.
+\end{align*}
+所以, 若存在数 \(c\), 使 \(f(c) = 0 = g(c)\),
+则 \(S^* (f, g; n, m)\) 的行~\(m + n\) 的元全是 \(0\).
+则
+\begin{align*}
+    \det {(S(f, g; n, m))}
+    = \det {(S^* (f, g; n, m))}
+    = 0.
+\end{align*}
+
 \begin{theorem}\label{thm:resultant-swap}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
 
     (1)
     \(S(g, f; m, n)\) 是 \(m + n\)~级阵,
@@ -542,13 +682,14 @@
 \end{theorem}
 
 \begin{proof}
+    (1)
     注意, \(S(g, f; m, n)\) 是这样的 \(m + n\)~级阵:
     \begin{align*}
-        [S(g, f; m, n)]_{i,j}
-        = \begin{cases}
-              b_{i-j},     & j \leq n; \\
-              a_{i-(j-n)}, & j > n.
-          \end{cases}
+        [S(g, f; m, n)]_{i,j} =
+        \begin{cases}
+            b_{i-j},     & j \leq n; \\
+            a_{i-(j-n)}, & j > n.
+        \end{cases}
     \end{align*}
     故, 若 \(j \leq m\),
     \begin{align*}
@@ -593,7 +734,7 @@
 \end{proof}
 
 \begin{theorem}\label{thm:resultant-recursive}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设 \(t\) 是数, 且
     \begin{align*}
         h(x)
@@ -636,7 +777,7 @@
     \(g_\ell (x) = g_{\ell-1} (x)\, x + b_\ell\)
     (若 \(\ell \geq 0\)).
     则对任何整数 \(\ell\),
-    有 \(g_\ell (t) = b_\ell + t g_{\ell-1} (t)\).
+    \(g_\ell (t) = b_\ell + t g_{\ell-1} (t)\).
     注意, \(b_\ell = g_\ell (t) - t g_{\ell-1} (t)\).
 
     注意, \(m + n + 1\) 级阵 \(S(h, g; n+1, m)\) 等于
@@ -665,10 +806,10 @@
             c_{m+n} & c_{m+n-1} & c_{m+n-2} & \cdots & c_{n+1}   & b_{m+n}   & b_{m+n-1}  & \cdots & b_{m}      \\
         \end{bmatrix}.
     \end{align*}
-    我们加行~\(1\) 的 \(t\) 倍到行~\(2\),
-    再加行~\(2\) 的 \(t\) 倍到行~\(3\),
+    我们加行~\(1\) 的 \(t\) 倍于行~\(2\),
+    再加行~\(2\) 的 \(t\) 倍于行~\(3\),
     ……
-    再加行~\(m+n\) 的 \(t\) 倍到行~\(m+n+1\),
+    再加行~\(m+n\) 的 \(t\) 倍于行~\(m+n+1\),
     得 \(m+n+1\)~级阵
     \begin{align*}
         S_1 =
@@ -685,10 +826,10 @@
     \end{align*}
     我们知道, \(\det {(S_1)} = \det {(S(h, g; n+1, m))}\).
 
-    我们加列~\(m+2\) 的 \(-t\) 倍到列~\(m+1\),
-    再加列~\(m+3\) 的 \(-t\) 倍到列~\(m+2\),
+    我们加列~\(m+2\) 的 \(-t\) 倍于列~\(m+1\),
+    再加列~\(m+3\) 的 \(-t\) 倍于列~\(m+2\),
     ……
-    再加列~\(m+n+1\) 的 \(-t\) 倍到列~\(m+n\),
+    再加列~\(m+n+1\) 的 \(-t\) 倍于列~\(m+n\),
     得 \(m+n+1\)~级阵
     \begin{align*}
         S_2 =
@@ -723,9 +864,9 @@
     (注意, \(m+1+(m+n-j) > m\)).
     注意, \(S_2 ({m+n+1}|{m+n+1}) = S(f, g; n, m)\).
     注意, \(g_m (t) = g(t)\).
-    于是, 按行~\(m+n+1\) 展开, 有
+    于是, 按行~\(m+n+1\) 展开,
     \begin{align*}
-             &
+        &
         \det {(S(h, g; n+1, m))}
         \\
         = {} &
@@ -741,7 +882,7 @@
 \end{proof}
 
 \begin{theorem}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     若 \(f(x) = a_0 (x - x_1) \dots (x - x_n)\), 则
     \begin{align*}
         \det {(S(f, g; n, m))} = a_0^m g(x_1) g(x_2) \dots g(x_n).
@@ -758,8 +899,8 @@
     您用式~1 与定理~\ref{thm:resultant-swap} 证式~2.
 
     若 \(m = 0\),
-    则式~1 的左侧是 \(b_0^n\),
-    且式~1 的右侧是
+    则式~1 的左边是 \(b_0^n\),
+    且式~1 的右边是
     \(a_0^0 g(x_1) \dots g(x_n) = 1 \cdot b_0^n\)
     (注意, \(g(x) = b_0\)).
 
@@ -795,7 +936,7 @@
 \end{proof}
 
 \begin{theorem}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
 
     (1)
     设存在数 \(c\), 使 \(f(c) = 0 = g(c)\).
@@ -810,7 +951,39 @@
 
 \begin{proof}
     (1)
-    定理~\ref{thm:necessary-condition-for-the-existence-of-a-common-root}.
+    我们其实已证它
+    (定理~\ref{thm:necessary-condition-for-the-existence-of-a-common-root},
+    定理~\ref{thm:resultant-Bézout}),
+    但我们现在别地证它.
+
+    若 \(a_0 = 0 = b_0\), 则 \(\det {(S(f, g; n, m))} = 0\).
+
+    若 \(a_0 \neq 0\), 则我们可写
+    \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
+    其中, \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是数.
+    因为 \(f(c) = 0\),
+    \(a_0\), \(c - x_1\), \(c - x_2\), \(\dots\), \(c - x_n\)
+    的一个是 \(0\).
+    因为 \(a_0 \neq 0\),
+    某 \(c - x_i\) 是 \(0\).
+    则 \(c\) 等于此 \(x_i\).
+    则
+    \(\det {(S(f, g; n, m))}
+    = a_0^m g(x_1) g(x_2) \dots g(x_n) = 0\),
+    因为 \(g(x_i) = g(c) = 0\).
+
+    若 \(b_0 \neq 0\), 您可类似地证它:
+    注意,
+    \begin{equation}
+        \det {(S(f, g; n, m))}
+        = (-1)^{m n} b_0^n f(y_1) f(y_2) \dots f(y_m),
+        \label{eq:resultant-in-terms-of-roots-of-g}
+    \end{equation}
+    其中,
+    \begin{equation}
+        g(x) = b_0 (x - y_1) (x - y_2) \dots (x - y_m).
+        \label{eq:roots-of-g}
+    \end{equation}
 
     (2)
     若 \(a_0 = 0 = b_0\), 则 \(\det {(S(f, g; n, m))} = 0\).
@@ -829,234 +1002,15 @@
     因为 \(a_0 \neq 0\),
     我们说,
     在 \(g(x_1)\), \(g(x_2)\), \(\dots\), \(g(x_n)\),
-    \(0\) 必存在.
+    \(0\) 存在.
 
     若 \(b_0 \neq 0\), 您可类似地证它:
-    您用
-    \begin{align*}
-        0
-        = \det {(S(f, g; n, m))}
-        = (-1)^{m n} b_0^n f(y_1) f(y_2) \dots f(y_m),
-    \end{align*}
-    其中, \(g(x) = b_0 (x - y_1) (x - y_2) \dots (x - y_m)\).
+    注意式~\eqref{eq:resultant-in-terms-of-roots-of-g},
+    若式~\eqref{eq:roots-of-g}.
 \end{proof}
 
-我们看几个例.
-
-\begin{example}
-    解方程组
-    \begin{equation}
-        \left\{
-        \begin{aligned}
-            11x^2 - 2xy - 44y^2 - x + 26y - 32  & = 0, \\
-            4x^2 - 18xy + 49y^2 - 4x + 9y - 118 & = 0.
-        \end{aligned}
-        \right.
-        \label{eq:soe1}
-    \end{equation}
-
-    设 \(x = a\), \(y = b\) 是%
-    方程组~\eqref{eq:soe1} 的一个解.
-    则
-    \begin{align*}
-         &
-        \begin{aligned}
-            0
-            = {} & 11a^2 - 2ab - 44b^2 - a + 26b - 32             \\
-            = {} & 11 a^2 + (-2 b - 1) a + (-44 b^2 + 26 b - 32),
-        \end{aligned}
-        \\
-         &
-        \begin{aligned}
-            0
-            = {} & 4a^2 - 18ab + 49b^2 - 4a + 9b - 118           \\
-            = {} & 4 a^2 + (-18 b - 4) a + (49 b^2 + 9 b - 118).
-        \end{aligned}
-    \end{align*}
-    我们记
-    \begin{align*}
-        f(x; y) & = 11 x^2 + (-2 y - 1) x + (-44 y^2 + 26 y - 32), \\
-        g(x; y) & = 4 x^2 + (-18 y - 4) x + (49 y^2 + 9 y - 118).
-    \end{align*}
-    则 \(f(a; b) = 0 = g(a; b)\).
-    故
-    \begin{align*}
-        \begin{bmatrix}
-            11            & 0             & 4            & 0            \\
-            -2b-1         & 11            & -18b-4       & 4            \\
-            -44b^2+26b-32 & -2b-1         & 49b^2+9b-118 & -18b-4       \\
-            0             & -44b^2+26b-32 & 0            & 49b^2+9b-118 \\
-        \end{bmatrix}
-    \end{align*}
-    的行列式是 \(0\).
-    可以算出, 此阵的行列式是
-    \(342\,125\, (b^2 - 1)\, (b^2 - 4)\).
-    于是, 若 \(x = a\), \(y = b\) 是%
-    方程组~\eqref{eq:soe1} 的一个解,
-    则 \(b = 1\) 或 \(b = -1\)
-    或 \(b = 2\) 或 \(b = -2\).
-    则 (代 \(b\) 以 \(1\))
-    \begin{equation}
-        \left\{
-        \begin{aligned}
-            11a^2 - 2a - 44 - a + 26 - 32  & = 0, \\
-            4a^2 - 18a + 49 - 4a + 9 - 118 & = 0;
-        \end{aligned}
-        \right.
-        \label{eq:soe2}
-    \end{equation}
-    或 (代 \(b\) 以 \(-1\))
-    \begin{equation}
-        \left\{
-        \begin{aligned}
-            11a^2 + 2a - 44 - a - 26 - 32  & = 0, \\
-            4a^2 + 18a + 49 - 4a - 9 - 118 & = 0;
-        \end{aligned}
-        \right.
-        \label{eq:soe3}
-    \end{equation}
-    或 (代 \(b\) 以 \(2\))
-    \begin{equation}
-        \left\{
-        \begin{aligned}
-            11a^2 - 4a - 176 - a + 52 - 32   & = 0, \\
-            4a^2 - 36a + 196 - 4a + 18 - 118 & = 0;
-        \end{aligned}
-        \right.
-        \label{eq:soe4}
-    \end{equation}
-    或 (代 \(b\) 以 \(-2\))
-    \begin{equation}
-        \left\{
-        \begin{aligned}
-            11a^2 + 4a - 176 - a - 52 - 32   & = 0, \\
-            4a^2 + 36a + 196 - 4a - 18 - 118 & = 0.
-        \end{aligned}
-        \right.
-        \label{eq:soe5}
-    \end{equation}
-    方程组~\eqref{eq:soe2} 的解是 \(a = -2\);
-    方程组~\eqref{eq:soe3} 的解是 \(a = 3\);
-    方程组~\eqref{eq:soe4} 的解是 \(a = 4\);
-    方程组~\eqref{eq:soe5} 的解是 \(a = -5\).
-    于是, 若 \(x = a\), \(y = b\) 是%
-    方程组~\eqref{eq:soe1} 的一个解,
-    必:
-    \begin{equation*}
-        \begin{alignedat}{7}
-            {}             & a & {} = {} & {-2}, & \quad & b & {} = {} & 1;    \\
-            \text{或} \quad & a & {} = {} & 3,    & \quad & b & {} = {} & {-1}; \\
-            \text{或} \quad & a & {} = {} & 4,    & \quad & b & {} = {} & 2;    \\
-            \text{或} \quad & a & {} = {} & {-5}, & \quad & b & {} = {} & {-2}.
-        \end{alignedat}
-    \end{equation*}
-    最后, 我们验证这些是否是%
-    方程组~\eqref{eq:soe1} 的解.
-    可以验证, 它们都是解.
-    于是,
-    方程组~\eqref{eq:soe1} 的解是:
-    \begin{equation*}
-        \begin{alignedat}{7}
-            {}             & x & {} = {} & {-2}, & \quad & y & {} = {} & 1;    \\
-            \text{或} \quad & x & {} = {} & 3,    & \quad & y & {} = {} & {-1}; \\
-            \text{或} \quad & x & {} = {} & 4,    & \quad & y & {} = {} & 2;    \\
-            \text{或} \quad & x & {} = {} & {-5}, & \quad & y & {} = {} & {-2}.
-        \end{alignedat}
-    \end{equation*}
-\end{example}
-
-\begin{example}
-    设数 \(X\), \(Y\), \(T\) 适合
-    \begin{equation}
-        X = \frac{1 + 8T - T^2}{1 + T^2},
-        \quad
-        Y = \frac{4T}{1 + T^2}.
-        \label{eq:soe6}
-    \end{equation}
-    我们可消去 \(T\), 以得到 \(X\) 与 \(Y\) 的关系:
-    若 \((X, Y, T) = (x, y, t)\) 适合式~\eqref{eq:soe6},
-    则 \((X, Y) = (x, y)\) 适合某关系 (不含 \(T\)),
-    且反过来,
-    若 \((X, Y) = (x, y)\) 适合这个不含 \(T\) 的关系,
-    则存在 \(t\),
-    使 \((X, Y, T) = (x, y, t)\) 适合式~\eqref{eq:soe6}.
-
-    设 \((X, Y, T) = (x, y, t)\) 适合式~\eqref{eq:soe6}.
-    去分母, 有
-    \begin{align*}
-        (1 + t^2) x - (1 + 8t - t^2) & = 0, \\
-        (1 + t^2) y - 4t             & = 0,
-    \end{align*}
-    即
-    \begin{align*}
-        (x + 1) t^2 + (-8) t + (x - 1) & = 0, \\
-        y t^2 + (-4) t + y             & = 0.
-    \end{align*}
-    记
-    \begin{align*}
-        f(T; X, Y) & = (X + 1) T^2 + (-8) T + (X - 1), \\
-        g(T; X, Y) & = Y T^2 + (-4) T + Y.
-    \end{align*}
-    则 \(f(t; x, y) = 0 = g(t; x, y)\).
-    反过来,
-    若 \((X, Y, T) = (x, y, t)\) 适合
-    \(f(T; X, Y) = 0 = g(T; X, Y)\),
-    则 \(t^2 + 1 \neq 0\).
-    (反证法: 若 \(y t^2 - 4 t + y = 0\),
-    且 \(t^2 + 1 = 0\),
-    则 \(4 t = 0\).
-    则 \(t = 0\).
-    可是, \(0^2 + 1 \neq 0\).)
-    则 \((X, Y, T) = (x, y, t)\) 适合式~\eqref{eq:soe6}.
-
-    所以,
-    若 \((X, Y, T) = (x, y, t)\) 适合式~\eqref{eq:soe6},
-    则
-    \begin{align*}
-        0 =
-        \det {
-            \begin{bmatrix}
-                x+1 & 0   & y  & 0  \\
-                -8  & x+1 & -4 & y  \\
-                x-1 & -8  & y  & -4 \\
-                0   & x-1 & 0  & y  \\
-            \end{bmatrix}
-        }
-        = 4 (4 x^2 - 16 x y + 17 y^2 - 4).
-    \end{align*}
-    记
-    \begin{align*}
-        R(X, Y) = 4 X^2 - 16 X Y + 17 Y^2 - 4.
-    \end{align*}
-    则 \(R(x, y) = 0\).
-    反过来,
-    若 \((X, Y) = (x, y)\) 适合 \(R(X, Y) = 0\),
-    则 \(x + 1 = 0 = y\),
-    或 \(x + 1 \neq 0\) 或 \(y \neq 0\) 时,
-    存在数 \(t\),
-    使 \(f(t; x, y) = 0 = g(t; x, y)\).
-    所以,
-    若 \((X, Y) = (x, y)\) 适合 \(R(X, Y) = 0\),
-    则 \((x, y) = (-1, 0)\),
-    或 \((x, y) \neq (-1, 0)\) 时,
-    存在数 \(t\),
-    使 \((X, Y, T) = (x, y, t)\) 适合式~\eqref{eq:soe6}.
-    我们可以验证, 不存在数 \(t\),
-    使 \((X, Y, T) = (-1, 0, t)\) 适合式~\eqref{eq:soe6}.
-    (反证法: 若 \(0 = 4t/(1 + t^2)\),
-    则 \(t = 0\).
-    可是, \(-1 \neq (1 + 8 \cdot 0 - 0^2) / (1 + 0^2)\).)
-
-    综上, \(X\), \(Y\) 的关系是
-    \begin{align*}
-        4 X^2 - 16 X Y + 17 Y^2 - 4 = 0,
-        \quad
-        (X, Y) \neq (-1, 0).
-    \end{align*}
-\end{example}
-
 \begin{theorem}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设 \(m \geq n\).
 
     设
@@ -1075,8 +1029,8 @@
 
     则
     \begin{align*}
-         & \det {(S(f, p; n, m))} = \det {(S(f, g; n, m))}, \\
-         & \det {(S(p, f; m, n))} = \det {(S(g, f; m, n))}.
+        & \det {(S(f, p; n, m))} = \det {(S(f, g; n, m))}, \\
+        & \det {(S(p, f; m, n))} = \det {(S(g, f; m, n))}.
     \end{align*}
 \end{theorem}
 
@@ -1085,9 +1039,8 @@
     您用式~1 与定理~\ref{thm:resultant-swap} 证式~2.
 
     若 \(n = 0\),
-    则 \(S(f, p; 0, m)\) 与 \(S(f, g; 0, m)\)
-    都是 \(a_0 I_m\).
-    则它们的行列式相等.
+    则 \(S(f, p; 0, m) = a_0 I_m = S(f, g; 0, m)\).
+    % 则它们的行列式相等.
 
     以下, 我们设 \(n \geq 1\).
 
@@ -1096,9 +1049,9 @@
         d_k =
         \begin{dcases}
             b_k + \sum_{\ell = 0}^{k} {a_{k-\ell} c_{\ell}},
-             & 0 \leq k \leq m; \\
+            & 0 \leq k \leq m; \\
             0,
-             & \text{别的情形}.
+            & \text{别的情形}.
         \end{dcases}
     \end{align*}
     注意, 若 \(0 \leq k \leq m\),
@@ -1106,21 +1059,21 @@
         \sum_{\ell = 0}^{k} {a_{k-\ell} c_{\ell}}
         = \sum_{\ell = 0}^{m-n} {a_{k-\ell} c_{\ell}}.
     \end{align*}
-    (若 \(k \leq m-n\),
+    (若 \(k \leq m-n\), % tex-fmt: skip
     则当 \(\ell > k\) 时, \(a_{k-\ell} = 0\).
     若 \(k > m-n\),
-    则当 \(\ell > m - n\) 时, \(c_{\ell} = 0\)).
+    则当 \(\ell > m - n\) 时, \(c_{\ell} = 0\)). % tex-fmt: skip
     并且, 当 \(k < 0\) 或 \(k > m\) 时,
     \begin{align*}
         \sum_{\ell = 0}^{m-n} {a_{k-\ell} c_{\ell}} = 0.
     \end{align*}
-    (若 \(k < 0\),
+    (若 \(k < 0\), % tex-fmt: skip
     则当 \(\ell \geq 0\) 时, \(k - \ell < 0\),
     故 \(a_{k-\ell} = 0\).
     若 \(k > m\),
     则当 \(\ell \leq m - n\) 时,
     \(k - \ell > m - \ell \geq m - (m - n) = n\),
-    故 \(a_{k-\ell} = 0\).)
+    故 \(a_{k-\ell} = 0\).) % tex-fmt: skip
     于是, 统一地, 我们可写
     \begin{align*}
         d_k = b_k + \sum_{\ell = 0}^{m-n} {a_{k-\ell} c_{\ell}}.
@@ -1170,19 +1123,19 @@
         b_{i-(j-m)} + \sum_{j-m \leq r \leq j-m+(m-n)} {c_{r-(j-m)} a_{i-r}}.
     \end{align*}
     于是, 对 \(S(f, g; n, m)\), 我们%
-    加列~\(1\) 的 \(c_0\)~倍到列~\(m+1\),
-    再加列~\(2\) 的 \(c_1\)~倍到列~\(m+1\),
+    加列~\(1\) 的 \(c_0\)~倍于列~\(m+1\),
+    再加列~\(2\) 的 \(c_1\)~倍于列~\(m+1\),
     ……
-    再加列~\(m-n+1\) 的 \(c_{m-n}\)~倍到列~\(m+1\),
-    且我们加列~\(2\) 的 \(c_0\)~倍到列~\(m+2\),
-    再加列~\(3\) 的 \(c_1\)~倍到列~\(m+2\),
+    再加列~\(m-n+1\) 的 \(c_{m-n}\)~倍于列~\(m+1\),
+    且我们加列~\(2\) 的 \(c_0\)~倍于列~\(m+2\),
+    再加列~\(3\) 的 \(c_1\)~倍于列~\(m+2\),
     ……
-    再加列~\(m-n+2\) 的 \(c_{m-n}\)~倍到列~\(m+2\),
+    再加列~\(m-n+2\) 的 \(c_{m-n}\)~倍于列~\(m+2\),
     ……
-    且我们加列~\(n\) 的 \(c_0\)~倍到列~\(m+n\),
-    再加列~\(n+1\) 的 \(c_1\)~倍到列~\(m+n\),
+    且我们加列~\(n\) 的 \(c_0\)~倍于列~\(m+n\),
+    再加列~\(n+1\) 的 \(c_1\)~倍于列~\(m+n\),
     ……
-    再加列~\(m\) 的 \(c_{m-n}\)~倍到列~\(m+n\),
+    再加列~\(m\) 的 \(c_{m-n}\)~倍于列~\(m+n\),
     则我们得 \(S(f, p; n, m)\).
     则
     \begin{equation*}
@@ -1192,7 +1145,7 @@
 \end{proof}
 
 \begin{example}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设
     \begin{align*}
         G(x) = \sum_{k = 0}^{m+1} {c_k x^{m+1-k}},
@@ -1216,10 +1169,11 @@
     首先, 既然 \(c_0 = 0\),
     则 \(k \leq 0\) 时, \(c_k \leq 0\).
     则 \(j > 1\) 时, \([S(f, G; n, m+1)]_{1,j} = 0\).
-    (若 \(2 \leq j \leq m+1\),
+    (若 \(2 \leq j \leq m+1\), % tex-fmt: skip
     则 \([S(f, G; n, m+1)]_{1,j} = a_{1-j} = 0\);
-    若 \(j \geq m+2\), 则 \([S(f, G; n, m+1)]_{1,j}
-    = c_{1-(j-(m+1))} = c_{m+2-j} = 0\).)
+    若 \(j \geq m+2\), 则
+    \([S(f, G; n, m+1)]_{1,j} % tex-fmt: skip
+    = c_{1-(j-(m+1))} = c_{m+2-j} = 0\).) % tex-fmt: skip
 
     另一方面,
     \((S(f, G; n, m+1))(1|1) = S(f, g; n, m)\).
@@ -1249,7 +1203,7 @@
     \end{align*}
     所以, 由按行~\(1\) 展开,
     \begin{align*}
-             &
+        &
         \det {(S(f, G; n, m+1))}
         \\
         = {} &
@@ -1290,11 +1244,12 @@
         \\
         = {} &
         (-1)^{m d} b_0^d \det {(S(f, g; n, m))}.
+        \qefhere
     \end{align*}
 \end{example}
 
 \begin{example}
-    设假定~\ref{standing-assumption} 成立.
+    设假定~\ref{standing-assumption-of-resultant} 成立.
     设
     \begin{align*}
         F(x) = \sum_{k = 0}^{n} {c_k x^{n-k}},
@@ -1390,8 +1345,17 @@
     最后, 我们共作
     \begin{align*}
         (m+n-1) + (m+n-2) + \dots + 1
-        = {} & \frac{(m+n)(m+n-1)}{2}                   \\
-        = {} & \frac{m(m-1)}{2} + \frac{n(n-1)}{2} + mn
+        = {} &
+        \frac{(m+n)(m+n-1)}{2}
+        \\
+        = {} &
+        \frac{m (m-1+n) + n (n-1+m)}{2}
+        \\
+        = {} &
+        \frac{m(m-1) + n(n-1) + 2mn}{2}
+        \\
+        = {} &
+        \frac{m(m-1)}{2} + \frac{n(n-1)}{2} + mn
     \end{align*}
     次相邻的行的交换,
     使 \(S(f, g; n, m)\) 的行~\(\ell\)
@@ -1417,7 +1381,7 @@
     得 \(m+n\)~级阵 \(S(F, G; n, m)\).
     则
     \begin{align*}
-             &
+        &
         \det {(S(F, G; n, m))}
         \\
         = {} &
@@ -1448,15 +1412,16 @@
             b_{j-i},   & j > m.
         \end{cases}
     \end{align*}
-    对适合假定~\ref{standing-assumption} 的 \(f\), \(g\),
+    对适合假定~\ref{standing-assumption-of-resultant}
+    的 \(f\), \(g\),
     定义 \(m + n\)~级阵 \(S'(f, g; n, m)\),
     其中,
     \begin{align*}
-        [S'(f, g; n, m)]_{i,j}
-        = \begin{cases}
-              a_{j-i+n}, & j \leq m; \\
-              b_{j-i},   & j > m.
-          \end{cases}
+        [S'(f, g; n, m)]_{i,j} =
+        \begin{cases}
+            a_{j-i+n}, & j \leq m; \\
+            b_{j-i},   & j > m.
+        \end{cases}
     \end{align*}
     比如, 若 \(n = 2\), 且 \(m = 5\),
     则 \(S'(f, g; 2, 5)\) 等于
@@ -1502,15 +1467,2557 @@
     % 分别是 \(g(x)\) 的
     % \(1\), \(x\), \(\dots\), \(x^m\) 项的系数).
     % 由前面的讨论, 它们的行列式
-    % (即 \(f\), \(g\) 的二类结式)
+    % (即 \(f\), \(g\) 的 \(2\)~类结式)
     由前面的讨论, 它们的行列式%
     至多差正负号:
     \(\det {(S'(f, g; n, m))}
     = (-1)^{m n} \det {(S(f, g; n, m))}\).
 \end{example}
 
-若您想了解结式的更多的性质, 您可以找相关的文献.
-我就说这么多.
+\section{derivative}
+
+本节, 我们讨论整式的 derivative.
+这会是有用的工具.
+
+\begin{definition}
+    设 \(n\) 是非负整数.
+    设
+    \begin{align*}
+        f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_{n-1} x + a_n
+        = \sum_{i = 0}^{n} {a_i x^{n-i}}.
+    \end{align*}
+    是整式.
+    定义它的 \emph{derivative} 为整式
+    \begin{align*}
+        \mathrm{D} f(x)
+        = n a_0 x^{n-1} + (n-1) a_1 x^{n-2} + \dots + 1 a_{n-1}
+        = \sum_{i = 0}^{n-1} {(n-i) a_i x^{n-1-i}}.
+    \end{align*}
+\end{definition}
+
+\begin{example}
+    设 \(f(x) = a x^2 + b x + c\).
+    则 \(\mathrm{D} f(x) = 2 a x + b\).
+\end{example}
+
+\begin{example}
+    设 \(f(x) = c x^i\) (\(i \geq 1\)).
+    我们可视 \(f(x)\) 为 \(c x^i + 0 x^{i-1} + \dots + 0\).
+    则 \(\mathrm{D} f(x)
+        = i c x^{i-1} + (i-1) 0 x^{i-2} + \dots + 0
+    = i c x^{i-1}\).
+
+    值得提, \(\mathrm{D} (c x^0) = 0\).
+\end{example}
+
+\begin{theorem}
+    设 \(r\) 是正整数.
+    设 \(f_1 (x)\), \(f_2 (x)\), \(\dots\), \(f_r (x)\) 是整式.
+    设 \(c_1\), \(c_2\), \(\dots\), \(c_m\) 是数.
+    则
+    \begin{align*}
+        \mathrm{D} \sum_{k = 1}^{r} {c_k f_k (x)}
+        = \sum_{k = 1}^{r} {c_k \mathrm{D} f_k (x)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    我们设, 非负整数 \(n\) 适合,
+    对每个不超过 \(r\) 的正整数 \(k\),
+    \begin{align*}
+        f_k (x)
+        = a_{k,0} x^n + a_{k,1} x^{n-1}
+        + \dots + a_{k,n-1} x + a_{k,n}.
+    \end{align*}
+    (注意, \(a_{k,0}\) 可以为 \(0\).)
+    则
+    \begin{align*}
+        \mathrm{D} \sum_{k = 1}^{r} {c_k f_k (x)}
+        = {} &
+        \mathrm{D}
+        \sum_{k = 1}^{r}
+        c_k
+        \sum_{i = 0}^{n}
+        a_{k,i} x^{n-i}
+        \\
+        = {} &
+        \mathrm{D}
+        \sum_{k = 1}^{r}
+        \sum_{i = 0}^{n}
+        c_k a_{k,i} x^{n-i}
+        \\
+        = {} &
+        \mathrm{D}
+        \sum_{i = 0}^{n}
+        \sum_{k = 1}^{r}
+        c_k a_{k,i} x^{n-i}
+        \\
+        = {} &
+        \mathrm{D}
+        \sum_{i = 0}^{n}
+        \left(\sum_{k = 1}^{r} c_k a_{k,i}\right)
+        x^{n-i}
+        \\
+        = {} &
+        \sum_{i = 0}^{n-1}
+        (n-i) \left(\sum_{k = 1}^{r} c_k a_{k,i}\right)
+        x^{n-1-i}
+        \\
+        = {} &
+        \sum_{i = 0}^{n-1}
+        \sum_{k = 1}^{r}
+        (n-i) c_k a_{k,i} x^{n-1-i}
+        \\
+        = {} &
+        \sum_{k = 1}^{r}
+        \sum_{i = 0}^{n-1}
+        (n-i) c_k a_{k,i} x^{n-1-i}
+        \\
+        = {} &
+        \sum_{k = 1}^{r}
+        c_k
+        \sum_{i = 0}^{n-1}
+        (n-i) a_{k,i} x^{n-1-i}
+        \\
+        = {} &
+        \sum_{k = 1}^{r}
+        c_k
+        \mathrm{D} f_k (x).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(f(x)\), \(g(x)\) 是整式.
+    则
+    \begin{align*}
+        \mathrm{D} (f(x) g(x))
+        = (\mathrm{D} f(x)) g(x) + f(x) (\mathrm{D} g(x)).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    我们设
+    \begin{align*}
+        f(x) & = a_0 x^n + a_1 x^{n-1} + \dots + a_{n-1} x + a_n, \\
+        g(x) & = b_0 x^m + b_1 x^{m-1} + \dots + b_{m-1} x + b_m.
+    \end{align*}
+
+    我们先证明, 对任何非负整数 \(i\), \(j\),
+    与任何数 \(p\), \(q\),
+    \begin{align*}
+        \mathrm{D} (p x^i \cdot q x^j)
+        = \mathrm{D} (p x^i) \cdot q x^j
+        + p x^i \cdot \mathrm{D} (q x^j).
+    \end{align*}
+    若 \(i = 0 = j\), 则
+    \begin{align*}
+        \mathrm{D} (p x^i \cdot q x^j)
+        = {} &
+        \mathrm{D} (p q)
+        \\
+        = {} &
+        0
+        \\
+        = {} &
+        0 \cdot q x^j + p x^i \cdot 0
+        \\
+        = {} &
+        \mathrm{D} (p x^i) \cdot q x^j
+        + p x^i \cdot \mathrm{D} (q x^j).
+    \end{align*}
+    若 \(i = 0\), 且 \(j \geq 1\), 则
+    \begin{align*}
+        \mathrm{D} (p x^i \cdot q x^j)
+        = {} &
+        \mathrm{D} (p q x^j)
+        \\
+        = {} &
+        j p q x^{j-1}
+        \\
+        = {} &
+        0 \cdot q x^j + p x^i \cdot j q x^{j-1}
+        \\
+        = {} &
+        \mathrm{D} (p x^i) \cdot q x^j
+        + p x^i \cdot \mathrm{D} (q x^j).
+    \end{align*}
+    若 \(i \geq 1\), 且 \(j = 0\), 则
+    \begin{align*}
+        \mathrm{D} (p x^i \cdot q x^j)
+        = {} &
+        \mathrm{D} (p q x^i)
+        \\
+        = {} &
+        i p q x^{i-1}
+        \\
+        = {} &
+        i p x^{i-1} \cdot q x^j + p x^i \cdot 0
+        \\
+        = {} &
+        \mathrm{D} (p x^i) \cdot q x^j
+        + p x^i \cdot \mathrm{D} (q x^j).
+    \end{align*}
+    若 \(i \geq 1\), 且 \(j \geq 1\), 则
+    \begin{align*}
+        \mathrm{D} (p x^i \cdot q x^j)
+        = {} &
+        \mathrm{D} (p q x^{i+j})
+        \\
+        = {} &
+        (i + j) p q x^{i+j-1}
+        \\
+        = {} &
+        i p q x^{i+j-1} + j p q x^{i+j-1}
+        \\
+        = {} &
+        i p x^{i-1} \cdot q x^j + p x^i \cdot j q x^{j-1}
+        \\
+        = {} &
+        \mathrm{D} (p x^i) \cdot q x^j
+        + p x^i \cdot \mathrm{D} (q x^j).
+    \end{align*}
+
+    由此, 且由上个定理,
+    \begin{align*}
+        \mathrm{D} (f(x) g(x))
+        = {} &
+        \mathrm{D} \left(
+            \left(\sum_{i=0}^{n} {a_i x^{n-i}}\right)
+            \left(\sum_{j=0}^{m} {b_j x^{m-j}}\right)
+        \right)
+        \\
+        = {} &
+        \mathrm{D} \left(
+            \sum_{i=0}^{n} \sum_{j=0}^{m}
+            {a_i x^{n-i} \cdot b_j x^{m-j}}
+        \right)
+        \\
+        = {} &
+        \sum_{i=0}^{n} \sum_{j=0}^{m}
+        {\mathrm{D} (a_i x^{n-i} \cdot b_j x^{m-j})}
+        \\
+        = {} &
+        \sum_{i=0}^{n} \sum_{j=0}^{m}
+        {(\mathrm{D} (a_i x^{n-i}) \cdot b_j x^{m-j}
+        + a_i x^{n-i} \cdot \mathrm{D} (b_j x^{m-j}))}
+        \\
+        = {} &
+        \sum_{i=0}^{n}
+        \left(
+            \mathrm{D} (a_i x^{n-i}) \sum_{j=0}^{m} b_j x^{m-j}
+            + a_i x^{n-i} \sum_{j=0}^{m} \mathrm{D} (b_j x^{m-j})
+        \right)
+        \\
+        = {} &
+        \sum_{i=0}^{n}
+        \left(
+            \mathrm{D} (a_i x^{n-i}) \sum_{j=0}^{m} b_j x^{m-j}
+            + a_i x^{n-i} \mathrm{D} \sum_{j=0}^{m} b_j x^{m-j}
+        \right)
+        \\
+        = {} &
+        \sum_{i=0}^{n}
+        ( \mathrm{D} (a_i x^{n-i}) g(x)
+        + a_i x^{n-i} \mathrm{D} g(x))
+        \\
+        = {} &
+        \left(
+            \sum_{i=0}^{n} \mathrm{D} (a_i x^{n-i})
+        \right) g(x)
+        + \left(
+            \sum_{i=0}^{n} a_i x^{n-i}
+        \right) \mathrm{D} g(x)
+        \\
+        = {} &
+        \left(\mathrm{D} \sum_{i=0}^{n} a_i x^{n-i}\right)
+        g(x)
+        + f(x) (\mathrm{D} g(x))
+        \\
+        = {} &
+        (\mathrm{D} f(x)) g(x) + f(x) (\mathrm{D} g(x)).
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(r\) 是正整数.
+    设 \(f_1 (x)\), \(f_2 (x)\), \(\dots\), \(f_r (x)\) 是整式.
+    则
+    \begin{align*}
+        \mathrm{D} (f_1 (x) f_2 (x) \dots f_r (x))
+        = {} &
+        (\mathrm{D} f_1 (x)) f_2 (x) \dots f_r (x)
+        + f_1 (x) (\mathrm{D} f_2 (x)) \dots f_r (x)
+        \\
+        &
+        \quad
+        + \dots
+        + f_1 (x) f_2 (x) \dots (\mathrm{D} f_r (x)).
+    \end{align*}
+    特别地, 若 \(f_1 (x)\), \(f_2 (x)\), \(\dots\), \(f_r (x)\)
+    都是 \(f(x)\),
+    则
+    \begin{align*}
+        \mathrm{D} ((f(x))^r)
+        = r (f(x))^{r-1} \mathrm{D} f(x).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(r)\):
+    对任何整式
+    \(f_1 (x)\), \(f_2 (x)\), \(\dots\), \(f_r (x)\),
+    \begin{align*}
+        \mathrm{D} (f_1 (x) f_2 (x) \dots f_r (x))
+        = {} &
+        (\mathrm{D} f_1 (x)) f_2 (x) \dots f_r (x)
+        + f_1 (x) (\mathrm{D} f_2 (x)) \dots f_r (x)
+        \\
+        &
+        \quad
+        + \dots
+        + f_1 (x) f_2 (x) \dots (\mathrm{D} f_r (x)).
+    \end{align*}
+    我们用数学归纳法证明,
+    对任何正整数 \(r\), \(P(r)\) 是对的.
+
+    \(P(1)\) 是对的, 因为左边与右边都是 \(D f_1 (x)\).
+
+    设 \(P(r)\) 是对的.
+    我们由此证明, \(P(r+1)\) 是对的.
+    注意, 由假定,
+    \begin{align*}
+        &
+        \mathrm{D} (f_1 (x) f_2 (x) \dots f_{r+1} (x))
+        \\
+        = {} &
+        \mathrm{D} ((f_1 (x) f_2 (x) \dots f_r (x)) f_{r+1} (x))
+        \\
+        = {} &
+        (\mathrm{D} (f_1 (x) f_2 (x) \dots f_r (x))) f_{r+1} (x)
+        + (f_1 (x) f_2 (x) \dots f_r (x)) (\mathrm{D} f_{r+1} (x))
+        \\
+        = {} &
+        ((\mathrm{D} f_1 (x)) f_2 (x) \dots f_r (x)
+            + f_1 (x) (\mathrm{D} f_2 (x)) \dots f_r (x)
+            \\
+            &
+            \quad
+            + \dots
+        + f_1 (x) f_2 (x) \dots (\mathrm{D} f_r (x))) f_{r+1} (x)
+        + (f_1 (x) f_2 (x) \dots f_r (x)) (\mathrm{D} f_{r+1} (x))
+        \\
+        = {} &
+        (\mathrm{D} f_1 (x)) f_2 (x) \dots f_r (x) f_{r+1} (x)
+        + f_1 (x) (\mathrm{D} f_2 (x)) \dots f_r (x) f_{r+1} (x)
+        \\
+        &
+        \quad
+        + \dots
+        + f_1 (x) f_2 (x) \dots (\mathrm{D} f_r (x)) f_{r+1} (x)
+        + f_1 (x) f_2 (x) \dots f_r (x) (\mathrm{D} f_{r+1} (x)).
+    \end{align*}
+    所以, \(P(r+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+\begin{theorem}
+    设 \(f(x) = (x - c) q(x)\).
+    则 \(\mathrm{D} f(c) = q(c)\).
+
+    若 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
+    则对不超过 \(n\) 的正整数 \(i\),
+    \begin{align*}
+        \mathrm{D} f(x_i) = a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}}
+        {(x_i - x_k)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        \mathrm{D} f(x)
+        = \mathrm{D} (x - x_0) q(x) + (x - x_0) \mathrm{D} q(x)
+        = q(x) + (x - x_0) \mathrm{D} q(x).
+    \end{align*}
+    代 \(x\) 以 \(c\), 得
+    \begin{align*}
+        \mathrm{D} f(c)
+        = q(c) + (c - c) \mathrm{D} q(c)
+        = q(c).
+    \end{align*}
+
+    若 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
+    则取
+    \begin{align*}
+        q_i (x)
+        = a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}} {(x - x_k)},
+    \end{align*}
+    得 \(f(x) = (x - x_i) q_i (x)\).
+    则
+    \begin{equation*}
+        \mathrm{D} f(x_i) = q_i (x_i)
+        = a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}} {(x_i - x_k)}.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+最后, 我们以整式的几个性质结束本节.
+
+\begin{theorem}
+    设 \(n\) 是非负整数.
+    设 \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\) 是整式.
+    设 \(c\) 是数.
+    则存在整式 \(q(x)\), 使
+    \begin{align*}
+        f(x) = (x - c) q(x) + f(c).
+    \end{align*}
+    进一步地, 若 \(n \geq 1\), 且 \(a_0 \neq 0\),
+    则 \(q(x)\) 的次是 \(n-1\).
+\end{theorem}
+
+\begin{proof}
+    对任何正整数 \(m\), 记
+    \begin{align*}
+        s_m (x; y)
+        = x^{m-1} + x^{m-2} y + \dots + x y^{m-2} + y^{m-1}
+        = \sum_{k = 0}^{m-1} {x^{m-1-k} y^k}.
+    \end{align*}
+    则 \(s_m (x; y)\) 是关于 \(x\) 的 \(m-1\)~次整式, 且
+    \begin{align*}
+        (x - y) s_m (x; y)
+        = {} &
+        (x - y) \sum_{k = 0}^{m-1} {x^{m-1-k} y^k}
+        \\
+        = {} &
+        x \sum_{k = 0}^{m-1} {x^{m-1-k} y^k}
+        - y \sum_{k = 0}^{m-1} {x^{m-1-k} y^k}
+        \\
+        = {} &
+        \sum_{k = 0}^{m-1} {x^{m-k} y^k}
+        - \sum_{k = 0}^{m-1} {x^{m-1-k} y^{k+1}}
+        \\
+        = {} &
+        \sum_{\ell = 0}^{m-1} {x^{m-\ell} y^\ell}
+        - \sum_{\ell = 1}^{m} {x^{m-\ell} y^\ell}
+        \\
+        = {} &
+        x^{m-0} y^0 + \sum_{\ell = 1}^{m-1} {x^{m-\ell} y^\ell}
+        - \left(
+            \sum_{\ell = 1}^{m-1} {x^{m-\ell} y^\ell} + x^{m-m} y^m
+        \right)
+        \\
+        = {} &
+        x^m - y^m.
+    \end{align*}
+    则
+    \begin{align*}
+        f(x) - f(c)
+        = {} &
+        \sum_{i = 0}^{n} {a_i x^{n-i}}
+        - \sum_{i = 0}^{n} {a_i c^{n-i}}
+        \\
+        = {} &
+        \sum_{i = 0}^{n} {(a_i x^{n-i} - a_i c^{n-i})}
+        \\
+        = {} &
+        \sum_{i = 0}^{n} {a_i (x^{n-i} - c^{n-i})}
+        \\
+        = {} &
+        \sum_{i = 0}^{n-1} {a_i (x^{n-i} - c^{n-i})}
+        + a_n (x^0 - c^0)
+        \\
+        = {} &
+        \sum_{i = 0}^{n-1} {a_i (x - c) s_{n-i} (x; c)}
+        + a_n\, 0
+        \\
+        = {} &
+        (x - c)
+        \sum_{i = 0}^{n-1} {a_i s_{n-i} (x; c)}.
+    \end{align*}
+    记
+    \begin{align*}
+        q(x) = \sum_{i = 0}^{n-1} {a_i s_{n-i} (x; c)}.
+    \end{align*}
+    则 \(f(x) = (x - c) q(x) + f(c)\).
+
+    进一步地, 若 \(n \geq 1\), 则
+    \begin{align*}
+        q(x)
+        = {} &
+        a_0 s_n (x; c)
+        + \underbrace{\sum_{i = 1}^{n-1} {a_i s_{n-i} (x; c)}}_{\text{次低于 \(n-1\)}}
+        \\
+        = {} &
+        a_0 (x^{n-1} + c x^{n-2} + \dots + c^{n-1})
+        + (\text{次低于 \(n-1\) 的整式})
+        \\
+        = {} &
+        a_0 x^{n-1} + (\text{次低于 \(n-1\) 的整式}).
+    \end{align*}
+    因为 \(a_0 \neq 0\), \(q(x)\) 的次是 \(n-1\).
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    (\(a_0 \neq 0\)) 是 \(n\)~次整式.
+
+    (1)
+    若存在数 \(d\), 与 \(n-1\)~次整式 \(p(x)\),
+    使 \(f(x) = (x - d) p(x)\),
+    则 \(f(d) = 0\).
+
+    (2)
+    若数 \(c\) 适合, \(f(c) = 0\),
+    则存在 \(n-1\)~次整式 \(q(x)\),
+    使 \(f(x) = (x - c) q(x)\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    注意, \(f(d) = (d - d) p(d) = 0\, p(d) = 0\).
+
+    (2)
+    由上个定理, 存在 \(n-1\) 次整式 \(q(x)\), 使
+    \begin{equation*}
+        f(x) = (x - c) q(x) + f(c)
+        = (x - c) q(x) + 0
+        = (x - c) q(x).
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(w_1\), \(w_2\), \(\dots\), \(w_n\) 是数.
+    则
+    \begin{equation}
+        \prod_{i = 1}^{n} {(x + w_i)}
+        = x^n + \sum_{k = 1}^{n} {x^{n-k}
+            \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+            {w_{\ell_1} \dots w_{\ell_k}}
+        }.
+        \label{eq:Viète}
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(n)\):
+    对任何数 \(w_1\), \(w_2\), \(\dots\), \(w_n\),
+    式~\eqref{eq:Viète} 是对的.
+
+    \(P(1)\) 是对的.
+
+    设 \(P(n)\) 是对的.
+    我们由此证, \(P(n+1)\) 是对的.
+    任取数 \(w_1\), \(\dots\), \(w_n\), \(w_{n+1}\),
+    注意,
+    \begin{align*}
+        &
+        \prod_{i = 1}^{n+1} {(x + w_i)}
+        \\
+        = {} &
+        \left(\prod_{i = 1}^{n} {(x + w_i)}\right) (x + w_{n+1})
+        \\
+        = {} &
+        \left(x^n + \sum_{k = 1}^{n} {x^{n-k}
+                \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+                {w_{\ell_1} \dots w_{\ell_k}}
+        }\right) (x + w_{n+1})
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \left(x^n + \sum_{k = 1}^{n} {x^{n-k}
+                \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+                {w_{\ell_1} \dots w_{\ell_k}}
+        }\right) x
+        \\
+        &
+        {} +
+        \left(x^n + \sum_{k = 1}^{n} {x^{n-k}
+                \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+                {w_{\ell_1} \dots w_{\ell_k}}
+        }\right) w_{n+1}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^{n+1} + \sum_{k = 1}^{n} {x^{n+1-k}
+            \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+            {w_{\ell_1} \dots w_{\ell_k}}
+        }
+        \\
+        &
+        {} +
+        x^n w_{n+1} + \sum_{k = 1}^{n} {x^{n-k}
+            \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+            {w_{\ell_1} \dots w_{\ell_k} w_{n+1}}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^{n+1} + \sum_{u = 1}^{n} {x^{n+1-u}
+            \sum_{1 \leq \ell_1 < \dots < \ell_u \leq n}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }
+        \\
+        &
+        {} +
+        x^n w_{n+1} + \sum_{u = 2}^{n+1} {x^{n-(u-1)}
+            \sum_{1 \leq \ell_1 < \dots < \ell_{u-1} \leq n}
+            {w_{\ell_1} \dots w_{\ell_{u-1}} w_{n+1}}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^{n+1} + \sum_{u = 1}^{n} {x^{n+1-u}
+            \sum_{1 \leq \ell_1 < \dots < \ell_u \leq n}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }
+        \\
+        &
+        {} +
+        x^n w_{n+1} + \sum_{u = 2}^{n+1} {x^{n+1-u}
+            \sum_{\substack{
+                    1 \leq \ell_1 < \dots < \ell_{u-1} < \ell_u \leq n+1 \\
+                    \ell_u = n + 1
+            }}
+            {w_{\ell_1} \dots w_{\ell_{u-1}} w_{\ell_u}}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^{n+1} + \sum_{u = 1}^{n} {x^{n+1-u}
+            \sum_{1 \leq \ell_1 < \dots < \ell_u \leq n}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }
+        \\
+        &
+        {}
+        + x^{n+1-1}
+        \sum_{\substack{
+                1 \leq \ell_1 \leq n+1 \\
+                \ell_1 = n + 1
+        }}
+        {w_{\ell_1} \dots w_{\ell_u}}
+        + \sum_{u = 2}^{n} {x^{n+1-u}
+            \sum_{\substack{
+                    1 \leq \ell_1 < \dots < \ell_u \leq n+1 \\
+                    \ell_u = n + 1
+            }}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }
+        \\
+        &
+        {}
+        + x^{n+1-(n+1)} \sum_{\substack{
+                1 \leq \ell_1 < \dots < \ell_{n+1} \leq n+1 \\
+                \ell_{n+1} = n + 1
+        }}
+        {w_{\ell_1} \dots w_{\ell_u}}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^{n+1} + \sum_{u = 1}^{n} {x^{n+1-u}
+            \sum_{\substack{
+                    1 \leq \ell_1 < \dots < \ell_u \leq n+1 \\
+                    \ell_u \leq n
+            }}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }
+        \\
+        &
+        {} +
+        \sum_{u = 1}^{n} {x^{n+1-u}
+            \sum_{\substack{
+                    1 \leq \ell_1 < \dots < \ell_u \leq n+1 \\
+                    \ell_u = n + 1
+            }}
+            {w_{\ell_1} \dots w_{\ell_{u-1}} w_{\ell_u}}
+        }
+        \\
+        &
+        {} +
+        x^{n+1-(n+1)}
+        \sum_{1 \leq \ell_1 < \dots < \ell_{n+1} \leq n+1}
+        {w_{\ell_1} \dots w_{\ell_u}}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        x^{n+1} + \sum_{u = 1}^{n} {x^{n+1-u}
+            \sum_{1 \leq \ell_1 < \dots < \ell_u \leq n+1}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }
+        \\
+        &
+        {} +
+        x^{n+1-(n+1)}
+        \sum_{1 \leq \ell_1 < \dots < \ell_{n+1} \leq n+1}
+        {w_{\ell_1} \dots w_{\ell_{n+1}}}
+        \\
+        = {} &
+        x^{n+1} + \sum_{u = 1}^{n+1} {x^{n+1-u}
+            \sum_{1 \leq \ell_1 < \dots < \ell_u \leq n+1}
+            {w_{\ell_1} \dots w_{\ell_u}}
+        }.
+    \end{align*}
+    所以, \(P(n+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是数.
+    设
+    \begin{align*}
+        f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n).
+    \end{align*}
+
+    (1)
+    若 \(f(x) = b_0 x^n + b_1 x^{n-1} + \dots + b_n\),
+    则 \(b_0 = a_0\), 且若 \(1 \leq k \leq n\), 则
+    \begin{align*}
+        b_k = (-1)^k a_0 \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+        {x_{\ell_1} \dots x_{\ell_k}}.
+    \end{align*}
+
+    (2)
+    若 \(a_0 \neq 0\), 则 \(f(x)\) 是 \(n\)~次整式,
+    且 \(x^n\)~项系数是 \(a_0\).
+
+    (3)
+    若数 \(c\) 是 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 的一个,
+    则 \(f(c) = 0\).
+    反过来, 若 \(a_0 \neq 0\),
+    且数 \(d\) 不等于 \(x_1\), \(x_2\), \(\dots\), \(x_n\),
+    则 \(f(d) \neq 0\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    由上个定理, \(b_0 = a_0 \cdot 1 = a_0\),
+    且若 \(1 \leq k \leq n\), 则
+    \begin{align*}
+        b_k
+        = {} &
+        a_0
+        \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+        {(-x_{\ell_1}) \dots (-x_{\ell_k})}
+        \\
+        = {} &
+        a_0
+        \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+        {(-1)^k x_{\ell_1} \dots x_{\ell_k}}
+        \\
+        = {} &
+        a_0\, (-1)^k
+        \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+        {x_{\ell_1} \dots x_{\ell_k}}
+        \\
+        = {} &
+        (-1)^k a_0
+        \sum_{1 \leq \ell_1 < \dots < \ell_k \leq n}
+        {x_{\ell_1} \dots x_{\ell_k}}.
+    \end{align*}
+
+    (2)
+    由 (1), \(f(x)\) 是次不高于 \(n\) 的整式,
+    且 \(x^n\)~项系数 \(b_0 = a_0 \neq 0\).
+    则 \(f(x)\) 是 \(n\)~次整式.
+
+    (3)
+    若数 \(c\) 是 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 的一个,
+    则 \(c - x_1\), \(c - x_2\), \(\dots\), \(c - x_n\) 的一个是 \(0\).
+    注意, 任何数跟 \(0\) 的积是 \(0\).
+    反过来, 若 \(a_0 \neq 0\),
+    且数 \(d\) 不等于 \(x_1\), \(x_2\), \(\dots\), \(x_n\),
+    则 \(a_0\), \(d - x_1\), \(d - x_2\), \(\dots\), \(d - x_n\)
+    都非零.
+    注意, 非零的数的积不是零.
+\end{proof}
+
+\section{结式的应用}
+
+本节, 我们看结式的应用.
+
+为方便, 我们仍作如下假定.
+
+\AssumptionResultant*
+
+设假定~\ref{standing-assumption-of-resultant} 成立.
+回想, \(f\), \(g\) 的 Sylvester 阵是 \(m + n\)~级阵
+\(S(f, g; n, m)\),
+其中,
+\begin{align*}
+    [S(f, g; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j},     & j \leq m; \\
+        b_{i-(j-m)}, & j > m.
+    \end{cases}
+\end{align*}
+\(f\), \(g\) 的结式是
+\(f\), \(g\) 的 Sylvester 阵的行列式
+\(\det {(S(f, g; n, m))}\).
+
+在本节, 结式的以下的性质是重要的
+(设假定~\ref{standing-assumption-of-resultant} 成立):
+
+(1)
+若存在数 \(c\), 使 \(f(c) = 0 = g(c)\),
+则 \(\det {(S(f, g; n, m))} = 0\).
+
+(2)
+若 \(a_0 = 0 = b_0\),
+则 \(\det {(S(f, g; n, m))} = 0\).
+
+(3)
+\(\det {(S(g, f; m, n))} = (-1)^{m n} \det {(S(f, g; n, m))}\).
+
+(4)
+若存在数 \(x_1\), \(x_2\), \(\dots\), \(x_n\),
+使对任何数 \(x\),
+\(f(x) = a_0 (x - x_1) \dots (x - x_n)\),
+则 \(\det {(S(f, g; n, m))} = a_0^m g(x_1) \dots g(x_n)\);
+若存在数 \(y_1\), \(y_2\), \(\dots\), \(y_m\),
+使对任何数 \(x\),
+\(g(x) = b_0 (x - y_1) \dots (x - y_m)\),
+则 \(\det {(S(f, g; n, m))} = (-1)^{m n} b_0^n f(y_1) \dots f(y_m)\).
+
+(5)
+若 \(\det {(S(f, g; n, m))} = 0\),
+且 \(a_0\), \(b_0\) 的一个非零
+(它们当然可以都非零),
+则存在数 \(c\), 使 \(f(c) = 0 = g(c)\).
+
+若数 \(c\) 适合 \(f(c) = 0\),
+我们说, \(c\) (或 \(x = c\)) 是 \(f(x) = 0\) 的一个解.
+为方便, 我们也说, \(c\) 是 \(f\) (或 \(f(x)\)) 的一个\emph{根}.
+于是, 通俗地, 我们可以说,
+\(2\)~个整式 \(f\), \(g\) 有公根
+(也就是, 存在数 \(c\), 使 \(c\) 既是 \(f\) 的根,
+且 \(c\) 也是 \(g\) 的根),
+相当于它们的结式是 \(0\)
+(若 \(a_0\) 或 \(b_0\) 非零).
+
+\begin{example}
+    解方程组
+    \begin{equation}
+        \left\{ % tex-fmt: skip
+        \begin{aligned}
+            11x^2 - 2xy - 44y^2 - x + 26y - 32  & = 0, \\
+            4x^2 - 18xy + 49y^2 - 4x + 9y - 118 & = 0.
+        \end{aligned}
+        \right. % tex-fmt: skip
+        \label{eq:soe1}
+    \end{equation}
+
+    设 \(x = a\), \(y = b\) 是%
+    方程组~\eqref{eq:soe1} 的一个解.
+    则
+    \begin{align*}
+        &
+        \begin{aligned}
+            0
+            = {} & 11a^2 - 2ab - 44b^2 - a + 26b - 32             \\
+            = {} & 11 a^2 + (-2 b - 1) a + (-44 b^2 + 26 b - 32),
+        \end{aligned}
+        \\
+        &
+        \begin{aligned}
+            0
+            = {} & 4a^2 - 18ab + 49b^2 - 4a + 9b - 118           \\
+            = {} & 4 a^2 + (-18 b - 4) a + (49 b^2 + 9 b - 118).
+        \end{aligned}
+    \end{align*}
+    我们记
+    \begin{align*}
+        f(x; y) & = 11 x^2 + (-2 y - 1) x + (-44 y^2 + 26 y - 32), \\
+        g(x; y) & = 4 x^2 + (-18 y - 4) x + (49 y^2 + 9 y - 118).
+    \end{align*}
+    则 \(f(a; b) = 0 = g(a; b)\).
+    故 (关于 \(x\) 的) 整式
+    \(f(x; b)\), \(g(x; b)\) 的结式是 \(0\),
+    即
+    \begin{align*}
+        \begin{bmatrix}
+            11            & 0             & 4            & 0            \\
+            -2b-1         & 11            & -18b-4       & 4            \\
+            -44b^2+26b-32 & -2b-1         & 49b^2+9b-118 & -18b-4       \\
+            0             & -44b^2+26b-32 & 0            & 49b^2+9b-118 \\
+        \end{bmatrix}
+    \end{align*}
+    的行列式是 \(0\).
+    可以算出, 此阵的行列式是
+    \(342\,125\, (b^2 - 1)\, (b^2 - 4)\).
+    于是, 结式等于 \(0\),
+    相当于 \(b = 1\) 或 \(b = -1\)
+    或 \(b = 2\) 或 \(b = -2\).
+    所以, 若 \(x = a\), \(y = b\) 是%
+    方程组~\eqref{eq:soe1} 的一个解,
+    则 \(b = 1\) 或 \(b = -1\)
+    或 \(b = 2\) 或 \(b = -2\).
+
+    另一方面,
+    注意, \(f(x; b)\) 的 \(x^2\)~项系数 \(11 \neq 0\).
+    所以, 若结式等于 \(0\)
+    (也就是, \(b = 1\) 或 \(b = -1\)
+    或 \(b = 2\) 或 \(b = -2\)),
+    则存在数 \(a\), 使 \(f(a; b) = 0 = g(a; b)\).
+    则 \(x = a\), \(y = b\)
+    是方程组~\eqref{eq:soe1} 的解.
+    为求 \(a\), 我们代方程组~\eqref{eq:soe1} 的
+    \(b\) 以 \(1\), 得
+    \begin{equation}
+        \left\{ % tex-fmt: skip
+        \begin{aligned}
+            11a^2 - 2a - 44 - a + 26 - 32  & = 0, \\
+            4a^2 - 18a + 49 - 4a + 9 - 118 & = 0;
+        \end{aligned}
+        \right. % tex-fmt: skip
+        \label{eq:soe2}
+    \end{equation}
+    我们代 \(b\) 以 \(-1\), 得
+    \begin{equation}
+        \left\{ % tex-fmt: skip
+        \begin{aligned}
+            11a^2 + 2a - 44 - a - 26 - 32  & = 0, \\
+            4a^2 + 18a + 49 - 4a - 9 - 118 & = 0;
+        \end{aligned}
+        \right. % tex-fmt: skip
+        \label{eq:soe3}
+    \end{equation}
+    我们代 \(b\) 以 \(2\), 得
+    \begin{equation}
+        \left\{ % tex-fmt: skip
+        \begin{aligned}
+            11a^2 - 4a - 176 - a + 52 - 32   & = 0, \\
+            4a^2 - 36a + 196 - 4a + 18 - 118 & = 0;
+        \end{aligned}
+        \right. % tex-fmt: skip
+        \label{eq:soe4}
+    \end{equation}
+    我们代 \(b\) 以 \(-2\), 得
+    \begin{equation}
+        \left\{ % tex-fmt: skip
+        \begin{aligned}
+            11a^2 + 4a - 176 - a - 52 - 32   & = 0, \\
+            4a^2 + 36a + 196 - 4a - 18 - 118 & = 0.
+        \end{aligned}
+        \right. % tex-fmt: skip
+        \label{eq:soe5}
+    \end{equation}
+    方程组~\eqref{eq:soe2} 的解是 \(a = -2\);
+    方程组~\eqref{eq:soe3} 的解是 \(a = 3\);
+    方程组~\eqref{eq:soe4} 的解是 \(a = 4\);
+    方程组~\eqref{eq:soe5} 的解是 \(a = -5\).
+    于是, 方程组~\eqref{eq:soe1} 的解应是:
+    \begin{equation*}
+        \begin{alignedat}{7}
+            {}            & x & {} = {} & {-2}, & \quad & y & {} = {} & 1; \\
+            \text{或} \quad & x & {} = {} & 3,    & \quad & y & {} = {} & {-1};              \\
+            \text{或} \quad & x & {} = {} & 4,    & \quad & y & {} = {} & 2;                 \\
+            \text{或} \quad & x & {} = {} & {-5}, & \quad & y & {} = {} & {-2}.
+        \end{alignedat}
+    \end{equation*}
+    最后, 不难验证, 这些确实都是解.
+\end{example}
+
+一般地, 我们能以结式解 \(2\)~元整式方程组
+\begin{equation}
+    \left\{ % tex-fmt: skip
+    \begin{aligned}
+        f(x; y) & = 0, \\
+        g(x; y) & = 0.
+    \end{aligned}
+    \right. % tex-fmt: skip
+    \label{eq:soe6}
+\end{equation}
+的解.
+设我们已按 \(x\) 的次方从大到小地排 \(2\)~元整式的项, 即
+\begin{align*}
+    f(x; y) & = a_0 (y) x^n + a_1 (y) x^{n-1} + \dots + a_n (y), \\
+    g(x; y) & = b_0 (y) x^m + b_1 (y) x^{m-1} + \dots + b_m (y),
+\end{align*}
+其中, \(m\), \(n\) 是非负整数,
+\(m + n \geq 1\)
+(注意, 若 \(m + n < 1\), % tex-fmt: skip
+则 \(m = n = 0\);
+也就是, \(f(x; y)\) 与 \(g(x; y)\) 不含 \(x\);
+由此, 方程组~\eqref{eq:soe6}
+其实是关于 \(y\) 的 \(1\)~元整式方程组), % tex-fmt: skip
+且 \(a_0 (y)\), \(a_1 (y)\), \(\dots\), \(a_n (y)\),
+\(b_0 (y)\), \(b_1 (y)\), \(\dots\), \(b_m (y)\)
+是关于 \(y\) 的整式.
+(注意, 我们可以要求 \(a_0 (y)\) 与 \(b_0 (y)\)
+不是 \(0\) 整式.)
+为方便, 我们约定:
+若 \(k < 0\) 或 \(k > n\), 则整式 \(a_k (y) = 0\);
+若 \(k < 0\) 或 \(k > m\), 则整式 \(b_k (y) = 0\).
+由此, 我们写出 \(f\), \(g\) 的 Sylvester 阵
+\(S(f, g; n, m)\).
+它是 \(m + n\)~级阵, 且
+\begin{align*}
+    [S(f, g; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j} (y),     & j \leq m; \\
+        b_{i-(j-m)} (y), & j > m.
+    \end{cases}
+\end{align*}
+则 \(f\), \(g\) 的结式 \(\det {(S(f, g; n, m))}\)
+是关于 \(y\) 的整式.
+那么, 若 \((x, y) = (x_0, y_0)\)
+是方程组~\eqref{eq:soe6} 的解,
+则 \(y_0\) 是 \(\det {(S(f, g; n, m))} = 0\) 的解;
+也就是, 若 \(y_0\) 不是 \(\det {(S(f, g; n, m))} = 0\) 的解,
+则对任何数 \(c\),
+\(f(c; y_0) \neq 0\), 或 \(g(c; y_0) \neq 0\).
+所以, 若 \(\det {(S(f, g; n, m))} = 0\) 无解,
+则方程组~\eqref{eq:soe6} 也无解.
+否则, 设 \(y_1\), \(\dots\), \(y_r\) 是
+\(\det {(S(f, g; n, m))} = 0\) 的解.
+代方程组~\eqref{eq:soe6} 的 \(y\) 以 \(y_i\)
+(\(i = 1\), \(\dots\), \(r\)),
+得关于 \(x\) 的 \(1\)~元整式方程组
+\begin{equation*}
+    \left\{ % tex-fmt: skip
+    \begin{aligned}
+        f(x; y_i) & = 0, \\
+        g(x; y_i) & = 0.
+    \end{aligned}
+    \right. % tex-fmt: skip
+\end{equation*}
+解它, 得解 \(x_{i,1}\), \(\dots\), \(x_{i,k_i}\)
+(注意, % tex-fmt: skip
+若 \(a_0 (y_i) \neq 0\) 或 \(b_0 (y_i) \neq 0\),
+则此关于 \(x\) 的 \(1\)~元整式方程组一定有解;
+若 \(a_0 (y_i) = 0 = b_0 (y_i)\),
+则它可能无解.) % tex-fmt: skip
+则 \((x, y) = (x_{i,1}, y_i)\), \(\dots\), \((x_{i,k_i}, y_i)\)
+是方程组~\eqref{eq:soe6} 的解,
+\(i = 1\), \(\dots\), \(r\).
+
+\begin{example}
+    设数 \(x\), \(y\), \(t\) 适合
+    \begin{equation}
+        x = \frac{1 + 8t - t^2}{1 + t^2},
+        \quad
+        y = \frac{4t}{1 + t^2}.
+        \label{eq:soe7}
+    \end{equation}
+    我们可消去 \(t\), 以得到 \(x\) 与 \(y\) 的关系:
+    若 \((x, y, t) = (x_0, y_0, t_0)\) 适合式~\eqref{eq:soe7},
+    则 \((x, y) = (x_0, y_0)\) 适合某关系 (不含 \(t\)),
+    且反过来,
+    若 \((x, y) = (x_0, y_0)\) 适合这个不含 \(t\) 的关系,
+    则存在数 \(t_0\),
+    使 \((x, y, t) = (x_0, y_0, t_0)\) 适合式~\eqref{eq:soe7}.
+
+    设 \((x, y, t) = (x_0, y_0, t_0)\) 适合式~\eqref{eq:soe7}.
+    去分母, 得
+    \begin{align*}
+        (1 + t_0^2) x_0 - (1 + 8t_0 - t_0^2) & = 0, \\
+        (1 + t_0^2) y_0 - 4t_0               & = 0,
+    \end{align*}
+    即
+    \begin{align*}
+        (x_0 + 1) t_0^2 + (-8) t_0 + (x_0 - 1) & = 0, \\
+        y_0 t_0^2 + (-4) t_0 + y_0             & = 0.
+    \end{align*}
+    记
+    \begin{align*}
+        f(t; x) & = (x + 1) t^2 + (-8) t + (x - 1), \\
+        g(t; y) & = y t^2 + (-4) t + y.
+    \end{align*}
+    则 \(f(t_0; x_0)\) 与 \(g(t_0; y_0)\)
+    等于 \(0\).
+    反过来,
+    若 \((x, y, t) = (x_0, y_0, t_0)\) 适合
+    \(f(t_0; x_0) = 0 = g(t_0; y_0)\),
+    则 \(t_0^2 + 1 \neq 0\).
+    (反证法: 若 \(y_0 t_0^2 - 4 t_0 + y_0 = 0\), % tex-fmt: skip
+    且 \(t_0^2 + 1 = 0\),
+    则 \(4 t_0 = 0\).
+    则 \(t_0 = 0\).
+    可是, \(0^2 + 1 \neq 0\).) % tex-fmt: skip
+    则 \((x, y, t) = (x_0, y_0, t_0)\) 适合式~\eqref{eq:soe7}.
+
+    所以,
+    若 \((x, y, t) = (x_0, y_0, t_0)\) 适合式~\eqref{eq:soe7},
+    则 \(t_0\) 是 (关于 \(t\) 的) 整式
+    \(f(t; x_0)\) 与 \(g(t; y_0)\)
+    的公根.
+    则 \(f(t; x_0)\) 与 \(g(t; y_0)\)
+    的结式是 \(0\), 即
+    \begin{align*}
+        0 =
+        \det {
+            \begin{bmatrix}
+                x_0+1 & 0     & y_0  & 0   \\
+                -8    & x_0+1 & -4   & y_0 \\
+                x_0-1 & -8    & y_0  & -4  \\
+                0     & x_0-1 & 0    & y_0 \\
+            \end{bmatrix}
+        }
+        = 4 (4 x_0^2 - 16 x_0 y_0 + 17 y_0^2 - 4).
+    \end{align*}
+    记
+    \begin{align*}
+        R(x, y) = 4 (4 x^2 - 16 x y + 17 y^2 - 4).
+    \end{align*}
+    则 \(R(x, y) = 0\).
+    反过来,
+    若 \((x, y) = (x_0, y_0)\) 适合 \(R(x, y) = 0\),
+    则 \(x_0 + 1 = 0 = y_0\),
+    或当 \(x_0 + 1 \neq 0\) 或 \(y_0 \neq 0\) 时,
+    存在数 \(t_0\),
+    使 \(f(t_0; x_0) = 0 = g(t_0; y_0)\).
+    所以,
+    若 \((x, y) = (x_0, y_0)\) 适合 \(R(x_0, y_0) = 0\),
+    则 \((x_0, y_0) = (-1, 0)\),
+    或当 \((x_0, y_0) \neq (-1, 0)\) 时,
+    存在数 \(t_0\),
+    使 \((x, y, t) = (x_0, y_0, t_0)\) 适合式~\eqref{eq:soe7}.
+    我们可以验证, 不存在数 \(t_0\),
+    使 \((x, y, t) = (-1, 0, t_0)\) 适合式~\eqref{eq:soe7}.
+    (反证法: 若 \(0 = 4t_0/(1 + t_0^2)\), % tex-fmt: skip
+    则 \(t_0 = 0\).
+    可是, \(-1 \neq (1 + 8 \cdot 0 - 0^2) % tex-fmt: skip
+    / (1 + 0^2)\).) % tex-fmt: skip
+
+    综上, \(x\), \(y\) 的关系是
+    (我们以消去律消去 \(4\))
+    \begin{equation*}
+        4 x^2 - 16 x y + 17 y^2 - 4 = 0,
+        \quad
+        (x, y) \neq (-1, 0).
+        \qefhere
+    \end{equation*}
+\end{example}
+
+一般地, 我们能以结式从 \(3\)~元 \(x\), \(y\), \(t\)
+适合的关系
+\begin{equation}
+    x = \frac{q_1 (t)}{p_1 (t)},
+    \quad
+    y = \frac{q_2 (t)}{p_2 (t)},
+    \label{eq:soe8}
+\end{equation}
+其中, \(q_1\), \(q_2\), \(p_1\), \(p_2\)
+是关于 \(t\) 的整式,
+且 \(p_1\), \(p_2\) 不是 \(0\) 整式 (分母不为 \(0\)),
+且 \(q_1\), \(q_2\) 不是 \(0\) 整式
+(若, 比如, \(q_1 = 0\), 则 \(x = 0\);
+这是平凡的),
+消去 \(t\), 以得到
+\(2\)~元 \(x\) 与 \(y\) 适合的关系.
+注意, 我们可以设 \(p_1\), \(q_1\) 没有公根,
+且 \(p_2\), \(q_2\) 没有公根
+(因为, 若, 比如, % tex-fmt: skip
+\(p_1 (c) = 0 = q_1 (c)\),
+则存在非零的整式 \(r_{1,1}\), \(s_{1,1}\),
+使 \(p_1 (x) = (x - c) r_{1,1} (x)\),
+\(q_1 (x) = (x - c) s_{1,1} (x)\),
+且 \(r_{1,1}\) 的次低于 \(p_1\) 的次,
+且 \(s_{1,1}\) 的次低于 \(q_1\) 的次;
+则 \(q_1 (t) / p_1 (t) = r_{1,1} (t) / s_{1,1} (t)\);
+若 \(r_{1,1}\), \(s_{1,1}\) 没有公根, 则那是好的;
+若 \(r_{1,1}\), \(s_{1,1}\) 有公根,
+则类似地, 存在非零的整式 \(r_{1,2}\), \(s_{1,2}\),
+使 \(r_{1,2}\) 的次低于 \(r_{1,1}\) 的次,
+且 \(s_{1,2}\) 的次低于 \(s_{1,1}\) 的次,
+且 \(q_1 (t) / p_1 (t)
+    = r_{1,1} (t) / s_{1,1} (t)
+= r_{1,2} (t) / s_{1,2} (t)\);
+非零的整式的次不能无限地变少,
+所以这个过程能结束;
+最后, 注意, 即使这改变了 \(t\) 的允许的取值,
+我们可另外讨论此事). % tex-fmt: skip
+去分母, 且移项, 得
+\begin{equation}
+    x p_1 (t) - q_1 (t) = 0,
+    \quad
+    y p_2 (t) - q_2 (t) = 0.
+    \label{eq:soe9}
+\end{equation}
+注意, 若 \((x, y, t) = (x_0, y_0, t_0)\)
+适合式~\eqref{eq:soe8},
+则去分母, 且移项, 我们知道
+\((x, y, t) = (x_0, y_0, t_0)\)
+也适合式~\eqref{eq:soe9};
+反过来, 若 \((x, y, t) = (x_0, y_0, t_0)\)
+适合式~\eqref{eq:soe9},
+则注意, \(p_1 (t_0) \neq 0\), 且 \(p_2 (t_0) \neq 0\)
+(因为, 若, 比如, \(p_1 (t_0) = 0\), % tex-fmt: skip
+则 \(q_1 (t_0) = x_0 p_1 (t_0) = 0\);
+不过, 我们已设, \(p_1\), \(q_1\) 没有公根,
+故这不是可能的). % tex-fmt: skip
+则作除法, 且移项, 我们知道,
+\((x, y, t) = (x_0, y_0, t_0)\)
+也适合式~\eqref{eq:soe8}.
+然后, 设
+\begin{align*}
+    f(t; x) & = x p_1 (t) - q_1 (t)
+    = a_0 (x) t^n + a_1 (x) t^{n-1} + \dots + a_n (x),
+    \\
+    g(t; y) & = y p_2 (t) - q_2 (t)
+    = b_0 (y) t^m + b_1 (y) t^{m-1} + \dots + b_m (y),
+\end{align*}
+其中, \(m\), \(n\) 是非负整数,
+\(m + n \geq 1\)
+(注意, 若 \(m + n < 1\), % tex-fmt: skip
+则 \(m = n = 0\);
+也就是, \(f(t; x)\) 与 \(g(t; y)\) 不含 \(t\);
+这是平凡的), % tex-fmt: skip
+\(a_0 (x)\), \(a_1 (x)\), \(\dots\), \(a_n (x)\)
+是关于 \(x\) 的整式,
+且 \(b_0 (y)\), \(b_1 (y)\), \(\dots\), \(b_m (y)\)
+是关于 \(y\) 的整式.
+(注意, 我们可以要求 \(a_0 (x)\) 与 \(b_0 (y)\)
+不是 \(0\) 整式.)
+为方便, 我们约定:
+若 \(k < 0\) 或 \(k > n\), 则整式 \(a_k (x) = 0\);
+若 \(k < 0\) 或 \(k > m\), 则整式 \(b_k (y) = 0\).
+由此, 我们写出 \(f\), \(g\) 的 Sylvester 阵
+\(S(f, g; n, m)\).
+它是 \(m + n\)~级阵, 且
+\begin{align*}
+    [S(f, g; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j} (x),     & j \leq m; \\
+        b_{i-(j-m)} (y), & j > m.
+    \end{cases}
+\end{align*}
+则 \(f\), \(g\) 的结式 \(\det {(S(f, g; n, m))}\)
+是关于 \(x\), \(y\) 的整式.
+那么, 若 \((x, y, t) = (x_0, y_0, t_0)\)
+适合式~\eqref{eq:soe8},
+则它适合式~\eqref{eq:soe9},
+故 \((x, y) = (x_0, y_0)\)
+适合 \(\det {(S(f, g; n, m))} = 0\);
+也就是, 若 \((x, y) = (x_0, y_0)\) 适合
+\(\det {(S(f, g; n, m))} \neq 0\),
+则对任何数 \(t_0\),
+\((x, y, t) = (x_0, y_0, t_0)\)
+不适合式~\eqref{eq:soe8}.
+反过来, 若 \((x, y) = (x_0, y_0)\) 适合
+\(\det {(S(f, g; n, m))} = 0\),
+则 \(a_0 (x_0) = 0 = b_0 (y_0)\),
+或当 \(a_0 (x_0) \neq 0\) 或 \(b_0 (y_0) \neq 0\) 时,
+存在数 \(t_0\), 使
+\((x, y, t) = (x_0, y_0, t_0)\)
+适合式~\eqref{eq:soe9},
+故它适合式~\eqref{eq:soe8}.
+当然, 对适合 \(a_0 (x_0) = 0 = b_0 (y_0)\) 的
+\((x_0, y_0)\),
+我们可另外讨论, 是否存在数 \(t_0\),
+使 \((x, y, t) = (x_0, y_0, t_0)\)
+适合式~\eqref{eq:soe8}.
+
+\begin{example}
+    设数 \(c\) 适合 \(c^2 + c = 1\).
+    求 \(c^4 - c^2 + 2c + 1\).
+
+    一个方法或许是先确定 \(c\),
+    再由此求 \(c^2\), \(c^4\),
+    再求 \(c^4 - c^2 + 2c + 1\).
+
+    这里, 我们以结式解此事.
+    为方便, 我们记
+    \(f(x) = 1 x^2 + 1 x - 1\),
+    \(v(x) = x^4 - x^2 + 2x + 1\).
+    则问题相当于, 若 \(f(c) = 0\), 则 \(v(c)\) 是何.
+    我们记 \(v(c) = y\), 且记
+    \(g(x) = y - v(x)
+    = -1 x^4 + 0 x^3 + 1 x^2 + (-2) x + (y - 1)\).
+    则 \(f(c) = 0 = g(c)\).
+    所以, \(f(x)\), \(g(x)\) 的结式是 \(0\),
+    即
+    \begin{align*}
+        0 =
+        \det {
+            \begin{bmatrix}
+                1  & 0  & 0  & 0  & -1  & 0   \\
+                1  & 1  & 0  & 0  & 0   & -1  \\
+                -1 & 1  & 1  & 0  & 1   & 0   \\
+                0  & -1 & 1  & 1  & -2  & 1   \\
+                0  & 0  & -1 & 1  & y-1 & -2  \\
+                0  & 0  & 0  & -1 & 0   & y-1 \\
+            \end{bmatrix}
+        }
+        = (y - 2)^2.
+    \end{align*}
+    故 \(v(c) = y = 2\).
+\end{example}
+
+一般地, 我们能以结式求值.
+设 \(n \geq 1\), 且 \(a_0 \neq 0\).
+设整式 \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\).
+设 \(u(x)\), \(v(x)\) 是整式.
+设数 \(c\) 适合 \(f(c) = 0\),
+且 \(u(c) \neq 0\).
+我们求 \(v(c) / u(c)\).
+为此, 我们设 \(y = v(c) / u(c)\),
+并作整式
+\(g(x) = y u(x) - v(x)
+= b_0 (y) x^m + b_1 (y) x^{m-1} + \dots + b_m (y)\).
+则 \(g(c) = (v(c) / u(c)) u(c) - v(c) = 0\).
+为方便, 我们约定:
+若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\);
+若 \(k < 0\) 或 \(k > m\), 则整式 \(b_k (y) = 0\).
+由此, 我们写出 \(f\), \(g\) 的 Sylvester 阵
+\(S(f, g; n, m)\).
+它是 \(m + n\)~级阵, 且
+\begin{align*}
+    [S(f, g; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j},         & j \leq m; \\
+        b_{i-(j-m)} (y), & j > m.
+    \end{cases}
+\end{align*}
+则 \(f\), \(g\) 的结式 \(\det {(S(f, g; n, m))}\)
+是关于 \(y\) 的整式.
+因为 \(f(c) = 0 = g(c)\),
+\(\det {(S(f, g; n, m))} = 0\).
+这是一个关于 \(y\) 的方程.
+解它, 得 \(y = v(c) / u(c)\) 的所有的可能的取值.
+
+\begin{definition}
+    设 \(f(x)\) 是整式.
+    设 \(c\) 是数.
+
+    (1)
+    若 \(f(c) = 0\), 则 \(c\) 是 \(f(x)\) 的一个\emph{根}.
+
+    (2)
+    若 \(f(c) = 0\), 且 \(\mathrm{D} f(c) = 0\),
+    则 \(c\) 是 \(f(x)\) 的一个\emph{重根}.
+\end{definition}
+
+\begin{example}
+    设 \(a\), \(b\), \(c\) 是实数, 且 \(a \neq 0\).
+    设 \(f(x) = a x^2 + b x + c\);
+    注意, 这是 \(2\)~次函数.
+    回想, 在中学, 我们说,
+    若 \(1\)~元 \(2\)~次方程
+    \(a x^2 + b x + c = 0\) 的%
+    判别式 \(b^2 - 4 a c\) 等于 \(0\),
+    则 \(a x^2 + b x + c = 0\) 有 ``重根''
+    \begin{align*}
+        x_1 = x_2 = -\frac{b}{2a}.
+    \end{align*}
+    那么, 这跟我们定义的重根有何关系?
+    我们记 \(r = -b/(2a)\).
+    则 \(b = -2a r\),
+    且 \(c = b^2 / (4a) = a r^2\).
+    则 \(f(x) = a x^2 - 2 a r x + a r^2
+    = a (x^2 - 2 r x + r^2)\).
+    首先, \(r\) 是 \(f(x)\) 的根:
+    \(f(r) = a (r^2 - 2 r r + r^2) = 0\);
+    然后, \(\mathrm{D} f(x) = a (2 x - 2 r)\),
+    故 \(\mathrm{D} f(r) = a (2 r - 2 r) = 0\).
+    故, 由定义, \(r\) 是 \(f(x)\) 的重根.
+\end{example}
+
+\begin{example}
+    每个数都是 \(0\) 整式的根.
+    注意, \(0\) 的 derivative 是 \(0\).
+    于是, 每个数都是 \(0\) 整式的重根.
+
+    设 \(f(x) = c\) (\(c \neq 0\)) 是 \(0\)~次整式.
+    则 \(f(x)\) 没有根.
+    则 \(f(x)\) 没有重根.
+
+    设 \(g(x) = a x + b\) (\(a \neq 0\)) 是 \(1\)~次整式.
+    则 \(-b/a\) 是 \(g(x)\) 的根,
+    因为 \(g(-b/a) = a (-b/a) + b = -b + b = 0\).
+    不过, 因为 \(\mathrm{D} g(x) = a \neq 0\),
+    \(g(x)\) 没有重根.
+\end{example}
+
+此定理或许解释了为何我们叫重根为 ``重'' 根------重根%
+真地重出现了.
+
+\begin{theorem}
+    设 \(f(x)\) 是整式.
+
+    (1)
+    若数 \(c\) 是 \(f(x)\) 的重根,
+    则存在整式 \(s(x)\),
+    使 \(f(x) = (x - c)^2 s(x)\).
+
+    (2)
+    若数 \(d\) 与整式 \(u(x)\) 适合,
+    \(f(x) = (x - d)^2 u(x)\),
+    则 \(d\) 是 \(f(x)\) 的重根.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    因为 \(c\) 是 \(f(x)\) 的重根,
+    故 \(c\) 是 \(f(x)\) 的根.
+    则存在整式 \(q(x)\), 使 \(f(x) = (x - c) q(x)\).
+    注意, \(0 = \mathrm{D} f(c) = q(c)\).
+    则存在整式 \(s(x)\), 使 \(q(x) = (x - c) s(x)\).
+    故 \(f(x) = (x - c)^2 s(x)\).
+
+    (2)
+    记 \(v(x) = (x - d) u(x)\).
+    则 \(f(x) = (x - d) v(x)\).
+    则 \(f(d) = 0\),
+    且 \(\mathrm{D} f(d) = v(d) = 0\).
+    故 \(d\) 是 \(f(x)\) 的重根.
+\end{proof}
+
+我们讨论整式 \(f(x)\) 与它的 derivative \(\mathrm{D} f(x)\)
+的 Sylvester 阵与结式.
+设 \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_{n-1} x + a_n\).
+则 \(\mathrm{D} f(x)
+= n a_0 x^{n-1} + (n-1) a_1 x^{n-2} + \dots + a_{n-1}\).
+为方便, 我们约定:
+若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\).
+记 \(b_k = (n - k) a_k\).
+则 \(\mathrm{D} f(x)
+= b_0 x^{n-1} + b_1 x^{n-2} + \dots + b_{n-1}\),
+且若 \(k < 0\) 或 \(k > n-1\), 则 \(b_k = 0\).
+注意, \((n - 1) + n \geq 1\), 相当于 \(n \geq 1\).
+所以, 若 \(n \geq 1\), 我们能写出 \(f\), \(\mathrm{D} f\)
+的 Sylvester 阵 \(S(f, \mathrm{D} f; n, n-1)\):
+它是 \(2n-1\)~级阵, 且
+(注意, \(b_{i-(j-(n-1))} = (1 - (i-j)) a_{i-j+n-1}\))
+\begin{equation}
+    [S(f, \mathrm{D} f; n, n-1)]_{i,j} =
+    \begin{cases}
+        a_{i-j},
+        & j \leq n-1; \\
+        (1 - (i - j)) a_{i-j+n-1},
+        & j > n-1.
+    \end{cases}
+    \label{eq:soe10}
+\end{equation}
+注意, \([S(f, \mathrm{D} f; n, n-1)]_{1,1} = a_0\),
+\([S(f, \mathrm{D} f; n, n-1)]_{1,n} = n a_0\),
+且若 \(j \neq 1\) 且 \(j \neq n\),
+则 \([S(f, \mathrm{D} f; n, n-1)]_{1,n} = 0\).
+由此, 我们考虑 \(2n-1\)~级阵 \(T(f; n)\), 其中,
+\begin{equation}
+    [T(f; n)]_{i,j} =
+    \begin{cases}
+        1,
+        & \text{\(i = 1\), 且 \(j = 1\)}; \\
+        n,
+        & \text{\(i = 1\), 且 \(j = n\)}; \\
+        0,
+        & \text{\(i = 1\), \(j \neq 1\), 且 \(j \neq n\)}; \\
+        a_{i-j},
+        & \text{\(i \neq 1\), 且 \(j \leq n-1\)}; \\
+        (1 - (i - j)) a_{i-j+n-1},
+        & \text{\(i \neq 1\), 且 \(j \geq n\)}.
+    \end{cases}
+    \label{eq:soe11}
+\end{equation}
+不难看出, 以 \(a_0\) 乘 \(T(f; n)\) 的行~\(1\),
+得 \(S(f, \mathrm{D} f; n, n-1)\).
+则
+\begin{align*}
+    \det {(S(f, \mathrm{D} f; n, n-1))}
+    = a_0 \det {(T(f; n))}.
+\end{align*}
+因为 \(T(f; n)\) 的元全是关于
+\(a_0\), \(a_1\), \(\dots\), \(a_n\) 的整式,
+\(\det {(T(f; n))}\) 也是关于
+\(a_0\), \(a_1\), \(\dots\), \(a_n\) 的整式.
+注意, \(a_0\) 是 \(f\) 的 \(x^n\) 项系数;
+注意, 我们可以设 \(a_0 \neq 0\)
+(若 \(a_0 = 0\), % tex-fmt: skip
+且 \(f(x)\) 不是 \(0\) 整式,
+我们可以写 \(f(x)\)
+为 \(a'_0 x^m + a'_1 x^{m-1} + \dots + a'_m\),
+其中, \(m < n\), 且 \(a'_0 \neq 0\);
+若 \(f(x)\) 是 \(0\) 整式, 则这是平凡的). % tex-fmt: skip
+于是, 若 \(f\) 有重根,
+则 \(f\) 与 \(\mathrm{D} f\) 有公根,
+故 \(f\) 与 \(\mathrm{D} f\) 的结式为 \(0\);
+由此, \(\det {(T(f; n))} = 0\).
+另一方面, 若 \(\det {(T(f; n))} = 0\),
+则 \(f\) 与 \(\mathrm{D} f\) 的结式为 \(0\);
+因为 \(a_0 \neq 0\),
+\(f\) 与 \(\mathrm{D} f\) 有公根;
+由此, \(f\) 有重根.
+
+设
+\begin{align*}
+    f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n).
+\end{align*}
+我们具体地写 \(\det {(S(f, \mathrm{D} f; n, n-1))}\)
+(与 \(\det {(T(f; n))}\)).
+由结式的性质~(4),
+\begin{align*}
+    \det {(S(f, \mathrm{D} f; n, n-1))}
+    = a_0^{n-1}
+    \mathrm{D} f(x_1) \mathrm{D} f(x_2)
+    \dots \mathrm{D} f(x_n).
+\end{align*}
+回想,
+\begin{align*}
+    \mathrm{D} f(x_i) = q_i (x_i)
+    = {} &
+    a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}} {(x_i - x_k)}.
+\end{align*}
+则
+\begin{align*}
+    \det {(S(f, \mathrm{D} f; n, n-1))}
+    = {} & a_0^{n-1} a_0^n
+    \prod_{1 \leq i \leq n}
+    \prod_{\substack{1 \leq k \leq n \\ k \neq i}} {(x_i - x_k)}
+    \\
+    = {} &
+    a_0^{2n-1}
+    \prod_{1 \leq k \neq i \leq n} {(x_i - x_k)}
+    \\
+    = {} &
+    a_0^{2n-1}
+    \prod_{1 \leq k < i \leq n} {(x_i - x_k)}
+    \cdot \prod_{1 \leq i < k \leq n} {(x_i - x_k)}
+    \\
+    = {} &
+    a_0^{2n-1}
+    \prod_{1 \leq i < k \leq n} {(x_k - x_i)}
+    \cdot \prod_{1 \leq i < k \leq n} {((-1) (x_k - x_i))}
+    \\
+    = {} &
+    a_0^{2n-1}
+    \prod_{1 \leq i < k \leq n} {((-1) (x_k - x_i)^2)}
+    \\
+    = {} &
+    a_0^{2n-1}
+    \prod_{1 \leq i < k \leq n} {(-1)}
+    \cdot \prod_{1 \leq i < k \leq n} {(x_k - x_i)^2}
+    \\
+    = {} &
+    a_0^{2n-1} (-1)^{(n-1)+(n-2)+\dots+1}
+    \prod_{1 \leq i < k \leq n} {(x_k - x_i)^2}
+    \\
+    = {} &
+    a_0
+    \cdot (-1)^{n(n-1)/2} a_0^{2n-2}
+    \prod_{1 \leq i < k \leq n} {(x_k - x_i)^2}.
+\end{align*}
+则
+\begin{align*}
+    \det {(T(f; n))}
+    = (-1)^{n(n-1)/2} a_0^{2n-2}
+    \prod_{1 \leq i < k \leq n} {(x_k - x_i)^2}.
+\end{align*}
+
+现在, 我们可以定义整式的判别式.
+
+\begin{definition}
+    设 \(f(x)\) 是整式.
+
+    (1)
+    若 \(f(x)\) 是 \(0\) 整式,
+    则我们定义 \(f(x)\) 的\emph{判别式}为 \(0\).
+
+    (2)
+    若 \(f(x)\) 是非零常数 \(c\),
+    则我们定义 \(f(x)\) 的\emph{判别式}为 \(c^{-2}\).
+
+    (3)
+    在别的情形, 我们可写
+    \(f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n\)
+    (\(a_0 \neq 0\), 且 \(n \geq 1\)).
+    我们定义 \(f(x)\) 的\emph{判别式}为
+    \((-1)^{n (n-1)/2} \det {(T(f; n))}\),
+    其中, \(T(f; n)\) 是 \(2n-1\)~级阵,
+    且它的元由式~\eqref{eq:soe11} 确定.
+\end{definition}
+
+由前面的计算与讨论, 下面的结论是显然的.
+
+\begin{theorem}
+    设 \(n \geq 1\), 且 \(a_0 \neq 0\).
+    设整式
+    \begin{align*}
+        f(x)
+        = a_0 x^n + a_1 x^{n-1} + \dots + a_n
+        = a_0 (x - x_1) (x - x_2) \dots (x - x_n).
+    \end{align*}
+
+    (1)
+    \(f(x)\) 的判别式
+    \begin{align*}
+        (-1)^{n (n-1)/2} \det {(T(f; n))}
+        = a_0^{2n-2}
+        \prod_{1 \leq i < k \leq n} {(x_k - x_i)^2},
+    \end{align*}
+    其中, \(T(f; n)\) 是 \(2n-1\)~级阵,
+    且它的元由式~\eqref{eq:soe11} 确定.
+
+    \(f(x)\) 的判别式%
+    是关于 \(a_0\), \(a_1\), \(\dots\), \(a_n\) 的整式.
+
+    由式~\eqref{eq:soe10} 确定
+    \(f\) 与 \(f\) 的 derivative \(\mathrm{D} f\)
+    的 (\(2n-1\)~级) Sylvester 阵
+    \(S(f, \mathrm{D} f; n, n-1)\).
+    则 \(f\), \(\mathrm{D} f\) 的结式
+    \begin{align*}
+        \det {(S(f, \mathrm{D} f; n, n-1))}
+        = (-1)^{n (n-1)/2} a_0
+        \cdot (-1)^{n (n-1)/2} \det {(T(f; n))}.
+    \end{align*}
+
+    (2)
+    若 \(f(x)\) 有重根,
+    则 \(f(x)\) 的判别式为 \(0\);
+    反过来, 若 \(f(x)\) 的判别式为 \(0\),
+    则 \(f(x)\) 有重根.
+
+    (3)
+    若 \(a_0\) 是实数,
+    且 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是实数,
+    则 \(f(x)\) 的判别式是非负数.
+\end{theorem}
+
+\begin{example}
+    设 \(a\), \(b\), \(c\) 是实数, 且 \(a \neq 0\).
+    设 \(f(x) = a x^2 + b x + c\);
+    注意, 这是 \(2\)~次函数.
+    回想, 在中学, 我们说,
+    \(1\)~元 \(2\)~次方程
+    \(a x^2 + b x + c = 0\) 的
+    ``判别式'' 是 \(b^2 - 4 a c\).
+    那么, 这跟我们定义的判别式有何关系?
+    为此, 我们写出
+    \begin{align*}
+        T(f; 2) =
+        \begin{bmatrix}
+            1 & 2 & 0   \\
+            b & b & 2 a \\
+            c & 0 & b   \\
+        \end{bmatrix}.
+    \end{align*}
+    则 \(f(x)\) 的判别式
+    \begin{align*}
+        (-1)^{2 (2-1)/2} \det {
+            \begin{bmatrix}
+                1 & 2 & 0   \\
+                b & b & 2 a \\
+                c & 0 & b   \\
+            \end{bmatrix}
+        }
+        = -(1 b^2 - 2 (b^2 - 2ac) + 0)
+        = b^2 - 4ac.
+    \end{align*}
+    则 \(2\)~个判别式是相同的.
+\end{example}
+
+\begin{example}
+    设 \(n \geq 2\).
+    设 \(a_0 \neq 0\).
+    设 \(f(x) = a_0 x^n + a_{n-1} x + a_n\).
+    我们计算 \(f(x)\) 的判别式.
+
+    为方便, 我们约定,
+    若 \(k \neq 0\), \(n-1\), \(n\),
+    则 \(a_k = 0\).
+    回想, \(2n-1\)~级阵 \(T(f; n)\) 的元
+    \begin{align*}
+        [T(f; n)]_{i,j} =
+        \begin{cases}
+            1,
+            & \text{\(i = 1\), 且 \(j = 1\)}; \\
+            n,
+            & \text{\(i = 1\), 且 \(j = n\)}; \\
+            0,
+            & \text{\(i = 1\), \(j \neq 1\), 且 \(j \neq n\)}; \\
+            a_{i-j},
+            & \text{\(i \neq 1\), 且 \(j \leq n-1\)}; \\
+            (1 - (i - j)) a_{i-j+n-1},
+            & \text{\(i \neq 1\), 且 \(j \geq n\)}.
+        \end{cases}
+    \end{align*}
+    通俗地, 比如, 当 \(n = 5\) 时,
+    \begin{align*}
+        T(f; 5) =
+        \begin{bmatrix}
+            1   & 0   & 0   & 0   & 5   & 0     & 0     & 0     & 0     \\
+            0   & a_0 & 0   & 0   & 0   & 5 a_0 & 0     & 0     & 0     \\
+            0   & 0   & a_0 & 0   & 0   & 0     & 5 a_0 & 0     & 0     \\
+            0   & 0   & 0   & a_0 & 0   & 0     & 0     & 5 a_0 & 0     \\
+            a_4 & 0   & 0   & 0   & a_4 & 0     & 0     & 0     & 5 a_0 \\
+            a_5 & a_4 & 0   & 0   & 0   & a_4   & 0     & 0     & 0     \\
+            0   & a_5 & a_4 & 0   & 0   & 0     & a_4   & 0     & 0     \\
+            0   & 0   & a_5 & a_4 & 0   & 0     & 0     & a_4   & 0     \\
+            0   & 0   & 0   & a_5 & 0   & 0     & 0     & 0     & a_4   \\
+        \end{bmatrix}.
+    \end{align*}
+    计算判别式前, 我们考虑, \(T(f; n)\) 的何元一定是 \(0\).
+    若 \(i = 1\), 则当 \(j \neq 1\), \(n\) 时,
+    \([T(f; n)]_{i,j} = 0\).
+    若 \(i > 1\), 且 \(j \leq n - 1\),
+    则当 \(i - j \neq 0\), \(n-1\), \(n\) 时,
+    \([T(f; n)]_{i,j} = 0\),
+    即当 \(j \leq n - 1\),
+    且 \(i \neq j\), \(j + n - 1\), \(j + n\) 时,
+    \([T(f; n)]_{i,j} = 0\).
+    若 \(i > 1\), 且 \(j \geq n\),
+    则当 \(i - j = 1\),
+    或当 \(i - j + n - 1 \neq 0\), \(n-1\), \(n\) 时,
+    \([T(f; n)]_{i,j} = 0\),
+    即当 \(j \geq n\),
+    且 \(i \neq j - n + 1\), \(j\) 时,
+    \([T(f; n)]_{i,j} = 0\).
+    综上,
+    若 \(j \leq n-1\),
+    则当 \(i \neq j\), \(j+n-1\), \(j+n\) 时,
+    \([T(f; n)]_{i,j} = 0\);
+    若 \(j \geq n\),
+    则当 \(i \neq j-n+1\), \(j\) 时,
+    \([T(f; n)]_{i,j} = 0\).
+
+    注意, 若 \(i \leq n-1\), 且 \(j \leq n-1\),
+    则 \([T(f; n)]_{i,j+n-1} = n [T(f; n)]_{i,j}\).
+    注意, \(j + n > j + n - 1 \geq n > i\),
+    故若 \(i \neq j\), 则 \([T(f; n)]_{i,j} = 0\);
+    此时, \(j + n - 1 \geq n\),
+    且 \(i \neq (j + n - 1) - n + 1\),
+    即 \([T(f; n)]_{i,j+n-1} = 0\).
+    若 \(i = j = 1\),
+    则 \([T(f; n)]_{i,j} = 1\),
+    且 \([T(f; n)]_{i,j+n-1} = n\);
+    若 \(1 < i = j \leq n - 1\),
+    则 \([T(f; n)]_{i,j} = a_0\),
+    且 \([T(f; n)]_{i,j+n-1} = n a_0\).
+
+    对 \(T(f; n)\),
+    我们加列~\(c\) 的 \(-n\)~倍于列~\(c+n-1\),
+    \(c = 1\), \(\dots\), \(n-1\),
+    得阵 \(U\).
+    则 \(U\) 的前 \(n-1\)~列与列~\(2n-1\)
+    分别是 \(T(f; n)\) 的前 \(n-1\)~列与列~\(2n-1\),
+    且若 \(n \leq j \leq 2n-2\),
+    则当 \(i \leq n - 1\) 时, \([U]_{i,j} = 0\),
+    且当 \(i = j\) 时,
+    \([U]_{i,j} \allowbreak
+        = [T(f; n)]_{i,j+n-1} - n [T(f; n)]_{i,j}
+    = (1 - n) a_{n-1}\),
+    且当 \(i = j + 1\) 时,
+    \([U]_{i,j} \allowbreak
+        = [T(f; n)]_{i,j+n-1} - n [T(f; n)]_{i,j}
+    = -n a_n\),
+    且当 \(n - 1 < i < j\) 或 \(i > j + 1\) 时,
+    \([U]_{i,j} = 0\).
+    综上,
+    \begin{align*}
+        [U]_{i,j} =
+        \begin{cases}
+            1,             & i = j = 1;                           \\
+            a_0,           & 2 \leq i = j \leq n - 1;             \\
+            a_{n-1},       & 2 \leq i - (n - 1) = j \leq n - 1;   \\
+            a_n,           & 2 \leq i - n = j \leq n - 1;         \\
+            (1-n) a_{n-1}, & n \leq i = j \leq 2n - 2;            \\
+            -n a_n,        & n \leq i - 1 = j \leq 2n - 2;        \\
+            n a_0,         & \text{\(i = n\), 且 \(j = 2n - 1\)}; \\
+            a_{n-1},       & i = j = n;                           \\
+            0,             & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    通俗地, 比如, 当 \(n = 5\) 时,
+    \begin{align*}
+        U =
+        \begin{bmatrix}
+            1   & 0   & 0   & 0   & 0     & 0     & 0     & 0     & 0    \\
+            0   & a_0 & 0   & 0   & 0     & 0     & 0     & 0     & 0    \\
+            0   & 0   & a_0 & 0   & 0     & 0     & 0     & 0     & 0    \\
+            0   & 0   & 0   & a_0 & 0     & 0     & 0     & 0     & 0    \\
+            a_4 & 0   & 0   & 0   & -4a_4 & 0     & 0     & 0     & 5a_0 \\
+            a_5 & a_4 & 0   & 0   & -5a_5 & -4a_4 & 0     & 0     & 0    \\
+            0   & a_5 & a_4 & 0   & 0     & -5a_5 & -4a_4 & 0     & 0    \\
+            0   & 0   & a_5 & a_4 & 0     & 0     & -5a_5 & -4a_4 & 0    \\
+            0   & 0   & 0   & a_5 & 0     & 0     & 0     & -5a_5 & a_4  \\
+        \end{bmatrix}.
+    \end{align*}
+    注意,
+    \(\det {(T(f; n))} = \det {(U)}\).
+    注意, \(U\)~的列~\(2n-1\) 有 \(2n-3\)~个 \(0\).
+    按列~\(n\) 展开,
+    并注意, 若 \(i < j\),
+    则 \(U(n|{2n-1})\) 与 \(U({2n-1}|{2n-1})\)
+    的 \((i, j)\)-元为 \(0\),
+    我们得
+    \begin{align*}
+        \det {(U)}
+        = {} &
+        \hphantom{{} + {}}
+        (-1)^{n+(2n-1)}\, [U]_{n,2n-1} \det {(U(n|{2n-1}))}
+        \\
+        &
+        +
+        (-1)^{(2n-1)+(2n-1)}\,
+        [U]_{2n-1,2n-1} \det {(U({2n-1}|{2n-1}))}
+        \\
+        = {} &
+        (-1)^{n-1} n a_0\, 1\, a_0^{n-2}\, (-n a_n)^{n-1}
+        + a_{n-1}\, 1\, a_0^{n-2}\, ((1-n) a_{n-1})^{n-1}
+        \\
+        = {} &
+        a_0^{n-2}
+        (n^n a_0 a_n^{n-1} + (1-n)^{n-1} a_{n-1}^n).
+    \end{align*}
+    则 \(f\) 的判别式
+    \begin{align*}
+        (-1)^{n(n-1)/2} \det {(T(f; n))}
+        = {} &
+        (-1)^{n(n-1)/2} \det {(U)}
+        \\
+        = {} &
+        (-1)^{n(n-1)/2} a_0^{n-2}
+        (n^n a_0 a_n^{n-1} + (1-n)^{n-1} a_{n-1}^n).
+    \end{align*}
+    注意, 若 \(n = 2\), 则这与上个例的结果是一样的.
+\end{example}
+
+以下, 我们设假定~\ref{standing-assumption-of-resultant} 成立,
+且 \(a_0 \neq 0\), \(b_0 \neq 0\),
+\(m \geq 1\), 且 \(n \geq 1\).
+设
+\begin{align*}
+    f(x) & = a_0 (x - x_1) (x - x_2) \dots (x - x_n), \\
+    g(x) & = b_0 (x - y_1) (x - y_2) \dots (x - y_m).
+\end{align*}
+设 \(z\) 是参数.
+设 \(r\) 是数.
+考虑整式
+\begin{align*}
+    h(x; z, r)
+    = {} &
+    b_0 (z - r x - y_1) (z - r x - y_2) \dots
+    (z - r x - y_m)
+    \\
+    = {} &
+    \sum_{k = 0}^{m} {b_k (z - r x)^{m-k}}
+    =
+    \sum_{k = 0}^{m} {c_k (z, r) x^{m-k}},
+\end{align*}
+其中, \(c_k (z, r)\) 是关于
+\(z\), \(r\), \(b_0\), \(b_1\), \(\dots\), \(b_m\)
+的整式.
+约定, 若 \(k < 0\) 或 \(k > m\),
+则整式 \(c_k (z, r) = 0\).
+作 \(f\) 与 \(h\) 的 Sylvester 阵 \(S(f, h; n, m)\).
+它是 \(m + n\)~级阵, 且
+\begin{align*}
+    [S(f, h; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j},            & j \leq m; \\
+        c_{i-(j-m)} (z, r), & j > m.
+    \end{cases}
+\end{align*}
+由结式的性质~(4), \(f\) 与 \(h\) 的结式
+\begin{align*}
+    \det {(S(f, h; n, m))}
+    = {} &
+    a_0^m h(x_1; z, r) h(x_2; z, r) \dots h(x_n; z, r)
+    \\
+    = {} &
+    a_0^m b_0^n
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {(z - r x_i - y_j)}
+    \\
+    = {} &
+    a_0^m b_0^n
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {(z - (y_j + r x_i))}.
+\end{align*}
+则这是一个关于 \(z\) 的 \(m n\)~次整式,
+且它的 \(z^{m n}\) 项系数是 \(a_0^m b_0^n\).
+不难看出, 它的全部的根是 \(y_j + r x_i\),
+\(i = 1\), \(\dots\), \(n\),
+且 \(j = 1\), \(\dots\), \(m\).
+
+另考虑整式
+\begin{align*}
+    p(x; z) = b_0 (z - x y_1) (z - x y_2) \dots (z - x y_m).
+\end{align*}
+若 \(x \neq 0\), 则
+\begin{align*}
+    p(x; z)
+    = {} &
+    x^m b_0
+    \left(\frac{z}{x} - y_1\right)
+    \left(\frac{z}{x} - y_2\right)
+    \dots
+    \left(\frac{z}{x} - y_m\right)
+    \\
+    = {} &
+    x^m \sum_{k = 0}^{m} {b_k \left(\frac{z}{x}\right)^{m-k}}
+    \\
+    = {} &
+    x^m \sum_{k = 0}^{m} {b_k z^{m-k} x^{k-m}}
+    \\
+    = {} &
+    \sum_{k = 0}^{m} {x^m b_k z^{m-k} x^{k-m}}
+    \\
+    = {} &
+    \sum_{k = 0}^{m} {(b_k z^{m-k}) x^k}
+    \\
+    = {} &
+    \sum_{\ell = 0}^{m} {(b_{m-\ell} z^\ell) x^{m-\ell}}.
+\end{align*}
+若 \(x = 0\), 则
+\begin{align*}
+    p(x; z)
+    = b_0 (z - 0 y_1) (z - 0 y_2) \dots (z - 0 y_m)
+    = b_0 z^m,
+\end{align*}
+且
+\begin{align*}
+    \sum_{\ell = 0}^{m} {(b_{m-\ell} z^\ell) x^{m-\ell}}
+    = {} &
+    \sum_{\ell = 0}^{m-1} {(b_{m-\ell} z^\ell) x^{m-\ell}}
+    + (b_0 z^m) x^0
+    \\
+    = {} &
+    \sum_{\ell = 0}^{m-1} {(b_{m-\ell} z^\ell) 0^{m-\ell}}
+    + b_0 z^m
+    \\
+    = {} &
+    b_0 z^m.
+\end{align*}
+所以, 对任何数 \(x\),
+\begin{align*}
+    p(x; z)
+    = {} &
+    b_0 (z - x y_1) (z - x y_2) \dots (z - x y_m)
+    \\
+    = {} &
+    \sum_{\ell = 0}^{m} {(b_{m-\ell} z^\ell) x^{m-\ell}}
+    =
+    \sum_{\ell = 0}^{m} {d_\ell (z) x^{m-\ell}},
+\end{align*}
+其中,
+\begin{align*}
+    d_\ell (z) =
+    \begin{cases}
+        b_{m-\ell} z^\ell, & 0 \leq \ell \leq m; \\
+        0,                 & \text{别的情形}.
+    \end{cases}
+\end{align*}
+作 \(f\) 与 \(p\) 的 Sylvester 阵 \(S(f, p; n, m)\).
+它是 \(m + n\)~级阵, 且
+\begin{align*}
+    [S(f, p; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j},         & j \leq m; \\
+        d_{i-(j-m)} (z), & j > m.
+    \end{cases}
+\end{align*}
+由结式的性质~(4), \(f\) 与 \(p\) 的结式
+\begin{align*}
+    \det {(S(f, p; n, m))}
+    = {} &
+    a_0^m p(x_1; z) p(x_2; z) \dots p(x_n; z)
+    \\
+    = {} &
+    a_0^m b_0^n
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {(z - x_i y_j)}.
+\end{align*}
+则这是一个关于 \(z\) 的 \(m n\)~次整式,
+且它的 \(z^{m n}\) 项系数是 \(a_0^m b_0^n\).
+不难看出, 它的全部的根是 \(x_i y_j\),
+\(i = 1\), \(\dots\), \(n\),
+且 \(j = 1\), \(\dots\), \(m\).
+
+另考虑整式
+\begin{align*}
+    q(x; z)
+    = {} &
+    b_0 (x z - y_1) (x z - y_2) \dots (x z - y_m)
+    \\
+    = {} &
+    \sum_{k = 0}^{m} b_k (x z)^{m-k}
+    \\
+    = {} &
+    \sum_{k = 0}^{m} (b_k z^{m-k}) x^{m-k}
+    \\
+    = {} &
+    \sum_{k = 0}^{m} {e_k (z) x^{m-k}},
+\end{align*}
+其中,
+\begin{align*}
+    e_k (z) =
+    \begin{cases}
+        b_k z^{m-k}, & 0 \leq k \leq m, \\
+        0,           & \text{别的情形}.
+    \end{cases}
+\end{align*}
+作 \(f\) 与 \(q\) 的 Sylvester 阵 \(S(f, q; n, m)\).
+它是 \(m + n\)~级阵, 且
+\begin{align*}
+    [S(f, q; n, m)]_{i,j} =
+    \begin{cases}
+        a_{i-j},         & j \leq m; \\
+        e_{i-(j-m)} (z), & j > m.
+    \end{cases}
+\end{align*}
+由结式的性质~(4), \(f\) 与 \(q\) 的结式
+\begin{align*}
+    \det {(S(f, q; n, m))}
+    = {} &
+    a_0^m q(x_1; z) q(x_2; z) \dots q(x_n; z)
+    \\
+    = {} &
+    a_0^m b_0^n
+    \prod_{i = 1}^{n}
+    \prod_{j = 1}^{m} {(x_i z - y_j)}.
+\end{align*}
+设 \(x_i \neq 0\), \(i = 1\), \(2\), \(\dots\), \(n\).
+则
+\begin{align*}
+    \det {(S(f, q; n, m))}
+    = {} &
+    a_0^m b_0^n
+    \prod_{i = 1}^{n}
+    \prod_{j = 1}^{m} {\left( x_i \left( z - \frac{y_j}{x_i} \right) \right)}
+    \\
+    = {} &
+    a_0^m b_0^n
+    \prod_{i = 1}^{n} x_i^m
+    \prod_{j = 1}^{m} {\left( z - \frac{y_j}{x_i} \right)}
+    \\
+    = {} &
+    b_0^n a_0^m
+    \prod_{i = 1}^{n} x_i^m
+    \cdot
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {\left( z - \frac{y_j}{x_i} \right)}
+    \\
+    = {} &
+    b_0^n a_0^m
+    \left(\prod_{i = 1}^{n} x_i\right)^m
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {\left( z - \frac{y_j}{x_i} \right)}
+    \\
+    = {} &
+    b_0^n
+    \left( a_0 \prod_{i = 1}^{n} x_i \right)^m
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {\left( z - \frac{y_j}{x_i} \right)}.
+\end{align*}
+注意,
+\begin{align*}
+    a_0 x_1 x_2 \dots x_n
+    = {} &
+    (-1)^n a_0 (0 - x_1) (0 - x_2) \dots (0 - x_n)
+    \\
+    = {} &
+    (-1)^n f(0)
+    \\
+    = {} &
+    (-1)^n a_n.
+\end{align*}
+则
+\begin{align*}
+    \det {(S(f, q; n, m))}
+    = (-1)^{m n} a_n^m b_0^n
+    \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+    {\left( z - \frac{y_j}{x_i} \right)}.
+\end{align*}
+这是一个关于 \(z\) 的 \(m n\)~次整式,
+且它的 \(z^{m n}\) 项系数是 \((-1)^{m n} a_n^m b_0^n\).
+不难看出, 它的全部的根是 \(y_j / x_i\),
+\(i = 1\), \(\dots\), \(n\),
+且 \(j = 1\), \(\dots\), \(m\).
+
+由前面的计算与讨论, 下面的结论是显然的.
+
+\begin{theorem}
+    设 \(n\), \(m\) 是正整数.
+    设 \(a_0 \neq 0\), 且 \(b_0 \neq 0\).
+    设
+    \begin{align*}
+        f(x) &
+        = \sum_{k = 0}^{n} {a_k x^{n-k}}
+        = a_0 (x - x_1) (x - x_2) \dots (x - x_n),
+        \\
+        g(x) &
+        = \sum_{k = 0}^{m} {b_k x^{m-k}}
+        = b_0 (x - y_1) (x - y_2) \dots (x - y_m).
+    \end{align*}
+    为方便, 我们约定:
+    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\).
+    设 \(z\) 是参数.
+
+    (1)
+    设 \(r\) 是数.
+    作整式
+    \begin{align*}
+        h(x; z, r)
+        = g(z - r x)
+        = \sum_{k = 0}^{m} {b_k (z - r x)^{m-k}}
+        = \sum_{k = 0}^{m} {c_k (z, r) x^{m-k}},
+    \end{align*}
+    其中, \(c_k (z, r)\) 是关于
+    \(z\), \(r\), \(b_0\), \(b_1\), \(\dots\), \(b_m\)
+    的整式,
+    且若 \(k < 0\) 或 \(k > m\),
+    则整式 \(c_k (z, r) = 0\).
+    作 \(f\) 与 \(h\) 的 Sylvester 阵 \(S(f, h; n, m)\).
+    它是 \(m + n\)~级阵, 且
+    \begin{align*}
+        [S(f, h; n, m)]_{i,j} =
+        \begin{cases}
+            a_{i-j},            & j \leq m; \\
+            c_{i-(j-m)} (z, r), & j > m.
+        \end{cases}
+    \end{align*}
+    则 \(f\) 与 \(h\) 的结式
+    \begin{align*}
+        \det {(S(f, h; n, m))}
+        = a_0^m b_0^n
+        \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+        {(z - (y_j + r x_i))}
+    \end{align*}
+    是一个关于 \(z\) 的 \(m n\)~次整式,
+    且它的 \(z^{m n}\) 项系数是 \(a_0^m b_0^n\),
+    且它的全部的根是 \(y_j + r x_i\),
+    \(i = 1\), \(\dots\), \(n\),
+    且 \(j = 1\), \(\dots\), \(m\).
+
+    (2)
+    作整式
+    \begin{align*}
+        p(x; z)
+        = x^m g\left(\frac{z}{x}\right)
+        = \sum_{\ell = 0}^{m} {(b_{m-\ell} z^\ell) x^{m-\ell}}
+        = \sum_{\ell = 0}^{m} {d_\ell (z) x^{m-\ell}},
+    \end{align*}
+    其中, \(d_\ell (z)\) 是关于
+    \(z\), \(b_0\), \(b_1\), \(\dots\), \(b_m\)
+    的整式,
+    且若 \(\ell < 0\) 或 \(\ell > m\),
+    则整式 \(d_\ell (z, r) = 0\).
+    作 \(f\) 与 \(p\) 的 Sylvester 阵 \(S(f, p; n, m)\).
+    它是 \(m + n\)~级阵, 且
+    \begin{align*}
+        [S(f, p; n, m)]_{i,j} =
+        \begin{cases}
+            a_{i-j},         & j \leq m; \\
+            d_{i-(j-m)} (z), & j > m.
+        \end{cases}
+    \end{align*}
+    则 \(f\) 与 \(p\) 的结式
+    \begin{align*}
+        \det {(S(f, p; n, m))}
+        = a_0^m b_0^n
+        \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+        {(z - x_i y_j)}
+    \end{align*}
+    是一个关于 \(z\) 的 \(m n\)~次整式,
+    且它的 \(z^{m n}\) 项系数是 \(a_0^m b_0^n\),
+    且它的全部的根是 \(x_i y_j\),
+    \(i = 1\), \(\dots\), \(n\),
+    且 \(j = 1\), \(\dots\), \(m\).
+
+    (3)
+    设 \(x_i \neq 0\), \(i = 1\), \(2\), \(\dots\), \(n\).
+    作整式
+    \begin{align*}
+        q(x; z)
+        = g (z x)
+        = \sum_{k = 0}^{m} (b_k z^{m-k}) x^{m-k}
+        = \sum_{k = 0}^{m} {e_k (z) x^{m-k}},
+    \end{align*}
+    其中, \(e_k (z)\) 是关于
+    \(z\), \(b_0\), \(b_1\), \(\dots\), \(b_m\)
+    的整式,
+    且若 \(k < 0\) 或 \(k > m\),
+    则整式 \(e_k (z, r) = 0\).
+    作 \(f\) 与 \(q\) 的 Sylvester 阵 \(S(f, q; n, m)\).
+    它是 \(m + n\)~级阵, 且
+    \begin{align*}
+        [S(f, q; n, m)]_{i,j} =
+        \begin{cases}
+            a_{i-j},         & j \leq m; \\
+            e_{i-(j-m)} (z), & j > m.
+        \end{cases}
+    \end{align*}
+    则 \(f\) 与 \(q\) 的结式
+    \begin{align*}
+        \det {(S(f, q; n, m))}
+        = (-1)^{m n} a_n^m b_0^n
+        \prod_{i = 1}^{n} \prod_{j = 1}^{m}
+        {\left( z - \frac{y_j}{x_i} \right)}
+    \end{align*}
+    是一个关于 \(z\) 的 \(m n\)~次整式,
+    且它的 \(z^{m n}\) 项系数是 \((-1)^{m n} a_n^m b_0^n\),
+    且它的全部的根是 \(y_j / x_i\),
+    \(i = 1\), \(\dots\), \(n\),
+    且 \(j = 1\), \(\dots\), \(m\).
+\end{theorem}
+
+\begin{example}
+    设
+    \begin{align*}
+        f(x) & = x^2 - x - 1 = (x - x_1) (x - x_2), \\
+        g(x) & = x^2 + x + 1 = (x - y_1) (y - y_2).
+    \end{align*}
+    我们求以
+    \(y_j - x_i\), \(i\), \(j = 1\), \(2\)
+    为根的整式,
+    与以
+    \(x_i y_j\), \(i\), \(j = 1\), \(2\)
+    为根的整式.
+    注意,
+    \begin{align*}
+        h(x; z, -1)
+        = {} &
+        g(z - (-1) x)
+        \\
+        = {} &
+        (z + x)^2 + (z + x) + 1
+        \\
+        = {} &
+        (z^2 + 2 z x + x^2) + (z + x) + 1
+        \\
+        = {} &
+        1 x^2 + (2z + 1) x + (z^2 + z + 1),
+    \end{align*}
+    且
+    \begin{align*}
+        p(x; z)
+        = x^2 g\left( \frac{z}{x} \right)
+        = x^2 \left(\frac{z^2}{x^2} + \frac{z}{x} + 1\right)
+        = 1 x^2 + z x + z^2.
+    \end{align*}
+    由此, 我们写出 \(f\), \(h\) 的 Sylvester 阵
+    \begin{align*}
+        S(f, h; 2, 2) =
+        \begin{bmatrix}
+            1  & 0  & 1       & 0       \\
+            -1 & 1  & 2z+1    & 1       \\
+            -1 & -1 & z^2+z+1 & 2z+1    \\
+            0  & -1 & 0       & z^2+z+1 \\
+        \end{bmatrix},
+    \end{align*}
+    与 \(f\), \(p\) 的 Sylvester 阵
+    \begin{align*}
+        S(f, p; 2, 2) =
+        \begin{bmatrix}
+            1  & 0  & 1   & 0   \\
+            -1 & 1  & z   & 1   \\
+            -1 & -1 & z^2 & z   \\
+            0  & -1 & 0   & z^2 \\
+        \end{bmatrix}.
+    \end{align*}
+    注意, 这 \(2\)~个 Sylvester 阵的元都%
+    全是关于 \(z\) 的, 系数全为整数的整式,
+    所以它们的行列式也都是%
+    关于 \(z\) 的, 系数全为整数的整式.
+
+    注意,
+    \begin{align*}
+        \det {
+            \begin{bmatrix}
+                1  & 0  & a & 0 \\
+                -1 & 1  & b & a \\
+                -1 & -1 & c & b \\
+                0  & -1 & 0 & c \\
+            \end{bmatrix}
+        }
+        = {} &
+        \det {
+            \begin{bmatrix}
+                1    & 0  & a   & 0 \\
+                -1+1 & 1  & b+a & a \\
+                -1+1 & -1 & c+a & b \\
+                0    & -1 & 0   & c \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                1 & 0  & a   & 0 \\
+                0 & 1  & b+a & a \\
+                0 & -1 & c+a & b \\
+                0 & -1 & 0   & c \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                1 & 0  & a           & 0   \\
+                0 & 1  & b+a         & a   \\
+                0 & -1+1 & c+a+(b+a) & b+a \\
+                0 & -1+1 & 0+(b+a)   & c+a \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                1 & 0 & a      & 0   \\
+                0 & 1 & a+b    & a   \\
+                0 & 0 & 2a+b+c & a+b \\
+                0 & 0 & a+b    & a+c \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        1
+        \det {
+            \begin{bmatrix}
+                1 & a+b    & a   \\
+                0 & 2a+b+c & a+b \\
+                0 & a+b    & a+c \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        1 \cdot 1
+        \det {
+            \begin{bmatrix}
+                2a+b+c & a+b \\
+                a+b    & a+c \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                2a+b+c-(a+b) & a+b-(a+c) \\
+                a+b          & a+c       \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        \det {
+            \begin{bmatrix}
+                a+c & -(c-b) \\
+                a+b & a+c    \\
+            \end{bmatrix}
+        }
+        \\
+        = {} &
+        (c + a)^2 + (b + a) (c - b).
+    \end{align*}
+
+    由前面的计算, 与上个定理,
+    以
+    \(y_j - x_i\), \(i\), \(j = 1\), \(2\)
+    为根的整式是
+    \begin{align*}
+        \det {(S(f, h; 2, 2))}
+        = {} &
+        (z^2 + z + 1 + 1)^2
+        + (2 z + 1 + 1) (z^2 + z + 1 - (2 z + 1))
+        \\
+        = {} &
+        z^4 + 4 z^3 + 5 z^2 + 2 z + 4,
+    \end{align*}
+    且以
+    \(x_i y_j\), \(i\), \(j = 1\), \(2\)
+    为根的整式是
+    \begin{align*}
+        \det {(S(f, p; 2, 2))}
+        = {} &
+        (z^2 + 1)^2 + (z + 1) (z^2 - z)
+        \\
+        = {} &
+        z^4 + z^3 + 2 z^2 - z + 1.
+    \end{align*}
+
+    我们或许能体会到上个定理的好的地方:
+    因为 \(f\), \(h\), \(p\) 是关于 \(x\), \(z\) 的,
+    系数全为整数的整式,
+    即使不具体地计算, 我们也知道,
+    存在关于 \(z\) 的, 系数全为整数的整式,
+    其的根是 \(g\), \(f\) 的根的差 (或积).
+    % 最后, 我直接地计算
+    % \begin{align*}
+    %     &
+    %     (z - (y_1 - x_1)) (z - (y_1 - x_2))
+    %     (z - (y_2 - x_1)) (z - (y_2 - x_2))
+    %     \\
+    %     = {} &
+    %     (z - y_1 + x_1) (z - y_1 + x_2)
+    %     (z - y_2 + x_1) (z - y_2 + x_2)
+    %     \\
+    %     = {} &
+    %     ((z - y_1)^2 + (z - y_1) (x_1 + x_2) + x_1 x_2)
+    %     ((z - y_2)^2 + (z - y_2) (x_1 + x_2) + x_1 x_2)
+    %     \\
+    %     = {} &
+    %     ((z - y_1)^2 + (z - y_1) - 1)
+    %     ((z - y_2)^2 + (z - y_2) - 1)
+    %     \\
+    %     = {} &
+    %     (z^2 - 2 z y_1 + y_1^2 + z - y_1 - 1)
+    %     (z^2 - 2 z y_2 + y_2^2 + z - y_2 - 1)
+    %     \\
+    %     = {} &
+    %     (z^2 - 2 z y_1 + z - 2 y_1 - 2)
+    %     (z^2 - 2 z y_2 + z - 2 y_2 - 2)
+    %     \\
+    %     = {} &
+    %     ((z^2 + z - 2) - 2 y_1 (z + 1))
+    %     ((z^2 + z - 2) - 2 y_2 (z + 1))
+    %     \\
+    %     = {} &
+    %     (z^2 + z - 2)^2 - 2 (z^2 + z - 2) (z + 1) (y_1 + y_2)
+    %     + 4 (z + 1)^2 y_1 y_2
+    %     \\
+    %     = {} &
+    %     (z^2 + z - 2)^2 + 2 (z^2 + z - 2) (z + 1) + 4 (z + 1)^2
+    %     \\
+    %     = {} &
+    %     z^4 + 4 z^3 + 5 z^2 + 2 z + 4,
+    % \end{align*}
+    % 与
+    % \begin{align*}
+    %     &
+    %     (z - x_1 y_1) (z - x_1 y_2) (z - x_2 y_1) (z - x_2 y_2)
+    %     \\
+    %     = {} &
+    %     (z^2 - z x_1 (y_1 + y_2) + x_1^2 y_1 y_2)
+    %     (z^2 - z x_2 (y_1 + y_2) + x_2^2 y_1 y_2)
+    %     \\
+    %     = {} &
+    %     (z^2 + z x_1 + x_1^2)
+    %     (z^2 + z x_2 + x_2^2)
+    %     \\
+    %     = {} &
+    %     (z^2 + z x_1 + 1 + x_1)
+    %     (z^2 + z x_2 + 1 + x_2)
+    %     \\
+    %     = {} &
+    %     ((z^2 + 1) + (z + 1) x_1)
+    %     ((z^2 + 1) + (z + 1) x_2)
+    %     \\
+    %     = {} &
+    %     (z^2 + 1)^2 + (z^2 + 1) (z + 1) (x_1 + x_2) + (z + 1)^2 x_1 x_2
+    %     \\
+    %     = {} &
+    %     (z^2 + 1)^2 + (z^2 + 1) (z + 1) - (z + 1)^2
+    %     \\
+    %     = {} &
+    %     z^4 + z^3 + 2 z^2 - z + 1,
+    % \end{align*}
+    % 其中, 我用了
+    % \begin{align*}
+    %     x_1 + x_2 = -\frac{-1}{1} = 1,
+    %     & \quad
+    %     x_1 x_2 = \frac{-1}{1} = -1,
+    %     \\
+    %     y_1 + y_2 = -\frac{1}{1} = -1,
+    %     & \quad
+    %     y_1 y_2 = \frac{1}{1} = 1;
+    % \end{align*}
+    % 注意, 若
+    % \(a x^2 + b x + c = a (x - x_1) (x - x_2)\),
+    % 则
+    % \begin{align*}
+    %     a x^2 + b x + c
+    %     = {} &
+    %     a (x - x_1) (x - x_2)
+    %     \\
+    %     = {} &
+    %     a (x^2 - (x_1 + x_2) x + x_1 x_2)
+    %     \\
+    %     = {} &
+    %     a x^2 + (-a (x_1 + x_2)) x + a x_1 x_2,
+    % \end{align*}
+    % 故
+    % \begin{align*}
+    %     x_1 + x_2 = \frac{-a (x_1 + x_2)}{-a}
+    %     = \frac{b}{-a} = -\frac{b}{a},
+    %     \quad
+    %     x_1 x_2 = \frac{a x_1 x_2}{a} = \frac{c}{a}.
+    % \end{align*}
+    % 由此, 您可以看到, 这验证了上个定理.
+\end{example}
+
+\begin{theorem}
+    设 \(n\)~是正整数.
+    设 \(a_0 \neq 0\).
+    设
+    \begin{align*}
+        f(x) &
+        = \sum_{k = 0}^{n} {a_k x^{n-k}}
+        = a_0 (x - x_1) (x - x_2) \dots (x - x_n).
+    \end{align*}
+    为方便, 我们约定:
+    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\).
+    设 \(z\) 是参数.
+    设 \(u(x)\), \(v(x)\) 是整式,
+    且 \(u(x_i) \neq 0\), \(i = 1\), \(\dots\), \(n\).
+    设
+    \begin{align*}
+        r(x; z) = u(x) z - v(x)
+        = \sum_{k = 0}^{m} {b_k (z) x^{m-k}},
+    \end{align*}
+    其中, \(b_k (z)\) 是关于 \(z\) 的整式,
+    且若 \(k < 0\) 或 \(k > m\),
+    则整式 \(b_k (z) = 0\).
+    作 \(f\) 与 \(r\) 的 Sylvester 阵 \(S(f, r; n, m)\).
+    它是 \(m + n\)~级阵, 且
+    \begin{align*}
+        [S(f, r; n, m)]_{i,j} =
+        \begin{cases}
+            a_{i-j},         & j \leq m; \\
+            b_{i-(j-m)} (z), & j > m.
+        \end{cases}
+    \end{align*}
+    则 \(f\) 与 \(r\) 的结式
+    \begin{align*}
+        \det {(S(f, r; n, m))}
+        = a_0^m \left(\prod_{i = 1}^{n} {u(x_i)} \right)
+        \prod_{i = 1}^{n} {\left(z - \frac{v(x_i)}{u(x_i)}\right)}
+    \end{align*}
+    是一个关于 \(z\) 的 \(n\)~次整式,
+    且它的 \(z^{n}\) 项系数是 \(a_0^m u(x_1) u(x_2) \dots u(x_n)\),
+    且它的全部的根是 \(v(x_i) / u(x_i)\),
+    \(i = 1\), \(\dots\), \(n\).
+\end{theorem}
+
+\begin{proof}
+    我们计算结式即可;
+    由此我们得别的结论.
+
+    由结式的性质~(4), \(f\) 与 \(r\) 的结式
+    \begin{align*}
+        \det {(S(f, r; n, m))}
+        = {} &
+        a_0^m \prod_{i = 1}^{n} {r(x_i; z)}
+        \\
+        = {} &
+        a_0^m \prod_{i = 1}^{n} {(u(x_i) z - v(x_i))}
+        \\
+        = {} &
+        a_0^m \prod_{i = 1}^{n}
+        {\left(u(x_i) \left(z - \frac{v(x_i)}{u(x_i)}\right) \right)}
+        \\
+        = {} &
+        a_0^m \left(\prod_{i = 1}^{n} {u(x_i)} \right)
+        \prod_{i = 1}^{n} {\left(z - \frac{v(x_i)}{u(x_i)}\right)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+值得提, 前面, 在研究问题
+``若数 \(c\) 适合 \(f(c) = 0\),
+则 \(y = v(c) / u(c)\) 是何''
+(其中, \(f(x)\), \(u(x)\), \(v(x)\) 是整式,
+且 \(u(c) \neq 0\))
+时,
+我们其实用了一样的结式
+(即 \(f(x)\) 与 \(u(x) y - v(x)\) 的结式).
+由此可见, 结式的应用是多的与广的.
 
 \end{document}
 

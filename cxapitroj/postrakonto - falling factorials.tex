@@ -1,0 +1,4601 @@
+\documentclass[../libro.tex]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
+
+\section{阵的运算的律}
+
+本节, 我们讨论阵的运算的律.
+
+回想, 对 \(2\)~个同尺寸的阵, 我们可作加法;
+对 \(1\)~个数与 \(1\)~个阵, 我们可作数乘;
+对 \(2\)~个阵, 若第~\(1\) 个阵的列数等于第~\(2\) 个阵的行数,
+则我们可作乘法.
+具体地, 若 \(A\), \(B\) 是 \(a \times b\)~阵,
+则 \(A\) 与 \(B\) 的和 \(A + B\) 是 \(a \times b\)~阵,
+且
+\begin{align*}
+    [A + B]_{i,j} = [A]_{i,j} + [B]_{i,j}.
+\end{align*}
+进一步地, 若 \(k\) 是数,
+则 \(k\) 与 \(A\) 的数乘 \(k A\) 是 \(a \times b\)~阵,
+且
+\begin{align*}
+    [k A]_{i,j} = k [A]_{i,j}.
+\end{align*}
+进一步地, 若 \(D\) 是 \(b \times c\)~阵,
+则 \(A\) 与 \(D\) 的积 \(A D\) 是 \(a \times c\)~阵,
+且
+\begin{align*}
+    [A D]_{i,j} = \sum_{u = 1}^{b} {[A]_{i,u} [D]_{u,j}}.
+\end{align*}
+并且, 加法、数乘、乘法还适合如下律:
+
+\begin{theorem}
+    设 \(A\), \(B\), \(C\) 是 \(a \times b\)~阵.
+    设 \(D\), \(E\) 是 \(b \times c\)~阵.
+    设 \(F\) 是 \(c \times d\)~阵.
+    设 \(k\), \(\ell\) 是数.
+    则:
+
+    \textbullet\,
+    \(A + B = B + A\).
+
+    \textbullet\,
+    \((A + B) + C = A + (B + C)\).
+
+    \textbullet\,
+    存在 \(a \times b\)~阵 \(0\),
+    其中, \([0]_{i,j} = 0\),
+    使 \(0 + A = A = A + 0\).
+
+    \textbullet\,
+    存在 \(a \times b\)~阵 \(-A\),
+    其中, \([-A]_{i,j} = -[A]_{i,j}\),
+    使 \((-A) + A = 0 = A + (-A)\).
+
+    \textbullet\,
+    \(1 A = A\).
+
+    \textbullet\,
+    \(k (\ell A) = (k \ell) A\).
+
+    \textbullet\,
+    \((k + \ell) A = k A + \ell A\).
+
+    \textbullet\,
+    \(k (A + B) = k A + k B\).
+
+    \textbullet\,
+    \((A D) F = A (D F)\).
+
+    \textbullet\,
+    \((A + B) D = A D + B D\).
+
+    \textbullet\,
+    \(A (D + E) = A D + A E\).
+
+    \textbullet\,
+    \((k A) D = k (A D) = A (k D)\).
+
+    \textbullet\,
+    存在 \(a \times a\)~阵 (\(a\)~级阵) \(I_a\),
+    其中,
+    \begin{align*}
+        [I_a]_{i,j} = \delta(i, j) =
+        \begin{cases}
+            1, & i = j; \\
+            0, & i \neq j,
+        \end{cases}
+    \end{align*}
+    使 \(I_a A = A\).
+
+    \textbullet\,
+    存在 \(b\)~级阵 \(I_b\),
+    其中, \([I_b]_{i,j} = \delta(i, j)\),
+    使 \(A I_b = A\).
+\end{theorem}
+
+回想, 阵的加法有交换律, 但阵的乘法没有交换律.
+设 \(A\), \(D\) 分别是 \(a \times b\), \(b \times c\)~阵.
+则 \(A D\) 有意义.
+不过, \(D A\) 没有意义, 除非 \(c = a\).
+进一步地, 即使 \(c = a\),
+\(A D\) 是 \(a\)~级阵, 而 \(D A\) 是 \(b\)~级阵.
+于是, 若 \(a \neq b\), \(A D\) 与 \(D A\) 的尺寸不同.
+进一步地, 即使 \(a = b\), \(A D\) 不一定等于 \(D A\).
+
+注意, 阵的加法要求 \(2\)~个阵的尺寸相同,
+而阵的乘法要求第~\(1\)~个阵的列数等于第~\(2\)~个阵的行数.
+设 \(A\), \(B\) 分别是 \(a \times b\), \(c \times d\)~阵.
+若 \(A + B\) 有意义, 则 \(a = c\), 且 \(b = d\).
+若 \(A B\) 有意义, 则 \(b = c\).
+故若 \(A + B\) 与 \(A B\) 都有意义,
+则 \(A\) 与 \(B\) 是同级的方阵.
+反过来, 若 \(A\) 与 \(B\) 都是 \(s\)~级阵,
+则 \(A + B\) 与 \(A B\) 都是 \(s\)~级阵.
+
+以下, 为方便, 我们考虑同级的方阵的运算的律.
+首先, 特别地,
+
+\begin{theorem}
+    设 \(A\), \(B\), \(C\) 是 \(s\)~级阵.
+    设 \(k\), \(\ell\) 是数.
+    则:
+
+    \textbullet\,
+    \(A + B = B + A\).
+
+    \textbullet\,
+    \((A + B) + C = A + (B + C)\).
+
+    \textbullet\,
+    存在 \(s\)~级阵 \(0\),
+    其中, \([0]_{i,j} = 0\),
+    使 \(0 + A = A = A + 0\).
+
+    \textbullet\,
+    存在 \(s\)~级阵 \(-A\),
+    其中, \([-A]_{i,j} = -[A]_{i,j}\),
+    使 \((-A) + A = 0 = A + (-A)\).
+
+    \textbullet\,
+    \(1 A = A\).
+
+    \textbullet\,
+    \(k (\ell A) = (k \ell) A\).
+
+    \textbullet\,
+    \((k + \ell) A = k A + \ell A\).
+
+    \textbullet\,
+    \(k (A + B) = k A + k B\).
+
+    \textbullet\,
+    \((A B) C = A (B C)\).
+
+    \textbullet\,
+    \((A + B) C = A C + B C\).
+
+    \textbullet\,
+    \(A (B + C) = A B + A C\).
+
+    \textbullet\,
+    \((k A) B = k (A B) = A (k B)\).
+
+    \textbullet\,
+    存在 \(s\)~级阵 \(I = I_s\),
+    其中, \([I]_{i,j} = \delta(i, j)\),
+    使 \(I A = A = A I\).
+\end{theorem}
+
+这些会是有用的.
+我们会常用它们.
+
+回想, 数~I 减数~II, 就是数~I 加数~II 的相反数.
+类似地, 对 \(2\)~个同级的方阵 \(A\), \(B\),
+我们定义 \(A - B\) 为 \(A + (-B)\).
+
+像数的运算的律那样, 同级的方阵的运算也有如下的律:
+
+\begin{theorem}
+    设 \(A\), \(B\), \(C\) 是 \(s\)~级阵.
+
+    (1)
+    (加法的消去律)
+    若 \(A + B = A + C\), 或 \(B + A = C + A\),
+    则 \(B= C\).
+
+    (2)
+    \(-(-A) = A\).
+
+    (3)
+    若 \(A + C = B\), 则 \(C = B - A\);
+    反过来, 若 \(C = B - A\), 则 \(A + C = B\).
+
+    (4)
+    \(-(A \pm B) = -A \mp B\).
+
+    (5)
+    \((A - B) C = A C - B C\).
+
+    (6)
+    \(A (B - C) = A B - A C\).
+
+    (7)
+    \(0 A = 0 = A 0\).
+
+    (8)
+    \((-A) B = -(A B) = A (-B)\).
+
+    (9)
+    \((-A) (-B) = A B\).
+\end{theorem}
+
+\begin{proof}
+    我们简单地证明一些律.
+
+    (1)
+    我们证明当 \(A + B = A + C\) 时的情形
+    (注意, 若 \(B + A = C + A\), 由加法的交换律,
+    \(A + B = B + A = C + A = A + C\)).
+    注意,
+    \begin{align*}
+        B
+        = {} & 0 + B
+        = ((-A) + A) + B
+        = (-A) + (A + B)
+        \\
+        = {} & (-A) + (A + C)
+        = ((-A) + A) + C
+        = 0 + C
+        = C.
+    \end{align*}
+
+    (2)
+    注意, \((-A) + (-(-A)) = 0\),
+    且 \((-A) + A = 0\).
+    由消去律, \(-(-A) = A\).
+
+    (3)
+    设 \(A + C = B\).
+    注意, 由交换律,
+    \begin{align*}
+        A + (B - A)
+        = {} & A + (B + (-A))
+        = A + ((-A) + B)
+        \\
+        = {} & (A + (-A)) + B
+        = 0 + B
+        = B.
+    \end{align*}
+    由消去律, \(C = B - A\).
+
+    另一方面, 若 \(C = B - A\),
+    则由前面的计算, \(A + C = A + (B - A) = B\).
+
+    (4)
+    一方面, \((A \pm B) + (-(A \pm B)) = 0\);
+    另一方面 (约定 \(+B = B\)),
+    \begin{align*}
+        (A \pm B) + (-A \mp B)
+        = {} & (A + (\pm B)) + ((-A) + (\mp B))
+        \\
+        = {} & ((A + (\pm B)) + (-A)) + (\mp B)
+        \\
+        = {} & ((-A) + (A + (\pm B))) + (\mp B)
+        \\
+        = {} & (((-A) + A) + (\pm B)) + (\mp B)
+        \\
+        = {} & ((-A) + A) + ((\pm B) + (\mp B))
+        \\
+        = {} & 0 + 0
+        \\
+        = {} & 0.
+    \end{align*}
+    由消去律, \(-(A \pm B) = -A \mp B\).
+
+    (5)
+    一方面,
+    \((A - B) C + B C = ((A - B) + B) C = A C\);
+    另一方面,
+    \((A C - B C) + B C = A C\).
+    用消去律.
+
+    (6)
+    类似地证 (见 (5)).
+
+    (7)
+    我们证明 \(0 A = 0\);
+    另一个是类似的.
+    一方面,
+    \(0 A = (0 + 0) A = 0 A + 0 A\);
+    另一方面,
+    \(0 A + 0 = 0 A\).
+    用消去律.
+
+    (8)
+    我们证明 \((-A) B = -(A B)\);
+    另一个是类似的.
+    一方面, 由 (7),
+    \(A B + (-A) B = (A + (-A)) B = 0 B = 0\);
+    另一方面,
+    \(A B + (-(A B)) = 0\).
+    用消去律.
+
+    (9)
+    注意, 由 (8) 与 (2),
+    \begin{equation*}
+        (-A) (-B) = -(A (-B)) = -(-(A B)) = A B.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+由数的加法与乘法的关系, \(m\)~个数 \(t\) 的和
+\(\underbrace{t + t + \dots + t}_{\text{\(m\)~个 \(t\)}}\)
+可被写为积 \(m t\).
+由此, \(m\)~个阵 \(A\) 的和
+\(\underbrace{A + A + \dots + A}_{\text{\(m\)~个 \(A\)}}\)
+可被写为数乘 \(m A\), 因为
+\begin{align*}
+    \Big[
+        \underbrace{A + A + \dots + A}_{\text{\(m\)~个 \(A\)}}
+    \Big]_{i,j}
+    = \underbrace{[A]_{i,j} + [A]_{i,j} + \dots + [A]_{i,j}}_{\text{\(m\)~个 \([A]_{i,j}\)}}
+    = m [A]_{i,j}
+    = [m A]_{i,j}.
+\end{align*}
+
+我们还知道, \(m\)~个数 \(t\) 的积
+\(\underbrace{t \cdot t \cdot \dots \cdot t}_{\text{\(m\)~个 \(t\)}}\)
+可被写为次方 \(t^m\).
+不过, \(m\)~个 \(s\)~级阵 \(A\) 的积
+\(\underbrace{A A \dots A}_{\text{\(m\)~个 \(A\)}}\)
+可被写为何?
+
+\begin{definition}
+    设 \(A\) 是 \(s\)~级阵.
+    设 \(m\) 是非负整数.
+    定义 \(A\) 的 \(m\)~次方
+    \begin{align*}
+        A^m =
+        \begin{cases}
+            I,         & m = 0;    \\
+            A^{m-1} A, & m \geq 1.
+        \end{cases}
+    \end{align*}
+\end{definition}
+
+由此, \(A^1 = A^0 A = I A = A\),
+\(A^2 = A^1 A = A A\),
+且 \(A^3 = A^2 A = (A A) A = A A A\).
+一般地, \(A^m\) 是 \(m\)~个 \(A\) 的积.
+
+\begin{example}
+    设 \(m\) 是非负整数.
+    我们证明, \(s\)~级单位阵 \(I\) 的 \(m\)~次方
+    \(I^m = I\).
+
+    作命题 \(P(m)\):
+    \(I^m = I\).
+    我们的目标是,
+    对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为由定义, \(I^0 = I\).
+
+    假定 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 也是对的.
+    由定义, \(I^{m+1} = I^m I = I I = I\).
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{example}
+
+我们知道, 数的非负整数次方适合一些律.
+方阵的非负整数次方也有类似的律.
+
+\begin{theorem}
+    设 \(A\) 是 \(s\)~级阵.
+    设 \(\ell\), \(m\) 是非负整数.
+    则:
+
+    (1)
+    \(A^{\ell+m} = A^{\ell} A^{m}\).
+
+    (2)
+    \((A^{\ell})^{m} = A^{\ell m}\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    作命题 \(P(m)\):
+    \(A^{\ell+m} = A^{\ell} A^{m}\).
+    我们的目标是,
+    对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为
+    \(A^{\ell+0} = A^{\ell} = A^{\ell} I = A^{\ell} A^{0}\).
+
+    假定 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        A^{\ell+(m+1)}
+        = A^{(\ell+m)+1}
+        = A^{\ell+m} A
+        = (A^{\ell} A^{m}) A
+        = A^{\ell} (A^{m} A)
+        = A^{\ell} A^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+
+    (2)
+    作命题 \(Q(m)\):
+    \((A^{\ell})^{m} = A^{\ell m}\).
+    我们的目标是,
+    对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+    \(Q(0)\) 是对的, 因为
+    \((A^{\ell})^{0} = I = A^{0} = A^{\ell 0}\).
+
+    假定 \(Q(m)\) 是对的.
+    我们由此证明, \(Q(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        (A^{\ell})^{m+1}
+        = (A^{\ell})^{m} A^{\ell}
+        = A^{\ell m} A^{\ell}
+        = A^{\ell m + \ell}
+        = A^{\ell (m+1)}.
+    \end{align*}
+    所以, \(Q(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+我们知道, 对任何数 \(x\), \(y\), 任何非负整数 \(m\),
+\((xy)^m = x^m y^m\).
+可是, 存在 \(2\)~个同级的方阵 \(A\), \(B\), 存在非负整数 \(m\),
+使 \((AB)^m \neq A^m B^m\).
+
+\begin{example}
+    设 \(m = 2\),
+    \begin{align*}
+        A =
+        \begin{bmatrix}
+            1 & 1 \\ 0 & 1 \\
+        \end{bmatrix},
+        \quad
+        B =
+        \begin{bmatrix}
+            1 & 0 \\ 1 & 1 \\
+        \end{bmatrix}.
+    \end{align*}
+    不难算出
+    \begin{align*}
+        AB =
+        \begin{bmatrix}
+            2 & 1 \\ 1 & 1 \\
+        \end{bmatrix},
+        \quad
+        A^2 =
+        \begin{bmatrix}
+            1 & 2 \\ 0 & 1 \\
+        \end{bmatrix},
+        \quad
+        B^2 =
+        \begin{bmatrix}
+            1 & 0 \\ 2 & 1 \\
+        \end{bmatrix}.
+    \end{align*}
+    则
+    \begin{equation*}
+        (AB)^2 =
+        \begin{bmatrix}
+            5 & 3 \\ 3 & 2 \\
+        \end{bmatrix},
+        \quad
+        A^2 B^2 =
+        \begin{bmatrix}
+            5 & 2 \\ 2 & 1 \\
+        \end{bmatrix}.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+不过, 若 \(A B = B A\), 类似的律成立.
+具体地,
+
+\begin{theorem}
+    设 \(A\), \(B\) 是 \(s\)~级阵, 且 \(A B = B A\).
+    设 \(m\) 是非负整数.
+    则 \((A B)^m = A^m B^m\).
+\end{theorem}
+
+\begin{proof}
+    为证明此事, 我们要作准备.
+
+    作命题 \(P(m)\): \(B^{m} A = A B^{m}\).
+    % (注意, \(A B^{m}\) 是 \(A (B^{m})\), % tex-fmt: skip
+    % 而不是 \((AB)^m\);
+    % 这就像 \(x y^{m}\) 是 \(x (y^m)\),
+    % 而不是 \((x y)^m\).) % tex-fmt: skip
+    我们用数学归纳法证明,
+    对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为
+    \(B^{0} A = I A = A I = A B^{0}\).
+
+    假定 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        B^{m+1} A
+        = {} &
+        (B^{m} B) A
+        = B^{m} (B A)
+        = B^{m} (A B)
+        \\
+        = {} &
+        (B^{m} A) B
+        = (A B^{m}) B
+        = A (B^{m} B)
+        = A B^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    好的.
+    我们已好地准备.
+
+    作命题 \(Q(m)\):
+    \((AB)^{m} = A^{m} B^{m}\).
+    我们的目标是,
+    对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+    \(Q(0)\) 是对的, 因为
+    \((AB)^0 = I = I I = A^0 B^0\).
+
+    假定 \(Q(m)\) 是对的.
+    我们由此证明, \(Q(m+1)\) 也是对的.
+    注意,
+    \begin{align*}
+        (AB)^{m+1}
+        = {} &
+        (AB)^{m} (AB)
+        = (A^{m} B^{m}) (A B)
+        = ((A^{m} B^{m}) A) B
+        = (A^{m} (B^{m} A)) B
+        \\
+        = {} &
+        (A^{m} (A B^{m})) B
+        = ((A^{m} A) B^{m}) B
+        = A^{m+1} (B^{m} B)
+        = A^{m+1} B^{m+1}.
+    \end{align*}
+    所以, \(Q(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+注意,
+\begin{align}
+    (A B)^m = \underbrace{A B A B \dots A B}_{\text{\(m\)~个 \(A B\)}},
+    \label{eq:ff01}
+\end{align}
+而
+\begin{align}
+    A^m B^m = \underbrace{A A \dots A}_{\text{\(m\)~个 \(A\)}}
+    \, \underbrace{B B \dots B}_{\text{\(m\)~个 \(B\)}}.
+    \label{eq:ff02}
+\end{align}
+由上个定理, 若 \(A B = B A\),
+则我们可移式~\eqref{eq:ff01} 的右边的 \(A\) 与 \(B\) 的位置,
+集中所有的 \(A\), 且集中所有的 \(B\),
+以变式~\eqref{eq:ff01} 的右边为式~\eqref{eq:ff02} 的右边,
+且它们相等.
+一般地,
+
+\begin{theorem}
+    设 \(A_1\), \(A_2\), \(\dots\), \(A_m\)
+    是 \(m\)~个 \(s\)~级阵
+    (它们不必互不相同).
+    设对任何不超过 \(m\) 的, 且互不相同的正整数 \(i\), \(j\),
+    \(A_i A_j = A_j A_i\).
+    则对任何不超过 \(m\) 的, 且互不相同的正整数
+    \(i_1\), \(i_2\), \(\dots\), \(i_m\),
+    \begin{align*}
+        A_{i_1} A_{i_2} \dots A_{i_m}
+        = A_1 A_2 \dots A_m.
+    \end{align*}
+    通俗地, 若一组同级的方阵
+    \(A_1\), \(A_2\), \(\dots\), \(A_m\)
+    (它们不必互不相同)
+    的任何 \(2\)~个 \(A_i\), \(A_j\)
+    作乘法时可交换
+    (即 \(A_i A_j = A_j A_i\)),
+    则无论以何次序作乘法, 这一组方阵给出相同的积.
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(m)\):
+    \begin{quotation}
+        对任何适合条件
+        ``对任何不超过 \(m\) 的, 且互不相同的正整数 \(i\), \(j\),
+        \(A_i A_j = A_j A_i\)''
+        的 \(m\)~个 \(s\)~级阵
+        \(A_1\), \(A_2\), \(\dots\), \(A_m\)
+        (它们不必互不相同),
+        对任何不超过 \(m\) 的, 且互不相同的正整数
+        \(i_1\), \(i_2\), \(\dots\), \(i_m\),
+        \(A_{i_1} A_{i_2} \dots A_{i_m}
+        = A_1 A_2 \dots A_m\).
+    \end{quotation}
+    再作命题 \(Q(m)\):
+    对任何不低于 \(2\), 且不超过 \(m\) 的正整数 \(k\),
+    \(P(k)\) 是对的.
+    我们证明, 对任何不低于 \(2\) 的正整数 \(m\),
+    \(Q(m)\) 是对的.
+
+    首先, \(Q(2)\) 是对的, 因为 \(P(2)\) 是对的,
+    因为条件相当于
+    \(A_1 A_2 = A_2 A_1\)
+    (取 \(i\), \(j\) 为 \(1\), \(2\))
+    与 \(A_2 A_1 = A_1 A_2\)
+    (取 \(i\), \(j\) 为 \(2\), \(1\)),
+    而结论是 \(A_1 A_2 = A_1 A_2\)
+    (取 \(i_1\), \(i_2\) 为 \(1\), \(2\))
+    与 \(A_2 A_1 = A_1 A_2\)
+    (取 \(i_1\), \(i_2\) 为 \(2\), \(1\)).
+
+    我们设 \(Q(m-1)\) 是对的 (\(m - 1 \geq 2\)).
+    则 \(P(2)\), \(\dots\), \(P(m-1)\) 是对的.
+    若我们能由此证明, \(P(m)\) 是对的,
+    则 \(Q(m)\) 是对的.
+
+    设 \(A_1\), \(A_2\), \(\dots\), \(A_m\)
+    是 \(m\)~个 \(s\)~级阵.
+    设对任何不超过 \(m\) 的, 且互不相同的正整数 \(i\), \(j\),
+    \(A_i A_j = A_j A_i\).
+    设 \(i_1\), \(i_2\), \(\dots\), \(i_m\)
+    是不超过 \(m\) 的, 且互不相同的正整数.
+
+    设 \(i_m = m\).
+    则 \(A_{i_1} A_{i_2} \dots A_{i_m}
+    = (A_{i_1} A_{i_2} \dots A_{i_{m-1}}) A_{m}\).
+    注意, \(i_1\), \(\dots\), \(i_{m-1}\)
+    是不超过 \(m-1\) 的, 且互不相同的正整数.
+    由假定 \(P(m-1)\),
+    \(A_{i_1} A_{i_2} \dots A_{i_{m-1}}
+    = A_1 A_2 \dots A_{m-1}\).
+    则
+    \(A_{i_1} A_{i_2} \dots A_{i_m}
+        = (A_1 A_2 \dots A_{m-1}) A_{m}
+    = A_1 A_2 \dots A_{m}\).
+
+    设 \(i_1 = m\).
+    则 \(A_{i_1} A_{i_2} \dots A_{i_m}
+    = A_{m} (A_{i_2} \dots A_{i_m})\).
+    注意, \(i_2\), \(\dots\), \(i_m\)
+    是不超过 \(m-1\) 的, 且互不相同的正整数.
+    由假定 \(P(m-1)\),
+    \(A_{i_2} \dots A_{i_m} = A_1 A_2 \dots A_{m-1}\).
+    则 \(A_{i_1} A_{i_2} \dots A_{i_m}
+        = A_{m} (A_1 A_2 \dots A_{m-1})
+    = (A_{m} A_1 \dots A_{m-2}) A_{m-1}\).
+    记 \(B_k = A_k\) (\(k = 1\), \(\dots\), \(m-2\)),
+    且 \(B_{m-1} = A_{m}\).
+    则 \(A_{m} A_1 \dots A_{m-2} = B_{m-1} B_1 \dots B_{m-2}\),
+    且对任何不超过 \(m-1\) 的, 且互不相同的正整数 \(i\), \(j\),
+    \(B_i B_j = B_j B_i\).
+    再由假定 \(P(m-1)\),
+    \(B_{m-1} B_1 \dots B_{m-2} = B_1 \dots B_{m-2} B_{m-1}\).
+    则 \(A_{m} A_1 \dots A_{m-2} = (A_1 \dots A_{m-2}) A_{m}\).
+    则
+    \begin{align*}
+        A_{i_1} A_{i_2} \dots A_{i_m}
+        = {} & ((A_1 \dots A_{m-2}) A_{m}) A_{m-1}
+        = (A_1 \dots A_{m-2}) (A_{m} A_{m-1})
+        \\
+        = {} & (A_1 \dots A_{m-2}) (A_{m-1} A_{m})
+        = A_1 A_2 \dots A_m.
+    \end{align*}
+
+    最后, 设 \(i_t = m\), 其中, \(1 < t < m\).
+    则
+    \begin{align*}
+        A_{i_1} A_{i_2} \dots A_{i_m}
+        = (A_{i_1} \dots A_{i_{t-1}})
+        (A_m A_{i_{t+1}} \dots A_{i_m}).
+    \end{align*}
+    注意, \(m - (t - 1)\) 小于 \(m\),
+    且 \(m - (t - 1) = (m - t) + 1\) 大于 \(1\).
+    记 \(C_k = A_{i_{t+k}}\) (\(k = 1\), \(\dots\), \(m-t\)),
+    且 \(C_{m-t+1} = A_m\).
+    则 \(A_m A_{i_{t+1}} \dots A_{i_m}
+    = C_{m-t+1} C_1 \dots C_{m-t}\),
+    且对任何不超过 \(m-t+1\) 的, 且互不相同的正整数 \(i\), \(j\),
+    \(C_i C_j = C_j C_i\).
+    由假定 \(P(m-t+1)\),
+    \(C_{m-t+1} C_1 \dots C_{m-t} = C_1 \dots C_{m-t} C_{m-t+1}\).
+    则 \(A_m A_{i_{t+1}} \dots A_{i_m}
+    = A_{i_{t+1}} \dots A_{i_m} A_m\).
+    则
+    \begin{align*}
+        A_{i_1} A_{i_2} \dots A_{i_m}
+        = {} &
+        (A_{i_1} \dots A_{i_{t-1}})
+        ((A_{i_{t+1}} \dots A_{i_m}) A_m)
+        \\
+        = {} &
+        (A_{i_1} \dots A_{i_{t-1}} A_{i_{t+1}} \dots A_{i_m})
+        A_m.
+    \end{align*}
+    注意, \(i_1\), \(\dots\), \(i_{t-1}\),
+    \(i_{t+1}\), \(\dots\), \(i_m\)
+    是不超过 \(m-1\) 的, 且互不相同的正整数.
+    再由假定 \(P(m-1)\),
+    \(A_{i_1} \dots A_{i_{t-1}} A_{i_{t+1}} \dots A_{i_m}
+    = A_1 A_2 \dots A_{m-1}\).
+    则
+    \(A_{i_1} A_{i_2} \dots A_{i_m}
+        = (A_1 A_2 \dots A_{m-1}) A_{m}
+    = A_1 A_2 \dots A_{m}\).
+
+    所以, \(Q(m)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+这会是有用的.
+
+\vspace{2ex}
+
+最后, 有一件事, 其值得提.
+
+注意, 对 \(1\)~级阵 \([a]\), \([b]\), 与数 \(k\),
+
+\textbullet\,
+\([a] = [b]\) 相当于 \(a = b\);
+
+\textbullet\,
+\([a] + [b] = [a + b]\);
+
+\textbullet\,
+\(k [a] = [k a]\);
+
+\textbullet\,
+\([a]\, [b] = [a b]\).
+
+由此可见, 形式地, \(1\)~级阵可跟数对应,
+且 \(1\)~级阵的运算几乎就是数的运算.
+所以, 有时, 为方便, 我们不写 \(1\)~级阵的括号 \([\) 与 \(]\),
+且反过来, 有时, 我们也视数为 \(1\)~级阵.
+
+\section{\texorpdfstring{falling factorial 与 \(2\)~项式系数}%
+{falling factorial 与 2 项式系数}}
+
+本节, 我们讨论 falling factorial 与 \(2\)~项式系数.
+它们在讨论阵的运算的新的律时是有用的.
+
+\begin{definition}
+    设 \(x\), \(h\) 是 \(s\)~级阵,
+    且 \(x h = h x\).
+    设 \(n\) 是整数.
+
+    (1)
+    若 \(n \geq 0\), 定义
+    \(x\) 的关于 \(h\) 的 \(n\)~次 \emph{falling factorial}
+    \begin{align*}
+        \operatorname{fa} {(x, n; h)} =
+        \begin{cases}
+            I, & n = 0; \\
+            \operatorname{fa} {(x, n-1; h)}\, (x - (n-1) h), & n \geq 1.
+        \end{cases}
+    \end{align*}
+
+    (2)
+    若 \(n < 0\), 定义
+    \(x\) 的关于 \(h\) 的 \(n\)~次 \emph{falling factorial}
+    \(\operatorname{fa} {(x, n; h)} = 0\).
+\end{definition}
+
+注意,
+\begin{align*}
+    \operatorname{fa} {(x, 1; h)}
+    = {} & \operatorname{fa} {(x, 0; h)}\, (x - 0 h)
+    = I x = x,
+    \\
+    \operatorname{fa} {(x, 2; h)}
+    = {} & \operatorname{fa} {(x, 1; h)}\, (x - 1 h)
+    = x (x - 1 h) = x (x - h),
+    \\
+    \operatorname{fa} {(x, 3; h)}
+    = {} & \operatorname{fa} {(x, 2; h)}\, (x - 2 h)
+    = x (x - h) (x - 2 h).
+\end{align*}
+一般地, 对正整数 \(n\),
+\begin{align*}
+    \operatorname{fa} {(x, n; h)}
+    = x (x - h) \dots (x - (n-1) h).
+\end{align*}
+
+注意, 若 \(x h \neq h x\),
+我们不定义 \(x\) 的关于 \(h\) 的 \(n\)~次 falling factorial.
+
+注意, 因为 \(1\)~级阵与数的对应, \(x\) 与 \(h\) 也可以是数;
+此时, \(x h\) 当然等于 \(h x\).
+\(1\)~级单位阵 \(I\) 自然地对应数 \(1\).
+
+注意, 若 \(h = 0\), 且 \(n \geq 0\), 则
+\(\operatorname{fa} {(x, n; 0)} = x^n\).
+
+\begin{example}
+    设 \(n\) 是非负整数.
+    若 \(n = 0\), 则 \(\operatorname{fa} {(n, n; 1)} = 1\).
+    若 \(n \geq 1\), 则
+    \begin{align*}
+        \operatorname{fa} {(n, n; 1)} = n (n - 1 \cdot 1) \dots (n - (n - 1) \cdot 1) = n \cdot (n - 1) \cdot \dots \cdot 1.
+    \end{align*}
+    一般地, 当 \(n\) 是非负整数时, 我们简单地写
+    \(\operatorname{fa} {(n, n; 1)}\)
+    为 \(n!\).
+    不难看出, 对正整数 \(n\),
+    \(n! = n \cdot (n - 1)!\).
+\end{example}
+
+在研究 falling factorial 的性质前,
+我们看如下事实.
+它会是有用的.
+
+\begin{theorem}
+    设 \(x\), \(y\), \(h\) 是 \(s\)~级阵,
+    且 \(x h = h x\), \(y h = h y\), \(x y = y x\).
+    设 \(i\), \(j\) 是整数.
+    则 \((x - i h) (y - j h) = (y - j h) (x - i h)\).
+\end{theorem}
+
+\begin{proof}
+    注意, 由分配律,
+    \begin{align*}
+        (x - i h) (y - j h)
+        = {} & x (y - j h) - i h (y - j h)
+        \\
+        = {} & (x y - x (j h)) - ((i h) y - (i h) (j h))
+        \\
+        = {} & (x y - j x h) - (i h y - i j h h)
+        \\
+        = {} & x y - j x h - i h y + i j h^2.
+    \end{align*}
+    因为 \(y h = h y\),
+    \begin{align*}
+        (x - i h) (y - j h)
+        = {} & x y - j x h - i y h + i j h^2
+        \\
+        = {} & x y - (j x + i y) h + i j h^2.
+    \end{align*}
+    类似地, 因为 \(x h = h x\),
+    \begin{align*}
+        (y - j h) (x - i h)
+        = y x - (i y + j x) h + j i h^2.
+    \end{align*}
+    因为 \(x y = y x\),
+    \(j x + i y = i y + j x\) (加法的交换律),
+    且 \(i j = j i\) (整数的乘法的交换律),
+    \((x - i h) (y - j h) = (y - j h) (x - i h)\).
+\end{proof}
+
+falling factorial 有如下性质.
+
+\begin{theorem}
+    设 \(x\), \(h\) 是 \(s\)~级阵,
+    且 \(x h = h x\).
+    设 \(n\) 是整数.
+
+    (1)
+    若 \(n \neq 0\), 则
+    \(\operatorname{fa} {(x, n; h)}
+    = (x - (n - 1)h) \operatorname{fa} {(x, n-1; h)}\).
+
+    (2)
+    若 \(n \neq 0\), 则
+    \(\operatorname{fa} {(x + h, n; h)}
+    = (x + h) \operatorname{fa} {(x, n-1; h)}\).
+
+    (3)
+    \(\operatorname{fa} {(x + h, n; h)}
+        - \operatorname{fa} {(x, n; h)}
+    = n h \operatorname{fa} {(x, n-1; h)}\).
+
+    (4)
+    对非负整数 \(m\),
+    \begin{align*}
+        \operatorname{fa} {(x + m h, n; h)}
+        - \operatorname{fa} {(x, n; h)}
+        = n h \sum_{0 \leq i < m}
+        {\operatorname{fa} {(x + i h, n-1; h)}}.
+    \end{align*}
+    特别地, 若 \(n \geq 1\), 且 \(x = 0\),
+    则
+    \begin{align*}
+        \operatorname{fa} {(m h, n; h)}
+        = n h \sum_{0 \leq i < m}
+        {\operatorname{fa} {(i h, n-1; h)}}.
+    \end{align*}
+
+    (5)
+    \(\operatorname{fa} {(x, n; -h)}
+    = \operatorname{fa} {(x + (n-1) h, n; h)}\).
+
+    (6)
+    \(\operatorname{fa} {(-x, n; h)}
+    = (-1)^n \operatorname{fa} {(x + (n-1) h, n; h)}\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    若 \(n \leq -1\), 则
+    \(\operatorname{fa} {(x, n; h)}\)
+    与 \(\operatorname{fa} {(x, n-1; h)}\) 都是 \(0\).
+
+    若 \(n \geq 1\), 则因为
+    \((x - i h) (x - j h) = (x - j h) (x - i h)\),
+    \begin{align*}
+        \operatorname{fa} {(x, n; h)}
+        = {} &
+        x (x - h) \dots (x - (n-2) h) (x - (n-1) h)
+        \\
+        = {} &
+        (x - (n-1) h) x (x - h) \dots (x - (n-2) h)
+        \\
+        = {} &
+        (x - (n-1) h) \operatorname{fa} {(x, n-1; h)}.
+    \end{align*}
+
+    (2)
+    若 \(n \leq -1\), 则
+    \(\operatorname{fa} {(x+h, n; h)}\)
+    与 \(\operatorname{fa} {(x, n-1; h)}\) 都是 \(0\).
+    若 \(n \geq 1\), 则
+    \begin{align*}
+        &
+        \operatorname{fa} {(x+h, n; h)}
+        \\
+        = {} &
+        (x+h) ((x+h) - h) \dots ((x+h) - (n-2) h) ((x+h) - (n-1) h)
+        \\
+        = {} &
+        (x + h) x (x - h) \dots (x - (n-2) h)
+        \\
+        = {} &
+        (x + h) \operatorname{fa} {(x, n-1; h)}.
+    \end{align*}
+
+    (3)
+    若 \(n = 0\), 则左边是 \(I - I = 0\),
+    且右边也是 \(0\).
+
+    若 \(n \neq 0\), 则由 (1) 与 (2),
+    \begin{align*}
+        &
+        \operatorname{fa} {(x + h, n; h)}
+        - \operatorname{fa} {(x, n; h)}
+        \\
+        = {} &
+        (x + h) \operatorname{fa} {(x, n-1; h)}
+        - (x - (n-1)h) \operatorname{fa} {(x, n-1; h)}
+        \\
+        = {} &
+        ((x + h) - (x - (n-1)h))
+        \operatorname{fa} {(x, n-1; h)}
+        \\
+        = {} &
+        n h \operatorname{fa} {(x, n-1; h)}.
+    \end{align*}
+
+    (4)
+    若 \(m = 0\),
+    则左边是
+    \(\operatorname{fa} {(x + 0 h, n; h)}
+    - \operatorname{fa} {(x, n; h)} = 0\),
+    且右边也是 \(0\)
+    (没有阵被加).
+
+    若 \(m \geq 1\), 则注意,
+    \begin{align*}
+        \operatorname{fa} {(x + h, n; h)}
+        - \operatorname{fa} {(x, n; h)}
+        & = n h \operatorname{fa} {(x, n-1; h)},
+        \\
+        \operatorname{fa} {(x + 2h, n; h)}
+        - \operatorname{fa} {(x + h, n; h)}
+        & = n h \operatorname{fa} {(x + h, n-1; h)},
+        \\
+        & \dots,
+        \\
+        \operatorname{fa} {(x + mh, n; h)}
+        - \operatorname{fa} {(x + (m-1)h, n; h)}
+        & = n h \operatorname{fa} {(x + (m-1)h, n-1; h)}.
+    \end{align*}
+    加各式即可.
+    左边的多的项会被消去.
+
+    进一步地, 注意,
+    若 \(n \geq 1\), 且 \(x = 0\),
+    则 \(\operatorname{fa} {(0, n; h)} = 0\).
+
+    (5)
+    若 \(n = 0\), 则左边是 \(I\),
+    且右边也是 \(I\).
+
+    若 \(n \leq -1\), 则左边是 \(0\),
+    且右边也是 \(0\).
+
+    若 \(n \geq 1\), 则因为
+    \((x - i h) (x - j h) = (x - j h) (x - i h)\),
+    \begin{align*}
+        \operatorname{fa} {(x, n; -h)}
+        = {} &
+        x (x - (-h)) \cdots (x - (n-2)(-h)) (x - (n-1)(-h))
+        \\
+        = {} &
+        x (x + h) \cdots (x + (n-2)h) (x + (n-1)h)
+        \\
+        = {} &
+        (x + (n-1)h - (n-1)h) (x + (n-1)h - (n-2)h) \dots
+        \\
+        & \quad
+        (x + (n-1)h - h) (x + (n-1)h)
+        \\
+        = {} &
+        (x + (n-1)h) (x + (n-1)h - h) \dots
+        \\
+        & \quad
+        (x + (n-1)h - (n-2)h) (x + (n-1)h - (n-1)h)
+        \\
+        = {} &
+        \operatorname{fa} {(x + (n-1)h, n; h)}.
+    \end{align*}
+
+    (6)
+    若 \(n = 0\), 则左边是 \(I\),
+    且右边是 \((-1)^0 I = I\).
+
+    若 \(n \leq -1\), 则左边是 \(0\),
+    且右边是 \((-1)^n 0 = 0\).
+
+    若 \(n \geq 1\), 则因为
+    \((x - i h) (x - j h) = (x - j h) (x - i h)\),
+    \begin{align*}
+        \operatorname{fa} {(-x, n; h)}
+        = {} &
+        (-x) (-x - h) \cdots (-x - (n-2)h) (-x - (n-1)h)
+        \\
+        = {} &
+        ((-1) x)\, ((-1) (x + h)) \cdots
+        \\
+        & \quad
+        ((-1) (x + (n-2)h))\, ((-1) (x + (n-1)h))
+        \\
+        = {} &
+        (-1)^n
+        x (x + h) \cdots (x + (n-2)h) (x + (n-1)h)
+        \\
+        = {} &
+        (-1)^n
+        (x + (n-1)h - (n-1)h) (x + (n-1)h - (n-2)h) \dots
+        \\
+        & \quad
+        (x + (n-1)h - h) (x + (n-1)h)
+        \\
+        = {} &
+        (-1)^n
+        (x + (n-1)h) (x + (n-1)h - h) \dots
+        \\
+        & \quad
+        (x + (n-1)h - (n-2)h) (x + (n-1)h - (n-1)h)
+        \\
+        = {} &
+        (-1)^n \operatorname{fa} {(x + (n-1)h, n; h)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+接下来, 我们由 falling factorial 定义 \(2\)~项式系数.
+回想, 数可被认为是 \(1\)~级阵,
+且 \(1\)~级阵可被认为是数;
+回想, 对任何数 \(x\), \(1 x = x = x 1\);
+回想, \(0! = 1\),
+且 \(n! = n \cdot \dots \cdot (n - 1) \cdot \dots \cdot 1\)
+(\(n \geq 1\)).
+
+\begin{definition}
+    设 \(x\) 是数.
+    设 \(n\) 是整数.
+    定义 \(x\) 的 \(n\)~次 \emph{\(2\)~项式系数}
+    \begin{align*}
+        \dbinom{x}{n} =
+        \begin{dcases}
+            \frac{\operatorname{fa} {(x, n; 1)}}{\operatorname{fa} {(n, n; 1)}}
+            = \frac{x (x - 1) \dots (x - (n-1))}{n!},
+            & n \geq 1; \\
+            \frac{\operatorname{fa} {(x, 0; 1)}}{\operatorname{fa} {(0, 0; 1)}}
+            = 1,
+            & n = 0; \\
+            0,
+            & n \leq -1.
+        \end{dcases}
+    \end{align*}
+\end{definition}
+
+\(2\)~项式系数有如下性质.
+
+\begin{theorem}
+    设 \(x\) 是数.
+    设 \(m\), \(n\) 是整数.
+
+    (1)
+    若 \(n \neq 0\), 则
+    \begin{align*}
+        \dbinom{x}{n} = \dbinom{x}{n-1} \frac{x-(n-1)}{n}.
+    \end{align*}
+
+    (2)
+    若 \(n \neq 0\), 则
+    \begin{align*}
+        \dbinom{x+1}{n} = \frac{x+1}{n} \dbinom{x}{n-1}.
+    \end{align*}
+
+    (3)
+    \(\dbinom{x+1}{n} - \dbinom{x}{n} = \dbinom{x}{n-1}\).
+
+    (4)
+    若 \(m \geq 0\), 则
+    \begin{align*}
+        \dbinom{x + m}{n} - \dbinom{x}{n}
+        = \sum_{0 \leq i < m} {\dbinom{x + i}{n-1}}.
+    \end{align*}
+    特别地, 若 \(n \geq 1\), 且 \(x = 0\), 则
+    \begin{align*}
+        \dbinom{m}{n} = \sum_{0 \leq i < m} {\dbinom{i}{n-1}}.
+    \end{align*}
+
+    (5)
+    若 \(m \geq 0\), 则
+    \begin{align*}
+        \dbinom{x + m}{m-1}
+        = \sum_{0 \leq i < m} {\dbinom{x + i}{i}}.
+    \end{align*}
+
+    (6)
+    % \(\dbinom{x}{n} = (-1)^n \dbinom{-x + n - 1}{n}\).
+    \(\dbinom{-x}{n} = (-1)^n \dbinom{x + n - 1}{n}\).
+
+    (7)
+    若 \(m\) 是非负整数, 且 \(n\) 是整数,
+    则 \(\dbinom{m}{n}\) 是非负整数.
+
+    (8)
+    若 \(m\), \(n\) 是整数,
+    则 \(\dbinom{m}{n}\) 是整数.
+
+    (9)
+    若 \(m\), \(n\) 是非负整数, 且 \(m \geq n\),
+    则
+    \begin{align*}
+        \dbinom{m}{n} = \frac{m!}{(m - n)! n!}
+    \end{align*}
+    是正整数.
+
+    (10)
+    若 \(m\), \(n\) 是非负整数, 且 \(m < n\),
+    则 \(\dbinom{m}{n} = 0\).
+
+    (11)
+    若 \(m\) 是非负整数, 且 \(n\) 是整数,
+    则 \(\dbinom{m}{n} = \dbinom{m}{m - n}\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    若 \(n \leq -1\), 则左边是 \(0\),
+    且右边是 \(0\, (x - (n - 1))/n = 0\).
+
+    若 \(n \geq 1\), 则由 falling factorial 的定义,
+    \begin{align*}
+        \operatorname{fa} {(x, n; 1)}
+        = \operatorname{fa} {(x, n-1; 1)}\, (x - (n - 1)),
+    \end{align*}
+    即
+    \begin{align*}
+        n! \dbinom{x}{n}
+        = (n-1)! \dbinom{x}{n-1} (x - (n - 1)).
+    \end{align*}
+    注意, \((n-1)! = (1/n)\, n!\), 且 \(n! \neq 0\).
+    在等式的 \(2\)~边消去 \(n!\) 即可.
+
+    (2)
+    若 \(n \leq -1\), 则左边是 \(0\),
+    且右边是 \(((x + 1)/n)\, 0 = 0\).
+
+    若 \(n \geq 1\), 则由 falling factorial 的性质,
+    \begin{align*}
+        \operatorname{fa} {(x+1, n; 1)}
+        = (x+1) \operatorname{fa} {(x, n-1; 1)}.
+    \end{align*}
+    即
+    \begin{align*}
+        n! \dbinom{x}{n}
+        = (x+1)\, (n-1)! \dbinom{x}{n-1}.
+    \end{align*}
+    注意, \((n-1)! = (1/n)\, n!\), 且 \(n! \neq 0\).
+    在等式的 \(2\)~边消去 \(n!\) 即可.
+
+    (3)
+    若 \(n \leq -1\), 则左边是 \(0 - 0 = 0\),
+    且右边是 \(0\).
+
+    若 \(n = 0\), 则左边是 \(1 - 1 = 0\),
+    且右边是 \(0\).
+
+    若 \(n \geq 1\), 则由 falling factorial 的性质,
+    \begin{align*}
+        \operatorname{fa} {(x + 1, n; 1)}
+        - \operatorname{fa} {(x, n; 1)}
+        = n \operatorname{fa} {(x, n-1; 1)},
+    \end{align*}
+    即
+    \begin{align*}
+        n! \dbinom{x+1}{n} - n! \dbinom{x}{n}
+        = n \cdot (n-1)! \dbinom{x}{n-1}.
+    \end{align*}
+    注意, \(n! = n \cdot (n-1)!\), 且 \(n! \neq 0\).
+    在等式的 \(2\)~边消去 \(n!\) 即可.
+
+    (4)
+    若 \(n = 0\), 则左边是 \(1 - 1 = 0\),
+    且右边是一些 \(0\) 的和.
+
+    若 \(n \leq -1\), 则左边是 \(0 - 0 = 0\),
+    且右边是一些 \(0\) 的和.
+
+    若 \(n \geq 1\), 则由 falling factorial 的性质,
+    \begin{align*}
+        \operatorname{fa} {(x + m, n; 1)}
+        - \operatorname{fa} {(x, n; 1)}
+        = n \sum_{0 \leq i < m}
+        {\operatorname{fa} {(x + i, n-1; 1)}}.
+    \end{align*}
+    即
+    \begin{align*}
+        n! \dbinom{x + m}{n}
+        - n! \dbinom{x}{n}
+        = n \sum_{0 \leq i < m} {(n-1)! \dbinom{x + i}{n-1}},
+    \end{align*}
+    即
+    \begin{align*}
+        n! \left(\dbinom{x + m}{n} - \dbinom{x}{n}\right)
+        = n \cdot (n-1)!  \sum_{0 \leq i < m} {\dbinom{x + i}{n-1}}.
+    \end{align*}
+    注意, \(n! = n \cdot (n-1)!\), 且 \(n! \neq 0\).
+    在等式的 \(2\)~边消去 \(n!\) 即可.
+
+    进一步地, 注意,
+    若 \(n \geq 1\), 且 \(x = 0\),
+    则 \(\dbinom{0}{n} = 0\).
+
+    (5)
+    若 \(m = 0\), 则左边是 \(0\), 且右边也是 \(0\)
+    (没有数被加).
+
+    若 \(m \geq 1\), 则注意,
+    \begin{align*}
+        \dbinom{x+1}{0} - \dbinom{x+0}{-1}
+        & = \dbinom{x+0}{0},
+        \\
+        \dbinom{x+2}{1} - \dbinom{x+1}{0}
+        & = \dbinom{x+1}{1},
+        \\
+        & \dots,
+        \\
+        \dbinom{x+m}{m-1} - \dbinom{x+m-1}{m-2}
+        & = \dbinom{x+m-1}{m-1}.
+    \end{align*}
+    加各式即可.
+    左边的多的项会被消去,
+    且注意, \(\dbinom{x+0}{-1} = 0\).
+
+    (6)
+    若 \(n \leq -1\), 则左边是 \(0\),
+    且右边是 \((-1)^n 0 = 0\).
+
+    若 \(n = 0\), 则左边是 \(1\),
+    且右边是 \((-1)^0 1 = 1\).
+
+    % 设 \(n \geq 1\).
+    % 注意,
+    % \begin{align*}
+    %     \dbinom{x}{n}
+    %     = {} &
+    %     \frac{x (x - 1) \dots (x - (n - 1))}{n!}
+    %     \\
+    %     = {} &
+    %     (-1)^n \frac{(-1)^n x (x - 1) \dots (x - (n - 1))}{n!}
+    %     \\
+    %     = {} &
+    %     (-1)^n \frac{(-x) (-x + 1) \dots (-x + (n - 1))}{n!}
+    %     \\
+    %     = {} &
+    %     (-1)^n \frac{(-x + n - 1) (-x + n - 1 - 1) \dots (-x + n - 1 - (n - 1))}{n!}
+    %     \\
+    %     = {} &
+    %     (-1)^n \dbinom{-x + n - 1}{n}.
+    % \end{align*}
+    若 \(n \geq 1\), 则由 falling factorial 的性质,
+    \begin{align*}
+        \operatorname{fa} {(-x, n; 1)}
+        = (-1)^n \operatorname{fa} {(x + (n-1) 1, n; 1)},
+    \end{align*}
+    即
+    \begin{align*}
+        n! \dbinom{-x}{n}
+        = (-1)^n n! \dbinom{x + n - 1}{n}.
+    \end{align*}
+    注意, \(n! \neq 0\).
+    在等式的 \(2\)~边消去 \(n!\) 即可.
+
+    (7)
+    若 \(n < 0\), 则 \(\dbinom{m}{n} = 0\).
+    所以, 以下, 我们考虑 \(n \geq 0\).
+
+    作命题 \(P(n)\):
+    对任何非负整数 \(m\),
+    \(\dbinom{m}{n}\) 是非负整数.
+    我们用数学归纳法证明, 对任何非负整数 \(n\),
+    \(P(n)\) 是对的.
+
+    \(P(0)\) 是对的, 因为对任何非负整数 \(m\),
+    \(\dbinom{m}{0} = 1\).
+
+    设 \(P(n-1)\) 是对的 (\(n \geq 1\)).
+    我们由此证明, \(P(n)\) 是对的.
+    设 \(m\) 是非负整数.
+    若 \(m = 0\),
+    则 \(\dbinom{m}{n} = \dbinom{0}{n} = 0\) 是非负整数
+    (注意, \(n \geq 1\));
+    若 \(m \geq 1\), 则由 (4) 与假定 \(P(n-1)\),
+    \(\dbinom{m}{n}\) 是非负整数 \(\dbinom{i}{n-1}\)
+    (\(i = 0\), \(1\), \(\dots\), \(m-1\))
+    的和, 故它也是非负整数.
+    则 \(P(n)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+
+    (8)
+    若 \(m\) 是非负整数, 则由 (7),
+    \(\dbinom{m}{n}\) 是非负整数.
+
+    若 \(m\) 是负整数, 则 \(-m\) 是正整数.
+    注意, \(m = -(-m)\).
+    由 (6) 与 (7),
+    \(\dbinom{m}{n} = (-1)^n \dbinom{-m + n - 1}{n}\)
+    是 \((-1)^n\) 倍非负整数.
+
+    (9)
+    若 \(n = 0\), 则左边是 \(1\), 且右边是 \(m!/(m! 0!) = 1\).
+
+    若 \(n = m\), 则左边是 \(m!/m! = 1\), 且右边是 \(m!/(0! m!) = 1\).
+
+    设 \(0 < n < m\).
+    则
+    \begin{align*}
+        \dbinom{m}{n} (m - n)! n!
+        = {} &
+        \frac{m (m - 1) \dots (m - (n - 1))}{n!}
+        \cdot (m - n) (m - n - 1) \dots 1 \cdot n!
+        \\
+        = {} &
+        m!.
+    \end{align*}
+    注意, \(m!\), \((m - n)!\), \(n!\) 都是正整数.
+    则 \(\dbinom{m}{n}\), 正整数的比, 是正数.
+    由 (7), 它是非负整数, 故它是正整数.
+
+    (10)
+    注意, \(n\) 是正整数.
+    则
+    \begin{align*}
+        \dbinom{m}{n} = \frac{m (m - 1) \dots (m - (n - 1))}{n!}.
+    \end{align*}
+    因为 \(m < n\), \(m \leq n - 1\).
+    则在 \(n\) 个数 \(m\), \(m - 1\), \(\dots\), \(m - (n - 1)\),
+    一定有 \(0\).
+    则 \(\dbinom{m}{n} = 0\).
+
+    (11)
+    若 \(n < 0\), 则 \(\dbinom{m}{n} = 0\), 且 \(m - n > m\).
+    由 (10), \(\dbinom{m}{m - n} = 0\).
+
+    若 \(m - n < 0\), 则 \(\dbinom{m}{m - n} = 0\), 且 \(n > m\).
+    由 (10), \(\dbinom{m}{n} = 0\).
+
+    设 \(0 \leq n \leq m\).
+    由 (9),
+    \begin{equation*}
+        \dbinom{m}{n}
+        = \frac{m!}{(m - n)! n!}
+        = \frac{m!}{n! (m - n)!}
+        = \frac{m!}{(m - (m - n))! (m - n)!}
+        = \dbinom{m}{m - n}.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\section{\texorpdfstring{\(2\)~项式展开}%
+{2 项式展开}}
+
+本节, 我们讨论 \(2\)~项式展开.
+\(2\)~项式是形如 \((x + y)^m\) 的式,
+其中, \(x\), \(y\) 是 \(s\)~级阵 (或数),
+且 \(m\) 是非负整数.
+
+\begin{theorem}
+    设 \(x\), \(y\), \(h\) 是 \(s\)~级阵,
+    且 \(x h = h x\), \(y h = h y\), \(x y = y x\).
+    设 \(m\) 是非负整数.
+    则
+    \begin{align*}
+        \operatorname{fa} {(x + y, m; h)}
+        = \sum_{0 \leq i \leq m} {
+            \dbinom{m}{i}
+            \operatorname{fa} {(x, m - i; h)}
+            \operatorname{fa} {(y, i; h)}
+        }.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(m)\):
+    \begin{align*}
+        \operatorname{fa} {(x + y, m; h)}
+        = \sum_{0 \leq i \leq m} {
+            \dbinom{m}{i}
+            \operatorname{fa} {(x, m - i; h)}
+            \operatorname{fa} {(y, i; h)}
+        }.
+    \end{align*}
+    我们用数学归纳法证明, 对任何非负整数 \(m\), \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为 \(I = 1 I I\).
+
+    设 \(P(m-1)\) 是对的 (\(m \geq 1\)), 即
+    \begin{align*}
+        \operatorname{fa} {(x + y, m-1; h)}
+        = \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}
+        }.
+    \end{align*}
+    我们由此证明, \(P(m)\) 是对的.
+    注意,
+    \begin{align*}
+        &
+        \operatorname{fa} {(x + y, m; h)}
+        \\
+        = {} &
+        \operatorname{fa} {(x + y, m - 1; h)}
+        (x + y - (m - 1) h)
+        \\
+        = {} &
+        \left(\sum_{0 \leq i \leq m-1} {
+                \dbinom{m-1}{i}
+                \operatorname{fa} {(x, m - 1 - i; h)}
+                \operatorname{fa} {(y, i; h)}
+        }\right)
+        (x + y - (m - 1) h)
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}\,
+            (x + y - (m - 1) h)
+        }
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}
+        }
+        \\
+        & \qquad \qquad
+        \cdot ((x - (m - 1 - i) h) + (y - i h))
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m-1} {
+            \left( % tex-fmt: skip
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}\,
+            (x - (m - 1 - i) h)
+            \right. % tex-fmt: skip
+        }
+        \\
+        & \qquad \qquad
+        \left. % tex-fmt: skip
+        {} + \dbinom{m-1}{i}
+        \operatorname{fa} {(x, m - 1 - i; h)}
+        \operatorname{fa} {(y, i; h)}\,
+        (y - i h)
+        \right) % tex-fmt: skip
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}\,
+            (x - (m - 1 - i) h)
+        }
+        \\
+        &
+        {} + \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}\,
+            (y - i h)
+        }.
+    \end{align*}
+    注意,
+    \begin{align*}
+        \operatorname{fa} {(y, i; h)}\, (x - (m - 1 - i) h)
+        = {} &
+        y (y - h) \dots (y - (i - 1) h) (x - (m - 1 - i) h)
+        \\
+        = {} &
+        (x - (m - 1 - i) h) y (y - h) \dots (y - (i - 1) h)
+        \\
+        = {} &
+        (x - (m - 1 - i) h) \operatorname{fa} {(y, i; h)}.
+    \end{align*}
+    则
+    \begin{align*}
+        &
+        \operatorname{fa} {(x + y, m; h)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}\,
+            (x - (m - 1 - i) h)
+            \operatorname{fa} {(y, i; h)}
+        }
+        \\
+        &
+        {} + \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i; h)}\,
+            (y - i h)
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i + 1; h)}
+            \operatorname{fa} {(y, i; h)}
+        }
+        \\
+        &
+        {} + \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - 1 - i; h)}
+            \operatorname{fa} {(y, i + 1; h)}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq i \leq m-1} {
+            \dbinom{m-1}{i}
+            \operatorname{fa} {(x, m - i; h)}
+            \operatorname{fa} {(y, i; h)}
+        }
+        \\
+        &
+        {} + \sum_{1 \leq i+1 \leq m} {
+            \dbinom{m-1}{i+1-1}
+            \operatorname{fa} {(x, m - (i + 1); h)}
+            \operatorname{fa} {(y, i + 1; h)}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq j \leq m-1} {
+            \dbinom{m-1}{j}
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+        }
+        \\
+        &
+        {} + \sum_{1 \leq j \leq m} {
+            \dbinom{m-1}{j-1}
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+        }.
+    \end{align*}
+    注意,
+    \(\dbinom{m-1}{m} = \dbinom{m-1}{-1} = 0\).
+    则
+    \begin{align*}
+        \operatorname{fa} {(x + y, m; h)}
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq j \leq m} {
+            \dbinom{m-1}{j}
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+        }
+        \\
+        &
+        {} + \sum_{0 \leq j \leq m} {
+            \dbinom{m-1}{j-1}
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+        }
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m} {
+            \left( % tex-fmt: skip
+            \dbinom{m-1}{j}
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+            \right. % tex-fmt: skip
+        }
+        \\
+        & \qquad \qquad
+        \left. % tex-fmt: skip
+        {} + \dbinom{m-1}{j-1}
+        \operatorname{fa} {(x, m - j; h)}
+        \operatorname{fa} {(y, j; h)}
+        \right) % tex-fmt: skip
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m} {
+            \left(
+                \dbinom{m-1}{j} + \dbinom{m-1}{j-1}
+            \right)
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+        }
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m} {
+            \dbinom{m}{j}
+            \operatorname{fa} {(x, m - j; h)}
+            \operatorname{fa} {(y, j; h)}
+        }.
+    \end{align*}
+    则 \(P(m)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+我们看 \(2\)~个特例.
+
+一方面, 取 \(x\), \(y\) 为数, 且 \(h = 1\).
+由 falling factorial 与 \(2\)~项式系数的关系,
+\begin{align*}
+    \operatorname{fa} {(x + y, m; 1)}
+    = \sum_{0 \leq i \leq m} {
+        \dbinom{m}{i}
+        \operatorname{fa} {(x, m - i; 1)}
+        \operatorname{fa} {(y, i; 1)}
+    },
+\end{align*}
+即
+\begin{align*}
+    m! \dbinom{x + y}{m}
+    = {} &
+    \sum_{0 \leq i \leq m} {
+        \dbinom{m}{i}
+        (m - i)! \dbinom{x}{m - i}
+        i! \dbinom{y}{i}
+    }
+    \\
+    = {} &
+    \sum_{0 \leq i \leq m} {
+        \dbinom{m}{i} (m - i)! i!
+        \dbinom{x}{m - i}
+        \dbinom{y}{i}
+    }
+    \\
+    = {} & \sum_{0 \leq i \leq m} {
+        m!
+        \dbinom{x}{m - i}
+        \dbinom{y}{i}
+    }
+    \\
+    = {} & m! \sum_{0 \leq i \leq m} {
+        \dbinom{x}{m - i}
+        \dbinom{y}{i}
+    }.
+\end{align*}
+所以, 若我们在等式的 \(2\)~边消去 \(m! \neq 0\), 则
+
+\begin{theorem}[Zhū--Vandermonde 恒等式]
+    设 \(x\), \(y\) 是数.
+    设 \(m\) 是非负整数.
+    则
+    \begin{align*}
+        \dbinom{x + y}{m}
+        = \sum_{0 \leq i \leq m} {\dbinom{x}{m - i} \dbinom{y}{i}}.
+    \end{align*}
+\end{theorem}
+
+另一方面, 取 \(h = 0\):
+
+\begin{theorem}[\(2\)~项式展开]
+    设 \(x\), \(y\) 是 \(s\)~级阵,
+    且 \(x y = y x\).
+    设 \(m\) 是非负整数.
+    则
+    \begin{align*}
+        (x + y)^m = \sum_{0 \leq i \leq m} {\dbinom{m}{i} x^{m-i} y^i}.
+    \end{align*}
+\end{theorem}
+
+注意, 若 \(x y \neq y x\), 则这不一定是对的.
+
+\begin{example}
+    设 \(A\), \(B\) 是 \(s\)~级阵.
+    取 \(m = 2\).
+    则由分配律,
+    \begin{align*}
+        (A + B)^2
+        = {} &
+        (A + B) (A + B)
+        \\
+        = {} &
+        A (A + B) + B (A + B)
+        \\
+        = {} &
+        (A A + A B) + (B A + B B)
+        \\
+        = {} &
+        A^2 + A B + B A + B^2.
+    \end{align*}
+    注意,
+    \(\dbinom{2}{2} = \dbinom{2}{0} = 1\),
+    且
+    \(\dbinom{2}{1} = 2\).
+    则
+    \begin{align*}
+        (A + B)^2 - \sum_{0 \leq i \leq 2} {\dbinom{2}{i} A^{2-i} B^i}
+        = {} &
+        (A^2 + A B + B A + B^2) - (A^2 I + 2 A B + I B^2)
+        \\
+        = {} &
+        B A - A B.
+    \end{align*}
+    由此可见,
+    能以 \(2\)~项式展开计算 \((A + B)^2\),
+    相当于 \(A B = B A\).
+\end{example}
+
+\section{\texorpdfstring{\(2\)~项式系数的更多的性质}%
+{2 项式系数的更多的性质}}
+
+作为 byproduct, 本节, 我们讨论 \(2\)~项式系数的更多的性质.
+
+为方便, 我们考虑 (无限的) 数表 (\propername{Yáng Huī})
+\begin{equation}
+    \begin{matrix}
+        \dbinom{0}{0} & \dbinom{0}{1} & \dbinom{0}{2} & \dbinom{0}{3} & \dbinom{0}{4} & \dbinom{0}{5} & \dbinom{0}{6} & \dbinom{0}{7} & \dbinom{0}{8} & \cdots \\[2ex]
+        \dbinom{1}{0} & \dbinom{1}{1} & \dbinom{1}{2} & \dbinom{1}{3} & \dbinom{1}{4} & \dbinom{1}{5} & \dbinom{1}{6} & \dbinom{1}{7} & \dbinom{1}{8} & \cdots \\[2ex]
+        \dbinom{2}{0} & \dbinom{2}{1} & \dbinom{2}{2} & \dbinom{2}{3} & \dbinom{2}{4} & \dbinom{2}{5} & \dbinom{2}{6} & \dbinom{2}{7} & \dbinom{2}{8} & \cdots \\[2ex]
+        \dbinom{3}{0} & \dbinom{3}{1} & \dbinom{3}{2} & \dbinom{3}{3} & \dbinom{3}{4} & \dbinom{3}{5} & \dbinom{3}{6} & \dbinom{3}{7} & \dbinom{3}{8} & \cdots \\[2ex]
+        \dbinom{4}{0} & \dbinom{4}{1} & \dbinom{4}{2} & \dbinom{4}{3} & \dbinom{4}{4} & \dbinom{4}{5} & \dbinom{4}{6} & \dbinom{4}{7} & \dbinom{4}{8} & \cdots \\[2ex]
+        \dbinom{5}{0} & \dbinom{5}{1} & \dbinom{5}{2} & \dbinom{5}{3} & \dbinom{5}{4} & \dbinom{5}{5} & \dbinom{5}{6} & \dbinom{5}{7} & \dbinom{5}{8} & \cdots \\[2ex]
+        \dbinom{6}{0} & \dbinom{6}{1} & \dbinom{6}{2} & \dbinom{6}{3} & \dbinom{6}{4} & \dbinom{6}{5} & \dbinom{6}{6} & \dbinom{6}{7} & \dbinom{6}{8} & \cdots \\[2ex]
+        \dbinom{7}{0} & \dbinom{7}{1} & \dbinom{7}{2} & \dbinom{7}{3} & \dbinom{7}{4} & \dbinom{7}{5} & \dbinom{7}{6} & \dbinom{7}{7} & \dbinom{7}{8} & \cdots \\[2ex]
+        \dbinom{8}{0} & \dbinom{8}{1} & \dbinom{8}{2} & \dbinom{8}{3} & \dbinom{8}{4} & \dbinom{8}{5} & \dbinom{8}{6} & \dbinom{8}{7} & \dbinom{8}{8} & \cdots \\[2ex]
+        \vdots        & \vdots        & \vdots        & \vdots        & \vdots        & \vdots        & \vdots        & \vdots        & \vdots        & \ddots \\
+    \end{matrix}
+    \label{eq:TriangleOfYangHui}
+\end{equation}
+其中, 在行~\(m+1\), 列~\(n+1\) 的数为 \(\dbinom{m}{n}\).
+列~\(1\) 的数都是 \(\dbinom{m}{0} = 1\).
+除了首个元, 行~\(1\) 的数都是
+\(\dbinom{0}{n} = 0\) (\(n \neq 0\)).
+并且, 当 \(m\), \(n \geq 1\) 时,
+在行~\(m+1\), 列 \(n+1\) 的数 \(\dbinom{m}{n}\)
+是在行~\(m\), 列 \(n+1\) 的数 \(\dbinom{m-1}{n}\)
+与在行~\(m\), 列 \(n\) 的数 \(\dbinom{m-1}{n-1}\)
+的和.
+由此, 具体地, 我们可写出
+\begin{align*}
+    \begin{matrix}
+        1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \cdots \\
+        1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \cdots \\
+        1 & 2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & \cdots \\
+        1 & 3 & 3 & 1 & 0 & 0 & 0 & 0 & 0 & \cdots \\
+        1 & 4 & 6 & 4 & 1 & 0 & 0 & 0 & 0 & \cdots \\
+        1 & 5 & 10 & 10 & 5 & 1 & 0 & 0 & 0 & \cdots \\
+        1 & 6 & 15 & 20 & 15 & 6 & 1 & 0 & 0 & \cdots \\
+        1 & 7 & 21 & 35 & 35 & 21 & 7 & 1 & 0 & \cdots \\
+        1 & 8 & 28 & 56 & 70 & 56 & 28 & 8 & 1 & \cdots \\
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+    \end{matrix}
+    \tag{\ref{eq:TriangleOfYangHui}\('\)}
+\end{align*}
+由此, 我们或许能看出一些性质.
+
+\begin{theorem}
+    在数表~\eqref{eq:TriangleOfYangHui} 的每一列,
+    每一个数不比前一个数小.
+    具体地, 对任何非负整数 \(m\), \(n\),
+    \begin{align*}
+        \dbinom{m}{n} \leq \dbinom{m+1}{n}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    若 \(n = 0\), 则它们都是 \(1\).
+    若 \(n > 0\), 则注意,
+    \begin{equation*}
+        \dbinom{m+1}{n} - \dbinom{m}{n} = \dbinom{m}{n-1} \geq 0.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    在数表~\eqref{eq:TriangleOfYangHui} 的每一行,
+    数字先大后小.
+    具体地, 设 \(m\), \(n\) 是正整数.
+    若 \(1 \leq n < (m+1)/2\), 则
+    \(\dbinom{m}{n-1} < \dbinom{m}{n}\).
+    若 \(n = (m+1)/2\) (此时 \(m\) 是奇数), 则
+    \(\dbinom{m}{n-1} = \dbinom{m}{n}\).
+    若 \((m+1)/2 < n \leq m\), 则
+    \(\dbinom{m}{n-1} > \dbinom{m}{n}\).
+    若 \(n > m\), 则 \(\dbinom{m}{n} = 0\).
+\end{theorem}
+
+\begin{proof}
+    注意, 当 \(n > m\) 时, \(\dbinom{m}{n} = 0\),
+    且当 \(0 \leq n \leq m\) 时, \(\dbinom{m}{n}\) 是正整数.
+    注意, 当 \(n \geq 1\) 时,
+    \begin{align*}
+        \dbinom{m}{n} \Big/ \dbinom{m}{n-1}
+        = \frac{m - (n - 1)}{n}
+        = \frac{m - n + 1}{n}.
+    \end{align*}
+    于是, 若 \(m \geq n > (m+1)/2\),
+    则 \(2n > m + 1\),
+    即 \(n > m + 1 - n\);
+    此时, \(\dbinom{m}{n-1} > \dbinom{m}{n}\).
+    若 \(n = (m+1)/2\),
+    即 \(2n = m + 1\),
+    即 \(n = m + 1 - n\);
+    此时, \(\dbinom{m}{n-1} = \dbinom{m}{n}\).
+    若 \(1 \leq n < (m+1)/2\),
+    则 \(2n < m + 1\),
+    即 \(n < m + 1 - n\);
+    此时, \(\dbinom{m}{n-1} < \dbinom{m}{n}\).
+\end{proof}
+
+\begin{theorem}
+    数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(m+1\) 的所有的非零的数的和是 \(2^m\).
+\end{theorem}
+
+\begin{proof}
+    回想, 由 \(2\)~项式展开,
+    对任何数 \(x\), \(y\), 与任何非负整数 \(m\),
+    \begin{align*}
+        (x + y)^m = \sum_{0 \leq i \leq m} {\dbinom{m}{i} x^{m-i} y^i}.
+    \end{align*}
+    若我们取 \(x\), \(y\) 为 \(1\), 则
+    \begin{align*}
+        (1 + 1)^m = \sum_{0 \leq i \leq m} {\dbinom{m}{i} 1^{m-i} 1^i},
+    \end{align*}
+    即
+    \begin{equation*}
+        \sum_{0 \leq i \leq m} {\dbinom{m}{i}} = 2^m.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(x\) 是数.
+    设 \(k\) 是非负整数.
+    则
+    \begin{align*}
+        \sum_{0 \leq i < k} {(-1)^i \dbinom{x}{i}}
+        = (-1)^{k-1} \dbinom{x-1}{k-1}.
+    \end{align*}
+    由此 (取 \(x = m\)),
+    数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(m+1\) 的前 \(k\) 个数的 ``交错和''
+    \begin{align*}
+        \sum_{0 \leq i < k} {(-1)^i \dbinom{m}{i}}
+        = (-1)^{k-1} \dbinom{m-1}{k-1}.
+    \end{align*}
+    特别地, 若 \(m \geq 1\),
+    则数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(m+1\) 的所有的非零的数的 ``交错和'' 是 \(0\)
+    (取 \(k = m + 1\)).
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        \sum_{0 \leq i < k} {(-1)^i \dbinom{x}{i}}
+        = {} &
+        \sum_{0 \leq i < k} {(-1)^i (-1)^i
+        \dbinom{-x + i - 1}{i}}
+        \\
+        = {} &
+        \sum_{0 \leq i < k} {\dbinom{-x - 1 + i}{i}}
+        \\
+        = {} &
+        \dbinom{-x - 1 + k}{k-1}
+        \\
+        = {} &
+        (-1)^{k-1} \dbinom{-(-x - 1 + k) + k - 1 - 1}{k-1}
+        \\
+        = {} &
+        (-1)^{k-1} \dbinom{x-1}{k-1}.
+    \end{align*}
+    由此, 取 \(x = m\), 我们知道,
+    行~\(m+1\) 的前 \(k\) 个数的 ``交错和'' 是
+    \((-1)^{k-1} \allowbreak
+    \cdot \dbinom{m-1}{k-1}\).
+
+    进一步地, 注意, 行~\(m+1\) 有 \(m+1\)~个非零的数,
+    故, 取 \(k = m + 1\),
+    则行~\(m+1\) 的所有的非零的数的 ``交错和'' 是
+    \((-1)^{m+1-1} \dbinom{m-1}{m+1-1} = 0\).
+\end{proof}
+
+值得提, 若 \(m\) 是正整数, 则由 \(2\)~项式展开,
+\begin{align*}
+    0 = (1 + (-1))^m
+    = \sum_{0 \leq i \leq m} {\dbinom{m}{i} 1^{m-i} (-1)^i}
+    = \sum_{0 \leq i \leq m} {(-1)^i \dbinom{m}{i}}.
+\end{align*}
+
+\begin{example}
+    设 \(x\), \(y\) 是数.
+    设 \(n\) 是非负整数.
+    则
+    \begin{align*}
+        &
+        \sum_{0 \leq i \leq n} {\dbinom{x+i}{i} \dbinom{y+n-i}{n-i}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq n} {\dbinom{(x+1)+i-1}{i}
+        \dbinom{(y+1)+(n-i)-1}{n-i}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq n} {(-1)^i \dbinom{-(x+1)}{i}
+        (-1)^{n-i} \dbinom{-(y+1)}{n-i}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq n} {(-1)^n \dbinom{-(x+1)}{i} \dbinom{-(y+1)}{n-i}}
+        \\
+        = {} &
+        (-1)^n \sum_{0 \leq i \leq n} {\dbinom{-(x+1)}{i} \dbinom{-(y+1)}{n-i}}
+        \\
+        = {} &
+        (-1)^n \dbinom{-(x+1+y+1)}{n}
+        \\
+        = {} &
+        (-1)^n (-1)^n \dbinom{(x+1+y+1)+n-1}{n}
+        \\
+        = {} &
+        \dbinom{x+y+n+1}{n}.
+        \qefhere
+    \end{align*}
+\end{example}
+
+\begin{example}
+    设 \(x\) 是数.
+    设 \(k\) 是非负整数.
+    我们计算
+    \begin{align*}
+        \sum_{0 \leq i < k} {\frac{(-1)^i}{i+1} \dbinom{x}{i}}.
+    \end{align*}
+
+    若 \(x = -1\), 则注意,
+    \begin{align*}
+        \dbinom{-1}{i} = (-1)^i \dbinom{1+i-1}{i} = (-1)^i.
+    \end{align*}
+    则
+    \begin{align*}
+        \sum_{0 \leq i < k} {\frac{(-1)^i}{i+1} \dbinom{-1}{i}}
+        = \sum_{0 \leq i < k} {\frac{1}{i+1}}
+        = \sum_{1 \leq j \leq k} {\frac{1}{j}}.
+    \end{align*}
+
+    若 \(x \neq -1\), 则注意,
+    \begin{align*}
+        \dbinom{x+1}{i+1} = \frac{x+1}{i+1} \dbinom{x}{i}.
+    \end{align*}
+    则
+    \begin{align*}
+        \sum_{0 \leq i < k} {\frac{(-1)^i}{i+1} \dbinom{x}{i}}
+        = {} &
+        \sum_{0 \leq i < k} {\frac{(-1)^{i+1-1}}{i+1}
+        \cdot \frac{i+1}{x+1} \dbinom{x}{i}}
+        \\
+        = {} &
+        \sum_{0 \leq i < k} {\frac{-1}{x+1} (-1)^{i+1} \dbinom{x}{i}}
+        \\
+        = {} &
+        \frac{-1}{x+1} \sum_{1 \leq j < k+1} {(-1)^j \dbinom{x+1}{j}}
+        \\
+        = {} &
+        \frac{-1}{x+1}
+        \left(\sum_{0 \leq j < k+1} {(-1)^j \dbinom{x+1}{j}}
+        - (-1)^0 \dbinom{x+1}{0}\right)
+        \\
+        = {} &
+        \frac{-1}{x+1} \left((-1)^k \dbinom{x}{k} - 1\right)
+        \\
+        = {} &
+        \frac{1}{x+1} \left(1 - (-1)^k \dbinom{x}{k}\right).
+    \end{align*}
+    特别地, 若我们取 \(x\) 为非负整数 \(n\),
+    且 \(k = n + 1\), 则
+    \begin{equation*}
+        \sum_{0 \leq i \leq n} {\frac{(-1)^i}{i+1} \dbinom{n}{i}}
+        = \frac{1}{n+1} \left(1 - (-1)^{n+1} \dbinom{n}{n+1}\right)
+        = \frac{1}{n+1}.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    则
+    \begin{align*}
+        \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i}}
+        = \sum_{1 \leq \ell \leq n} {\frac{1}{\ell}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    为方便, 我们记
+    \begin{align*}
+        g_n = \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i}},
+        \quad
+        h_n = \sum_{1 \leq \ell \leq n} {\frac{1}{\ell}}.
+    \end{align*}
+    则 \(g_1 = 1 = h_1\).
+    注意, 对任何正整数 \(n\), \(h_{n+1} - h_n = 1/(n+1)\),
+    且由上个例,
+    \begin{align*}
+        g_{n+1} - g_n
+        = {} &
+        \sum_{1 \leq i \leq n+1} {\frac{(-1)^{i-1}}{i} \dbinom{n+1}{i}}
+        - \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i}}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n+1}{i}}
+        + \frac{(-1)^n}{n+1} \dbinom{n+1}{n+1}
+        - \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i}}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n+1}{i}}
+        - \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i}}
+        + \frac{(-1)^n}{n+1}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq n} {\left(
+                \frac{(-1)^{i-1}}{i} \dbinom{n+1}{i}
+                - \frac{(-1)^{i-1}}{i} \dbinom{n}{i}
+        \right)} + \frac{(-1)^n}{n+1}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \left(
+                \dbinom{n+1}{i} - \dbinom{n}{i}
+        \right)} + \frac{(-1)^n}{n+1}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq n} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i-1}}
+        + \frac{(-1)^n}{n+1} \dbinom{n}{n}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq n+1} {\frac{(-1)^{i-1}}{i} \dbinom{n}{i-1}}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq n} {\frac{(-1)^j}{j+1} \dbinom{n}{j}}
+        \\
+        = {} &
+        \frac{1}{n+1}
+        \\
+        = {} &
+        h_{n+1} - h_n.
+    \end{align*}
+    则对任何正整数 \(n\),
+    \begin{align*}
+        g_{n+1} - h_{n+1}
+        = {} &
+        (g_{n+1} - h_n) - (h_{n+1} - h_n)
+        \\
+        = {} &
+        (g_{n+1} - h_n) - (g_{n+1} - g_n)
+        \\
+        = {} &
+        g_n - h_n.
+    \end{align*}
+    则对任何正整数 \(n\),
+    \begin{equation*}
+        g_n - h_n = g_{n-1} - h_{n-1} = \dots = g_1 - h_1 = 0.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(m+1\) 的所有的非零的数的平方的和是 \(\dbinom{2m}{m}\).
+\end{theorem}
+
+\begin{proof}
+    回想, 由 Zhū--Vandermonde 恒等式,
+    对任何数 \(x\), \(y\), 与任何非负整数 \(m\),
+    \begin{align*}
+        \dbinom{x + y}{m}
+        = \sum_{0 \leq i \leq m} {\dbinom{x}{m - i} \dbinom{y}{i}}.
+    \end{align*}
+    若我们取 \(x\), \(y\) 为 \(m\), 则
+    \begin{align*}
+        \dbinom{m + m}{m}
+        = \sum_{0 \leq i \leq m} {\dbinom{m}{m - i} \dbinom{m}{i}}
+        = \sum_{0 \leq i \leq m} {\dbinom{m}{i} \dbinom{m}{i}},
+    \end{align*}
+    即
+    \begin{equation*}
+        \sum_{0 \leq i \leq m} {\dbinom{m}{i}^2} = \dbinom{2m}{m}.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    对任何正整数 \(m\),
+    \(\dbinom{2m}{m} / 2\) 是正整数.
+\end{theorem}
+
+\begin{proof}
+    一方面, 它是正整数与正整数的比;
+    另一方面, 因为 \(m \geq 1\),
+    \begin{align*}
+        \frac{1}{2} \dbinom{2m}{m}
+        = \frac{1}{2} \cdot \frac{2m}{m} \dbinom{2m-1}{m-1}
+        = \dbinom{2m-1}{m-1}
+    \end{align*}
+    是整数.
+\end{proof}
+
+\begin{theorem}
+    对任何非负整数 \(m\),
+    \(\dbinom{2m}{m} / (m + 1)\) 是正整数.
+\end{theorem}
+
+\begin{proof}
+    一方面, 它是正整数与正整数的比;
+    另一方面, 因为 \(m + 1 \geq 1\),
+    \begin{align*}
+        \frac{1}{m+1} \dbinom{2m}{m}
+        = {} &
+        \left(1 - \frac{m}{m+1}\right) \dbinom{2m}{m}
+        \\
+        = {} &
+        1 \dbinom{2m}{m}
+        - \frac{2m - (m+1 - 1)}{m+1} \dbinom{2m}{m}
+        \\
+        = {} &
+        \dbinom{2m}{m} - \dbinom{2m}{m+1}
+    \end{align*}
+    是整数与整数的差.
+\end{proof}
+
+\begin{theorem}
+    对非负整数 \(m\),
+    记 \(c_m = \dbinom{2m}{m} / (m+1)\).
+    则
+    \begin{align*}
+        c_{m+1} = \sum_{0 \leq i \leq m} {c_i c_{m-i}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    记
+    \begin{align*}
+        f_m = \sum_{0 \leq i \leq m} {c_i c_{m-i}}.
+    \end{align*}
+    注意,
+    \begin{align*}
+        &
+        f_m
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m} {\frac{1}{(i+1)(m-i+1)}
+        \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m} {\frac{1}{m+2}
+            \frac{m+2}{(i+1)(m-i+1)}
+        \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}
+        \\
+        = {} &
+        \frac{1}{m+2} \sum_{0 \leq i \leq m} {
+            \frac{(m-i+1)+(i+1)}{(i+1)(m-i+1)}
+        \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}
+        \\
+        = {} &
+        \frac{1}{m+2} \sum_{0 \leq i \leq m} {
+            \left(\frac{1}{i+1} + \frac{1}{m-i+1}\right)
+        \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}
+        \\
+        = {} &
+        \frac{1}{m+2} \sum_{0 \leq i \leq m} {
+            \left(\frac{1}{i+1}
+                \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}
+                + \frac{1}{m-i+1}
+            \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}\right)
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \frac{1}{m+2} \sum_{0 \leq i \leq m} {
+            \frac{1}{i+1} \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}
+        }
+        \\
+        &
+        {} + \frac{1}{m+2} \sum_{0 \leq i \leq m} {
+            \frac{1}{m-i+1} \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \frac{1}{m+2} \sum_{0 \leq i \leq m} {
+            \frac{1}{i+1} \dbinom{2i}{i} \dbinom{2(m-i)}{m-i}
+        }
+        \\
+        &
+        {} + \frac{1}{m+2} \sum_{0 \leq m-i \leq m} {
+            \frac{1}{(m-i)+1} \dbinom{2(m-(m-i))}{m-(m-i)} \dbinom{2(m-i)}{m-i}
+        }
+        \\
+        = {} &
+        \frac{1}{m+2} \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}
+        }
+        + \frac{1}{m+2} \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2(m-j)}{m-j} \dbinom{2j}{j}
+        }
+        \\
+        = {} &
+        \frac{2}{m+2} \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}
+        }.
+    \end{align*}
+    记
+    \begin{align*}
+        g_m = \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}
+        }.
+    \end{align*}
+    则 \(g_m = ((m+2)/2) f_m\).
+    注意,
+    \begin{align*}
+        \frac{m+2}{2} c_{m+1}
+        = \frac{m+2}{2} \frac{1}{m+2} \dbinom{2(m+1)}{m+1}
+        = \frac{1}{2} \dbinom{2(m+1)}{m+1}.
+    \end{align*}
+    因为 \((m+2)/2 \neq 0\),
+    待证的等式 \(c_{m+1} = f_m\)
+    相当于 \(\dbinom{2(m+1)}{m+1} / 2 = g_m\).
+    作命题 \(P(m)\): \(\dbinom{2(m+1)}{m+1} / 2 = g_m\).
+    我们用数学归纳法证明, 对任何非负整数 \(m\),
+    \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为
+    \begin{align*}
+        \frac{1}{2} \dbinom{2 (0 + 1)}{0 + 1}
+        = 1
+        = \frac{1}{0+1}
+        \dbinom{2 \cdot 0}{0} \dbinom{2 (0 - 0)}{0 - 0}.
+    \end{align*}
+
+    设 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 是对的.
+    注意,
+    \begin{align*}
+        g_{m+1}
+        = {} &
+        \sum_{0 \leq j \leq m+1} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m+1-j)}{m+1-j}
+        }
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m+1-j)}{m+1-j}
+        }
+        \\
+        &
+        {} + \frac{1}{(m+1)+1} \dbinom{2(m+1)}{(m+1)}
+        \dbinom{2(m+1-(m+1))}{m+1-(m+1)}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m+1-j)}{m+1-j}
+        }
+        + \frac{1}{(m+1)+1} \dbinom{2(m+1)}{(m+1)}.
+    \end{align*}
+    注意, 当 \(k \geq 0\) 时,
+    \begin{align*}
+        \dbinom{2(k+1)}{k+1}
+        = {} &
+        \dbinom{2k+2}{k+1}
+        \\
+        = {} &
+        \frac{2k+2}{k+1} \dbinom{2k+1}{k}
+        \\
+        = {} &
+        2 \dbinom{2k+1}{2k+1-k}
+        \\
+        = {} &
+        2 \dbinom{2k+1}{k+1}
+        \\
+        = {} &
+        2 \cdot \frac{2k+1}{k+1} \dbinom{2k}{k}
+        \\
+        = {} &
+        2 \left(2 - \frac{1}{k+1}\right) \dbinom{2k}{k}
+        \\
+        = {} &
+        4 \dbinom{2k}{k} - \frac{2}{k+1} \dbinom{2k}{k}.
+    \end{align*}
+    则
+    \begin{align*}
+        &
+        \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m+1-j)}{m+1-j}
+        }
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m} {
+            \frac{1}{j+1} \dbinom{2j}{j}
+            \left( 4 \dbinom{2(m-j)}{m-j} - \frac{2}{m-j+1} \dbinom{2(m-j)}{m-j} \right)
+        }
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m} {
+            \left(
+                4 \frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}
+                - 2 \frac{1}{(j+1)(m-j+1)} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}
+            \right)
+        }
+        \\
+        = {} &
+        4 g_m - 2 f_m
+        \\
+        = {} &
+        4 g_m - 2 \cdot \frac{2}{m+2} g_m
+        \\
+        = {} &
+        \frac{4m + 4}{m + 2} g_m.
+    \end{align*}
+    于是, 由假定,
+    \begin{align*}
+        g_{m+1}
+        = {} &
+        \frac{4m + 4}{m + 2} g_m + \frac{1}{(m+1) + 1} \dbinom{2(m+1)}{m+1}
+        \\
+        = {} &
+        \frac{4m + 4}{m + 2} \cdot \frac{1}{2} \dbinom{2(m+1)}{m+1}
+        + \frac{1}{(m+1) + 1} \dbinom{2(m+1)}{m+1}
+        \\
+        = {} &
+        \frac{2m+3}{m+2} \dbinom{2(m+1)}{m+1}
+        \\
+        = {} &
+        \left(2 - \frac{1}{(m+1)+1}\right) \dbinom{2(m+1)}{m+1}
+        \\
+        = {} &
+        \frac{1}{2} \dbinom{2((m+1)+1)}{(m+1)+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+\begin{theorem}
+    设 \(m\) 是非负整数.
+    则
+    \begin{align*}
+        4^m = \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    记
+    \begin{align*}
+        h_m = \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}.
+    \end{align*}
+    作命题 \(P(m)\): \(4^m = h_m\).
+    我们用数学归纳法证明, 对任何非负整数 \(m\),
+    \(P(m)\) 是对的.
+
+    \(P(0)\) 是对的, 因为
+    \begin{align*}
+        4^0 = 1 = \dbinom{2 \cdot 0}{0} \dbinom{2 (0 - 0)}{0 - 0}.
+    \end{align*}
+
+    设 \(P(m)\) 是对的.
+    我们由此证明, \(P(m+1)\) 是对的.
+    注意,
+    \begin{align*}
+        h_{m+1}
+        = {} &
+        \sum_{0 \leq i \leq m+1} {\dbinom{2i}{i} \dbinom{2(m+1-i)}{m+1-i}}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m+1-i)}{m+1-i}}
+        \\
+        &
+        {}
+        + \dbinom{2(m+1)}{m+1} \dbinom{2(m+1-(m+1))}{m+1-(m+1)}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m+1-i)}{m+1-i}}
+        + \dbinom{2(m+1)}{m+1}.
+    \end{align*}
+    回想, 在上个定理的证明, 对任何非负整数 \(k\),
+    \begin{align*}
+        \dbinom{2(k+1)}{k+1}
+        = 4 \dbinom{2k}{k} - \frac{2}{k+1} \dbinom{2k}{k}.
+    \end{align*}
+    则
+    \begin{align*}
+        &
+        \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m+1-i)}{m+1-i}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m} {
+            \dbinom{2i}{i}
+            \left( 4 \dbinom{2(m-i)}{m-i} - \frac{2}{m-i+1} \dbinom{2(m-i)}{m-i} \right)
+        }
+        \\
+        = {} &
+        4 \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}
+        - 2 \sum_{0 \leq i \leq m} {\frac{1}{m-i+1} \dbinom{2(m-i)}{m-i} \dbinom{2i}{i}}
+        \\
+        = {} &
+        4 \sum_{0 \leq i \leq m} {\dbinom{2i}{i} \dbinom{2(m-i)}{m-i}}
+        - 2 \sum_{0 \leq j \leq m} {\frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}}
+        \\
+        = {} &
+        4 h_m
+        - 2 \sum_{0 \leq j \leq m} {\frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}}.
+    \end{align*}
+    由假定, 与在上个定理的证明的 byproduct,
+    \begin{align*}
+        h_{m+1}
+        = {} &
+        4 h_m
+        - 2 \sum_{0 \leq j \leq m} {\frac{1}{j+1} \dbinom{2j}{j} \dbinom{2(m-j)}{m-j}}
+        + \dbinom{2(m+1)}{m+1}
+        \\
+        = {} &
+        4 \cdot 4^m
+        - 2 \cdot \frac{1}{2} \dbinom{2(m+1)}{m+1}
+        + \dbinom{2(m+1)}{m+1}
+        \\
+        = {} &
+        4^{m+1}.
+    \end{align*}
+    所以, \(P(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+\begin{theorem}
+    数表~\eqref{eq:TriangleOfYangHui} 的%
+    列~\(n+1\) 的前 \(k\)~个数的和是
+    \(\dbinom{k}{n+1}\);
+    数表~\eqref{eq:TriangleOfYangHui} 的%
+    列~\(n+1\) 的前 \(k\)~个非零的数的和是
+    \(\dbinom{n+k}{n+1}\).
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        \sum_{0 \leq i < k} {\dbinom{i}{n}}
+        = \dbinom{k}{n+1}.
+    \end{align*}
+
+    进一步地, 注意, 列~\(n+1\) 的前 \(n\)~个数是 \(0\).
+    所以, 列~\(n+1\) 的前 \(k\)~个非零的数的和是%
+    列~\(n+1\) 的前 \(n+k\)~个数的和,
+    即 \(\dbinom{n+k}{n+1}\).
+\end{proof}
+
+到此, 我们讨论了 ``横的和'' 与 ``竖的和''.
+然后, 我们讨论 ``斜的和''.
+
+\begin{theorem}
+    以数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(m+1\), 列~\(1\) 的数 \(\dbinom{m}{0}\) 开始,
+    由左上至右下取 \(k\)~个数
+    (即所有的适合条件
+    \(i - j = m\), \(0 \leq j < k\) 的 \(\dbinom{i}{j}\)).
+    则它们的和
+    \begin{align*}
+        \sum_{0 \leq j < k} {\dbinom{m + j}{j}}
+        = \dbinom{m + k}{k - 1}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    回想, 这已被证.
+\end{proof}
+
+\begin{theorem}
+    以数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(1\), 列~\(m+1\) 的数 \(\dbinom{0}{m}\) 开始,
+    由右上至左下取 \(m+1\)~个数
+    (即所有的适合条件 \(i + j = m\), % tex-fmt: skip
+    \(i \geq 0\), 且 \(j \geq 0\) 的
+    \(\dbinom{i}{j}\)). % tex-fmt: skip
+    则它们的和
+    \begin{align*}
+        \sum_{0 \leq i \leq m} {\dbinom{i}{m - i}}
+        = \frac{1}{\sqrt{5}}
+        \left(
+            \left(\frac{1 + \sqrt{5}}{2}\right)^{m+1}
+            - \left(\frac{1 - \sqrt{5}}{2}\right)^{m+1}
+        \right).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    为方便, 我们记
+    \begin{align*}
+        x_1 = \frac{1 - \sqrt{5}}{2},
+        \quad
+        x_2 = \frac{1 + \sqrt{5}}{2}.
+    \end{align*}
+    则 \(x_2 - x_1 = \sqrt{5}\),
+    \(x_2 + x_1 = 1\),
+    且 \((2 x_k - 1)^2 = 5\), \(k = 1\), \(2\),
+    即 \(x_k^2 = 1 + x_k\), \(k = 1\), \(2\).
+
+    为方便, 我们记
+    \begin{align*}
+        f_m = \sum_{0 \leq i \leq m} {\dbinom{i}{m - i}},
+        \quad
+        g_m = \frac{x_2^{m+1} - x_1^{m+1}}{x_2 - x_1}.
+    \end{align*}
+    不难算出, \(f_0 = \dbinom{0}{0} = 1\),
+    且 \(g_0 = (x_2 - x_1)/(x_2 - x_1) = 1\);
+    不难算出, \(f_1 = \dbinom{0}{1} + \dbinom{1}{0} = 1\),
+    且 \(g_1 = (x_2^2 - x_1^2)/(x_2 - x_1)
+    = x_2 + x_1 = 1\).
+
+    我们先证明, 对任何非负整数 \(m\),
+    \(f_{m+2} = f_m + f_{m+1}\).
+    注意,
+    \begin{align*}
+        f_m + f_{m+1}
+        = {} &
+        \sum_{0 \leq i \leq m} {\dbinom{i}{m - i}}
+        + \sum_{0 \leq i \leq m+1} {\dbinom{i}{m + 1 - i}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m+1} {\dbinom{i}{m - i}}
+        + \sum_{0 \leq i \leq m+1} {\dbinom{i}{m - i + 1}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m+1} {
+            \left(
+                \dbinom{i}{m - i} + \dbinom{i}{m - i + 1}
+            \right)
+        }
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m+1} {\dbinom{i + 1}{m - i + 1}}
+        \\
+        = {} &
+        \sum_{1 \leq i+1 \leq m+1} {\dbinom{i + 1}{m + 2 - (i + 1)}}
+        \\
+        = {} &
+        \sum_{1 \leq j \leq m+2} {\dbinom{j}{m + 2 - j}}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq m+2} {\dbinom{j}{m + 2 - j}}
+        \\
+        = {} &
+        f_{m+2}.
+    \end{align*}
+
+    我们再证明, 对任何非负整数 \(m\),
+    \(g_{m+2} = g_m + g_{m+1}\).
+    注意,
+    \begin{align*}
+        g_m + g_{m+1}
+        = {} &
+        \frac{x_2^{m+1} - x_1^{m+1}}{x_2 - x_1}
+        + \frac{x_2^{m+2} - x_1^{m+2}}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{(x_2^{m+1} - x_1^{m+1})
+        + (x_2^{m+2} - x_1^{m+2})}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{(x_2^{m+1} + x_2^{m+2})
+        - (x_1^{m+1} + x_1^{m+2})}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{x_2^{m+1} (1 + x_2)
+        - x_1^{m+1} (1 + x_1)}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{x_2^{m+1} x_2^2 - x_1^{m+1} x_1^2}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{x_2^{(m+2)+1} - x_1^{(m+2)+1}}{x_2 - x_1}
+        \\
+        = {} &
+        g_{m+2}.
+    \end{align*}
+
+    最后, 我们证明, 对任何非负整数 \(m\),
+    \(f_m - g_m = 0\).
+    记 \(h_m = f_m - g_m\).
+    则 \(h_0 = h_1 = 0\),
+    且对任何非负整数 \(m\),
+    \begin{align*}
+        h_{m+2}
+        = {} &
+        f_{m+2} - g_{m+2}
+        \\
+        = {} &
+        (f_m + f_{m+1}) - (g_m + g_{m+1})
+        \\
+        = {} &
+        (f_m - g_m) + (f_{m+1} - g_{m+1})
+        \\
+        = {} &
+        h_m + h_{m+1}.
+    \end{align*}
+    作命题 \(P(m)\): \(h_m = 0\).
+    再作命题 \(Q(m)\): \(P(m)\) 与 \(P(m+1)\) 是对的.
+    我们用数学归纳法证明, 对任何非负整数 \(m\), \(Q(m)\) 是对的.
+
+    \(Q(0)\) 是对的, 因为 \(P(0)\) 与 \(P(1)\) 是对的.
+
+    设 \(Q(m)\) 是对的.
+    则 \(P(m)\) 与 \(P(m+1)\) 是对的.
+    则 \(h_m = h_{m+1} = 0\).
+    则
+    \(h_{m+2} = h_m + h_{m+1} = 0 + 0 = 0\).
+    则 \(P(m+2)\) 是对的.
+    则 \(Q(m+1)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+\begin{theorem}
+    设 \(x\) 是数.
+    设 \(k\), \(n\) 是整数.
+    则
+    \begin{align*}
+        \dbinom{x}{k} \dbinom{k}{n}
+        = \dbinom{x}{n} \dbinom{x-n}{k-n}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    设 \(n \leq -1\).
+    则左边的 \(\dbinom{k}{n}\) 与右边的 \(\dbinom{x}{n}\)
+    都是 \(0\).
+
+    设 \(n \geq 0\), 且 \(k \leq -1\).
+    则 \(k - n \leq -1\).
+    则左边的 \(\dbinom{x}{k}\) 与右边的 \(\dbinom{x-n}{k-n}\)
+    都是 \(0\).
+
+    设 \(n \geq 0\), \(k \geq 0\), 且 \(k < n\).
+    则 \(k - n \leq -1\).
+    则左边的 \(\dbinom{k}{n}\) 与右边的 \(\dbinom{x-n}{k-n}\)
+    都是 \(0\).
+
+    最后, 设 \(k \geq n \geq 0\).
+    则
+    \begin{align*}
+        &
+        \dbinom{x}{n} \dbinom{x-n}{k-n}
+        \\
+        = {} &
+        \frac{x (x - 1) \dots (x - (n - 1))}{n!}
+        \cdot
+        \frac{(x - n) (x - n - 1) \dots (x - n - (k - n - 1))}{(k - n)!}
+        \\
+        = {} &
+        \frac{x (x - 1) \dots (x - (n - 1)) (x - n) (x - (n + 1))
+        \dots (x - (k - 1))}{n! (k - n)!}
+        \\
+        = {} &
+        \frac{x (x - 1) \dots (x - (k - 1))}{k!}
+        \cdot
+        \frac{k!}{n! (k - n)!}
+        \\
+        = {} &
+        \dbinom{x}{k} \dbinom{k}{n}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(m\) 是正整数.
+    以数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(2\), 列~\(m\) 的数 \(\dbinom{1}{m-1}\) 开始,
+    由右上至左下取 \(m\)~个数
+    (即所有的适合条件 \(i + j = m\), % tex-fmt: skip
+    \(i \geq 1\), 且 \(j \geq 0\) 的
+    \(\dbinom{i}{j}\)), % tex-fmt: skip
+    并以 \(m/i\) 乘第 \(i\) 个数
+    \(\dbinom{i}{m-i}\),
+    得 \(\dfrac{m}{i} \dbinom{i}{m-i}\).
+    则它们的和
+    \begin{align*}
+        \sum_{1 \leq i \leq m} {\dfrac{m}{i} \dbinom{i}{m - i}}
+        = \left(\frac{1 + \sqrt{5}}{2}\right)^m
+        + \left(\frac{1 - \sqrt{5}}{2}\right)^m.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, 当 \(i \geq 1\) 时,
+    \begin{align*}
+        \dfrac{m}{i} \dbinom{i}{m - i}
+        = {} &
+        \left(\frac{i}{i} + \frac{m-i}{i}\right)
+        \dbinom{i}{m - i}
+        \\
+        = {} &
+        1 \dbinom{i}{m - i} + \frac{1}{i} \dbinom{m-i}{1} \dbinom{i}{m-i}
+        \\
+        = {} &
+        \dbinom{i}{m - i} + \frac{1}{i} \dbinom{i}{1} \dbinom{i-1}{m-i-1}
+        \\
+        = {} &
+        \dbinom{i}{m - i} + \dbinom{i-1}{m-i-1}
+        \\
+        = {} &
+        \dbinom{i}{m-i} + \dbinom{i-1}{m-2-(i-1)}.
+    \end{align*}
+    则
+    \begin{align*}
+        \sum_{1 \leq i \leq m} {\dfrac{m}{i} \dbinom{i}{m - i}}
+        = {} &
+        \sum_{1 \leq i \leq m} {\dbinom{i}{m-i}}
+        + \sum_{1 \leq i \leq m} {\dbinom{i-1}{m-2-(i-1)}}
+        \\
+        = {} &
+        \sum_{1 \leq i \leq m} {\dbinom{i}{m-i}}
+        + \sum_{0 \leq j \leq m-1} {\dbinom{j}{m-2-j}}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq m} {\dbinom{i}{m-i}}
+        + \sum_{0 \leq j \leq m-2} {\dbinom{j}{m-2-j}}.
+    \end{align*}
+    为方便, 我们记
+    \begin{align*}
+        x_1 = \frac{1 - \sqrt{5}}{2},
+        \quad
+        x_2 = \frac{1 + \sqrt{5}}{2}.
+    \end{align*}
+    则 \(x_2 - x_1 = \sqrt{5}\),
+    \(x_2 + x_1 = 1\),
+    \(x_2 x_1 = -1\),
+    且 \((2 x_k - 1)^2 = 5\), \(k = 1\), \(2\),
+    即 \(x_k^2 = 1 + x_k\), \(k = 1\), \(2\).
+    则我们知道,
+    对任何非负整数 \(n\),
+    \begin{align*}
+        \sum_{0 \leq i \leq n} {\dbinom{i}{n-i}}
+        = \frac{x_2^{n+1} - x_1^{n+1}}{x_2 - x_1}.
+    \end{align*}
+    则
+    \begin{align*}
+        \sum_{1 \leq i \leq m} {\dfrac{m}{i} \dbinom{i}{m - i}}
+        = {} &
+        \frac{x_2^{m+1} - x_1^{m+1}}{x_2 - x_1}
+        + \frac{x_2^{m-1} - x_1^{m-1}}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{(x_2^{m+1} + x_2^{m-1})
+        - (x_1^{m+1} + x_1^{m-1})}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{x_2^{m-1} (x_2^2 + 1)
+        - x_1^{m-1} (x_1^2 + 1)}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{x_2^{m-1} (x_2^2 - x_2 x_1)
+        - x_1^{m-1} (x_1^2 - x_2 x_1)}{x_2 - x_1}
+        \\
+        = {} &
+        \frac{x_2^{m-1} x_2 (x_2 - x_1)
+        - x_1^{m-1} x_1 (x_1 - x_2)}{x_2 - x_1}
+        \\
+        = {} &
+        x_2^m + x_1^m.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(x\), \(y\), \(h\) 是数.
+    设 \(m\), \(n\) 是非负整数.
+    则
+    \begin{align*}
+        \sum_{0 \leq k \leq m}
+        {\dbinom{m}{k} \operatorname{fa} {(x, m - k; h)}
+        \dbinom{k}{n} \operatorname{fa} {(y, k - n; h)}}
+        = \dbinom{m}{n} \operatorname{fa} {(x + y, m - n; h)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意, 若 \(m < n\), 则 \(n > m \geq k\).
+    则 \(\dbinom{k}{n} = 0\),
+    且 \(\dbinom{m}{n} = 0\).
+    则左边与右边都是 \(0\).
+
+    设 \(m \geq n\).
+    则
+    \begin{align*}
+        &
+        \sum_{0 \leq k \leq m}
+        {\dbinom{m}{k} \operatorname{fa} {(x, m - k; h)}
+        \dbinom{k}{n} \operatorname{fa} {(y, k - n; h)}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq m}
+        {\dbinom{m}{k} \dbinom{k}{n}
+            \operatorname{fa} {(x, m - k; h)}
+        \operatorname{fa} {(y, k - n; h)}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq m}
+        {\dbinom{m}{n} \dbinom{m-n}{k-n}
+            \operatorname{fa} {(x, m - k; h)}
+        \operatorname{fa} {(y, k - n; h)}}
+        \\
+        = {} &
+        \dbinom{m}{n}
+        \sum_{0 \leq k \leq m}
+        {\dbinom{m-n}{k-n}
+            \operatorname{fa} {(x, m - k; h)}
+        \operatorname{fa} {(y, k - n; h)}}
+        \\
+        = {} &
+        \dbinom{m}{n}
+        \sum_{0-n \leq k-n \leq m-n}
+        {\dbinom{m-n}{k-n}
+            \operatorname{fa} {(x, m - n - (k - n); h)}
+        \operatorname{fa} {(y, k - n; h)}}
+        \\
+        = {} &
+        \dbinom{m}{n}
+        \sum_{-n \leq \ell \leq m-n}
+        {\dbinom{m-n}{\ell}
+            \operatorname{fa} {(x, m - n - \ell; h)}
+        \operatorname{fa} {(y, \ell; h)}}
+        \\
+        = {} &
+        \dbinom{m}{n}
+        \sum_{0 \leq \ell \leq m-n}
+        {\dbinom{m-n}{\ell}
+            \operatorname{fa} {(x, m - n - \ell; h)}
+        \operatorname{fa} {(y, \ell; h)}}
+        \\
+        = {} &
+        \dbinom{m}{n}
+        \operatorname{fa} {(x + y, m - n; h)}.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    设 \(x\), \(y\), \(h\) 是数.
+    设 \(s\) 是正整数.
+    作 \(s\)~级阵 \(T(x; h; s)\), 使
+    \begin{align*}
+        [T(x; h; s)]_{i,j} =
+        \dbinom{i-1}{j-1} \operatorname{fa} {(x, i - j; h)}.
+    \end{align*}
+    则:
+
+    (1)
+    若 \(i < j\), 则 \([T(x; h; s)]_{i,j} = 0\).
+
+    (2)
+    \(\det {(T(x; h; s))} = 1\).
+
+    (3)
+    \(T(x; h; s) T(y; h; s) = T(x + y; h; s)\).
+
+    (4)
+    \(T(0; h; s) = I_s\).
+\end{theorem}
+
+\begin{proof}
+    (1)
+    注意, 若 \(i < j\), 则 \(i - 1 < j - 1\).
+    则 \(\dbinom{i-1}{j-1} = 0\).
+    则 \([T(x; h; s)]_{i,j} = 0\).
+
+    (2)
+    由 (1),
+    \(\det {(T(x; h; s))}
+    = [T(x; h; s)]_{1,1} [T(x; h; s)]_{2,2} \dots [T(x; h; s)]_{s,s}\).
+    注意,
+    \begin{align*}
+        [T(x; h; s)]_{i,i}
+        = \dbinom{i-1}{i-1} \operatorname{fa} {(x, 0; h)}
+        = 1 \cdot 1 = 1.
+    \end{align*}
+    则 \(\det {(T(x; h; s))} = 1^s = 1\).
+
+    (3)
+    注意,
+    \begin{align*}
+        &
+        [T(x; h; s) T(y; h; s)]_{i,j}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq s} {[T(x; h; s)]_{i,u} [T(y; h; s)]_{u,j}}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq s}
+        {\dbinom{i-1}{u-1} \operatorname{fa} {(x, i - u; h)}
+        \dbinom{u-1}{j-1} \operatorname{fa} {(y, u - j; h)}}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq s}
+        {\dbinom{i-1}{u-1} \operatorname{fa} {(x, (i-1) - (u-1); h)}
+        \dbinom{u-1}{j-1} \operatorname{fa} {(y, (u-1) - (j-1); h)}}
+        \\
+        = {} &
+        \sum_{0 \leq v \leq s-1}
+        {\dbinom{i-1}{v} \operatorname{fa} {(x, (i-1) - v; h)}
+        \dbinom{v}{j-1} \operatorname{fa} {(y, v - (j-1); h)}}
+        \\
+        = {} &
+        \dbinom{i-1}{j-1} \operatorname{fa} {(x + y, (i-1) - (j-1); h)}
+        \\
+        = {} &
+        [T(x + y; h; s)]_{i,j}.
+    \end{align*}
+
+    (4)
+    注意,
+    \begin{align*}
+        [T(0; h; s)]_{i,j}
+        = \dbinom{i-1}{j-1} \operatorname{fa} {(0, i-j; h)}.
+    \end{align*}
+    若 \(i < j\), 则 \(\dbinom{i-1}{j-1} = 0\);
+    若 \(i > j\), 则 \(\operatorname{fa} {(0, i-j; h)} = 0\);
+    若 \(i = j\), 则 \(\dbinom{i-1}{j-1} = 1\),
+    且 \(\operatorname{fa} {(0, i-j; h)} = 1\).
+    故 \([T(0; h; s)]_{i,j} = \delta(i, j) = [I_s]_{i,j}\).
+    则 \(T(0; h; s) = I_s\).
+\end{proof}
+
+\begin{theorem}
+    设 \(s\) 是正整数.
+    作 \(s\)~级阵 \(P\), \(Q\), 使
+    \begin{align*}
+        [P]_{i,j} = \dbinom{i-1}{j-1},
+        \quad
+        [Q]_{i,j} = (-1)^{i-j} \dbinom{i-1}{j-1}.
+    \end{align*}
+    则 \(PQ = I\), \(QP = I\),
+    且 \(\det {(P)} = \det {(Q)} = 1\).
+
+    进一步地, 作 \(s\)~级阵 \(D\), 使
+    \([D]_{i,j} = (-1)^{j-1} [I]_{i,j}\).
+    则 \(D D = I\), 且 \(Q = D P D\).
+\end{theorem}
+
+\begin{proof}
+    我们证明, 若 \(x\) 是非零的数, 则
+    \begin{align*}
+        \dbinom{i-1}{j-1} \operatorname{fa} {(x, i-j; 0)}
+        = \dbinom{i-1}{j-1} x^{i-j}.
+    \end{align*}
+    若 \(i \geq j\), 则 \(i - j \geq 0\).
+    则 \(\operatorname{fa} {(x, i-j; 0)} = x^{i-j}\).
+    则左边等于右边.
+    若 \(i < j\), 则 \(i - j < 0\), 且 \(i - 1 < j - 1\).
+    则左边是 \(0\), 且右边也是 \(0\).
+
+    所以, \(Q = T(-1; 0; s)\).
+    注意, 对任何整数 \(a\), \(1^a = 1\).
+    则 \(P = T(1; 0; s)\).
+    由上个定理,
+    \(P Q = T(1 + (-1); 0; s) = T(0; 0; s) = I\),
+    且 \(Q P = T((-1) + 1; 0; s) = T(0; 0; s) = I\).
+    当然, 也由上个定理, \(P\) 与 \(Q\) 的行列式都是 \(1\).
+
+    最后, 注意, 对任何 \(s\)~级阵 \(A\),
+    \begin{align*}
+        [A D]_{i,j}
+        = {} &
+        \sum_{1 \leq \ell \leq s} {[A]_{i,\ell} [D]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{1 \leq \ell \leq s} {[A]_{i,\ell}\, (-1)^{j-1} [I]_{\ell,j}}
+        \\
+        % = {} &
+        % \sum_{1 \leq \ell \leq s} {(-1)^{j-1} [A]_{i,\ell} [I]_{\ell,j}}
+        % \\
+        % = {} &
+        % (-1)^{j-1} \sum_{1 \leq \ell \leq s} {[A]_{i,\ell} [I]_{\ell,j}}
+        % \\
+        % = {} &
+        % (-1)^{j-1} [A I]_{i,j}
+        % \\
+        = {} &
+        [A]_{i,j}\, (-1)^{j-1} [I]_{j,j}
+        + \sum_{\substack{1 \leq \ell \leq s \\ \ell \neq j}}
+        {[A]_{i,\ell}\, (-1)^{j-1} [I]_{\ell,j}}
+        \\
+        = {} &
+        [A]_{i,j}\, (-1)^{j-1} 1
+        + \sum_{\substack{1 \leq \ell \leq s \\ \ell \neq j}}
+        {[A]_{i,\ell}\, (-1)^{j-1} 0}
+        \\
+        = {} &
+        (-1)^{j-1} [A]_{i,j},
+    \end{align*}
+    且
+    \begin{align*}
+        [D A]_{i,j}
+        = {} &
+        \sum_{1 \leq \ell \leq s} {[D]_{i,\ell} [A]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{1 \leq \ell \leq s} {(-1)^{\ell-1} [I]_{i,\ell} [A]_{\ell,j}}
+        \\
+        = {} &
+        (-1)^{i-1} [I]_{i,i} [A]_{i,j}
+        + \sum_{\substack{1 \leq \ell \leq s \\ \ell \neq i}}
+        {(-1)^{\ell-1} [I]_{i,\ell} [A]_{\ell,j}}
+        \\
+        = {} &
+        (-1)^{i-1} 1\, [A]_{i,j}
+        + \sum_{\substack{1 \leq \ell \leq s \\ \ell \neq i}}
+        {(-1)^{\ell-1} 0\, [A]_{\ell,j}}
+        \\
+        = {} &
+        (-1)^{i-1} [A]_{i,j}.
+    \end{align*}
+
+    注意, \(D D = (I D) D\).
+    则 \(I D\) 是以 \((-1)^{j-1}\) 乘 \(I\) 的列~\(j\)
+    (\(j = 1\), \(2\), \(\dots\), \(s\), 下同) 后得到的阵.
+    则 \((I D) D\) 是以 \((-1)^{j-1}\) 乘 \(I D\) 的列~\(j\) 后得到的阵,
+    即以 \(((-1)^{j-1})^2 = 1\) 乘 \(I\) 的列~\(j\) 后得到的阵,
+    即 \(I\).
+
+    类似地,
+    \(P D\) 是以 \((-1)^{j-1}\) 乘 \(I\) 的列~\(j\) 后得到的阵,
+    且 \(D (P D)\) 是以 \((-1)^{i-1}\) 乘 \(I\) 的行~\(i\)
+    (\(i = 1\), \(2\), \(\dots\), \(s\), 下同) 后得到的阵.
+    则 \(D P D\) 的 \((i, j)\)-元是 \(P\) 的 \((i, j)\)-元的
+    \((-1)^{i-1} (-1)^{j-1} = (-1)^{i-j}\) 倍.
+    则 \(D P D = Q\).
+\end{proof}
+
+值得提, \(P\) 可被认为是%
+由数表~\eqref{eq:TriangleOfYangHui} 的前 \(s\) 行与前 \(s\) 列的元%
+按原来的次序作成的 \(s\)~级阵.
+
+\begin{example}
+    设 \(s\)~级阵 \(P\) 适合,
+    \([P]_{i,j} = \dbinom{i-1}{j-1}\).
+    我们计算 \(P P^{\mathrm{T}}\).
+    (回想, \(P^{\mathrm{T}}\) 是 \(P\) 的转置: % tex-fmt: skip
+    \(P^{\mathrm{T}}\) 也是 \(s\)~级阵,
+    且 \([P^{\mathrm{T}}]_{i,j} = [P]_{j,i}\).) % tex-fmt: skip
+    注意,
+    \begin{align*}
+        [P P^{\mathrm{T}}]_{i,j}
+        = {} &
+        \sum_{1 \leq \ell \leq s} {[P]_{i,\ell} [P^{\mathrm{T}}]_{\ell,j}}
+        \\
+        = {} &
+        \sum_{1 \leq \ell \leq s} {[P]_{i,\ell} [P]_{j,\ell}}
+        \\
+        = {} &
+        \sum_{1 \leq \ell \leq s} {\dbinom{i-1}{\ell-1} \dbinom{j-1}{\ell-1}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq s-1} {\dbinom{i-1}{k} \dbinom{j-1}{k}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq s-1} {\dbinom{i-1}{k} \dbinom{j-1}{j-1-k}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq j-1} {\dbinom{i-1}{k} \dbinom{j-1}{j-1-k}}
+        \\
+        = {} &
+        \dbinom{i-1+j-1}{j-1}.
+    \end{align*}
+    则 \(P P^{\mathrm{T}}\) 的元也是 \(2\)~项式系数.
+    通俗地, 比如, 当 \(s = 10\) 时,
+    \begin{equation*}
+        P P^{\mathrm{T}} =
+        \begin{bmatrix}
+            1 & 1  & 1  & 1   & 1   & 1      & 1      & 1       & 1       & 1       \\
+            1 & 2  & 3  & 4   & 5   & 6      & 7      & 8       & 9       & 10      \\
+            1 & 3  & 6  & 10  & 15  & 21     & 28     & 36      & 45      & 55      \\
+            1 & 4  & 10 & 20  & 35  & 56     & 84     & 120     & 165     & 220     \\
+            1 & 5  & 15 & 35  & 70  & 126    & 210    & 330     & 495     & 715     \\
+            1 & 6  & 21 & 56  & 126 & 252    & 462    & 792     & 1\,287  & 2\,002  \\
+            1 & 7  & 28 & 84  & 210 & 462    & 924    & 1\,716  & 3\,003  & 5\,005  \\
+            1 & 8  & 36 & 120 & 330 & 792    & 1\,716 & 3\,432  & 6\,435  & 11\,440 \\
+            1 & 9  & 45 & 165 & 495 & 1\,287 & 3\,003 & 6\,435  & 12\,870 & 24\,310 \\
+            1 & 10 & 55 & 220 & 715 & 2\,002 & 5\,005 & 11\,440 & 24\,310 & 48\,620 \\
+        \end{bmatrix}.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    设 \(t_0\) 是数.
+    作 \(s\)~级阵 \(P(s; t_0)\), 使
+    \begin{align*}
+        [P(s; t_0)] = \dbinom{i-1+t_0}{j-1};
+    \end{align*}
+    通俗地, \(P(s; t_0)\) 形如
+    \begin{align*}
+        \begin{bmatrix}
+            \dbinom{t_0}{0}     & \dbinom{t_0}{1}     & \dbinom{t_0}{2}     & \cdots & \dbinom{t_0}{s-1}     \\[2ex]
+            \dbinom{t_0+1}{0}   & \dbinom{t_0+1}{1}   & \dbinom{t_0+1}{2}   & \cdots & \dbinom{t_0+1}{s-1}   \\[2ex]
+            \dbinom{t_0+2}{0}   & \dbinom{t_0+2}{1}   & \dbinom{t_0+2}{2}   & \cdots & \dbinom{t_0+2}{s-1}   \\[2ex]
+            \vdots              & \vdots              & \vdots              & {}     & \vdots                \\[2ex]
+            \dbinom{t_0+s-1}{0} & \dbinom{t_0+s-1}{1} & \dbinom{t_0+s-1}{2} & \cdots & \dbinom{t_0+s-1}{s-1} \\
+        \end{bmatrix}.
+    \end{align*}
+    我们求 \(\det {(P(s; t_0))}\).
+
+    注意,
+    \begin{equation}
+        \dbinom{t_0+i-1}{j-1} - \dbinom{t_0+i-1-1}{j-1}
+        = \dbinom{t_0+i-1-1}{j-1-1}.
+        \label{eq:ff-identity-of-Yang-Hui}
+    \end{equation}
+    所以, 若对 \(P(s; t_0)\),
+    我们加行~\(s-1\) 的 \(-1\)~倍于行~\(s\),
+    加行~\(s-2\) 的 \(-1\)~倍于行~\(s-1\),
+    ……
+    加行~\(1\) 的 \(-1\)~倍于行~\(2\),
+    得 \(s\)~级阵
+    \begin{align*}
+        M =
+        \begin{bmatrix}
+            1      & \dbinom{t_0}{1}     & \dbinom{t_0}{2}     & \cdots & \dbinom{t_0}{s-1}     \\[2ex]
+            0      & \dbinom{t_0}{0}     & \dbinom{t_0}{1}     & \cdots & \dbinom{t_0}{s-2}     \\[2ex]
+            0      & \dbinom{t_0+1}{0}   & \dbinom{t_0+1}{1}   & \cdots & \dbinom{t_0+1}{s-2}   \\[2ex]
+            \vdots & \vdots              & \vdots              & {}     & \vdots                \\[2ex]
+            0      & \dbinom{t_0+s-2}{0} & \dbinom{t_0+s-2}{1} & \cdots & \dbinom{t_0+s-2}{s-2} \\
+        \end{bmatrix},
+    \end{align*}
+    则 \(\det {(M)} = \det {(P(s; t_0))}\).
+    注意, \([M]_{1,1} = 1\),
+    \([M]_{i,1} = 0\) (\(i > 1\)),
+    且 \(M(1|1) = P(s-1; t_0)\).
+    则
+    \begin{align*}
+        \det {(P(s; t_0))}
+        = \det {(M)}
+        = (-1)^{1+1}\, [M]_{1,1} \det {(M(1|1))}
+        = \det {(P(s-1; t_0))}.
+    \end{align*}
+    注意, \(P(1; t_0) = [1]\).
+    则
+    \begin{align*}
+        \det {(P(s; t_0))} = \det {(P(s-1; t_0))}
+        = \dots = \det {(P(1; t_0))} = 1.
+    \end{align*}
+
+    值得提, 我们也可如此求 \(\det {(P(s; t_0))}\).
+    为此, 我们考虑更一般的问题.
+
+    设 \(f_0 (x)\), \(f_1 (x)\), \(\dots\), \(f_{s-1} (x)\)
+    分别是次不高于 \(0\), \(1\), \(\dots\), \(s-1\) 的整式,
+    即
+    \begin{align*}
+        f_0 (x) & = a_{0,0}, \\
+        f_1 (x) & = a_{0,1} + a_{1,1} x, \\
+        & \dots, \\
+        f_{s-1} (x) & = a_{0,s-1} + a_{1,s-1} x + \dots + a_{s-1,s-1} x^{s-1}.
+    \end{align*}
+    设 \(x_0\), \(x_1\), \(\dots\), \(x_{s-1}\) 是数.
+    作 \(s\)~级阵 \(W\), 使 \([W]_{i,j} = f_{j-1} (x_{i-1})\).
+    求 \(\det {(W)}\).
+
+    为方便, 我们记 \(a_{i,j} = 0\), 若 \(i > j\).
+    则
+    \begin{align*}
+        f_{j-1} (x_{i-1})
+        = {} &
+        \sum_{0 \leq k \leq j-1} {a_{k,j-1} x_{i-1}^k}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq s-1} {a_{k,j-1} x_{i-1}^k}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq s-1} {x_{i-1}^k a_{k,j-1}}
+        \\
+        = {} &
+        \sum_{1 \leq \ell \leq s} {x_{i-1}^{\ell-1} a_{\ell-1,j-1}}.
+    \end{align*}
+    于是, 若 \(s\)~级阵 \(V\) 适合, \([V]_{i,j} = x_{i-1}^{j-1}\),
+    且 \(s\)~级阵 \(A\) 适合, \([A]_{i,j} = a_{i-1,j-1}\),
+    则 \(W = V A\).
+    则 \(\det {(W)} = \det {(V)} \det {(A)}\).
+    一方面, \(V\) 是 Vandermonde 阵, 且
+    \begin{align*}
+        \det {(V)} = \prod_{0 \leq u < v \leq s-1} {(x_v - x_u)};
+    \end{align*}
+    另一方面, 若 \(i > j\), 则 \([A]_{i,j}= a_{i-1,j-1} = 0\),
+    故
+    \begin{align*}
+        \det {(A)}
+        = [A]_{1,1} [A]_{2,2} \dots [A]_{s,s}
+        = a_{0,0} a_{1,1} \dots a_{s-1,s-1}.
+    \end{align*}
+    则
+    \begin{align*}
+        \det {(W)} = a_{0,0} a_{1,1} \dots a_{s-1,s-1}
+        \prod_{0 \leq u < v \leq s-1} {(x_v - x_u)}.
+    \end{align*}
+
+    现在, 取 \(x_i = t_0 + i\),
+    与 \(f_{j-1} (x) = \dbinom{x}{j-1}\).
+    则 \(W = P(s; t_0)\),
+    且 \(a_{j-1,j-1} = 1/(j-1)!\).
+    注意, \(x_v - x_u = (t_0 + v) - (t_0 + u) = v - u\).
+    则
+    \begin{align*}
+        \prod_{0 \leq u < v \leq s-1} {(x_v - x_u)}
+        = {} &
+        (x_1 - x_0)
+        \cdot (x_2 - x_0) (x_2 - x_1)
+        \cdot \dots
+        \\
+        &
+        \quad
+        \cdot (x_{s-1} - x_0) (x_{s-1} - x_1) \dots (x_{s-1} - x_{s-2})
+        \\
+        = {} &
+        1 \cdot (2 \cdot 1) \cdot \dots
+        \cdot ((s-1) \cdot (s-2) \cdot \dots \cdot 1)
+        \\
+        = {} &
+        1! \cdot 2! \cdot \dots \cdot (s-1)!
+        \\
+        = {} &
+        \frac{1}{a_{1,1} \dots a_{s-1,s-1}}.
+    \end{align*}
+    故 \(\det {(P(s; t_0))} = a_{0,0} = 1\).
+
+    值得提, 若 \(t_0\) 是整数, 则 \(P(s; t_0)\) 的元全为整数;
+    不过, 若 \(t_0\) 不是整数,
+    则若 \(s > 1\), 则 \(P(s; t_0)\) 的元不全是整数
+    (注意, 它的 \((1, 2)\)-元为 \(t_0\)).
+\end{example}
+
+\begin{theorem}
+    设 \(t_0\) 是数.
+    设 \(n\) 是非负整数.
+    设数 \(u_0\), \(u_1\), \(\dots\), \(u_n\),
+    \(v_0\), \(v_1\), \(\dots\), \(v_n\)
+    适合
+    \begin{equation}
+        \begin{alignedat}{7}
+            \dbinom{t_0}{0} u_0   & {} + {} & \dbinom{t_0}{1} u_1   & {} + {} & \dots & {} + {} & \dbinom{t_0}{n} u_n   & {} = v_0, \\
+            \dbinom{t_0+1}{0} u_0 & {} + {} & \dbinom{t_0+1}{1} u_1 & {} + {} & \dots & {} + {} & \dbinom{t_0+1}{n} u_n & {} = v_1, \\
+            {}                    &         &                       &         &       &         &                       & \dots,    \\
+            \dbinom{t_0+n}{0} u_0 & {} + {} & \dbinom{t_0+n}{1} u_1 & {} + {} & \dots & {} + {} & \dbinom{t_0+n}{n} u_n & {} = v_n.
+        \end{alignedat}
+        \label{eq:ff-system-of-linear-equations-with-binomial-coefficients}
+    \end{equation}
+
+    (1)
+    若 \(v_0\), \(v_1\), \(\dots\), \(v_n\)
+    都是 \(0\),
+    则 \(u_0\), \(u_1\), \(\dots\), \(u_n\)
+    也都是 \(0\).
+
+    (2)
+    若 \(t_0\), \(v_0\), \(v_1\), \(\dots\), \(v_n\)
+    都是整数,
+    则 \(u_0\), \(u_1\), \(\dots\), \(u_n\)
+    也都是整数.
+\end{theorem}
+
+\begin{proof}[证~1]
+    作 \((n + 1) \times 1\)~阵
+    \(U = [u_0, u_1, \dots, u_n]^{\mathrm{T}}\),
+    \(V = [v_0, v_1, \dots, v_n]^{\mathrm{T}}\).
+    则这 \(n + 1\)~个方程相当于 \(P(n+1; t_0)\, U = V\).
+    由 Cramer 公式, 与上个例,
+    \begin{align*}
+        u_\ell
+        = {} & \frac{\det {((P(n+1; t_0)) \{\ell+1, V\})}}{\det {(P(n+1; t_0))}}
+        \\
+        = {} & \det {((P(n+1; t_0)) \{\ell+1, V\})},
+        \quad
+        \ell = 0, 1, \dots, n,
+    \end{align*}
+    其中, \((P(n+1; t_0)) \{\ell+1, V\}\)
+    是以 \(V\) 代 \(P(n+1; t_0)\) 的列~\(\ell+1\) 后得到的阵.
+
+    (1)
+    若 \(v_0\), \(v_1\), \(\dots\), \(v_n\) 都是 \(0\),
+    则 \((P(n+1; t_0)) \{\ell+1, V\}\) 的列~\(\ell+1\) 是 \(0\).
+    则 \((P(n+1; t_0)) \{\ell+1, V\}\) 的行列式是 \(0\).
+    则 \(u_\ell = 0\),
+    \(\ell = 0\), \(1\), \(\dots\), \(n\).
+
+    (2)
+    若 \(t_0\), \(v_0\), \(v_1\), \(\dots\), \(v_n\) 都是整数,
+    则 \((P(n+1; t_0)) \{\ell+1, V\}\) 的元全是整数.
+    则 \((P(n+1; t_0)) \{\ell+1, V\}\) 的行列式是整数.
+    则 \(u_\ell\) 是整数,
+    \(\ell = 0\), \(1\), \(\dots\), \(n\).
+\end{proof}
+
+\begin{proof}[证~2]
+    (1)
+    作命题 \(A(n)\):
+    若数 \(u_0\), \(u_1\), \(\dots\), \(u_n\),
+    \(v_0\), \(v_1\), \(\dots\), \(v_n\)
+    适合%
+    式~\eqref{eq:ff-system-of-linear-equations-with-binomial-coefficients},
+    且 \(v_0\), \(v_1\), \(\dots\), \(v_n\) 都是 \(0\),
+    则 \(u_0\), \(u_1\), \(\dots\), \(u_n\) 也都是 \(0\).
+    我们用数学归纳法证明, 对任何非负整数 \(n\),
+    \(A(n)\) 是对的.
+
+    \(A(0)\) 是对的.
+    此时, 式~\eqref{eq:ff-system-of-linear-equations-with-binomial-coefficients}
+    就是 \(u_0 = v_0\).
+    于是, 若 \(v_0 = 0\), 则 \(u_0 = 0\).
+
+    设 \(A(n-1)\) 是对的.
+    我们由此证明, \(A(n)\) 是对的.
+    我们加第~\(n\) 个等式的 \(-1\)~倍到第~\(n+1\)~个等式,
+    加第~\(n-1\) 个等式的 \(-1\)~倍到第~\(n\)~个等式,
+    ……
+    加第~\(2\) 个等式的 \(-1\)~倍到第~\(1\)~个等式,
+    并注意式~\eqref{eq:ff-identity-of-Yang-Hui},
+    得
+    \begin{equation}
+        \begin{alignedat}{7}
+            u_0 & {} +  {} & \dbinom{t_0}{1} u_1     & {} + {} & \dots & {} + {} & \dbinom{t_0}{n} u_n       & {} = v_0,           \\
+            {}  & {} {} {} & \dbinom{t_0}{0} u_1     & {} + {} & \dots & {} + {} & \dbinom{t_0}{n-1} u_n     & {} = v_1 - v_0,     \\
+            {}  &          &                         &         &       &         &                           & \dots,              \\
+            {}  & {} {} {} & \dbinom{t_0+n-1}{0} u_1 & {} + {} & \dots & {} + {} & \dbinom{t_0+n-1}{n-1} u_n & {} = v_n - v_{n-1}.
+        \end{alignedat}
+        \label{eq:ff-equivalent-system}
+    \end{equation}
+    注意, 若 \(v_0\), \(v_1\), \(\dots\), \(v_n\) 都是 \(0\),
+    则 \(v_n - v_{n-1}\), \(\dots\), \(v_1 - v_0\) 都是 \(0\).
+    对式~\eqref{eq:ff-equivalent-system} 的后 \(n\)~个等式,
+    由假定, \(u_1\), \(\dots\), \(u_n\) 都是 \(0\).
+    则
+    \begin{align*}
+        u_0 = v_0 - \dbinom{t_0}{1} u_1 - \dots - \dbinom{t_0}{n} u_n = 0.
+    \end{align*}
+    所以, \(A(n)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+
+    (2)
+    作命题 \(B(n)\):
+    若数 \(u_0\), \(u_1\), \(\dots\), \(u_n\),
+    \(v_0\), \(v_1\), \(\dots\), \(v_n\)
+    适合%
+    式~\eqref{eq:ff-system-of-linear-equations-with-binomial-coefficients},
+    且 \(t_0\), \(v_0\), \(v_1\), \(\dots\), \(v_n\) 都是整数,
+    则 \(u_0\), \(u_1\), \(\dots\), \(u_n\) 也都是整数.
+    我们用数学归纳法证明, 对任何非负整数 \(n\),
+    \(B(n)\) 是对的.
+
+    \(B(0)\) 是对的.
+    此时, 式~\eqref{eq:ff-system-of-linear-equations-with-binomial-coefficients}
+    就是 \(u_0 = v_0\).
+    于是, 若 \(v_0\) 是整数, 则 \(u_0\) 也是整数.
+
+    设 \(B(n-1)\) 是对的.
+    我们由此证明, \(B(n)\) 是对的.
+    我们加第~\(n\) 个等式的 \(-1\)~倍到第~\(n+1\)~个等式,
+    加第~\(n-1\) 个等式的 \(-1\)~倍到第~\(n\)~个等式,
+    ……
+    加第~\(2\) 个等式的 \(-1\)~倍到第~\(1\)~个等式,
+    并注意式~\eqref{eq:ff-identity-of-Yang-Hui},
+    得式~\eqref{eq:ff-equivalent-system}.
+    注意, 若 \(t_0\), \(v_0\), \(v_1\), \(\dots\), \(v_n\) 都是整数,
+    则 \(t_0\), \(v_n - v_{n-1}\), \(\dots\), \(v_1 - v_0\) 都是整数.
+    对式~\eqref{eq:ff-equivalent-system} 的后 \(n\)~个等式,
+    由假定, \(u_1\), \(\dots\), \(u_n\) 都是整数.
+    则
+    \begin{align*}
+        u_0 = v_0 - \dbinom{t_0}{1} u_1 - \dots - \dbinom{t_0}{n} u_n
+    \end{align*}
+    也是整数
+    (注意, 每个 \(\dbinom{t_0}{j}\) 是整数).
+    所以, \(B(n)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+回想, 对任何整数 \(m\), \(n\),
+\(2\)~项式系数 \(\dbinom{m}{n}\) 是整数.
+于是, 对任何整数
+\(x_0\), \(b_0\), \(b_1\), \(\dots\), \(b_n\),
+对整式
+\begin{align*}
+    g(x)
+    = b_0 \dbinom{x-x_0}{0} + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n},
+\end{align*}
+当 \(m\) 是整数时, \(g(m)\) 是整数.
+那么, 反过来, 对整式 \(f(x)\),
+若对任何整数 \(m\), \(f(m)\) 是整数,
+\(f(x)\) 会是何样的整式?
+
+为此, 我们先以 \(2\)~项式系数表示整式.
+
+\begin{theorem}
+    设 \(x_0\) 是数.
+    设 \(n\) 是非负整数.
+    设整式
+    \begin{align*}
+        f(x) = a_0 + a_1 x + \dots + a_n x^n.
+    \end{align*}
+
+    (1)
+    存在数 \(b_0\), \(b_1\), \(\dots\), \(b_n\),
+    使对任何数 \(x\),
+    \begin{align*}
+        f(x) = b_0 \dbinom{x-x_0}{0}
+        + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n}.
+    \end{align*}
+
+    (2)
+    设 \(t_0\) 是数.
+    若数 \(b_0\), \(b_1\), \(\dots\), \(b_n\),
+    \(c_0\), \(c_1\), \(\dots\), \(c_n\)
+    适合,
+    对 \(i = 0\), \(1\), \(\dots\), \(n\),
+    \begin{align*}
+        &
+        b_0 \dbinom{t_0+i}{0} + b_1 \dbinom{t_0+i}{1}
+        + \dots + b_n \dbinom{t_0+i}{n},
+        \\
+        = {} &
+        c_0 \dbinom{t_0+i}{0} + c_1 \dbinom{t_0+i}{1}
+        + \dots + c_n \dbinom{t_0+i}{n},
+    \end{align*}
+    则 \(b_i = c_i\), \(i = 0\), \(1\), \(\dots\), \(n\).
+    进一步地, (1) 的系数 \(b_0\), \(b_1\), \(\dots\), \(b_n\) 是唯一的.
+\end{theorem}
+
+\begin{proof}
+    (1)
+    作命题 \(P(n)\):
+    对任何次不高于 \(n\) 的整式
+    \begin{align*}
+        f(x) = a_0 + a_1 x + \dots + a_n x^n,
+    \end{align*}
+    存在数 \(b_0\), \(b_1\), \(\dots\), \(b_n\),
+    使对任何数 \(x\),
+    \begin{align*}
+        f(x) = b_0 \dbinom{x-x_0}{0}
+        + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n}.
+    \end{align*}
+    我们用数学归纳法证明, 对任何非负整数 \(n\), \(P(n)\) 是对的.
+
+    首先, 注意, \(a_0 = a_0 \cdot 1 = a_0 \dbinom{x - x_0}{0}\).
+    则 \(P(0)\) 是对的.
+
+    我们设 \(P(n-1)\) 是对的.
+    我们由此证明, \(P(n)\) 是对的.
+    任取次不高于 \(n\) 的整式
+    \begin{align*}
+        f(x) = a_0 + a_1 x + \dots + a_n x^n.
+    \end{align*}
+    注意, 整式 \(\dbinom{x - x_0}{n}\) 是 \(n\)~次整式,
+    且它的 \(x^n\) 项的系数是 \(1/n!\).
+    于是, \(f(x) - a_n n! \dbinom{x - x_0}{n}\)
+    是次不高于 \(n-1\) 的整式.
+    由假定, 存在数 \(b_0\), \(b_1\), \(\dots\), \(b_{n-1}\),
+    使对任何数 \(x\),
+    \begin{align*}
+        f(x) - a_n n! \dbinom{x - x_0}{n}
+        = b_0 \dbinom{x-x_0}{0} + b_1 \dbinom{x-x_0}{1}
+        + \dots + b_{n-1} \dbinom{x-x_0}{n-1}.
+    \end{align*}
+    取 \(b_n = a_n n!\).
+    则对任何数 \(x\),
+    \begin{align*}
+        f(x) = b_0 \dbinom{x-x_0}{0}
+        + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n}.
+    \end{align*}
+    则 \(P(n)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+
+    (2)
+    注意, 对 \(i = 0\), \(\dots\), \(n\),
+    \begin{align*}
+        (b_0 - c_0) \dbinom{t_0+i}{0}
+        + (b_1 - c_1) \dbinom{t_0+i}{1}
+        + \dots
+        + (b_n - c_n) \dbinom{t_0+i}{n} = 0.
+    \end{align*}
+    记 \(d_i = b_i - c_i\).
+    则
+    \begin{equation*}
+        \begin{alignedat}{7}
+            \dbinom{t_0}{0} d_0   & {} + {} & \dbinom{t_0}{1} d_1   & {} + {} & \dots & {} + {} & \dbinom{t_0}{n} d_n   & {} = 0, \\
+            \dbinom{t_0+1}{0} d_0 & {} + {} & \dbinom{t_0+1}{1} d_1 & {} + {} & \dots & {} + {} & \dbinom{t_0+1}{n} d_n & {} = 0, \\
+            {}                    &         &                       &         &       &         &                       & \dots,  \\
+            \dbinom{t_0+n}{0} d_0 & {} + {} & \dbinom{t_0+n}{1} d_1 & {} + {} & \dots & {} + {} & \dbinom{t_0+n}{n} d_n & {} = 0.
+        \end{alignedat}
+    \end{equation*}
+    则 \(d_0\), \(d_1\), \(\dots\), \(d_n\)
+    都是 \(0\).
+    则 \(b_i = c_i\),
+    \(i = 0\), \(1\), \(\dots\), \(n\).
+
+    由此, (1) 的系数 \(b_0\), \(b_1\), \(\dots\), \(b_n\) 是唯一的.
+    设数 \(b_0\), \(b_1\), \(\dots\), \(b_n\),
+    \(c_0\), \(c_1\), \(\dots\), \(c_n\) 适合,
+    对任何数 \(x\),
+    \begin{align*}
+        f(x)
+        = {} &
+        b_0 \dbinom{x-x_0}{0}
+        + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n}
+        \\
+        = {} &
+        c_0 \dbinom{x-x_0}{0}
+        + c_1 \dbinom{x-x_0}{1} + \dots + c_n \dbinom{x-x_0}{n}.
+    \end{align*}
+    那么, 我们取 \(x\) 为 \(x_0 + t_0 + i\),
+    \(i = 0\), \(1\), \(\dots\), \(n\),
+    即得 (2) 的条件的 \(n + 1\)~个等式;
+    由此, 每个 \(b_i - c_i = 0\),
+    即 \(b_i = c_i\).
+\end{proof}
+
+\begin{theorem}
+    设 \(x_0\) 是数.
+    设 \(i_0\) 是整数.
+    设 \(n\) 是非负整数.
+    设
+    \begin{align*}
+        f(x) = b_0 \dbinom{x-x_0}{0}
+        + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n}.
+    \end{align*}
+    是次不高于 \(n\) 的整式.
+    设 \(f(x_0 + i_0 + i)\) 是整数, \(i = 0\), \(1\), \(\dots\), \(n\).
+    则对任何整数 \(m\),
+    \(f(x_0 + m)\) 是整数.
+    特别地, 若 \(x_0\) 是整数,
+    则对任何整数 \(\ell\), \(f(\ell)\) 是整数.
+\end{theorem}
+
+\begin{proof}
+    为方便, 记 \(y_i = x_0 + i_0 + i\), \(i = 0\), \(1\), \(\dots\), \(n\).
+    则 \(f(y_i)\) 是整数, \(i = 0\), \(1\), \(\dots\), \(n\).
+    分别取 \(x\) 为 \(y_0\), \(y_1\), \(\dots\), \(y_n\),
+    我们得
+    \begin{equation*}
+        \begin{alignedat}{7}
+            \dbinom{i_0}{0} b_0   & {} + {} & \dbinom{i_0}{1} b_1   & {} + {} & \dots & {} + {} & \dbinom{i_0}{n} b_n   & {} = f(y_0), \\
+            \dbinom{i_0+1}{0} b_0 & {} + {} & \dbinom{i_0+1}{1} b_1 & {} + {} & \dots & {} + {} & \dbinom{i_0+1}{n} b_n & {} = f(y_1), \\
+            {}                    &         &                       &         &       &         &                       & \dots,       \\
+            \dbinom{i_0+n}{0} b_0 & {} + {} & \dbinom{i_0+n}{1} b_1 & {} + {} & \dots & {} + {} & \dbinom{i_0+n}{n} b_n & {} = f(y_n).
+        \end{alignedat}
+    \end{equation*}
+    则 \(b_0\), \(b_1\), \(\dots\), \(b_n\) 都是整数.
+    那么, 对任何整数 \(m\),
+    与任何不超过 \(n\) 的非负整数 \(i\),
+    整数 \(b_i\)
+    与 \(2\)~项式系数 \(\dbinom{(x_0 + m) - x_0}{i}\)
+    的积 \(b_i \dbinom{(x_0 + m) - x_0}{i}\) 是整数.
+    则它们的和, \(f(x_0 + m)\), 也是整数.
+    特别地, 若 \(x_0\) 是整数, 且 \(\ell\) 是整数,
+    则 \(\ell - x_0\) 是整数.
+    则 \(f(\ell) = f(x_0 + (\ell - x_0))\) 是整数.
+\end{proof}
+
+以 \(2\)~项式系数表示整式是有用的.
+
+\begin{theorem}
+    设 \(x_0\) 是数.
+    设 \(n\) 是非负整数.
+    设整式
+    \begin{align*}
+        f(x) = b_0 \dbinom{x-x_0}{0}
+        + b_1 \dbinom{x-x_0}{1} + \dots + b_n \dbinom{x-x_0}{n}.
+    \end{align*}
+    作整式
+    \begin{align*}
+        g(x) = b_0 \dbinom{x-x_0}{1}
+        + b_1 \dbinom{x-x_0}{2} + \dots + b_n \dbinom{x-x_0}{n+1}.
+    \end{align*}
+    则 \(g(x+1) - g(x) = f(x)\).
+
+    设 \(m\) 是非负整数.
+    则
+    \begin{align*}
+        f(0) + f(1) + \dots + f(m-1)
+        = \sum_{0 \leq i < m} {f(i)}
+        = g(m) - g(0).
+    \end{align*}
+    特别地, 若 \(x_0 = 0\), 则
+    \begin{align*}
+        f(0) + f(1) + \dots + f(m-1) = g(m).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        &
+        g(x+1) - g(x)
+        \\
+        = {} &
+        \left(
+            b_0 \dbinom{x+1-x_0}{1}
+            + b_1 \dbinom{x+1-x_0}{2} + \dots + b_n \dbinom{x+1-x_0}{n+1}
+        \right)
+        \\
+        & -
+        \left(
+            b_0 \dbinom{x-x_0}{1}
+            + b_1 \dbinom{x-x_0}{2} + \dots + b_n \dbinom{x-x_0}{n+1}
+        \right)
+        \\
+        = {} &
+        b_0 \left(\dbinom{x+1-x_0}{1} - \dbinom{x-x_0}{1}\right)
+        + b_1 \left(\dbinom{x+1-x_0}{2} - \dbinom{x-x_0}{2}\right)
+        \\
+        &
+        + \dots
+        + b_n \left(\dbinom{x+1-x_0}{n+1} - \dbinom{x-x_0}{n+1}\right)
+        \\
+        = {} &
+        b_0 \dbinom{x-x_0}{0} + b_1 \dbinom{x-x_0}{1}
+        + \dots + b_n \dbinom{x-x_0}{n}
+        \\
+        = {} &
+        f(x).
+    \end{align*}
+    则
+    \begin{align*}
+        g(1) - g(0) & = f(0), \\
+        g(2) - g(1) & = f(1), \\
+        & \dots, \\
+        g(m) - g(m-1) & = f(m-1).
+    \end{align*}
+    加各式即可.
+    左边的多的项会被消去.
+
+    特别地, 若 \(x_0 = 0\), 则注意,
+    \begin{equation*}
+        g(0) = b_0 \dbinom{0}{1} + b_1 \dbinom{0}{2}
+        + \dots + b_n \dbinom{0}{n+1} = 0.
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+如何以 \(2\)~项式系数表示整式?
+设对整式 \(f(x) = a_0 + a_1 x + \dots + a_n x^n\),
+我们想找数 \(b_0\), \(b_1\), \(\dots\), \(b_n\),
+使对任何数 \(x\),
+\begin{align*}
+    f(x) = b_0 \dbinom{x}{0} + b_1 \dbinom{x}{1} + \dots + b_n \dbinom{x}{n}.
+\end{align*}
+回想, 当证明 \(2\)~项式系数可以表示整式时,
+我们考虑了 \(f(x) - a_n n! \dbinom{x}{n}\)
+以消去 \(x^n\) 项,
+然后类似地消去 \(x^{n-1}\), \(\dots\), \(x\), \(1\) 项.
+不过, 这可能不是方便的.
+
+为此, 我们考虑差分.
+
+\begin{definition}
+    设 \(f(x)\) 是整式.
+
+    (1)
+    定义 \(f(x)\) 的\emph{差分} \(\increment f (x)\)
+    为整式 \(f(x + 1) - f(x)\).
+
+    (2)
+    设 \(k\) 是非负整数.
+    定义 \(f(x)\) 的 \emph{\(k\)~级差分}
+    \begin{align*}
+        \increment^k f (x) =
+        \begin{cases}
+            f(x), & k = 0; \\
+            \increment (\increment^{k-1} f (x)), & k \geq 1.
+        \end{cases}
+    \end{align*}
+    通俗地, \(f(x)\) 的 \(0\)~级差分是 \(f(x)\),
+    且 \(f(x)\) 的 \(k\)~级差分是 \(f(x)\) 的 \(k-1\)~级差分的差分.
+\end{definition}
+
+注意, \(f(x)\) 的 \(1\)~级差分是 \(f(x)\) 的差分.
+
+\begin{example}
+    设 \(f(x) = x^3\).
+    则 \(f(x)\) 的 \(0\)~级差分
+    \(\increment^0 f (x) = f(x) = x^3\).
+    \(f(x)\) 的 (\(1\)~级) 差分
+    \begin{align*}
+        \increment f (x)
+        = {} &
+        f(x + 1) - f(x)
+        \\
+        = {} &
+        (x + 1)^3 - x^3
+        \\
+        = {} &
+        ((x + 1) - x) ((x + 1)^2 + (x + 1) x + x^2)
+        \\
+        = {} &
+        3x^2 + 3x + 1.
+    \end{align*}
+    \(f(x)\) 的 \(2\)~级差分
+    \begin{align*}
+        \increment^2 f (x)
+        = {} &
+        \increment f (x + 1) - \increment f (x)
+        \\
+        = {} &
+        (3 (x + 1)^2 + 3 (x + 1) + 1) - (3 x^2 + 3 x + 1)
+        \\
+        = {} &
+        3 ((x + 1)^2 - x^2) + 3 ((x + 1) - x) + (1 - 1)
+        \\
+        = {} &
+        3 (2 x + 1) + 3
+        \\
+        = {} &
+        6x + 6.
+    \end{align*}
+    \(f(x)\) 的 \(3\)~级差分
+    \begin{align*}
+        \increment^3 f (x)
+        = {} &
+        \increment^2 f (x + 1) - \increment^2 f (x)
+        \\
+        = {} &
+        (6 (x + 1) + 6) - (6 x + 6)
+        \\
+        = {} &
+        6.
+    \end{align*}
+    \(f(x)\) 的 \(4\)~级差分
+    \begin{align*}
+        \increment^4 f (x)
+        = {} &
+        \increment^3 f (x + 1) - \increment^3 f (x)
+        \\
+        = {} &
+        6 - 6
+        \\
+        = {} &
+        0.
+    \end{align*}
+    进一步地, 不难看出 (可用数学归纳法),
+    对任何大于 \(4\) 的整数 \(k\),
+    \(f(x)\) 的 \(k\)~级差分 \(\increment^k f (x) = 0\).
+\end{example}
+
+\begin{example}
+    我们考虑 \(2\)~项式系数的差分:
+    \begin{align*}
+        \increment \dbinom{x}{n}
+        = \dbinom{x+1}{n} - \dbinom{x}{n}
+        = \dbinom{x}{n-1}.
+    \end{align*}
+    不难看出 (可用数学归纳法), 一般地,
+    \begin{equation*}
+        \increment^k \dbinom{x}{n} = \dbinom{x}{n-k}.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    设
+    \begin{align*}
+        f(x) = b_0 \dbinom{x}{0} + b_1 \dbinom{x}{1} + \dots + b_n \dbinom{x}{n}.
+    \end{align*}
+    则
+    \begin{align*}
+        \increment f(x)
+        = {} &
+        f(x + 1) - f(x)
+        \\
+        = {} &
+        \left(
+            b_0 \dbinom{x+1}{0} + b_1 \dbinom{x+1}{1} + \dots + b_n \dbinom{x+1}{n}
+        \right)
+        \\
+        & -
+        \left(
+            b_0 \dbinom{x}{0} + b_1 \dbinom{x}{1} + \dots + b_n \dbinom{x}{n}
+        \right)
+        \\
+        = {} &
+        b_0 \left(\dbinom{x+1}{0} - \dbinom{x}{0}\right)
+        + b_1 \left(\dbinom{x+1}{1} - \dbinom{x}{1}\right)
+        \\
+        &
+        + \dots
+        + b_n \left(\dbinom{x+1}{n} - \dbinom{x}{n}\right)
+        \\
+        = {} &
+        b_1 \dbinom{x}{0} + \dots + b_n \dbinom{x}{n-1}.
+    \end{align*}
+    不难看出 (可用数学归纳法), 一般地,
+    \begin{equation*}
+        \increment^k f(x) =
+        \begin{dcases}
+            \sum_{k \leq i \leq n} {b_i \dbinom{x}{i-k}},
+            & k \leq n; \\
+            0, & k > n.
+        \end{dcases}
+        \qefhere
+    \end{equation*}
+\end{example}
+
+值得提, 差分有如下的性质.
+
+\begin{theorem}
+    设 \(f(x)\) 是整式.
+    设 \(k\) 是非负整数.
+    则
+    \begin{align*}
+        \increment^k f (x)
+        = \sum_{0 \leq i \leq k} {(-1)^i \dbinom{k}{i} f(x + k - i)}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    作命题 \(P(k)\):
+    \begin{align*}
+        \increment^k f (x)
+        = \sum_{0 \leq i \leq k} {(-1)^i \dbinom{k}{i} f(x + k - i)}.
+    \end{align*}
+    我们用数学归纳法证明, 对任何非负整数 \(k\),
+    \(P(k)\) 是对的.
+
+    \(P(0)\) 是对的, 因为左边是 \(f(x)\),
+    且右边是 \((-1)^0 \dbinom{0}{0} f(x + 0 - 0) = f(x)\).
+
+    设 \(P(k-1)\) 是对的,
+    即
+    \begin{align*}
+        \increment^{k-1} f (x)
+        = \sum_{0 \leq i \leq k-1} {(-1)^i \dbinom{k-1}{i} f(x + k - 1 - i)}.
+    \end{align*}
+    我们由此证明, \(P(k)\) 是对的.
+    注意,
+    \begin{align*}
+        \increment^k f(x)
+        = {} &
+        \increment^{k-1} f (x+1) - \increment^{k-1} f (x)
+        \\
+        = {} &
+        \hphantom{{} - {}}
+        \sum_{0 \leq i \leq k-1} {(-1)^i \dbinom{k-1}{i} f(x + 1 + k - 1 - i)}
+        \\
+        &
+        {} -
+        \sum_{0 \leq i \leq k-1} {(-1)^i \dbinom{k-1}{i} f(x + k - 1 - i)}
+        \\
+        = {} &
+        \hphantom{{} - {}}
+        \sum_{0 \leq i \leq k-1} {(-1)^i \dbinom{k-1}{i} f(x + k - i)}
+        \\
+        &
+        {} -
+        \sum_{0 \leq i \leq k-1} {(-1)^{i+1-1} \dbinom{k-1}{i+1-1} f(x + k - (i + 1))}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq j \leq k-1} {(-1)^j \dbinom{k-1}{j} f(x + k - j)}
+        \\
+        &
+        {} -
+        \sum_{1 \leq j \leq k} {(-1)^{j-1} \dbinom{k-1}{j-1} f(x + k - j)}
+        \\
+        = {} &
+        \hphantom{{} + {}}
+        \sum_{0 \leq j \leq k} {(-1)^j \dbinom{k-1}{j} f(x + k - j)}
+        \\
+        &
+        {} -
+        \sum_{0 \leq j \leq k} {(-1)\, (-1)^j \dbinom{k-1}{j-1} f(x + k - j)}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq k}
+        {\left((-1)^j \dbinom{k-1}{j} f(x + k - j)
+        + (-1)^j \dbinom{k-1}{j-1} f(x + k - j)\right)}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq k}
+        {(-1)^j \left(
+                \dbinom{k-1}{j} + \dbinom{k-1}{j-1}
+        \right) f(x + k - j)}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq k}
+        {(-1)^j \dbinom{k}{j} f(x + k - j)}.
+    \end{align*}
+    所以, \(P(k)\) 是对的.
+    由数学归纳法, 待证的命题成立.
+\end{proof}
+
+现在, 我们用差分, 以 \(2\)~项式系数表示整式.
+设对任何数 \(x\),
+\begin{align*}
+    f(x) = b_0 \dbinom{x}{0} + b_1 \dbinom{x}{1} + \dots + b_n \dbinom{x}{n}.
+\end{align*}
+代 \(x\) 以 \(0\), 我们得 \(f(0) = b_0\).
+求 \(f(x)\) 的差分, 我们得
+\begin{align*}
+    \increment f (x) = b_1 \dbinom{x}{0} + b_2 \dbinom{x}{1} + \dots + b_n \dbinom{x}{n-1}.
+\end{align*}
+代 \(x\) 以 \(0\), 我们得 \(\increment f (0) = b_1\).
+再求 \(\increment f (x)\) 的差分, 我们得
+\begin{align*}
+    \increment^2 f (x) = b_2 \dbinom{x}{0} + \dots + b_n \dbinom{x}{n-2}.
+\end{align*}
+代 \(x\) 以 \(0\), 我们得 \(\increment^2 f (0) = b_2\).
+……
+再求 \(\increment f^{n-1} (x)\) 的差分, 我们得
+\begin{align*}
+    \increment^n f (x) = b_n \dbinom{x}{0}.
+\end{align*}
+代 \(x\) 以 \(0\), 我们得 \(\increment^n f (0) = b_n\).
+所以,
+
+\begin{theorem}
+    设
+    \begin{align*}
+        f(x) = a_0 + a_1 x + \dots + a_n x^n
+    \end{align*}
+    是次不高于 \(n\) 的整式.
+    则
+    \begin{align*}
+        f(x) =
+        f (0) \dbinom{x}{0}
+        + \increment f (0) \dbinom{x}{1}
+        + \dots
+        + \increment^n f (0) \dbinom{x}{n}.
+    \end{align*}
+\end{theorem}
+
+为求 \(f\) 的各级差分在 \(0\) 的值, 我们先写下
+\(f(j)\), \(j = 0\), \(1\), \(\dots\), \(n\):
+\begin{align*}
+    \begin{matrix}
+        f(0) & f(1) & f(2) & \cdots & f(n-2) & f(n-1) & f(n) \\
+    \end{matrix}
+\end{align*}
+我们在 \(f(j)\), \(j = 0\), \(1\), \(\cdots\), \(n-1\)
+的下面写它的 ``右邻'' \(f(j+1)\) 与它 \(f(j)\)
+的差 \(f(j+1) - f(j) = \increment f(j)\):
+\begin{align*}
+    \begin{matrix}
+        f(0)            & f(1)            & f(2)            & \cdots & f(n-2)            & f(n-1)            & f(n) \\
+        \increment f(0) & \increment f(1) & \increment f(2) & \cdots & \increment f(n-2) & \increment f(n-1) & {}   \\
+    \end{matrix}
+\end{align*}
+然后, 我们在 \(\increment f(j)\),
+\(j = 0\), \(1\), \(\dots\), \(n-2\)
+的下面写它的 ``右邻'' \(\increment f(j+1)\)
+与它 \(\increment f(j)\)
+的差 \(\increment f(j+1) - \increment f(j)
+= \increment^2 f(j)\):
+\begin{align*}
+    \begin{matrix}
+        f(0)              & f(1)              & f(2)              & \cdots & f(n-2)              & f(n-1)            & f(n) \\
+        \increment f(0)   & \increment f(1)   & \increment f(2)   & \cdots & \increment f(n-2)   & \increment f(n-1) & {}   \\
+        \increment^2 f(0) & \increment^2 f(1) & \increment^2 f(2) & \cdots & \increment^2 f(n-2) & {}                & {}   \\
+    \end{matrix}
+\end{align*}
+……
+最后, 我们在 \(\increment^{n-1} f(0)\) 的下面%
+写它的 ``右邻'' \(\increment^{n-1} f(1)\)
+与它 \(\increment^{n-1} f(0)\) 的差
+\(\increment^{n-1} f(1) - \increment^{n-1} f(0)
+= \increment^{n} f(0)\),
+得差分表
+\begin{align*}
+    \begin{matrix}
+        f(0)                  & f(1)                  & f(2)                  & \cdots  & f(n-2)              & f(n-1)            & f(n) \\
+        \increment f(0)       & \increment f(1)       & \increment f(2)       & \cdots  & \increment f(n-2)   & \increment f(n-1) & {}   \\
+        \increment^2 f(0)     & \increment^2 f(1)     & \increment^2 f(2)     & \cdots  & \increment^2 f(n-2) & {}                & {}   \\
+        \vdots                & \vdots                & \vdots                & \iddots & {}                  & {}                & {}   \\
+        \increment^{n-2} f(0) & \increment^{n-2} f(1) & \increment^{n-2} f(2) & {}      & {}                  & {}                & {}   \\
+        \increment^{n-1} f(0) & \increment^{n-1} f(1) & {}                    & {}      & {}                  & {}                & {}   \\
+        \increment^{n} f(0)   & {}                    & {}                    & {}      & {}                  & {}                & {}   \\
+    \end{matrix}
+\end{align*}
+
+\begin{example}
+    设 \(a\), \(b\) 是数.
+    设 \(m\) 是非负整数.
+    求
+    \begin{align*}
+        a b + (a - 1) (b - 1) + \dots + (a - (m - 1)) (b - (m - 1))
+        = \sum_{0 \leq i < m} {(a - i) (b - i)}.
+    \end{align*}
+
+    记 \(f(x) = (a - x) (b - x)\).
+    这是 \(2\)~次整式.
+    我们以 \(2\)~项式系数表示 \(f(x)\).
+    我们写出差分表:
+    \begin{align*}
+        \begin{matrix}
+            a b & (a - 1) (b - 1) & (a - 2) (b - 2) \\
+            1 - a - b & 3 - a - b & {} \\
+            2 & {} & {} \\
+        \end{matrix}
+    \end{align*}
+    则
+    \begin{align*}
+        f(x) = a b \dbinom{x}{0} + (1 - a - b) \dbinom{x}{1}
+        + 2 \dbinom{x}{2}.
+    \end{align*}
+    则
+    \begin{align*}
+        \sum_{0 \leq i < m} {(a - i) (b - i)}
+        = a b \dbinom{m}{1} + (1 - a - b) \dbinom{m}{2}
+        + 2 \dbinom{m}{3}.
+    \end{align*}
+    特别地, 若 \(a = b = m = n\), 则
+    \begin{align*}
+        n^2 + (n - 1)^2 + \dots + 1^2
+        = {} &
+        n^2 \dbinom{n}{1} + (1 - 2n) \dbinom{n}{2} + 2 \dbinom{n}{3}
+        \\
+        = {} &
+        n^3 + \frac{1}{2} (1 - 2n) n (n - 1) + \frac{2}{6} n (n - 1) (n - 2)
+        \\
+        = {} &
+        \frac{n (n + 1) (2n + 1)}{6}.
+        \qefhere
+    \end{align*}
+\end{example}
+
+我们用 \(2\)~项式系数讨论了整式的一些性质.
+反过来, 我们也能用整式讨论 \(2\)~项式系数.
+
+回想, 对 \(2\)~个整式
+\begin{align*}
+    f(x) & = a_0 + a_1 x + \dots + a_n x^n, \\
+    g(x) & = b_0 + b_1 x + \dots + b_m x^m,
+\end{align*}
+若 \(n = m\), 且 \(a_i = b_i\), \(i = 0\), \(1\), \(\dots\), \(n\),
+则对任何数 \(x\), \(f(x) = g(x)\).
+不过, 反过来, 若对任何数 \(x\), \(f(x) = g(x)\),
+它们的系数是否相等?
+
+\begin{theorem}
+    设
+    \begin{align*}
+        f(x) = a_0 + a_1 x + \dots + a_n x^n
+    \end{align*}
+    是次不高于 \(n\) 的整式.
+    设 \(x_0\), \(x_1\), \(\dots\), \(x_n\) 是互不相同的数.
+    若 \(f(x_i) = 0\), \(i = 0\), \(1\), \(\dots\), \(n\),
+    则 \(a_0\), \(a_1\), \(\dots\), \(a_n\) 都是 \(0\).
+\end{theorem}
+
+\begin{proof}
+    我们代
+    \begin{align*}
+        1 a_0 + x a_1 + \dots + x^n a_n = f(x)
+    \end{align*}
+    的 \(x\) 为 \(x_0\), \(x_1\), \(\dots\), \(x_n\),
+    得
+    \begin{align*}
+        1 a_0 + x_0 a_1 + \dots + x_0^n a_n & = 0, \\
+        1 a_0 + x_1 a_1 + \dots + x_1^n a_n & = 0, \\
+        & \dots, \\
+        1 a_0 + x_n a_1 + \dots + x_n^n a_n & = 0.
+    \end{align*}
+    作 \(n + 1\)~级阵 \(V\), 使 \([V]_{i,j} = x_{i-1}^{j-1}\);
+    作 \((n + 1) \times 1\) 阵 \(A\), 使 \([A]_{i,1} = a_{i-1}\).
+    则 \(V A = 0\).
+    注意, \(V\) 是 Vandermonde 阵, 且
+    \begin{align*}
+        \det {(V)} = \prod_{0 \leq u < v \leq n} {(x_v - x_u)} \neq 0.
+    \end{align*}
+    由 Cramer 公式, \(a_0 = a_1 = \dots = a_n = 0\).
+\end{proof}
+
+\begin{theorem}
+    设
+    \begin{align*}
+        f(x) & = a_0 + a_1 x + \dots + a_n x^n, \\
+        g(x) & = b_0 + b_1 x + \dots + b_m x^m
+    \end{align*}
+    是整式.
+    设 \(n \geq m \geq 0\).
+    设存在 \(n + 1\) 个互不相同的数
+    \(x_0\), \(x_1\), \(\dots\), \(x_n\),
+    使 \(f(x_i) = g(x_i)\), \(i = 0\), \(1\), \(\dots\), \(\ell\).
+    则
+    \begin{align*}
+        a_i =
+        \begin{cases}
+            b_i, & 0 \leq i \leq m; \\
+            0,   & m < i \leq n.
+        \end{cases}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    为方便, 我们设 \(b_k = 0\), 若 \(m < k \leq n\).
+    则我们可写 \(g(x)\) 为 \(b_0 + b_1 x + \dots + b_n x^n\).
+    考虑
+    \begin{align*}
+        h(x)
+        = {} &
+        f(x) - g(x)
+        \\
+        = {} &
+        (a_0 - b_0) + (a_1 - b_1) x + \dots + (a_n - b_n) x^n.
+    \end{align*}
+    注意, 存在互不相同的数 \(x_0\), \(x_1\), \(\dots\), \(x_n\),
+    使 \(h(x_i) = f(x_i) - g(x_i) = 0\),
+    \(i = 0\), \(1\), \(\dots\), \(n\).
+    则 \(a_i - b_i = 0\), \(i = 0\), \(1\), \(\dots\), \(n\).
+    则 \(a_i = b_i\), \(i = 0\), \(1\), \(\dots\), \(n\).
+    注意, 若 \(i \leq m\), 则 \(a_i = b_i\),
+    且若 \(i > m\), 则 \(a_i = b_i = 0\).
+\end{proof}
+
+所以, 对 \(2\)~个整式 \(f(x)\), \(g(x)\),
+若对任何非负整数 \(n\),
+存在 \(n+1\)~个互不相同的数
+\(x_0\), \(x_1\), \(\dots\), \(x_n\),
+使 \(f(x_i) = g(x_i)\), \(i = 0\), \(1\), \(\dots\), \(m\)
+(也就是, \(f(x)\) 与 \(g(x)\) 在任何多个互不相同的数的取值相等),
+则对任何非负整数 \(k\),
+\(f(x)\) 与 \(g(x)\) 的 \(x^k\)~项的系数相等.
+由此, 对任何数 \(x\), \(f(x) = g(x)\).
+
+我们用这个想法, 证明下面的等式, 并结束本节.
+
+\begin{theorem}
+    设 \(x\) 是数.
+    设 \(m\) 是非负整数.
+    则
+    \begin{align*}
+        \sum_{0 \leq i \leq m} {(-1)^i \dbinom{x}{i} \dbinom{x}{m-i}} =
+        \begin{dcases}
+            (-1)^{m/2} \dbinom{x}{m/2}, & \text{若 \(m\) 是偶数}; \\
+            0,                          & \text{若 \(m\) 是奇数}.
+        \end{dcases}
+    \end{align*}
+    特别地, 取 \(x = m\), 并注意 \(\dbinom{m}{m-i} = \dbinom{m}{i}\),
+    我们得
+    \begin{align*}
+        \sum_{0 \leq i \leq m} {(-1)^i \dbinom{m}{i}^2} =
+        \begin{dcases}
+            (-1)^{m/2} \dbinom{m}{m/2}, & \text{若 \(m\) 是偶数}; \\
+            0,                          & \text{若 \(m\) 是奇数}.
+        \end{dcases}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    这或许跟 Zhū--Vandermonde 恒等式
+    \begin{align*}
+        \sum_{0 \leq i \leq m} {\dbinom{x}{m - i} \dbinom{y}{i}}
+        = \dbinom{x + y}{m}
+    \end{align*}
+    是像的, 但我们注意, 待证的等式多了 \((-1)^i\).
+    则我们要别地想.
+
+    为方便, 我们记
+    \begin{align*}
+        f(x) = \sum_{0 \leq i \leq m} {(-1)^i \dbinom{x}{i} \dbinom{x}{m-i}},
+        \quad
+        g(x) =
+        \begin{dcases}
+            (-1)^{m/2} \dbinom{x}{m/2}, & \text{若 \(m\) 是偶数}; \\
+            0,                          & \text{若 \(m\) 是奇数}.
+        \end{dcases}
+    \end{align*}
+    注意, \(f(x)\) 与 \(g(x)\) 都是关于 \(x\) 的整式.
+
+    我们先证明, 对任何非负整数 \(n\), \(f(n) = g(n)\).
+
+    由 \(2\)~项式展开,
+    \begin{align*}
+        (1 + x)^n
+        = \sum_{0 \leq j \leq n} {\dbinom{n}{j} 1^{n-j} x^j}
+        = \sum_{0 \leq j \leq n} {\dbinom{n}{j} x^j},
+    \end{align*}
+    且
+    \begin{align*}
+        (1 - x)^n
+        = (1 + (-x))^n
+        = \sum_{0 \leq j \leq n} {\dbinom{n}{i} 1^{n-j} (-x)^j}
+        = \sum_{0 \leq j \leq n} {(-1)^j \dbinom{n}{j} x^j}.
+    \end{align*}
+    则
+    \begin{align*}
+        (1 - x)^n (1 + x)^n
+        = \left(\sum_{0 \leq j \leq n} {(-1)^j \dbinom{n}{j} x^j}\right)
+        \left(\sum_{0 \leq j \leq n} {\dbinom{n}{i} x^j}\right)
+        = \sum_{0 \leq k \leq 2n} {c_k x^k},
+    \end{align*}
+    其中, 由分配律,
+    \begin{align*}
+        c_k = \sum_{0 \leq j \leq k} {(-1)^j \dbinom{n}{j} \dbinom{n}{k-j}}.
+    \end{align*}
+    另一方面, 由次方的性质,
+    \begin{align*}
+        (1 - x)^n (1 + x)^n = ((1 - x) (1 + x))^n
+        = (1 - x^2)^n = (1 + (-x^2))^n.
+    \end{align*}
+    由 \(2\)~项式展开,
+    \begin{align*}
+        (1 + (-x^2))^n
+        = \sum_{0 \leq \ell \leq n} {\dbinom{n}{\ell} 1^{n-\ell} (-x^2)^\ell}
+        = \sum_{0 \leq \ell \leq n} {(-1)^\ell \dbinom{n}{\ell} x^{2 \ell}}.
+    \end{align*}
+    若我们记
+    \begin{align*}
+        d_k =
+        \begin{dcases}
+            (-1)^{k/2} \dbinom{n}{k/2}, & \text{若 \(k\) 是偶数}; \\
+            0,                          & \text{若 \(k\) 是奇数},
+        \end{dcases}
+    \end{align*}
+    则
+    \begin{align*}
+        (1 - x^2)^n = \sum_{0 \leq k \leq 2n} {d_k x^k}.
+    \end{align*}
+    因为对任何数 \(x\), \((1 - x)^n (1 + x)^n = (1 - x^2)^n\),
+    它们的各项的系数相等.
+    特别地, 它们的 \(x^m\) 项的系数相等,
+    即 \(c_m = d_m\),
+    即
+    \begin{align*}
+        \sum_{0 \leq j \leq m} {(-1)^j \dbinom{n}{j} \dbinom{n}{m-j}} =
+        \begin{dcases}
+            (-1)^{m/2} \dbinom{n}{m/2}, & \text{若 \(m\) 是偶数}; \\
+            0,                          & \text{若 \(m\) 是奇数}.
+        \end{dcases}
+    \end{align*}
+    则对任何非负整数 \(n\), \(f(n) = g(n)\).
+    (注意, 到此, 我们已能取 \(n\) 为 \(m\), % tex-fmt: skip
+    得数表~\eqref{eq:TriangleOfYangHui} 的%
+    行~\(m+1\) 的所有的非零的数的平方的 ``交错和''.) % tex-fmt: skip
+
+    然后, 我们证明, 对任何数 \(x\), \(f(x) = g(x)\).
+    注意, \(f(x)\) 与 \(g(x)\) 已在任何多个互不相同的数
+    (具体地, 每个非负整数)
+    的取值相等,
+    故 \(f(x)\) 与 \(g(x)\) 的各项的系数相等.
+    则对任何数 \(x\), \(f(x) = g(x)\).
+\end{proof}
+
+\(2\)~项式系数还有多的性质, 其我们还未提.
+若您想知道更多的性质,
+您可以见一些组合学教材,
+或者找相关的文献.
+
+\end{document}
+
+This material is about falling factorials
+and binomial coefficients.
+
+\begin{comment}
+\begin{theorem}
+    设 \(m\), \(n\) 是非负整数.
+    则
+    \begin{align*}
+        \sum_{0 \leq u \leq m} {(-1)^{m-u} \dbinom{m}{u} \dbinom{u}{n}}
+        = \delta(m, n).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    注意,
+    \begin{align*}
+        \sum_{0 \leq u \leq m}
+        {\dbinom{m}{u} \operatorname{fa} {(-1, m - u; 0)}
+        \dbinom{u}{n} \operatorname{fa} {(1, u - n; 0)}}
+        = \dbinom{m}{n} \operatorname{fa} {(-1 + 1, m - n; 0)}.
+    \end{align*}
+    注意,
+    \begin{align*}
+        \dbinom{m}{u} \operatorname{fa} {(-1, m - u; 0)}
+        & = \dbinom{m}{u} (-1)^{m-u}
+        = (-1)^{m-u} \dbinom{m}{u},
+        \\
+        \dbinom{u}{n} \operatorname{fa} {(1, u - n; 0)}
+        & = \dbinom{u}{n},
+    \end{align*}
+    且 \(\dbinom{m}{m} = 1\),
+    且 \(\operatorname{fa} {(0, m - n; 0)} = \delta(m - n, 0)
+    = \delta(m, n)\).
+    则
+    \begin{equation*}
+        \sum_{0 \leq u \leq m}
+        {(-1)^{m-u} \dbinom{m}{u} \dbinom{u}{n}}
+        = \delta(m, n).
+        \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}
+    设 \(a_0\), \(a_1\), \(\dots\), \(a_m\),
+    \(b_0\), \(b_1\), \(\dots\), \(b_m\)
+    是数.
+    若对任何不超过 \(m\) 的非负整数 \(k\),
+    \begin{equation}
+        b_k = \sum_{0 \leq i \leq k} {(-1)^i \dbinom{k}{i} a_i}.
+        \label{eq:ff03-bak}
+    \end{equation}
+    则对任何不超过 \(m\) 的非负整数 \(\ell\),
+    \begin{equation}
+        a_\ell = \sum_{0 \leq j \leq \ell} {(-1)^j \dbinom{\ell}{j} b_j}.
+        \label{eq:ff04-bak}
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    记
+    \begin{align*}
+        c_\ell = \sum_{0 \leq j \leq \ell} {(-1)^j \dbinom{\ell}{j} b_j}.
+    \end{align*}
+    则
+    \begin{align*}
+        c_\ell
+        = \sum_{0 \leq j \leq \ell} {(-1)^j \dbinom{\ell}{j}
+        \sum_{0 \leq i \leq j} {(-1)^i \dbinom{j}{i} a_i}}.
+    \end{align*}
+    注意, 当 \(0 \leq j < i \leq \ell\) 时, \(\dbinom{j}{i} = 0\).
+    则
+    \begin{align*}
+        c_\ell
+        = {} &
+        \sum_{0 \leq j \leq \ell} {(-1)^j \dbinom{\ell}{j}
+        \sum_{0 \leq i \leq \ell} {(-1)^i \dbinom{j}{i} a_i}}
+        \\
+        = {} &
+        \sum_{0 \leq j \leq \ell} \sum_{0 \leq i \leq \ell}
+        (-1)^j \dbinom{\ell}{j} (-1)^i \dbinom{j}{i} a_i
+        \\
+        = {} &
+        \sum_{0 \leq i \leq \ell} \sum_{0 \leq j \leq \ell}
+        (-1)^j \dbinom{\ell}{j} (-1)^i \dbinom{j}{i} a_i
+        \\
+        = {} &
+        \sum_{0 \leq i \leq \ell} \sum_{0 \leq j \leq \ell}
+        (-1)^{\ell-i}  a_i\, (-1)^{\ell-j} \dbinom{\ell}{j} \dbinom{j}{i}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq \ell}
+        (-1)^{\ell-i}  a_i \sum_{0 \leq j \leq \ell}
+        (-1)^{\ell-j} \dbinom{\ell}{j} \dbinom{j}{i}
+        \\
+        = {} &
+        \sum_{0 \leq i \leq \ell}
+        (-1)^{\ell-i}  a_i\, \delta(\ell, i)
+        \\
+        = {} &
+        \sum_{0 \leq i < \ell}
+        (-1)^{\ell-i}  a_i\, \delta(\ell, i)
+        + (-1)^{\ell-\ell}  a_\ell\, \delta(\ell, \ell)
+        \\
+        = {} &
+        \sum_{0 \leq i < \ell}
+        (-1)^{\ell-i}  a_i\, 0
+        + 1\, a_\ell\, 1
+        \\
+        = {} &
+        a_\ell.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+注意, 完全类似地, 若数
+\(a_0\), \(a_1\), \(\dots\), \(a_m\),
+\(b_0\), \(b_1\), \(\dots\), \(b_m\)
+适合, 对任何不超过 \(m\) 的非负整数 \(\ell\),
+式~\eqref{eq:ff04-bak} 成立,
+则对任何不超过 \(m\) 的非负整数 \(k\),
+式~\eqref{eq:ff03-bak} 成立.
+
+\begin{theorem}
+    设 \(a_0\), \(a_1\), \(\dots\), \(a_m\),
+    \(b_0\), \(b_1\), \(\dots\), \(b_m\)
+    是数.
+
+    (1)
+    若对任何不超过 \(m\) 的非负整数 \(k\),
+    \begin{equation}
+        b_k = \sum_{0 \leq i \leq k} {\dbinom{k}{i} a_i}.
+        \label{eq:ff05-bak}
+    \end{equation}
+    则对任何不超过 \(m\) 的非负整数 \(\ell\),
+    \begin{equation}
+        a_\ell = \sum_{0 \leq j \leq \ell} {(-1)^{\ell + j} \dbinom{\ell}{j} b_j}.
+        \label{eq:ff06-bak}
+    \end{equation}
+
+    (2)
+    若对任何不超过 \(m\) 的非负整数 \(\ell\), 式~\eqref{eq:ff06-bak} 成立,
+    则对任何不超过 \(m\) 的非负整数 \(k\), 式~\eqref{eq:ff05-bak} 成立.
+\end{theorem}
+
+\begin{proof}
+    作 \(x_i = (-1)^i a_i\).
+    则 \(a_i = (-1)^i x_i\).
+    则式~\eqref{eq:ff05-bak} 相当于
+    \begin{equation}
+        b_k = \sum_{0 \leq i \leq k} {\dbinom{k}{i} (-1)^i x_i},
+        \label{eq:ff07-bak}
+    \end{equation}
+    且式~\eqref{eq:ff06-bak} 相当于
+    \begin{align*}
+        (-1)^\ell x_i = (-1)^\ell \sum_{0 \leq j \leq \ell} {(-1)^j \dbinom{\ell}{j} b_j},
+    \end{align*}
+    即
+    \begin{equation}
+        x_i = \sum_{0 \leq j \leq \ell} {(-1)^j \dbinom{\ell}{j} b_j}.
+        \label{eq:ff08-bak}
+    \end{equation}
+
+    (1)
+    设对任何不超过 \(m\) 的非负整数 \(k\),
+    式~\eqref{eq:ff05-bak} 成立.
+    则对任何不超过 \(m\) 的非负整数 \(k\),
+    式~\eqref{eq:ff07-bak} 成立.
+    由上个定理,
+    对任何不超过 \(m\) 的非负整数 \(\ell\),
+    式~\eqref{eq:ff08-bak} 成立.
+    故对任何不超过 \(m\) 的非负整数 \(\ell\),
+    式~\eqref{eq:ff06-bak} 成立.
+
+    (2)
+    设对任何不超过 \(m\) 的非负整数 \(\ell\),
+    式~\eqref{eq:ff06-bak} 成立.
+    则对任何不超过 \(m\) 的非负整数 \(\ell\),
+    式~\eqref{eq:ff08-bak} 成立.
+    由上个定理,
+    对任何不超过 \(m\) 的非负整数 \(k\),
+    式~\eqref{eq:ff07-bak} 成立.
+    故对任何不超过 \(m\) 的非负整数 \(k\),
+    式~\eqref{eq:ff05-bak} 成立.
+\end{proof}
+
+设 \(a_0\), \(a_1\), \(\dots\), \(a_m\) 是数.
+作 \((m + 1) \times 1\)~阵 \(A\),
+其中, \([A]_{i,1} = a_{i-1}\).
+(注意, 当我们讨论阵时, 首行是行~\(1\), 且首列是列~\(1\);
+也就是, 我们仍从 \(1\) 开始.)
+作 \(m + 1\)~级阵 \(R\), \(T\),
+其中, \([R]_{i,j} = (-1)^{(i-1)+(j-1)} \dbinom{i-1}{j-1}\),
+且 \([T]_{i,j} = \dbinom{i-1}{j-1}\).
+对任何不超过 \(m\) 的非负整数 \(k\),
+我们以式~\eqref{eq:ff05-bak} 定义数
+\(b_0\), \(b_1\), \(\dots\), \(b_m\).
+注意, 当 \(0 \leq i < j\) 时, \(\dbinom{i}{j} = 0\).
+则对任何不超过 \(m\) 的非负整数 \(k\),
+\begin{align*}
+    b_k = \sum_{0 \leq i \leq m} {\dbinom{k}{i} a_i}.
+\end{align*}
+作 \((m + 1) \times 1\)~阵 \(B\),
+其中, \([B]_{i,1} = b_{i-1}\).
+则 \(B = T A\).
+由上个定理, 对任何不超过 \(m\) 的非负整数 \(\ell\),
+式~\eqref{eq:ff06-bak} 成立.
+则对任何不超过 \(m\) 的非负整数 \(\ell\),
+\begin{align*}
+    a_\ell = \sum_{0 \leq j \leq m} {(-1)^{\ell + j} \dbinom{\ell}{j} b_j}.
+\end{align*}
+则 \(A = R B\).
+则 \(I A = A = R (T A) = (R T) A\).
+则 \((I - R T) A = 0\),
+对任何 \((m + 1) \times 1\)~阵 \(A\).
+我们取 \(A\) 为
+\(m + 1\)~级单位阵 \(I\) 的列~\(j\), \(e_j\),
+\(j = 1\), \(2\), \(\dots\), \(m + 1\).
+则 \((I - R T) e_j = 0\).
+则
+\begin{align*}
+    I - R T
+    = {} &
+    (I - R T) I
+    \\
+    = {} &
+    (I - R T) [e_1, e_2, \dots, e_{m+1}]
+    \\
+    = {} &
+    [(I - R T) e_1, (I - R T) e_2, \dots, (I - R T) e_{m+1}]
+    \\
+    = {} &
+    [0, 0, \dots, 0]
+    \\
+    = {} &
+    0.
+\end{align*}
+则 \(I = R T\).
+
+完全类似地, 若我们选取数 \(b_0\), \(b_1\), \(\dots\), \(b_m\),
+且对任何不超过 \(m\) 的非负整数 \(\ell\),
+我们以式~\eqref{eq:ff06-bak} 定义数
+\(a_0\), \(a_1\), \(\dots\), \(a_m\),
+且用前面的记号,
+则对任何 \((m + 1) \times 1\) 阵 \(B\),
+\(B = (T R) B\).
+则对任何 \((m + 1) \times 1\) 阵 \(B\),
+\((I - T R) B = 0\).
+完全类似地, 我们可证明, \(I = T R\).
+
+完全类似地,
+若我们作 \(m + 1\)~级阵 \(S\),
+其中, \([R]_{i,j} = (-1)^{j-1} \dbinom{i-1}{j-1}\),
+则对任何 \((m + 1) \times 1\) 阵 \(A\),
+\(A = (S S) A\).
+则对任何 \((m + 1) \times 1\) 阵 \(B\),
+\((I - S S) B = 0\).
+完全类似地, 我们可证明, \(I = S S\).
+
+为方便, 我记下这些事.
+
+\begin{theorem}
+    设 \(k\) 是正整数.
+    作 \(k\)~级阵 \(R_k\), \(S_k\), \(T_k\),
+    其中,
+    \begin{align*}
+        [R_k]_{i,j} & = (-1)^{(i-1)+(j-1)} \dbinom{i-1}{j-1},
+        \\
+        [S_k]_{i,j} & = (-1)^{j-1} \dbinom{i-1}{j-1},
+        \\
+        [T_k]_{i,j} & = \dbinom{i-1}{j-1}.
+    \end{align*}
+    则 \(R_k T_k = T_k R_k = I_k\) (\(k\)~级单位阵),
+    且 \(S_k S_k = I_k\).
+\end{theorem}
+
+值得提, \(T_k\) 可被认为是%
+由数表~\eqref{eq:TriangleOfYangHui} 的前 \(k\) 行与前 \(k\) 列的元%
+按原来的次序作成的 \(k\)~级阵.
+
+最后, 不重要地, 因为对 \(i < j\),
+\([R_k]_{i,j}\), \([S_k]_{i,j}\), \([T_k]_{i,j}\) 都是 \(0\),
+它们的行列式
+\begin{align*}
+    \det {(R_k)}
+    & = [R_k]_{1,1} [R_k]_{2,2} \dots [R_k]_{k,k}
+    = 1^k = 1,
+    \\
+    \det {(S_k)}
+    & = [S_k]_{1,1} [S_k]_{2,2} \dots [S_k]_{k,k}
+    = (-1)^{0+1+\dots+(k-1)} 1^k
+    = (-1)^{k(k-1)/2},
+    \\
+    \det {(T_k)}
+    & = [T_k]_{1,1} [T_k]_{2,2} \dots [T_k]_{k,k}
+    = 1^k = 1.
+\end{align*}
+\end{comment}

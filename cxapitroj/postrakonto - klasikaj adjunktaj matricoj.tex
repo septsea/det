@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\appendix\chapter{Afterstories}\clearpage}{}
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
 
 \section{消去律}
 
@@ -17,17 +18,17 @@
 我们知道:
 
 (1)
-存在数 \(0\), 使对任何数 \(a\), 必 \(0 + a = a = a + 0\);
+存在数 \(0\), 使对任何数 \(a\),  \(0 + a = a = a + 0\);
 
 (2)
-对任何数 \(a\), 必存在数 \(-a\), 使 \((-a) + a = 0 = a + (-a)\).
+对任何数 \(a\), 存在数 \(-a\), 使 \((-a) + a = 0 = a + (-a)\).
 
 那么, 若 \(x + y = x + z\),
 则
 \begin{align*}
     (-x) + (x + y) = (-x) + (x + z).
 \end{align*}
-由结合律, 有
+由结合律,
 \begin{align*}
     ((-x) + x) + y = ((-x) + x) + z,
 \end{align*}
@@ -45,14 +46,14 @@
 (3)
 存在 \(m \times n\)~阵 \(0\),
 使对任何 \(m \times n\)~阵 \(X\),
-必 \(0 + X = X = X + 0\);
+\(0 + X = X = X + 0\);
 
 (4)
 对任何 \(m \times n\)~阵 \(X\),
-必存在 \(m \times n\)~阵 \(-X\),
+存在 \(m \times n\)~阵 \(-X\),
 使 \((-X) + X = 0 = X + (-X)\).
 
-于是, 我们也有
+于是, 我们得
 
 \begin{theorem}
     设 \(A\), \(B\), \(C\) 都是 \(m \times n\)~阵.
@@ -62,9 +63,9 @@
 
 设 \(x\), \(y\), \(z\) 是数.
 那么, 若 \(xy = xz\), 或 \(yx = zx\),
-还有 \(y = z\) 吗?
+\(y = z\) 吗?
 不一定.
-对任何数 \(a\), 必 \(0a = 0 = a0\).
+对任何数 \(a\), \(0a = 0 = a0\).
 于是, 虽然 \(0 \cdot 0 = 0 \cdot 1\),
 但 \(0 \neq 1\).
 
@@ -72,14 +73,14 @@
 因为:
 
 (5)
-存在数 \(1\), 使对任何数 \(a\), 必 \(1a = a = a1\);
+存在数 \(1\), 使对任何数 \(a\), \(1a = a = a1\);
 
 (6)
-对任何非零的数 \(a\), 必存在数 \(a^{-1}\), 使 \(a^{-1} a = 1 = a a^{-1}\).
+对任何非零的数 \(a\), 存在数 \(a^{-1}\), 使 \(a^{-1} a = 1 = a a^{-1}\).
 
 设 \(x \neq 0\), 且 \(xy = xz\).
 则 \(x^{-1} (xy) = x^{-1} (xz)\).
-由结合律, 有 \((x^{-1} x) y = (x^{-1} x) z\).
+由结合律, \((x^{-1} x) y = (x^{-1} x) z\).
 则 \(1y = 1z\).
 则 \(y = z\).
 类似地, 可证,
@@ -109,7 +110,7 @@
         x [A]_{i,j} = [xA]_{i,j} = [xB]_{i,j} = x [B]_{i,j}.
     \end{align*}
     由数的积的性质, 既然 \(x \neq 0\),
-    则必 \([A]_{i,j} = [B]_{i,j}\).
+    则 \([A]_{i,j} = [B]_{i,j}\).
 \end{proof}
 
 以下是本节的主要结论.
@@ -152,7 +153,7 @@
         \det {(A)}\, B = \det {(A)}\, C.
     \end{align*}
     因为 \(\det {(A)} \neq 0\),
-    我们有 \(B = C\).
+    我们得 \(B = C\).
 \end{proof}
 
 以上结论也可被推广.
@@ -162,7 +163,7 @@
     设 \(A\) 是一个 \(s \times n\)~阵.
     设 \(A\) 有一个行列式非零的 \(n\)~级子阵
     \begin{align*}
-        L = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n},
+        L = A\submat{i_1,i_2,\dots,i_n}{1,2,\dots,n},
     \end{align*}
     其中, \(1 \leq i_1 < \dots < i_n \leq s\).
     设 \(n \times m\)~阵 \(B\), \(C\) 适合 \(AB = AC\).
@@ -171,7 +172,7 @@
     设 \(H\) 是一个 \(n \times t\)~阵.
     设 \(H\) 有一个行列式非零的 \(n\)~级子阵
     \begin{align*}
-        K = H\binom{1,2,\dots,n}{j_1,j_2,\dots,j_n},
+        K = H\submat{1,2,\dots,n}{j_1,j_2,\dots,j_n},
     \end{align*}
     其中, \(1 \leq j_1 < \dots < j_n \leq t\).
     设 \(m \times n\)~阵 \(F\), \(G\) 适合 \(FH = GH\).
@@ -189,12 +190,12 @@
         \sum_{p = 1}^{n} {[L]_{u,p} [B]_{p,j}}
         =
         \sum_{p = 1}^{n} {[A]_{i_u,p} [B]_{p,j}}
-            =
-            [A B]_{i_u,j}.
+        =
+        [A B]_{i_u,j}.
     \end{align*}
     类似地, \([L C]_{u,j} = [A C]_{i_u,j}\).
     因为 \(A B = A C\),
-    我们有 \([L B]_{u,j} = [L C]_{u,j}\).
+    我们得 \([L B]_{u,j} = [L C]_{u,j}\).
     注意, \(L B\) 与 \(L C\) 都是 \(n \times m\)~阵.
     则 \(L B = L C\).
     因为 \(\det {(L)} \neq 0\),
@@ -214,12 +215,12 @@
 
     作 \(n \times s\)~阵 \(X\) 如下:
     \begin{align*}
-        [X]_{u,i_p}
-        = \begin{cases}
-              [\operatorname{adj} {(L)}]_{u,p},
-                 & p \leq n; \\
-              0, & p > n.
-          \end{cases}
+        [X]_{u,i_p} =
+        \begin{cases}
+            [\operatorname{adj} {(L)}]_{u,p},
+            & p \leq n; \\
+            0, & p > n.
+        \end{cases}
     \end{align*}
     则
     \begin{align*}
@@ -236,7 +237,7 @@
         \\
         = {} &
         \sum_{p = 1}^{n}
-            {[\operatorname{adj} {(L)}]_{u,p} [L]_{p,v}}
+        {[\operatorname{adj} {(L)}]_{u,p} [L]_{p,v}}
         + \sum_{p = n+1}^{s} {0\, [A]_{i_p,v}}
         \\
         = {} &
@@ -273,7 +274,7 @@
 
 \section{古伴的性质 (1)}
 
-本节, 我们学习古伴的三个性质.
+本节, 我们学习古伴的 \(3\)~个性质.
 
 一个 \(n\)~级阵 \(A\) 的古伴 \(\operatorname{adj} {(A)}\)
 是一个 \(n\)~级阵,
@@ -281,7 +282,7 @@
 \begin{align*}
     [\operatorname{adj} {(A)}]_{i,j} = (-1)^{j+i} \det {(A(j|i))}.
 \end{align*}
-对任何方阵 \(A\), 有
+对任何方阵 \(A\),
 \begin{align*}
     \operatorname{adj} {(A)}\, A
     = \det {(A)}\, I
@@ -359,7 +360,7 @@
 % restatable that one has manually to repeat
 % in at least one other file:
 % postrakonto - pfaffoj.tex
-\begin{restatable}{theorem}{DetOfAdjugate}
+\begin{restatable}{theorem}{TheoremDetOfAdjugate}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
     则
     \(\det {(\operatorname{adj} {(A)})} = (\det {(A)})^{n-1}\).
@@ -385,7 +386,7 @@
         \det {(A)}\, (\det {(A)})^{n-1}.
     \end{align*}
     若 \(\det {(A)} \neq 0\),
-    我们可在等式的二侧消去它,
+    我们可在等式的 \(2\)~边消去它,
     得到结论.
 
     若 \(A = 0\), 则 \(\operatorname{adj} {(A)} = 0\),
@@ -405,7 +406,7 @@
     \end{align*}
     因为
     \(\det {(\operatorname{adj} {(A)})} \neq 0\),
-    由消去律, 有 \(A = 0\).
+    由消去律, \(A = 0\).
     这是矛盾.
 \end{proof}
 
@@ -427,10 +428,10 @@
     则
     \begin{equation}
         \begin{aligned}
-                 & \det {\left(
-                (\operatorname{adj} {(A)})
-                \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-                \right)}
+            & \det {\left(
+                    (\operatorname{adj} {(A)})
+                    \submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+            \right)}
             \\
             = {} &
             (\det {(A)})^{k-1}\,
@@ -442,9 +443,9 @@
 \end{theorem}
 
 此事对 \(k = 1\) 是对的.
-此时, 等式的左侧即为 \(\operatorname{adj} {(A)}\)
+此时, 等式的左边即为 \(\operatorname{adj} {(A)}\)
 的 \((i_1, j_1)\)-元,
-而等式的右侧是
+而等式的右边是
 \(1 \, (-1)^{j_1 + i_1} \det {(A(j_1|i_1))}\).
 这正是古伴的定义.
 
@@ -462,13 +463,13 @@
 \(j_{k+1}\), \(\dots\), \(j_n\).
 作 \(n\)~级阵 \(B\) 如下:
 \begin{align*}
-    [B]_{i,j_q}
-    = \begin{cases}
-          [\operatorname{adj} {(A)}]_{i,j_q},
-           & q \leq k; \\
-          [I_n]_{i,i_q},
-           & q > k.
-      \end{cases}
+    [B]_{i,j_q} =
+    \begin{cases}
+        [\operatorname{adj} {(A)}]_{i,j_q},
+        & q \leq k; \\
+        [I_n]_{i,i_q},
+        & q > k.
+    \end{cases}
 \end{align*}
 通俗地, \(B\) 的列~\(j_1\), \(\dots\), \(j_k\)
 分别与\(\operatorname{adj} {(A)}\)
@@ -479,20 +480,20 @@
 的列~\(i_{k+1}\), \(\dots\), \(i_n\).
 由此可见,
 \begin{align*}
-    B\binom{i_1,\dots,i_k}{j_1,\dots,j_k}
+    B\submat{i_1,\dots,i_k}{j_1,\dots,j_k}
     = B({i_{k+1},\dots,i_n}|{j_{k+1},\dots,j_n})
     = (\operatorname{adj} {(A)})
-    \binom{i_1,\dots,i_k}{j_1,\dots,j_k},
+    \submat{i_1,\dots,i_k}{j_1,\dots,j_k},
 \end{align*}
 且
 \begin{align*}
     B({i_1,\dots,i_k}|{j_1,\dots,j_k})
-    = B\binom{i_{k+1},\dots,i_n}{j_{k+1},\dots,j_n}
+    = B\submat{i_{k+1},\dots,i_n}{j_{k+1},\dots,j_n}
     = I_{n-k}.
 \end{align*}
 % 其中, \(I_{n-k}\) 指 \(n-k\)~级单位阵.
 
-按列~\(j_{k+1}\) 展开 \(\det {(B)}\), 有
+按列~\(j_{k+1}\) 展开 \(\det {(B)}\), 得
 \begin{align*}
     \det {(B)} = (-1)^{i_{k+1}+j_{k+1}} \, 1
     \det {(B(i_{k+1}|j_{j+1}))}.
@@ -500,7 +501,7 @@
 注意, \(B\) 的列~\(j_{k+2}\) 即为
 \(B(i_{k+1}|j_{k+1})\) 的列~\(j_{k+2}-1\).
 按列~\(j_{k+2}-1\) 展开 \(\det {(B(i_{k+1}|j_{k+1}))}\),
-有
+得
 \begin{align*}
     \det {(B(i_{k+1}|j_{k+1}))} = (-1)^{i_{k+2}-1+j_{k+2}-1} \, 1
     \det {(B({i_{k+1},i_{k+2}}|{j_{k+1},j_{k+2}}))}.
@@ -511,7 +512,7 @@
     \det {(B({i_{k+1},i_{k+2}}|{j_{k+1},j_{k+2}}))}.
 \end{align*}
 ……
-最后, 我们有
+最后, 我们得
 \begin{align*}
     \det {(B)}
     = (-1)^{i_{k+1}+\dots+i_n+j_{k+1}+\dots+j_n}
@@ -527,9 +528,9 @@
     = {} & (-1)^{i_{k+1}+\dots+i_n+j_{k+1}+\dots+j_n}
     \det {(A)}
     \det {\left(
-        (\operatorname{adj} {(A)})
-        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-        \right)}.
+            (\operatorname{adj} {(A)})
+            \submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+    \right)}.
 \end{align*}
 另一方面, 当 \(q \leq k\) 时,
 \begin{align*}
@@ -568,18 +569,18 @@
 分别是 \(A\) 的列~\(i_{k+1}\), \(\dots\), \(i_n\).
 由此可见,
 \begin{align*}
-    (AB)\binom{j_1,\dots,j_k}{j_1,\dots,j_k}
+    (AB)\submat{j_1,\dots,j_k}{j_1,\dots,j_k}
     = (AB)({j_{k+1},\dots,j_n}|{j_{k+1},\dots,j_n})
     = \det {(A)}\, I_k,
 \end{align*}
 且
 \begin{align*}
     (AB)({j_1,\dots,j_k}|{j_1,\dots,j_k})
-    = (AB)\binom{j_{k+1},\dots,j_n}{j_{k+1},\dots,j_n}
+    = (AB)\submat{j_{k+1},\dots,j_n}{j_{k+1},\dots,j_n}
     = A({j_1,\dots,j_k}|{i_1,\dots,i_k}).
 \end{align*}
 
-按列~\(j_1\) 展开 \(\det {(AB)}\), 有
+按列~\(j_1\) 展开 \(\det {(AB)}\), 得
 \begin{align*}
     \det {(AB)} = (-1)^{j_1+j_1} \det {(A)}
     \det {((AB)(j_1|j_1))}.
@@ -587,7 +588,7 @@
 注意, \(AB\) 的列~\(j_2\) 即为
 \((AB)(j_1|j_1)\) 的列~\(j_2-1\).
 按列~\(j_2-1\) 展开 \(\det {((AB)(j_1|j_1))}\),
-有
+得
 \begin{align*}
     \det {((AB)(j_1|j_1))}
     = (-1)^{j_2-1+j_2-1} \det {(A)}
@@ -599,22 +600,22 @@
     \det {((AB)({j_1,j_2}|{j_1,j_2}))}.
 \end{align*}
 ……
-最后, 我们有
+最后, 我们得
 \begin{align*}
     \det {(AB)}
     = (\det {(A)})^k
     \det {((AB)({j_1,\dots,j_k}|{j_1,\dots,j_k}))}.
 \end{align*}
 
-比较二次计算的结果, 我们应有
+比较 \(2\)~次计算的结果, 我们得
 \begin{align*}
-         &
+    &
     (-1)^{i_{k+1}+\dots+i_n+j_{k+1}+\dots+j_n}
     \det {(A)}
     \det {\left(
-        (\operatorname{adj} {(A)})
-        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-        \right)}
+            (\operatorname{adj} {(A)})
+            \submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+    \right)}
     \\
     = {} &
     (\det {(A)})^k
@@ -622,7 +623,7 @@
 \end{align*}
 注意,
 \begin{align*}
-         &
+    &
     i_{k+1} + \dots + i_n + j_{k+1} + \dots + j_n
     \\
     = {} &
@@ -634,12 +635,12 @@
 \end{align*}
 故
 \begin{align*}
-         &
+    &
     \det {(A)}\,
     \det {\left(
-        (\operatorname{adj} {(A)})
-        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-        \right)}
+            (\operatorname{adj} {(A)})
+            \submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+    \right)}
     \\
     = {} &
     \det {(A)}\, (\det {(A)})^{k-1}\,
@@ -648,7 +649,7 @@
 \end{align*}
 
 若 \(\det {(A)} \neq 0\),
-我们可在等式的二侧消去它, 得式~\eqref{eq:C2401}.
+我们可在等式的 \(2\)~边消去它, 得式~\eqref{eq:C2401}.
 不过, 若 \(\det {(A)} = 0\),
 我们应如何作?
 
@@ -659,7 +660,6 @@
     使对任何不超过 \(n\) 的正整数 \(j\),
     存在数 \(m_j\),
     使对任何不超过 \(n\) 的正整数 \(i\),
-    有
     \([\operatorname{adj} {(A)}]_{i,j}
     = m_j [\operatorname{adj} {(A)}]_{i,s}\);
     通俗地,
@@ -668,13 +668,13 @@
     都是 \(\operatorname{adj} {(A)}\) 的列~\(s\) 的数乘.
 \end{theorem}
 
-有了此事, 不难看出, 若 \(\det {(A)} = 0\),
+由此, 不难看出, 若 \(\det {(A)} = 0\),
 且 \(k > 1\), 则
 \begin{align*}
     \det {\left(
-        (\operatorname{adj} {(A)})
-        \binom{i_1,\dots,i_k}{j_1,\dots,j_k}
-        \right)} = 0,
+            (\operatorname{adj} {(A)})
+            \submat{i_1,\dots,i_k}{j_1,\dots,j_k}
+    \right)} = 0,
 \end{align*}
 故式~\eqref{eq:C2401} 仍是对的.
 
@@ -722,16 +722,16 @@
         \\
         = {} &
         \sum_{u=1}^{n-1}
-            {[A]_{\ell_p,i_u} [\operatorname{adj} {(A)}]_{i_u,j}}
+        {[A]_{\ell_p,i_u} [\operatorname{adj} {(A)}]_{i_u,j}}
         \\
         = {} &
         \sum_{u=1}^{n}
-            {[A]_{\ell_p,i_u} [\operatorname{adj} {(A)}]_{i_u,j}}
+        {[A]_{\ell_p,i_u} [\operatorname{adj} {(A)}]_{i_u,j}}
         - [A]_{\ell_p,i_n} [\operatorname{adj} {(A)}]_{i_n,j}
         \\
         = {} &
         \sum_{u=1}^{n}
-            {[A]_{\ell_p,u} [\operatorname{adj} {(A)}]_{u,j}}
+        {[A]_{\ell_p,u} [\operatorname{adj} {(A)}]_{u,j}}
         - [A]_{\ell_p,t} [\operatorname{adj} {(A)}]_{t,j}
         \\
         = {} &
@@ -780,10 +780,10 @@
     因为 \(\det {(C)} \neq 0\),
     故 \(m_j y_s = y_j\).
     故 \(m_j [\operatorname{adj} {(A)}]_{i_u,s}
-        = [\operatorname{adj} {(A)}]_{i_u,j}\),
+    = [\operatorname{adj} {(A)}]_{i_u,j}\),
     对 \(u < n\).
     则 \(m_j [\operatorname{adj} {(A)}]_{i,s}
-        = [\operatorname{adj} {(A)}]_{i,j}\),
+    = [\operatorname{adj} {(A)}]_{i,j}\),
     对 \(i \leq n\).
 \end{proof}
 
@@ -795,11 +795,11 @@
 % 取 \(k = 2\),
 % \(i_1 = j_1 = u\),
 % \(i_2 = j_2 = v\),
-% 有
+% 得
 % \begin{align*}
 %     \det {\left(
 %         (\operatorname{adj} {(A)})
-%         \binom{u,v}{u,v}
+%         \submat{u,v}{u,v}
 %         \right)}
 %     = (\det {(A)})^{2-1}\,
 %     (-1)^{u+v+u+v}
@@ -826,7 +826,7 @@
 %     = \det {(A)} \det {(A({u,v}|{u,v}))}.
 % \end{align*}
 
-% 总结这些结果, 有
+% 总结这些结果, 我们得
 
 % \begin{theorem}
 %     设 \(A\) 是 \(n\)~级阵 (\(n \geq 3\)).
@@ -846,12 +846,12 @@
 
 \section{古伴的性质 (3)}
 
-本节, 我们学习古伴的二个性质.
+本节, 我们学习古伴的 \(2\)~个性质.
 
 % restatable that one has manually to repeat
 % in at least one other file:
 % postrakonto - pfaffoj.tex
-\begin{restatable}{theorem}{AdjOfAdjugate}
+\begin{restatable}{theorem}{TheoremAdjOfAdjugate}
     设 \(A\) 是 \(n\)~级阵 (\(n \geq 2\)).
     则
     \(\operatorname{adj} {(\operatorname{adj} {(A)})}
@@ -862,31 +862,31 @@
     设 \(n = 2\).
     不难算出, \(2\)~级阵
     \(A =
-    \begin{bmatrix}
-        a & b \\
-        c & d \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            a & b \\
+            c & d \\
+        \end{bmatrix}
     \)
     的古伴是
     \(
-    \begin{bmatrix}
-        d  & -b \\
-        -c & a  \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            d  & -b \\
+            -c & a  \\
+        \end{bmatrix}
     \).
     则
     \(
-    \begin{bmatrix}
-        d  & -b \\
-        -c & a  \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            d  & -b \\
+            -c & a  \\
+        \end{bmatrix}
     \)
     的古伴是
     \(
-    \begin{bmatrix}
-        a     & -(-b) \\
-        -(-c) & d     \\
-    \end{bmatrix}
+        \begin{bmatrix}
+            a     & -(-b) \\
+            -(-c) & d     \\
+        \end{bmatrix}
     \),
     即 \(A\).
     注意,
@@ -926,7 +926,7 @@
     则 \(\det {(\operatorname{adj} {(A)})}
     = (\det {(A)})^{n-1} \neq 0\).
     由消去律,
-    我们可在等式的二侧消去 \(\operatorname{adj} {(A)}\),
+    我们可在等式的 \(2\)~边消去 \(\operatorname{adj} {(A)}\),
     得到结论.
 
     若 \(\det {(A)} = 0\),
@@ -939,7 +939,7 @@
 % restatable that one has manually to repeat
 % in at least one other file:
 % postrakonto - pfaffoj.tex
-\begin{restatable}{theorem}{AdjOfProduct}
+\begin{restatable}{theorem}{TheoremAdjOfProduct}
     设 \(A\), \(B\) 是 \(n\)~级阵.
     则
     \begin{align*}
@@ -994,27 +994,27 @@
         [\operatorname{adj} {(A)} \operatorname{adj} {(B)}]_{i,j}
         = {} &
         \sum_{u = 1}^{n}
-            {[\operatorname{adj} {(A)}]_{i,u}
-                    [\operatorname{adj} {(B)}]_{u,j}}
+        {[\operatorname{adj} {(A)}]_{i,u}
+        [\operatorname{adj} {(B)}]_{u,j}}
         \\
         = {} &
         \sum_{u = 1}^{n}
-            {(-1)^{u+i} \det {(A(u|i))}\,
-                (-1)^{j+u} \det {(B(j|u))}}
+        {(-1)^{u+i} \det {(A(u|i))}\,
+        (-1)^{j+u} \det {(B(j|u))}}
         \\
         = {} &
         \sum_{u = 1}^{n}
-            {(-1)^{u+i} (-1)^{j+u}
-                \det {(A(u|i))} \det {(B(j|u))}}
+        {(-1)^{u+i} (-1)^{j+u}
+        \det {(A(u|i))} \det {(B(j|u))}}
         \\
         = {} &
         \sum_{u = 1}^{n}
-            {(-1)^{j+i} \det {(B(j|u))} \det {(A(u|i))}}
+        {(-1)^{j+i} \det {(B(j|u))} \det {(A(u|i))}}
         \\
         = {} &
         (-1)^{j+i}
         \sum_{u = 1}^{n}
-            {\det {(B(j|u))} \det {(A(u|i))}}
+        {\det {(B(j|u))} \det {(A(u|i))}}
         \\
         = {} &
         (-1)^{j+i}
@@ -1057,45 +1057,47 @@
     设 \(B_{1,2}\), \(B_{2,2}\) 都有 \(c_2\) 列.
     作 \((r_1 + r_2) \times (u_1 + u_2)\)~阵
     \begin{align*}
-        A = \begin{bmatrix}
-                A_{1,1} & A_{1,2} \\
-                A_{2,1} & A_{2,2} \\
-            \end{bmatrix};
+        A =
+        \begin{bmatrix}
+            A_{1,1} & A_{1,2} \\
+            A_{2,1} & A_{2,2} \\
+        \end{bmatrix};
     \end{align*}
     具体地,
     \begin{align*}
-        [A]_{i,j}
-        = \begin{cases}
-              [A_{1,1}]_{i,j},
-               & \text{\(i \leq r_1\), 且 \(j \leq u_1\)}; \\
-              [A_{1,2}]_{i,j-u_1},
-               & \text{\(i \leq r_1\), 且 \(j > u_1\)};    \\
-              [A_{2,1}]_{i-r_1,j},
-               & \text{\(i > r_1\), 且 \(j \leq u_1\)};    \\
-              [A_{2,2}]_{i-r_1,j-u_1},
-               & \text{\(i > r_1\), 且 \(j > u_1\)}.
-          \end{cases}
+        [A]_{i,j} =
+        \begin{cases}
+            [A_{1,1}]_{i,j},
+            & \text{\(i \leq r_1\), 且 \(j \leq u_1\)}; \\
+            [A_{1,2}]_{i,j-u_1},
+            & \text{\(i \leq r_1\), 且 \(j > u_1\)};    \\
+            [A_{2,1}]_{i-r_1,j},
+            & \text{\(i > r_1\), 且 \(j \leq u_1\)};    \\
+            [A_{2,2}]_{i-r_1,j-u_1},
+            & \text{\(i > r_1\), 且 \(j > u_1\)}.
+        \end{cases}
     \end{align*}
     作 \((u_1 + u_2) \times (c_1 + c_2)\)~阵
     \begin{align*}
-        B = \begin{bmatrix}
-                B_{1,1} & B_{1,2} \\
-                B_{2,1} & B_{2,2} \\
-            \end{bmatrix};
+        B =
+        \begin{bmatrix}
+            B_{1,1} & B_{1,2} \\
+            B_{2,1} & B_{2,2} \\
+        \end{bmatrix};
     \end{align*}
     具体地,
     \begin{align*}
-        [B]_{i,j}
-        = \begin{cases}
-              [B_{1,1}]_{i,j},
-               & \text{\(i \leq u_1\), 且 \(j \leq c_1\)}; \\
-              [B_{1,2}]_{i,j-c_1},
-               & \text{\(i \leq u_1\), 且 \(j > c_1\)};    \\
-              [B_{2,1}]_{i-u_1,j},
-               & \text{\(i > u_1\), 且 \(j \leq c_1\)};    \\
-              [B_{2,2}]_{i-u_1,j-c_1},
-               & \text{\(i > u_1\), 且 \(j > c_1\)}.
-          \end{cases}
+        [B]_{i,j} =
+        \begin{cases}
+            [B_{1,1}]_{i,j},
+            & \text{\(i \leq u_1\), 且 \(j \leq c_1\)}; \\
+            [B_{1,2}]_{i,j-c_1},
+            & \text{\(i \leq u_1\), 且 \(j > c_1\)};    \\
+            [B_{2,1}]_{i-u_1,j},
+            & \text{\(i > u_1\), 且 \(j \leq c_1\)};    \\
+            [B_{2,2}]_{i-u_1,j-c_1},
+            & \text{\(i > u_1\), 且 \(j > c_1\)}.
+        \end{cases}
     \end{align*}
     因为 \(A\) 的列数等于 \(B\) 的行数,
     故 \(AB\) 有意义.
@@ -1105,24 +1107,25 @@
     不难看出, \(C_{i,j}\) 是 \(r_i \times c_j\)~阵.
     作 \((r_1+r_2) \times (c_1+c_2)\)~阵
     \begin{align*}
-        C = \begin{bmatrix}
-                C_{1,1} & C_{1,2} \\
-                C_{2,1} & C_{2,2} \\
-            \end{bmatrix};
+        C =
+        \begin{bmatrix}
+            C_{1,1} & C_{1,2} \\
+            C_{2,1} & C_{2,2} \\
+        \end{bmatrix};
     \end{align*}
     具体地,
     \begin{align*}
-        [C]_{i,j}
-        = \begin{cases}
-              [C_{1,1}]_{i,j},
-               & \text{\(i \leq r_1\), 且 \(j \leq c_1\)}; \\
-              [C_{1,2}]_{i,j-c_1},
-               & \text{\(i \leq r_1\), 且 \(j > c_1\)};    \\
-              [C_{2,1}]_{i-r_1,j},
-               & \text{\(i > r_1\), 且 \(j \leq c_1\)};    \\
-              [C_{2,2}]_{i-r_1,j-c_1},
-               & \text{\(i > r_1\), 且 \(j > c_1\)}.
-          \end{cases}
+        [C]_{i,j} =
+        \begin{cases}
+            [C_{1,1}]_{i,j},
+            & \text{\(i \leq r_1\), 且 \(j \leq c_1\)}; \\
+            [C_{1,2}]_{i,j-c_1},
+            & \text{\(i \leq r_1\), 且 \(j > c_1\)};    \\
+            [C_{2,1}]_{i-r_1,j},
+            & \text{\(i > r_1\), 且 \(j \leq c_1\)};    \\
+            [C_{2,2}]_{i-r_1,j-c_1},
+            & \text{\(i > r_1\), 且 \(j > c_1\)}.
+        \end{cases}
     \end{align*}
     则 \(AB = C\).
 
@@ -1139,9 +1142,9 @@
         =
         \begin{bmatrix}
             A_{1,1} B_{1,1} + A_{1,2} B_{2,1}
-             & A_{1,1} B_{1,2} + A_{1,2} B_{2,2} \\
+            & A_{1,1} B_{1,2} + A_{1,2} B_{2,2} \\
             A_{2,1} B_{1,1} + A_{2,2} B_{2,1}
-             & A_{2,1} B_{1,2} + A_{2,2} B_{2,2} \\
+            & A_{2,1} B_{1,2} + A_{2,2} B_{2,2} \\
         \end{bmatrix}.
     \end{align*}
     于是, 形式地,
@@ -1150,7 +1153,7 @@
     % 特别地,
     % 若取 \(A_{1,2}\), \(A_{2,1}\), \(B_{1,2}\), \(B_{2,1}\)
     % 为零阵,
-    % 有
+    % 则
     % \begin{align*}
     %     \begin{bmatrix}
     %         A_{1,1} & 0       \\
@@ -1174,14 +1177,14 @@
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1+u_2}
-            {[A]_{i,k} [B]_{k,j}}
+        {[A]_{i,k} [B]_{k,j}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B]_{k,j}}
+        {[A]_{i,k} [B]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B]_{k,j}}.
+        {[A]_{i,k} [B]_{k,j}}.
     \end{align*}
 
     若 \(j \leq c_1\), 则
@@ -1189,34 +1192,34 @@
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B]_{k,j}}
+        {[A]_{i,k} [B]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B]_{k,j}}
+        {[A]_{i,k} [B]_{k,j}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B_{1,1}]_{k,j}}
+        {[A]_{i,k} [B_{1,1}]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}.
+        {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}.
     \end{align*}
     当 \(i \leq r_1\) 时,
     \begin{align*}
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B_{1,1}]_{k,j}}
+        {[A]_{i,k} [B_{1,1}]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}
+        {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A_{1,1}]_{i,k} [B_{1,1}]_{k,j}}
+        {[A_{1,1}]_{i,k} [B_{1,1}]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A_{1,2}]_{i,k-u_1} [B_{2,1}]_{k-u_1,j}}
+        {[A_{1,2}]_{i,k-u_1} [B_{2,1}]_{k-u_1,j}}
         \\
         = {} &
         [A_{1,1} B_{1,1}]_{i,j}
@@ -1236,17 +1239,17 @@
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B_{1,1}]_{k,j}}
+        {[A]_{i,k} [B_{1,1}]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}
+        {[A]_{i,k} [B_{2,1}]_{k-u_1,j}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A_{2,1}]_{i-r_1,k} [B_{1,1}]_{k,j}}
+        {[A_{2,1}]_{i-r_1,k} [B_{1,1}]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A_{2,2}]_{i-r_1,k-u_1} [B_{2,1}]_{k-u_1,j}}
+        {[A_{2,2}]_{i-r_1,k-u_1} [B_{2,1}]_{k-u_1,j}}
         \\
         = {} &
         [A_{2,1} B_{1,1}]_{i-r_1,j}
@@ -1267,34 +1270,34 @@
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B]_{k,j}}
+        {[A]_{i,k} [B]_{k,j}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B]_{k,j}}
+        {[A]_{i,k} [B]_{k,j}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}.
+        {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}.
     \end{align*}
     当 \(i \leq r_1\) 时,
     \begin{align*}
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}
+        {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A_{1,1}]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        {[A_{1,1}]_{i,k} [B_{1,2}]_{k,j-c_1}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A_{1,2}]_{i,k-u_1} [B_{2,2}]_{k-u_1,j-c_1}}
+        {[A_{1,2}]_{i,k-u_1} [B_{2,2}]_{k-u_1,j-c_1}}
         \\
         = {} &
         [A_{1,1} B_{1,2}]_{i,j-c_1}
@@ -1314,17 +1317,17 @@
         [AB]_{i,j}
         = {} &
         \sum_{k=1}^{u_1}
-            {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
+        {[A]_{i,k} [B_{1,2}]_{k,j-c_1}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}
+        {[A]_{i,k} [B_{2,2}]_{k-u_1,j-c_1}}
         \\
         = {} &
         \sum_{k=1}^{u_1}
-            {[A_{2,1}]_{i-r_1,k} [B_{1,2}]_{k,j-c_1}}
+        {[A_{2,1}]_{i-r_1,k} [B_{1,2}]_{k,j-c_1}}
         +
         \sum_{k=u_1+1}^{u_1+u_2}
-            {[A_{2,2}]_{i-r_1,k-u_1} [B_{2,2}]_{k-u_1,j-c_1}}
+        {[A_{2,2}]_{i-r_1,k-u_1} [B_{2,2}]_{k-u_1,j-c_1}}
         \\
         = {} &
         [A_{2,1} B_{1,2}]_{i-r_1,j-c_1}

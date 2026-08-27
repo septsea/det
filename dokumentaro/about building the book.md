@@ -143,8 +143,8 @@ and go to the folder in which the file [`libro.tex`](../libro.tex) is.
 - 执行 `latexmk -xelatex -file-line-error -cd -synctex=1 -interaction=nonstopmode -halt-on-error -silent libro` .
 - 执行 `make lua` .
 - 执行 `latexmk -lualatex -file-line-error -cd -synctex=1 -interaction=nonstopmode -halt-on-error -silent libro` .
-- 用视觉工作室代码 (Visual Studio Code) 打开含 [`libro.tex`](../libro.tex) 的目录. 具体地, 在视工代里, 按一下 `F1` 或 `Ctrl+Shift+p` 或 `Command+Shift+p` , 输入 `File: Open Folder` , 再点一下含 "File: Open Folder..." 的项. 然后, 找到含 [`libro.tex`](../libro.tex) 的目录, 打开它. 假如您装了 James Yu 的 LaTeX Workshop, 那您就可以方便地编译本书. (假如您没有装它, 那为何不装一个呢?)
-- 假如您不喜欢我给出的方法, 那您当然也可用自己喜欢的方法; 您编出来就行. 我只提一个硬要求: **用 XeLaTeX 或 LuaLaTeX**. (至少, 我能用 XeLaTeX 或 LuaLaTeX 无问题地编译本书.)
+- 用视觉工作室代码 (Visual Studio Code) 打开含 [`libro.tex`](../libro.tex) 的目录. 具体地, 在视工代里, 按一下 `F1` 或 `Ctrl+Shift+p` 或 `Command+Shift+p` , 输入 `File: Open Folder` , 再点一下含 "File: Open Folder..." 的项. 然后, 找到含 [`libro.tex`](../libro.tex) 的目录, 打开它. 假如您装了 James Yu 的 LaTeX Workshop, 您就可以方便地编译本书. (假如您未装它, 为何不装一个呢?)
+- 假如您不喜欢我给出的方法, 您当然也可用自己喜欢的方法; 您编出来就行. 我只提一个硬要求: **用 XeLaTeX 或 LuaLaTeX**. (至少, 我能用 XeLaTeX 或 LuaLaTeX 无问题地编译本书.)
 
 Use any of the following methods to build the book.
 <!-- - Execute [`buildthebook.cmd`](../buildthebook.cmd).
@@ -165,11 +165,12 @@ I used the following fonts:
 - [XITS](https://ctan.org/pkg/xits)
 - [Fira Sans](https://ctan.org/pkg/fira)
 - [XITS Math](https://ctan.org/pkg/xits)
+- [LXGW WenKai Mono](https://github.com/lxgw/LxgwWenKai)
 <!-- - [TeX Gyre Termes Math](https://ctan.org/pkg/tex-gyre-math-termes)
 - [STIX Two Math](https://ctan.org/pkg/stix2-otf) -->
 
-一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math. 所以, 您一般不必安装这 3 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC, **其是可选的**, 即可.  
-Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC, **which are optional**.
+一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math. 所以, 您一般不必安装这 3 个字体. 您下载且安装 Source Han Serif CN, Sarasa Mono SC 与 LXGW WenKai Mono, **其是可选的**, 即可.  
+Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN, Sarasa Mono SC and LXGW WenKai Mono, **which are optional**.
 
 <!-- 一般地, 完整的 TeX Live 套装含 XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math. 所以, 您一般不必安装这 5 个字体. 您下载且安装 Source Han Serif CN 与 Sarasa Mono SC 即可.  
 Usually, a complete TeX Live installation contains XITS, Fira Sans, XITS Math, TeX Gyre Termes Math, STIX Two Math, so you do not need to install them from somewhere else (unless you do not have a complete TeX Live installation). You just need to download and install Source Han Serif CN and Sarasa Mono SC. -->
@@ -187,10 +188,13 @@ Downloading Source Han Serif CN is easy:
 下载 Sarasa Mono SC 不难. 在[这儿](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/)下载 `SarasaMonoSC-TTF-*.7z`, 其中, `*` 是版本号 (如 `1.0.0`), 且文件名不含 `Unhinted`. 然后, 解压这个压缩文件.  
 Downloading Sarasa Mono SC is easy. Download `SarasaMonoSC-TTF-*.7z` [here](https://mirrors.bfsu.edu.cn/github-release/be5invis/Sarasa-Gothic/LatestRelease/), in which `*` is the version number (for example, `1.0.0`), and the filename does not contain `Unhinted`. Extract the compressed file.
 
+下载 LXGW WenKai Mono 不难. 在[这儿](https://github.com/lxgw/LxgwWenKai/releases)下载 `LXGWWenKaiMono-Light.ttf`.  
+Downloading LXGW WenKai Mono is easy. Download `LXGWWenKaiMono-Light.ttf` [here](https://github.com/lxgw/LxgwWenKai/releases).
+
 我教您如何安装字体. 我假定您用窗系统 (Windows). 选中您想安装的字体文件 (`.ttf` 文件 / `.otf` 文件). (注意, 您可以一次选多个.) 右击它 (们). **点一下 "为所有用户安装".** 不难吧? 若您用别的系统, 您就自行寻找方法吧 (我不熟悉别的系统).  
 I tell you how to install fonts. I suppose that you use Windows. Select the font(s) that you want to install (`.ttf` and/or `.otf` files). Right-click on it/them. **Click on "Install for all users".** It is not hard, is it? If you use another operating system, please find the method elsewhere (I am sorry that I am not familiar with operating systems other than Windows).
 
-我准备了一个小文件 [`tiparoj.tex`](../tiparoj.tex). 若您认为, 您的电脑里已有这 7 个字体, 且乳胶认识它们, 那就可以试编 [`tiparoj.tex`](../tiparoj.tex), 验证此事:
+我准备了一个小文件 [`tiparoj.tex`](../tiparoj.tex). 若您认为, 您的电脑里已有这 7 个字体, 且乳胶认识它们, 就可以试编 [`tiparoj.tex`](../tiparoj.tex), 验证此事:
 <!-- - 可以执行 [`testfonts.cmd`](../testfonts.cmd); -->
 - 可以执行 `make fonts`;
 - 可以执行 `make tiparoj`;
@@ -198,7 +202,7 @@ I tell you how to install fonts. I suppose that you use Windows. Select the font
 - 可以执行 `latexmk -lualatex -interaction=nonstopmode -halt-on-error -silent -gg -g tiparoj`;
 - 也可用视工代辅助编译.
 
-当然, 若您不想用这些方法, 那您就自己设法吧.
+当然, 若您不想用这些方法, 您就自己设法吧.
 
 I contained a small file [`tiparoj.tex`](../tiparoj.tex) in this repository. If you believe that there are the seven fonts on your computer, and that LaTeX knows them well, you can build [`tiparoj.tex`](../tiparoj.tex) to check whether that is the case.
 <!-- - You can execute [`testfonts.cmd`](../testfonts.cmd); -->

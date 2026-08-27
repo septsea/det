@@ -2,7 +2,8 @@
 
 \begin{document}
 
-\ifSubfilesClassLoaded{\appendix\chapter{Afterstories}\clearpage}{}
+\ifSubfilesClassLoaded{\appendix%
+\chapter{Afterstories}\clearpage}{}
 
 \section{行列式的性质}
 % \section{我要介绍行列式的哪些性质?}
@@ -10,7 +11,7 @@
 % 这是一个好问题.
 
 % 我初学行列式时, 教材讲了好几条性质.
-% 我姑且用第~1~章的话译它们
+% 我姑且用第~1~章的话说它们
 % 这里,
 设 \(a_1\), \(a_2\), \(\dots\), \(a_n\), \(x\), \(y\)
 是 \(n+2\)~个 \(n \times 1\)~阵.
@@ -24,16 +25,16 @@
 一个方阵与它的转置的行列式相等.
 于是, 我不必同时讲行的性质与列的性质,
 因为您总可用转置,
-译列的性质为行的性质
-(或译行的性质为列的性质).
+变列的性质为行的性质
+(或变行的性质为列的性质).
 
 (2)
-若一个阵的某一列是二组数的和,
-那么此阵的行列式等于二个阵的行列式的和,
-而这二个阵, 除这一列以外, 全与原阵的对应的列一样.
+若一个阵的某一列是 \(2\)~组数的和,
+那么此阵的行列式等于 \(2\)~个阵的行列式的和,
+而这 \(2\)~个阵, 除这一列以外, 全与原阵的对应的列一样.
 用公式写, 就是
 \begin{align*}
-         & \det {[\dots, a_{j-1}, x + y, a_{j+1}, \dots]}
+    & \det {[\dots, a_{j-1}, x + y, a_{j+1}, \dots]}
     \\
     = {} & \det {[\dots, a_{j-1}, x, a_{j+1}, \dots]}
     + \det {[\dots, a_{j-1}, y, a_{j+1}, \dots]},
@@ -50,13 +51,13 @@
 \end{align*}
 
 (4)
-若一个阵有二列相同, 则它的行列式为 \(0\).
+若一个阵有 \(2\)~列相同, 则它的行列式为 \(0\).
 
 (5)
-若交换一个阵的二列, 则行列式变号.
+若交换一个阵的 \(2\)~列, 则行列式变号.
 
 (6)
-若一个阵有二列成比例, 则它的行列式为 \(0\).
+若一个阵有 \(2\)~列成比例, 则它的行列式为 \(0\).
 (利用性质~(3) (4) 即知.)
 
 (7)
@@ -71,7 +72,7 @@
 则
 \begin{align*}
     \det {(A)} = \sum_{i = 1}^{n}
-        {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
+    {(-1)^{i+j} [A]_{i,j} \det {(A(i|j))}}.
 \end{align*}
 
 \vspace{2ex}
@@ -80,23 +81,23 @@
 且 (4) 就是交错性.
 
 % 我在第~1~章讲了行列式的 5~个性质.
-% 用行列式与转置的关系可译行列式的关于阵的列的命题%
+% 用行列式与转置的关系可变行列式的关于阵的列的命题%
 % 为关于行的命题.
 % 规范性指出, 单位阵的行列式是 \(1\);
-% 这是前面 7~条性质未指出的.
+% 这是前面 7~个性质未指出的.
 % 多线性就是 (2) (3) 的联合.
 % 交错性就是 (4).
 % 反称性就是 (5).
 % 我没介绍 (6) (7); 它没介绍规范性:
-% 我们二个都有好的未来.
-% (这句话里包含三个分句,
-% 前面二个是并列的,
+% 我们 \(2\)~个都有好的未来.
+% (这句话里包含 3~个分句,
+% 前面 \(2\)~个是并列的,
 % 末了儿一个是总起来说的,
 % 就得在 ``规范性'' 之后用冒号,
-% 表示并列的二个分句已完了,
+% 表示并列的 \(2\)~个分句已完了,
 % 还有总起来说的一个分句在后面.
 % 这同样是提示的意思.
-% 如此用冒号, 一些人还没有养成习惯.
+% 如此用冒号, 一些人还未养成习惯.
 % 可是, 这个用法可明白地表示分句与分句的关系,
 % 应学会它.)
 
@@ -120,34 +121,34 @@
     \end{align*}
     我们计算 \(\det {(A)}\).
 
-    按列~\(1\) 展开, 有
+    按列~\(1\) 展开, 得
     \begin{align*}
         \det {(A)}
         = {} &
         \sum_{i=1}^{n}
-            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
         \\
         = {} &
         (-1)^{1+1} [A]_{1,1} \det {(A(1|1))}
         + \sum_{i=2}^{n}
-            {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
+        {(-1)^{i+1} [A]_{i,1} \det {(A(i|1))}}
         \\
         = {} &
         [A]_{1,1} \det {(A(1|1))}
         + \sum_{i=2}^{n}
-            {(-1)^{i+1}\, 0 \det {(A(i|1))}}
+        {(-1)^{i+1}\, 0 \det {(A(i|1))}}
         \\
         = {} &
         [A]_{1,1} \det {(A(1|1))}.
     \end{align*}
 
     不难看出, 当 \(1 \leq j < i \leq n-1\) 时,
-    也有 \([A(1|1)]_{i,j} = 0\).
+    \([A(1|1)]_{i,j} = 0\).
     于是, 类似地,
     \begin{align*}
         \det {(A(1|1))}
         = [A(1|1)]_{1,1} \det {((A(1|1))(1|1))}
-            = [A]_{2,2} \det {(A({1,2}|{1,2}))}.
+        = [A]_{2,2} \det {(A({1,2}|{1,2}))}.
     \end{align*}
     故
     \begin{align*}
@@ -169,6 +170,7 @@
         \\
         = {} &
         [A]_{1,1} [A]_{2,2} \dots [A]_{n,n}.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -204,6 +206,7 @@
         \\
         = {} &
         [A]_{1,1} [A]_{2,2} \dots [A]_{n,n}.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -212,11 +215,12 @@
     比如,
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                4 & 9 & 2 \\
-                3 & 5 & 7 \\
-                8 & 1 & 6 \\
-            \end{bmatrix}.
+        A =
+        \begin{bmatrix}
+            4 & 9 & 2 \\
+            3 & 5 & 7 \\
+            8 & 1 & 6 \\
+        \end{bmatrix}.
     \end{align*}
     则
     \begin{align*}
@@ -314,18 +318,20 @@
         120 + 6 + 504 - 28 - 162 - 80
         \\
         = {} & 360.
+        \qefhere
     \end{align*}
 \end{example}
 
 \begin{example}
     设
     \begin{align*}
-        A = \begin{bmatrix}
-                16 & 3  & 2  & 13 \\
-                5  & 10 & 11 & 8  \\
-                9  & 6  & 7  & 12 \\
-                4  & 15 & 14 & 1  \\
-            \end{bmatrix}.
+        A =
+        \begin{bmatrix}
+            16 & 3  & 2  & 13 \\
+            5  & 10 & 11 & 8  \\
+            9  & 6  & 7  & 12 \\
+            4  & 15 & 14 & 1  \\
+        \end{bmatrix}.
     \end{align*}
     则
     \begin{align*}
@@ -376,48 +382,53 @@
         (-1)^{1+1} [A]_{1,1} \det {(A(1|1))}
         + (-1)^{2+1} [A]_{2,1} \det {(A(2|1))}
         \\
-             &
+        &
         + (-1)^{3+1} [A]_{3,1} \det {(A(3|1))}
         + (-1)^{4+1} [A]_{4,1} \det {(A(4|1))}.
     \end{align*}
     可算出
     \begin{align*}
-         & \det {(A(1|1))}
-        = \det {\begin{bmatrix}
-                        10 & 11 & 8  \\
-                        6  & 7  & 12 \\
-                        15 & 14 & 1  \\
-                    \end{bmatrix}}
+        & \det {(A(1|1))}
+        = \det {
+            \begin{bmatrix}
+                10 & 11 & 8  \\
+                6  & 7  & 12 \\
+                15 & 14 & 1  \\
+        \end{bmatrix}}
         = 136;             \\
-         & \det {(A(2|1))}
-        = \det {\begin{bmatrix}
-                        3  & 2  & 13 \\
-                        6  & 7  & 12 \\
-                        15 & 14 & 1  \\
-                    \end{bmatrix}}
+        & \det {(A(2|1))}
+        = \det {
+            \begin{bmatrix}
+                3  & 2  & 13 \\
+                6  & 7  & 12 \\
+                15 & 14 & 1  \\
+        \end{bmatrix}}
         = -408;            \\
-         & \det {(A(3|1))}
-        = \det {\begin{bmatrix}
-                        3  & 2  & 13 \\
-                        10 & 11 & 8  \\
-                        15 & 14 & 1  \\
-                    \end{bmatrix}}
+        & \det {(A(3|1))}
+        = \det {
+            \begin{bmatrix}
+                3  & 2  & 13 \\
+                10 & 11 & 8  \\
+                15 & 14 & 1  \\
+        \end{bmatrix}}
         = -408;            \\
-         & \det {(A(4|1))}
-        = \det {\begin{bmatrix}
-                        3  & 2  & 13 \\
-                        10 & 11 & 8  \\
-                        6  & 7  & 12 \\
-                    \end{bmatrix}}
+        & \det {(A(4|1))}
+        = \det {
+            \begin{bmatrix}
+                3  & 2  & 13 \\
+                10 & 11 & 8  \\
+                6  & 7  & 12 \\
+        \end{bmatrix}}
         = 136.
     \end{align*}
     所以
-    \begin{align*}
+    \begin{equation*}
         \det {(A)}
         = 16 \cdot 136 - 5 \cdot (-408)
         + 9 \cdot (-408) - 4 \cdot 136
         = 0.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
 \begin{example}
@@ -459,7 +470,7 @@
     注意, \(A_1\) 的前 \(n-1\)~列%
     与 \(A\) 的前 \(n-1\)~列一样,
     但 \(A_1\) 的列~\(n\) 的元全为 \(x + (n-1)y\).
-    用 \(n-1\)~次性质~(7), 有
+    用 \(n-1\)~次性质~(7), 得
     \(\det {(A)} = \det {(A_1)}\).
 
     作 \(n\)~级阵
@@ -476,7 +487,7 @@
     注意, \(A_2\) 的前 \(n-1\)~列%
     与 \(A_1\) 的前 \(n-1\)~列一样,
     但 \(A_2\) 的列~\(n\) 的元全为 \(1\).
-    用性质~(3), 有
+    由性质~(3),
     \(\det {(A)} = \det {(A_1)}
     = (x + (n-1)y) \det {(A_2)}\).
 
@@ -496,26 +507,27 @@
             0      & 0      & \cdots & 0      & 1      \\
         \end{bmatrix}.
     \end{align*}
-    用 \(n-1\)~次性质~(7), 有
+    用 \(n-1\)~次性质~(7), 得
     \(\det {(A)}
-    = (x + (n-1)y) \det {(A_2)}
+        = (x + (n-1)y) \det {(A_2)}
     = (x + (n-1)y) \det {(A_3)}\).
     注意,
     \(1 \leq j < i \leq n\) 时,
-    有 \([A_3]_{i,j} = 0\).
+    \([A_3]_{i,j} = 0\).
     故
     \begin{align*}
         \det {(A_3)} = (x-y)^{n-1} \cdot 1 = (x-y)^{n-1}.
     \end{align*}
     故
-    \begin{align*}
+    \begin{equation*}
         \det {(A)}
         = (x + (n-1)y) \det {(A_3)}
         = (x + (n-1)y) (x-y)^{n-1}.
-    \end{align*}
+        \qefhere
+    \end{equation*}
 \end{example}
 
-\begin{example}[Vandermonde \pinjino{fandemonde} 阵的行列式]
+\begin{example}[Vandermonde 阵的行列式]
     设 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是数.
     作 \(n\)~级 Vandermonde 阵
     \(V(x_1, x_2, \dots, x_n)\) 如下:
@@ -545,7 +557,7 @@
     列~\(1\) 的 \(-x_n\) 倍于列~\(2\),
     得 \(n\)~级阵
     \begin{align*}
-             & A
+        & A
         \\
         = {} &
         \begin{bmatrix}
@@ -569,22 +581,21 @@
     \end{align*}
     具体地,
     \begin{align*}
-        [A]_{i,j}
-        =
+        [A]_{i,j} =
         \begin{cases}
             1,
-             & j = 1; \\
+            & j = 1; \\
             x_i^{j-1} - x_i^{j-2} x_n
             = x_i^{j-2} (x_i - x_n),
-             & j > 2.
+            & j > 2.
         \end{cases}
     \end{align*}
-    由性质~(7), 有
+    由性质~(7),
     \begin{align*}
         \det {(V(x_1, x_2, \dots, x_n))} = \det {(A)}.
     \end{align*}
 
-    按行~\(n\) 展开, 有
+    按行~\(n\) 展开, 得
     \begin{align*}
         \det {(V(x_1, x_2, \dots, x_n))}
         = \det {(A)}
@@ -604,7 +615,7 @@
         \end{bmatrix}.
     \end{align*}
 
-    用 \(n-1\)~次性质~(3) (关于行), 有
+    用 \(n-1\)~次性质~(3) (关于行), 得
     \begin{align*}
         \det {(B)}
         = {} &
@@ -617,7 +628,7 @@
     \end{align*}
     故
     \begin{align*}
-             &
+        &
         \det {(V(x_1, x_2, \dots, x_n))}
         \\
         = {} &
@@ -635,7 +646,7 @@
 
     类似地,
     \begin{align*}
-             &
+        &
         \det {(V(x_1, x_2, \dots, x_{n-1}))}
         \\
         = {} &
@@ -648,52 +659,52 @@
         = {} & \hphantom{\cdot\,\,}
         (x_n - x_1) (x_n - x_2) \dots (x_n - x_{n-1})
         \\
-             & \cdot
+        & \cdot
         (x_{n-1} - x_1) (x_{n-1} - x_2) \dots (x_{n-1} - x_{n-2})
         \\
-             & \cdot
+        & \cdot
         \det {(V(x_1, x_2, \dots, x_{n-2}))}.
     \end{align*}
 
     ……
 
-    最后, 我们有
+    最后, 我们得
     \begin{align*}
         \det {(V(x_1, x_2, \dots, x_n))}
         = {} & \hphantom{\cdot\,\,}
         (x_n - x_1) (x_n - x_2) \dots (x_n - x_{n-1})
         \\
-             & \cdot
+        & \cdot
         (x_{n-1} - x_1) (x_{n-1} - x_2) \dots (x_{n-1} - x_{n-2})
         \\
-             & \cdot
+        & \cdot
         \dots
         \\
-             & \cdot
+        & \cdot
         (x_3 - x_1) (x_3 - x_2)
         \\
-             & \cdot
+        & \cdot
         (x_2 - x_1)
         \\
-             & \cdot
+        & \cdot
         \det {(V(x_1))}
         \\
         = {} & \hphantom{\cdot\,\,}
         (x_n - x_1) (x_n - x_2) \dots (x_n - x_{n-1})
         \\
-             & \cdot
+        & \cdot
         (x_{n-1} - x_1) (x_{n-1} - x_2) \dots (x_{n-1} - x_{n-2})
         \\
-             & \cdot
+        & \cdot
         \dots
         \\
-             & \cdot
+        & \cdot
         (x_3 - x_1) (x_3 - x_2)
         \\
-             & \cdot
+        & \cdot
         (x_2 - x_1)
         \\
-             & \cdot
+        & \cdot
         1
         \\
         = {} &
@@ -718,34 +729,35 @@
     设 \(a_0\), \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是 \(n+1\)~个数.
     作 \(n\)~级阵 \(P(x; a_0; a_1, a_2, \dots, a_n)\) 如下:
     \begin{align*}
-        [P(x; a_0; a_1, a_2, \dots, a_n)]_{i,j}
-        = \begin{cases}
-              x,           & 1 \leq i = j \leq n-1;   \\
-              -1,          & 1 \leq i-1 = j \leq n-1; \\
-              a_{n-i+1},   & 1 \leq i \leq n-1 = j-1; \\
-              a_0 x + a_1, & i = n = j;               \\
-              0,           & \text{别的情形}.
-          \end{cases}
+        [P(x; a_0; a_1, a_2, \dots, a_n)]_{i,j} =
+        \begin{cases}
+            x,           & 1 \leq i = j \leq n-1;   \\
+            -1,          & 1 \leq i-1 = j \leq n-1; \\
+            a_{n-i+1},   & 1 \leq i \leq n-1 = j-1; \\
+            a_0 x + a_1, & i = n = j;               \\
+            0,           & \text{别的情形}.
+        \end{cases}
     \end{align*}
     通俗地,
     \begin{align*}
         P(x; a_0; a_1, a_2, \dots, a_n)
-        = \begin{bmatrix}
-              x      & 0      & \cdots & 0      & 0      & a_n         \\
-              -1     & x      & \cdots & 0      & 0      & a_{n-1}     \\
-              0      & -1     & \cdots & 0      & 0      & a_{n-2}     \\
-              \vdots & \vdots & {}     & \vdots & \vdots & \vdots      \\
-              0      & 0      & \cdots & -1     & x      & a_2         \\
-              0      & 0      & \cdots & 0      & -1     & a_0 x + a_1 \\
-          \end{bmatrix}.
+        =
+        \begin{bmatrix}
+            x      & 0      & \cdots & 0      & 0      & a_n         \\
+            -1     & x      & \cdots & 0      & 0      & a_{n-1}     \\
+            0      & -1     & \cdots & 0      & 0      & a_{n-2}     \\
+            \vdots & \vdots & {}     & \vdots & \vdots & \vdots      \\
+            0      & 0      & \cdots & -1     & x      & a_2         \\
+            0      & 0      & \cdots & 0      & -1     & a_0 x + a_1 \\
+        \end{bmatrix}.
     \end{align*}
     我们计算 \(\det {(P(x; a_0; a_1, a_2, \dots, a_n))}\).
 
     注意, 当 \(1 < j < n\) 时,
     \([P(x; a_0; a_1, a_2, \dots, a_n)]_{1,j} = 0\).
-    于是, 按行~\(1\) 展开, 有
+    于是, 按行~\(1\) 展开, 得
     \begin{align*}
-             &
+        &
         \det {(P(x; a_0; a_1, a_2, \dots, a_n))}
         \\
         = {} &
@@ -753,7 +765,7 @@
         (-1)^{1+1} [P(x; a_0; a_1, a_2, \dots, a_n)]_{1,1}
         \det {((P(x; a_0; a_1, a_2, \dots, a_n))(1|1))}
         \\
-             &
+        &
         + (-1)^{1+n} [P(x; a_0; a_1, a_2, \dots, a_n)]_{1,n}
         \det {((P(x; a_0; a_1, a_2, \dots, a_n))(1|n))}.
     \end{align*}
@@ -786,24 +798,25 @@
     不难写出,
     \begin{align*}
         (P(x; a_0; a_1, a_2, \dots, a_n))(1|n)
-        = \begin{bmatrix}
-              -1     & x      & \cdots & 0      & 0      \\
-              0      & -1     & \cdots & 0      & 0      \\
-              \vdots & \vdots & {}     & \vdots & \vdots \\
-              0      & 0      & \cdots & -1     & x      \\
-              0      & 0      & \cdots & 0      & -1     \\
-          \end{bmatrix};
+        =
+        \begin{bmatrix}
+            -1     & x      & \cdots & 0      & 0      \\
+            0      & -1     & \cdots & 0      & 0      \\
+            \vdots & \vdots & {}     & \vdots & \vdots \\
+            0      & 0      & \cdots & -1     & x      \\
+            0      & 0      & \cdots & 0      & -1     \\
+        \end{bmatrix};
     \end{align*}
     具体地,
     \begin{align*}
-        [(P(x; a_0; a_1, a_2, \dots, a_n))(1|n)]_{i,j}
-        = \begin{cases}
-              -1, & 1 \leq i = j \leq n-1;     \\
-              x,  & 1 \leq i = j - 1 \leq n-2; \\
-              0,  & \text{别的情形}.
-          \end{cases}
+        [(P(x; a_0; a_1, a_2, \dots, a_n))(1|n)]_{i,j} =
+        \begin{cases}
+            -1, & 1 \leq i = j \leq n-1;     \\
+            x,  & 1 \leq i = j - 1 \leq n-2; \\
+            0,  & \text{别的情形}.
+        \end{cases}
     \end{align*}
-    故 \(1 \leq j < i \leq n-1\) 时, 有
+    故当 \(1 \leq j < i \leq n-1\) 时,
     \([(P(x; a_0; a_1, a_2, \dots, a_n))(1|n)]_{i,j} = 0\).
     则
     \begin{align*}
@@ -813,7 +826,7 @@
 
     综上,
     \begin{align*}
-             &
+        &
         \det {(P(x; a_0; a_1, a_2, \dots, a_n))}
         \\
         = {} &
@@ -821,7 +834,7 @@
         (-1)^{1+1} [P(x; a_0; a_1, a_2, \dots, a_n)]_{1,1}
         \det {((P(x; a_0; a_1, a_2, \dots, a_n))(1|1))}
         \\
-             &
+        &
         + (-1)^{1+n} [P(x; a_0; a_1, a_2, \dots, a_n)]_{1,n}
         \det {((P(x; a_0; a_1, a_2, \dots, a_n))(1|n))}
         \\
@@ -854,9 +867,9 @@
 
     ……
 
-    最后, 我们有
+    最后, 我们得
     \begin{align*}
-             &
+        &
         \det {(P(x; a_0; a_1, a_2, \dots, a_n))}
         \\
         = {} &
@@ -876,6 +889,7 @@
         \\
         = {} &
         a_0 x^n + a_1 x^{n-1} + a_2 x^{n-2} + \dots + a_{n-1} x + a_n.
+        \qefhere
     \end{align*}
 \end{example}
 
@@ -905,7 +919,7 @@
 
 \begin{definition}[对换]
     设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是一个排列.
-    设 \(i\), \(j\) 是不超过 \(n\) 的二个不等的正整数.
+    设 \(i\), \(j\) 是不超过 \(n\) 的 \(2\)~个不等的正整数.
     交换此排列的第~\(i\) 个文字与第~\(j\) 个文字
     (也就是, 交换文字 \(a_i\), \(a_j\)),
     且不改变别的文字,
@@ -913,22 +927,22 @@
     \(b_1\), \(b_2\), \(\dots\), \(b_n\),
     其中,
     \begin{align*}
-        b_k
-        = \begin{cases}
-              a_j, & k = i;       \\
-              a_i, & k = j;       \\
-              a_k, & \text{别的情形}.
-          \end{cases}
+        b_k =
+        \begin{cases}
+            a_j, & k = i;       \\
+            a_i, & k = j;       \\
+            a_k, & \text{别的情形}.
+        \end{cases}
     \end{align*}
     我们说, 变 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
     为 \(b_1\), \(b_2\), \(\dots\), \(b_n\)
     的行为是一次\emph{对换}.
     特别地, 若 \(j = i + 1\) 或
     \(j = i - 1\)
-    (通俗地,
+    (通俗地, % tex-fmt: skip
     \(a_i\), \(a_j\), 或 \(a_j\), \(a_i\), 在
     \(a_1\), \(a_2\), \(\dots\), \(a_n\) 里,
-    是相邻的二个文字),
+    是相邻的 \(2\)~个文字), % tex-fmt: skip
     我们说, 这一次对换是一次\emph{相邻对换}.
 \end{definition}
 
@@ -943,7 +957,7 @@
     得排列~III: \(3\), \(2\), \(5\), \(4\), \(1\).
     变 I 为 III 的行为当然也是一次对换.
     不过, 因为 \(1\), \(4\) 在 I 里是%
-    相邻的二个文字,
+    相邻的 \(2\)~个文字,
     故我们也可说,
     变 I 为 III 的行为是一次相邻对换.
 
@@ -974,7 +988,7 @@
 
     其实, 不难看出这么一件事.
     设 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 是一个排列,
-    \(i\), \(j\) 是不超过 \(n\) 的二个不等的正整数,
+    \(i\), \(j\) 是不超过 \(n\) 的 \(2\)~个不等的正整数,
     且 \(i < j\).
     则, 我们可作 \((j - i) + (j - 1 - i)
     = 2(j - i) - 1\)~次相邻对换%
@@ -1038,7 +1052,7 @@
     是 \(1\), \(2\), \(\dots\), \(m-1\) 的排列.
     由假定, 我们可作
     \(
-    T_{m-1} = \tau (a_1, \dots, a_{k-1}, a_{k+1}, \dots, a_m)
+        T_{m-1} = \tau (a_1, \dots, a_{k-1}, a_{k+1}, \dots, a_m)
     \)
     次相邻对换,
     变 \(a_1\), \(\dots\), \(a_{k-1}\),
@@ -1050,7 +1064,7 @@
 
     注意, 每个适合条件 \(1 \leq i < j \leq m\)
     的有序整数对 \((i, j)\)
-    恰适合以下三个条件的一个:
+    恰适合以下 \(3\)~个条件的一个:
     (a)
     \(i \neq k\) 且 \(j \neq k\);
     (b)
@@ -1059,16 +1073,16 @@
     \(1 \leq i < k\) 且 \(j = k\).
     再注意, 对每个不等于 \(k\),
     且不超过 \(m\) 的正整数 \(\ell\),
-    必有 \(a_\ell < m\).
+    \(a_\ell < m\).
     故
     \begin{align*}
-             & \tau (a_1, a_2, \dots, a_m)
+        & \tau (a_1, a_2, \dots, a_m)
         \\
         = {} &
         \sum_{1 \leq i < j \leq m} {\rho(a_i, a_j)}
         \\
         = {} &
-        \sum_{\substack{1 \leq i < j \leq m \\i,j \neq k}}
+        \sum_{\substack{1 \leq i < j \leq m \\ i,j \neq k}}
         {\rho(a_i, a_j)}
         + \sum_{k < j \leq m} {\rho(a_k, a_j)}
         + \sum_{1 \leq i < k} {\rho(a_i, a_k)}
@@ -1109,8 +1123,8 @@
     \(1\), \(2\), \(\dots\), \(n\) 的一个排列,
     则 \(c_{v_1}\), \(c_{v_2}\), \(\dots\), \(c_{v_n}\)
     是 \(c_1\), \(c_2\), \(\dots\), \(c_n\) 的一个排列.
-    也不难看出, 若 \(d_t < d_v\), 必有 \(f(d_t) < f(d_v)\).
-    反过来, 若 \(f(d_t) < f(d_v)\), 必有 \(d_t < d_v\).
+    也不难看出, 若 \(d_t < d_v\), 则 \(f(d_t) < f(d_v)\).
+    反过来, 若 \(f(d_t) < f(d_v)\), 则 \(d_t < d_v\).
     从而, \(f(a_1)\), \(f(a_2)\), \(\dots\), \(f(a_n)\)
     的逆序数等于 \(a_1\), \(a_2\), \(\dots\), \(a_n\)
     的逆序数.
@@ -1121,13 +1135,13 @@
     的逆序数一样多的次数的相邻对换,
     变 \(a_1\), \(a_2\), \(\dots\), \(a_n\) 为它的%
     自然排列 \(c_1\), \(c_2\), \(\dots\), \(c_n\).
-    (注意, 我们总可用类似的方法,
+    (注意, 我们总可用类似的方法, % tex-fmt: skip
     变一般的排列的研究为
     \(1\), \(2\), \(\dots\), \(n\) 的排列的研究.
     所以, 当我们得到
     \(1\), \(2\), \(\dots\), \(n\)
     的排列的只跟逆序有关的性质后,
-    我们总可译它为一般的排列的性质.)
+    我们总可变它为一般的排列的性质.) % tex-fmt: skip
 \end{proof}
 
 \begin{theorem}
@@ -1148,10 +1162,10 @@
 
     设 \(n\)~级单位阵
     \(I = [e_1, e_2, \dots, e_n]\).
-    作二个 \(n\)~级阵
+    作 \(2\)~个 \(n\)~级阵
     \(A = [e_{a_1}, e_{a_2}, \dots, e_{a_n}]\),
     \(B = [e_{b_1}, e_{b_2}, \dots, e_{b_n}]\).
-    那么, \(B\) 可被认为是交换了 \(A\)~的二列,
+    那么, \(B\) 可被认为是交换了 \(A\)~的 \(2\)~列,
     且不改变别的列得到的阵.
     从而,
     \begin{align*}
@@ -1207,16 +1221,16 @@
         = {} & \det {(U)}
         \\
         = {} & \sum_{\substack{
-        1 \leq i_1, i_2, \dots, i_n \leq n \\
+                1 \leq i_1, i_2, \dots, i_n \leq n \\
                 i_1, i_2, \dots, i_n\,\text{互不相同}
-            }}
+        }}
         {s(i_1, i_2, \dots, i_n)\,
-            [U]_{i_1,1} [U]_{i_2,2} \dots [U]_{i_n,n}}
+        [U]_{i_1,1} [U]_{i_2,2} \dots [U]_{i_n,n}}
         \\
         = {} & \sum_{\substack{
-        1 \leq i_1, i_2, \dots, i_n \leq n \\
+                1 \leq i_1, i_2, \dots, i_n \leq n \\
                 i_1, i_2, \dots, i_n\,\text{互不相同}
-            }}
+        }}
         {s(i_1, i_2, \dots, i_n)}.
     \end{align*}
     我问一个简单的问题:
@@ -1243,42 +1257,42 @@
 ``用行列式的性质确定行列式'' 说过,
 行列式的规范性、多线性、交错性可确定行列式:
 
-\begin{theorem}
-    设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
+% subfile fix: repeat restatable
+% see:
+% determinanto - ecoj de determinantoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{TheoremDetIsUniquelyDeterminedByItsProperties}
+        设定义在全体 \(n\)~级阵上的函数 \(f\) 适合:
 
-    (1)
-    (多线性)
-    对任何不超过 \(n\) 的正整数 \(j\),
-    任何 \(n-1\)~个 \(n \times 1\)~阵
-    \(a_1\), \(\dots\), \(a_{j-1}\),
-    \(a_{j+1}\), \(\dots\), \(a_n\),
-    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
-    \begin{align*}
-             & f
-            {([a_1, \dots, a_{j-1}, sx + ty,
-                        a_{j+1}, \dots, a_n])}
-        \\
-        = {} &
-        s
-        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
-        +
-        t
-        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
-    \end{align*}
+        (1)
+        (多线性)
+        对任何不超过 \(n\) 的正整数 \(j\),
+        任何 \(n-1\)~个 \(n \times 1\)~阵
+        \(a_1\), \(\dots\), \(a_{j-1}\),
+        \(a_{j+1}\), \(\dots\), \(a_n\),
+        任何 \(2\)~个 \(n \times 1\)~阵 \(x\), \(y\),
+        任何 \(2\)~个数 \(s\), \(t\),
+        \begin{align*}
+            &
+            f([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])
+            \\
+            = {} &
+            s f([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])
+            + t f([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]).
+        \end{align*}
 
-    (2)
-    (交错性)
-    若 \(n\)~级阵 \(A\) 有二列相同,
-    则 \(f {(A)} = 0\).
+        (2)
+        (交错性)
+        若 \(n\)~级阵 \(A\) 有 \(2\)~列相同,
+        则 \(f(A) = 0\).
 
-    那么, 对任何 \(n\)~级阵 \(A\),
-    \(f(A) = f(I) \det {(A)}\).
+        那么, 对任何 \(n\)~级阵 \(A\),
+        \(f(A) = f(I) \det {(A)}\).
 
-    特别地, 若 \(f(I) = 1\) (规范性),
-    则 \(f\) 就是行列式.
-\end{theorem}
+        特别地, 若 \(f(I) = 1\) (规范性),
+        则 \(f\) 就是行列式.
+    \end{restatable}
+}{\TheoremDetIsUniquelyDeterminedByItsProperties*}
 
 还记得我如何证此事吗?
 我作了一个辅助函数
@@ -1298,11 +1312,11 @@
 \begin{align*}
     f(A)
     = \sum_{\substack{
-    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            1 \leq i_1, i_2, \dots, i_n \leq n \\
             i_1, i_2, \dots, i_n\,\text{互不相同}
-        }}
+    }}
     {[A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}\,
-        f([e_{i_1}, e_{i_2}, \dots, e_{i_n}])},
+    f([e_{i_1}, e_{i_2}, \dots, e_{i_n}])},
 \end{align*}
 其中, \(e_k\) 是 \(n\)~级单位阵~\(I\) 的列~\(k\).
 
@@ -1325,11 +1339,11 @@
 \begin{align*}
     f(A)
     = f(I) \sum_{\substack{
-    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            1 \leq i_1, i_2, \dots, i_n \leq n \\
             i_1, i_2, \dots, i_n\,\text{互不相同}
-        }}
+    }}
     {\sigma (i_1, i_2, \dots, i_n)\,
-        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
+    [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}}.
 \end{align*}
 问题来了:
 \(\sigma (i_1, i_2, \dots, i_n)\) 是何?
@@ -1341,7 +1355,7 @@
 相邻对换变它为自然排列.
 所以, 我们可作
 \(\tau (i_1, i_2, \dots, i_n)\)~次列的交换
-(每次交换二列),
+(每次交换 \(2\)~列),
 变 \([e_{i_1}, e_{i_2}, \dots, e_{i_n}]\) 为 \(I\).
 由反称性,
 \begin{align*}
@@ -1366,11 +1380,11 @@
 \begin{align*}
     \det {(A)}
     = {} & \sum_{\substack{
-    1 \leq i_1, i_2, \dots, i_n \leq n \\
+            1 \leq i_1, i_2, \dots, i_n \leq n \\
             i_1, i_2, \dots, i_n\,\text{互不相同}
-        }}
+    }}
     {s(i_1, i_2, \dots, i_n)\,
-        [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}},
+    [A]_{i_1,1} [A]_{i_2,2} \dots [A]_{i_n,n}},
 \end{align*}
 % (取 \(j_1\), \(j_2\), \(\dots\), \(j_n\)
 % 为 \(1\), \(2\), \(\dots\), \(n\)),
@@ -1378,7 +1392,7 @@
 
 由此可见, 理论地, 不作辅助函数 \(g\) 也是可证此事的.
 不过, 跟作辅助函数 \(g\) 的论证相比,
-这个试直接计算 \(f(A)\) 的论证至少用到了二件事:
+这个试直接计算 \(f(A)\) 的论证至少用到了 \(2\)~件事:
 
 (1)
 作跟逆序数一样多的次数的相邻对换,
@@ -1400,12 +1414,12 @@
 也不必关注如何变
 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
 为 \(1\), \(2\), \(\dots\), \(n\)
-(比如, 要变 \(3\), \(2\), \(5\), \(1\), \(4\)
+(比如, 要变 \(3\), \(2\), \(5\), \(1\), \(4\) % tex-fmt: skip
 为 \(1\), \(2\), \(3\), \(4\), \(5\),
 可以从后向前看,
 交换 \(5\), \(4\) 的位置,
 再交换 \(4\), \(1\) 的位置,
-再交换 \(3\), \(1\) 的位置);
+再交换 \(3\), \(1\) 的位置); % tex-fmt: skip
 我们知道, 可适当地交换文字的位置,
 变 \(i_1\), \(i_2\), \(\dots\), \(i_n\)
 为 \(1\), \(2\), \(\dots\), \(n\),
@@ -1425,33 +1439,28 @@
     任何 \(n-1\)~个 \(n \times 1\)~阵
     \(a_1\), \(\dots\), \(a_{j-1}\),
     \(a_{j+1}\), \(\dots\), \(a_n\),
-    任何二个 \(n \times 1\)~阵 \(x\), \(y\),
-    任何二个数 \(s\), \(t\),
-    有
+    任何 \(2\)~个 \(n \times 1\)~阵 \(x\), \(y\),
+    任何 \(2\)~个数 \(s\), \(t\),
     \begin{align*}
-             & f
-            {([a_1, \dots, a_{j-1}, sx + ty,
-                        a_{j+1}, \dots, a_n])}
+        &
+        f([a_1, \dots, a_{j-1}, sx + ty, a_{j+1}, \dots, a_n])
         \\
         = {} &
-        s
-        f {([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])}
-        +
-        t
-        f {([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n])}.
+        s f([a_1, \dots, a_{j-1}, x, a_{j+1}, \dots, a_n])
+        + t f([a_1, \dots, a_{j-1}, y, a_{j+1}, \dots, a_n]).
     \end{align*}
 
     (2)
     (交错性)
-    若 \(n\)~级阵 \(A\) 有二列相同,
-    则 \(f {(A)} = 0\).
+    若 \(n\)~级阵 \(A\) 有 \(2\)~列相同,
+    则 \(f(A) = 0\).
 
     (3)
     % (``规范性'')
     \(f(I) = c\).
 
     设定义在全体 \(n\)~级阵上的函数 \(h\)
-    也适合这三条性质.
+    也适合这 \(3\)~个性质.
     则对任何 \(n\)~级阵 \(A\), \(f(A) = h(A)\).
 \end{theorem}
 
@@ -1495,77 +1504,87 @@
 排列、逆序数、符号.
 
 这个论证是我初学 Binet--Cauchy 公式时学到的证明.
-这个论证体现了重要思想, 算二次;
+这个论证体现了重要思想, 算 \(2\)~次;
 聪明的数学人利用它, 得到了多的有名的等式.
 
 为方便, 请允许我引用%
 按多列展开行列式公式与 Binet--Cauchy 公式.
 
-\begin{theorem}
-    设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
-    设 \(k\) 是不超过 \(n\) 的正整数.
-    设 \(j_1\), \(j_2\), \(\dots\), \(j_k\) 是%
-    不超过 \(n\) 的正整数,
-    且 \(j_1 < j_2 < \dots < j_k\).
-    则
-    \begin{align*}
-         &
-        \det {(A)}
-        = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
-        {\det {\left(
-                A\binom{i_1, i_2, \dots, i_k}
-                {j_1, j_2, \dots, j_k}
-                \right)}}
-        \\
-         &
-        \qquad \qquad \qquad
-        \cdot (-1)^{i_1 + i_2 + \dots + i_k
+% subfile fix: repeat restatable
+% see:
+% determinanto - determinantoj.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}{theorem}{TheoremLaplace}
+        设 \(A\) 是 \(n\)~级阵 (\(n \geq 1\)).
+        设 \(k\) 是不超过 \(n\) 的正整数.
+        设 \(j_1\), \(j_2\), \(\dots\), \(j_k\) 是%
+        不超过 \(n\) 的正整数,
+        且 \(j_1 < j_2 < \dots < j_k\).
+        则
+        \begin{align*}
+            &
+            \det {(A)}
+            = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n}
+            {\det {\left(
+                        A\submat{i_1, i_2, \dots, i_k}
+                        {j_1, j_2, \dots, j_k}
+            \right)}}
+            \\
+            &
+            \qquad \qquad \qquad
+            \cdot (-1)^{i_1 + i_2 + \dots + i_k
             + j_1 + j_2 + \dots + j_k}
-        \det {(A({i_1,i_2,\dots,i_k}|{j_1,j_2,\dots,j_k}))}.
-    \end{align*}
-\end{theorem}
+            \det {(A({i_1,i_2,\dots,i_k}|{j_1,j_2,\dots,j_k}))}.
+        \end{align*}
+    \end{restatable}
+}{\TheoremLaplace*}
 
-\begin{theorem}[Binet--Cauchy 公式]
-    设 \(A\), \(B\) 分别是 \(m \times n\), \(n \times m\)~阵.
+% subfile fix: repeat restatable
+% see:
+% determinanto - BC.tex
+\ifSubfilesClassLoaded{%
+    \begin{restatable}[Binet--Cauchy 公式]{theorem}{TheoremBC}
+        设 \(A\), \(B\) 分别是 \(m \times n\), \(n \times m\)~阵.
 
-    (1)
-    若 \(n > m\), 则 \(\det {(BA)} = 0\).
+        (1)
+        若 \(n > m\), 则 \(\det {(BA)} = 0\).
 
-    (2)
-    若 \(n \leq m\),
-    则
-    \begin{align*}
-             & \det {(BA)}
-        \\
-        = {} & \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
-        {
-            \det {\left(
-                B\binom{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
+        (2)
+        若 \(n \leq m\),
+        则
+        \begin{align*}
+            & \det {(BA)}
+            \\
+            = {} & \sum_{1 \leq j_1 < j_2 < \dots < j_n \leq m}
+            {
+                \det {\left(
+                        B\submat{1, 2, \dots, n}{j_1, j_2, \dots, j_n}
                 \right)}
-            \det {\left(
-                A\binom{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
+                \det {\left(
+                        A\submat{j_1, j_2, \dots, j_n}{1, 2, \dots, n}
                 \right)}
-        }.
-    \end{align*}
-    特别地, 若 \(n = m\), 则因适合条件
-    \(1 \leq j_1 < j_2 < \dots < j_n \leq m\)
-    的 \(j_1\), \(j_2\), \(\dots\), \(j_n\),
-    是, 且只能是,
-    \(1\), \(2\), \(\dots\), \(n\),
-    故
-    \begin{align*}
-        \det {(BA)}
-        = {} &
-        \det {\left(
-            B\binom{1, 2, \dots, n}{1, 2, \dots, n}
+            }.
+        \end{align*}
+        特别地, 若 \(n = m\), 则因适合条件
+        \(1 \leq j_1 < j_2 < \dots < j_n \leq m\)
+        的 \(j_1\), \(j_2\), \(\dots\), \(j_n\),
+        是, 且只能是,
+        \(1\), \(2\), \(\dots\), \(n\),
+        故
+        \begin{align*}
+            \det {(BA)}
+            = {} &
+            \det {\left(
+                    B\submat{1, 2, \dots, n}{1, 2, \dots, n}
             \right)}
-        \det {\left(
-            A\binom{1, 2, \dots, n}{1, 2, \dots, n}
+            \det {\left(
+                    A\submat{1, 2, \dots, n}{1, 2, \dots, n}
             \right)}
-        \\
-        = {} & \det {(B)} \det {(A)}.
-    \end{align*}
-\end{theorem}
+            \\
+            = {} & \det {(B)} \det {(A)}.
+        \end{align*}
+    \end{restatable}
+}{\TheoremBC*}
 
 有几件事, 其值得提.
 
@@ -1598,17 +1617,17 @@
 且对任何不超过 \(m + n\)~的正整数 \(i\)
 与不超过 \(s + t\)~的正整数 \(j\),
 \begin{align*}
-    [M]_{i,j}
-    = \begin{cases}
-          [A]_{i,j},
-           & \text{\(i \leq m\), 且 \(j \leq s\)}; \\
-          [B]_{i-m,j},
-           & \text{\(i > m\), 且 \(j \leq s\)};    \\
-          [C]_{i,j-s},
-           & \text{\(i \leq m\), 且 \(j > s\)};    \\
-          [D]_{i-m,j-s},
-           & \text{\(i > m\), 且 \(j > s\)}.
-      \end{cases}
+    [M]_{i,j} =
+    \begin{cases}
+        [A]_{i,j},
+        & \text{\(i \leq m\), 且 \(j \leq s\)}; \\
+        [B]_{i-m,j},
+        & \text{\(i > m\), 且 \(j \leq s\)};    \\
+        [C]_{i,j-s},
+        & \text{\(i \leq m\), 且 \(j > s\)};    \\
+        [D]_{i-m,j-s},
+        & \text{\(i > m\), 且 \(j > s\)}.
+    \end{cases}
 \end{align*}
 
 这是我们在第~1~章, 节~\sekcio{31} 见过的记号.
@@ -1627,13 +1646,13 @@
 且对任何不超过 \(m + n\)~的正整数 \(i\)
 与不超过 \(s\)~的正整数 \(j\),
 \begin{align*}
-    [L]_{i,j}
-    = \begin{cases}
-          [A]_{i,j},
-           & \text{\(i \leq m\)}; \\
-          [B]_{i-m,j},
-           & \text{\(i > m\)}.
-      \end{cases}
+    [L]_{i,j} =
+    \begin{cases}
+        [A]_{i,j},
+        & \text{\(i \leq m\)}; \\
+        [B]_{i-m,j},
+        & \text{\(i > m\)}.
+    \end{cases}
 \end{align*}
 
 类似地, 设 \(A\), \(C\)
@@ -1648,13 +1667,13 @@
 且对任何不超过 \(m\)~的正整数 \(i\)
 与不超过 \(s + t\)~的正整数 \(j\),
 \begin{align*}
-    [H]_{i,j}
-    = \begin{cases}
-          [A]_{i,j},
-           & \text{\(j \leq s\)}; \\
-          [C]_{i,j-s},
-           & \text{\(j > s\)}.
-      \end{cases}
+    [H]_{i,j} =
+    \begin{cases}
+        [A]_{i,j},
+        & \text{\(j \leq s\)}; \\
+        [C]_{i,j-s},
+        & \text{\(j > s\)}.
+    \end{cases}
 \end{align*}
 
 \begin{proof}
@@ -1672,31 +1691,30 @@
     且右下角的 \(0\) 是 \(n \times n\)~零阵
     (元全为 \(0\) 的阵).
 
-    我们用二个方式计算 \(J\) 的行列式.
+    我们用 \(2\)~个方式计算 \(J\) 的行列式.
 
     一方面, 我们按%
     列~\(m + 1\), \(m + 2\), \(\dots\), \(m + n\) 展开,
-    有
+    得
     \begin{align*}
-         &
+        &
         \det {(J)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m+n}
         {\det {\left(
-                J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
-                \right)}}
+                    J\submat{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
+        \right)}}
         \\
-         &
+        &
         \qquad \qquad \qquad
         \cdot (-1)^{i_1 + i_2 + \dots + i_n
-            + (m+1) + (m+2) + \dots + (m+n)}
+        + (m+1) + (m+2) + \dots + (m+n)}
         \\
-         &
+        &
         \qquad \qquad \qquad
         \cdot \det {(J({i_1,i_2,\dots,i_n}|{m+1,m+2,\dots,m+n}))}.
     \end{align*}
     注意, 若 \(i_n > m\), 则因
-    \(\displaystyle
-    J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}\)
+    \(J\submat{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}\)
     的行~\(n\) 的元全为 \(0\),
     故这个子阵的行列式为 \(0\).
     特别地, 若 \(n > m\), 则 \(i_n\) 必高于 \(m\).
@@ -1705,29 +1723,29 @@
     当 \(n \leq m\) 时,
     我们去除使 \(i_n > m\) 的
     \(i_1\), \(i_2\), \(\dots\), \(i_n\),
-    有
+    得
     \begin{align*}
-         &
+        &
         \det {(J)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m}
         {\det {\left(
-                J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
-                \right)}}
+                    J\submat{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
+        \right)}}
         \\
-         &
+        &
         \qquad \qquad \qquad
         \cdot (-1)^{i_1 + i_2 + \dots + i_n
-            + (m+1) + (m+2) + \dots + (m+n)}
+        + (m+1) + (m+2) + \dots + (m+n)}
         \\
-         &
+        &
         \qquad \qquad \qquad
         \cdot \det {(J({i_1,i_2,\dots,i_n}|{m+1,m+2,\dots,m+n}))}.
     \end{align*}
     不难看出,
     因为 \(1 \leq i_1 < i_2 < \dots < i_n \leq m\),
     \begin{align*}
-        J\binom{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
-        = A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n},
+        J\submat{i_1,i_2,\dots,i_n}{m+1,m+2,\dots,m+n}
+        = A\submat{i_1,i_2,\dots,i_n}{1,2,\dots,n},
     \end{align*}
     且
     \begin{align*}
@@ -1746,27 +1764,27 @@
     按列~\(i_1\), \(i_2\), \(\dots\), \(i_n\) 展开
     \(T_{i_1,i_2,\dots,i_n}
     = J({i_1,i_2,\dots,i_n}|{m+1,m+2,\dots,m+n})\)~的%
-    行列式, 有
+    行列式, 得
     \begin{align*}
-             & \det {(T_{i_1,i_2,\dots,i_n})}
+        & \det {(T_{i_1,i_2,\dots,i_n})}
         \\
         = {} &
         \sum_{1 \leq k_1 < k_2 < \dots < k_n \leq m}
         {\det {\left(
-                T_{i_1,i_2,\dots,i_n}
-                \binom{k_1, k_2, \dots, k_n}{i_1, i_2, \dots, i_n}
-                \right)}}
+                    T_{i_1,i_2,\dots,i_n}
+                    \submat{k_1, k_2, \dots, k_n}{i_1, i_2, \dots, i_n}
+        \right)}}
         \\
-             &
+        &
         \qquad
         \cdot (-1)^{k_1 + k_2 + \dots + k_n
-            + i_1 + i_2 + \dots + i_n}
+        + i_1 + i_2 + \dots + i_n}
         \det {(T_{i_1,i_2,\dots,i_n}
         ({k_1,k_2,\dots,k_n}|{i_1,i_2,\dots,i_n}))}.
     \end{align*}
     注意, 若 \(k_1 \leq m-n\),
-    则因 \(\displaystyle T_{i_1,i_2,\dots,i_n}
-    \binom{k_1,k_2,\dots,k_n}{i_1,i_2,\dots,i_n}\)
+    则因 \(T_{i_1,i_2,\dots,i_n}
+    \submat{k_1,k_2,\dots,k_n}{i_1,i_2,\dots,i_n}\)
     的行~\(1\) 的元全为 \(0\),
     故这个子阵的行列式为 \(0\).
     并且, 若 \(k_1 > m-n\),
@@ -1775,20 +1793,20 @@
     \(m-n+1\), \(m-n+2\), \(\dots\), \(m\).
     故
     \begin{align*}
-             & \det {(T_{i_1,i_2,\dots,i_n})}
+        & \det {(T_{i_1,i_2,\dots,i_n})}
         \\
         = {} &
         \hphantom{\cdot\,\,}
         \det {\left(
-            T_{i_1,i_2,\dots,i_n}
-            \binom{m-n+1,m-n+2,\dots,m}{i_1,i_2,\dots,i_n}
-            \right)}
+                T_{i_1,i_2,\dots,i_n}
+                \submat{m-n+1,m-n+2,\dots,m}{i_1,i_2,\dots,i_n}
+        \right)}
         \\
-             &
+        &
         \cdot (-1)^{(m-n+1) + (m-n+2) + \dots + m
-            + i_1 + i_2 + \dots + i_n}
+        + i_1 + i_2 + \dots + i_n}
         \\
-             &
+        &
         \cdot
         \det {(T_{i_1,i_2,\dots,i_n}
         ({m-n+1,m-n+2,\dots,m}|{i_1,i_2,\dots,i_n}))}
@@ -1796,63 +1814,63 @@
         = {} &
         \hphantom{\cdot\,\,}
         \det {\left(
-            (-B)
-            \binom{1,2,\dots,n}{i_1,i_2,\dots,i_n}
-            \right)}
+                (-B)
+                \submat{1,2,\dots,n}{i_1,i_2,\dots,i_n}
+        \right)}
         \\
-             & \cdot
+        & \cdot
         (-1)^{(m-n+1) + (m-n+2) + \dots + (m-n+n)
-            + i_1 + i_2 + \dots + i_n}
+        + i_1 + i_2 + \dots + i_n}
         \\
-             & \cdot
+        & \cdot
         \det {(I_m
         ({i_1,i_2,\dots,i_n}|{i_1,i_2,\dots,i_n}))}
         \\
         = {} &
         (-1)^{(m-n+1) + (m-n+2) + \dots + (m-n+n)
-                + i_1 + i_2 + \dots + i_n}\,
+        + i_1 + i_2 + \dots + i_n}\,
         (-1)^n
         \det {\left(
-            B
-            \binom{1,2,\dots,n}{i_1,i_2,\dots,i_n}
-            \right)}.
+                B
+                \submat{1,2,\dots,n}{i_1,i_2,\dots,i_n}
+        \right)}.
     \end{align*}
     从而
     \begin{align*}
         \det {(J)}
         = {} & \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m}
         {\det {\left(
-                A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
-                \right)}}
+                    A\submat{i_1,i_2,\dots,i_n}{1,2,\dots,n}
+        \right)}}
         \\
-             & \qquad
+        & \qquad
         \cdot
         (-1)^{i_1 + i_2 + \dots + i_n
-            + (m+1) + (m+2) + \dots + (m+n)}
+        + (m+1) + (m+2) + \dots + (m+n)}
         \\
-             & \qquad
+        & \qquad
         \cdot
         (-1)^{(m-n+1) + (m-n+2) + \dots + (m-n+n)
-            + i_1 + i_2 + \dots + i_n}\, (-1)^n
+        + i_1 + i_2 + \dots + i_n}\, (-1)^n
         \\
-             & \qquad
+        & \qquad
         \cdot
         \det {\left(
-            B
-            \binom{1,2,\dots,n}{i_1,i_2,\dots,i_n}
-            \right)}.
+                B
+                \submat{1,2,\dots,n}{i_1,i_2,\dots,i_n}
+        \right)}.
     \end{align*}
     注意,
     \begin{align*}
-             &
+        &
         \hphantom{\cdot\,\,}
         (-1)^{i_1 + i_2 + \dots + i_n
-            + (m+1) + (m+2) + \dots + (m+n)}
+        + (m+1) + (m+2) + \dots + (m+n)}
         \\
-             &
+        &
         \cdot
         (-1)^{(m-n+1) + (m-n+2) + \dots + (m-n+n)
-            + i_1 + i_2 + \dots + i_n}
+        + i_1 + i_2 + \dots + i_n}
         \cdot
         (-1)^n
         \\
@@ -1870,12 +1888,12 @@
         \det {(J)}
         = \sum_{1 \leq i_1 < i_2 < \dots < i_n \leq m}
         {\det {\left(
-                B
-                \binom{1,2,\dots,n}{i_1,i_2,\dots,i_n}
-                \right)}
+                    B
+                    \submat{1,2,\dots,n}{i_1,i_2,\dots,i_n}
+            \right)}
             \det {\left(
-                A\binom{i_1,i_2,\dots,i_n}{1,2,\dots,n}
-                \right)}}.
+                    A\submat{i_1,i_2,\dots,i_n}{1,2,\dots,n}
+        \right)}}.
     \end{align*}
 
     另一方面, 我们也可用行列式的性质,
@@ -2041,7 +2059,7 @@
     \(\det {(J)} = \det {(J_n)}\).
 
     我们要如何计算 \(J_n\)~的行列式?
-    我给您三个方法:
+    我给您 \(3\)~个方法:
     (a)
     用第~1~章, 节~\sekcio{31} 的第~2~个例
     (计算 \(J_n\) 的转置的行列式);
@@ -2057,7 +2075,7 @@
         = \det {(BA)}.
     \end{align*}
 
-    现在, 我们比较二次计算的结果.
+    现在, 我们比较 \(2\)~次计算的结果.
     这就是 Binet--Cauchy 公式.
 \end{proof}
 
@@ -2073,23 +2091,23 @@
 我们说, 我们可以用 \(B\) 与 \(A\) 的 \(k\)~级子阵的行列式%
 写出 \(BA\)~的 \(k\)~级子阵
 \begin{align*}
-    F = (BA)\binom{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
+    F = (BA)\submat{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
 \end{align*}
 的行列式.
 
 首先, 注意,
 \begin{align*}
-    (BA)\binom{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
+    (BA)\submat{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
     =
-    B\binom{i_1,\dots,i_k}{1,\dots,s}
+    B\submat{i_1,\dots,i_k}{1,\dots,s}
     \,
-    A\binom{1,\dots,s}{\ell_1,\dots,\ell_k}.
+    A\submat{1,\dots,s}{\ell_1,\dots,\ell_k}.
 \end{align*}
 为说明此事, 我们设
 \begin{align*}
-    D = B\binom{i_1,\dots,i_k}{1,\dots,s},
+    D = B\submat{i_1,\dots,i_k}{1,\dots,s},
     \quad
-    C = A\binom{1,\dots,s}{\ell_1,\dots,\ell_k}.
+    C = A\submat{1,\dots,s}{\ell_1,\dots,\ell_k}.
 \end{align*}
 则 \(D\), \(C\) 分别是 \(k \times s\), \(s \times k\)~阵,
 \([D]_{u,j} = [B]_{i_u,j}\),
@@ -2121,30 +2139,30 @@
 (2)
 若 \(k \leq s\), 则
 \begin{align*}
-         & \det {(DC)}
+    & \det {(DC)}
     \\
     = {} & \sum_{1 \leq j_1 < \dots < j_k \leq s}
     {
         \det {\left(
-            D\binom{1, \dots, k}{j_1, \dots, j_k}
-            \right)}
+                D\submat{1, \dots, k}{j_1, \dots, j_k}
+        \right)}
         \det {\left(
-            C\binom{j_1, \dots, j_k}{1, \dots, k}
-            \right)}
+                C\submat{j_1, \dots, j_k}{1, \dots, k}
+        \right)}
     }
     \\
     = {} & \sum_{1 \leq j_1 < \dots < j_k \leq s}
     {
         \det {\left(
-            B\binom{i_1, \dots, i_k}{j_1, \dots, j_k}
-            \right)}
+                B\submat{i_1, \dots, i_k}{j_1, \dots, j_k}
+        \right)}
         \det {\left(
-            A\binom{j_1, \dots, j_k}{\ell_1, \dots, \ell_k}
-            \right)}
+                A\submat{j_1, \dots, j_k}{\ell_1, \dots, \ell_k}
+        \right)}
     }.
 \end{align*}
 
-综上, 我们有
+综上,
 
 \begin{theorem}
     设 \(A\), \(B\) 分别是 \(s \times n\) 与 \(m \times s\)~阵.
@@ -2156,25 +2174,25 @@
     若 \(k > s\), 则
     \begin{align*}
         \det {\left(
-            (BA)\binom{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
-            \right)} = 0.
+                (BA)\submat{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
+        \right)} = 0.
     \end{align*}
 
     (2)
     若 \(k \leq s\), 则
     \begin{align*}
-             & \det {\left(
-            (BA)\binom{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
-            \right)}
+        & \det {\left(
+                (BA)\submat{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
+        \right)}
         \\
         = {} & \sum_{1 \leq j_1 < \dots < j_k \leq s}
         {
             \det {\left(
-                B\binom{i_1, \dots, i_k}{j_1, \dots, j_k}
-                \right)}
+                    B\submat{i_1, \dots, i_k}{j_1, \dots, j_k}
+            \right)}
             \det {\left(
-                A\binom{j_1, \dots, j_k}{\ell_1, \dots, \ell_k}
-                \right)}
+                    A\submat{j_1, \dots, j_k}{\ell_1, \dots, \ell_k}
+            \right)}
         }.
     \end{align*}
 \end{theorem}
@@ -2196,18 +2214,18 @@
     设 \(1 \leq \ell_1 < \dots < \ell_k \leq n\).
     则
     \begin{align*}
-             & \det {\left(
-            (BA)\binom{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
-            \right)}
+        & \det {\left(
+                (BA)\submat{i_1,\dots,i_k}{\ell_1,\dots,\ell_k}
+        \right)}
         \\
         = {} & \sum_{1 \leq j_1 < \dots < j_k \leq n}
         {
             \det {\left(
-                B\binom{i_1, \dots, i_k}{j_1, \dots, j_k}
-                \right)}
+                    B\submat{i_1, \dots, i_k}{j_1, \dots, j_k}
+            \right)}
             \det {\left(
-                A\binom{j_1, \dots, j_k}{\ell_1, \dots, \ell_k}
-                \right)}
+                    A\submat{j_1, \dots, j_k}{\ell_1, \dots, \ell_k}
+            \right)}
         }.
     \end{align*}
 \end{theorem}
@@ -2227,18 +2245,18 @@
     设 \(1 \leq \ell_1 < \dots < \ell_k \leq n\).
     则
     \begin{align*}
-             & \det {(
-        (BA)({i_1,\dots,i_k}|{\ell_1,\dots,\ell_k})
+        & \det {(
+                (BA)({i_1,\dots,i_k}|{\ell_1,\dots,\ell_k})
         )}
         \\
         = {} & \sum_{1 \leq j_1 < \dots < j_k \leq n}
         {
-        \det {(
-        B({i_1, \dots, i_k}|{j_1, \dots, j_k})
-        )}
-        \det {(
-        A({j_1, \dots, j_k}|{\ell_1, \dots, \ell_k})
-        )}
+            \det {(
+                    B({i_1, \dots, i_k}|{j_1, \dots, j_k})
+            )}
+            \det {(
+                    A({j_1, \dots, j_k}|{\ell_1, \dots, \ell_k})
+            )}
         }.
     \end{align*}
 \end{theorem}
@@ -2248,7 +2266,7 @@
 \begin{example}
     设命题 \(P(n)\):
     对任何 \(n\)~级阵 \(A\), \(B\),
-    有 \(\det {(BA)} = \det {(B)} \det {(A)}\).
+    \(\det {(BA)} = \det {(B)} \det {(A)}\).
     我们用数学归纳法证明,
     对任何正整数 \(n\), \(P(n)\) 是对的.
 
@@ -2265,47 +2283,47 @@
         \det {(BA)}
         = {} &
         \sum_{p=1}^{n} {
-                (-1)^{p+1} [BA]_{p,1} \det {((BA)(p|1))}
-            }
+            (-1)^{p+1} [BA]_{p,1} \det {((BA)(p|1))}
+        }
         \\
         = {} &
         \sum_{p=1}^{n} {
-                (-1)^{p+1}
-                \left(
+            (-1)^{p+1}
+            \left(
                 \sum_{q=1}^{n} {
                     [B]_{p,q} [A]_{q,1}
                 }
-                \right)
-                \det {((BA)(p|1))}
-            }
+            \right)
+            \det {((BA)(p|1))}
+        }
         \\
         = {} &
         \sum_{p=1}^{n} {
-                \sum_{q=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q} [A]_{q,1}
-                        \det {((BA)(p|1))}
-                    }
+            \sum_{q=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q} [A]_{q,1}
+                \det {((BA)(p|1))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q} [A]_{q,1}
-                        \det {((BA)(p|1))}
-                    }
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q} [A]_{q,1}
+                \det {((BA)(p|1))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q}
-                        \det {((BA)(p|1))}
-                    }
-            }.
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q}
+                \det {((BA)(p|1))}
+            }
+        }.
     \end{align*}
     作 \(n\)~级阵 \(C_q\) 如下:
     \begin{align*}
@@ -2325,29 +2343,29 @@
         \det {(BA)}
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q}
-                        \det {((BA)(p|1))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q}
+                \det {((BA)(p|1))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [C_q]_{p,1}
-                        \det {(C_q (p|1))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [C_q]_{p,1}
+                \det {(C_q (p|1))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \det {(C_q)}
-            }.
+            [A]_{q,1}
+            \det {(C_q)}
+        }.
     \end{align*}
     注意, \(j \neq 1\) 时,
     \begin{align*}
@@ -2357,28 +2375,28 @@
         \\
         = {} &
         \sum_{k=1}^{n} {
-                [B]_{i,k} [A]_{k,j}
-            }
+            [B]_{i,k} [A]_{k,j}
+        }
         \\
         = {} &
         [B]_{i,q} [A]_{q,j} +
-        \sum_{\substack{1 \leq k \leq n \\k \neq q}} {
+        \sum_{\substack{1 \leq k \leq n \\ k \neq q}} {
             [B]_{i,k} [A]_{k,j}
         }
         \\
         = {} &
         [B]_{i,q} [A]_{q,j} +
         \sum_{\ell=1}^{n-1} {
-                [B]_{i,\ell+\rho(\ell,k)}
-                    [A]_{\ell+\rho(\ell,k),j}
-            }
+            [B]_{i,\ell+\rho(\ell,k)}
+            [A]_{\ell+\rho(\ell,k),j}
+        }
         \\
         = {} &
         [B]_{i,q} [A]_{q,j} +
         \sum_{\ell=1}^{n-1} {
-                [B({|q})]_{i,\ell}
-                    [A({q|})]_{\ell,j}
-            }
+            [B({|q})]_{i,\ell}
+            [A({q|})]_{\ell,j}
+        }
         \\
         = {} &
         [B]_{i,q} [A]_{q,j} +
@@ -2410,41 +2428,41 @@
         \det {(BA)}
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \det {(C_q)}
-            }
+            [A]_{q,1}
+            \det {(C_q)}
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \det {(D_q)}
-            }
+            [A]_{q,1}
+            \det {(D_q)}
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [D_q]_{p,1}
-                        \det {(D_q (p|1))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [D_q]_{p,1}
+                \det {(D_q (p|1))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q}
-                        \det {((B({|q})\, A({q|}))\, (p|1))}
-                    }
-            }.
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q}
+                \det {((B({|q})\, A({q|}))\, (p|1))}
+            }
+        }.
     \end{align*}
     注意, 对 \(m \times s\)~阵 \(X\)
     与 \(s \times n\)~阵 \(Y\),
     对正整数 \(u \leq m\)
     与正整数 \(v \leq n\),
-    有 \((XY)(u|v) = X({u|})\, Y({|v})\).
+    \((XY)(u|v) = X({u|})\, Y({|v})\).
     则
     \begin{align*}
         (B({|q})\, A({q|}))\, (p|1)
@@ -2462,77 +2480,77 @@
         \det {(BA)}
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q}
-                        \det {((B({|q})\, A({q|}))\, (p|1))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q}
+                \det {((B({|q})\, A({q|}))\, (p|1))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q}
-                        \det {(B({p|q})\, A({q|1}))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q}
+                \det {(B({p|q})\, A({q|1}))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+1}
-                            [B]_{p,q}
-                        \det {(B({p|q}))} \det {(A({q|1}))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+1}
+                [B]_{p,q}
+                \det {(B({p|q}))} \det {(A({q|1}))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+q} (-1)^{q+1}
-                            [B]_{p,q}
-                        \det {(B({p|q}))} \det {(A({q|1}))}
-                    }
+            [A]_{q,1}
+            \sum_{p=1}^{n} {
+                (-1)^{p+q} (-1)^{q+1}
+                [B]_{p,q}
+                \det {(B({p|q}))} \det {(A({q|1}))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                (-1)^{q+1}
-                \det {(A({q|1}))}
-                \sum_{p=1}^{n} {
-                        (-1)^{p+q}
-                            [B]_{p,q}
-                        \det {(B({p|q}))}
-                    }
+            [A]_{q,1}
+            (-1)^{q+1}
+            \det {(A({q|1}))}
+            \sum_{p=1}^{n} {
+                (-1)^{p+q}
+                [B]_{p,q}
+                \det {(B({p|q}))}
             }
+        }
         \\
         = {} &
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                (-1)^{q+1}
-                \det {(A({q|1}))}
-                \det {(B)}
-            }
+            [A]_{q,1}
+            (-1)^{q+1}
+            \det {(A({q|1}))}
+            \det {(B)}
+        }
         \\
         = {} &
         \det {(B)}
         \sum_{q=1}^{n} {
-                [A]_{q,1}
-                (-1)^{q+1}
-                \det {(A({q|1}))}
-            }
+            [A]_{q,1}
+            (-1)^{q+1}
+            \det {(A({q|1}))}
+        }
         \\
         = {} &
         \det {(B)} \det {(A)}.
     \end{align*}
     所以, \(P(n)\) 是对的.
-    由数学归纳法, 待证命题成立.
+    由数学归纳法, 待证的命题成立.
 \end{example}
 
 \end{document}

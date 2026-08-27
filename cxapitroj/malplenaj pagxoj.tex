@@ -1,0 +1,22 @@
+\documentclass[../libro.tex]{subfiles}
+
+\begin{document}
+
+\ifSubfilesClassLoaded{\backmatter}{}
+
+\ExplSyntaxOn
+\clearpage
+% \value{page} represents the number of the next page
+% to be printed, and it is supposed to be of the form 4k - 1.
+\bool_until_do:nn { \int_compare_p:n { \int_mod:nn { \value{page} + 1 } { 4 } == 0 } }
+{
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage
+}
+\ExplSyntaxOff
+
+\end{document}
+
+This file is used for guarantee
+that the number of pages is a multiple of 4.
