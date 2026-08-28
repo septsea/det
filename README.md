@@ -44,6 +44,7 @@ Here is the cover of the book, which I copied from [this project](https://github
 - [https://gitee.com/septsea/det/raw/cxefa/libro.pdf](https://gitee.com/septsea/det/raw/cxefa/libro.pdf)
 - [https://gitcode.net/septsea/det/raw/cxefa/libro.pdf](https://gitcode.net/septsea/det/raw/cxefa/libro.pdf)
 - [https://www.123pan.com/s/QvKUVv-K4WHA](https://www.123pan.com/s/QvKUVv-K4WHA)
+- [https://mathtranslations.org/notes/101/](https://mathtranslations.org/notes/101/)
 - [https://github.com/septsea/det/raw/cxefa/libro.pdf](https://github.com/septsea/det/raw/cxefa/libro.pdf)
 - [https://gitea.com/septsea/det/raw/cxefa/libro.pdf](https://gitea.com/septsea/det/raw/cxefa/libro.pdf)
 - [https://codeberg.org/septsea/det/raw/cxefa/libro.pdf](https://codeberg.org/septsea/det/raw/cxefa/libro.pdf)
