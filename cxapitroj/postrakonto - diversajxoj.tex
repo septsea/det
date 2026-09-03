@@ -4317,6 +4317,385 @@
     \end{align*}
 \end{example}
 
+\begin{example}
+    设
+    \begin{align*}
+        f(x) = a_0 x^n + a_1 x^{n-1} + \dots + a_n
+        = a_0 (x - x_1) (x - x_2) \dots (x - x_n),
+    \end{align*}
+    且 \(a_0 \neq 0\), \(n \geq 1\).
+    为方便, 约定:
+    若 \(k < 0\) 或 \(k > n\), 则 \(a_k = 0\).
+
+    记
+    \begin{align*}
+        L_i (x) =
+        \prod_{\substack{1 \leq j \leq n \\ j \neq i}}
+        {(x - x_i)}.
+    \end{align*}
+    注意, \(f(x) = a_0 (x - x_i) L_i (x)\).
+    回想,
+    \begin{align*}
+        \mathrm{D} f(x) =
+        a_0 (L_1 (x) + L_2 (x) + \dots + L_n (x)).
+    \end{align*}
+    设 \(\ell\) 是非负整数.
+    则
+    \begin{align*}
+        x^{\ell+1} a_0 L_i (x)
+        = {} &
+        (x^{\ell+1} - x_i^{\ell+1} + x_i^{\ell+1})
+        a_0 L_i (x)
+        \\
+        = {} &
+        (x^{\ell+1} - x_i^{\ell+1}) a_0 L_i (x)
+        + x_i^{\ell+1} a_0 L_i (x)
+        \\
+        = {} &
+        (x - x_i)
+        (x^\ell + x_i x^{\ell-1} + \dots + x_i^\ell)
+        a_0 L_i (x)
+        + x_i^{\ell+1} a_0 L_i (x)
+        \\
+        = {} &
+        (x^\ell + x_i x^{\ell-1} + \dots + x_i^\ell) f(x)
+        + x_i^{\ell+1} a_0 L_i (x).
+    \end{align*}
+    则
+    \begin{align*}
+        x^{\ell+1} \mathrm{D} f(x)
+        = \sum_{i = 1}^{n}
+        {(x^\ell + x_i x^{\ell-1} + \dots + x_i^\ell)} f(x)
+        + a_0 \sum_{i = 1}^{n} {x_i^{\ell+1} L_i (x)}.
+    \end{align*}
+    记
+    \begin{align*}
+        r(x) = a_0 \sum_{i = 1}^{n} {x_i^{\ell+1} L_i (x)}.
+    \end{align*}
+    则因为 \(L_i (x)\) 的次是 \(n-1\),
+    \(r(x)\) 的次低于 \(n\).
+    再记
+    \begin{align*}
+        s_k =
+        \begin{cases}
+            x_1^k + x_2^k + \dots + x_n^k, & k \geq 0; \\
+            0,                             & k < 0.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{equation}
+        x^{\ell+1} \mathrm{D} f(x)
+        = (s_0 x^\ell + s_1 x^{\ell-1} + \dots + s_\ell) f(x)
+        + r(x),
+        \label{eq:newton}
+    \end{equation}
+    即
+    \begin{align*}
+        &
+        x^{\ell+1}
+        (n a_0 x^{n-1} + (n-1) a_1 x^{n-2} + \dots + a_{n-1})
+        \\
+        = {} &
+        (s_0 x^\ell + s_1 x^{\ell-1} + \dots + s_\ell)
+        (a_0 x^n + a_1 x^{n-1} + \dots + a_n)
+        + r(x),
+    \end{align*}
+    其中, \(r(x)\) 的次低于 \(n\).
+    我们比较式~\eqref{eq:newton} 的 \(2\)~边的 \(x^n\) 项系数.
+    若 \(\ell + 1 \leq n\) (即 \(\ell \leq n - 1\)),
+    则式~\eqref{eq:newton} 的左边的 \(x^n\) 项系数是
+    \(1 \cdot (n - \ell) a_\ell = (n - \ell) a_\ell\),
+    且式~\eqref{eq:newton} 的右边的 \(x^n\) 项系数是
+    \begin{align*}
+        a_0 s_\ell + a_1 s_{\ell-1} + \dots + a_\ell s_0
+        = \sum_{0 \leq k \leq \ell} {a_k s_{\ell-k}}.
+    \end{align*}
+    若 \(\ell + 1 > n\) (即 \(\ell \geq n\)),
+    则式~\eqref{eq:newton} 的左边的 \(x^n\) 项系数是 \(0\),
+    且式~\eqref{eq:newton} 的右边的 \(x^n\) 项系数是
+    \begin{align*}
+        a_0 s_\ell + a_1 s_{\ell-1} + \dots + a_n s_{\ell-n}
+        = {} &
+        \sum_{0 \leq k \leq n} {a_k s_{\ell-k}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq n} {a_k s_{\ell-k}}
+        + 0
+        \\
+        = {} &
+        \sum_{0 \leq k \leq n} {a_k s_{\ell-k}}
+        + \sum_{n < k \leq \ell} {0 s_{\ell-k}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq n} {a_k s_{\ell-k}}
+        + \sum_{n < k \leq \ell} {a_k s_{\ell-k}}
+        \\
+        = {} &
+        \sum_{0 \leq k \leq \ell} {a_k s_{\ell-k}}.
+    \end{align*}
+    注意, 若 \(\ell = n\), 则
+    \(0 = 0 a_\ell = (n - \ell) a_\ell\);
+    若 \(\ell > n\), 则
+    \(0 = (n - \ell)\, 0 = (n - \ell) a_\ell\).
+    所以, 统一地,
+    \begin{align*}
+        (n - \ell) a_\ell
+        = {} &
+        \sum_{0 \leq k \leq \ell} {a_k s_{\ell-k}}
+        \\
+        = {} &
+        a_\ell s_0
+        + \sum_{0 \leq k < \ell} {a_k s_{\ell-k}}
+        \\
+        = {} &
+        n a_\ell
+        + \sum_{0 \leq k < \ell} {a_k s_{\ell-k}}.
+    \end{align*}
+    则
+    \begin{equation*}
+        \sum_{0 \leq k < \ell} {a_k s_{\ell-k}}
+        + \ell a_\ell = 0.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+续上个例.
+回想, 在 ``derivative'', 我们知道,
+其实, 若 \(1 \leq k \leq n\), 则
+\begin{align*}
+    a_k
+    = (-1)^k a_0
+    \sum_{1 \leq v_1 < \dots < v_k \leq n}
+    {x_{v_1} \dots x_{v_k}}.
+\end{align*}
+记
+\begin{align*}
+    c_k =
+    \begin{dcases}
+        \sum_{1 \leq v_1 < \dots < v_k \leq n}
+        {x_{v_1} \dots x_{v_k}},
+        {} & 1 \leq k \leq n; \\
+        1, & k = 0; \\
+        0, & \text{别的情形}.
+    \end{dcases}
+\end{align*}
+则 \(a_k = (-1)^k a_0 c_k\).
+取 \(a_0 = 1\), 我们得如下结论.
+
+\begin{theorem}[Newton 公式]
+    设 \(n\) 是正整数.
+    设 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是数.
+    记
+    \begin{equation}
+        c_k =
+        \begin{dcases}
+            \sum_{1 \leq v_1 < \dots < v_k \leq n}
+            {x_{v_1} \dots x_{v_k}},
+            {} & 1 \leq k \leq n; \\
+            1, & k = 0; \\
+            0, & \text{别的情形}.
+        \end{dcases}
+        \label{eq:elementary-symmetric-polynomials}
+    \end{equation}
+    再记
+    \begin{equation}
+        s_k =
+        \begin{cases}
+            x_1^k + x_2^k + \dots + x_n^k, & k \geq 0; \\
+            0,                             & k < 0.
+        \end{cases}
+        \label{eq:sum-of-powers}
+    \end{equation}
+    设 \(\ell\) 是非负整数.
+    则
+    \begin{align*}
+        \sum_{0 \leq k < \ell} {(-1)^k c_k s_{\ell-k}}
+        + (-1)^\ell \ell c_\ell = 0.
+    \end{align*}
+\end{theorem}
+
+\begin{example}
+    设 \(n\) 是正整数.
+    设 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是数.
+    以式~\eqref{eq:elementary-symmetric-polynomials}--%
+    \eqref{eq:sum-of-powers}
+    定义 \(c_k\), \(s_k\).
+    设 \(\ell\) 是正整数.
+    注意, 由 Newton 公式,
+    若 \(1 \leq m \leq \ell\), 则
+    \begin{align*}
+        \sum_{0 \leq k < m} {(-1)^k c_k s_{m-k}}
+        + (-1)^m m c_m = 0.
+    \end{align*}
+    故
+    \begin{align*}
+        s_m
+        = {} &
+        {-\sum_{1 \leq k < m} {(-1)^k c_k s_{m-k}}
+        - (-1)^m m c_m}
+        \\
+        = {} &
+        \sum_{1 \leq k < m} {s_{m-k}\, (-1)^{k-1} c_k}
+        + m\, (-1)^{m-1} c_m.
+    \end{align*}
+    作 \(\ell\)~级阵 \(A\), \(\ell \times 1\)~阵 \(S\),
+    与 \(\ell \times 1\)~阵 \(X\),
+    使 \([S]_{i,1} = s_i\),
+    \([X]_{i,1} = (-1)^{i-1} c_i\),
+    且
+    \begin{align*}
+        [A]_{i,j} =
+        \begin{cases}
+            s_{i-j}, & 1 \leq j < i \leq \ell; \\
+            i,       & 1 \leq j = i \leq \ell; \\
+            0,       & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则 \(A X = S\).
+    注意, \(\det {(A)}
+        = [A]_{1,1} [A]_{2,2} \dots [A]_{\ell,\ell}
+        = 1 \cdot 2 \cdot \dots \cdot \ell
+    = \ell! \neq 0\).
+    则, 由 Cramer 公式,
+    \begin{align*}
+        (-1)^{\ell-1} c_\ell
+        = [X]_{\ell,1}
+        = \frac{\det {(A\{\ell, S\})}}{\det {(A)}},
+    \end{align*}
+    其中, \(A\{\ell, S\}\)
+    是以 \(S\) 代阵~\(A\) 的列~\(\ell\) 后得到的阵.
+    对 \(A\{\ell, S\}\),
+    作 \(\ell-1\) 次相邻的列的交换,
+    使它的列~\(\ell\), \(S\), 在列~\(1\) 的位置,
+    我们得阵 \(A'\),
+    其中,
+    \begin{align*}
+        [A']_{i,j}
+        = {} &
+        \begin{cases}
+            s_i,         & 1 = j \leq i \leq \ell;   \\
+            s_{i-(j-1)}, & 1 \leq j-1 < i \leq \ell; \\
+            i,           & 1 \leq j-1 = i \leq \ell; \\
+            0,           & \text{别的情形}
+        \end{cases}
+        \\
+        = {} &
+        \begin{cases}
+            i,           & 1 \leq j-1 = i \leq \ell; \\
+            s_{i-(j-1)}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{align*}
+        c_\ell
+        = (-1)^{\ell-1}
+        \frac{\det {(A\{\ell, S\})}}{\det {(A)}}
+        = (-1)^{\ell-1}
+        \frac{(-1)^{\ell-1} \det {(A')}}{\ell!}
+        = \frac{1}{\ell!} \det {(A')}.
+    \end{align*}
+
+    另一方面, 类似地, 注意,
+    若 \(1 \leq m \leq \ell\), 则
+    \begin{align*}
+        m c_m
+        = {} &
+        {- (-1)^m}
+        \sum_{0 \leq k < m} {(-1)^k c_k s_{m-k}}
+        \\
+        = {} &
+        (-1)^{m-1}
+        \sum_{0 \leq m-u < m} {(-1)^{m-u} c_{m-u} s_{m-(m-u)}}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq m} {c_{m-u}\, (-1)^{u-1} s_u}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq m} {c_{m-u}\, (-1)^{u-1} s_u}
+        + 0
+        \\
+        = {} &
+        \sum_{1 \leq u \leq m} {c_{m-u}\, (-1)^{u-1} s_u}
+        + \sum_{m < u \leq \ell} {0\, (-1)^{u-1} s_u}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq m} {c_{m-u}\, (-1)^{u-1} s_u}
+        + \sum_{m < u \leq \ell} {c_{m-u}\, (-1)^{u-1} s_u}
+        \\
+        = {} &
+        \sum_{1 \leq u \leq \ell} {c_{m-u}\, (-1)^{u-1} s_u}.
+    \end{align*}
+    作 \(\ell\)~级阵 \(B\), \(\ell \times 1\)~阵 \(D\),
+    与 \(\ell \times 1\)~阵 \(Y\),
+    使 \([D]_{i,1} = i c_i\),
+    \([Y]_{i,1} = (-1)^{i-1} s_i\),
+    且 \([B]_{i,j} = c_{i-j}\).
+    则 \(B Y = D\).
+    注意, 因为当 \(j > i\) 时,
+    \([B]_{i,j} = 0\),
+    \(\det {(B)}
+        = [B]_{1,1} [B]_{2,2} \dots [B]_{\ell,\ell}
+    = 1^\ell = 1 \neq 0\).
+    则, 由 Cramer 公式,
+    \begin{align*}
+        (-1)^{\ell-1} s_\ell
+        = [Y]_{\ell,1}
+        = \frac{\det {(B\{\ell, D\})}}{\det {(B)}},
+    \end{align*}
+    其中, \(B\{\ell, D\}\)
+    是以 \(D\) 代阵~\(B\) 的列~\(\ell\) 后得到的阵.
+    对 \(B\{\ell, D\}\),
+    作 \(\ell-1\) 次相邻的列的交换,
+    使它的列~\(\ell\), \(D\), 在列~\(1\) 的位置,
+    我们得阵 \(B'\),
+    其中,
+    \begin{align*}
+        [B']_{i,j} =
+        \begin{cases}
+            i c_i,       & 1 = j \leq i \leq \ell; \\
+            c_{i-(j-1)}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则
+    \begin{equation*}
+        s_\ell
+        = (-1)^{\ell-1}
+        \frac{\det {(B\{\ell, D\})}}{\det {(B)}}
+        = (-1)^{\ell-1}
+        \frac{(-1)^{\ell-1} \det {(B')}}{1}
+        = \det {(B')}.
+        \qefhere
+    \end{equation*}
+\end{example}
+
+\begin{theorem}
+    设 \(n\) 是正整数.
+    设 \(x_1\), \(x_2\), \(\dots\), \(x_n\) 是数.
+    以式~\eqref{eq:elementary-symmetric-polynomials}--%
+    \eqref{eq:sum-of-powers}
+    定义 \(c_k\), \(s_k\).
+    设 \(\ell\) 是正整数.
+    作 \(\ell\)~级阵 \(P_\ell\), \(Q_\ell\),
+    使
+    \begin{align*}
+        &
+        [P_\ell]_{i,j} =
+        \begin{cases}
+            i,           & 1 \leq j-1 = i \leq \ell; \\
+            s_{i-(j-1)}, & \text{别的情形},
+        \end{cases}
+        \\
+        &
+        [Q_\ell]_{i,j} =
+        \begin{cases}
+            i c_i,       & 1 = j \leq i \leq \ell; \\
+            c_{i-(j-1)}, & \text{别的情形}.
+        \end{cases}
+    \end{align*}
+    则 \(c_\ell = \det {(P_\ell)}\, /\, \ell!\),
+    且 \(s_\ell = \det {(Q_\ell)}\).
+\end{theorem}
+
 \end{document}
 
 This material contains many miscellaneous examples
@@ -4332,6 +4711,7 @@ about determinants
     \item more about skew-symmetric matrices
     \item the derivative of the determinant of a square matrix
     \item the trace of a square matrix
+    \item Newton's formula
 \end{itemize}
 This material consists of one very long section.
 

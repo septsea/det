@@ -1823,18 +1823,28 @@
 \end{proof}
 
 \begin{theorem}
+    (1)
     设 \(f(x) = (x - c) q(x)\).
     则 \(\mathrm{D} f(c) = q(c)\).
 
-    若 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
-    则对不超过 \(n\) 的正整数 \(i\),
+    (2)
+    设 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\).
+    对不超过 \(n\) 的正整数 \(i\), 记
     \begin{align*}
-        \mathrm{D} f(x_i) = a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}}
-        {(x_i - x_k)}.
+        L_i (x) = \prod_{\substack{1 \leq j \leq n \\ j \neq i}}
+        {(x_i - x_j)}.
     \end{align*}
+    则
+    \begin{align*}
+        \mathrm{D} f(x) = a_0
+        \sum_{1 \leq v \leq n} {L_v (x)},
+    \end{align*}
+    且对不超过 \(n\) 的正整数 \(i\),
+    \(\mathrm{D} f(x_i) = a_0 L_i (x_i)\),
 \end{theorem}
 
 \begin{proof}
+    (1)
     注意,
     \begin{align*}
         \mathrm{D} f(x)
@@ -1848,19 +1858,39 @@
         = q(c).
     \end{align*}
 
-    若 \(f(x) = a_0 (x - x_1) (x - x_2) \dots (x - x_n)\),
-    则取
+    (2)
+    取 \(p_0 (x) = a_0\),
+    且 \(p_i (x) = x - x_i\)
+    (\(i = 1\), \(2\), \(\dots\), \(n\)).
+    则 \(f(x) = p_0 (x) p_1 (x) \dots p_n (x)\).
+    注意, \(\mathrm{D} p_0 (x) = 0\),
+    且 \(\mathrm{D} p_i (x) = 1\)
+    (\(i = 1\), \(2\), \(\dots\), \(n\)).
+    由上个定理,
     \begin{align*}
-        q_i (x)
-        = a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}} {(x - x_k)},
+        \mathrm{D} f(x)
+        = {} &
+        (\mathrm{D} p_0 (x)) p_1 (x) \dots p_n (x)
+        + p_0 (x) (\mathrm{D} p_1 (x)) \dots p_n (x)
+        \\
+        &
+        \quad
+        + \dots
+        + p_0 (x) p_1 (x) \dots (\mathrm{D} p_n (x)).
+        \\
+        = {} &
+        0
+        + a_0 \prod_{\substack{1 \leq j \leq n \\ j \neq 1}}
+        {(x - x_j)}
+        + \dots
+        + a_0 \prod_{\substack{1 \leq j \leq n \\ j \neq n}}
+        {(x - x_j)}
+        \\
+        = {} &
+        a_0 \sum_{1 \leq v \leq n} {L_v (x)}.
     \end{align*}
-    得 \(f(x) = (x - x_i) q_i (x)\).
-    则
-    \begin{equation*}
-        \mathrm{D} f(x_i) = q_i (x_i)
-        = a_0 \prod_{\substack{1 \leq k \leq n \\ k \neq i}} {(x_i - x_k)}.
-        \qedhere
-    \end{equation*}
+    最后, 注意, 若 \(i \neq v\), 则 \(L_v (x_i) = 0\).
+    则由上式, \(\mathrm{D} f(x_i) = a_0 L_i (x_i)\).
 \end{proof}
 
 最后, 我们以整式的几个性质结束本节.
@@ -4019,7 +4049,50 @@
 (即 \(f(x)\) 与 \(u(x) y - v(x)\) 的结式).
 由此可见, 结式的应用是多的与广的.
 
+\begin{example}
+    设 \(n\)~是正整数.
+    设 \(a_0 \neq 0\).
+    设
+    \begin{align*}
+        f(x) &
+        = \sum_{k = 0}^{n} {a_k x^{n-k}}
+        = a_0 (x - x_1) (x - x_2) \dots (x - x_n).
+    \end{align*}
+    设 \(x_i \neq 0\).
+    取 \(u(x) = x\), \(v(x) = 1\).
+    则 \(r(x; z) = z x - 1\).
+    则 \(m = 1\), \(u(x_i) \neq 0\),
+    且以 \(v(x_i) / u(x_i) = x_i^{-1}\)
+    为根的整式是
+    \begin{align*}
+        \det {(S(f, r; n, m))}
+        = {} &
+        a_0^1
+        (x_1 x_2 \dots x_n)
+        \prod_{i = 1}^{n}
+        {\left(z - \frac{1}{x_i}\right)}
+        \\
+        = {} &
+        a_0\, (x_1 x_2 \dots x_n)
+        \prod_{i = 1}^{n}
+        {\left(
+                \frac{-z}{x_i} \left(\frac{1}{z} - x_i\right)
+        \right)}
+        \\
+        = {} &
+        (x_1 x_2 \dots x_n)
+        \frac{(-z)^n}{x_1 x_2 \dots x_n}
+        a_0 \prod_{i = 1}^{n}
+        {\left(\frac{1}{z} - x_i\right)}
+        \\
+        = {} &
+        (-1)^n z^n f\left(\frac{1}{z}\right).
+        \qefhere
+    \end{align*}
+\end{example}
+
 \end{document}
 
 This material discusses
 the resultant and the matrix of Sylvester.
+This material also discusses the derivative of a polynomial.
