@@ -1741,15 +1741,6 @@
 不过, 为方便, 我要一些新的概念.
 
 \begin{definition}
-    设 \(a\), \(b\) 是 \(2\)~个文字.
-    我们叫形如 \((a, b)\) 的文字为\emph{有序对}.
-
-    再设 \(c\), \(d\) 也是 \(2\)~个文字.
-    说 \(2\)~个有序对 \((a, b)\), \((c, d)\) 相等,
-    就是说, \(a = c\) 且 \(b = d\).
-\end{definition}
-
-\begin{definition}
     \emph{集}是具有某个特定性质的对象作成的一个整体.
     我们叫它的对象为\emph{元}.
 
@@ -1765,17 +1756,26 @@
     且说 \(a\) \emph{不属于} \(A\)
     或 \(A\) \emph{不包含} \(a\).
 
-    一般地, 若集~\(A\) 由元 \(a\), \(b\), \(c\), \(\dots\) 作成,
-    我们写
-    \begin{align*}
-        A = \{ a,b,c,\dots \}.
-    \end{align*}
-    还有一个记号.
-    设集~\(A\) 由具有某个性质 \(p\) 的对象作成.
+    一般地, 若集~\(A\) 由具有某个性质 \(p\) 的对象作成,
     我们写
     \begin{align*}
         A = \{ x \mid \text{\(x\) 具有性质 \(p\)} \}.
     \end{align*}
+    特别地, 若 \(p\) 是
+    ``为 \(a\), 或为 \(b\), 或为 \(c\)……'',
+    我们简单地写
+    \begin{align*}
+        A = \{ a,b,c,\dots \}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    设 \(a\), \(b\) 是 \(2\)~个文字.
+    我们叫形如 \((a, b)\) 的文字为\emph{有序对}.
+
+    再设 \(c\), \(d\) 也是 \(2\)~个文字.
+    说 \(2\)~个有序对 \((a, b)\), \((c, d)\) 相等,
+    就是说, \(a = c\) 且 \(b = d\).
 \end{definition}
 
 \begin{example}
@@ -1809,7 +1809,7 @@
     定义
     \begin{align*}
         S \times T
-        = \{ (s, t) \mid \text{\(s \in S\), \(t \in T\)} \}.
+        = \{ (s, t) \mid \text{\(s \in S\), 且 \(t \in T\)} \}.
     \end{align*}
 \end{definition}
 
@@ -1826,8 +1826,8 @@
         B \times A
         = \{ (4,1),(4,2),(4,3),(5,1),(5,2),(5,3) \}.
     \end{align*}
-    可以看到, 虽然 \(A \times B\) 与 \(B \times A\)
-    的元的数目是相同的,
+    可以看到, \(A \times B\) 与 \(B \times A\)
+    的元的数目是相同的 (即 \(6\)),
     但它们的元是不一样的.
 \end{example}
 
