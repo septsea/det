@@ -7293,9 +7293,9 @@ A (E_1 E_2 \dots E_w)\)
     则
     \begin{align*}
         f(A)
-        = {} &
-        f(I A)
-        \\
+        % = {} &
+        % f(I A)
+        % \\
         = {} &
         f (I (C_1 C_2 \dots C_w))
         \\
@@ -7449,9 +7449,9 @@ A (E_1 E_2 \dots E_w)\)
     则
     \begin{align*}
         f(A)
-        = {} &
-        f(I A)
-        \\
+        % = {} &
+        % f(I A)
+        % \\
         = {} &
         f (I (C_1 C_2 \dots C_w))
         \\
@@ -7511,145 +7511,238 @@ A (E_1 E_2 \dots E_w)\)
 \end{theorem}
 
 \begin{proof}
-    我们知道, 存在若干个形如
-    \(E(n; p, q; s)\)
-    的阵
-    \(E_1\), \(F_1\), \(E_2\), \(F_2\),
-    \(\dots\), \(E_u\), \(F_u\),
-    与若干个形如 \(M(n; q'; s')\) 的阵
-    \(M_1\), \(M_2\), \(\dots\), \(M_n\),
-    使
+    我们知道,
+    存在若干个 \(n\)~级阵
+    \(C_1\), \(C_2\), \(\dots\), \(C_w\),
+    使 \(A = C_1 C_2 \dots C_w\),
+    其中, 每个 \(C_k\) 形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\).
+    则对任何 \(n\)~级阵 \(X\),
     \begin{align*}
-        A
-        = {} &
-        F_1 F_2 \dots F_u
-        M_1 M_2 \dots M_n
-        E_u \dots E_2 E_1
-        \\
-        = {} &
-        I
-        F_1 F_2 \dots F_u
-        M_1 M_2 \dots M_n
-        E_u \dots E_2 E_1.
+        \det {(X C_k)} = \det {(X)} \det {(C_k)}.
     \end{align*}
-    则 (注意, \(M(n; q; s)\) 的转置是 \(M(n; q; s)\))
-    \begin{align*}
-        A^{\mathrm{T}}
-        = {} &
-        (F_1 F_2 \dots F_u
-            M_1 M_2 \dots M_n
-        E_u \dots E_2 E_1)^{\mathrm{T}}
-        \\
-        = {} &
-        E_1^{\mathrm{T}}
-        E_2^{\mathrm{T}}
-        \dots
-        E_u^{\mathrm{T}}
-        M_n^{\mathrm{T}}
-        \dots
-        M_2^{\mathrm{T}}
-        M_1^{\mathrm{T}}
-        F_u^{\mathrm{T}}
-        \dots
-        F_2^{\mathrm{T}}
-        F_1^{\mathrm{T}}
-        \\
-        = {} &
-        I
-        E_1^{\mathrm{T}}
-        E_2^{\mathrm{T}}
-        \dots
-        E_u^{\mathrm{T}}
-        M_n
-        \dots
-        M_2
-        M_1
-        F_u^{\mathrm{T}}
-        \dots
-        F_2^{\mathrm{T}}
-        F_1^{\mathrm{T}}.
-    \end{align*}
+    注意, \(A = I A\).
     则
     \begin{align*}
-        &
         \det {(A)}
+        = {} &
+        \det {(I (C_1 C_2 \dots C_w))}
         \\
         = {} &
-        \det {(I)}
-        \cdot
-        \det {(F_1)}
-        \det {(F_2)}
-        \dots
-        \det {(F_u)}
-        \cdot
-        \det {(M_1)}
-        \det {(M_2)}
-        \dots
-        \det {(M_n)}
-        \\
-        &
-        \cdot
-        \det {(E_u)}
-        \dots
-        \det {(E_2)}
-        \det {(E_1)}
+        \det {(((((I C_1) C_2) \dots) C_{w-1}) C_w)}
         \\
         = {} &
-        \det {(I)}
-        \det {(M_1)}
-        \det {(M_2)}
+        \det {((((I C_1) C_2) \dots) C_{w-1})}
+        \det {(C_w)}
+        \\
+        = {} &
         \dots
-        \det {(M_n)}.
+        \\
+        = {} &
+        \det {(I)} \det {(C_1)} \det {(C_2)} \dots \det {(C_w)}
+        \\
+        = {} &
+        \det {(C_1)} \det {(C_2)} \dots \det {(C_w)}.
     \end{align*}
-    注意, 每个 \(E_k^{\mathrm{T}}\)
-    或每个 \(F_k^{\mathrm{T}}\)
-    也形如 \(E(n; p, q; s)\)
-    (具体地, \(E(n; p, q; s)\) 的转置是
-    \(E(n; q, p; s)\)).
-    则
+    注意,
+    \(
+        A^{\mathrm{T}}
+        = (C_1 C_2 \dots C_w)^{\mathrm{T}}
+        = C_w^{\mathrm{T}} \dots C_2^{\mathrm{T}} C_1^{\mathrm{T}}
+    \),
+    且每个 \(C_k^{\mathrm{T}}\) 也形如
+    \(E(n; p, q; s)\) 或 \(M(n; q'; s')\)
+    (具体地, % tex-fmt: skip
+    \((E(n; p, q; s))^{\mathrm{T}} = E(n; q, p; s)\),
+    且
+    \((M(n; \allowbreak
+                q'; \allowbreak
+        s'))^{\mathrm{T}}
+        = M(n; \allowbreak
+            q'; \allowbreak
+    s')\)%
+    ). % tex-fmt: skip
+    则, 类似地,
+    \begin{align*}
+        \det {(A^{\mathrm{T}})}
+        = \det {(C_w^{\mathrm{T}})}
+        \dots
+        \det {(C_2^{\mathrm{T}})}
+        \det {(C_1^{\mathrm{T}})}.
+    \end{align*}
+    注意,
     \begin{align*}
         &
-        \det {(A^{\mathrm{T}})}
-        \\
-        = {} &
-        \det {(I)}
-        \cdot
-        \det {(E_1^{\mathrm{T}})}
-        \det {(E_2^{\mathrm{T}})}
-        \dots
-        \det {(E_u^{\mathrm{T}})}
-        \cdot
-        \det {(M_n)}
-        \dots
-        \det {(M_2)}
-        \det {(M_1)}
+        \det {((E(n; p, q; s))^{\mathrm{T}})}
+        = \det {(E(n; q, p; s))} = 1 = \det {(E(n; p, q; s))},
         \\
         &
-        \cdot
-        \det {(F_u^{\mathrm{T}})}
+        \det {((M(n; q'; s'))^{\mathrm{T}})}
+        = \det {(M(n; q'; s'))}.
+    \end{align*}
+    则 \(\det {(C_k^{\mathrm{T}})} = \det {(C_k)}\),
+    \(k = 1\), \(2\), \(\dots\), \(w\).
+    则
+    \begin{align*}
+        \det {(A^{\mathrm{T}})}
+        = {} &
+        \det {(C_w^{\mathrm{T}})}
         \dots
-        \det {(F_2^{\mathrm{T}})}
-        \det {(F_1^{\mathrm{T}})}
+        \det {(C_2^{\mathrm{T}})}
+        \det {(C_1^{\mathrm{T}})}
         \\
         = {} &
-        \det {(I)}
-        \det {(M_n)}
-        \dots
-        \det {(M_2)}
-        \det {(M_1)}
+        \det {(C_w)} \dots \det {(C_2)} \det {(C_1)}
         \\
         = {} &
-        \det {(I)}
-        \det {(M_1)}
-        \det {(M_2)}
-        \dots
-        \det {(M_n)}
+        \det {(C_1)} \det {(C_2)} \dots \det {(C_w)}
         \\
         = {} &
         \det {(A)}.
         \qedhere
     \end{align*}
 \end{proof}
+
+% \begin{proof}
+%     我们知道, 存在若干个形如
+%     \(E(n; p, q; s)\)
+%     的阵
+%     \(E_1\), \(F_1\), \(E_2\), \(F_2\),
+%     \(\dots\), \(E_u\), \(F_u\),
+%     与若干个形如 \(M(n; q'; s')\) 的阵
+%     \(M_1\), \(M_2\), \(\dots\), \(M_n\),
+%     使
+%     \begin{align*}
+%         A
+%         = {} &
+%         F_1 F_2 \dots F_u
+%         M_1 M_2 \dots M_n
+%         E_u \dots E_2 E_1
+%         \\
+%         = {} &
+%         I
+%         F_1 F_2 \dots F_u
+%         M_1 M_2 \dots M_n
+%         E_u \dots E_2 E_1.
+%     \end{align*}
+%     则 (注意, \(M(n; q; s)\) 的转置是 \(M(n; q; s)\))
+%     \begin{align*}
+%         A^{\mathrm{T}}
+%         = {} &
+%         (F_1 F_2 \dots F_u
+%             M_1 M_2 \dots M_n
+%         E_u \dots E_2 E_1)^{\mathrm{T}}
+%         \\
+%         = {} &
+%         E_1^{\mathrm{T}}
+%         E_2^{\mathrm{T}}
+%         \dots
+%         E_u^{\mathrm{T}}
+%         M_n^{\mathrm{T}}
+%         \dots
+%         M_2^{\mathrm{T}}
+%         M_1^{\mathrm{T}}
+%         F_u^{\mathrm{T}}
+%         \dots
+%         F_2^{\mathrm{T}}
+%         F_1^{\mathrm{T}}
+%         \\
+%         = {} &
+%         I
+%         E_1^{\mathrm{T}}
+%         E_2^{\mathrm{T}}
+%         \dots
+%         E_u^{\mathrm{T}}
+%         M_n
+%         \dots
+%         M_2
+%         M_1
+%         F_u^{\mathrm{T}}
+%         \dots
+%         F_2^{\mathrm{T}}
+%         F_1^{\mathrm{T}}.
+%     \end{align*}
+%     则
+%     \begin{align*}
+%         &
+%         \det {(A)}
+%         \\
+%         = {} &
+%         \det {(I)}
+%         \cdot
+%         \det {(F_1)}
+%         \det {(F_2)}
+%         \dots
+%         \det {(F_u)}
+%         \cdot
+%         \det {(M_1)}
+%         \det {(M_2)}
+%         \dots
+%         \det {(M_n)}
+%         \\
+%         &
+%         \cdot
+%         \det {(E_u)}
+%         \dots
+%         \det {(E_2)}
+%         \det {(E_1)}
+%         \\
+%         = {} &
+%         \det {(I)}
+%         \det {(M_1)}
+%         \det {(M_2)}
+%         \dots
+%         \det {(M_n)}.
+%     \end{align*}
+%     注意, 每个 \(E_k^{\mathrm{T}}\)
+%     或每个 \(F_k^{\mathrm{T}}\)
+%     也形如 \(E(n; p, q; s)\)
+%     (具体地, \(E(n; p, q; s)\) 的转置是
+%     \(E(n; q, p; s)\)).
+%     则
+%     \begin{align*}
+%         &
+%         \det {(A^{\mathrm{T}})}
+%         \\
+%         = {} &
+%         \det {(I)}
+%         \cdot
+%         \det {(E_1^{\mathrm{T}})}
+%         \det {(E_2^{\mathrm{T}})}
+%         \dots
+%         \det {(E_u^{\mathrm{T}})}
+%         \cdot
+%         \det {(M_n)}
+%         \dots
+%         \det {(M_2)}
+%         \det {(M_1)}
+%         \\
+%         &
+%         \cdot
+%         \det {(F_u^{\mathrm{T}})}
+%         \dots
+%         \det {(F_2^{\mathrm{T}})}
+%         \det {(F_1^{\mathrm{T}})}
+%         \\
+%         = {} &
+%         \det {(I)}
+%         \det {(M_n)}
+%         \dots
+%         \det {(M_2)}
+%         \det {(M_1)}
+%         \\
+%         = {} &
+%         \det {(I)}
+%         \det {(M_1)}
+%         \det {(M_2)}
+%         \dots
+%         \det {(M_n)}
+%         \\
+%         = {} &
+%         \det {(A)}.
+%         \qedhere
+%     \end{align*}
+% \end{proof}
 
 % \begin{proof}
 %     我们知道, 存在若干个形如
